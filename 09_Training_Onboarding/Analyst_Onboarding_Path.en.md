@@ -2,6 +2,27 @@
 
 Welcome to the Security Operations Center (SOC). This 4-week program is designed to take you from "Day 1" to "Production Ready".
 
+```mermaid
+gantt
+    title SOC Analyst Onboarding Timeline
+    dateFormat  YYYY-MM-DD
+    axisFormat  Week %W
+    
+    section Foundation
+    Access & Tools       :a1, 2023-10-01, 3d
+    Data Governance      :a2, after a1, 2d
+    
+    section Operations
+    Incident Response    :b1, 2023-10-08, 5d
+    Playbook Study       :b2, after b1, 5d
+    
+    section Detection
+    Rule Engineering     :c1, 2023-10-22, 5d
+    
+    section Validation
+    Purple Team Drill    :d1, 2023-10-29, 5d
+```
+
 ## Week 1: Foundations (Infrastructure & Governance)
 **Goal**: Understand *where* we work and *what* we protect.
 
@@ -9,7 +30,7 @@ Welcome to the Security Operations Center (SOC). This 4-week program is designed
     -   Read: [System Activation](../01_Onboarding/System_Activation.en.md) - Understand our generic stack (SIEM, EDR, SOAR).
     -   Task: Verify access to all dashboards.
 -   **Day 2: Data & Privacy**
-    -   Read: [Data Governance](../02_Platform_Operations/Data_Governance.en.md) - Learn data classification (Restricted vs Public).
+    -   Read: [Data Governance](../02_Platform_Operations/Database_Management.en.md) - Learn data classification (Restricted vs Public).
     -   Task: Locate where "Critical" data is stored in our SIEM.
 -   **Day 3: Change Management**
     -   Read: [Deployment Procedures](../02_Platform_Operations/Deployment_Procedures.en.md) - Learn how we deploy changes (RFC/CAB).

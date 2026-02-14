@@ -2,6 +2,27 @@
 
 ยินดีต้อนรับสู่ศูนย์ปฏิบัติการความปลอดภัย (SOC) โปรแกรมนี้ออกแบบมาเพื่อให้คุณพร้อมปฏิบัติงานจริงภายใน 4 สัปดาห์
 
+```mermaid
+gantt
+    title กรอบเวลาการฝึกอบรม (Timeline)
+    dateFormat  YYYY-MM-DD
+    axisFormat  สัปดาห์ที่ %W
+    
+    section พื้นฐาน
+    การเข้าถึงเครื่องมือ    :a1, 2023-10-01, 3d
+    ธรรมาภิบาลข้อมูล       :a2, after a1, 2d
+    
+    section การปฏิบัติงาน
+    การตอบสนองเหตุการณ์   :b1, 2023-10-08, 5d
+    ศึกษา Playbook      :b2, after b1, 5d
+    
+    section การตรวจจับ
+    วิศวกรรมกฎตรวจจับ     :c1, 2023-10-22, 5d
+    
+    section การประเมิน
+    ซ้อมรบ (Drill)       :d1, 2023-10-29, 5d
+```
+
 ## สัปดาห์ที่ 1: พื้นฐาน (Infrastructure & Governance)
 **เป้าหมาย**: เข้าใจว่าเราทำงาน *ที่ไหน* และปกป้อง *อะไร*
 
@@ -9,7 +30,7 @@
     -   อ่าน: [System Activation](../01_Onboarding/System_Activation.th.md) - ทำความเข้าใจ Stack ของเรา (SIEM, EDR, SOAR)
     -   งาน: ตรวจสอบสิทธิ์การเข้าถึง Dashboard ทั้งหมด
 -   **วันที่ 2: ข้อมูลและความเป็นส่วนตัว**
-    -   อ่าน: [Data Governance](../02_Platform_Operations/Data_Governance.th.md) - เรียนรู้ประเภทข้อมูล (Restricted vs Public)
+    -   อ่าน: [Data Governance](../02_Platform_Operations/Database_Management.th.md) - เรียนรู้ประเภทข้อมูล (Restricted vs Public)
     -   งาน: ระบุตำแหน่งที่เก็บข้อมูล "Critical" ใน SIEM
 -   **วันที่ 3: การจัดการการเปลี่ยนแปลง**
     -   อ่าน: [Deployment Procedures](../02_Platform_Operations/Deployment_Procedures.th.md) - เรียนรู้วิธีการ Deploy (RFC/CAB)

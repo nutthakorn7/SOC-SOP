@@ -3,6 +3,18 @@
 **Severity**: High | **Category**: Email Security
 
 ## 1. Analysis (Triage)
+
+```mermaid
+flowchart TD
+    Start[User Reports Email] --> Header{Analyze Headers}
+    Header -->|Valid Domain?| Legit[Legitimate Email]
+    Header -->|Spoofed/Suspicious?| Malic{Malicious Content?}
+    Malic -->|Attachment/Link| Sandbox[Detonate in Sandbox]
+    Sandbox -->|Malicious| Confirm[Confirm Phishing]
+    Sandbox -->|Clean| Legit
+    Confirm --> Contain[Start Containment]
+```
+
 -   **Header Analysis**: Check `Return-Path`, `Received-SPF`, `DKIM-Signature`.
 -   **Sender Reputation**: Search sender domain in VirusTotal/AbuseIPDB.
 -   **URL/Attachment**: Submit to sandbox (Hybrid Analysis/Joe Sandbox). **DO NOT** open on local machine.

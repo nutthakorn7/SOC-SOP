@@ -6,6 +6,24 @@ This document outlines the standard process for managing changes and deployments
 
 All changes to the production SOC environment (Alert Rules, Parsers, Infrastructure) must follow a structured process.
 
+```mermaid
+sequenceDiagram
+    participant Eng as Engineer
+    participant Mgr as Manager
+    participant CAB as CAB Board
+    participant Prod as Production
+    
+    Eng->>Mgr: Submit RFC
+    Mgr->>Mgr: Review Risk
+    alt Low Risk
+        Mgr->>Prod: Approve & Schedule
+    else High Risk
+        Mgr->>CAB: Request Approval
+        CAB->>Prod: Approve Deployment
+    end
+    Prod-->>Eng: Deployment Complete
+```
+
 ### 1.1 Request (RFC)
 -   Submit a Request for Change (RFC) documenting:
     -   Description of change.

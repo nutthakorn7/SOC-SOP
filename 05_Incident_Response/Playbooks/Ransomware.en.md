@@ -3,6 +3,20 @@
 **Severity**: Critical | **Category**: Malware
 
 ## 1. Immediate Action (Containment)
+
+```mermaid
+graph TD
+    Alert[Ransomware Detected] --> Isolate{Isolate Host}
+    Isolate -->|EDR| NetworkIso[Network Isolation]
+    Isolate -->|Physical| PullCable[Disconnect Cable]
+    NetworkIso --> Identify[Identify Strain]
+    PullCable --> Identify
+    Identify --> Wipe[Wipe & Re-image]
+    Wipe --> Restore[Restore Data]
+    Restore --> Patch[Patch Vulnerability]
+    Patch --> Reconnect[Reconnect to Network]
+```
+
 -   **Isolate Host**: Use EDR (SentinelOne/CrowdStrike) to "Network Isolate" the infected host immediately.
 -   **Disconnect Network**: If EDR fails, physically disconnect the cable or disable Wi-Fi.
 -   **Disable User**: Disable the compromised user account in Active Directory/Entra ID.

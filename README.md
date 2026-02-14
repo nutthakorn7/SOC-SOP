@@ -1,5 +1,7 @@
 # SOC Standard Operating Procedures
 
+![SOC Hero](assets/soc_header.png)
+
 This repository contains **Standard Operating Procedures (SOPs)** for a modern Security Operations Center (SOC). These documents are designed to be vendor-agnostic and follow industry best practices (NIST, MITRE ATT&CK).
 
 เอกสารนี้รวบรวม **ระเบียบปฏิบัติมาตรฐาน (SOPs)** สำหรับศูนย์ปฏิบัติการความปลอดภัย (SOC) ออกแบบมาให้เป็นกลางทางเทคโนโลยีและปฏิบัติตามมาตรฐานอุตสาหกรรม
@@ -94,7 +96,7 @@ A structured 4-week curriculum to train new SOC Analysts using this repository.
 | Document | English | ภาษาไทย |
 | :--- | :--- | :--- |
 | **Shift Handoff** | [Link](06_Operations_Management/Shift_Handoff.en.md) | [ลิ้งค์](06_Operations_Management/Shift_Handoff.th.md) |
-| **SOC KPI Standard** | [Link](06_Operations_Management/SOC_KPI_Standard.en.md) | [ลิ้งค์](06_Operations_Management/SOC_KPI_Standard.th.md) |
+| **SOC KPI Standard** | [Link](06_Operations_Management/SOC_Metrics.en.md) | [ลิ้งค์](06_Operations_Management/SOC_Metrics.th.md) |
 
 ## 🛠 Tools / เครื่องมือช่วยงาน
 

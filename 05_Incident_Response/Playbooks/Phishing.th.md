@@ -3,6 +3,18 @@
 **ความรุนแรง**: สูง (High) | **หมวดหมู่**: ความปลอดภัยอีเมล (Email Security)
 
 ## 1. การวิเคราะห์ (Analysis/Triage)
+
+```mermaid
+flowchart TD
+    Start[ผู้ใช้แจ้ง Email] --> Header{วิเคราะห์ Header}
+    Header -->|โดเมนปกติ| Legit[อีเมลปกติ]
+    Header -->|ปลอมแปลง/น่าสงสัย| Malic{มีเนื้อหาอันตราย?}
+    Malic -->|ไฟล์แนบ/ลิงก์| Sandbox[ทดสอบใน Sandbox]
+    Sandbox -->|พบเชื้อ| Confirm[ยืนยัน Phishing]
+    Sandbox -->|ปลอดภัย| Legit
+    Confirm --> Contain[เริ่มการจำกัดวง]
+```
+
 -   **ตรวจสอบ Header**: เช็ค `Return-Path`, `Received-SPF`, `DKIM-Signature`
 -   **ชื่อเสียงผู้ส่ง**: นำโดเมนผู้ส่งไปเช็คใน VirusTotal/AbuseIPDB
 -   **URL/ไฟล์แนบ**: ส่งไฟล์เข้า Sandbox (Hybrid Analysis/Joe Sandbox) **ห้าม** เปิดบนเครื่องตัวเองเด็ดขาด

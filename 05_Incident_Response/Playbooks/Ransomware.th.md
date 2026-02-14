@@ -3,6 +3,20 @@
 **ความรุนแรง**: วิกฤต (Critical) | **หมวดหมู่**: มัลแวร์ (Malware)
 
 ## 1. การดำเนินการทันที (Containment)
+
+```mermaid
+graph TD
+    Alert[ตรวจพบ Ransomware] --> Isolate{แยกเครื่อง}
+    Isolate -->|EDR| NetworkIso[ตัดเน็ตด้วย EDR]
+    Isolate -->|Physical| PullCable[ดึงสายแลน]
+    NetworkIso --> Identify[ระบุสายพันธุ์]
+    PullCable --> Identify
+    Identify --> Wipe[ล้างเครื่อง/ลงใหม่]
+    Wipe --> Restore[กู้ข้อมูล]
+    Restore --> Patch[อุดช่องโหว่]
+    Patch --> Reconnect[ต่อกลับเครือข่าย]
+```
+
 -   **แยกเครื่อง (Isolate Host)**: ใช้ EDR (SentinelOne/CrowdStrike) สั่ง "Network Isolate" เครื่องที่ติดเชื้อทันที
 -   **ตัดการเชื่อมต่อ**: หาก EDR ไม่ทำงาน ให้ดึงสายแลนออกหรือปิด Wi-Fi
 -   **ปิดบัญชีผู้ใช้**: Disable บัญชีผู้ใช้ที่เกี่ยวข้องใน Active Directory/Entra ID

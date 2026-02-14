@@ -6,6 +6,24 @@
 
 การแก้ไขทั้งหมดในสภาพแวดล้อม Production (เช่น กฎแจ้งเตือน, Parser, โครงสร้างพื้นฐาน) ต้องปฏิบัติตามขั้นตอนที่กำหนด
 
+```mermaid
+sequenceDiagram
+    participant Eng as วิศวกร
+    participant Mgr as หัวหน้างาน
+    participant CAB as คณะกรรมการ
+    participant Prod as ระบบจริง
+    
+    Eng->>Mgr: ส่งใบ RFC
+    Mgr->>Mgr: ประเมินความเสี่ยง
+    alt ความเสี่ยงต่ำ
+        Mgr->>Prod: อนุมัติและนัดหมาย
+    else ความเสี่ยงสูง
+        Mgr->>CAB: ขออนุมัติ
+        CAB->>Prod: อนุญาตให้ติดตั้ง
+    end
+    Prod-->>Eng: ติดตั้งเสร็จสมบูรณ์
+```
+
 ### 1.1 การร้องขอ (RFC)
 -   ส่งคำร้องขอการเปลี่ยนแปลง (Request for Change - RFC) โดยระบุ:
     -   รายละเอียดการเปลี่ยนแปลง

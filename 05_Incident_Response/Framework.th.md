@@ -2,6 +2,14 @@
 
 เอกสารนี้ระบุขั้นตอนมาตรฐานในการตอบสนองต่อเหตุการณ์ความปลอดภัย (IR) ของ zcrAI โดยอ้างอิงตามมาตรฐาน NIST SP 800-61
 
+```mermaid
+graph LR
+    A[การเตรียมความพร้อม<br>Preparation] --> B[การระบุเหตุการณ์<br>Identification]
+    B --> C[การจำกัดวง/กำจัด/กู้คืน<br>Containment, Eradication, Recovery]
+    C --> D[บทเรียนหลังเหตุการณ์<br>Post-Incident]
+    D --> A
+```
+
 ## 1. การเตรียมความพร้อม (Preparation)
 -   **เครื่องมือ**: ตรวจสอบการเชื่อมต่อ EDR (SentinelOne/CrowdStrike), SIEM, และ Ticketing system ผ่าน Integration Hub
 -   **การเข้าถึง**: ตรวจสอบสิทธิ์ Analyst ในการเข้าถึง zcrAI portal และ Console ของ Third-party

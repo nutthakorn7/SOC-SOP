@@ -2,6 +2,15 @@
 
 This document outlines the standard phases of Incident Response (IR) at zcrAI, aligned with NIST SP 800-61.
 
+```mermaid
+graph LR
+    A[Preparation] --> B[Detection & Analysis]
+    B --> C[Containment, Eradication, & Recovery]
+    C --> D[Post-Incident Activity]
+    D --> A
+    B -.->|False Positive| A
+```
+
 ## 1. Preparation
 - **Tools**: Ensure EDR (SentinelOne/CrowdStrike), SIEM, and Ticketing systems are integrated via the Integration Hub.
 - **Access**: Verify analyst access to the zcrAI portal and third-party consoles.
