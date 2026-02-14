@@ -4,6 +4,7 @@
 **Date**: YYYY-MM-DD
 **Analyst**: [Name]
 **Severity**: [Low/Medium/High/Critical]
+**TLP**: [RED/AMBER/GREEN/CLEAR]
 **Status**: [Open/Closed]
 
 ## 1. Executive Summary

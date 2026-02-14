@@ -4,6 +4,7 @@
 **วันที่**: YYYY-MM-DD
 **ผู้รับผิดชอบ**: [ชื่อ]
 **ความรุนแรง**: [Low/Medium/High/Critical]
+**TLP**: [RED/AMBER/GREEN/CLEAR]
 **สถานะ**: [Open/Closed]
 
 ## 1. บทสรุปผู้บริหาร (Executive Summary)

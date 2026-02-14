@@ -55,6 +55,8 @@ nav:
     - 'Deployment': 02_Platform_Operations/Deployment_Procedures.en.md
     - 'Shift Handoff': 06_Operations_Management/Shift_Handoff.en.md
     - 'SOC Metrics': 06_Operations_Management/SOC_Metrics.en.md
+    - 'Data Protocol (TLP)': 06_Operations_Management/Data_Handling_Protocol.en.md
+    - 'Maturity (SOC-CMM)': 06_Operations_Management/SOC_Assessment_Checklist.en.md
   - Incident Response:
     - 'Framework': 05_Incident_Response/Framework.en.md
     - 'Playbooks':
