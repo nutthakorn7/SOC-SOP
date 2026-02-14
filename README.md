@@ -112,6 +112,10 @@ A structured 4-week curriculum to train new SOC Analysts using this repository.
 | **Shift Handover Log** | [Link](templates/shift_handover.en.md) | [ลิ้งค์](templates/shift_handover.th.md) |
 | **Change Request (RFC)** | [Link](templates/change_request_rfc.en.md) | [ลิ้งค์](templates/change_request_rfc.th.md) |
 
+## 📚 Full Manual / คู่มือฉบับเต็ม
+For offline reading or printing, download the consolidated manual:
+-   **[SOC_Manual_Consolidated.md](SOC_Manual_Consolidated.md)** (All 100+ pages in one file)
+
 ## Contributing / การมีส่วนร่วม
 
 1.  **Standardization**: Ensure procedures remain vendor-agnostic where possible.
