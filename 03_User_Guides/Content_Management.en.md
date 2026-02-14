@@ -1,32 +1,30 @@
-# Content Management Guide
+# Detection Engineering Lifecycle
 
-**Source**: zcrAI System & Engineering Guides
+This document defines the lifecycle for creating, maintaining, and retiring detection rules within the SOC.
 
-## Overview
-The Content Management page is the central hub for managing Detection Rules (Sigma/SNR) and Rule Templates.
+## 1. Requirement & Research
+-   **Threat Intelligence**: Analyze recent threat reports, CVEs, and adversary inputs.
+-   **Gap Analysis**: Identify missing coverage in the MITRE ATT&CK dashboard.
+-   **Business Context**: Understand critical assets and risks specific to the organization.
 
-## Features
+## 2. Development (Sigma/YARA/Snort)
+-   **Standard Format**: Use **Sigma** for SIEM-agnostic rule creation.
+-   **Metadata**: All rules must include:
+    -   Title & Description
+    -   Author
+    -   Severity
+    -   MITRE Mapping (Tactic/Technique)
+    -   Status (Experimental, Stable, Deprecated)
 
-### 1. Filters & Search
--   **Categories**: Filter by threat category (e.g., `privilege-escalation`, `reconnaissance`).
--   **Severity**: High, Critical, Medium, Low.
--   **Status**: Enabled/Disabled.
+## 3. Testing & Tuning
+-   **Validation**: Test rules against historical data or generated attack simulations (e.g., Atomic Red Team).
+-   **Whitelisting**: Identify and filter out benign false positives.
+-   **Promotion**: Move rule from "Experimental" to "Stable" only after verifying False Positive Rate (FPR) is acceptable.
 
-### 2. Actions
--   **Bulk Actions**: Enable or disable multiple rules simultaneously.
--   **Rule Status**:
-    -   **Event**: Rules that log general security events.
-    -   **Finding**: Rules that generate high-fidelity security findings/alerts.
+## 4. Deployment & Monitoring
+-   Deploy via the CI/CD pipeline defined in [Change Management](../02_Platform_Operations/Deployment_Procedures.en.md).
+-   Monitor rule performance (Alert Volume, Analyst Feedback).
 
-## Rule Catalogs
-
-### Content Packs
--   **Sigma Core**: 2,660+ rules (Endpoint, Network, Cloud).
--   **Windows Security**: Enhanced OS visibility.
--   **Ransomware**: Specialized detection bundle.
-
-### Rule Templates
-Standardized patterns for creating new rules:
--   **IAM**: MFA bypass, privileged account creation.
--   **Cloud**: S3 public access, root login.
--   **Email**: Phishing, BEC patterns.
+## 5. Review & Deprecation
+-   **Quarterly Audit**: Review rules for relevance. Adversary tactics change; rules may become obsolete.
+-   **Deprecation**: retire rules that are noisy, ineffective, or duplicative.

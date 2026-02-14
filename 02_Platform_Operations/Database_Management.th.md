@@ -1,27 +1,35 @@
-# การจัดการฐานข้อมูลและความลับ (Database & Secrets Management)
+# ธรรมาภิบาลข้อมูลและนโยบายการเก็บรักษา (Data Governance & Retention Policy)
 
-**ที่มา**: zcrAI Platform Operations & Industrialization Master
+เอกสารนี้ระบุขั้นตอนมาตรฐานในการจัดการข้อมูลความปลอดภัยตลอดวงจรชีวิตของข้อมูล
 
-## 1. ความคงทนของข้อมูล (Data Persistence & Resilience)
+## 1. การจำแนกประเภทข้อมูล (Data Classification)
 
--   **PostgreSQL (`zcrai`)**: จัดเก็บ Alerts, Integrations, Detection Rules, และ Compliance Snapshots
--   **ClickHouse (`montara_analytics`)**: จัดเก็บ Security Events แบบ Columnar เพื่อการวิเคราะห์ที่รวดเร็ว
--   **Redis**: ใช้สำหรับ Session Caching; ระบบถูกออกแบบให้ทำงานต่อได้ (Fail-open) แม้ Redis จะไม่สามารถติดต่อได้
+ข้อมูลใน SOC ต้องได้รับการจำแนกเพื่อกำหนดการจัดการที่เหมาะสม:
+-   **ลับที่สุด (Restricted)**: PII ที่ละเอียดอ่อน, รหัสผ่าน, Private Keys (ต้องป้องกันสูงสุด)
+-   **ลับ (Confidential)**: ทรัพย์สินทางปัญญาภายใน, แผนผังเครือข่าย, รายงานช่องโหว่
+-   **ใช้ภายใน (Internal)**: Log การทำงานทั่วไป
+-   **สาธารณะ (Public)**: Threat Intelligence ที่เปิดเผยทั่วไป
 
-## 2. การ Seed กฎตรวจจับเบื้องหลัง (Background Rule Seeding)
+## 2. นโยบายการเก็บรักษาข้อมูล (Retention Policy)
 
-เมื่อ Backend เริ่มทำงาน ระบบจะทำการ Seed Detection Rules อัตโนมัติ:
--   **การตรวจสอบ**: ดู Log ว่ามีข้อความ `✨ Seeding Complete!` หรือไม่
--   **คำเตือนเรื่องข้อขัดแย้ง**: การแก้กฎที่เป็น Default ผ่าน SQL โดยตรง จะถูกทับด้วยค่าเดิมเมื่อมีการ Restart ระบบ ให้ทำการแก้ไขผ่าน Source Seeding Scripts เท่านั้น (`backend/api/scripts/seed-detection-rules-v2.ts`)
+### 2.1 Hot Storage (เข้าถึงทันที)
+-   **ระยะเวลา**: 30 - 90 วัน
+-   **วัตถุประสงค์**: การวิเคราะห์ Real-time, Correlation, และการสืบสวนเหตุการณ์ด่วน
+-   **เทคโนโลยี**: Storage ประสิทธิภาพสูง (SSD/NVMe) มักอยู่ใน SIEM
 
-## 3. การปฏิบัติการ (Operations)
+### 2.2 Cold Storage (เก็บระยะยาว)
+-   **ระยะเวลา**: 1 ปี - 7 ปี (ขึ้นอยู่กับข้อกำหนดทางกฎหมาย เช่น PCI-DSS, GDPR)
+-   **วัตถุประสงค์**: การวิเคราะห์ทางนิติวิทยาศาสตร์ (Forensics), ดูแนวโน้มย้อนหลัง, ตรวจสอบ (Audit)
+-   **เทคโนโลยี**: Object Storage (S3, Blob) หรือ Tape backup
 
-### ความคงทนของ Content Library
-ตาราง `content_packs` ใช้ติดตามสถานะการติดตั้งและเวอร์ชันของ Sigma rules กว่า 2,660+ ข้อ
--   **การจัดการ**: ใช้ Logic ใน `forensics.controller.ts` ซึ่งจะดึงข้อมูลจาก `content_packs`
+## 3. ความถูกต้องและความปลอดภัยของข้อมูล (Data Integrity & Security)
 
-### การแก้ปัญหาข้อมูลไม่แสดง (Troubleshooting Data Visibility)
-หาก Alerts ไม่แสดงบนหน้า UI:
-1.  **ตรวจสอบ Tenant ID**: ตรวจสอบว่า Session ของ SuperAdmin ตรงกับ `tenant_id` ของข้อมูล
-2.  **ช่วงเวลา (Time Windows)**: ตรวจสอบตัวกรองเวลา (เช่น 24 ชม. ล่าสุด vs 7 วัน)
-3.  **การ Map Entity**: ตรวจสอบว่า field `affectedUser` หรือ `sourceIp` มีข้อมูลครบถ้วน
+-   **การเข้ารหัส (Encryption)**:
+    -   **In-Transit**: TLS 1.2+ สำหรับการส่ง Log ทั้งหมด
+    -   **At-Rest**: เข้ารหัส AES-256 สำหรับพื้นที่จัดเก็บ
+-   **ความไม่เปลี่ยนแปลง (Immutability)**: Log archive ควรเป็นแบบแก้ไขไม่ได้ (WORM - Write Once Read Many) เพื่อป้องกันการปลอมแปลง
+-   **การควบคุมการเข้าถึง**: ให้สิทธิ์เท่าที่จำเป็น (Least Privilege) ในการเข้าถึง Raw Log
+
+## 4. การสำรองและกู้คืน (Backup & Recovery)
+-   **ความถี่**: สำรองค่า Configuration ทุกวัน; สำรองข้อมูล Real-time หรือทุกชั่วโมง
+-   **การทดสอบ**: ต้องมีการซ้อมแผนกู้คืนภัยพิบัติ (DR) ทุกไตรมาสเพื่อยืนยันว่าสามารถกู้คืนข้อมูลได้จริง

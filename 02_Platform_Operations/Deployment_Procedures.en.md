@@ -1,69 +1,42 @@
-# Deployment Procedures
+# Change Management & Deployment Standard
 
-**Source**: zcrAI Platform Operations & Industrialization Master
+This document outlines the standard process for managing changes and deployments within the SOC environment.
 
-## 1. Production Deployment
+## 1. Change Management Process
 
-Target: `https://app.zcr.ai` (Server IP: `45.118.132.160`)
+All changes to the production SOC environment (Alert Rules, Parsers, Infrastructure) must follow a structured process.
 
-### Standard Pipeline
--   **Trigger**: GitHub Actions on `main` merge.
--   **Sync**: `rsync` to server.
--   **Orchestration**:
-    ```bash
-    docker compose -f docker-compose.prod.yml up -d --build
-    ```
+### 1.1 Request (RFC)
+-   Submit a Request for Change (RFC) documenting:
+    -   Description of change.
+    -   Justification/Impact.
+    -   Risk assessment.
+    -   Rollback plan.
 
-### Direct IP Access & SSH
-Use direct IP if DNS/SSH via `zcr.ai` fails.
-**SSH Config (`~/.ssh/config`)**:
-```ssh
-Host zcrAI
-  HostName 45.118.132.160
-  User root
-  IdentityFile ~/.ssh/id_rsa
-  IdentitiesOnly yes
-```
+### 1.2 Review & Approval (CAB)
+-   **Change Advisory Board (CAB)** reviews High-risk changes.
+-   Peer review is required for Alert Rule modifications (Detection Engineering).
 
-## 2. Manual Hotfix Patterns
+## 2. Deployment Procedures
 
-### Frontend Hotfix (No Rebuild)
-For rapid UI fixes:
-1.  **Local Build**:
-    ```bash
-    cd frontend && npm run build
-    ```
-2.  **Sync**:
-    ```bash
-    rsync -avz --progress frontend/dist/* zcrAI:/var/www/app.zcr.ai/
-    ```
-3.  **Bypass Cache**: Instruct users to Hard Refresh (Ctrl+Shift+R).
+### 2.1 Environment Strategy
+-   **Development/Lab**: Sandbox environment for testing new rules and integrations.
+-   **Staging**: Mirror of production for final verification.
+-   **Production**: Live environment.
 
-### Frontend Persistence Warning
-Modifying `dist/` on the host does NOT affect the running container if it doesn't mount that volume. For containerized updates:
-1.  **Copy Assets**:
-    ```bash
-    ssh zcrAI "docker cp /root/zcrAI/frontend/dist/. zcrai_frontend:/usr/share/nginx/html/"
-    ```
+### 2.2 Deployment Steps
+1.  **Test**: Validate functionality in the Lab environment.
+2.  **Snapshot**: Take a backup/snapshot of the current configuration.
+3.  **Deploy**: Apply changes to Production during the approved window.
+4.  **Verify**: Confirm operational status and check for errors.
 
-### Backend Selective Rebuild
-If a full build fails:
-```bash
-ssh zcrAI "cd /root/zcrAI && docker compose -f docker-compose.prod.yml up -d --build backend"
-```
+### 2.3 CI/CD for Detection Rules
+-   Manage detection rules as code (Detection-as-Code).
+-   Use Version Control (Git) for all rule logic.
+-   Automate testing (Syntax check, Unit test) via CI pipeline before merging to `main`.
 
-## 3. Environment Variables
+## 3. Rollback Plan
 
-**Critical**: `docker restart` does **NOT** reload `.env` changes.
-
-**Procedure for .env updates**:
-1.  Verify file location (root vs nested).
-2.  **Recreate Container**:
-    ```bash
-    ssh zcrAI "docker rm -f zcrai_backend && docker run -d --name zcrai_backend --env-file /root/zcrAI/backend/api/.env ... zcrai-backend"
-    ```
-
-## 4. Emergency Restoration
-
-### Disabling Components
-If a new dependency causes a crash loop (502 Gateway), temporarily comment out the initialization (e.g., `scheduler.init()`) and `rsync` the specific file to restore core API availability.
+-   Every deployment must have a predefined rollback strategy.
+-   If verification fails, immediately revert to the pre-deployment snapshot.
+-   Conduct a Root Cause Analysis (RCA) for failed changes.

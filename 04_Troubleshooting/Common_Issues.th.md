@@ -1,57 +1,43 @@
-# การแก้ปัญหา: ปัญหาที่พบบ่อย (Troubleshooting: Common Issues)
+# วิธีการแก้ปัญหามาตรฐาน (Standard Troubleshooting Methodology)
 
-**ที่มา**: zcrAI Platform Operations & Industrialization Master
+เอกสารนี้ระบุแนวทางที่เป็นระบบในการแก้ปัญหาระบบโครงสร้างพื้นฐาน SOC
 
-## 1. Infrastructure & Docker
+## 1. นิยามปัญหา (Defining the Problem)
+-   **อาการ**: อะไรล้มเหลว? (เช่น "Alert ไม่ขึ้น", "Login ไม่ได้")
+-   **ขอบเขต**: กระทบผู้ใช้คนเดียว, Sensor ตัวเดียว, หรือทั้งระบบ?
+-   **เวลา**: เริ่มเป็นเมื่อไหร่? มีการเปลี่ยนแปลงระบบเร็วๆ นี้หรือไม่ (Deployment/RFC)?
 
-### ข้อมูล Metadata เสียหาย (500/EOF Errors)
-หาก Docker แจ้ง error `input/output error`:
-1.  ปิด Docker: `pkill -9 -f Docker`
-2.  ลบไฟล์ Lock: `rm -rf ~/Library/Containers/com.docker.docker/Data/vms/0/data/Docker.raw.lock`
-3.  เปิด Docker ใหม่
+## 2. ขั้นตอนการแก้ปัญหา (The Troubleshooting Workflow)
 
-### พอร์ตชนกัน (Port Conflicts)
-**อาการ**: `address already in use` (Port 8000)
-**วิธีแก้**:
-1.  หา Process: `lsof -i :8000`
-2.  หยุด Process: `kill -9 <PID>`
-3.  ตรวจสอบ Zombie process: `ssh zcrAI "fuser -k 8000/tcp"`
+### 2.1 ระดับเครือข่าย (Physical/Network Layer)
+-   **การเชื่อมต่อ**: Ping/Telnet/Netcat หาปลายทางเจอหรือไม่?
+-   **Firewall**: พอร์ตถูกบล็อกหรือไม่? (เช็ค Log Firewall)
+-   **DNS**: ชื่อ Hostname แปลงเป็น IP ถูกต้องหรือไม่? (`nslookup`, `dig`)
 
-### Nginx SSL ล้มเหลว
-**อาการ**: `BIO_new_file() failed`
-**สาเหตุ**: พาธไฟล์บน Host ไม่ตรงกับที่ Mount เข้าไปใน Container (สำหรับ Certificates)
-**วิธีแก้**: ตรวจสอบ `nginx.conf` ให้ชี้ไปยังพาธที่ถูกต้อง เช่น `/etc/letsencrypt/live/...` และแน่ใจว่าได้ Mount volume เข้าไปแล้ว
+### 2.2 ระดับแอปพลิเคชัน (Application/Service Layer)
+-   **สถานะบริการ**: Process ทำงานอยู่หรือไม่? (`systemctl status`, `docker ps`)
+-   **ทรัพยากร**: เช็ค CPU/RAM/Disk (`top`, `df -h`) โหลดสูงอาจทำให้ Timeout
+-   **Logs**: **ต้อง** ตรวจสอบ Log เสมอ
+    -   `/var/log/syslog`
+    -   Application specific logs
 
-## 2. ปัญหา Backend
+### 2.3 ตรวจสอบการไหลของข้อมูล (Data Flow Verification)
+-   **ต้นทาง**: Agent อ่านไฟล์เจอหรือไม่?
+-   **ระหว่างทาง**: สถานะบน Log Forwarder/Broker (Kafka/RabbitMQ) เป็นอย่างไร?
+-   **ปลายทาง**: มี Error ในการ Index เข้า SIEM หรือไม่?
 
-### Connection Timeouts & CPU สูง
-**อาการ**: `zcrai_backend` ใช้ CPU 100%, Log ขึ้น `CONNECT_TIMEOUT`
-**สาเหตุ**:
--   ติดต่อ Redis/Postgres ไม่ได้ ทำให้เกิดลูป Retry
--   รหัสผ่านใน `.env` ไม่ตรงกัน
-**วิธีแก้**:
--   ตรวจสอบ `REDIS_PASSWORD` และ `DATABASE_URL`
--   ตรวจสอบว่า Backend Container อยู่ใน Network เดียวกับ Database (`zcrai_default`)
+## 3. สถานการณ์ที่พบบ่อย (Common Failure Scenarios)
 
-### "Module not found" / Binary ไม่ตรงรุ่น
-**สาเหตุ**: การ Sync โฟลเดอร์ `node_modules` จากเครื่อง macOS ไปยัง Linux Server
-**วิธีแก้**:
-1.  ลบ `node_modules` บน Server ทิ้ง
-2.  รัน `npm install` หรือ `bun install` ใหม่บน Server
+### 3.1 Log Source หยุดส่งข้อมูล
+1.  เช็ค Network/VPN ระหว่างต้นทางและ SOC
+2.  เช็คสถานะ Agent service บนเครื่องต้นทาง
+3.  เช็คพื้นที่ว่าง Disk บนเครื่องต้นทาง (Agent มักหยุดทำงานถ้า Disk เต็ม)
 
-## 3. ปัญหา Frontend
+### 3.2 แจ้งเตือนผิดพลาดพุ่งสูง (False Positives Spikes)
+1.  ระบุกฎที่เป็นปัญหา
+2.  วิเคราะห์ Pattern ที่ทำให้เกิด Alert
+3.  ปรับ Logic ของกฎ หรือเพิ่ม Whitelist
 
-### ไม่เจอไฟล์ JS Bundle (404)
-**อาการ**: หน้าขาว (Blank Page) หลังจากทำ Hotfix
-**สาเหตุ**: ไฟล์ `index.html` อัปเดตแล้ว แต่อ้างถึงไฟล์ JS Hash ใหม่ที่ยังไม่ได้ก๊อปปี้ไป
-**วิธีแก้**:
-1.  ตรวจสอบว่าไฟล์มีอยู่จริงบน Host `dist/`
-2.  รัน `docker cp` ไปยัง Container อีกครั้ง
-3.  เคลียร์ Browser Cache
-
-### Hardcoded API URLs
-**อาการ**: Integrations พังบน Production แต่ใช้งานได้ปกติบน Local
-**สาเหตุ**: ค่า `localhost:8000` ถูกฝัง (Bake) เข้าไปในไฟล์ JS
-**วิธีแก้**:
--   เพิ่ม `.env` เข้าไปใน `.dockerignore`
--   Rebuild โดยใช้ flag `--no-cache`
+## 4. การทำเอกสาร (Documentation)
+-   บันทึกการวิเคราะห์สาเหตุที่แท้จริง (RCA)
+-   อัปเดต Knowledge Base (KB) และ SOP เพื่อป้องกันการเกิดซ้ำ

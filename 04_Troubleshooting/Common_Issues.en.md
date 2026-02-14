@@ -1,57 +1,43 @@
-# Troubleshooting: Common Issues
+# Standard Troubleshooting Methodology
 
-**Source**: zcrAI Platform Operations & Industrialization Master
+This document outlines a systematic approach to troubleshooting complex issues within the SOC infrastructure.
 
-## 1. Infrastructure & Docker
+## 1. Defining the Problem
+-   **Symptoms**: What is exactly failing? (e.g., "Alerts not showing", "Login failed").
+-   **Scope**: Is it affecting one user, one sensor, or the whole platform?
+-   **Timeline**: When did it start? Was there a recent change (Deployment/RFC)?
 
-### Corrupted Metadata (500/EOF Errors)
-If Docker returns `input/output error`:
-1.  Kill Docker: `pkill -9 -f Docker`
-2.  Remove lock file: `rm -rf ~/Library/Containers/com.docker.docker/Data/vms/0/data/Docker.raw.lock`
-3.  Restart Docker.
+## 2. The Troubleshooting Workflow
 
-### Port Conflicts
-**Symptom**: `address already in use` (Port 8000)
-**Fix**:
-1.  Identify process: `lsof -i :8000`
-2.  Kill process: `kill -9 <PID>`
-3.  Check for zombies: `ssh zcrAI "fuser -k 8000/tcp"`
+### 2.1 Physical/Network Layer
+-   **Connectivity**: Can you Ping/Telnet/Netcat to the target service?
+-   **Firewall**: Are ports blocked? (Check Firewall/Security Group logs).
+-   **DNS**: Is the hostname resolving correctly? (`nslookup`, `dig`).
 
-### Nginx SSL Failures
-**Symptom**: `BIO_new_file() failed`
-**Cause**: Mismatch between host path and container mount for certificates.
-**Fix**: Ensure `nginx.conf` points to the correct host-mounted path `/etc/letsencrypt/live/...`.
+### 2.2 Application/Service Layer
+-   **Service Status**: Is the service process running? (`systemctl status`, `docker ps`).
+-   **Resource Usage**: Check CPU/RAM/Disk usage (`top`, `df -h`). High load can cause timeouts.
+-   **Logs**: **ALWAYS** check the logs.
+    -   `/var/log/syslog`
+    -   Application specific logs (STDERR/STDOUT).
 
-## 2. Backend Issues
+### 2.3 Data Flow Verification
+-   **Source**: Check if the agent is reading the file.
+-   **Transport**: Check status on Log Forwarder/Broker (Kafka/RabbitMQ).
+-   **Destination**: Check indexing errors in SIEM.
 
-### Connection Timeouts & High CPU
-**Symptom**: `zcrai_backend` at 100% CPU, `CONNECT_TIMEOUT` logs.
-**Cause**:
--   Redis/Postgres unreachability causing retry loops.
--   Password mismatch in `.env`.
-**Fix**:
--   Verify `REDIS_PASSWORD` and `DATABASE_URL`.
--   Ensure backend container is on the same network as databases (`zcrai_default`).
+## 3. Common Failure Scenarios
 
-### "Module not found" / Binary Mismatch
-**Cause**: Syncing `node_modules` from macOS to Linux.
-**Fix**:
-1.  Delete `node_modules` on server.
-2.  Run `npm install` or `bun install` on the target environment.
+### 3.1 Log Source Stopped Reporting
+1.  Check Network/VPN status between Source and SOC.
+2.  Verify Agent service status on the source.
+3.  Check for disk space exhaustion on the source (Agent stops if disk full).
 
-## 3. Frontend Issues
+### 3.2 False Positives Spikes
+1.  Identify the specific rule triggering.
+2.  Analyze the pattern triggering the alert.
+3.  Adjust the rule logic or add a suppression (whitelist) entry.
 
-### Missing JS Bundle (404)
-**Symptom**: Blank page after hotfix.
-**Cause**: `index.html` updated but new JS hash file missing.
-**Fix**:
-1.  Verify file exists on host `dist/`.
-2.  Re-run `docker cp` to container.
-3.  Clear browser cache.
-
-### Hardcoded API URLs
-**Symptom**: Integrations fail on production but work locally.
-**Cause**: `localhost:8000` baked into the bundle.
-**Fix**:
--   Add `.env` to `.dockerignore`.
--   Rebuild with `--no-cache`.
+## 4. Documentation
+-   Document the Root Cause Analysis (RCA).
+-   Update Knowledge Base (KB) and SOPs to prevent recurrence.

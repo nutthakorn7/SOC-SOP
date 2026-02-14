@@ -1,69 +1,42 @@
-# ขั้นตอนการ Deploy ระบบ (Deployment Procedures)
+# มาตรฐานการจัดการการเปลี่ยนแปลงและการ Deploy (Change Management & Deployment Standard)
 
-**ที่มา**: zcrAI Platform Operations & Industrialization Master
+เอกสารนี้ระบุขั้นตอนมาตรฐานในการจัดการการเปลี่ยนแปลง (Change) และการติดตั้งระบบ (Deployment) ภายในสภาพแวดล้อมของ SOC
 
-## 1. การ Deploy ขึ้น Production
+## 1. กระบวนการจัดการการเปลี่ยนแปลง (Change Management Process)
 
-เป้าหมาย: `https://app.zcr.ai` (Server IP: `45.118.132.160`)
+การแก้ไขทั้งหมดในสภาพแวดล้อม Production (เช่น กฎแจ้งเตือน, Parser, โครงสร้างพื้นฐาน) ต้องปฏิบัติตามขั้นตอนที่กำหนด
 
-### กระบวนการมาตรฐาน (Standard Pipeline)
--   **Trigger**: GitHub Actions ทำงานเมื่อมีการ Merge เข้า branch `main`
--   **Sync**: ใช้ `rsync` ส่งไฟล์ไปยัง Server
--   **Orchestration**:
-    ```bash
-    docker compose -f docker-compose.prod.yml up -d --build
-    ```
+### 1.1 การร้องขอ (RFC)
+-   ส่งคำร้องขอการเปลี่ยนแปลง (Request for Change - RFC) โดยระบุ:
+    -   รายละเอียดการเปลี่ยนแปลง
+    -   เหตุผล/ผลกระทบ
+    -    ระดับความเสี่ยง
+    -   แผนการถอยกลับ (Rollback plan)
 
-### การเข้าถึงผ่าน IP โดยตรง & SSH
-ใช้ IP ตรงหาก DNS หรือ SSH ผ่าน `zcr.ai` มีปัญหา
-**SSH Config (`~/.ssh/config`)**:
-```ssh
-Host zcrAI
-  HostName 45.118.132.160
-  User root
-  IdentityFile ~/.ssh/id_rsa
-  IdentitiesOnly yes
-```
+### 1.2 การทบทวนและอนุมัติ (Review & Approval)
+-   **Change Advisory Board (CAB)** จะพิจารณาการเปลี่ยนแปลงที่มีความเสี่ยงสูง
+-   การแก้ไขกฎตรวจจับ (Alert Rule) ต้องผ่านการ Peer Review เสมอ
 
-## 2. รูปแบบการทำ Hotfix ด้วยตนเอง (Manual Hotfix Patterns)
+## 2. ขั้นตอนการ Deployment
 
-### Frontend Hotfix (ไม่ต้อง Rebuild Image)
-สำหรับการแก้ UI เร่งด่วน:
-1.  **Local Build**:
-    ```bash
-    cd frontend && npm run build
-    ```
-2.  **Sync**:
-    ```bash
-    rsync -avz --progress frontend/dist/* zcrAI:/var/www/app.zcr.ai/
-    ```
-3.  **Bypass Cache**: แจ้งให้ผู้ใช้ทำ Hard Refresh (Ctrl+Shift+R)
+### 2.1 กลยุทธ์สภาพแวดล้อม (Environment Strategy)
+-   **Development/Lab**: พื้นที่ Sandbox สำหรับทดสอบกฎและ Integration ใหม่ๆ
+-   **Staging**: สภาพแวดล้อมจำลองเหมือน Production เพื่อการตรวจสอบขั้นสุดท้าย
+-   **Production**: ระบบจริงที่ใช้งานอยู่
 
-### คำเตือนเรื่อง Frontend Persistence
-การแก้ไขไฟล์ใน `dist/` บน Host จะไม่มีผลกับ Container ที่รันอยู่ หากไม่ได้ Mount Volume นั้นไว้ สำหรับการอัปเดตใน Container:
-1.  **Copy Assets**:
-    ```bash
-    ssh zcrAI "docker cp /root/zcrAI/frontend/dist/. zcrai_frontend:/usr/share/nginx/html/"
-    ```
+### 2.2 ขั้นตอนการติดตั้ง
+1.  **ทดสอบ (Test)**: ตรวจสอบความถูกต้องใน Lab
+2.  **สำรองข้อมูล (Snapshot)**: สำรองค่า Configuration ปัจจุบัน
+3.  **ติดตั้ง (Deploy)**: ทำการเปลี่ยนแปลงบน Production ในช่วงเวลาที่ได้รับอนุมัติ
+4.  **ตรวจสอบ (Verify)**: ยืนยันสถานะการทำงานและตรวจสอบ Error
 
-### Backend Selective Rebuild
-หากการ Build ทั้งระบบล้มเหลว ให้เลือก Build เฉพาะบริการ:
-```bash
-ssh zcrAI "cd /root/zcrAI && docker compose -f docker-compose.prod.yml up -d --build backend"
-```
+### 2.3 CI/CD สำหรับกฎตรวจจับ
+-   จัดการ Detection Rules ในรูปแบบ Code (Detection-as-Code)
+-   ใช้ Version Control (Git) สำหรับเก็บ Logic ของกฎทั้งหมด
+-   ทำ Automated Testing (เช็ค Syntax, Unit test) ผ่าน CI pipeline ก่อน Merge เข้า `main`
 
-## 3. ตัวแปรสภาพแวดล้อม (Environment Variables)
+## 3. แผนการถอยกลับ (Rollback Plan)
 
-**สำคัญ**: คำสั่ง `docker restart` **ไม่** โหลดค่า `.env` ใหม่
-
-**ขั้นตอนการอัปเดต .env**:
-1.  ตรวจสอบตำแหน่งไฟล์ (Root หรือ Nested)
-2.  **สร้าง Container ใหม่ (Recreate)**:
-    ```bash
-    ssh zcrAI "docker rm -f zcrai_backend && docker run -d --name zcrai_backend --env-file /root/zcrAI/backend/api/.env ... zcrai-backend"
-    ```
-
-## 4. การกู้วิกฤตฉุกเฉิน (Emergency Restoration)
-
-### การปิดการทำงานบางส่วน (Disabling Components)
-หาก Dependency ใหม่ทำให้เกิด Crash Loop (502 Gateway) ให้ Comment ปิดการทำงานส่วนนั้นชั่วคราว (เช่น `scheduler.init()`) แล้ว `rsync` เฉพาะไฟล์นั้นขึ้นไป เพื่อให้ API หลักกลับมาทำงานได้ก่อน
+-   ทุกการ Deployment ต้องมีแผน Rollback ที่เตรียมไว้ล่วงหน้า
+-   หากขั้นตอนการตรวจสอบล้มเหลว ให้ย้อนกลับไปยังสถานะก่อนหน้าทันที
+-   ทำ Root Cause Analysis (RCA) สำหรับการเปลี่ยนแปลงที่ล้มเหลว

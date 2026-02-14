@@ -1,25 +1,34 @@
-# Integration Hub Guide
+# Tool Integration Strategy
 
-**Source**: zcrAI System & Engineering Guides
+This document outlines the strategy for integrating security tools and log sources into the SOC architecture.
 
-## Overview
-The Integration Hub supports **43+ security providers** across various tiers (EDR, SIEM, Cloud, Identity, Email, Threat Intel).
+## 1. Log Source Integration
 
-## Key Components
+### 1.1 Transport Mechanisms
+-   **API-based**: Cloud services (AWS, M365, SaaS) typically require API polling.
+-   **Agent-based**: Servers/Endpoints use agents (e.g., Filebeat, Winlogbeat, OSQuery).
+-   **Syslog**: Network devices and legacy appliances.
 
-### 1. Community Feeds (Abuse.ch)
-The following are integrated as "No-Key" feeds:
--   ThreatFox
--   URLhaus
--   MalwareBazaar
--   Feodo Tracker
+### 1.2 Normalization
+-   All incoming logs must be normalized to a standard schema (e.g., Common Information Model - CIM, or Elastic Common Schema - ECS).
+-   **Key Fields**:
+    -   `timestamp` (UTC)
+    -   `src_ip`, `dst_ip`
+    -   `user`, `hostname`
+    -   `action`, `outcome`
 
-### 2. Health Monitoring
--   **Status Checks**: Runs every 30 seconds.
--   **Troubleshooting**:
-    -   If the UI shows "Error" but the global key is valid, verify **tenant-specific credentials** in the `api_keys` table.
+## 2. Enrichment Integrations
 
-## Development & Troubleshooting
+### 2.1 Threat Intelligence
+-   Integrate feeds (e.g., ThreatFox, URLhaus, Commercial Feeds) to enrich logs with reputation data.
+-   **Process**: Automate lookup of IPs, Domains, and Hashes extracted from alerts.
 
--   **Dev Mode**: Use `VITE_BYPASS_AUTH=true` in `frontend/.env` to access the catalog without a running backend/database.
--   **Connectivity**: If `localhost` fails, try `http://127.0.0.1:8000`.
+### 2.2 Asset Context
+-   Integrate with CMDB (Configuration Management Database) or Identity Provider (AD/LDAP).
+-   **Purpose**: To provide context on "Who" (User role) and "What" (Server criticality) involves in an incident.
+
+## 3. Health Monitoring
+
+-   **Heartbeat**: Ensure all integrations send a heartbeat or status signal.
+-   **Data Freshness**: Alert if log sources stop sending data for >1 hour.
+-   **Error Rate**: Monitor API error rates (401/403/429) to detect credential or quota issues.

@@ -1,32 +1,30 @@
-# คู่มือการจัดการ Content (Content Management Guide)
+# วงจรชีวิตวิศวกรรมการตรวจจับ (Detection Engineering Lifecycle)
 
-**ที่มา**: zcrAI System & Engineering Guides
+เอกสารนี้กำหนดวงจรชีวิตสำหรับการสร้าง ดูแลรักษา และยกเลิกกฎการตรวจจับภายใน SOC
 
-## ภาพรวม
-หน้า Content Management เป็นศูนย์กลางในการจัดการกฎการตรวจจับภัยคุกคาม (Detection Rules - Sigma/SNR) และเทมเพลตของกฎ (Rule Templates)
+## 1. ความต้องการและการวิจัย (Requirement & Research)
+-   **Threat Intelligence**: วิเคราะห์รายงานภัยคุกคามล่าสุด, CVE, และข้อมูลจากผู้โจมตี
+-   **Gap Analysis**: ระบุจุดที่ยังขาดการป้องกันใน MITRE ATT&CK Dashboard
+-   **บริบททางธุรกิจ**: ทำความเข้าใจสินทรัพย์สำคัญและความเสี่ยงเฉพาะขององค์กร
 
-## ฟีเจอร์หลัก
+## 2. การพัฒนา (Development - Sigma/YARA/Snort)
+-   **รูปแบบมาตรฐาน**: ใช้ **Sigma** สำหรับสร้างกฎที่สามารถแปลงไปใช้กับ SIEM ใดก็ได้
+-   **Metadata**: กฎทุกข้อต้องระบุ:
+    -   ชื่อและคำอธิบาย
+    -   ผู้เขียน
+    -   ระดับความรุนแรง (Severity)
+    -   MITRE Mapping (Tactic/Technique)
+    -   สถานะ (Experimental, Stable, Deprecated)
 
-### 1. ตัวกรองและการค้นหา (Filters & Search)
--   **หมวดหมู่ (Categories)**: กรองตามประเภทภัยคุกคาม (เช่น `privilege-escalation`, `reconnaissance`)
--   **ความรุนแรง (Severity)**: High, Critical, Medium, Low
--   **สถานะ (Status)**: เปิดใช้งาน (Enabled) / ปิดใช้งาน (Disabled)
+## 3. การทดสอบและปรับแต่ง (Testing & Tuning)
+-   **ตรวจสอบ**: ทดสอบกฎกับข้อมูลย้อนหลัง หรือจำลองการโจมตี (เช่น Atomic Red Team)
+-   **Whitelisting**: ระบุและกรอง False Positive ที่เป็นกิจกรรมปกติออก
+-   **เลื่อนขั้น**: ปรับสถานะจาก "Experimental" เป็น "Stable" เมื่อยืนยันว่าอัตรา False Positive (FPR) ยอมรับได้
 
-### 2. การดำเนินการ (Actions)
--   **Bulk Actions**: เปิด/ปิด การใช้งานกฎหลายข้อพร้อมกัน
--   **สถานะของกฎ (Rule Status)**:
-    -   **Event**: กฎที่บันทึกเหตุการณ์ความปลอดภัยทั่วไป
-    -   **Finding**: กฎที่สร้างการค้นพบหรือการแจ้งเตือนที่มีความสำคัญสูง (High-fidelity)
+## 4. การติดตั้งและเฝ้าระวัง (Deployment & Monitoring)
+-   ติดตั้งผ่าน CI/CD pipeline ตามที่ระบุใน [Change Management](../02_Platform_Operations/Deployment_Procedures.th.md)
+-   เฝ้าระวังประสิทธิภาพของกฎ (ปริมาณ Alert, ผลตอบรับจาก Analyst)
 
-## แคตตาล็อกของกฎ (Rule Catalogs)
-
-### Content Packs
--   **Sigma Core**: กฎกว่า 2,660+ ข้อ (ครอบคลุม Endpoint, Network, Cloud)
--   **Windows Security**: การมองเห็นระดับ OS เชิงลึก
--   **Ransomware**: ชุดตรวจจับพิเศษสำหรับ Ransomware โดยเฉพาะ
-
-### Rule Templates
-รูปแบบมาตรฐานสำหรับการสร้างกฎใหม่:
--   **IAM**: การข้ามขั้นตอน MFA, การสร้างบัญชี Privilege
--   **Cloud**: S3 ปล่อย Public, การ Login ด้วย Root
--   **Email**: Phishing, รูปแบบ BEC ต่างๆ
+## 5. การทบทวนและยกเลิก (Review & Deprecation)
+-   **ตรวจสอบรายไตรมาส**: ทบทวนความเกี่ยวข้องของกฎ เทคนิคการโจมตีเปลี่ยนไป กฎอาจล้าสมัย
+-   **การยกเลิก (Deprecation)**: ยกเลิกกฎที่มีเสียงรบกวนมากเกินไป (Noisy), ไม่มีประสิทธิภาพ, หรือซ้ำซ้อน
