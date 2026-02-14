@@ -53,6 +53,21 @@ This repository contains **Standard Operating Procedures (SOPs)** for a modern S
 | **Playbook**: PB-19 Lost Device | [Link](05_Incident_Response/Playbooks/Lost_Device.en.md) | [ลิ้งค์](05_Incident_Response/Playbooks/Lost_Device.th.md) |
 | **Playbook**: PB-20 Log Clearing | [Link](05_Incident_Response/Playbooks/Log_Clearing.en.md) | [ลิ้งค์](05_Incident_Response/Playbooks/Log_Clearing.th.md) |
 
+## 📂 Detection Rules (Sigma)
+
+I have included standard Sigma rules corresponding to the Top 20 Playbooks to help you get started with detection.
+
+**Path**: `07_Detection_Rules/`
+
+| Playbook | Detection Rule |
+| :--- | :--- |
+| **Phishing** | [proc_office_spawn_powershell.yml](07_Detection_Rules/proc_office_spawn_powershell.yml) |
+| **Ransomware** | [file_bulk_renaming_ransomware.yml](07_Detection_Rules/file_bulk_renaming_ransomware.yml) |
+| **Malware** | [proc_temp_folder_execution.yml](07_Detection_Rules/proc_temp_folder_execution.yml) |
+| **Brute Force** | [win_multiple_failed_logins.yml](07_Detection_Rules/win_multiple_failed_logins.yml) |
+| **Privilege Escalation** | [win_domain_admin_group_add.yml](07_Detection_Rules/win_domain_admin_group_add.yml) |
+| *(And 15 more rules matching the Playbooks)* | |
+
 ### 06_Operations_Management
 | Document | English | ภาษาไทย |
 | :--- | :--- | :--- |
