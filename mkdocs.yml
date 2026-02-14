@@ -69,6 +69,8 @@ nav:
   - Detection Engineering:
     - 'Lifecycle': 03_User_Guides/Content_Management.en.md
     - 'Integration': 03_User_Guides/Integration_Hub.en.md
+    - 'Sigma Rules (Logs)': 07_Detection_Rules/
+    - 'YARA Rules (Files)': 10_File_Signatures/
   - Simulation:
     - 'Guide': 08_Simulation_Testing/Simulation_Guide.md
     - 'Atomic Map': 08_Simulation_Testing/Atomic_Test_Map.md

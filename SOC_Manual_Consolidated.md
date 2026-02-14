@@ -99,6 +99,24 @@ This document outlines the standard process for managing changes and deployments
 
 All changes to the production SOC environment (Alert Rules, Parsers, Infrastructure) must follow a structured process.
 
+```mermaid
+sequenceDiagram
+    participant Eng as Engineer
+    participant Mgr as Manager
+    participant CAB as CAB Board
+    participant Prod as Production
+    
+    Eng->>Mgr: Submit RFC
+    Mgr->>Mgr: Review Risk
+    alt Low Risk
+        Mgr->>Prod: Approve & Schedule
+    else High Risk
+        Mgr->>CAB: Request Approval
+        CAB->>Prod: Approve Deployment
+    end
+    Prod-->>Eng: Deployment Complete
+```
+
 ### 1.1 Request (RFC)
 -   Submit a Request for Change (RFC) documenting:
     -   Description of change.
@@ -146,6 +164,24 @@ All changes to the production SOC environment (Alert Rules, Parsers, Infrastruct
 ## 1. กระบวนการจัดการการเปลี่ยนแปลง (Change Management Process)
 
 การแก้ไขทั้งหมดในสภาพแวดล้อม Production (เช่น กฎแจ้งเตือน, Parser, โครงสร้างพื้นฐาน) ต้องปฏิบัติตามขั้นตอนที่กำหนด
+
+```mermaid
+sequenceDiagram
+    participant Eng as วิศวกร
+    participant Mgr as หัวหน้างาน
+    participant CAB as คณะกรรมการ
+    participant Prod as ระบบจริง
+    
+    Eng->>Mgr: ส่งใบ RFC
+    Mgr->>Mgr: ประเมินความเสี่ยง
+    alt ความเสี่ยงต่ำ
+        Mgr->>Prod: อนุมัติและนัดหมาย
+    else ความเสี่ยงสูง
+        Mgr->>CAB: ขออนุมัติ
+        CAB->>Prod: อนุญาตให้ติดตั้ง
+    end
+    Prod-->>Eng: ติดตั้งเสร็จสมบูรณ์
+```
 
 ### 1.1 การร้องขอ (RFC)
 -   ส่งคำร้องขอการเปลี่ยนแปลง (Request for Change - RFC) โดยระบุ:
@@ -279,6 +315,278 @@ SOC ที่สมบูรณ์จำเป็นต้องมีองค�
 
 -   **Log Shippers**: ใช้ตัวส่ง Log (Forwarder) เพื่อส่งข้อมูลไปยัง SIEM อย่างปลอดภัย (เข้ารหัส TLS)
 -   **Jump Host**: ใช้ Jump Host หรือ VPN ที่ปลอดภัยสำหรับการเข้าถึงระดับผู้ดูแลระบบ
+
+
+---
+
+## File: 10_File_Signatures/README.md
+
+# YARA Rules (File Signatures)
+
+This directory contains YARA rules for detecting malicious files. These rules can be used with the `yara` command line tool or integrated into EDR/Forensic tools.
+
+| Rule File | Description | Severity |
+| :--- | :--- | :--- |
+| `webshell_php_generic.yar` | Detects common PHP Webshells (c99, r57, etc.) | Critical |
+| `ransomware_generic_encrypt.yar` | Detects mass file encryption behavior and ransom notes | Critical |
+| `hacktool_mimikatz.yar` | Detects Mimikatz credential dumping artifacts | High |
+
+## Usage
+```bash
+yara -r 10_File_Signatures/ /path/to/scan
+```
+
+
+---
+
+## File: 06_Operations_Management/Data_Handling_Protocol.en.md
+
+# Data Handling Protocol (TLP 2.0)
+
+**Effective Date**: 2026-02-15
+**Version**: 1.0
+
+## 1. Overview
+The Traffic Light Protocol (TLP) was created to facilitate greater sharing of information. TLP is a set of designations used to ensure that sensitive information is shared with the appropriate audience.
+
+## 2. Classification Logic
+Use this flow to determine the correct TLP level for your data/incident.
+
+```mermaid
+graph TD
+    Start[Data/Information] --> IsPublic{Is it public?}
+    IsPublic -->|Yes| CLEAR[TLP:CLEAR]
+    IsPublic -->|No| IsRestricted{Restricted to community?}
+    IsRestricted -->|Yes| GREEN[TLP:GREEN]
+    IsRestricted -->|No| IsOrgOnly{Restricted to Org?}
+    IsOrgOnly -->|Yes| AMBER[TLP:AMBER]
+    IsOrgOnly -->|No| IsPersonal{Restricted to Individual?}
+    IsPersonal -->|Yes| RED[TLP:RED]
+    
+    style RED fill:#ff0000,color:#fff
+    style AMBER fill:#ffbf00,color:#000
+    style GREEN fill:#00ff00,color:#000
+    style CLEAR fill:#ffffff,color:#000,stroke:#333
+```
+
+## 3. TLP Definitions
+
+### 🔴 TLP:RED (For Your Eyes Only)
+-   **Definition**: Not for disclosure, restricted to participants only.
+-   **Examples**: VPN Logs with passwords, Forensic Reports linking to a specific employee, Ongoing negotiation with ransomware actors.
+-   **Sharing**: Cannot be shared with anyone outside of the specific meeting or conversation.
+
+### 🟡 TLP:AMBER (Limited Disclosure)
+-   **Definition**: Limited disclosure, restricted to the organization's need-to-know.
+-   **Examples**: Internal incident reports, Vulnerability scan results, System architecture diagrams.
+-   **Sharing**: Clients may share with members of their own organization and clients who need to know.
+
+### 🟢 TLP:GREEN (Community Wide)
+-   **Definition**: Limited disclosure, restricted to the community.
+-   **Examples**: IoCs (IPs/Hashes) of a known threat actor, General advice on mitigation.
+-   **Sharing**: Information can be shared with peers and partner organizations within the sector.
+
+### ⚪ TLP:CLEAR (World Wide)
+-   **Definition**: Unlimited disclosure.
+-   **Examples**: Public PR statements, Whitepapers, Patch notes.
+-   **Sharing**: Subject to standard restrictions (copyright), but otherwise freely shareable.
+
+## 4. Usage in Incident Reports
+All Incident Reports MUST be marked with a TLP level at the top of the document.
+
+
+---
+
+## File: 06_Operations_Management/Data_Handling_Protocol.th.md
+
+# โปรโตคอลการจัดการข้อมูล (TLP 2.0)
+
+**วันที่มีผลบังคับใช้**: 2026-02-15
+**เวอร์ชัน**: 1.0
+
+## 1. ภาพรวม
+Traffic Light Protocol (TLP) คือมาตรฐานสากลที่ใช้กำหนดขอบเขตในการแบ่งปันข้อมูล เพื่อให้มั่นใจว่าข้อมูลที่มีความละเอียดอ่อนจะถูกส่งต่อไปยังผู้ที่เกี่ยวข้องเท่านั้น
+
+## 2. ขั้นตอนการจำแนกข้อมูล (Classification Logic)
+ใช้แผนผังด้านล่างเพื่อตัดสินใจเลือก TLP Level
+
+```mermaid
+graph TD
+    Start[ข้อมูล/ข่าวสาร] --> IsPublic{เป็นสาธารณะหรือไม่?}
+    IsPublic -->|ใช่| CLEAR[TLP:CLEAR]
+    IsPublic -->|ไม่| IsRestricted{จำกัดเฉพาะกลุ่มชุมชน?}
+    IsRestricted -->|ใช่| GREEN[TLP:GREEN]
+    IsRestricted -->|ไม่| IsOrgOnly{จำกัดเฉพาะองค์กร?}
+    IsOrgOnly -->|ใช่| AMBER[TLP:AMBER]
+    IsOrgOnly -->|ไม่| IsPersonal{จำกัดเฉพาะบุคคล?}
+    IsPersonal -->|ใช่| RED[TLP:RED]
+    
+    style RED fill:#ff0000,color:#fff
+    style AMBER fill:#ffbf00,color:#000
+    style GREEN fill:#00ff00,color:#000
+    style CLEAR fill:#ffffff,color:#000,stroke:#333
+```
+
+## 3. คำนิยาม TLP
+
+### 🔴 TLP:RED (ลับที่สุด / เฉพาะบุคคล)
+-   **คำนิยาม**: ห้ามเปิดเผยต่อผู้อื่น จำกัดไว้เฉพาะผู้รับสารโดยตรงเท่านั้น
+-   **ตัวอย่าง**: Log ที่มีรหัสผ่าน, รายงาน Forensics ที่ระบุชื่อพนักงานที่ทำผิด, การเจรจากับแฮกเกอร์
+-   **การแบ่งปัน**: ห้ามส่งต่อ หรือบอกกล่าวแก่บุคคลอื่นนอกเหนือจากคู่สนทนา
+
+### 🟡 TLP:AMBER (จำกัดภายในองค์กร)
+-   **คำนิยาม**: เปิดเผยได้จำกัด เฉพาะผู้ที่มีความจำเป็นต้องรู้ (Need-to-know) ภายในองค์กร
+-   **ตัวอย่าง**: รายงานเหตุการณ์ภัยคุกคามภายใน, ผล Scan ช่องโหว่, ผังเครือข่ายภายใน
+-   **การแบ่งปัน**: ส่งต่อได้เฉพาะพนักงานภายในองค์กรที่เกี่ยวข้อง
+
+### 🟢 TLP:GREEN (จำกัดภายในกลุ่มเครือข่าย)
+-   **คำนิยาม**: เปิดเผยได้ภายในกลุ่มชุมชนหรืออุตสาหกรรมเดียวกัน
+-   **ตัวอย่าง**: IoC (IP/Hash) ของกลุ่มแฮกเกอร์, คำแนะนำการป้องกันทั่วไป
+-   **การแบ่งปัน**: แชร์กับบริษัทคู่ค้า หรือกลุ่มอุตสาหกรรมเดียวกันได้ (เช่น กลุ่มธนาคาร)
+
+### ⚪ TLP:CLEAR (สาธารณะ)
+-   **คำนิยาม**: เปิดเผยได้ไม่จำกัด
+-   **ตัวอย่าง**: แถลงการณ์ข่าว, บทความวิชาการ, รายละเอียด Patch
+-   **การแบ่งปัน**: เผยแพร่สู่สาธารณะได้ทันที
+
+## 4. การใข้งานในรายงาน (Incident Reports)
+รายงานเหตุการณ์ทุกฉบับ ต้องระบุระดับ TLP อย่างชัดเจนที่ส่วนหัวของเอกสาร
+
+
+---
+
+## File: 06_Operations_Management/SOC_Assessment_Checklist.en.md
+
+# SOC Capability Maturity Model (SOC-CMM) Assessment
+
+**Assessment Period**: Quarterly
+
+## 1. Improvement Cycle
+We use a continuous improvement loop to advance our SOC maturity.
+
+```mermaid
+graph LR
+    Measure[1. Measure] --> Analyze[2. Analyze]
+    Analyze --> Plan[3. Plan]
+    Plan --> Improve[4. Improve]
+    Improve --> Measure
+    
+    subgraph "Actions"
+    Measure --- Check[Checklist Assessment]
+    Analyze --- Gap[Gap Analysis]
+    Plan --- Budget[Budget & Tasks]
+    Improve --- Deploy[Implementation]
+    end
+```
+
+## 2. Maturity Levels
+-   **Level 1 (Initial)**: Ad-hoc, chaotic, reactive.
+-   **Level 2 (Managed)**: Processes defined but reactive.
+-   **Level 3 (Defined)**: Proactive, documented standards (We are here).
+-   **Level 4 (Quantitatively Managed)**: Metrics-driven (MTTD/MTTR).
+-   **Level 5 (Optimizing)**: Automated, AI-driven, advanced hunting.
+
+## 3. Assessment Checklist
+
+### Domain 1: Business
+- [ ] Defined SOC Charter & Strategy?
+- [ ] Executive Sponsorship & Budget?
+- [ ] Defined Metrics (KPIs) reporting?
+
+### Domain 2: People
+- [ ] 24/7 Shift Schedule operational?
+- [ ] defined Onboarding Curriculum?
+- [ ] Regular Skill Training (Purple Team)?
+
+### Domain 3: Process
+- [ ] SOPs for all major tasks?
+- [ ] Playbooks for top 10 threats?
+- [ ] Change Management (RFC) in place?
+
+### Domain 4: Technology
+- [ ] SIEM ingesting critical logs?
+- [ ] EDR deployed on 95%+ endpoints?
+- [ ] SOAR automation for repetitive tasks?
+
+### Domain 5: Services
+- [ ] Real-time Monitoring & Alerting?
+- [ ] Incident Response Capability?
+- [ ] Threat Intelligence integration?
+
+## 4. Scoring
+Count the "Yes" answers to determine approximate maturity.
+-   0-5: Level 1
+-   6-10: Level 2
+-   11-13: Level 3 (Target Baseline)
+-   14+: Level 4+
+
+
+---
+
+## File: 06_Operations_Management/SOC_Assessment_Checklist.th.md
+
+# แบบประเมินระดับความพร้อม SOC (SOC-CMM)
+
+**รอบการประเมิน**: รายไตรมาส
+
+## 1. วงจรการปรับปรุง (Improvement Cycle)
+เราใช้วงจรการปรับปรุงอย่างต่อเนื่องเพื่อยกระดับความสามารถของ SOC
+
+```mermaid
+graph LR
+    Measure[1. วัดผล] --> Analyze[2. วิเคราะห์]
+    Analyze --> Plan[3. วางแผน]
+    Plan --> Improve[4. ปรับปรุง]
+    Improve --> Measure
+    
+    subgraph "การกระทำ"
+    Measure --- Check[ทำแบบประเมิน]
+    Analyze --- Gap[หาช่องว่าง]
+    Plan --- Budget[ของบ/แบ่งงาน]
+    Improve --- Deploy[ลงมือทำ]
+    end
+```
+
+## 2. ระดับความพร้อม (Maturity Levels)
+-   **Level 1 (Initial)**: ทำตามมีตามเกิด, แก้ปัญหาเฉพาะหน้า
+-   **Level 2 (Managed)**: มีกระบวนการ แต่ยังทำงานเชิงรับ (Reactive)
+-   **Level 3 (Defined)**: มีมาตรฐานชัดเจน, ทำงานเชิงรุก (Proactive) **(เป้าหมายปัจจุบัน)**
+-   **Level 4 (Quantitatively Managed)**: ขับเคลื่อนด้วยข้อมูล (Metrics/KPIs)
+-   **Level 5 (Optimizing)**: อัตโนมัติขั้นสูง, AI-driven
+
+## 3. รายการตรวจเช็ค (Checklist)
+
+### Domain 1: ธุรกิจ (Business)
+- [ ] มีพ.ร.บ. หรือกฎบัตร (Charter) ของ SOC?
+- [ ] ได้รับการสนับสนุนงบประมาณจากผู้บริหาร?
+- [ ] มีการรายงานผล KPI สม่ำเสมอ?
+
+### Domain 2: บุคลากร (People)
+- [ ] มีตารางเวร 24/7 ที่ชัดเจน?
+- [ ] มีหลักสูตร Onboarding พนักงานใหม่?
+- [ ] มีการฝึกอบรมทักษะ (เช่น Purple Team) สม่ำเสมอ?
+
+### Domain 3: กระบวนการ (Process)
+- [ ] มี SOP ครอบคลุมงานหลัก?
+- [ ] มี Playbook รับมือภัยคุกคาม 10 อันดับแรก?
+- [ ] มีกระบวนการ Change Management (RFC)?
+
+### Domain 4: เทคโนโลยี (Technology)
+- [ ] SIEM รับ Log สำคัญครบถ้วน?
+- [ ] EDR ติดตั้งครอบคลุม 95%+ ของเครื่อง?
+- [ ] มีระบบ SOAR ช่วยงานซ้ำๆ?
+
+### Domain 5: บริการ (Services)
+- [ ] มีการเฝ้าระวังและแจ้งเตือนแบบ Real-time?
+- [ ] มีขีดความสามารถในการตอบสนองเหตุการณ์ (IR)?
+- [ ] มีการใช้ Threat Intelligence?
+
+## 4. การให้คะแนน
+นับจำนวนข้อที่ตอบ "ใช่" เพื่อประเมินระดับ
+-   0-5: Level 1
+-   6-10: Level 2
+-   11-13: Level 3 (เกณฑ์มาตรฐาน)
+-   14+: Level 4+
 
 
 ---
@@ -609,6 +917,15 @@ This document outlines the strategy for integrating security tools and log sourc
 
 This document outlines the standard phases of Incident Response (IR) at zcrAI, aligned with NIST SP 800-61.
 
+```mermaid
+graph LR
+    A[Preparation] --> B[Detection & Analysis]
+    B --> C[Containment, Eradication, & Recovery]
+    C --> D[Post-Incident Activity]
+    D --> A
+    B -.->|False Positive| A
+```
+
 ## 1. Preparation
 - **Tools**: Ensure EDR (SentinelOne/CrowdStrike), SIEM, and Ticketing systems are integrated via the Integration Hub.
 - **Access**: Verify analyst access to the zcrAI portal and third-party consoles.
@@ -646,6 +963,14 @@ This document outlines the standard phases of Incident Response (IR) at zcrAI, a
 # กรอบการตอบสนองต่อเหตุการณ์ (Incident Response Framework)
 
 เอกสารนี้ระบุขั้นตอนมาตรฐานในการตอบสนองต่อเหตุการณ์ความปลอดภัย (IR) ของ zcrAI โดยอ้างอิงตามมาตรฐาน NIST SP 800-61
+
+```mermaid
+graph LR
+    A[การเตรียมความพร้อม<br>Preparation] --> B[การระบุเหตุการณ์<br>Identification]
+    B --> C[การจำกัดวง/กำจัด/กู้คืน<br>Containment, Eradication, Recovery]
+    C --> D[บทเรียนหลังเหตุการณ์<br>Post-Incident]
+    D --> A
+```
 
 ## 1. การเตรียมความพร้อม (Preparation)
 -   **เครื่องมือ**: ตรวจสอบการเชื่อมต่อ EDR (SentinelOne/CrowdStrike), SIEM, และ Ticketing system ผ่าน Integration Hub
@@ -1460,6 +1785,18 @@ This document outlines the standard phases of Incident Response (IR) at zcrAI, a
 **Severity**: High | **Category**: Email Security
 
 ## 1. Analysis (Triage)
+
+```mermaid
+flowchart TD
+    Start[User Reports Email] --> Header{Analyze Headers}
+    Header -->|Valid Domain?| Legit[Legitimate Email]
+    Header -->|Spoofed/Suspicious?| Malic{Malicious Content?}
+    Malic -->|Attachment/Link| Sandbox[Detonate in Sandbox]
+    Sandbox -->|Malicious| Confirm[Confirm Phishing]
+    Sandbox -->|Clean| Legit
+    Confirm --> Contain[Start Containment]
+```
+
 -   **Header Analysis**: Check `Return-Path`, `Received-SPF`, `DKIM-Signature`.
 -   **Sender Reputation**: Search sender domain in VirusTotal/AbuseIPDB.
 -   **URL/Attachment**: Submit to sandbox (Hybrid Analysis/Joe Sandbox). **DO NOT** open on local machine.
@@ -1486,6 +1823,18 @@ This document outlines the standard phases of Incident Response (IR) at zcrAI, a
 **ความรุนแรง**: สูง (High) | **หมวดหมู่**: ความปลอดภัยอีเมล (Email Security)
 
 ## 1. การวิเคราะห์ (Analysis/Triage)
+
+```mermaid
+flowchart TD
+    Start[ผู้ใช้แจ้ง Email] --> Header{วิเคราะห์ Header}
+    Header -->|โดเมนปกติ| Legit[อีเมลปกติ]
+    Header -->|ปลอมแปลง/น่าสงสัย| Malic{มีเนื้อหาอันตราย?}
+    Malic -->|ไฟล์แนบ/ลิงก์| Sandbox[ทดสอบใน Sandbox]
+    Sandbox -->|พบเชื้อ| Confirm[ยืนยัน Phishing]
+    Sandbox -->|ปลอดภัย| Legit
+    Confirm --> Contain[เริ่มการจำกัดวง]
+```
+
 -   **ตรวจสอบ Header**: เช็ค `Return-Path`, `Received-SPF`, `DKIM-Signature`
 -   **ชื่อเสียงผู้ส่ง**: นำโดเมนผู้ส่งไปเช็คใน VirusTotal/AbuseIPDB
 -   **URL/ไฟล์แนบ**: ส่งไฟล์เข้า Sandbox (Hybrid Analysis/Joe Sandbox) **ห้าม** เปิดบนเครื่องตัวเองเด็ดขาด
@@ -1568,6 +1917,20 @@ This document outlines the standard phases of Incident Response (IR) at zcrAI, a
 **Severity**: Critical | **Category**: Malware
 
 ## 1. Immediate Action (Containment)
+
+```mermaid
+graph TD
+    Alert[Ransomware Detected] --> Isolate{Isolate Host}
+    Isolate -->|EDR| NetworkIso[Network Isolation]
+    Isolate -->|Physical| PullCable[Disconnect Cable]
+    NetworkIso --> Identify[Identify Strain]
+    PullCable --> Identify
+    Identify --> Wipe[Wipe & Re-image]
+    Wipe --> Restore[Restore Data]
+    Restore --> Patch[Patch Vulnerability]
+    Patch --> Reconnect[Reconnect to Network]
+```
+
 -   **Isolate Host**: Use EDR (SentinelOne/CrowdStrike) to "Network Isolate" the infected host immediately.
 -   **Disconnect Network**: If EDR fails, physically disconnect the cable or disable Wi-Fi.
 -   **Disable User**: Disable the compromised user account in Active Directory/Entra ID.
@@ -1595,6 +1958,20 @@ This document outlines the standard phases of Incident Response (IR) at zcrAI, a
 **ความรุนแรง**: วิกฤต (Critical) | **หมวดหมู่**: มัลแวร์ (Malware)
 
 ## 1. การดำเนินการทันที (Containment)
+
+```mermaid
+graph TD
+    Alert[ตรวจพบ Ransomware] --> Isolate{แยกเครื่อง}
+    Isolate -->|EDR| NetworkIso[ตัดเน็ตด้วย EDR]
+    Isolate -->|Physical| PullCable[ดึงสายแลน]
+    NetworkIso --> Identify[ระบุสายพันธุ์]
+    PullCable --> Identify
+    Identify --> Wipe[ล้างเครื่อง/ลงใหม่]
+    Wipe --> Restore[กู้ข้อมูล]
+    Restore --> Patch[อุดช่องโหว่]
+    Patch --> Reconnect[ต่อกลับเครือข่าย]
+```
+
 -   **แยกเครื่อง (Isolate Host)**: ใช้ EDR (SentinelOne/CrowdStrike) สั่ง "Network Isolate" เครื่องที่ติดเชื้อทันที
 -   **ตัดการเชื่อมต่อ**: หาก EDR ไม่ทำงาน ให้ดึงสายแลนออกหรือปิด Wi-Fi
 -   **ปิดบัญชีผู้ใช้**: Disable บัญชีผู้ใช้ที่เกี่ยวข้องใน Active Directory/Entra ID
@@ -1947,6 +2324,7 @@ This document outlines a systematic approach to troubleshooting complex issues w
 **Date**: YYYY-MM-DD
 **Analyst**: [Name]
 **Severity**: [Low/Medium/High/Critical]
+**TLP**: [RED/AMBER/GREEN/CLEAR]
 **Status**: [Open/Closed]
 
 ## 1. Executive Summary
@@ -1964,9 +2342,12 @@ This document outlines a systematic approach to troubleshooting complex issues w
 -   **Data Loss**: [Yes/No - Details]
 -   **Business Impact**: [Downtime duration, reputational risk]
 
-## 4. Root Cause Analysis (RCA)
--   **Attack Vector**: [Phishing/Exploit/Drive-by]
--   **Vulnerability**: [Detailed explanation of the flaw exploited]
+## 4. Root Cause Analysis (VERIS "4A" Framework)
+-   **Actor**: [External / Internal / Partner]
+-   **Action**: [Malware / Hacking / Social / Error / Misuse]
+-   **Asset**: [Server / User Dev / Person / Data]
+-   **Attribute**: [Confidentiality / Integrity / Availability]
+-   **Vulnerability**: [CVE-XXXX-XXXX if applicable]
 
 ## 5. Remediation & Lessons Learned
 -   [ ] Action 1: Patch vulnerability X.
@@ -1983,6 +2364,7 @@ This document outlines a systematic approach to troubleshooting complex issues w
 **วันที่**: YYYY-MM-DD
 **ผู้รับผิดชอบ**: [ชื่อ]
 **ความรุนแรง**: [Low/Medium/High/Critical]
+**TLP**: [RED/AMBER/GREEN/CLEAR]
 **สถานะ**: [Open/Closed]
 
 ## 1. บทสรุปผู้บริหาร (Executive Summary)
@@ -2000,9 +2382,12 @@ This document outlines a systematic approach to troubleshooting complex issues w
 -   **ข้อมูลสูญหาย**: [มี/ไม่มี - รายละเอียด]
 -   **ผลกระทบทางธุรกิจ**: [ระยะเวลาที่ระบบล่ม, ความน่าเชื่อถือ]
 
-## 4. วิเคราะห์สาเหตุที่แท้จริง (Root Cause Analysis - RCA)
--   **ช่องทางโจมตี**: [Phishing/Exploit/Drive-by]
--   **ช่องโหว่**: [อธิบายช่องโหว่ที่ถูกใช้]
+## 4. การวิเคราะห์สาเหตุ (VERIS "4A" Framework)
+-   **ผู้กระทำ (Actor)**: [External / Internal / Partner]
+-   **การกระทำ (Action)**: [Malware / Hacking / Social / Error / Misuse]
+-   **สินทรัพย์ (Asset)**: [Server / User Dev / Person / Data]
+-   **ผลกระทบ (Attribute)**: [Confidentiality / Integrity / Availability]
+-   **ช่องโหว่ (Vulnerability)**: [CVE-XXXX-XXXX ถ้ามี]
 
 ## 5. การแก้ไขและบทเรียน (Remediation & Lessons Learned)
 -   [ ] การดำเนินการ 1: Patch ช่องโหว่ X
@@ -2077,6 +2462,27 @@ This document outlines a systematic approach to troubleshooting complex issues w
 
 Welcome to the Security Operations Center (SOC). This 4-week program is designed to take you from "Day 1" to "Production Ready".
 
+```mermaid
+gantt
+    title SOC Analyst Onboarding Timeline
+    dateFormat  YYYY-MM-DD
+    axisFormat  Week %W
+    
+    section Foundation
+    Access & Tools       :a1, 2023-10-01, 3d
+    Data Governance      :a2, after a1, 2d
+    
+    section Operations
+    Incident Response    :b1, 2023-10-08, 5d
+    Playbook Study       :b2, after b1, 5d
+    
+    section Detection
+    Rule Engineering     :c1, 2023-10-22, 5d
+    
+    section Validation
+    Purple Team Drill    :d1, 2023-10-29, 5d
+```
+
 ## Week 1: Foundations (Infrastructure & Governance)
 **Goal**: Understand *where* we work and *what* we protect.
 
@@ -2084,7 +2490,7 @@ Welcome to the Security Operations Center (SOC). This 4-week program is designed
     -   Read: [System Activation](../01_Onboarding/System_Activation.en.md) - Understand our generic stack (SIEM, EDR, SOAR).
     -   Task: Verify access to all dashboards.
 -   **Day 2: Data & Privacy**
-    -   Read: [Data Governance](../02_Platform_Operations/Data_Governance.en.md) - Learn data classification (Restricted vs Public).
+    -   Read: [Data Governance](../02_Platform_Operations/Database_Management.en.md) - Learn data classification (Restricted vs Public).
     -   Task: Locate where "Critical" data is stored in our SIEM.
 -   **Day 3: Change Management**
     -   Read: [Deployment Procedures](../02_Platform_Operations/Deployment_Procedures.en.md) - Learn how we deploy changes (RFC/CAB).
@@ -2132,6 +2538,27 @@ Welcome to the Security Operations Center (SOC). This 4-week program is designed
 
 ยินดีต้อนรับสู่ศูนย์ปฏิบัติการความปลอดภัย (SOC) โปรแกรมนี้ออกแบบมาเพื่อให้คุณพร้อมปฏิบัติงานจริงภายใน 4 สัปดาห์
 
+```mermaid
+gantt
+    title กรอบเวลาการฝึกอบรม (Timeline)
+    dateFormat  YYYY-MM-DD
+    axisFormat  สัปดาห์ที่ %W
+    
+    section พื้นฐาน
+    การเข้าถึงเครื่องมือ    :a1, 2023-10-01, 3d
+    ธรรมาภิบาลข้อมูล       :a2, after a1, 2d
+    
+    section การปฏิบัติงาน
+    การตอบสนองเหตุการณ์   :b1, 2023-10-08, 5d
+    ศึกษา Playbook      :b2, after b1, 5d
+    
+    section การตรวจจับ
+    วิศวกรรมกฎตรวจจับ     :c1, 2023-10-22, 5d
+    
+    section การประเมิน
+    ซ้อมรบ (Drill)       :d1, 2023-10-29, 5d
+```
+
 ## สัปดาห์ที่ 1: พื้นฐาน (Infrastructure & Governance)
 **เป้าหมาย**: เข้าใจว่าเราทำงาน *ที่ไหน* และปกป้อง *อะไร*
 
@@ -2139,7 +2566,7 @@ Welcome to the Security Operations Center (SOC). This 4-week program is designed
     -   อ่าน: [System Activation](../01_Onboarding/System_Activation.th.md) - ทำความเข้าใจ Stack ของเรา (SIEM, EDR, SOAR)
     -   งาน: ตรวจสอบสิทธิ์การเข้าถึง Dashboard ทั้งหมด
 -   **วันที่ 2: ข้อมูลและความเป็นส่วนตัว**
-    -   อ่าน: [Data Governance](../02_Platform_Operations/Data_Governance.th.md) - เรียนรู้ประเภทข้อมูล (Restricted vs Public)
+    -   อ่าน: [Data Governance](../02_Platform_Operations/Database_Management.th.md) - เรียนรู้ประเภทข้อมูล (Restricted vs Public)
     -   งาน: ระบุตำแหน่งที่เก็บข้อมูล "Critical" ใน SIEM
 -   **วันที่ 3: การจัดการการเปลี่ยนแปลง**
     -   อ่าน: [Deployment Procedures](../02_Platform_Operations/Deployment_Procedures.th.md) - เรียนรู้วิธีการ Deploy (RFC/CAB)

@@ -3,7 +3,7 @@ import os
 
 # Configuration
 SOURCE_DIR = "../"
-OUTPUT_FILE = "SOC_Manual_Consolidated.md"
+OUTPUT_FILE = "../SOC_Manual_Consolidated.md"
 EXCLUDE_DIRS = [".git", "tools", ".github", "node_modules", "vendor"]
 EXCLUDE_FILES = ["README.md", "SOC_Manual_Consolidated.md"]
 
@@ -16,12 +16,17 @@ def consolidate_docs():
         for root, dirs, files in os.walk(SOURCE_DIR):
             # Filter directories
             dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
-            
+
+
             for file in sorted(files):
-                if file.endswith(".md") and file not in EXCLUDE_FILES:
+                if file.endswith(".md"):
                     filepath = os.path.join(root, file)
                     relpath = os.path.relpath(filepath, SOURCE_DIR)
                     
+                    # Exclude root README and the output file itself
+                    if relpath in ["README.md", "SOC_Manual_Consolidated.md"]:
+                        continue
+
                     print(f"Processing: {relpath}")
                     
                     outfile.write(f"\n\n---\n\n")

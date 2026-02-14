@@ -22,9 +22,12 @@
 -   **Data Loss**: [Yes/No - Details]
 -   **Business Impact**: [Downtime duration, reputational risk]
 
-## 4. Root Cause Analysis (RCA)
--   **Attack Vector**: [Phishing/Exploit/Drive-by]
--   **Vulnerability**: [Detailed explanation of the flaw exploited]
+## 4. Root Cause Analysis (VERIS "4A" Framework)
+-   **Actor**: [External / Internal / Partner]
+-   **Action**: [Malware / Hacking / Social / Error / Misuse]
+-   **Asset**: [Server / User Dev / Person / Data]
+-   **Attribute**: [Confidentiality / Integrity / Availability]
+-   **Vulnerability**: [CVE-XXXX-XXXX if applicable]
 
 ## 5. Remediation & Lessons Learned
 -   [ ] Action 1: Patch vulnerability X.

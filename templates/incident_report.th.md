@@ -22,9 +22,12 @@
 -   **ข้อมูลสูญหาย**: [มี/ไม่มี - รายละเอียด]
 -   **ผลกระทบทางธุรกิจ**: [ระยะเวลาที่ระบบล่ม, ความน่าเชื่อถือ]
 
-## 4. วิเคราะห์สาเหตุที่แท้จริง (Root Cause Analysis - RCA)
--   **ช่องทางโจมตี**: [Phishing/Exploit/Drive-by]
--   **ช่องโหว่**: [อธิบายช่องโหว่ที่ถูกใช้]
+## 4. การวิเคราะห์สาเหตุ (VERIS "4A" Framework)
+-   **ผู้กระทำ (Actor)**: [External / Internal / Partner]
+-   **การกระทำ (Action)**: [Malware / Hacking / Social / Error / Misuse]
+-   **สินทรัพย์ (Asset)**: [Server / User Dev / Person / Data]
+-   **ผลกระทบ (Attribute)**: [Confidentiality / Integrity / Availability]
+-   **ช่องโหว่ (Vulnerability)**: [CVE-XXXX-XXXX ถ้ามี]
 
 ## 5. การแก้ไขและบทเรียน (Remediation & Lessons Learned)
 -   [ ] การดำเนินการ 1: Patch ช่องโหว่ X
