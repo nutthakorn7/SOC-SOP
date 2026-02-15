@@ -13,8 +13,6 @@ graph LR
 ```
 
 ### 1.1 กลไกการส่งข้อมูล
-
-### 1.1 กลไกการส่งข้อมูล
 -   **API-based**: บริการ Cloud (AWS, M365, SaaS) มักต้องใช้วิธี API Polling
 -   **Agent-based**: Server/Endpoint ใช้ Agent (เช่น Filebeat, Winlogbeat, OSQuery)
 -   **Syslog**: อุปกรณ์เครือข่ายและระบบ Legacy

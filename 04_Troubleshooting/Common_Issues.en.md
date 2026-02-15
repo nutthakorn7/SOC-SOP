@@ -17,7 +17,6 @@ graph TD
 ```
 
 -   **Symptoms**: What is exactly failing? (e.g., "Alerts not showing", "Login failed").
--   **Symptoms**: What is exactly failing? (e.g., "Alerts not showing", "Login failed").
 -   **Scope**: Is it affecting one user, one sensor, or the whole platform?
 -   **Timeline**: When did it start? Was there a recent change (Deployment/RFC)?
 

@@ -27,8 +27,6 @@ graph TD
 ```
 
 Data within the SOC must be classified to determine appropriate handling and retention controls:
-
-Data within the SOC must be classified to determine appropriate handling and retention controls:
 -   **Restricted**: Sensitive PII, Credentials, Private Keys. (Highest Protection)
 -   **Confidential**: Internal IP, Network Diagrams, Vulnerability Reports.
 -   **Internal**: Standard operational logs.
@@ -85,8 +83,6 @@ graph TD
     Store --> Retain
     Retain --> Archive[Archive/Purge]
 ```
-
-ข้อมูลใน SOC ต้องได้รับการจำแนกเพื่อกำหนดการจัดการที่เหมาะสม:
 
 ข้อมูลใน SOC ต้องได้รับการจำแนกเพื่อกำหนดการจัดการที่เหมาะสม:
 -   **ลับที่สุด (Restricted)**: PII ที่ละเอียดอ่อน, รหัสผ่าน, Private Keys (ต้องป้องกันสูงสุด)
@@ -285,8 +281,6 @@ graph LR
 
 A fully functional SOC requires the following core components:
 
-A fully functional SOC requires the following core components:
-
 ### 1.1 SIEM (Security Information and Event Management)
 -   **Purpose**: Centralized log aggregation, correlation, and alerting.
 -   **Requirements**:
@@ -347,8 +341,6 @@ graph LR
     SOAR -->|สร้าง Ticket| Ticket[Ticketing]
     Ticket -->|ติดตาม| Analyst[SOC Analyst]
 ```
-
-SOC ที่สมบูรณ์จำเป็นต้องมีองค์ประกอบหลักดังนี้:
 
 SOC ที่สมบูรณ์จำเป็นต้องมีองค์ประกอบหลักดังนี้:
 
@@ -434,7 +426,6 @@ graph LR
 ```
 
 *Provide a 3-5 sentence summary of the SOC's performance this month. Highlight any major incidents or achievements.*
-*Provide a 3-5 sentence summary of the SOC's performance this month. Highlight any major incidents or achievements.*
 
 ## 2. Key Performance Indicators (KPIs)
 
@@ -490,7 +481,6 @@ graph LR
     Review --> Distribute[ส่งมอบผู้บริหาร]
 ```
 
-*สรุปภาพรวมการทำงานของ SOC ในเดือนนี้ 3-5 ประโยค เน้นเหตุการณ์สำคัญหรือความสำเร็จ*
 *สรุปภาพรวมการทำงานของ SOC ในเดือนนี้ 3-5 ประโยค เน้นเหตุการณ์สำคัญหรือความสำเร็จ*
 
 ## 2. ตัวชี้วัดผลการดำเนินงาน (KPIs)
@@ -1275,7 +1265,6 @@ graph TD
 ```
 
 -   **Threat Intelligence**: Analyze recent threat reports, CVEs, and adversary inputs.
--   **Threat Intelligence**: Analyze recent threat reports, CVEs, and adversary inputs.
 -   **Gap Analysis**: Identify missing coverage in the MITRE ATT&CK dashboard.
 -   **Business Context**: Understand critical assets and risks specific to the organization.
 
@@ -1327,7 +1316,6 @@ graph TD
 ```
 
 -   **Threat Intelligence**: วิเคราะห์รายงานภัยคุกคามล่าสุด, CVE, และข้อมูลจากผู้โจมตี
--   **Threat Intelligence**: วิเคราะห์รายงานภัยคุกคามล่าสุด, CVE, และข้อมูลจากผู้โจมตี
 -   **Gap Analysis**: ระบุจุดที่ยังขาดการป้องกันใน MITRE ATT&CK Dashboard
 -   **บริบททางธุรกิจ**: ทำความเข้าใจสินทรัพย์สำคัญและความเสี่ยงเฉพาะขององค์กร
 
@@ -1375,8 +1363,6 @@ graph LR
     Enrich -->|Store| Storage[SIEM/Data Lake]
     Storage -->|Alert| Monitor[Detection & Monitoring]
 ```
-
-### 1.1 Transport Mechanisms
 
 ### 1.1 Transport Mechanisms
 -   **API-based**: Cloud services (AWS, M365, SaaS) typically require API polling.
@@ -1429,8 +1415,6 @@ graph LR
     Enrich -->|จัดเก็บ| Storage[SIEM/Data Lake]
     Storage -->|แจ้งเตือน| Monitor[เฝ้าระวัง]
 ```
-
-### 1.1 กลไกการส่งข้อมูล
 
 ### 1.1 กลไกการส่งข้อมูล
 -   **API-based**: บริการ Cloud (AWS, M365, SaaS) มักต้องใช้วิธี API Polling
@@ -3714,7 +3698,6 @@ graph TD
 ```
 
 -   **Symptoms**: What is exactly failing? (e.g., "Alerts not showing", "Login failed").
--   **Symptoms**: What is exactly failing? (e.g., "Alerts not showing", "Login failed").
 -   **Scope**: Is it affecting one user, one sensor, or the whole platform?
 -   **Timeline**: When did it start? Was there a recent change (Deployment/RFC)?
 
@@ -3780,7 +3763,6 @@ graph TD
     Layer3 -->|ปกติ| RCA[วิเคราะห์เชิงลึก]
 ```
 
--   **อาการ**: อะไรล้มเหลว? (เช่น "Alert ไม่ขึ้น", "Login ไม่ได้")
 -   **อาการ**: อะไรล้มเหลว? (เช่น "Alert ไม่ขึ้น", "Login ไม่ได้")
 -   **ขอบเขต**: กระทบผู้ใช้คนเดียว, Sensor ตัวเดียว, หรือทั้งระบบ?
 -   **เวลา**: เริ่มเป็นเมื่อไหร่? มีการเปลี่ยนแปลงระบบเร็วๆ นี้หรือไม่ (Deployment/RFC)?

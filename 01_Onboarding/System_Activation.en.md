@@ -16,8 +16,6 @@ graph LR
 
 A fully functional SOC requires the following core components:
 
-A fully functional SOC requires the following core components:
-
 ### 1.1 SIEM (Security Information and Event Management)
 -   **Purpose**: Centralized log aggregation, correlation, and alerting.
 -   **Requirements**:

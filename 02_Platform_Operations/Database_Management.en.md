@@ -17,8 +17,6 @@ graph TD
 ```
 
 Data within the SOC must be classified to determine appropriate handling and retention controls:
-
-Data within the SOC must be classified to determine appropriate handling and retention controls:
 -   **Restricted**: Sensitive PII, Credentials, Private Keys. (Highest Protection)
 -   **Confidential**: Internal IP, Network Diagrams, Vulnerability Reports.
 -   **Internal**: Standard operational logs.

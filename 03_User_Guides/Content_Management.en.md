@@ -15,7 +15,6 @@ graph TD
 ```
 
 -   **Threat Intelligence**: Analyze recent threat reports, CVEs, and adversary inputs.
--   **Threat Intelligence**: Analyze recent threat reports, CVEs, and adversary inputs.
 -   **Gap Analysis**: Identify missing coverage in the MITRE ATT&CK dashboard.
 -   **Business Context**: Understand critical assets and risks specific to the organization.
 

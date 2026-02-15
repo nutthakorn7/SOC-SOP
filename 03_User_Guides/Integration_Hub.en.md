@@ -13,8 +13,6 @@ graph LR
 ```
 
 ### 1.1 Transport Mechanisms
-
-### 1.1 Transport Mechanisms
 -   **API-based**: Cloud services (AWS, M365, SaaS) typically require API polling.
 -   **Agent-based**: Servers/Endpoints use agents (e.g., Filebeat, Winlogbeat, OSQuery).
 -   **Syslog**: Network devices and legacy appliances.

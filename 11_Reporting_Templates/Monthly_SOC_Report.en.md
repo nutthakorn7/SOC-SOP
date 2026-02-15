@@ -15,7 +15,6 @@ graph LR
 ```
 
 *Provide a 3-5 sentence summary of the SOC's performance this month. Highlight any major incidents or achievements.*
-*Provide a 3-5 sentence summary of the SOC's performance this month. Highlight any major incidents or achievements.*
 
 ## 2. Key Performance Indicators (KPIs)
 
