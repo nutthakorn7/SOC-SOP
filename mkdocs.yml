@@ -110,6 +110,8 @@ nav:
     - แม่แบบการสื่อสาร (TH): 05_Incident_Response/Communication_Templates.th.md
     - Purple Team Exercises: 05_Incident_Response/Purple_Team_Exercises.en.md
     - การซ้อม Purple Team (TH): 05_Incident_Response/Purple_Team_Exercises.th.md
+    - Interview Guide: 05_Incident_Response/Interview_Guide.en.md
+    - คู่มือสัมภาษณ์ (TH): 05_Incident_Response/Interview_Guide.th.md
     - Playbooks (EN):
       - Phishing: 05_Incident_Response/Playbooks/Phishing.en.md
       - Ransomware: 05_Incident_Response/Playbooks/Ransomware.en.md
@@ -194,6 +196,10 @@ nav:
     - TI Feeds Integration: 06_Operations_Management/TI_Feeds_Integration.en.md
     - Log Source Onboarding: 06_Operations_Management/Log_Source_Onboarding.en.md
     - คู่มือ Onboard Log (TH): 06_Operations_Management/Log_Source_Onboarding.th.md
+    - SOC Checklists: 06_Operations_Management/SOC_Checklists.en.md
+    - รายการตรวจสอบ (TH): 06_Operations_Management/SOC_Checklists.th.md
+    - SLA Template: 06_Operations_Management/SLA_Template.en.md
+    - แม่แบบ SLA (TH): 06_Operations_Management/SLA_Template.th.md
   - 🔧 Guides & Tools:
     - Detection Rules Index: 07_Detection_Rules/README.md
     - ดัชนี Detection Rules (TH): 07_Detection_Rules/README.th.md

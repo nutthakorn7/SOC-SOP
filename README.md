@@ -15,6 +15,14 @@ This repository contains **Standard Operating Procedures (SOPs)** for a modern S
 | **Quickstart Guide** | [Link](00_Getting_Started/Quickstart_Guide.en.md) | [ลิ้งค์](00_Getting_Started/Quickstart_Guide.th.md) |
 | **Glossary of Terms** | [Link](00_Getting_Started/Glossary.en.md) | [ลิ้งค์](00_Getting_Started/Glossary.th.md) |
 
+### 🏗️ 01_SOC_Fundamentals (Building a SOC from Zero)
+| Document | English | ภาษาไทย |
+| :--- | :--- | :--- |
+| **SOC Building Roadmap** (Start here!) | [Link](01_SOC_Fundamentals/SOC_Building_Roadmap.en.md) | [ลิ้งค์](01_SOC_Fundamentals/SOC_Building_Roadmap.th.md) |
+| **Technology Stack Selection** | [Link](01_SOC_Fundamentals/Technology_Stack.en.md) | [ลิ้งค์](01_SOC_Fundamentals/Technology_Stack.th.md) |
+| **Infrastructure Setup** (Hands-on) | [Link](01_SOC_Fundamentals/Infrastructure_Setup.en.md) | [ลิ้งค์](01_SOC_Fundamentals/Infrastructure_Setup.th.md) |
+| **Use Case Prioritization** | [Link](01_SOC_Fundamentals/Use_Case_Prioritization.en.md) | [ลิ้งค์](01_SOC_Fundamentals/Use_Case_Prioritization.th.md) |
+
 ### 01_Onboarding
 | Document | English | ภาษาไทย |
 | :--- | :--- | :--- |
@@ -47,6 +55,12 @@ This repository contains **Standard Operating Procedures (SOPs)** for a modern S
 | :--- | :--- | :--- |
 | **Framework**: NIST-based IR | [Link](05_Incident_Response/Framework.en.md) | [ลิ้งค์](05_Incident_Response/Framework.th.md) |
 | **Severity Matrix** (P1–P4 Classification) | [Link](05_Incident_Response/Severity_Matrix.en.md) | [ลิ้งค์](05_Incident_Response/Severity_Matrix.th.md) |
+| **Tier 1 Runbook** | [Link](05_Incident_Response/Tier1_Runbook.en.md) | [ลิ้งค์](05_Incident_Response/Tier1_Runbook.th.md) |
+| **Evidence Collection** | [Link](05_Incident_Response/Evidence_Collection.en.md) | [ลิ้งค์](05_Incident_Response/Evidence_Collection.th.md) |
+| **Communication Templates** (6 templates) | [Link](05_Incident_Response/Communication_Templates.en.md) | [ลิ้งค์](05_Incident_Response/Communication_Templates.th.md) |
+| **Tabletop Exercises** (5 scenarios) | [Link](05_Incident_Response/Tabletop_Exercises.en.md) | [ลิ้งค์](05_Incident_Response/Tabletop_Exercises.th.md) |
+| **Purple Team Exercises** (9 exercises) | [Link](05_Incident_Response/Purple_Team_Exercises.en.md) | [ลิ้งค์](05_Incident_Response/Purple_Team_Exercises.th.md) |
+| **Interview Guide** (T1/T2/Lead) | [Link](05_Incident_Response/Interview_Guide.en.md) | [ลิ้งค์](05_Incident_Response/Interview_Guide.th.md) |
 | **Playbook**: PB-01 Phishing | [Link](05_Incident_Response/Playbooks/Phishing.en.md) | [ลิ้งค์](05_Incident_Response/Playbooks/Phishing.th.md) |
 | **Playbook**: PB-02 Ransomware | [Link](05_Incident_Response/Playbooks/Ransomware.en.md) | [ลิ้งค์](05_Incident_Response/Playbooks/Ransomware.th.md) |
 | **Playbook**: PB-03 Malware Infection | [Link](05_Incident_Response/Playbooks/Malware_Infection.en.md) | [ลิ้งค์](05_Incident_Response/Playbooks/Malware_Infection.th.md) |
@@ -121,6 +135,9 @@ A structured 4-week curriculum to train new SOC Analysts using this repository.
 | **SOC Team Structure** | [Link](06_Operations_Management/SOC_Team_Structure.en.md) | [ลิ้งค์](06_Operations_Management/SOC_Team_Structure.th.md) |
 | **Shift Handoff** | [Link](06_Operations_Management/Shift_Handoff.en.md) | [ลิ้งค์](06_Operations_Management/Shift_Handoff.th.md) |
 | **SOC KPI Standard** | [Link](06_Operations_Management/SOC_Metrics.en.md) | [ลิ้งค์](06_Operations_Management/SOC_Metrics.th.md) |
+| **SOC Checklists** (Daily/Weekly/Monthly) | [Link](06_Operations_Management/SOC_Checklists.en.md) | [ลิ้งค์](06_Operations_Management/SOC_Checklists.th.md) |
+| **SLA Template** | [Link](06_Operations_Management/SLA_Template.en.md) | [ลิ้งค์](06_Operations_Management/SLA_Template.th.md) |
+| **Log Source Onboarding** | [Link](06_Operations_Management/Log_Source_Onboarding.en.md) | [ลิ้งค์](06_Operations_Management/Log_Source_Onboarding.th.md) |
 
 
 ## 🛠 Tools / เครื่องมือช่วยงาน
