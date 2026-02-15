@@ -81,6 +81,12 @@ nav:
     - คำศัพท์ (TH): 00_Getting_Started/Glossary.th.md
     - SOC Building Roadmap: 01_SOC_Fundamentals/SOC_Building_Roadmap.en.md
     - แผนงานสร้าง SOC (TH): 01_SOC_Fundamentals/SOC_Building_Roadmap.th.md
+    - Technology Stack Guide: 01_SOC_Fundamentals/Technology_Stack.en.md
+    - คู่มือเลือกเครื่องมือ (TH): 01_SOC_Fundamentals/Technology_Stack.th.md
+    - Infrastructure Setup: 01_SOC_Fundamentals/Infrastructure_Setup.en.md
+    - คู่มือติดตั้ง (TH): 01_SOC_Fundamentals/Infrastructure_Setup.th.md
+    - Use Case Prioritization: 01_SOC_Fundamentals/Use_Case_Prioritization.en.md
+    - ลำดับ Use Case (TH): 01_SOC_Fundamentals/Use_Case_Prioritization.th.md
   - 🏗️ Setup & Operations:
     - SOC Infrastructure Setup: 01_Onboarding/System_Activation.en.md
     - การติดตั้ง SOC (TH): 01_Onboarding/System_Activation.th.md
