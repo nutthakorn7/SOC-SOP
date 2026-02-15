@@ -229,6 +229,7 @@ File-based threat detection: [YARA Index](07_Detection_Rules/yara/README.md) | [
 | **Tabletop Exercises** (5 scenarios) | [Read](05_Incident_Response/Tabletop_Exercises.en.md) | [อ่าน](05_Incident_Response/Tabletop_Exercises.th.md) |
 | **Simulation Guide** | [Read](08_Simulation_Testing/Simulation_Guide.en.md) | [อ่าน](08_Simulation_Testing/Simulation_Guide.th.md) |
 | **Atomic Test Map** (MITRE) | [Read](08_Simulation_Testing/Atomic_Test_Map.en.md) | [อ่าน](08_Simulation_Testing/Atomic_Test_Map.th.md) |
+| **🟣 Purple Team Exercise Guide** (NEW) | [Read](08_Simulation_Testing/Purple_Team_Exercise.en.md) | [อ่าน](08_Simulation_Testing/Purple_Team_Exercise.th.md) |
 
 ### Analyst Training
 
@@ -236,6 +237,7 @@ File-based threat detection: [YARA Index](07_Detection_Rules/yara/README.md) | [
 |:---|:---:|:---:|
 | **Analyst Onboarding** (5-day path) | [Read](09_Training_Onboarding/Analyst_Onboarding_Path.en.md) | [อ่าน](09_Training_Onboarding/Analyst_Onboarding_Path.th.md) |
 | **Training Checklist** | [Read](09_Training_Onboarding/Training_Checklist.en.md) | [อ่าน](09_Training_Onboarding/Training_Checklist.th.md) |
+| **👤 SOC Analyst Onboarding** (NEW) | [Read](01_SOC_Overview/SOC_Onboarding.en.md) | [อ่าน](01_SOC_Overview/SOC_Onboarding.th.md) |
 
 ---
 

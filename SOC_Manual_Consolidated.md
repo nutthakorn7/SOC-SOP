@@ -11500,6 +11500,467 @@ graph LR
 
 ---
 
+## File: 01_SOC_Overview/SOC_Onboarding.en.md
+
+# SOC Analyst Onboarding Checklist
+
+**Document ID**: OPS-SOP-017
+**Version**: 1.0
+**Classification**: Internal
+**Last Updated**: 2026-02-15
+
+> A **structured 90-day onboarding program** for new SOC analysts. Covers access provisioning, tool training, shadow shifts, and competency validation. Goal: new hires become independently productive within 90 days.
+
+---
+
+## Onboarding Timeline
+
+```mermaid
+gantt
+    title SOC Analyst Onboarding (90 Days)
+    dateFormat YYYY-MM-DD
+    section Week 1-2: Foundation
+        HR & admin onboarding        :a1, 2026-03-01, 3d
+        System access provisioning    :a2, 2026-03-01, 5d
+        SOC overview & culture        :a3, after a1, 2d
+        Tool walkthrough (SIEM/EDR)   :a4, after a3, 5d
+    section Week 3-4: Shadow
+        Shadow Tier 1 shifts          :b1, after a4, 10d
+        SOP & playbook study          :b2, after a4, 10d
+    section Week 5-8: Guided
+        Handle alerts with mentor     :c1, after b1, 20d
+        First incident report         :c2, after b1, 20d
+        Detection rule authoring      :c3, 2026-04-15, 5d
+    section Week 9-12: Independent
+        Independent shift work        :d1, after c1, 15d
+        Competency assessment         :d2, 2026-05-20, 5d
+        30-60-90 review               :d3, 2026-05-25, 3d
+```
+
+---
+
+## Phase 1: Foundation (Week 1–2)
+
+### Day 1: Welcome & Admin
+
+- [ ] Complete HR paperwork & security clearance
+- [ ] Receive laptop, badges, and physical access cards
+- [ ] Review and sign SOC NDA / acceptable use policy
+- [ ] Meet SOC Manager and team leads
+- [ ] Receive onboarding packet (this document + reading list)
+- [ ] Set up communication channels (Slack, Teams, email groups)
+- [ ] Add to on-call rotation calendar (observer only)
+
+### Day 2–3: Access Provisioning
+
+| System | Access Level | Provisioned | Verified |
+|:---|:---|:---:|:---:|
+| **SIEM** (search & view) | Read-only | ⬜ | ⬜ |
+| **EDR Console** | Read-only | ⬜ | ⬜ |
+| **Ticketing System** | Create/edit tickets | ⬜ | ⬜ |
+| **SOAR** | View playbooks | ⬜ | ⬜ |
+| **TI Platform** | Search IOCs | ⬜ | ⬜ |
+| **Email** | SOC distribution list | ⬜ | ⬜ |
+| **Wiki / Knowledge Base** | Read + contribute | ⬜ | ⬜ |
+| **VPN** | SOC VPN profile | ⬜ | ⬜ |
+| **Active Directory** | SOC security group | ⬜ | ⬜ |
+| **SOC physical room** | 24/7 badge access | ⬜ | ⬜ |
+
+> ⚠️ Write access to SIEM rules and EDR policies granted only after competency assessment (Week 9+).
+
+### Day 3–5: SOC Overview
+
+| Topic | Duration | Presenter | Materials |
+|:---|:---:|:---|:---|
+| SOC mission, charter, and structure | 1 hr | SOC Manager | [SOC Charter](../01_SOC_Overview/SOC_Charter.en.md) |
+| SOC tiers (1/2/3) and responsibilities | 1 hr | Team Lead | [Roles & Responsibilities](../01_SOC_Overview/Roles_Responsibilities.en.md) |
+| Shift schedule and handoff process | 30 min | Shift Lead | [SOC Checklists](../06_Operations_Management/SOC_Checklists.en.md) |
+| Communication protocols | 30 min | SOC Lead | [Communication SOP](../06_Operations_Management/Communication_SOP.en.md) |
+| Escalation procedures | 1 hr | SOC Lead | [Escalation Matrix](../05_Incident_Response/Escalation_Matrix.en.md) |
+| Incident classification | 1 hr | Tier 2 Analyst | [Incident Classification](../05_Incident_Response/Incident_Classification.en.md) |
+
+### Day 6–10: Tool Training
+
+| Tool | Training Type | Duration | Trainer | Competency Check |
+|:---|:---|:---:|:---|:---|
+| **SIEM** | Hands-on lab | 4 hrs | Detection Engineer | Write 3 queries |
+| **EDR** | Walkthrough + lab | 2 hrs | Tier 2 Analyst | Investigate 1 endpoint |
+| **Ticketing** | Hands-on | 1 hr | Tier 1 Analyst | Create & close test ticket |
+| **SOAR** | Demo | 1 hr | SOAR Engineer | Run 1 playbook in sandbox |
+| **TI Platform** | Hands-on | 1 hr | TI Analyst | Look up 5 IOCs |
+| **Internal Wiki** | Self-study | 2 hrs | Self | Navigate to 5 key SOPs |
+
+---
+
+## Phase 2: Shadow (Week 3–4)
+
+### Shadow Shift Requirements
+
+| Requirement | Details |
+|:---|:---|
+| **Total shadow hours** | Minimum 40 hours (5 full shifts) |
+| **Shift variety** | At least 1 day shift + 1 night shift |
+| **Mentor** | Assigned Tier 1/2 analyst for each shadow shift |
+| **Activities** | Observe triage, watch investigations, ask questions |
+| **Restrictions** | May NOT close tickets or take actions independently |
+| **Log** | Document 10 interesting alerts and how they were triaged |
+
+### Required Reading (Complete During Weeks 3–4)
+
+| Document | Priority | Completed |
+|:---|:---:|:---:|
+| [IR Framework](../05_Incident_Response/Framework.en.md) | 🔴 Must | ⬜ |
+| [Tier 1 Runbook](../05_Incident_Response/Tier1_Runbook.en.md) | 🔴 Must | ⬜ |
+| Top 5 Playbooks (Phishing, Malware, Unauth Access, Ransomware, BEC) | 🔴 Must | ⬜ |
+| [Alert Tuning SOP](../06_Operations_Management/Alert_Tuning.en.md) | 🟡 Should | ⬜ |
+| [Evidence Collection](../05_Incident_Response/Evidence_Collection.en.md) | 🟡 Should | ⬜ |
+| [Log Source Matrix](../06_Operations_Management/Log_Source_Matrix.en.md) | 🟡 Should | ⬜ |
+| [SOC Automation Catalog](../06_Operations_Management/SOC_Automation_Catalog.en.md) | 🟢 Nice | ⬜ |
+
+### Shadow Shift Log
+
+| Date | Shift | Mentor | Alerts Observed | Key Learning | Mentor Sign-off |
+|:---|:---:|:---|:---:|:---|:---:|
+| ____-__-__ | Day/Night | ____________ | _____ | ________________________ | ⬜ |
+| ____-__-__ | Day/Night | ____________ | _____ | ________________________ | ⬜ |
+
+---
+
+## Phase 3: Guided Work (Week 5–8)
+
+### Guided Shift Requirements
+
+| Requirement | Details |
+|:---|:---|
+| **Mentor presence** | Mentor available (same shift, not necessarily same desk) |
+| **Alert handling** | Handle real alerts with mentor review before closing |
+| **Escalation** | Must escalate anything P2+ to mentor |
+| **Ticket quality** | Mentor reviews first 20 tickets for completeness |
+| **First incident** | Write first incident report (mentor reviews) |
+
+### Milestone Checklist
+
+- [ ] Triage 100+ alerts independently (mentor-reviewed)
+- [ ] Create 20+ properly documented tickets
+- [ ] Correctly escalate at least 3 incidents
+- [ ] Write 1 complete incident report
+- [ ] Perform 1 guided evidence collection
+- [ ] Participate in 1 shift handoff (giving handoff)
+- [ ] Propose 1 alert tuning request (real FP observed)
+- [ ] Pass mid-point knowledge quiz (score ≥ 70%)
+
+### Mid-Point Knowledge Quiz Topics
+
+| Topic | Questions | Weight |
+|:---|:---:|:---:|
+| Alert triage process | 5 | 20% |
+| Incident classification (P1–P4) | 5 | 20% |
+| SIEM query basics | 5 | 20% |
+| Escalation procedures | 3 | 15% |
+| Evidence handling | 3 | 15% |
+| Communication protocols | 2 | 10% |
+
+---
+
+## Phase 4: Independent (Week 9–12)
+
+### Independent Shift Criteria
+
+- [ ] Mid-point quiz passed (≥ 70%)
+- [ ] Mentor recommends independence
+- [ ] SOC Lead approves independent shift status
+- [ ] After-hours emergency contact list provided
+
+### Week 9–12 Activities
+
+| Activity | Completion |
+|:---|:---:|
+| Handle full shift independently (mentor available by phone) | ⬜ |
+| Handle at least 1 P2+ incident end-to-end | ⬜ |
+| Write detection rule (Sigma format) with peer review | ⬜ |
+| Participate in threat hunting exercise | ⬜ |
+| Complete final competency assessment | ⬜ |
+
+---
+
+## Competency Assessment (Day 85–90)
+
+### Assessment Components
+
+| Component | Weight | Assessor |
+|:---|:---:|:---|
+| **Written exam** (MC + short answer) | 30% | SOC Lead |
+| **Practical lab** (triage 5 scenarios) | 40% | Tier 2 Mentor |
+| **Ticket quality audit** (random 10 tickets) | 15% | SOC Lead |
+| **Mentor evaluation** | 15% | Assigned Mentor |
+
+### Practical Lab Scenarios
+
+| # | Scenario | Expected Actions | Time Limit |
+|:---:|:---|:---|:---:|
+| 1 | Phishing email with malicious attachment | Email analysis, IOC extract, block | 20 min |
+| 2 | Brute-force login followed by success | Log review, account assessment, escalate | 15 min |
+| 3 | EDR alert: suspicious process | Process investigation, containment decision | 15 min |
+| 4 | Data exfiltration indicators | Network analysis, scope, escalate | 20 min |
+| 5 | False positive triage and documentation | Identify FP, document, propose tuning | 10 min |
+
+### Pass Criteria
+
+| Criteria | Required |
+|:---|:---:|
+| Written exam score | ≥ 70% |
+| Practical lab score | ≥ 75% |
+| Ticket quality score | ≥ 80% |
+| Mentor recommendation | Positive |
+| **Overall** | **All criteria met** |
+
+---
+
+## 30-60-90 Day Reviews
+
+| Review | Date | Participants | Focus |
+|:---|:---:|:---|:---|
+| **30-day** | Week 4 | Analyst + Mentor + SOC Lead | Comfort level, access issues, learning gaps |
+| **60-day** | Week 8 | Analyst + Mentor + SOC Lead | Skill progress, ticket quality, readiness for independence |
+| **90-day** | Week 12 | Analyst + SOC Manager | Assessment results, formal role confirmation, development plan |
+
+### Review Template
+
+| Topic | 30-Day | 60-Day | 90-Day |
+|:---|:---:|:---:|:---:|
+| Tool proficiency | ⬜ | ⬜ | ⬜ |
+| Alert triage quality | — | ⬜ | ⬜ |
+| Communication & teamwork | ⬜ | ⬜ | ⬜ |
+| SOP adherence | — | ⬜ | ⬜ |
+| Escalation judgment | — | ⬜ | ⬜ |
+| Documentation quality | — | ⬜ | ⬜ |
+| Areas for improvement | ⬜ | ⬜ | ⬜ |
+| Recommended training | ⬜ | ⬜ | ⬜ |
+
+---
+
+## Ongoing Development (Post-90 Days)
+
+| Activity | Frequency | Goal |
+|:---|:---:|:---|
+| 1-on-1 with SOC Lead | Monthly | Career development, feedback |
+| Advanced training courses | Quarterly | Skill building (threat hunting, forensics, cloud) |
+| Certification pursuit | Annual | BTL1, CySA+, GCIH, GCIA |
+| Cross-training (Tier 2 skills) | After 6 months | Prepare for promotion |
+| Purple team participation | Quarterly | Hands-on adversary techniques |
+| Conference / CTF | Annual | Industry engagement |
+
+---
+
+## Related Documents
+
+-   [SOC Charter](../01_SOC_Overview/SOC_Charter.en.md) — Mission and structure
+-   [Roles & Responsibilities](../01_SOC_Overview/Roles_Responsibilities.en.md) — Tier definitions
+-   [Training Program](../01_SOC_Overview/Training_Program.en.md) — Long-term training
+-   [Tier 1 Runbook](../05_Incident_Response/Tier1_Runbook.en.md) — Day-to-day procedures
+-   [IR Framework](../05_Incident_Response/Framework.en.md) — Incident response lifecycle
+-   [SOC Checklists](../06_Operations_Management/SOC_Checklists.en.md) — Operational checklists
+-   [Escalation Matrix](../05_Incident_Response/Escalation_Matrix.en.md) — When to escalate
+
+
+---
+
+## File: 01_SOC_Overview/SOC_Onboarding.th.md
+
+# SOC Analyst Onboarding Checklist / Checklist การเตรียมความพร้อม SOC Analyst
+
+**รหัสเอกสาร**: OPS-SOP-017
+**เวอร์ชัน**: 1.0
+**การจัดชั้นความลับ**: ใช้ภายใน
+**อัปเดตล่าสุด**: 2026-02-15
+
+> **โปรแกรม onboarding 90 วัน** สำหรับ SOC analyst ใหม่ ครอบคลุมการให้สิทธิ์, การฝึกอบรมเครื่องมือ, การลงกะ shadow, และการประเมินความสามารถ เป้าหมาย: analyst ใหม่ทำงานได้อย่างอิสระภายใน 90 วัน
+
+---
+
+## เฟส 1: พื้นฐาน (สัปดาห์ 1–2)
+
+### วันที่ 1: ต้อนรับ
+
+- [ ] ทำเอกสาร HR & security clearance
+- [ ] รับ laptop, บัตรผ่าน, physical access
+- [ ] ทบทวนและลงชื่อ NDA / นโยบายการใช้งาน
+- [ ] พบ SOC Manager และหัวหน้าทีม
+- [ ] รับเอกสาร onboarding (เอกสารนี้ + รายการอ่าน)
+- [ ] ตั้งค่าช่องทางสื่อสาร (Slack, Teams, email groups)
+
+### วันที่ 2–3: การให้สิทธิ์เข้าถึง
+
+| ระบบ | ระดับสิทธิ์ | ให้แล้ว | ตรวจสอบ |
+|:---|:---|:---:|:---:|
+| **SIEM** (ค้นหา & ดู) | อ่านอย่างเดียว | ⬜ | ⬜ |
+| **EDR Console** | อ่านอย่างเดียว | ⬜ | ⬜ |
+| **Ticketing** | สร้าง/แก้ไข ticket | ⬜ | ⬜ |
+| **SOAR** | ดู playbook | ⬜ | ⬜ |
+| **TI Platform** | ค้นหา IOC | ⬜ | ⬜ |
+| **Email** | SOC distribution list | ⬜ | ⬜ |
+| **Wiki / KB** | อ่าน + เขียน | ⬜ | ⬜ |
+| **VPN** | SOC VPN profile | ⬜ | ⬜ |
+| **Active Directory** | SOC security group | ⬜ | ⬜ |
+
+> ⚠️ สิทธิ์เขียน SIEM rules / EDR policies จะได้หลังผ่านการประเมิน (สัปดาห์ 9+)
+
+### วันที่ 3–5: ภาพรวม SOC
+
+| หัวข้อ | ระยะเวลา | ผู้นำเสนอ | เอกสาร |
+|:---|:---:|:---|:---|
+| ภารกิจ, กฎบัตร, โครงสร้าง SOC | 1 ชม. | SOC Manager | SOC Charter |
+| SOC tiers (1/2/3) และหน้าที่ | 1 ชม. | Team Lead | Roles & Responsibilities |
+| ตารางกะ & handoff | 30 นาที | Shift Lead | SOC Checklists |
+| ขั้นตอนสื่อสาร | 30 นาที | SOC Lead | Communication SOP |
+| การ escalate | 1 ชม. | SOC Lead | Escalation Matrix |
+| การจำแนก incident | 1 ชม. | Tier 2 Analyst | Incident Classification |
+
+### วันที่ 6–10: ฝึกอบรมเครื่องมือ
+
+| เครื่องมือ | ประเภทฝึก | ระยะเวลา | ทดสอบ |
+|:---|:---|:---:|:---|
+| **SIEM** | Hands-on lab | 4 ชม. | เขียน query 3 ข้อ |
+| **EDR** | Walkthrough + lab | 2 ชม. | สืบสวน 1 endpoint |
+| **Ticketing** | Hands-on | 1 ชม. | สร้าง & ปิด test ticket |
+| **SOAR** | Demo | 1 ชม. | รัน 1 playbook ใน sandbox |
+| **TI Platform** | Hands-on | 1 ชม. | ค้นหา 5 IOCs |
+
+---
+
+## เฟส 2: Shadow (สัปดาห์ 3–4)
+
+### ข้อกำหนด Shadow Shift
+
+| ข้อกำหนด | รายละเอียด |
+|:---|:---|
+| **ชั่วโมง shadow รวม** | อย่างน้อย 40 ชม. (5 กะเต็ม) |
+| **ความหลากหลาย** | อย่างน้อย 1 กะกลางวัน + 1 กะกลางคืน |
+| **Mentor** | มอบหมาย Tier 1/2 analyst แต่ละกะ |
+| **กิจกรรม** | สังเกต triage, ดูการสืบสวน, ถามคำถาม |
+| **ข้อจำกัด** | **ห้าม** ปิด ticket หรือดำเนินการอิสระ |
+| **บันทึก** | จด 10 alerts ที่น่าสนใจและวิธี triage |
+
+### เอกสารที่ต้องอ่าน
+
+| เอกสาร | ลำดับ | เสร็จ |
+|:---|:---:|:---:|
+| IR Framework | 🔴 ต้องอ่าน | ⬜ |
+| Tier 1 Runbook | 🔴 ต้องอ่าน | ⬜ |
+| Playbook 5 อันดับแรก (Phishing, Malware, Unauth Access, Ransomware, BEC) | 🔴 ต้องอ่าน | ⬜ |
+| Alert Tuning SOP | 🟡 ควรอ่าน | ⬜ |
+| Evidence Collection | 🟡 ควรอ่าน | ⬜ |
+| Log Source Matrix | 🟡 ควรอ่าน | ⬜ |
+
+---
+
+## เฟส 3: ทำงานแบบมีพี่เลี้ยง (สัปดาห์ 5–8)
+
+### ข้อกำหนด
+
+| ข้อกำหนด | รายละเอียด |
+|:---|:---|
+| **Mentor** | อยู่กะเดียวกัน, ถามได้ |
+| **จัดการ alert** | จัดการจริง แต่ mentor review ก่อนปิด |
+| **Escalation** | P2+ ต้อง escalate ให้ mentor |
+| **คุณภาพ ticket** | Mentor review 20 ticket แรก |
+
+### Milestone Checklist
+
+- [ ] Triage 100+ alerts (mentor review)
+- [ ] สร้าง 20+ tickets ที่มีเอกสารครบ
+- [ ] Escalate อย่างน้อย 3 incidents ถูกต้อง
+- [ ] เขียน incident report 1 ฉบับ
+- [ ] ทำ evidence collection 1 ครั้ง (มีพี่เลี้ยง)
+- [ ] เสนอ alert tuning request 1 รายการ
+- [ ] ผ่าน quiz กลางเทอม (≥ 70%)
+
+---
+
+## เฟส 4: อิสระ (สัปดาห์ 9–12)
+
+### เกณฑ์เริ่มทำงานอิสระ
+
+- [ ] ผ่าน quiz กลางเทอม (≥ 70%)
+- [ ] Mentor แนะนำให้เป็นอิสระ
+- [ ] SOC Lead อนุมัติ
+
+### กิจกรรมสัปดาห์ 9–12
+
+- [ ] จัดการกะเต็มอิสระ (mentor โทรถามได้)
+- [ ] จัดการ P2+ incident ครบวงจร อย่างน้อย 1 ครั้ง
+- [ ] เขียน detection rule (Sigma) + peer review
+- [ ] เข้าร่วม threat hunting exercise
+- [ ] ทำ competency assessment สุดท้าย
+
+---
+
+## การประเมินความสามารถ (วันที่ 85–90)
+
+### องค์ประกอบ
+
+| องค์ประกอบ | น้ำหนัก | ผู้ประเมิน |
+|:---|:---:|:---|
+| **ข้อสอบ** (MC + คำตอบสั้น) | 30% | SOC Lead |
+| **Lab ปฏิบัติ** (triage 5 สถานการณ์) | 40% | Tier 2 Mentor |
+| **Audit คุณภาพ ticket** (สุ่ม 10 tickets) | 15% | SOC Lead |
+| **ประเมินจาก mentor** | 15% | Mentor ที่มอบหมาย |
+
+### สถานการณ์ Lab ปฏิบัติ
+
+| # | สถานการณ์ | สิ่งที่คาดหวัง | เวลา |
+|:---:|:---|:---|:---:|
+| 1 | Phishing email + ไฟล์แนบอันตราย | วิเคราะห์ email, ดึง IOC, บล็อก | 20 นาที |
+| 2 | Brute-force login ตามด้วย success | ตรวจ log, ประเมิน account, escalate | 15 นาที |
+| 3 | EDR alert: process น่าสงสัย | สืบสวน process, ตัดสินใจ contain | 15 นาที |
+| 4 | สัญญาณ data exfiltration | วิเคราะห์ network, ขอบเขต, escalate | 20 นาที |
+| 5 | False positive — triage & document | ระบุ FP, เอกสาร, เสนอ tuning | 10 นาที |
+
+### เกณฑ์ผ่าน
+
+| เกณฑ์ | ต้องได้ |
+|:---|:---:|
+| คะแนนข้อสอบ | ≥ 70% |
+| คะแนน lab ปฏิบัติ | ≥ 75% |
+| คุณภาพ ticket | ≥ 80% |
+| แนะนำจาก mentor | บวก |
+
+---
+
+## ทบทวน 30-60-90 วัน
+
+| ทบทวน | สัปดาห์ | ผู้เข้าร่วม | โฟกัส |
+|:---|:---:|:---|:---|
+| **30 วัน** | 4 | Analyst + Mentor + SOC Lead | ความสะดวกสบาย, ปัญหา access, ช่องว่างการเรียนรู้ |
+| **60 วัน** | 8 | Analyst + Mentor + SOC Lead | ความก้าวหน้า, คุณภาพ ticket, ความพร้อมสำหรับอิสระ |
+| **90 วัน** | 12 | Analyst + SOC Manager | ผลการประเมิน, ยืนยันบทบาท, แผนพัฒนา |
+
+---
+
+## การพัฒนาต่อเนื่อง (หลัง 90 วัน)
+
+| กิจกรรม | ความถี่ | เป้าหมาย |
+|:---|:---:|:---|
+| 1-on-1 กับ SOC Lead | รายเดือน | พัฒนาอาชีพ, feedback |
+| หลักสูตรขั้นสูง | รายไตรมาส | Threat hunting, forensics, cloud |
+| Certification | รายปี | BTL1, CySA+, GCIH, GCIA |
+| Cross-training (ทักษะ Tier 2) | หลัง 6 เดือน | เตรียมเลื่อนตำแหน่ง |
+| Purple team | รายไตรมาส | เทคนิค adversary จริง |
+
+---
+
+## เอกสารที่เกี่ยวข้อง
+
+-   [SOC Charter](../01_SOC_Overview/SOC_Charter.en.md) — ภารกิจและโครงสร้าง
+-   [Roles & Responsibilities](../01_SOC_Overview/Roles_Responsibilities.en.md) — นิยาม tier
+-   [Training Program](../01_SOC_Overview/Training_Program.en.md) — แผนฝึกอบรมระยะยาว
+-   [Tier 1 Runbook](../05_Incident_Response/Tier1_Runbook.en.md) — ขั้นตอนรายวัน
+-   [IR Framework](../05_Incident_Response/Framework.en.md) — วงจร IR
+-   [Escalation Matrix](../05_Incident_Response/Escalation_Matrix.en.md) — เมื่อไรต้อง escalate
+
+
+---
+
 ## File: 05_Incident_Response/Communication_Templates.en.md
 
 # Incident Communication Templates
@@ -23828,6 +24289,498 @@ graph LR
 ## อ้างอิง
 - [Atomic Red Team](https://github.com/redcanaryco/atomic-red-team)
 - [MITRE ATT&CK](https://attack.mitre.org/techniques/enterprise/)
+
+
+---
+
+## File: 08_Simulation_Testing/Purple_Team_Exercise.en.md
+
+# Purple Team Exercise Guide
+
+**Document ID**: SIM-SOP-002
+**Version**: 1.0
+**Classification**: Confidential
+**Last Updated**: 2026-02-15
+
+> A **structured guide** for planning, executing, and learning from purple team exercises. Purple teaming combines offensive (Red) and defensive (Blue) teams working **collaboratively** to improve detection, response, and overall security posture.
+
+---
+
+## Purple vs Red vs Blue
+
+| Aspect | Red Team | Blue Team | Purple Team |
+|:---|:---|:---|:---|
+| **Goal** | Find weaknesses | Defend & detect | Improve together |
+| **Approach** | Adversarial, covert | Defensive, reactive | Collaborative, open |
+| **Communication** | Minimal (stealth) | After-the-fact | Real-time |
+| **Output** | Vulnerability report | Incident reports | Detection improvements |
+| **Frequency** | Annual | Continuous | Quarterly |
+| **Value** | Realistic testing | Operational defense | Measurable improvement |
+
+---
+
+## Exercise Types
+
+| Type | Duration | Scope | Collaboration | Best For |
+|:---|:---:|:---|:---:|:---|
+| **Atomic Test** | 1–2 hours | Single technique | Full | Testing one detection rule |
+| **Technique Chain** | Half day | 3–5 techniques in sequence | Full | Testing kill chain visibility |
+| **Scenario-Based** | 1–2 days | Full attack scenario (APT sim) | Partial/Full | Testing end-to-end detection |
+| **Tabletop** | 2–4 hours | Hypothetical discussion | Full | Process & communication testing |
+| **Full Simulation** | 1–2 weeks | Enterprise-wide, multi-phase | Minimal (Red covert) | Comprehensive assessment |
+
+---
+
+## Exercise Planning
+
+### Planning Timeline
+
+```mermaid
+gantt
+    title Purple Team Exercise Timeline
+    dateFormat YYYY-MM-DD
+    section Planning
+        Define scope & objectives    :a1, 2026-03-01, 5d
+        Select techniques (ATT&CK)   :a2, after a1, 3d
+        Prepare infrastructure        :a3, after a2, 5d
+        Pre-brief Blue team           :a4, after a3, 1d
+    section Execution
+        Conduct exercises             :b1, after a4, 3d
+        Real-time tuning              :b2, after a4, 3d
+    section Wrap-up
+        Debrief & analysis            :c1, after b1, 2d
+        Report & improvements         :c2, after c1, 3d
+        Implement detection fixes     :c3, after c2, 5d
+```
+
+### Scope Definition Template
+
+| Field | Value |
+|:---|:---|
+| **Exercise Name** | ______________ |
+| **Date** | ____-__-__ |
+| **Duration** | _____ hours/days |
+| **Type** | Atomic / Chain / Scenario / Tabletop |
+| **Objective** | ________________________________________________ |
+| **Target Systems** | ________________________________________________ |
+| **Out of Scope** | ________________________________________________ |
+| **Red Team Lead** | ______________ |
+| **Blue Team Lead** | ______________ |
+| **Exercise Coordinator** | ______________ |
+| **Threat Actor Emulated** | ______________ (APT group or generic) |
+| **MITRE Techniques** | T______, T______, T______ |
+| **Success Criteria** | ________________________________________________ |
+| **Risk Mitigation** | ________________________________________________ |
+
+### Pre-Exercise Checklist
+
+- [ ] Scope and objectives documented and approved
+- [ ] MITRE ATT&CK techniques selected
+- [ ] Attack infrastructure prepared (C2, payloads, accounts)
+- [ ] Test environment validated (staging or isolated prod)
+- [ ] Blue team briefed on exercise window (not TTPs)
+- [ ] Deconfliction process defined (how to distinguish exercise from real attack)
+- [ ] Emergency stop procedure defined
+- [ ] Legal/compliance approval (if needed)
+- [ ] Baseline detection coverage documented
+
+---
+
+## Technique Selection
+
+### By ATT&CK Tactic (Sample Exercise Plan)
+
+| Round | Tactic | Technique | Procedure | Expected Detection | Tool |
+|:---:|:---|:---|:---|:---|:---|
+| 1 | Initial Access | T1566.001 Spearphishing | Send email with macro doc | Email gateway + Sysmon event | Gophish |
+| 2 | Execution | T1059.001 PowerShell | Encoded PowerShell download cradle | Sysmon 1 + cmdline logging | Manual |
+| 3 | Persistence | T1053.005 Scheduled Task | Create scheduled task for persistence | Sysmon 1 + Event 4698 | Manual |
+| 4 | Defense Evasion | T1055.001 Process Injection | DLL injection into explorer.exe | Sysmon 8, 10 + EDR | Custom tool |
+| 5 | Credential Access | T1003.001 LSASS Dump | Dump LSASS with ProcDump | Sysmon 10 + EDR alert | ProcDump |
+| 6 | Discovery | T1087.002 Domain Account | query domain admins via net group | Sysmon 1 + cmdline | Manual |
+| 7 | Lateral Movement | T1021.002 SMB/Admin Share | Copy file to remote admin share | SMB logging + EDR | Manual |
+| 8 | Collection | T1560.001 Archive Data | Compress sensitive files with 7zip | Sysmon 1 + file monitoring | 7zip |
+| 9 | Exfiltration | T1567.002 Cloud Storage | Upload to cloud storage service | Proxy/firewall + DLP | rclone |
+| 10 | Impact | T1486 Data Encryption | Encrypt test files (ransomware sim) | EDR + file monitoring | SafeRansomSim |
+
+### Prioritization Matrix
+
+| Priority | Criteria | Example |
+|:---:|:---|:---|
+| 🔴 **P1** | Techniques used by threat actors targeting your industry | APT groups from threat landscape report |
+| 🟠 **P2** | Techniques with no current detection coverage | ATT&CK Navigator gaps |
+| 🟡 **P3** | Techniques with partial/untested detection | Rules exist but never validated |
+| 🟢 **P4** | Techniques for general awareness | Emerging TTPs from advisories |
+
+---
+
+## Execution Framework
+
+### Round-by-Round Format
+
+```mermaid
+sequenceDiagram
+    participant Red as 🔴 Red Team
+    participant Coord as 🟣 Coordinator
+    participant Blue as 🔵 Blue Team
+
+    Coord->>Red: Brief: Execute Technique T1059.001
+    Red->>Red: Execute attack procedure
+    Coord->>Blue: "Did you see anything?" (wait 5 min)
+    
+    alt Detected
+        Blue->>Coord: Yes — alert fired, analyst investigated
+        Coord->>Coord: Record: ✅ Detected
+    else Partially Detected
+        Blue->>Coord: Event logged but no alert
+        Coord->>Coord: Record: ⚠️ Partial
+        Red->>Blue: Show exact procedure & artifacts
+        Blue->>Blue: Create/tune detection rule
+    else Not Detected
+        Blue->>Coord: Nothing seen
+        Coord->>Coord: Record: ❌ Missed
+        Red->>Blue: Show exact procedure & artifacts
+        Blue->>Blue: Create new detection rule
+    end
+    
+    Coord->>Coord: Move to next round
+```
+
+### Execution Log Template
+
+| Round | Time | Technique | Procedure | Red Team Action | Blue Team Result | Detection Status | Notes |
+|:---:|:---|:---|:---|:---|:---|:---:|:---|
+| 1 | __:__ | T______.___ | ____________ | ____________ | ____________ | ✅/⚠️/❌ | ____________ |
+| 2 | __:__ | T______.___ | ____________ | ____________ | ____________ | ✅/⚠️/❌ | ____________ |
+| 3 | __:__ | T______.___ | ____________ | ____________ | ____________ | ✅/⚠️/❌ | ____________ |
+
+### Detection Status Definitions
+
+| Status | Meaning | Action Required |
+|:---:|:---|:---|
+| ✅ **Detected** | Alert fired, analyst correctly triaged | Document as validated detection |
+| ⚠️ **Partial** | Event logged but no alert, or alert with wrong severity | Tune existing rule or create new alert |
+| ❌ **Missed** | No log, no event, no alert | Create new log source + detection rule |
+| 🔄 **Bypassed** | Detection exists but was evaded | Research evasion technique, improve rule |
+
+---
+
+## Tools & Infrastructure
+
+### Red Team Tools (Open Source)
+
+| Tool | Purpose | ATT&CK Mapping |
+|:---|:---|:---|
+| **Atomic Red Team** | Pre-built atomic tests for each technique | All tactics |
+| **CALDERA** | Automated adversary emulation platform | All tactics |
+| **Sliver** | Open source C2 framework | C2, Execution |
+| **Impacket** | Network protocol attacks | Lateral Movement, Credential Access |
+| **Mimikatz** | Credential dumping | Credential Access |
+| **BloodHound** | AD attack path mapping | Discovery |
+| **CrackMapExec** | Active Directory exploitation | Multiple |
+| **Gophish** | Phishing simulation | Initial Access |
+
+### Blue Team Tools
+
+| Tool | Purpose |
+|:---|:---|
+| **SIEM** | Alert monitoring, log analysis |
+| **EDR Console** | Endpoint detection review |
+| **ATT&CK Navigator** | Coverage mapping & gap tracking |
+| **Sigma** | Detection rule library |
+| **Velociraptor** | Live forensics during exercise |
+
+### Safety Controls
+
+| Control | Description |
+|:---|:---|
+| **Deconfliction code** | Unique tag in all exercise traffic/files for identification |
+| **Emergency stop** | Coordinator can halt exercise immediately |
+| **Scope limits** | No production data destruction, no external egress |
+| **Test accounts** | Dedicated accounts for exercise only |
+| **Rollback plan** | How to undo all changes post-exercise |
+
+---
+
+## Post-Exercise Analysis
+
+### Results Summary Template
+
+| Metric | Value |
+|:---|:---:|
+| **Total techniques tested** | _____ |
+| **Detected (✅)** | _____ (___%) |
+| **Partially detected (⚠️)** | _____ (___%) |
+| **Missed (❌)** | _____ (___%) |
+| **Bypassed (🔄)** | _____ (___%) |
+| **New detection rules created** | _____ |
+| **Existing rules tuned** | _____ |
+| **Log source gaps identified** | _____ |
+| **MTTR during exercise** | ___ min |
+
+### Detection Coverage: Before vs After
+
+| Tactic | Before (%) | After (%) | Improvement |
+|:---|:---:|:---:|:---:|
+| Initial Access | ___% | ___% | +___% |
+| Execution | ___% | ___% | +___% |
+| Persistence | ___% | ___% | +___% |
+| Privilege Escalation | ___% | ___% | +___% |
+| Defense Evasion | ___% | ___% | +___% |
+| Credential Access | ___% | ___% | +___% |
+| Discovery | ___% | ___% | +___% |
+| Lateral Movement | ___% | ___% | +___% |
+| Collection | ___% | ___% | +___% |
+| C2 | ___% | ___% | +___% |
+| Exfiltration | ___% | ___% | +___% |
+| Impact | ___% | ___% | +___% |
+
+### Action Items
+
+| # | Finding | Technique | Action | Owner | Due Date | Status |
+|:---:|:---|:---|:---|:---|:---:|:---:|
+| 1 | ______________ | T______ | Create detection rule | ____________ | ____-__-__ | ⬜ |
+| 2 | ______________ | T______ | Add log source | ____________ | ____-__-__ | ⬜ |
+| 3 | ______________ | T______ | Tune existing rule | ____________ | ____-__-__ | ⬜ |
+
+---
+
+## Exercise Schedule
+
+| Quarter | Exercise Type | Threat Actor / Focus | Techniques |
+|:---:|:---|:---|:---:|
+| Q1 | Technique Chain | Ransomware Kill Chain | 8–10 |
+| Q2 | Scenario-Based | APT targeting your industry | 10–15 |
+| Q3 | Atomic Tests | Detection gap remediation | 15–20 |
+| Q4 | Full Simulation | Annual comprehensive assessment | 20+ |
+
+> Each exercise should build on findings from the previous one.
+
+---
+
+## Metrics & Maturity
+
+| Metric | Level 1 | Level 3 | Level 5 |
+|:---|:---|:---|:---|
+| Exercise frequency | Annual | Quarterly | Monthly |
+| Detection rate | < 30% | 50–70% | > 85% |
+| Time to create new detection | > 1 week | < 3 days | < 4 hours |
+| SOC analysts involved | 1–2 | Full shift | All tiers |
+| Automation of testing | None | Some (Atomic RT) | Full (CALDERA + BAS) |
+
+---
+
+## Related Documents
+
+-   [Simulation & Testing Guide](../08_Simulation_Testing/Simulation_Guide.en.md) — Testing procedures
+-   [Detection Rule Testing](../06_Operations_Management/Detection_Rule_Testing.en.md) — Rule validation
+-   [Alert Tuning SOP](../06_Operations_Management/Alert_Tuning.en.md) — Tuning methodology
+-   [SOC Maturity Assessment](../06_Operations_Management/SOC_Maturity_Assessment.en.md) — Detection maturity
+-   [Threat Hunting Playbook](../05_Incident_Response/Threat_Hunting_Playbook.en.md) — Proactive hunting
+-   [SOC Automation Catalog](../06_Operations_Management/SOC_Automation_Catalog.en.md) — Automation
+-   [Threat Landscape Report](../06_Operations_Management/Threat_Landscape_Report.en.md) — Threat context
+
+
+---
+
+## File: 08_Simulation_Testing/Purple_Team_Exercise.th.md
+
+# Purple Team Exercise Guide / คู่มือ Purple Team Exercise
+
+**รหัสเอกสาร**: SIM-SOP-002
+**เวอร์ชัน**: 1.0
+**การจัดชั้นความลับ**: ลับ
+**อัปเดตล่าสุด**: 2026-02-15
+
+> คู่มือสำหรับวางแผน, ดำเนินการ, และเรียนรู้จาก purple team exercises ซึ่งรวมทีมบุกรุก (Red) และทีมป้องกัน (Blue) ทำงาน **ร่วมกัน** เพื่อพัฒนา detection, response, และ security posture
+
+---
+
+## Purple vs Red vs Blue
+
+| ด้าน | Red Team | Blue Team | Purple Team |
+|:---|:---|:---|:---|
+| **เป้าหมาย** | หาจุดอ่อน | ป้องกัน & ตรวจจับ | พัฒนาร่วมกัน |
+| **แนวทาง** | โจมตี, ลับ | ป้องกัน, reactive | ร่วมมือ, เปิดเผย |
+| **สื่อสาร** | น้อยที่สุด | หลังเกิดเหตุ | Real-time |
+| **ความถี่** | รายปี | ต่อเนื่อง | รายไตรมาส |
+
+---
+
+## ประเภท Exercise
+
+| ประเภท | ระยะเวลา | ขอบเขต | ความร่วมมือ | เหมาะกับ |
+|:---|:---:|:---|:---:|:---|
+| **Atomic Test** | 1–2 ชม. | Technique เดียว | เต็มที่ | ทดสอบ detection rule เดียว |
+| **Technique Chain** | ครึ่งวัน | 3–5 techniques ต่อเนื่อง | เต็มที่ | ทดสอบ kill chain visibility |
+| **Scenario-Based** | 1–2 วัน | สถานการณ์โจมตีเต็มรูปแบบ | บางส่วน/เต็มที่ | ทดสอบ detection ครบวงจร |
+| **Tabletop** | 2–4 ชม. | อภิปรายสถานการณ์สมมติ | เต็มที่ | ทดสอบกระบวนการ & สื่อสาร |
+| **Full Simulation** | 1–2 สัปดาห์ | ทั้งองค์กร, หลายเฟส | น้อย (Red ลับ) | ประเมินครอบคลุม |
+
+---
+
+## การวางแผน
+
+### Template กำหนดขอบเขต
+
+| ฟิลด์ | ค่า |
+|:---|:---|
+| **ชื่อ Exercise** | ______________ |
+| **วันที่** | ____-__-__ |
+| **ระยะเวลา** | _____ ชม./วัน |
+| **ประเภท** | Atomic / Chain / Scenario / Tabletop |
+| **วัตถุประสงค์** | ________________________________________________ |
+| **ระบบเป้าหมาย** | ________________________________________________ |
+| **นอกขอบเขต** | ________________________________________________ |
+| **Red Team Lead** | ______________ |
+| **Blue Team Lead** | ______________ |
+| **MITRE Techniques** | T______, T______, T______ |
+
+### Checklist ก่อน Exercise
+
+- [ ] ขอบเขตและวัตถุประสงค์ได้รับอนุมัติ
+- [ ] เลือก ATT&CK techniques แล้ว
+- [ ] เตรียม infrastructure สำหรับโจมตี
+- [ ] แจ้ง Blue team เรื่องช่วงเวลา (ไม่บอก TTPs)
+- [ ] กำหนดกระบวนการแยกแยะ exercise กับ attack จริง
+- [ ] กำหนดวิธีหยุดฉุกเฉิน
+- [ ] อนุมัติจากกฎหมาย/compliance (ถ้าจำเป็น)
+
+---
+
+## การเลือก Technique
+
+### แผน Exercise ตัวอย่าง (10 รอบ)
+
+| รอบ | Tactic | Technique | เครื่องมือ | Detection ที่คาดหวัง |
+|:---:|:---|:---|:---|:---|
+| 1 | Initial Access | T1566.001 Phishing | Gophish | Email gateway + Sysmon |
+| 2 | Execution | T1059.001 PowerShell | Manual | Sysmon 1 + cmdline |
+| 3 | Persistence | T1053.005 Scheduled Task | Manual | Sysmon 1 + Event 4698 |
+| 4 | Defense Evasion | T1055.001 Process Injection | Custom | Sysmon 8, 10 + EDR |
+| 5 | Credential Access | T1003.001 LSASS Dump | ProcDump | Sysmon 10 + EDR |
+| 6 | Discovery | T1087.002 Domain Account | Manual | Sysmon 1 + cmdline |
+| 7 | Lateral Movement | T1021.002 SMB Share | Manual | SMB logging + EDR |
+| 8 | Collection | T1560.001 Archive Data | 7zip | Sysmon 1 + file monitor |
+| 9 | Exfiltration | T1567.002 Cloud Storage | rclone | Proxy/firewall + DLP |
+| 10 | Impact | T1486 Encryption | SafeRansomSim | EDR + file monitor |
+
+---
+
+## Framework การดำเนินการ
+
+### รูปแบบรอบต่อรอบ
+
+```mermaid
+sequenceDiagram
+    participant Red as 🔴 Red Team
+    participant Coord as 🟣 Coordinator
+    participant Blue as 🔵 Blue Team
+
+    Coord->>Red: สั่งให้ทำ Technique T1059.001
+    Red->>Red: ดำเนินการโจมตี
+    Coord->>Blue: เห็นอะไรไหม? (รอ 5 นาที)
+    
+    alt ตรวจพบ
+        Blue->>Coord: ใช่ — alert ขึ้น, analyst สืบสวนแล้ว
+        Coord->>Coord: บันทึก: ✅ ตรวจพบ
+    else ตรวจพบบางส่วน
+        Blue->>Coord: มี event แต่ไม่มี alert
+        Coord->>Coord: บันทึก: ⚠️ บางส่วน
+        Blue->>Blue: สร้าง/ปรับ detection rule
+    else ไม่พบ
+        Blue->>Coord: ไม่เห็นอะไร
+        Coord->>Coord: บันทึก: ❌ พลาด
+        Blue->>Blue: สร้าง detection rule ใหม่
+    end
+```
+
+### บันทึกการดำเนินการ
+
+| รอบ | เวลา | Technique | สถานะ Detection | หมายเหตุ |
+|:---:|:---|:---|:---:|:---|
+| 1 | __:__ | T______.___ | ✅/⚠️/❌ | ____________ |
+| 2 | __:__ | T______.___ | ✅/⚠️/❌ | ____________ |
+
+### ความหมายสถานะ
+
+| สถานะ | ความหมาย | ต้องทำ |
+|:---:|:---|:---|
+| ✅ **ตรวจพบ** | Alert ขึ้น, analyst triage ถูกต้อง | บันทึกเป็น validated detection |
+| ⚠️ **บางส่วน** | มี log แต่ไม่มี alert | ปรับ rule หรือสร้าง alert ใหม่ |
+| ❌ **พลาด** | ไม่มี log, ไม่มี event | สร้าง log source + detection rule |
+| 🔄 **Bypass** | มี detection แต่ถูกหลบ | วิจัยเทคนิค evasion, ปรับ rule |
+
+---
+
+## เครื่องมือ
+
+### Red Team (Open Source)
+
+| เครื่องมือ | วัตถุประสงค์ |
+|:---|:---|
+| **Atomic Red Team** | ทดสอบแบบ atomic ตาม ATT&CK |
+| **CALDERA** | Adversary emulation อัตโนมัติ |
+| **Sliver** | C2 framework |
+| **Impacket** | โจมตี network protocol |
+| **BloodHound** | Mapping AD attack path |
+
+### การควบคุมความปลอดภัย
+
+| การควบคุม | คำอธิบาย |
+|:---|:---|
+| **Deconfliction code** | Tag เฉพาะใน traffic/file ของ exercise |
+| **Emergency stop** | Coordinator หยุดได้ทันที |
+| **Scope limits** | ห้ามทำลายข้อมูล production |
+| **Test accounts** | ใช้ account เฉพาะ exercise |
+| **Rollback plan** | วิธีย้อนเปลี่ยนแปลงหลัง exercise |
+
+---
+
+## การวิเคราะห์หลัง Exercise
+
+### สรุปผลลัพธ์
+
+| ตัวชี้วัด | ค่า |
+|:---|:---:|
+| Techniques ทดสอบทั้งหมด | _____ |
+| ตรวจพบ (✅) | _____ (___%) |
+| ตรวจพบบางส่วน (⚠️) | _____ (___%) |
+| พลาด (❌) | _____ (___%) |
+| Detection rules ใหม่ที่สร้าง | _____ |
+| Rules ที่ปรับปรุง | _____ |
+
+### Coverage: ก่อน vs หลัง
+
+| Tactic | ก่อน (%) | หลัง (%) | เพิ่มขึ้น |
+|:---|:---:|:---:|:---:|
+| Initial Access | ___% | ___% | +___% |
+| Execution | ___% | ___% | +___% |
+| Persistence | ___% | ___% | +___% |
+| Credential Access | ___% | ___% | +___% |
+| Lateral Movement | ___% | ___% | +___% |
+| Exfiltration | ___% | ___% | +___% |
+
+---
+
+## ตาราง Exercise
+
+| ไตรมาส | ประเภท | Focus | จำนวน Techniques |
+|:---:|:---|:---|:---:|
+| Q1 | Technique Chain | Ransomware Kill Chain | 8–10 |
+| Q2 | Scenario-Based | APT ที่เจาะอุตสาหกรรมเรา | 10–15 |
+| Q3 | Atomic Tests | แก้ไข detection gaps | 15–20 |
+| Q4 | Full Simulation | ประเมินครอบคลุมประจำปี | 20+ |
+
+---
+
+## เอกสารที่เกี่ยวข้อง
+
+-   [Simulation & Testing Guide](../08_Simulation_Testing/Simulation_Guide.en.md)
+-   [Detection Rule Testing](../06_Operations_Management/Detection_Rule_Testing.en.md)
+-   [Alert Tuning SOP](../06_Operations_Management/Alert_Tuning.en.md)
+-   [SOC Maturity Assessment](../06_Operations_Management/SOC_Maturity_Assessment.en.md)
+-   [Threat Hunting Playbook](../05_Incident_Response/Threat_Hunting_Playbook.en.md)
 
 
 ---

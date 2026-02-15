@@ -267,10 +267,14 @@ nav:
     - คู่มือ Simulation (TH): 08_Simulation_Testing/Simulation_Guide.th.md
     - Atomic Test Map: 08_Simulation_Testing/Atomic_Test_Map.en.md
     - ตาราง Atomic Test (TH): 08_Simulation_Testing/Atomic_Test_Map.th.md
+    - Purple Team Exercise Guide: 08_Simulation_Testing/Purple_Team_Exercise.en.md
+    - คู่มือ Purple Team (TH): 08_Simulation_Testing/Purple_Team_Exercise.th.md
     - Analyst Onboarding: 09_Training_Onboarding/Analyst_Onboarding_Path.en.md
     - หลักสูตร Analyst (TH): 09_Training_Onboarding/Analyst_Onboarding_Path.th.md
     - Training Checklist: 09_Training_Onboarding/Training_Checklist.en.md
     - เช็คลิสต์ฝึกอบรม (TH): 09_Training_Onboarding/Training_Checklist.th.md
+    - SOC Analyst Onboarding (90-Day): 01_SOC_Overview/SOC_Onboarding.en.md
+    - Onboarding SOC Analyst (TH): 01_SOC_Overview/SOC_Onboarding.th.md
   - 📄 Templates & Reports:
     - Monthly SOC Report: 11_Reporting_Templates/Monthly_SOC_Report.en.md
     - รายงานรายเดือน (TH): 11_Reporting_Templates/Monthly_SOC_Report.th.md
