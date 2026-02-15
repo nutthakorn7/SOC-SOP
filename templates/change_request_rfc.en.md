@@ -24,3 +24,12 @@
 ## 5. Approval (CAB)
 -   [ ] Approved by: [Name]
 -   [ ] Date: [Date]
+
+## Related Documents
+-   [Deployment Procedures](../02_Platform_Operations/Deployment_Procedures.en.md)
+-   [Incident Report Template](incident_report.en.md)
+-   [SOC Assessment Checklist](../06_Operations_Management/SOC_Assessment_Checklist.en.md)
+
+## References
+-   [ITIL Change Management](https://www.axelos.com/certifications/itil-service-management)
+-   [NIST SP 800-128 — Configuration Management](https://csrc.nist.gov/publications/detail/sp/800-128/final)

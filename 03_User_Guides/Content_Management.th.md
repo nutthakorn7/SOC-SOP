@@ -40,6 +40,11 @@ graph TD
 -   **ตรวจสอบรายไตรมาส**: ทบทวนความเกี่ยวข้องของกฎ เทคนิคการโจมตีเปลี่ยนไป กฎอาจล้าสมัย
 -   **การยกเลิก (Deprecation)**: ยกเลิกกฎที่มีเสียงรบกวนมากเกินไป (Noisy), ไม่มีประสิทธิภาพ, หรือซ้ำซ้อน
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [ศูนย์รวมการเชื่อมต่อ](Integration_Hub.th.md)
+-   [กรอบ Incident Response](../05_Incident_Response/Framework.th.md)
+-   [ดัชนี Detection Rules](../07_Detection_Rules/README.th.md)
+
 ## References
 -   [Detection Engineering Weekly](https://detectionengineering.net/)
 -   [MITRE ATT&CK](https://attack.mitre.org/)

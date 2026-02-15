@@ -22,3 +22,11 @@
 ## 4. งานค้าง / สิ่งที่ต้องติดตาม (Pending Tasks)
 -   [ ] งานที่ 1: ตรวจสอบสถานะ Ticket #456
 -   [ ] งานที่ 2: รีวิวกฎใหม่ใน Staging
+
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบ Incident Response](../05_Incident_Response/Framework.th.md)
+-   [SOC Metrics & KPIs](../06_Operations_Management/SOC_Metrics.th.md)
+-   [แบบฟอร์มรายงาน Incident](incident_report.th.md)
+
+## References
+-   [NIST SP 800-61 — Computer Security Incident Handling Guide](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)

@@ -28,6 +28,11 @@
 - [ ] Submit: Mock Incident Report
 - [ ] **Final Sign-off**: Ready for Production Rotation. (Manager: ________)
 
+## Related Documents
+-   [Analyst Onboarding Path](Analyst_Onboarding_Path.en.md)
+-   [Simulation Guide](../08_Simulation_Testing/Simulation_Guide.md)
+-   [Incident Report Template](../templates/incident_report.en.md)
+
 ## References
 -   [SANS SOC Analyst Training](https://www.sans.org/cyber-security-courses/)
 -   [CompTIA CySA+ Certification](https://www.comptia.org/certifications/cybersecurity-analyst)

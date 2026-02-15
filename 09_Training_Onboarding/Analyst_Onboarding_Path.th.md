@@ -69,6 +69,11 @@ gantt
     -   งาน: Triage Alert ใน SIEM
     -   งาน: ส่ง [Incident Report](../templates/incident_report.th.md) จำลอง
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [Training Checklist](Training_Checklist.th.md)
+-   [กรอบ Incident Response](../05_Incident_Response/Framework.th.md)
+-   [คู่มือจำลองการโจมตี](../08_Simulation_Testing/Simulation_Guide.md)
+
 ## References
 -   [SANS SOC Analyst Training](https://www.sans.org/cyber-security-courses/)
 -   [NICE Cybersecurity Workforce Framework](https://niccs.cisa.gov/workforce-development/nice-framework)

@@ -32,3 +32,12 @@
 ## 5. Remediation & Lessons Learned
 -   [ ] Action 1: Patch vulnerability X.
 -   [ ] Action 2: Update detection rule Y to prevent recurrence.
+
+## Related Documents
+-   [Incident Response Framework](../05_Incident_Response/Framework.en.md)
+-   [Shift Handover Template](shift_handover.en.md)
+-   [Change Request (RFC)](change_request_rfc.en.md)
+
+## References
+-   [NIST SP 800-61 — Computer Security Incident Handling Guide](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
+-   [SANS Incident Report Template](https://www.sans.org/information-security-policy/)

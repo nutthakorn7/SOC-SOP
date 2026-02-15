@@ -32,3 +32,12 @@
 ## 5. การแก้ไขและบทเรียน (Remediation & Lessons Learned)
 -   [ ] การดำเนินการ 1: Patch ช่องโหว่ X
 -   [ ] การดำเนินการ 2: อัปเดตกฎตรวจจับ Y เพื่อป้องกันการเกิดซ้ำ
+
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบ Incident Response](../05_Incident_Response/Framework.th.md)
+-   [แบบฟอร์มส่งมอบกะ](shift_handover.th.md)
+-   [แบบฟอร์ม RFC](change_request_rfc.th.md)
+
+## References
+-   [NIST SP 800-61 — Computer Security Incident Handling Guide](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
+-   [SANS Incident Report Template](https://www.sans.org/information-security-policy/)

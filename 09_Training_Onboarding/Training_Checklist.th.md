@@ -28,6 +28,11 @@
 - [ ] ส่งงาน: รายงาน Incident จำลอง
 - [ ] **การอนุมัติผ่านโปร**: พร้อมเข้ากะปฏิบัติงานจริง (ผู้จัดการ: ________)
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [เส้นทางการเตรียมความพร้อม Analyst](Analyst_Onboarding_Path.th.md)
+-   [คู่มือจำลองการโจมตี](../08_Simulation_Testing/Simulation_Guide.md)
+-   [แบบฟอร์มรายงาน Incident](../templates/incident_report.th.md)
+
 ## References
 -   [SANS SOC Analyst Training](https://www.sans.org/cyber-security-courses/)
 -   [CompTIA CySA+ Certification](https://www.comptia.org/certifications/cybersecurity-analyst)

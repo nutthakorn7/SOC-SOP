@@ -22,3 +22,11 @@
 ## 4. Pending Tasks / Follow-ups
 -   [ ] Task 1: Check status of Ticket #456.
 -   [ ] Task 2: Review new rule deployment in Staging.
+
+## Related Documents
+-   [Incident Response Framework](../05_Incident_Response/Framework.en.md)
+-   [SOC Metrics & KPIs](../06_Operations_Management/SOC_Metrics.en.md)
+-   [Incident Report Template](incident_report.en.md)
+
+## References
+-   [NIST SP 800-61 — Computer Security Incident Handling Guide](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)

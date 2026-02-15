@@ -40,6 +40,11 @@ graph TD
 -   **Quarterly Audit**: Review rules for relevance. Adversary tactics change; rules may become obsolete.
 -   **Deprecation**: retire rules that are noisy, ineffective, or duplicative.
 
+## Related Documents
+-   [Integration Hub](Integration_Hub.en.md)
+-   [Incident Response Framework](../05_Incident_Response/Framework.en.md)
+-   [Detection Rules Index](../07_Detection_Rules/README.md)
+
 ## References
 -   [Detection Engineering Weekly](https://detectionengineering.net/)
 -   [MITRE ATT&CK](https://attack.mitre.org/)

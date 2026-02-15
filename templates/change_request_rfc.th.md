@@ -24,3 +24,12 @@
 ## 5. การอนุมัติ (Approval - CAB)
 -   [ ] อนุมัติโดย: [ชื่อ]
 -   [ ] วันที่: [วันที่]
+
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [ขั้นตอนการ Deploy](../02_Platform_Operations/Deployment_Procedures.th.md)
+-   [แบบฟอร์มรายงาน Incident](incident_report.th.md)
+-   [แบบประเมิน SOC](../06_Operations_Management/SOC_Assessment_Checklist.th.md)
+
+## References
+-   [ITIL Change Management](https://www.axelos.com/certifications/itil-service-management)
+-   [NIST SP 800-128 — Configuration Management](https://csrc.nist.gov/publications/detail/sp/800-128/final)
