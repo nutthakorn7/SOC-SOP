@@ -64,23 +64,33 @@ Start here if you're building a brand-new SOC. Follow the numbered order.
 
 ## 🛡️ Incident Response / การตอบสนองต่อเหตุการณ์
 
-### Core Framework
+### Core Framework / กรอบงานหลัก
 
 | Document | English | ภาษาไทย |
 |:---|:---:|:---:|
 | **IR Framework** (NIST-based) | [Read](05_Incident_Response/Framework.en.md) | [อ่าน](05_Incident_Response/Framework.th.md) |
 | **Severity Matrix** (P1–P4) | [Read](05_Incident_Response/Severity_Matrix.en.md) | [อ่าน](05_Incident_Response/Severity_Matrix.th.md) |
+| **📋 Incident Classification** | [Read](05_Incident_Response/Incident_Classification.en.md) | [อ่าน](05_Incident_Response/Incident_Classification.th.md) |
+| **🚨 Escalation Matrix** | [Read](05_Incident_Response/Escalation_Matrix.en.md) | [อ่าน](05_Incident_Response/Escalation_Matrix.th.md) |
 | **Tier 1 Runbook** | [Read](05_Incident_Response/Tier1_Runbook.en.md) | [อ่าน](05_Incident_Response/Tier1_Runbook.th.md) |
-| **Evidence Collection** | [Read](05_Incident_Response/Evidence_Collection.en.md) | [อ่าน](05_Incident_Response/Evidence_Collection.th.md) |
 | **Communication Templates** (6) | [Read](05_Incident_Response/Communication_Templates.en.md) | [อ่าน](05_Incident_Response/Communication_Templates.th.md) |
+
+### Investigation & Evidence / การสืบสวนและหลักฐาน
+
+| Document | English | ภาษาไทย |
+|:---|:---:|:---:|
+| **🔬 Forensic Investigation** | [Read](05_Incident_Response/Forensic_Investigation.en.md) | [อ่าน](05_Incident_Response/Forensic_Investigation.th.md) |
+| **Evidence Collection** | [Read](05_Incident_Response/Evidence_Collection.en.md) | [อ่าน](05_Incident_Response/Evidence_Collection.th.md) |
+| **🎯 Threat Hunting Playbook** | [Read](05_Incident_Response/Threat_Hunting_Playbook.en.md) | [อ่าน](05_Incident_Response/Threat_Hunting_Playbook.th.md) |
+| **Interview Guide** (T1/T2/Lead) | [Read](05_Incident_Response/Interview_Guide.en.md) | [อ่าน](05_Incident_Response/Interview_Guide.th.md) |
+
+### Recovery & Automation / การกู้คืนและอัตโนมัติ
+
+| Document | English | ภาษาไทย |
+|:---|:---:|:---:|
+| **🏥 Disaster Recovery / BCP** | [Read](05_Incident_Response/Disaster_Recovery_BCP.en.md) | [อ่าน](05_Incident_Response/Disaster_Recovery_BCP.th.md) |
 | **SOAR Playbook Templates** (6) | [Read](05_Incident_Response/SOAR_Playbooks.en.md) | [อ่าน](05_Incident_Response/SOAR_Playbooks.th.md) |
 | **Lessons Learned Template** | [Read](05_Incident_Response/Lessons_Learned_Template.en.md) | [อ่าน](05_Incident_Response/Lessons_Learned_Template.th.md) |
-| **Interview Guide** (T1/T2/Lead) | [Read](05_Incident_Response/Interview_Guide.en.md) | [อ่าน](05_Incident_Response/Interview_Guide.th.md) |
-| **🎯 Threat Hunting Playbook** (NEW) | [Read](05_Incident_Response/Threat_Hunting_Playbook.en.md) | [อ่าน](05_Incident_Response/Threat_Hunting_Playbook.th.md) |
-| **🚨 Escalation Matrix** (NEW) | [Read](05_Incident_Response/Escalation_Matrix.en.md) | [อ่าน](05_Incident_Response/Escalation_Matrix.th.md) |
-| **🏥 Disaster Recovery / BCP** (NEW) | [Read](05_Incident_Response/Disaster_Recovery_BCP.en.md) | [อ่าน](05_Incident_Response/Disaster_Recovery_BCP.th.md) |
-| **📋 Incident Classification** (NEW) | [Read](05_Incident_Response/Incident_Classification.en.md) | [อ่าน](05_Incident_Response/Incident_Classification.th.md) |
-| **🔬 Forensic Investigation** (NEW) | [Read](05_Incident_Response/Forensic_Investigation.en.md) | [อ่าน](05_Incident_Response/Forensic_Investigation.th.md) |
 
 ### 33 Playbooks — Grouped by Category
 
@@ -184,39 +194,63 @@ File-based threat detection: [YARA Index](07_Detection_Rules/yara/README.md) | [
 
 ## 📊 Operations / การปฏิบัติงาน
 
-### Team & Processes
+### 👥 Team & Daily Operations / ทีมและงานประจำวัน
 
 | Document | English | ภาษาไทย |
 |:---|:---:|:---:|
 | **SOC Team Structure** | [Read](06_Operations_Management/SOC_Team_Structure.en.md) | [อ่าน](06_Operations_Management/SOC_Team_Structure.th.md) |
 | **Shift Handoff SOP** | [Read](06_Operations_Management/Shift_Handoff.en.md) | [อ่าน](06_Operations_Management/Shift_Handoff.th.md) |
-| **SOC Metrics & KPIs** | [Read](06_Operations_Management/SOC_Metrics.en.md) | [อ่าน](06_Operations_Management/SOC_Metrics.th.md) |
 | **SOC Checklists** (Daily/Weekly/Monthly) | [Read](06_Operations_Management/SOC_Checklists.en.md) | [อ่าน](06_Operations_Management/SOC_Checklists.th.md) |
-| **SOC Assessment Checklist** | [Read](06_Operations_Management/SOC_Assessment_Checklist.en.md) | [อ่าน](06_Operations_Management/SOC_Assessment_Checklist.th.md) |
+| **SOC Metrics & KPIs** | [Read](06_Operations_Management/SOC_Metrics.en.md) | [อ่าน](06_Operations_Management/SOC_Metrics.th.md) |
+| **📈 KPI Dashboard Template** | [Read](06_Operations_Management/KPI_Dashboard_Template.en.md) | [อ่าน](06_Operations_Management/KPI_Dashboard_Template.th.md) |
+| **📊 Log Source Matrix** | [Read](06_Operations_Management/Log_Source_Matrix.en.md) | [อ่าน](06_Operations_Management/Log_Source_Matrix.th.md) |
+| **Log Source Onboarding** | [Read](06_Operations_Management/Log_Source_Onboarding.en.md) | [อ่าน](06_Operations_Management/Log_Source_Onboarding.th.md) |
+| **🤖 SOC Automation Catalog** | [Read](06_Operations_Management/SOC_Automation_Catalog.en.md) | [อ่าน](06_Operations_Management/SOC_Automation_Catalog.th.md) |
+| **🔧 Alert Tuning SOP** | [Read](06_Operations_Management/Alert_Tuning.en.md) | [อ่าน](06_Operations_Management/Alert_Tuning.th.md) |
 
-### Policies & Governance
+### 🔍 Security Monitoring / การเฝ้าระวัง
 
 | Document | English | ภาษาไทย |
 |:---|:---:|:---:|
+| **🌐 Network Security Monitoring** | [Read](06_Operations_Management/Network_Security_Monitoring.en.md) | [อ่าน](06_Operations_Management/Network_Security_Monitoring.th.md) |
+| **☁️ Cloud Security Monitoring** | [Read](06_Operations_Management/Cloud_Security_Monitoring.en.md) | [อ่าน](06_Operations_Management/Cloud_Security_Monitoring.th.md) |
+| **🔒 Data Loss Prevention (DLP)** | [Read](06_Operations_Management/DLP_SOP.en.md) | [อ่าน](06_Operations_Management/DLP_SOP.th.md) |
+| **🕵️ Insider Threat Program** | [Read](06_Operations_Management/Insider_Threat_Program.en.md) | [อ่าน](06_Operations_Management/Insider_Threat_Program.th.md) |
+
+### 📡 Threat Intelligence & Hunting / ข่าวกรองภัยคุกคาม
+
+| Document | English | ภาษาไทย |
+|:---|:---:|:---:|
+| **Threat Intelligence Lifecycle** | [Read](06_Operations_Management/Threat_Intelligence_Lifecycle.en.md) | [อ่าน](06_Operations_Management/Threat_Intelligence_Lifecycle.th.md) |
+| **TI Feeds Integration** | [Read](06_Operations_Management/TI_Feeds_Integration.en.md) | [อ่าน](06_Operations_Management/TI_Feeds_Integration.th.md) |
+| **🌍 Threat Landscape Report** | [Read](06_Operations_Management/Threat_Landscape_Report.en.md) | [อ่าน](06_Operations_Management/Threat_Landscape_Report.th.md) |
+| **Detection Rule Testing SOP** | [Read](06_Operations_Management/Detection_Rule_Testing.en.md) | [อ่าน](06_Operations_Management/Detection_Rule_Testing.th.md) |
+| **Detection Engineering Lifecycle** | [Read](03_User_Guides/Content_Management.en.md) | [อ่าน](03_User_Guides/Content_Management.th.md) |
+
+### 🏛️ Risk & Governance / ความเสี่ยงและธรรมาภิบาล
+
+| Document | English | ภาษาไทย |
+|:---|:---:|:---:|
+| **🛡️ Vulnerability Management** | [Read](06_Operations_Management/Vulnerability_Management.en.md) | [อ่าน](06_Operations_Management/Vulnerability_Management.th.md) |
+| **🔗 Third-Party Risk** | [Read](06_Operations_Management/Third_Party_Risk.en.md) | [อ่าน](06_Operations_Management/Third_Party_Risk.th.md) |
+| **🎯 SOC Maturity Assessment** | [Read](06_Operations_Management/SOC_Maturity_Assessment.en.md) | [อ่าน](06_Operations_Management/SOC_Maturity_Assessment.th.md) |
+| **SOC Assessment Checklist** | [Read](06_Operations_Management/SOC_Assessment_Checklist.en.md) | [อ่าน](06_Operations_Management/SOC_Assessment_Checklist.th.md) |
 | **SLA Template** | [Read](06_Operations_Management/SLA_Template.en.md) | [อ่าน](06_Operations_Management/SLA_Template.th.md) |
+| **Vendor/Tool Evaluation** | [Read](06_Operations_Management/Vendor_Evaluation.en.md) | [อ่าน](06_Operations_Management/Vendor_Evaluation.th.md) |
+
+### 📜 Policies & Processes / นโยบายและกระบวนการ
+
+| Document | English | ภาษาไทย |
+|:---|:---:|:---:|
 | **Data Handling Protocol** | [Read](06_Operations_Management/Data_Handling_Protocol.en.md) | [อ่าน](06_Operations_Management/Data_Handling_Protocol.th.md) |
 | **Change Management SOP** | [Read](06_Operations_Management/Change_Management.en.md) | [อ่าน](06_Operations_Management/Change_Management.th.md) |
 | **Access Control Policy** | [Read](06_Operations_Management/Access_Control.en.md) | [อ่าน](06_Operations_Management/Access_Control.th.md) |
 | **Communication SOP** | [Read](06_Operations_Management/Communication_SOP.en.md) | [อ่าน](06_Operations_Management/Communication_SOP.th.md) |
-| **Log Source Onboarding** | [Read](06_Operations_Management/Log_Source_Onboarding.en.md) | [อ่าน](06_Operations_Management/Log_Source_Onboarding.th.md) |
-| **Vendor/Tool Evaluation** | [Read](06_Operations_Management/Vendor_Evaluation.en.md) | [อ่าน](06_Operations_Management/Vendor_Evaluation.th.md) |
-| **📊 Log Source Matrix** (NEW) | [Read](06_Operations_Management/Log_Source_Matrix.en.md) | [อ่าน](06_Operations_Management/Log_Source_Matrix.th.md) |
-| **🤖 SOC Automation Catalog** (NEW) | [Read](06_Operations_Management/SOC_Automation_Catalog.en.md) | [อ่าน](06_Operations_Management/SOC_Automation_Catalog.th.md) |
-| **📈 KPI Dashboard Template** (NEW) | [Read](06_Operations_Management/KPI_Dashboard_Template.en.md) | [อ่าน](06_Operations_Management/KPI_Dashboard_Template.th.md) |
-| **🌍 Threat Landscape Report** (NEW) | [Read](06_Operations_Management/Threat_Landscape_Report.en.md) | [อ่าน](06_Operations_Management/Threat_Landscape_Report.th.md) |
-| **🔗 Third-Party Risk** (NEW) | [Read](06_Operations_Management/Third_Party_Risk.en.md) | [อ่าน](06_Operations_Management/Third_Party_Risk.th.md) |
-| **🎯 SOC Maturity Assessment** (NEW) | [Read](06_Operations_Management/SOC_Maturity_Assessment.en.md) | [อ่าน](06_Operations_Management/SOC_Maturity_Assessment.th.md) |
-| **🔧 Alert Tuning SOP** (NEW) | [Read](06_Operations_Management/Alert_Tuning.en.md) | [อ่าน](06_Operations_Management/Alert_Tuning.th.md) |
-| **☁️ Cloud Security Monitoring** (NEW) | [Read](06_Operations_Management/Cloud_Security_Monitoring.en.md) | [อ่าน](06_Operations_Management/Cloud_Security_Monitoring.th.md) |
-| **🕵️ Insider Threat Program** (NEW) | [Read](06_Operations_Management/Insider_Threat_Program.en.md) | [อ่าน](06_Operations_Management/Insider_Threat_Program.th.md) |
-| **🛡️ Vulnerability Management** (NEW) | [Read](06_Operations_Management/Vulnerability_Management.en.md) | [อ่าน](06_Operations_Management/Vulnerability_Management.th.md) |
-| **🔒 Data Loss Prevention (DLP)** (NEW) | [Read](06_Operations_Management/DLP_SOP.en.md) | [อ่าน](06_Operations_Management/DLP_SOP.th.md) |
-| **🌐 Network Security Monitoring** (NEW) | [Read](06_Operations_Management/Network_Security_Monitoring.en.md) | [อ่าน](06_Operations_Management/Network_Security_Monitoring.th.md) |
+
+### 🔧 Platform & Tools / แพลตฟอร์มและเครื่องมือ
+
+| Document | English | ภาษาไทย |
+|:---|:---:|:---:|
 | **Data Governance & Retention** | [Read](02_Platform_Operations/Database_Management.en.md) | [อ่าน](02_Platform_Operations/Database_Management.th.md) |
 | **Deployment Procedures** | [Read](02_Platform_Operations/Deployment_Procedures.en.md) | [อ่าน](02_Platform_Operations/Deployment_Procedures.th.md) |
 | **Integration Hub** | [Read](03_User_Guides/Integration_Hub.en.md) | [อ่าน](03_User_Guides/Integration_Hub.th.md) |
@@ -226,24 +260,24 @@ File-based threat detection: [YARA Index](07_Detection_Rules/yara/README.md) | [
 
 ## 🎯 Testing & Training / การทดสอบและฝึกอบรม
 
-### Simulation & Purple Team
+### Simulation & Purple Team / การจำลองและทดสอบ
 
 | Document | English | ภาษาไทย |
 |:---|:---:|:---:|
+| **🟣 Purple Team Exercise Guide** | [Read](08_Simulation_Testing/Purple_Team_Exercise.en.md) | [อ่าน](08_Simulation_Testing/Purple_Team_Exercise.th.md) |
 | **Purple Team Exercises** (9 exercises) | [Read](05_Incident_Response/Purple_Team_Exercises.en.md) | [อ่าน](05_Incident_Response/Purple_Team_Exercises.th.md) |
 | **Tabletop Exercises** (5 scenarios) | [Read](05_Incident_Response/Tabletop_Exercises.en.md) | [อ่าน](05_Incident_Response/Tabletop_Exercises.th.md) |
+| **🎣 Phishing Simulation Program** | [Read](08_Simulation_Testing/Phishing_Simulation.en.md) | [อ่าน](08_Simulation_Testing/Phishing_Simulation.th.md) |
 | **Simulation Guide** | [Read](08_Simulation_Testing/Simulation_Guide.en.md) | [อ่าน](08_Simulation_Testing/Simulation_Guide.th.md) |
 | **Atomic Test Map** (MITRE) | [Read](08_Simulation_Testing/Atomic_Test_Map.en.md) | [อ่าน](08_Simulation_Testing/Atomic_Test_Map.th.md) |
-| **🟣 Purple Team Exercise Guide** (NEW) | [Read](08_Simulation_Testing/Purple_Team_Exercise.en.md) | [อ่าน](08_Simulation_Testing/Purple_Team_Exercise.th.md) |
-| **🍣 Phishing Simulation Program** (NEW) | [Read](08_Simulation_Testing/Phishing_Simulation.en.md) | [อ่าน](08_Simulation_Testing/Phishing_Simulation.th.md) |
 
-### Analyst Training
+### Analyst Training / การฝึกอบรม
 
 | Document | English | ภาษาไทย |
 |:---|:---:|:---:|
+| **👤 SOC Analyst Onboarding** (90-day) | [Read](01_SOC_Overview/SOC_Onboarding.en.md) | [อ่าน](01_SOC_Overview/SOC_Onboarding.th.md) |
 | **Analyst Onboarding** (5-day path) | [Read](09_Training_Onboarding/Analyst_Onboarding_Path.en.md) | [อ่าน](09_Training_Onboarding/Analyst_Onboarding_Path.th.md) |
 | **Training Checklist** | [Read](09_Training_Onboarding/Training_Checklist.en.md) | [อ่าน](09_Training_Onboarding/Training_Checklist.th.md) |
-| **👤 SOC Analyst Onboarding** (NEW) | [Read](01_SOC_Overview/SOC_Onboarding.en.md) | [อ่าน](01_SOC_Overview/SOC_Onboarding.th.md) |
 
 ---
 
