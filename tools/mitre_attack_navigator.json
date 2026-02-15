@@ -1,5 +1,5 @@
 {
-  "name": "SOC-SOP Coverage — 25 Playbooks + 28 Sigma Rules",
+  "name": "SOC-SOP Coverage — 30 Playbooks + 33 Sigma Rules",
   "versions": {
     "attack": "14",
     "navigator": "4.9.1",
@@ -24,8 +24,8 @@
   "metadata": [
     { "name": "Repository", "value": "SOC-SOP" },
     { "name": "Generated", "value": "2026-02-15" },
-    { "name": "Total Playbooks", "value": "25" },
-    { "name": "Total Sigma Rules", "value": "28" }
+    { "name": "Total Playbooks", "value": "30" },
+    { "name": "Total Sigma Rules", "value": "33" }
   ],
   "showTacticRowBackground": true,
   "tacticRowBackground": "#205b8f",
@@ -245,12 +245,12 @@
     {
       "techniqueID": "T1530",
       "tactic": "collection",
-      "color": "#ce4220",
-      "comment": "Cloud S3 Compromise | cloud_aws_s3_public_access",
-      "score": 1,
+      "color": "#f9a825",
+      "comment": "PB-27 Cloud Storage Exposure | cloud_aws_s3_public_access, cloud_storage_public_access",
+      "score": 2,
       "metadata": [
-        { "name": "Playbooks", "value": "Cloud S3" },
-        { "name": "Sigma Rules", "value": "cloud_aws_s3_public_access" }
+        { "name": "Playbooks", "value": "Cloud S3, PB-27" },
+        { "name": "Sigma Rules", "value": "cloud_aws_s3_public_access, cloud_storage_public_access" }
       ]
     },
     {
@@ -339,6 +339,39 @@
       "metadata": [
         { "name": "Playbooks", "value": "PB-25" },
         { "name": "Sigma Rules", "value": "web_zero_day_exploit_attempt" }
+      ]
+    },
+    {
+      "techniqueID": "T1556.006",
+      "tactic": "credential-access",
+      "color": "#f9a825",
+      "comment": "PB-26 MFA Bypass | cloud_mfa_bypass",
+      "score": 2,
+      "metadata": [
+        { "name": "Playbooks", "value": "PB-26" },
+        { "name": "Sigma Rules", "value": "cloud_mfa_bypass" }
+      ]
+    },
+    {
+      "techniqueID": "T1539",
+      "tactic": "credential-access",
+      "color": "#ce4220",
+      "comment": "PB-26 MFA Bypass / Token Theft | cloud_mfa_bypass",
+      "score": 1,
+      "metadata": [
+        { "name": "Playbooks", "value": "PB-26" },
+        { "name": "Sigma Rules", "value": "cloud_mfa_bypass" }
+      ]
+    },
+    {
+      "techniqueID": "T1567",
+      "tactic": "exfiltration",
+      "color": "#ce4220",
+      "comment": "PB-29 Shadow IT | proxy_shadow_it",
+      "score": 1,
+      "metadata": [
+        { "name": "Playbooks", "value": "PB-29" },
+        { "name": "Sigma Rules", "value": "proxy_shadow_it" }
       ]
     }
   ]

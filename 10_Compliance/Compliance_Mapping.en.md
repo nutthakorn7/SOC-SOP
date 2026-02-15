@@ -9,7 +9,7 @@
 
 ## Purpose
 
-This document maps all **25 SOC Playbooks**, **28 Sigma Detection Rules**, and key SOC operational controls to three major compliance frameworks:
+This document maps all **30 SOC Playbooks**, **33 Sigma Detection Rules**, and key SOC operational controls to three major compliance frameworks:
 
 - **ISO/IEC 27001:2022** — Information Security Management System
 - **NIST Cybersecurity Framework (CSF) 2.0** — Identify, Protect, Detect, Respond, Recover
@@ -61,6 +61,16 @@ Use this mapping for **audit preparation**, **gap analysis**, and **demonstratin
 | **PB-24** DNS Tunneling | A.8.20 (Network security), A.8.23 (Web filtering) | DE.CM-1, DE.AE-2, RS.MI-1 | 1.3, 10.6.1, 11.5.1 |
 | **PB-25** Zero-Day Exploit | A.8.8 (Vulnerability management), A.5.7 (Threat intelligence) | DE.CM-8, RS.AN-5, RS.MI-1 | 6.3.3, 11.3, 12.10.5 |
 
+### PB-26 to PB-30 (Coverage Expansion)
+
+| Playbook | ISO 27001:2022 | NIST CSF 2.0 | PCI DSS v4.0 |
+|:---|:---|:---|:---|
+| **PB-26** MFA Bypass / Token Theft | A.8.5 (Secure authentication), A.5.17 (Authentication info) | DE.AE-2, DE.CM-3, PR.AC-7 | 8.3, 8.4, 8.5 |
+| **PB-27** Cloud Storage Exposure | A.5.23 (Cloud services), A.8.10 (Information deletion) | DE.CM-7, RS.MI-1, PR.DS-1 | 3.4, 3.5, 10.6.1 |
+| **PB-28** Mobile Device Compromise | A.8.1 (User endpoint devices), A.7.9 (Off-premises assets) | DE.CM-4, RS.MI-1, PR.AC-3 | 9.4, 9.5, 12.3 |
+| **PB-29** Shadow IT | A.5.23 (Cloud services), A.8.23 (Web filtering) | DE.CM-7, ID.AM-2, PR.AC-4 | 6.4, 12.8, 12.10.5 |
+| **PB-30** OT/ICS Incident | A.8.20 (Network security), A.8.22 (Network segregation) | DE.CM-1, RS.RP-1, PR.AC-5 | 1.3, 11.4, 11.5.1 |
+
 ---
 
 ## SOC Operational Controls Mapping
@@ -102,7 +112,7 @@ Use this mapping for **audit preparation**, **gap analysis**, and **demonstratin
 | **Identify (ID)** | ID.AM, ID.RA, ID.SC | 🟡 Partial — asset inventory & supply chain |
 | **Protect (PR)** | PR.AC, PR.AT, PR.DS, PR.IP, PR.PT | 🟡 Partial — access control & training |
 | **Detect (DE)** | DE.AE, DE.CM, DE.DP | 🟢 Strong — 28 Sigma rules + monitoring |
-| **Respond (RS)** | RS.RP, RS.CO, RS.AN, RS.MI, RS.IM | 🟢 Strong — 25 playbooks + severity matrix |
+| **Respond (RS)** | RS.RP, RS.CO, RS.AN, RS.MI, RS.IM | 🟢 Strong — 30 playbooks + severity matrix |
 | **Recover (RC)** | RC.RP, RC.IM, RC.CO | 🟡 Partial — backup & communication |
 
 ### PCI DSS v4.0 Coverage
@@ -127,10 +137,10 @@ Use this mapping for **audit preparation**, **gap analysis**, and **demonstratin
 ### For ISO 27001 Auditors
 
 > "Show me your incident response procedures."  
-→ [IR Framework](05_Incident_Response/Framework.en.md) + [Severity Matrix](05_Incident_Response/Severity_Matrix.en.md) + any Playbook (PB-01 to PB-25)
+→ [IR Framework](05_Incident_Response/Framework.en.md) + [Severity Matrix](05_Incident_Response/Severity_Matrix.en.md) + any Playbook (PB-01 to PB-30)
 
 > "Show me your monitoring and detection capabilities."  
-→ [Detection Rules Index](07_Detection_Rules/README.md) (28 Sigma rules) + [MITRE ATT&CK Heatmap](tools/mitre_attack_heatmap.html)
+→ [Detection Rules Index](07_Detection_Rules/README.md) (33 Sigma rules) + [MITRE ATT&CK Heatmap](tools/mitre_attack_heatmap.html)
 
 > "Show me evidence of incident learning."  
 → [Post-Incident Review section](05_Incident_Response/Framework.en.md) in all playbooks
@@ -144,7 +154,7 @@ Use this mapping for **audit preparation**, **gap analysis**, and **demonstratin
 → [IR Framework](05_Incident_Response/Framework.en.md) + [Severity Matrix](05_Incident_Response/Severity_Matrix.en.md)
 
 > "Requirement 11.5.1 — Intrusion detection?"  
-→ [28 Sigma Detection Rules](07_Detection_Rules/README.md) with MITRE ATT&CK mapping
+→ [33 Sigma Detection Rules](07_Detection_Rules/README.md) with MITRE ATT&CK mapping
 
 ---
 
