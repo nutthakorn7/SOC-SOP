@@ -74,6 +74,9 @@ nav:
   - Simulation:
     - 'Guide': 08_Simulation_Testing/Simulation_Guide.md
     - 'Atomic Map': 08_Simulation_Testing/Atomic_Test_Map.md
+  - Reporting:
+    - 'Monthly Report': 11_Reporting_Templates/Monthly_SOC_Report.en.md
+    - 'Quarterly Review (QBR)': 11_Reporting_Templates/Quarterly_Business_Review.en.md
   - Templates:
     - 'Incident Report': templates/incident_report.en.md
     - 'Shift Log': templates/shift_handover.en.md
