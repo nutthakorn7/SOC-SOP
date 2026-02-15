@@ -1,89 +1,177 @@
 site_name: SOC Standard Operating Procedures
-site_description: Vendor-Agnostic SOC SOPs, Playbooks, and Detection Rules.
-site_author: SOC Team
+site_description: Vendor-agnostic SOC Standard Operating Procedures — Bilingual (EN/TH)
+site_author: Cyber Defense (cyberdefense.co.th)
+site_url: https://nutthakorn7.github.io/SOC-Standard-Operating-Procedures/
 repo_url: https://github.com/nutthakorn7/SOC-Standard-Operating-Procedures
-edit_uri: edit/main/
+repo_name: SOC-SOP
+docs_dir: docs
+site_dir: site
 
 theme:
   name: material
+  language: en
+  icon:
+    repo: fontawesome/brands/github
+    logo: material/shield-lock
   palette:
-    # Light mode
-    - scheme: default
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-    # Dark mode
     - scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: deep purple
+      accent: cyan
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
+    - scheme: default
+      primary: deep purple
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
   features:
     - navigation.tabs
     - navigation.sections
     - navigation.expand
+    - navigation.top
     - search.suggest
     - search.highlight
     - content.code.copy
+    - toc.follow
+
+plugins:
+  - search
 
 markdown_extensions:
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - admonition
   - pymdownx.details
   - attr_list
   - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/nutthakorn7/SOC-Standard-Operating-Procedures
+    - icon: fontawesome/brands/line
+      link: https://line.me/R/ti/p/@cyberdefense
+  generator: false
+
+copyright: Built with ❤️ by <a href="https://cyberdefense.co.th">cyberdefense.co.th</a> | Line OA - @cyberdefense
 
 nav:
   - Home: README.md
-  - Onboarding:
-    - 'Infrastructure Setup': 01_Onboarding/System_Activation.en.md
-    - 'Curriculum': 09_Training_Onboarding/Analyst_Onboarding_Path.en.md
-    - 'Checklist': 09_Training_Onboarding/Training_Checklist.en.md
-  - Operations:
-    - 'Data Governance': 02_Platform_Operations/Database_Management.en.md
-    - 'Deployment': 02_Platform_Operations/Deployment_Procedures.en.md
-    - 'Shift Handoff': 06_Operations_Management/Shift_Handoff.en.md
-    - 'SOC Metrics': 06_Operations_Management/SOC_Metrics.en.md
-    - 'Data Protocol (TLP)': 06_Operations_Management/Data_Handling_Protocol.en.md
-    - 'Maturity (SOC-CMM)': 06_Operations_Management/SOC_Assessment_Checklist.en.md
-    - 'Threat Intelligence (CTI)': 06_Operations_Management/Threat_Intelligence_Lifecycle.en.md
-  - Incident Response:
-    - 'Framework': 05_Incident_Response/Framework.en.md
-    - 'Playbooks':
-      - 'PB-01 Phishing': 05_Incident_Response/Playbooks/Phishing.en.md
-      - 'PB-02 Ransomware': 05_Incident_Response/Playbooks/Ransomware.en.md
-      - 'PB-03 Malware': 05_Incident_Response/Playbooks/Malware_Infection.en.md
-      - 'PB-04 Brute Force': 05_Incident_Response/Playbooks/Brute_Force.en.md
-      - 'PB-05 Account Compromise': 05_Incident_Response/Playbooks/Account_Compromise.en.md
-      # ... (Other playbooks would be listed here dynamically by mkdocs if folder is used)
-      - 'PB-19: Lost Device': 05_Incident_Response/Playbooks/Lost_Device.en.md
-      - 'PB-20: Log Clearing': 05_Incident_Response/Playbooks/Log_Clearing.en.md
-      - 'PB-21: AWS S3 Compromise': 05_Incident_Response/Playbooks/AWS_S3_Compromise.en.md
-      - 'PB-22: AWS EC2 Compromise': 05_Incident_Response/Playbooks/AWS_EC2_Compromise.en.md
-      - 'PB-23: Azure AD Risk': 05_Incident_Response/Playbooks/Azure_AD_Compromise.en.md
-  - Detection Engineering:
-    - 'Lifecycle': 03_User_Guides/Content_Management.en.md
-    - 'Integration': 03_User_Guides/Integration_Hub.en.md
-    - 'Sigma Rules (Logs)': 07_Detection_Rules/
-    - 'YARA Rules (Files)': 10_File_Signatures/
-  - Simulation:
-    - 'Guide': 08_Simulation_Testing/Simulation_Guide.md
-    - 'Atomic Map': 08_Simulation_Testing/Atomic_Test_Map.md
-  - Reporting:
-    - 'Monthly Report': 11_Reporting_Templates/Monthly_SOC_Report.en.md
-    - 'Quarterly Review (QBR)': 11_Reporting_Templates/Quarterly_Business_Review.en.md
-  - Templates:
-    - 'Incident Report': templates/incident_report.en.md
-    - 'Shift Log': templates/shift_handover.en.md
-    - 'RFC': templates/change_request_rfc.en.md
+  - 🚀 Getting Started:
+    - SOC 101: 00_Getting_Started/SOC_101.en.md
+    - SOC 101 (TH): 00_Getting_Started/SOC_101.th.md
+    - Quickstart Guide: 00_Getting_Started/Quickstart_Guide.en.md
+    - คู่มือเริ่มต้น (TH): 00_Getting_Started/Quickstart_Guide.th.md
+    - Glossary: 00_Getting_Started/Glossary.en.md
+    - คำศัพท์ (TH): 00_Getting_Started/Glossary.th.md
+  - 🏗️ Setup & Operations:
+    - SOC Infrastructure Setup: 01_Onboarding/System_Activation.en.md
+    - การติดตั้ง SOC (TH): 01_Onboarding/System_Activation.th.md
+    - Data Governance: 02_Platform_Operations/Database_Management.en.md
+    - นโยบายข้อมูล (TH): 02_Platform_Operations/Database_Management.th.md
+    - Deployment Procedures: 02_Platform_Operations/Deployment_Procedures.en.md
+    - ขั้นตอนการ Deploy (TH): 02_Platform_Operations/Deployment_Procedures.th.md
+  - 🛡️ Incident Response:
+    - IR Framework: 05_Incident_Response/Framework.en.md
+    - กรอบ IR (TH): 05_Incident_Response/Framework.th.md
+    - Playbooks (EN):
+      - Phishing: 05_Incident_Response/Playbooks/Phishing.en.md
+      - Ransomware: 05_Incident_Response/Playbooks/Ransomware.en.md
+      - Malware Infection: 05_Incident_Response/Playbooks/Malware_Infection.en.md
+      - Brute Force: 05_Incident_Response/Playbooks/Brute_Force.en.md
+      - Account Compromise: 05_Incident_Response/Playbooks/Account_Compromise.en.md
+      - Impossible Travel: 05_Incident_Response/Playbooks/Impossible_Travel.en.md
+      - Privilege Escalation: 05_Incident_Response/Playbooks/Privilege_Escalation.en.md
+      - Data Exfiltration: 05_Incident_Response/Playbooks/Data_Exfiltration.en.md
+      - DDoS Attack: 05_Incident_Response/Playbooks/DDoS_Attack.en.md
+      - Exploit: 05_Incident_Response/Playbooks/Exploit.en.md
+      - Suspicious Script: 05_Incident_Response/Playbooks/Suspicious_Script.en.md
+      - Lateral Movement: 05_Incident_Response/Playbooks/Lateral_Movement.en.md
+      - C2 Communication: 05_Incident_Response/Playbooks/C2_Communication.en.md
+      - Insider Threat: 05_Incident_Response/Playbooks/Insider_Threat.en.md
+      - Log Clearing: 05_Incident_Response/Playbooks/Log_Clearing.en.md
+      - Lost Device: 05_Incident_Response/Playbooks/Lost_Device.en.md
+      - Rogue Admin: 05_Incident_Response/Playbooks/Rogue_Admin.en.md
+      - BEC: 05_Incident_Response/Playbooks/BEC.en.md
+      - Web Attack: 05_Incident_Response/Playbooks/Web_Attack.en.md
+      - AWS EC2 Compromise: 05_Incident_Response/Playbooks/AWS_EC2_Compromise.en.md
+      - AWS S3 Compromise: 05_Incident_Response/Playbooks/AWS_S3_Compromise.en.md
+      - Azure AD Compromise: 05_Incident_Response/Playbooks/Azure_AD_Compromise.en.md
+      - Cloud IAM: 05_Incident_Response/Playbooks/Cloud_IAM.en.md
+    - Playbooks (TH):
+      - Phishing: 05_Incident_Response/Playbooks/Phishing.th.md
+      - Ransomware: 05_Incident_Response/Playbooks/Ransomware.th.md
+      - Malware Infection: 05_Incident_Response/Playbooks/Malware_Infection.th.md
+      - Brute Force: 05_Incident_Response/Playbooks/Brute_Force.th.md
+      - Account Compromise: 05_Incident_Response/Playbooks/Account_Compromise.th.md
+      - Impossible Travel: 05_Incident_Response/Playbooks/Impossible_Travel.th.md
+      - Privilege Escalation: 05_Incident_Response/Playbooks/Privilege_Escalation.th.md
+      - Data Exfiltration: 05_Incident_Response/Playbooks/Data_Exfiltration.th.md
+      - DDoS Attack: 05_Incident_Response/Playbooks/DDoS_Attack.th.md
+      - Exploit: 05_Incident_Response/Playbooks/Exploit.th.md
+      - Suspicious Script: 05_Incident_Response/Playbooks/Suspicious_Script.th.md
+      - Lateral Movement: 05_Incident_Response/Playbooks/Lateral_Movement.th.md
+      - C2 Communication: 05_Incident_Response/Playbooks/C2_Communication.th.md
+      - Insider Threat: 05_Incident_Response/Playbooks/Insider_Threat.th.md
+      - Log Clearing: 05_Incident_Response/Playbooks/Log_Clearing.th.md
+      - Lost Device: 05_Incident_Response/Playbooks/Lost_Device.th.md
+      - Rogue Admin: 05_Incident_Response/Playbooks/Rogue_Admin.th.md
+      - BEC: 05_Incident_Response/Playbooks/BEC.th.md
+      - Web Attack: 05_Incident_Response/Playbooks/Web_Attack.th.md
+      - AWS EC2 Compromise: 05_Incident_Response/Playbooks/AWS_EC2_Compromise.th.md
+      - AWS S3 Compromise: 05_Incident_Response/Playbooks/AWS_S3_Compromise.th.md
+      - Azure AD Compromise: 05_Incident_Response/Playbooks/Azure_AD_Compromise.th.md
+      - Cloud IAM: 05_Incident_Response/Playbooks/Cloud_IAM.th.md
+  - 📊 Operations:
+    - SOC Team Structure: 06_Operations_Management/SOC_Team_Structure.en.md
+    - โครงสร้างทีม (TH): 06_Operations_Management/SOC_Team_Structure.th.md
+    - Shift Handoff: 06_Operations_Management/Shift_Handoff.en.md
+    - ส่งมอบกะ (TH): 06_Operations_Management/Shift_Handoff.th.md
+    - SOC Metrics & KPIs: 06_Operations_Management/SOC_Metrics.en.md
+    - ตัวชี้วัด (TH): 06_Operations_Management/SOC_Metrics.th.md
+    - SOC Assessment: 06_Operations_Management/SOC_Assessment_Checklist.en.md
+    - แบบประเมิน (TH): 06_Operations_Management/SOC_Assessment_Checklist.th.md
+    - Data Handling Protocol: 06_Operations_Management/Data_Handling_Protocol.en.md
+    - โปรโตคอลข้อมูล (TH): 06_Operations_Management/Data_Handling_Protocol.th.md
+    - Threat Intelligence: 06_Operations_Management/Threat_Intelligence_Lifecycle.en.md
+    - ข่าวกรองภัย (TH): 06_Operations_Management/Threat_Intelligence_Lifecycle.th.md
+  - 🔧 Guides & Tools:
+    - Detection Engineering: 03_User_Guides/Content_Management.en.md
+    - วิศวกรรมตรวจจับ (TH): 03_User_Guides/Content_Management.th.md
+    - Integration Hub: 03_User_Guides/Integration_Hub.en.md
+    - ศูนย์รวมการเชื่อมต่อ (TH): 03_User_Guides/Integration_Hub.th.md
+    - Troubleshooting: 04_Troubleshooting/Common_Issues.en.md
+    - แก้ปัญหา (TH): 04_Troubleshooting/Common_Issues.th.md
+  - 🎯 Testing & Training:
+    - Simulation Guide: 08_Simulation_Testing/Simulation_Guide.md
+    - Atomic Test Map: 08_Simulation_Testing/Atomic_Test_Map.md
+    - Analyst Onboarding: 09_Training_Onboarding/Analyst_Onboarding_Path.en.md
+    - หลักสูตร Analyst (TH): 09_Training_Onboarding/Analyst_Onboarding_Path.th.md
+    - Training Checklist: 09_Training_Onboarding/Training_Checklist.en.md
+    - เช็คลิสต์ฝึกอบรม (TH): 09_Training_Onboarding/Training_Checklist.th.md
+  - 📄 Templates & Reports:
+    - Monthly SOC Report: 11_Reporting_Templates/Monthly_SOC_Report.en.md
+    - รายงานรายเดือน (TH): 11_Reporting_Templates/Monthly_SOC_Report.th.md
+    - Quarterly Review: 11_Reporting_Templates/Quarterly_Business_Review.en.md
+    - รายงานรายไตรมาส (TH): 11_Reporting_Templates/Quarterly_Business_Review.th.md
+    - Incident Report Template: templates/incident_report.en.md
+    - แบบฟอร์ม Incident (TH): templates/incident_report.th.md
+    - Shift Handover Template: templates/shift_handover.en.md
+    - แบบฟอร์มส่งมอบกะ (TH): templates/shift_handover.th.md
+    - Change Request (RFC): templates/change_request_rfc.en.md
+    - แบบฟอร์ม RFC (TH): templates/change_request_rfc.th.md
