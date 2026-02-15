@@ -5,6 +5,16 @@
 **ตัวกระตุ้น**: แจ้งเตือน SIEM ("มีการเพิ่ม User ในกลุ่ม Domain Admins", "สร้าง Local Admin ใหม่")
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[New Admin] --> Ticket{Change Request?}
+    Ticket -->|Yes| False[False Positive]
+    Ticket -->|No| Creator{Who Created?}
+    Creator -->|Compromised Admin| True[True Positive]
+    True --> Delete[Delete Account]
+```
+
 -   **ตรวจสอบ Ticket**: มี Change Request สำหรับการสร้างบัญชีนี้หรือไม่?
 -   **ผู้สร้าง**: ใครเป็นคนสร้าง? บัญชีคนสร้างถูกแฮกหรือไม่?
 
@@ -18,3 +28,8 @@
 
 ## 4. การกู้คืน (Recovery)
 -   **รีวิวสิทธิ์**: ตรวจสอบสมาชิกในกลุ่ม Privileged ทั้งหมดใหม่
+-   **ผลกระทบ (Attribute)**: [Integrity]
+
+## References
+-   [MITRE ATT&CK T1098 (Account Manipulation)](https://attack.mitre.org/techniques/T1098/)
+-   [Microsoft Securing Privileged Access](https://learn.microsoft.com/en-us/security/compass/securing-privileged-access)

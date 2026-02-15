@@ -50,3 +50,7 @@ graph TD
 
 ## 4. Usage in Incident Reports
 All Incident Reports MUST be marked with a TLP level at the top of the document.
+
+## References
+-   [FIRST.org TLP 2.0 Standard](https://www.first.org/tlp/)
+-   [CISA Traffic Light Protocol](https://www.cisa.gov/tlp)

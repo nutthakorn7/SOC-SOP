@@ -58,3 +58,7 @@ sequenceDiagram
 -   ทุกการ Deployment ต้องมีแผน Rollback ที่เตรียมไว้ล่วงหน้า
 -   หากขั้นตอนการตรวจสอบล้มเหลว ให้ย้อนกลับไปยังสถานะก่อนหน้าทันที
 -   ทำ Root Cause Analysis (RCA) สำหรับการเปลี่ยนแปลงที่ล้มเหลว
+
+## References
+-   [ITIL Change Management](https://www.axelos.com/best-practice-solutions/itil)
+-   [DevSecOps Manifesto](https://www.devsecops.org/)

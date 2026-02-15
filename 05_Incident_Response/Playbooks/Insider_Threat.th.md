@@ -5,6 +5,17 @@
 **ตัวกระตุ้น**: UEBA Alert (เวลาเข้างานผิดปกติ), Data Access Logs (การก๊อปปี้ไฟล์จำนวนมาก)
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[Insider Alert] --> Context{Leaver?}
+    Context -->|Notice Period| HighRisk[High Risk]
+    Context -->|Normal| Baseline{Abnormal?}
+    Baseline -->|Yes| HighRisk
+    Baseline -->|No| False[False Positive]
+    HighRisk --> HR[Contact HR]
+```
+
 -   **บริบท**: พนักงานคนนี้กำลังจะลาออกหรือไม่? (อยู่ในช่วง Notice period)
 -   **Baseline**: เป็นพฤติกรรมปกติของตำแหน่งงานหรือไม่? (เช่น Admin ทำ Backup)
 -   **HR Check**: ตรวจสอบสถานะการจ้างงาน
@@ -20,3 +31,8 @@
 
 ## 4. การกู้คืน (Recovery)
 -   **กฎหมาย**: HR และฝ่ายกฎหมายพิจารณาเลิกจ้างหรือดำเนินคดี
+-   **ผลกระทบ (Attribute)**: [Confidentiality]
+
+## References
+-   [MITRE ATT&CK T1534 (Internal Spearphishing)](https://attack.mitre.org/techniques/T1534/)
+-   [CISA Insider Threat Mitigation Guide](https://www.cisa.gov/topics/physical-security/insider-threat-mitigation)

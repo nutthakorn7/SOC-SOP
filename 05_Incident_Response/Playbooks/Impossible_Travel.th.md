@@ -5,6 +5,19 @@
 **ตัวกระตุ้น**: แจ้งเตือน SIEM ("ล็อกอินจากสองสถานที่ห่างไกลในเวลาสั้นๆ")
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[Imp. Travel Alert] --> VPN{Corporate VPN?}
+    VPN -->|Yes| False[False Positive]
+    VPN -->|No| Speed{Physics Possible?}
+    Speed -->|Yes| False
+    Speed -->|No| User{User Traveling?}
+    User -->|Yes| False
+    User -->|No| True[True Positive]
+    True --> Kill[Terminate Session]
+```
+
 -   [ ] **ตรวจสอบสถานที่**: ประเทศ/เมือง มีเหตุผลหรือไม่? (เช่น ไทย -> จีน ภายใน 10 นาที)
 -   [ ] **ตรวจสอบ VPN**: ผู้ใช้ต่อ VPN องค์กรที่อาจเปลี่ยน IP หรือไม่?
 -   [ ] **บริบทผู้ใช้**: ผู้ใช้อยู่ระหว่างการเดินทางหรือไม่? มีการแจ้งล่วงหน้าหรือไม่?
@@ -20,3 +33,8 @@
 
 ## 4. การกู้คืน (Recovery)
 -   [ ] **เฝ้าระวัง**: จับตาดูบัญชีนี้เป็นพิเศษ 24 ชั่วโมง
+-   **ผลกระทบ (Attribute)**: [Confidentiality]
+
+## References
+-   [MITRE ATT&CK T1078 (Valid Accounts)](https://attack.mitre.org/techniques/T1078/)
+-   [Microsoft Identity Protection](https://learn.microsoft.com/en-us/entra/id-protection/concept-identity-protection-risks)

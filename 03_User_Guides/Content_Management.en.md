@@ -3,6 +3,18 @@
 This document defines the lifecycle for creating, maintaining, and retiring detection rules within the SOC.
 
 ## 1. Requirement & Research
+
+```mermaid
+graph TD
+    Req[Requirement] --> Dev[Development]
+    Dev --> Test[Testing & Tuning]
+    Test --> Deploy[Deployment]
+    Deploy --> Monitor[Monitoring]
+    Monitor --> Review[Review/Decommission]
+    Review --> Req
+```
+
+-   **Threat Intelligence**: Analyze recent threat reports, CVEs, and adversary inputs.
 -   **Threat Intelligence**: Analyze recent threat reports, CVEs, and adversary inputs.
 -   **Gap Analysis**: Identify missing coverage in the MITRE ATT&CK dashboard.
 -   **Business Context**: Understand critical assets and risks specific to the organization.
@@ -28,3 +40,7 @@ This document defines the lifecycle for creating, maintaining, and retiring dete
 ## 5. Review & Deprecation
 -   **Quarterly Audit**: Review rules for relevance. Adversary tactics change; rules may become obsolete.
 -   **Deprecation**: retire rules that are noisy, ineffective, or duplicative.
+
+## References
+-   [Detection Engineering Weekly](https://detectionengineering.net/)
+-   [MITRE ATT&CK](https://attack.mitre.org/)

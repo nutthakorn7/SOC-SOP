@@ -50,3 +50,7 @@ graph TD
 
 ## 4. การใข้งานในรายงาน (Incident Reports)
 รายงานเหตุการณ์ทุกฉบับ ต้องระบุระดับ TLP อย่างชัดเจนที่ส่วนหัวของเอกสาร
+
+## References
+-   [FIRST.org TLP 2.0 Standard](https://www.first.org/tlp/)
+-   [CISA Traffic Light Protocol](https://www.cisa.gov/tlp)

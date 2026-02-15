@@ -4,6 +4,16 @@ This document outlines the strategy for integrating security tools and log sourc
 
 ## 1. Log Source Integration
 
+```mermaid
+graph LR
+    Source[Log Source] -->|Transport| Normal[Normalization]
+    Normal -->|Enrich| Enrich[Enrichment]
+    Enrich -->|Store| Storage[SIEM/Data Lake]
+    Storage -->|Alert| Monitor[Detection & Monitoring]
+```
+
+### 1.1 Transport Mechanisms
+
 ### 1.1 Transport Mechanisms
 -   **API-based**: Cloud services (AWS, M365, SaaS) typically require API polling.
 -   **Agent-based**: Servers/Endpoints use agents (e.g., Filebeat, Winlogbeat, OSQuery).
@@ -32,3 +42,7 @@ This document outlines the strategy for integrating security tools and log sourc
 -   **Heartbeat**: Ensure all integrations send a heartbeat or status signal.
 -   **Data Freshness**: Alert if log sources stop sending data for >1 hour.
 -   **Error Rate**: Monitor API error rates (401/403/429) to detect credential or quota issues.
+
+## References
+-   [Sigma: Generic Signature Format](https://github.com/SigmaHQ/sigma)
+-   [Elastic Common Schema (ECS)](https://www.elastic.co/guide/en/ecs/current/index.html)

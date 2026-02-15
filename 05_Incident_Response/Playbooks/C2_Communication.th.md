@@ -5,6 +5,17 @@
 **ตัวกระตุ้น**: แจ้งเตือน Network/NDR ("Beaconing detected", "เชื่อมต่อไปยัง Known C2 IP")
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[C2 Beacon] --> Rep{Domain Rep?}
+    Rep -->|New/Bad| True[True Positive]
+    Rep -->|Known Good| Freq{Beaconing?}
+    Freq -->|Regular| True
+    Freq -->|Random| False[False Positive]
+    True --> Block[Block Domain]
+```
+
 -   **ความถี่ (Beaconing)**: มีจังหวะเวลาสม่ำเสมอหรือไม่? (เช่น ทุก 5 นาที)
 -   **ชื่อโดเมน**: ตรวจสอบอายุโดเมน (เพิ่งจดทะเบียนใหม่?)
 -   **Process**: โปรแกรมอะไรเป็นตัวเชื่อมต่อออกไป? (powershell.exe vs chrome.exe)
@@ -19,3 +30,8 @@
 
 ## 4. การกู้คืน (Recovery)
 -   **Threat Intel**: ส่งข้อมูล C2 IP/Domain ไปยังระบบ Threat Intelligence เพื่ออัปเดตเครื่องมือป้องกันอื่นๆ
+-   **ผลกระทบ (Attribute)**: [Confidentiality / Integrity]
+
+## References
+-   [MITRE ATT&CK T1071 (Application Layer Protocol)](https://attack.mitre.org/techniques/T1071/)
+-   [SANS Hunt Evil: Beaconing](https://www.sans.org/white-papers/39600/)

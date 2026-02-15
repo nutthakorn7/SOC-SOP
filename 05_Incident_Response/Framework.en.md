@@ -39,3 +39,7 @@ graph LR
 ## 6. Lessons Learned
 -   Conduct Post-Incident Review (PIR) within 72 hours.
 -   Update Detection Rules and Playbooks based on findings.
+
+## References
+-   [NIST SP 800-61r2 (Computer Security Incident Handling Guide)](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
+-   [ISO/IEC 27035 (Information Security Incident Management)](https://www.iso.org/standard/60803.html)

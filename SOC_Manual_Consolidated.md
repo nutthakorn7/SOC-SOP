@@ -14,6 +14,20 @@ This document outlines the standard procedures for managing security data throug
 
 ## 1. Data Classification
 
+```mermaid
+graph TD
+    Data[Data Ingestion] --> Classify{Classify Data}
+    Classify -->|Restricted| Encrypt[Encrypt & Restrict]
+    Classify -->|Confidential| Secure[Access Control]
+    Classify -->|Internal| Store[Standard Storage]
+    Encrypt --> Retain[Retention Policy]
+    Secure --> Retain
+    Store --> Retain
+    Retain --> Archive[Archive/Purge]
+```
+
+Data within the SOC must be classified to determine appropriate handling and retention controls:
+
 Data within the SOC must be classified to determine appropriate handling and retention controls:
 -   **Restricted**: Sensitive PII, Credentials, Private Keys. (Highest Protection)
 -   **Confidential**: Internal IP, Network Diagrams, Vulnerability Reports.
@@ -45,6 +59,10 @@ Data within the SOC must be classified to determine appropriate handling and ret
 -   **Frequency**: Daily configuration backups; Real-time or hourly data backups.
 -   **Testing**: Disaster Recovery (DR) drills must be conducted quarterly to verify data restoration capabilities.
 
+## References
+-   [NIST SP 800-53 (Security/Privacy Controls)](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final)
+-   [GDPR Data Retention](https://gdpr.eu/)
+
 
 ---
 
@@ -55,6 +73,20 @@ Data within the SOC must be classified to determine appropriate handling and ret
 เอกสารนี้ระบุขั้นตอนมาตรฐานในการจัดการข้อมูลความปลอดภัยตลอดวงจรชีวิตของข้อมูล
 
 ## 1. การจำแนกประเภทข้อมูล (Data Classification)
+
+```mermaid
+graph TD
+    Data[นำเข้าข้อมูล] --> Classify{จำแนกประเภท}
+    Classify -->|ลับที่สุด| Encrypt[เข้ารหัส & จำกัดสิทธิ์]
+    Classify -->|ลับ| Secure[ควบคุมการเข้าถึง]
+    Classify -->|ภายใน| Store[จัดเก็บปกติ]
+    Encrypt --> Retain[นโยบายเก็บรักษา]
+    Secure --> Retain
+    Store --> Retain
+    Retain --> Archive[Archive/Purge]
+```
+
+ข้อมูลใน SOC ต้องได้รับการจำแนกเพื่อกำหนดการจัดการที่เหมาะสม:
 
 ข้อมูลใน SOC ต้องได้รับการจำแนกเพื่อกำหนดการจัดการที่เหมาะสม:
 -   **ลับที่สุด (Restricted)**: PII ที่ละเอียดอ่อน, รหัสผ่าน, Private Keys (ต้องป้องกันสูงสุด)
@@ -85,6 +117,10 @@ Data within the SOC must be classified to determine appropriate handling and ret
 ## 4. การสำรองและกู้คืน (Backup & Recovery)
 -   **ความถี่**: สำรองค่า Configuration ทุกวัน; สำรองข้อมูล Real-time หรือทุกชั่วโมง
 -   **การทดสอบ**: ต้องมีการซ้อมแผนกู้คืนภัยพิบัติ (DR) ทุกไตรมาสเพื่อยืนยันว่าสามารถกู้คืนข้อมูลได้จริง
+
+## References
+-   [NIST SP 800-53 (Security/Privacy Controls)](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final)
+-   [GDPR Data Retention](https://gdpr.eu/)
 
 
 ---
@@ -152,6 +188,10 @@ sequenceDiagram
 -   If verification fails, immediately revert to the pre-deployment snapshot.
 -   Conduct a Root Cause Analysis (RCA) for failed changes.
 
+## References
+-   [ITIL Change Management](https://www.axelos.com/best-practice-solutions/itil)
+-   [DevSecOps Manifesto](https://www.devsecops.org/)
+
 
 ---
 
@@ -217,6 +257,10 @@ sequenceDiagram
 -   ทุกการ Deployment ต้องมีแผน Rollback ที่เตรียมไว้ล่วงหน้า
 -   หากขั้นตอนการตรวจสอบล้มเหลว ให้ย้อนกลับไปยังสถานะก่อนหน้าทันที
 -   ทำ Root Cause Analysis (RCA) สำหรับการเปลี่ยนแปลงที่ล้มเหลว
+
+## References
+-   [ITIL Change Management](https://www.axelos.com/best-practice-solutions/itil)
+-   [DevSecOps Manifesto](https://www.devsecops.org/)
 
 
 ---
@@ -558,6 +602,10 @@ graph TD
 ## 4. Usage in Incident Reports
 All Incident Reports MUST be marked with a TLP level at the top of the document.
 
+## References
+-   [FIRST.org TLP 2.0 Standard](https://www.first.org/tlp/)
+-   [CISA Traffic Light Protocol](https://www.cisa.gov/tlp)
+
 
 ---
 
@@ -615,6 +663,10 @@ graph TD
 
 ## 4. การใข้งานในรายงาน (Incident Reports)
 รายงานเหตุการณ์ทุกฉบับ ต้องระบุระดับ TLP อย่างชัดเจนที่ส่วนหัวของเอกสาร
+
+## References
+-   [FIRST.org TLP 2.0 Standard](https://www.first.org/tlp/)
+-   [CISA Traffic Light Protocol](https://www.cisa.gov/tlp)
 
 
 ---
@@ -682,6 +734,11 @@ Count the "Yes" answers to determine approximate maturity.
 -   0-5: Level 1
 -   6-10: Level 2
 -   11-13: Level 3 (Target Baseline)
+-   14+: Level 4+
+
+## References
+-   [SOC-CMM (Capability Maturity Model)](https://www.soc-cmm.com/)
+-   [MITRE SOC Strategy](https://mitre.org/)
 -   14+: Level 4+
 
 
@@ -752,6 +809,11 @@ graph LR
 -   11-13: Level 3 (เกณฑ์มาตรฐาน)
 -   14+: Level 4+
 
+## References
+-   [SOC-CMM (Capability Maturity Model)](https://www.soc-cmm.com/)
+-   [MITRE SOC Strategy](https://mitre.org/)
+-   14+: Level 4+
+
 
 ---
 
@@ -762,6 +824,20 @@ graph LR
 This document defines the Key Performance Indicators (KPIs) and metrics used to measure the effectiveness and efficiency of the SOC.
 
 ## 1. Operational Metrics (Efficiency)
+
+```mermaid
+graph TD
+    Incident[Incident Closed] --> timestamps[Collect Timestamps]
+    timestamps --> calcMTTD[Calculate MTTD]
+    timestamps --> calcMTTR[Calculate MTTR]
+    calcMTTD --> Report[Daily Report]
+    calcMTTR --> Report
+    Report --> Review{Threshold Exceeded?}
+    Review -->|Yes| Tuner[Tune Process]
+    Review -->|No| Store[Store Logic]
+```
+
+### 1.1 Mean Time To Detect (MTTD)
 
 ### 1.1 Mean Time To Detect (MTTD)
 -   **Definition**: The average time it takes to identify a security threat after it has entered the network.
@@ -793,6 +869,10 @@ This document defines the Key Performance Indicators (KPIs) and metrics used to 
 -   **Incidents per Analyst**: Number of cases handled by one analyst per shift.
 -   **Burnout Rate**: Turnover rate of SOC staff (Target: < 15% annually).
 
+## References
+-   [SANS SOC Metrics](https://www.sans.org/white-papers/soc-metrics/)
+-   [MITRE SOC Assessment](https://cat.mitre.org/)
+
 
 ---
 
@@ -803,6 +883,20 @@ This document defines the Key Performance Indicators (KPIs) and metrics used to 
 เอกสารนี้กำหนดตัวชี้วัดประสิทธิภาพหลัก (KPIs) และ Metrics ที่ใช้จัดวัดประสิทธิผลและประสิทธิภาพของ SOC
 
 ## 1. ตัวชี้วัดด้านการปฏิบัติงาน (Operational Metrics - Efficiency)
+
+```mermaid
+graph TD
+    Incident[ปิดเคส] --> timestamps[เก็บ Timestamp]
+    timestamps --> calcMTTD[คำนวณ MTTD]
+    timestamps --> calcMTTR[คำนวณ MTTR]
+    calcMTTD --> Report[รายงานประจำวัน]
+    calcMTTR --> Report
+    Report --> Review{เกินเกณฑ์หรือไม่?}
+    Review -->|ใช่| Tuner[ปรับจูน process]
+    Review -->|ไม่| Store[บันทึกผล]
+```
+
+### 1.1 เวลาเฉลี่ยในการตรวจจับ (Mean Time To Detect - MTTD)
 
 ### 1.1 เวลาเฉลี่ยในการตรวจจับ (Mean Time To Detect - MTTD)
 -   **นิยาม**: เวลาเฉลี่ยที่ใช้ในการระบุภัยคุกคามหลังจากที่เข้ามาในเครือข่ายแล้ว
@@ -834,6 +928,10 @@ This document defines the Key Performance Indicators (KPIs) and metrics used to 
 -   **Incidents per Analyst**: จำนวนเคสที่ Analyst หนึ่งคนรับผิดชอบต่อกะ
 -   **Burnout Rate**: อัตราการลาออกของพนักงาน SOC (เป้าหมาย: < 15% ต่อปี)
 
+## References
+-   [SANS SOC Metrics](https://www.sans.org/white-papers/soc-metrics/)
+-   [MITRE SOC Assessment](https://cat.mitre.org/)
+
 
 ---
 
@@ -853,6 +951,19 @@ Standard rotation pattern for 24/7 coverage:
 *Note: Overlap of 30 minutes is required for proper handoff.*
 
 ## 2. Handoff Procedure
+
+```mermaid
+graph TD
+    Start[End of Shift] --> Checklist[Complete Checklist]
+    Checklist --> Log[Update Handover Log]
+    Log --> Brief[Brief Incoming Lead]
+    Brief --> Questions{Any Questions?}
+    Questions -->|Yes| Clarify[Clarify Details]
+    Questions -->|No| Sign[Sign Off]
+    Sign --> End[Start New Shift]
+```
+
+A standardized handoff ensures no incident falls through the cracks. The outgoing Shift Lead must brief the incoming Shift Lead on:
 
 A standardized handoff ensures no incident falls through the cracks. The outgoing Shift Lead must brief the incoming Shift Lead on:
 
@@ -877,6 +988,10 @@ A standardized handoff ensures no incident falls through the cracks. The outgoin
 -   Complete documentation for closed cases.
 -   Prepare Handover Log.
 
+## References
+-   [SANS SOC Handbook](https://www.sans.org/white-papers/soc-handbook/)
+-   [NIST SP 800-61r2 (Incident Handling)](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
+
 
 ---
 
@@ -896,6 +1011,19 @@ A standardized handoff ensures no incident falls through the cracks. The outgoin
 *หมายเหตุ: ต้องมีเวลาคาบเกี่ยว (Overlap) 30 นาทีสำหรับการส่งต่องาน*
 
 ## 2. ขั้นตอนการส่งต่องาน (Handoff Procedure)
+
+```mermaid
+graph TD
+    Start[จบกะเดิม] --> Checklist[ตรวจสอบ Checklist]
+    Checklist --> Log[อัปเดต Handover Log]
+    Log --> Brief[สรุปงานให้กะถัดไป]
+    Brief --> Questions{มีข้อสงสัย?}
+    Questions -->|มี| Clarify[อธิบายเพิ่มเติม]
+    Questions -->|ไม่มี| Sign[เซ็นรับงาน]
+    Sign --> End[เริ่มกะใหม่]
+```
+
+การส่งต่องานที่เป็นมาตรฐานช่วยป้องกันไม่ให้งานหลุด หัวหน้ากะที่กำลังจะออกเวรต้องสรุปข้อมูลให้หัวหน้ากะที่มารับเวรฟัง:
 
 การส่งต่องานที่เป็นมาตรฐานช่วยป้องกันไม่ให้งานหลุด หัวหน้ากะที่กำลังจะออกเวรต้องสรุปข้อมูลให้หัวหน้ากะที่มารับเวรฟัง:
 
@@ -919,6 +1047,10 @@ A standardized handoff ensures no incident falls through the cracks. The outgoin
 -   อัปเดต Ticket ทั้งหมดที่รับผิดชอบ
 -   ทำเอกสารสรุป Case ที่ปิดแล้วให้เรียบร้อย
 -   เตรียมข้อมูลสำหรับทำ Handover Log
+
+## References
+-   [SANS SOC Handbook](https://www.sans.org/white-papers/soc-handbook/)
+-   [NIST SP 800-61r2 (Incident Handling)](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
 
 ---
@@ -983,6 +1115,10 @@ All Indicators of Compromise (IoCs) must go through the **Review Process** befor
 3.  Analyst updates reference list in SIEM (Test Mode).
 4.  If stable > 24 hours, move to Block Mode.
 
+## References
+-   [CREST Cyber Threat Intelligence](https://www.crest-approved.org/knowledge-base/cyber-threat-intelligence/)
+-   [SANS CTI Maturity Model](https://www.sans.org/white-papers/cti-maturity-model/)
+
 
 ---
 
@@ -1045,6 +1181,10 @@ Indicators of Compromise (IoCs) ทุกตัวต้องผ่านกร
 3.  ใส่ใน SIEM ระบบ Test Mode (Monitor Only)
 4.  ถ้าไม่มี False Positive นาน 24 ชม. จึงเปิด Block Mode
 
+## References
+-   [CREST Cyber Threat Intelligence](https://www.crest-approved.org/knowledge-base/cyber-threat-intelligence/)
+-   [SANS CTI Maturity Model](https://www.sans.org/white-papers/cti-maturity-model/)
+
 
 ---
 
@@ -1055,6 +1195,18 @@ Indicators of Compromise (IoCs) ทุกตัวต้องผ่านกร
 This document defines the lifecycle for creating, maintaining, and retiring detection rules within the SOC.
 
 ## 1. Requirement & Research
+
+```mermaid
+graph TD
+    Req[Requirement] --> Dev[Development]
+    Dev --> Test[Testing & Tuning]
+    Test --> Deploy[Deployment]
+    Deploy --> Monitor[Monitoring]
+    Monitor --> Review[Review/Decommission]
+    Review --> Req
+```
+
+-   **Threat Intelligence**: Analyze recent threat reports, CVEs, and adversary inputs.
 -   **Threat Intelligence**: Analyze recent threat reports, CVEs, and adversary inputs.
 -   **Gap Analysis**: Identify missing coverage in the MITRE ATT&CK dashboard.
 -   **Business Context**: Understand critical assets and risks specific to the organization.
@@ -1081,6 +1233,10 @@ This document defines the lifecycle for creating, maintaining, and retiring dete
 -   **Quarterly Audit**: Review rules for relevance. Adversary tactics change; rules may become obsolete.
 -   **Deprecation**: retire rules that are noisy, ineffective, or duplicative.
 
+## References
+-   [Detection Engineering Weekly](https://detectionengineering.net/)
+-   [MITRE ATT&CK](https://attack.mitre.org/)
+
 
 ---
 
@@ -1091,6 +1247,18 @@ This document defines the lifecycle for creating, maintaining, and retiring dete
 เอกสารนี้กำหนดวงจรชีวิตสำหรับการสร้าง ดูแลรักษา และยกเลิกกฎการตรวจจับภายใน SOC
 
 ## 1. ความต้องการและการวิจัย (Requirement & Research)
+
+```mermaid
+graph TD
+    Req[ความต้องการ] --> Dev[พัฒนา]
+    Dev --> Test[ทดสอบ/จูน]
+    Test --> Deploy[ติดตั้ง]
+    Deploy --> Monitor[เฝ้าระวัง]
+    Monitor --> Review[ทบทวน/ยกเลิก]
+    Review --> Req
+```
+
+-   **Threat Intelligence**: วิเคราะห์รายงานภัยคุกคามล่าสุด, CVE, และข้อมูลจากผู้โจมตี
 -   **Threat Intelligence**: วิเคราะห์รายงานภัยคุกคามล่าสุด, CVE, และข้อมูลจากผู้โจมตี
 -   **Gap Analysis**: ระบุจุดที่ยังขาดการป้องกันใน MITRE ATT&CK Dashboard
 -   **บริบททางธุรกิจ**: ทำความเข้าใจสินทรัพย์สำคัญและความเสี่ยงเฉพาะขององค์กร
@@ -1117,6 +1285,10 @@ This document defines the lifecycle for creating, maintaining, and retiring dete
 -   **ตรวจสอบรายไตรมาส**: ทบทวนความเกี่ยวข้องของกฎ เทคนิคการโจมตีเปลี่ยนไป กฎอาจล้าสมัย
 -   **การยกเลิก (Deprecation)**: ยกเลิกกฎที่มีเสียงรบกวนมากเกินไป (Noisy), ไม่มีประสิทธิภาพ, หรือซ้ำซ้อน
 
+## References
+-   [Detection Engineering Weekly](https://detectionengineering.net/)
+-   [MITRE ATT&CK](https://attack.mitre.org/)
+
 
 ---
 
@@ -1127,6 +1299,16 @@ This document defines the lifecycle for creating, maintaining, and retiring dete
 This document outlines the strategy for integrating security tools and log sources into the SOC architecture.
 
 ## 1. Log Source Integration
+
+```mermaid
+graph LR
+    Source[Log Source] -->|Transport| Normal[Normalization]
+    Normal -->|Enrich| Enrich[Enrichment]
+    Enrich -->|Store| Storage[SIEM/Data Lake]
+    Storage -->|Alert| Monitor[Detection & Monitoring]
+```
+
+### 1.1 Transport Mechanisms
 
 ### 1.1 Transport Mechanisms
 -   **API-based**: Cloud services (AWS, M365, SaaS) typically require API polling.
@@ -1157,6 +1339,10 @@ This document outlines the strategy for integrating security tools and log sourc
 -   **Data Freshness**: Alert if log sources stop sending data for >1 hour.
 -   **Error Rate**: Monitor API error rates (401/403/429) to detect credential or quota issues.
 
+## References
+-   [Sigma: Generic Signature Format](https://github.com/SigmaHQ/sigma)
+-   [Elastic Common Schema (ECS)](https://www.elastic.co/guide/en/ecs/current/index.html)
+
 
 ---
 
@@ -1167,6 +1353,16 @@ This document outlines the strategy for integrating security tools and log sourc
 เอกสารนี้ระบุกลยุทธ์ในการเชื่อมต่อเครื่องมือความปลอดภัยและแหล่งข้อมูล Log เข้าสู่สถาปัตยกรรม SOC
 
 ## 1. การเชื่อมต่อ Log Source
+
+```mermaid
+graph LR
+    Source[แหล่งข้อมูล] -->|ส่งข้อมูล| Normal[ปรับมาตรฐาน]
+    Normal -->|เติมบริบท| Enrich[Enrichment]
+    Enrich -->|จัดเก็บ| Storage[SIEM/Data Lake]
+    Storage -->|แจ้งเตือน| Monitor[เฝ้าระวัง]
+```
+
+### 1.1 กลไกการส่งข้อมูล
 
 ### 1.1 กลไกการส่งข้อมูล
 -   **API-based**: บริการ Cloud (AWS, M365, SaaS) มักต้องใช้วิธี API Polling
@@ -1196,6 +1392,10 @@ This document outlines the strategy for integrating security tools and log sourc
 -   **Heartbeat**: ตรวจสอบว่า Integration ส่งสัญญาณสถานะมาสม่ำเสมอ
 -   **ความสดใหม่ของข้อมูล**: แจ้งเตือนหาก Log Source หยุดส่งข้อมูลเกิน 1 ชั่วโมง
 -   **อัตรา Error**: เฝ้าระวัง API error (401/403/429) เพื่อตรวจจับปัญหา Credential หรือ Quota
+
+## References
+-   [Sigma: Generic Signature Format](https://github.com/SigmaHQ/sigma)
+-   [Elastic Common Schema (ECS)](https://www.elastic.co/guide/en/ecs/current/index.html)
 
 
 ---
@@ -1244,6 +1444,10 @@ graph LR
 -   Conduct Post-Incident Review (PIR) within 72 hours.
 -   Update Detection Rules and Playbooks based on findings.
 
+## References
+-   [NIST SP 800-61r2 (Computer Security Incident Handling Guide)](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
+-   [ISO/IEC 27035 (Information Security Incident Management)](https://www.iso.org/standard/60803.html)
+
 
 ---
 
@@ -1290,6 +1494,10 @@ graph LR
 -   ทำ Post-Incident Review (PIR) ภายใน 72 ชั่วโมง
 -   อัปเดต Detection Rules และ Playbook ตามสิ่งที่ได้เรียนรู้
 
+## References
+-   [NIST SP 800-61r2 (Computer Security Incident Handling Guide)](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
+-   [ISO/IEC 27035 (Information Security Incident Management)](https://www.iso.org/standard/60803.html)
+
 
 ---
 
@@ -1307,6 +1515,18 @@ graph LR
 -   **Trigger**: Outbound connection to known C2 IP.
 
 ## 2. Analysis
+
+```mermaid
+graph TD
+    Alert[EC2 Alert] --> Verify[Verify Instance]
+    Verify -->|Production| Netflow{Mining Pool?}
+    Verify -->|Dev/Test| Stop[Stop Instance]
+    Netflow -->|Yes| Snapshot[Snapshot EBS]
+    Netflow -->|No| Investigate[Investigate Process]
+    Snapshot --> Isolate[Isolate SG]
+    Isolate --> Forensics[Forensics]
+```
+
 -   [ ] **Verify Instance**: Identify Instance ID, Region, and Owner tag.
 -   [ ] **Isolate Logic**: Is this a production web server or a dev box?
 -   [ ] **Inspect Netflow**: Check VPC Flow Logs. Is it talking to a mining pool?
@@ -1324,6 +1544,10 @@ graph LR
 ## 5. Recovery
 -   [ ] **Validate**: Scan the new instance for vulnerabilities.
 -   [ ] **Restore**: Add back to Load Balancer.
+
+## References
+-   [AWS Security Incident Response Guide](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/welcome.html)
+-   [Amazon EC2 Security Best Practices](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-best-practices.html)
 
 ## 6. Root Cause Analysis (VERIS)
 -   **Actor**: [External]
@@ -1348,6 +1572,18 @@ graph LR
 -   **Trigger**: การเชื่อมต่อออกไปยัง C2 Server ที่รู้จัก
 
 ## 2. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[EC2 Alert] --> Verify[Verify Instance]
+    Verify -->|Production| Netflow{Mining Pool?}
+    Verify -->|Dev/Test| Stop[Stop Instance]
+    Netflow -->|Yes| Snapshot[Snapshot EBS]
+    Netflow -->|No| Investigate[Investigate Process]
+    Snapshot --> Isolate[Isolate SG]
+    Isolate --> Forensics[Forensics]
+```
+
 -   [ ] **ระบุเครื่อง**: หา Instance ID, Region, และเจ้าของเครื่อง
 -   [ ] **แยกแยะ**: เป็น Web Server ขายของ หรือเครื่อง Test?
 -   [ ] **ดู Flow**: เช็ค VPC Flow Logs ว่ามีการคุยกับ Mining Pool หรือไม่?
@@ -1365,6 +1601,10 @@ graph LR
 ## 5. การกู้คืน (Recovery)
 -   [ ] **ตรวจสอบ**: Scan ช่องโหว่เครื่องใหม่ก่อนใช้งานจริง
 -   [ ] **คืนสภาพ**: นำกลับเข้า Load Balancer
+
+## References
+-   [AWS Security Incident Response Guide](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/welcome.html)
+-   [Amazon EC2 Security Best Practices](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-best-practices.html)
 
 ## 6. วิเคราะห์สาเหตุ (VERIS)
 -   **ผู้กระทำ**: [External]
@@ -1389,6 +1629,17 @@ graph LR
 -   **Trigger**: Massive data egress from a specific bucket.
 
 ## 2. Analysis
+
+```mermaid
+graph TD
+    Alert[S3 Alert] --> Config[Check Config]
+    Config -->|Public| Block[Block Public Access]
+    Config -->|Private| Egress{High Egress?}
+    Egress -->|Yes| User{Identify User}
+    User -->|Compromised| Disable[Disable Keys]
+    Block --> Logs[Review Access Logs]
+```
+
 -   [ ] **Verify Config**: Check bucket permissions in AWS Console > S3.
     -   Is "Block Public Access" turned off?
     -   Is there a Bucket Policy allowing `"Principal": "*"`?
@@ -1410,6 +1661,10 @@ graph LR
 -   [ ] **Validate**: Confirm public access is blocked via AWS Config.
 -   [ ] **Notify**: Inform Data Privacy Officer if PII was accessed.
 -   [ ] **Monitor**: Watch for re-attempted access for 24 hours.
+
+## References
+-   [AWS S3 Security Best Practices](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html)
+-   [Preventing Public Access to S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html)
 
 ## 6. Root Cause Analysis (VERIS)
 -   **Actor**: [External / Internal / Partner]
@@ -1434,6 +1689,17 @@ graph LR
 -   **Trigger**: ปริมาณการดาวน์โหลดข้อมูล (Egress) สูงผิดปกติจาก Bucket
 
 ## 2. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[S3 Alert] --> Config[Check Config]
+    Config -->|Public| Block[Block Public Access]
+    Config -->|Private| Egress{High Egress?}
+    Egress -->|Yes| User{Identify User}
+    User -->|Compromised| Disable[Disable Keys]
+    Block --> Logs[Review Access Logs]
+```
+
 -   [ ] **ตรวจสอบการตั้งค่า**: ดูสิทธิ์ใน AWS Console > S3
     -   "Block Public Access" ถูกปิดอยู่หรือไม่?
     -   Bucket Policy อนุญาต `"Principal": "*"` หรือไม่?
@@ -1456,6 +1722,10 @@ graph LR
 -   [ ] **แจ้งเตือน**: แจ้งผูดูแลข้อมูลส่วนบุคคล (DPO) หากมีข้อมูลลูกค้าหลุด
 -   [ ] **เฝ้าระวัง**: ดูแลต่อเนื่อง 24 ชม.
 
+## References
+-   [AWS S3 Security Best Practices](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html)
+-   [Preventing Public Access to S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html)
+
 ## 6. วิเคราะห์สาเหตุ (VERIS)
 -   **ผู้กระทำ**: [External / Internal / Partner]
 -   **การกระทำ**: [Misconfiguration / Hacking]
@@ -1473,7 +1743,19 @@ graph LR
 **Severity**: High/Critical
 **Trigger**: User Report ("I didn't log in"), SIEM Alert ("Login from unusual location").
 
-## 1. Analysis (Triage)
+## 1. Analysis
+
+```mermaid
+graph TD
+    Alert[Suspicious Login] --> Context{Location/Device?}
+    Context -->|Known| False[False Positive]
+    Context -->|Unknown| Contact[Verify with User]
+    Contact -->|User: Yes| Reset[Reset Password]
+    Contact -->|User: No| Compromised[MFA Reset & Revoke]
+    Compromised --> LogAudit[Audit Logs]
+```
+
+-   **Verify**: Use "Impossible Travel" logic.
 -   [ ] **Validate Activity**: Confirm with the user via specific channel (Phone/Slack) if they performed the action.
 -   [ ] **Review Logs**: Check for subsequent actions (File Access, Email Forwarding, MFA changes).
 
@@ -1503,6 +1785,17 @@ graph LR
 **ตัวกระตุ้น**: ผู้ใช้แจ้ง ("ฉันไม่ได้ล็อกอิน"), แจ้งเตือน SIEM ("ล็อกอินจากสถานที่แปลกๆ")
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[Suspicious Login] --> Context{Location/Device?}
+    Context -->|Known| False[False Positive]
+    Context -->|Unknown| Contact[Verify with User]
+    Contact -->|User: Yes| Reset[Reset Password]
+    Contact -->|User: No| Compromised[MFA Reset & Revoke]
+    Compromised --> LogAudit[Audit Logs]
+```
+
 -   [ ] **ยืนยันตัวตน**: ติดต่อผู้ใช้ผ่านช่องทางอื่น (โทร/Slack) ว่าได้ทำรายการนั้นจริงหรือไม่
 -   [ ] **ตรวจสอบ Logs**: ดูการกระทำที่ตามมา (เข้าถึงไฟล์, ตั้งค่า Forward อีเมล, เปลี่ยน MFA)
 
@@ -1519,6 +1812,11 @@ graph LR
 ## 4. การกู้คืน (Recovery)
 -   [ ] **เปิดใช้งานบัญชี**: คืนสิทธิ์การใช้งาน
 -   [ ] **การเฝ้าระวัง**: เพิ่มชื่อผู้ใช้ในกลุ่ม "High Risk" เพื่อจับตาดูเป็นพิเศษ 48 ชั่วโมง
+-   **ผลกระทบ (Attribute)**: [Confidentiality / Integrity]
+
+## References
+-   [MITRE ATT&CK T1078 (Valid Accounts)](https://attack.mitre.org/techniques/T1078/)
+-   [Azure AD Identity Protection](https://learn.microsoft.com/en-us/azure/active-directory/identity-protection/overview-identity-protection)
 
 
 ---
@@ -1537,6 +1835,17 @@ graph LR
 -   **Trigger**: MFA Fatigue (User denies multiple requests, then accepts one).
 
 ## 2. Analysis
+
+```mermaid
+graph TD
+    Alert[Identity Risk] --> User[Contact User]
+    User -->|Confirmed| False[False Positive]
+    User -->|Denied/NoResponse| Logs[Review Sign-ins]
+    Logs -->|Suspicious| Revoke[Revoke Sessions]
+    Revoke --> Reset[Reset Password]
+    Reset --> EnforceMFA[Enforce MFA]
+```
+
 -   [ ] **Contact User**: Out-of-band verification (Call/Slack). "Did you just login from Nigeria?"
 -   [ ] **Review Sign-ins**: Check Azure AD Sign-in Logs. Were there failed attempts before the success?
 -   [ ] **Check Device**: Was the device Compliant/Hybrid Joined?
@@ -1553,6 +1862,10 @@ graph LR
 ## 5. Recovery
 -   [ ] **Unblock**: Restore access after verification.
 -   [ ] **Monitor**: Watch account for 48 hours.
+
+## References
+-   [Azure Active Directory Identity Protection](https://learn.microsoft.com/en-us/azure/active-directory/identity-protection/overview-identity-protection)
+-   [Remediate Risks and Unblock Users](https://learn.microsoft.com/en-us/azure/active-directory/identity-protection/howto-identity-protection-remediate-unblock)
 
 ## 6. Root Cause Analysis (VERIS)
 -   **Actor**: [External]
@@ -1577,6 +1890,17 @@ graph LR
 -   **Trigger**: MFA Fatigue (User ปฏิเสธหลายครั้ง แล้วเผลอกดรับหนึ่งครั้ง)
 
 ## 2. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[Identity Risk] --> User[Contact User]
+    User -->|Confirmed| False[False Positive]
+    User -->|Denied/NoResponse| Logs[Review Sign-ins]
+    Logs -->|Suspicious| Revoke[Revoke Sessions]
+    Revoke --> Reset[Reset Password]
+    Reset --> EnforceMFA[Enforce MFA]
+```
+
 -   [ ] **ติดต่อเจ้าตัว**: โทรหาหรือแชทถาม "คุณได้ล็อกอินจากไนจีเรียหรือไม่?"
 -   [ ] **ดูประวัติ**: เช็ค Sign-in Logs มีการเดารหัสผิดก่อนหน้านั้นไหม?
 -   [ ] **เช็คอุปกรณ์**: อุปกรณ์ที่ใช้ล็อกอินเป็นของบริษัท (Compliant) หรือไม่?
@@ -1593,6 +1917,10 @@ graph LR
 ## 5. การกู้คืน (Recovery)
 -   [ ] **ปลดบล็อก**: คืนสิทธิ์การใช้งานเมื่อปลอดภัย
 -   [ ] **เฝ้าระวัง**: จับตาดูบัญชีนี้เป็นพิเศษ 48 ชม.
+
+## References
+-   [Azure Active Directory Identity Protection](https://learn.microsoft.com/en-us/azure/active-directory/identity-protection/overview-identity-protection)
+-   [Remediate Risks and Unblock Users](https://learn.microsoft.com/en-us/azure/active-directory/identity-protection/howto-identity-protection-remediate-unblock)
 
 ## 6. วิเคราะห์สาเหตุ (VERIS)
 -   **ผู้กระทำ**: [External]
@@ -1612,6 +1940,19 @@ graph LR
 **Trigger**: User Report ("Suspicious Invoice"), Mail Filter ("Forwarding Rule created").
 
 ## 1. Analysis (Triage)
+
+```mermaid
+graph TD
+    Alert[Suspicious Email] --> Header[Check Headers]
+    Header --> SPF{SPF/DKIM Fail?}
+    SPF -->|Yes| Spoof[Spoofing]
+    SPF -->|No| Content{Urgent Request?}
+    Content -->|Wire Transfer| Finance[Check w/ Finance]
+    Finance -->|Fake| BEC[BEC Confirmed]
+    Spoof --> BEC
+    BEC --> Reset[Reset Password]
+```
+
 -   **Header Analysis**: Check `Return-Path`, `Reply-To`, and `SPF/DKIM` results.
 -   **Rule Check**: Look for Inbox Rules named "." or "Move to RSS Feeds" (Common hiding tactic).
 -   **Login Logs**: Check for successful logins from foreign countries prior to the email.
@@ -1627,6 +1968,11 @@ graph LR
 
 ## 4. Recovery
 -   **Notify Finance**: If the email involved payments, immediately stop wire transfers.
+-   **Attribute**: [Integrity / Confidentiality]
+
+## References
+-   [MITRE ATT&CK T1566 (Phishing)](https://attack.mitre.org/techniques/T1566/)
+-   [FBI BEC Scams](https://www.fbi.gov/scams-and-safety/common-scams-and-crimes/business-email-compromise)
 
 
 ---
@@ -1640,6 +1986,19 @@ graph LR
 **ตัวกระตุ้น**: ผู้ใช้แจ้ง ("Invoice น่าสงสัย"), Mail Filter ("สร้างกฎ Forwarding")
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[Suspicious Email] --> Header[Check Headers]
+    Header --> SPF{SPF/DKIM Fail?}
+    SPF -->|Yes| Spoof[Spoofing]
+    SPF -->|No| Content{Urgent Request?}
+    Content -->|Wire Transfer| Finance[Check w/ Finance]
+    Finance -->|Fake| BEC[BEC Confirmed]
+    Spoof --> BEC
+    BEC --> Reset[Reset Password]
+```
+
 -   **วิเคราะห์ Header**: ตรวจสอบ `Return-Path`, `Reply-To`, และผล `SPF/DKIM`
 -   **ตรวจสอบ Rule**: มองหากฎ Inbox ที่ชื่อแปลกๆ เช่น "." หรือ "Move to RSS Feeds" (เทคนิคซ่อนอีเมล)
 -   **ประวัติการล็อกอิน**: มีการล็อกอินจากต่างประเทศก่อนส่งเมลหรือไม่?
@@ -1655,6 +2014,11 @@ graph LR
 
 ## 4. การกู้คืน (Recovery)
 -   **แจ้งฝ่ายการเงิน**: หากอีเมลเกี่ยวข้องกับการโอนเงิน ให้ระงับธุรกรรมทันที
+-   **ผลกระทบ (Attribute)**: [Integrity / Confidentiality]
+
+## References
+-   [MITRE ATT&CK T1566 (Phishing)](https://attack.mitre.org/techniques/T1566/)
+-   [FBI BEC Scams](https://www.fbi.gov/scams-and-safety/common-scams-and-crimes/business-email-compromise)
 
 
 ---
@@ -1666,8 +2030,24 @@ graph LR
 **ID**: PB-04
 **Severity**: Low/Medium
 **Trigger**: SIEM Alert ("Multiple Failed Logins"), IAM Logs.
+**Attribute**: [Confidentiality]
 
-## 1. Analysis (Triage)
+## 1. Analysis
+
+```mermaid
+graph TD
+    Alert[Failed Logins] --> Count{Count > Threshold?}
+    Count -->|No| Ignore[Ignore]
+    Count -->|Yes| Source{Source IP?}
+    Source -->|Internal| Contact[Contact User]
+    Source -->|External| Block[Block IP]
+    Contact --> Reset[Reset Password]
+    Block --> Reset
+```
+
+-   **Verify**: Is it a single user or multiple users (Password Spray)?
+
+
 -   [ ] **Check Source IP**: Is the IP internal or external? Is it a known VPN?
 -   [ ] **Check User**: Is the targeted account valid? Is it a VIP/Admin?
 -   [ ] **Volume**: How many attempts? (e.g., > 10 failures in 1 min).
@@ -1696,6 +2076,18 @@ graph LR
 **ตัวกระตุ้น**: แจ้งเตือน SIEM ("ล็อกอินล้มเหลวหลายครั้ง"), IAM Logs
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[Failed Logins] --> Count{Count > Threshold?}
+    Count -->|No| Ignore[Ignore]
+    Count -->|Yes| Source{Source IP?}
+    Source -->|Internal| Contact[Contact User]
+    Source -->|External| Block[Block IP]
+    Contact --> Reset[Reset Password]
+    Block --> Reset
+```
+
 -   [ ] **ตรวจสอบ IP ต้นทาง**: ภายในหรือภายนอก? เป็น VPN ที่รู้จักหรือไม่?
 -   [ ] **ตรวจสอบผู้ใช้**: บัญชีที่ถูกโจมตีมีอยู่จริงหรือไม่? เป็นผู้บริหาร/แอดมินหรือไม่?
 -   [ ] **ปริมาณ**: จำนวนครั้งที่ผิดพลาด? (เช่น > 10 ครั้งใน 1 นาที)
@@ -1711,6 +2103,11 @@ graph LR
 
 ## 4. การกู้คืน (Recovery)
 -   [ ] **ปลดล็อกบัญชี**: คืนสิทธิ์การใช้งานให้เจ้าของบัญชีหลังยืนยันตัวตน
+-   **ผลกระทบ (Attribute)**: [Confidentiality]
+
+## References
+-   [MITRE ATT&CK T1110 (Brute Force)](https://attack.mitre.org/techniques/T1110/)
+-   [OWASP Authentication Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html)
 
 
 ---
@@ -1724,6 +2121,17 @@ graph LR
 **Trigger**: Network/NDR Alert ("Beaconing detected", "Connection to known C2 IP").
 
 ## 1. Analysis (Triage)
+
+```mermaid
+graph TD
+    Alert[C2 Beacon] --> Rep{Domain Rep?}
+    Rep -->|New/Bad| True[True Positive]
+    Rep -->|Known Good| Freq{Beaconing?}
+    Freq -->|Regular| True
+    Freq -->|Random| False[False Positive]
+    True --> Block[Block Domain]
+```
+
 -   **Frequency**: Is it beaconing? (Regular interval requests e.g., every 5 mins).
 -   **Domain Reputation**: Check domain age and category (Newly Registered Domain?).
 -   **Process**: Which process is making the connection? (powershell.exe vs. chrome.exe).
@@ -1738,6 +2146,11 @@ graph LR
 
 ## 4. Recovery
 -   **Threat Intel**: Submit the C2 IOC to Threat Intelligence Platform to update all tools.
+-   **Attribute**: [Confidentiality / Integrity]
+
+## References
+-   [MITRE ATT&CK T1071 (Application Layer Protocol)](https://attack.mitre.org/techniques/T1071/)
+-   [SANS Hunt Evil: Beaconing](https://www.sans.org/white-papers/39600/)
 
 
 ---
@@ -1751,6 +2164,17 @@ graph LR
 **ตัวกระตุ้น**: แจ้งเตือน Network/NDR ("Beaconing detected", "เชื่อมต่อไปยัง Known C2 IP")
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[C2 Beacon] --> Rep{Domain Rep?}
+    Rep -->|New/Bad| True[True Positive]
+    Rep -->|Known Good| Freq{Beaconing?}
+    Freq -->|Regular| True
+    Freq -->|Random| False[False Positive]
+    True --> Block[Block Domain]
+```
+
 -   **ความถี่ (Beaconing)**: มีจังหวะเวลาสม่ำเสมอหรือไม่? (เช่น ทุก 5 นาที)
 -   **ชื่อโดเมน**: ตรวจสอบอายุโดเมน (เพิ่งจดทะเบียนใหม่?)
 -   **Process**: โปรแกรมอะไรเป็นตัวเชื่อมต่อออกไป? (powershell.exe vs chrome.exe)
@@ -1765,6 +2189,11 @@ graph LR
 
 ## 4. การกู้คืน (Recovery)
 -   **Threat Intel**: ส่งข้อมูล C2 IP/Domain ไปยังระบบ Threat Intelligence เพื่ออัปเดตเครื่องมือป้องกันอื่นๆ
+-   **ผลกระทบ (Attribute)**: [Confidentiality / Integrity]
+
+## References
+-   [MITRE ATT&CK T1071 (Application Layer Protocol)](https://attack.mitre.org/techniques/T1071/)
+-   [SANS Hunt Evil: Beaconing](https://www.sans.org/white-papers/39600/)
 
 
 ---
@@ -1778,6 +2207,21 @@ graph LR
 **Trigger**: CloudTrail/Azure Monitor ("Root/GlobalAdmin Login", "New IAM User created").
 
 ## 1. Analysis (Triage)
+
+```mermaid
+graph TD
+    Alert[IAM Alert] --> Type{Root or User?}
+    Type -->|User| API{API/Console?}
+    Type -->|Root/Global| Critical[Critical Alert]
+    API -->|Console| Location{Location?}
+    API -->|Programmatic| Key{Access Key?}
+    Location -->|Abnormal| True[True Positive]
+    Location -->|Normal| False[False Positive]
+    Critical --> Legacy[Legacy Use?]
+    Legacy -->|No| True
+    True --> Revoke[Revoke Sessions]
+```
+
 -   **Root Usage**: Was the Root/Global Admin account used? (Should be rare).
 -   **API Call**: Was it a console login or a programmatic API call?
 -   **Location**: Is the IP consistent with the admin's location?
@@ -1793,6 +2237,11 @@ graph LR
 
 ## 4. Recovery
 -   **MFA**: Enforce hardware MFA for Root/Global Admins.
+-   **Attribute**: [Integrity / Confidentiality]
+
+## References
+-   [MITRE ATT&CK T1098 (Cloud Account Manipulation)](https://attack.mitre.org/techniques/T1098/)
+-   [AWS Security Incident Response Guide](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/welcome.html)
 
 
 ---
@@ -1806,6 +2255,21 @@ graph LR
 **ตัวกระตุ้น**: CloudTrail/Azure Monitor ("Root/GlobalAdmin Login", "สร้าง IAM User ใหม่")
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[IAM Alert] --> Type{Root or User?}
+    Type -->|User| API{API/Console?}
+    Type -->|Root/Global| Critical[Critical Alert]
+    API -->|Console| Location{Location?}
+    API -->|Programmatic| Key{Access Key?}
+    Location -->|Abnormal| True[True Positive]
+    Location -->|Normal| False[False Positive]
+    Critical --> Legacy[Legacy Use?]
+    Legacy -->|No| True
+    True --> Revoke[Revoke Sessions]
+```
+
 -   **Root Usage**: มีการใช้บัญชี Root หรือ Global Admin หรือไม่? (ควรใช้น้อยมาก)
 -   **API Call**: เป็นการล็อกอินผ่านหน้าเว็บ หรือยิง API?
 -   **ตำแหน่ง**: IP ที่ใช้ตรงกับที่อยู่ของ Admin คนนั้นหรือไม่?
@@ -1821,6 +2285,11 @@ graph LR
 
 ## 4. การกู้คืน (Recovery)
 -   **MFA**: บังคับใช้ Hardware MFA สำหรับบัญชีระดับ Root/Global Admin
+-   **ผลกระทบ (Attribute)**: [Integrity / Confidentiality]
+
+## References
+-   [MITRE ATT&CK T1098 (Cloud Account Manipulation)](https://attack.mitre.org/techniques/T1098/)
+-   [AWS Security Incident Response Guide](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/welcome.html)
 
 
 ---
@@ -1834,6 +2303,17 @@ graph LR
 **Trigger**: Monitoring Alert ("High CPU/Bandwidth"), WAF Logs ("Flood Detected").
 
 ## 1. Analysis (Triage)
+
+```mermaid
+graph TD
+    Alert[High Traffic] --> Analyze{Traffic Type?}
+    Analyze -->|Legitimate Spike| False[Scale Up]
+    Analyze -->|Malicious Flood| True[True Positive]
+    True --> Mitigation{WAF/Scrubbing?}
+    Mitigation -->|Effect| Monitor[Monitor]
+    Mitigation -->|Fail| Blackhole[Blackhole]
+```
+
 -   **Confirm Attack**: Distinguish between legitimate traffic spike (Marketing campaign) vs. Attack.
 -   **Identify Type**: Volumetric (UDP/ICMP Flood) or Application (HTTP GET/POST Flood).
 -   **Target**: What specific IP or URL is being hit?
@@ -1846,6 +2326,11 @@ graph LR
 ## 3. Recovery
 -   **Monitor Stability**: Watch traffic graphs closely as mitigation rules apply.
 -   **Scale Up**: Add more web server instances (Auto-scaling) if possible to handle load.
+-   **Attribute**: [Availability]
+
+## References
+-   [MITRE ATT&CK T1498 (Network Denial of Service)](https://attack.mitre.org/techniques/T1498/)
+-   [CISA DDoS Quick Guide](https://www.cisa.gov/sites/default/files/publications/ddos-quick-guide.pdf)
 
 
 ---
@@ -1859,6 +2344,17 @@ graph LR
 **ตัวกระตุ้น**: แจ้งเตือน Monitoring ("High CPU/Bandwidth"), WAF Logs ("พบการ Flood")
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[High Traffic] --> Analyze{Traffic Type?}
+    Analyze -->|Legitimate Spike| False[Scale Up]
+    Analyze -->|Malicious Flood| True[True Positive]
+    True --> Mitigation{WAF/Scrubbing?}
+    Mitigation -->|Effect| Monitor[Monitor]
+    Mitigation -->|Fail| Blackhole[Blackhole]
+```
+
 -   **ยืนยันการโจมตี**: แยกแยะระหว่างคนเข้าใช้งานจริง (เช่น แคมเปญการตลาด) กับการโจมตี
 -   **ระบุประเภท**: ปริมาณมหาศาล (UDP/ICMP Flood) หรือ โจมตีแอปพลิเคชัน (HTTP GET/POST Flood)
 -   **เป้าหมาย**: IP หรือ URL ใดที่ถูกโจมตี?
@@ -1871,6 +2367,11 @@ graph LR
 ## 3. การกู้คืน (Recovery)
 -   **เฝ้าระวัง**: ดูหน้ากราฟ Traffic อย่างใกล้ชิดเมื่อเปิดใช้งานกฎป้องกัน
 -   **ขยายระบบ**: เพิ่มจำนวน Server (Auto-scaling) เพื่อรองรับโหลดถ้าทำได้
+-   **ผลกระทบ (Attribute)**: [Availability]
+
+## References
+-   [MITRE ATT&CK T1498 (Network Denial of Service)](https://attack.mitre.org/techniques/T1498/)
+-   [CISA DDoS Quick Guide](https://www.cisa.gov/sites/default/files/publications/ddos-quick-guide.pdf)
 
 
 ---
@@ -1884,6 +2385,17 @@ graph LR
 **Trigger**: DLP Alert, SIEM ("Large Upload to Unknown IP").
 
 ## 1. Analysis (Triage)
+
+```mermaid
+graph TD
+    Alert[DLP Alert] --> Classify{Data Type?}
+    Classify -->|Public| False[False Positive]
+    Classify -->|Confidential| Dest{Destination?}
+    Dest -->|Trusted| False
+    Dest -->|Unknown/Bad| True[True Positive]
+    True --> Block[Block Destination]
+```
+
 -   **Verify Volume**: Is the data transfer size anomalous for this user/server?
 -   **Check Destination**: Is the IP/Domain trusted (e.g., Corporate OneDrive) or unknown?
 -   **Inspect Content**: If possible, check DLP logs for file names or classifications (PII/Confidential).
@@ -1900,6 +2412,11 @@ graph LR
 ## 4. Recovery
 -   **Legal Review**: Consult Legal/Privacy team if PII was leaked.
 -   **Damage Assessment**: List exactly what files were lost.
+-   **Attribute**: [Confidentiality]
+
+## References
+-   [MITRE ATT&CK T1048 (Exfiltration Over Alternative Protocol)](https://attack.mitre.org/techniques/T1048/)
+-   [NIST SP 800-61r2 (Data Security)](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
 
 ---
@@ -1913,6 +2430,17 @@ graph LR
 **ตัวกระตุ้น**: แจ้งเตือน DLP, SIEM ("การอัปโหลดขนาดใหญ่ไปยัง IP ที่ไม่รู้จัก")
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[DLP Alert] --> Classify{Data Type?}
+    Classify -->|Public| False[False Positive]
+    Classify -->|Confidential| Dest{Destination?}
+    Dest -->|Trusted| False
+    Dest -->|Unknown/Bad| True[True Positive]
+    True --> Block[Block Destination]
+```
+
 -   **ตรวจสอบปริมาณ**: ขนาดข้อมูลที่ส่งออกผิดปกติสำหรับผู้ใช้/เซิร์ฟเวอร์นี้หรือไม่?
 -   **ตรวจสอบปลายทาง**: IP/Domain เป็นที่น่าเชื่อถือ (เช่น OneDrive องค์กร) หรือไม่?
 -   **ตรวจสอบเนื้อหา**: ดู DLP Log ว่าไฟล์ประเภทใดถูกส่งออก (PII/ความลับ)
@@ -1929,6 +2457,11 @@ graph LR
 ## 4. การกู้คืน (Recovery)
 -   **ฝ่ายกฎหมาย**: ปรึกษาทีมกฎหมายหากมีข้อมูล PII รั่วไหล
 -   **ประเมินความเสียหาย**: ลิสต์รายการไฟล์ที่สูญหายทั้งหมด
+-   **ผลกระทบ (Attribute)**: [Confidentiality]
+
+## References
+-   [MITRE ATT&CK T1048 (Exfiltration Over Alternative Protocol)](https://attack.mitre.org/techniques/T1048/)
+-   [NIST SP 800-61r2 (Data Security)](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
 
 ---
@@ -1942,6 +2475,18 @@ graph LR
 **Trigger**: IPS Alert ("Exploit Attempt"), WAF Log ("CVE-XXXX detected").
 
 ## 1. Analysis (Triage)
+
+```mermaid
+graph TD
+    Alert[Exploit Alert] --> Verify{Vulnerable?}
+    Verify -->|Patched| False[False Positive]
+    Verify -->|Vulnerable| Response{Server Response?}
+    Response -->|200 OK/Shell| Succ[Success]
+    Response -->|403/Drop| Fail[Attempt Blocked]
+    Succ --> Isolate[Isolate Host]
+    Fail --> BlockIP[Block Attacker]
+```
+
 -   **Confirm CVE**: Which vulnerability is being targeted? (e.g., Log4Shell, BlueKeep).
 -   **Check Asset**: Is the destination Vulnerable? (Check CMDB/Vuln Scan results).
 -   **Response**: Did the server respond heavily? (Reverse Shell connection?).
@@ -1957,6 +2502,11 @@ graph LR
 
 ## 4. Recovery
 -   **Verify Patch**: Run a vulnerability scan to confirm the hole is closed.
+-   **Attribute**: [Integrity]
+
+## References
+-   [MITRE ATT&CK T1190 (Exploit Public-Facing Application)](https://attack.mitre.org/techniques/T1190/)
+-   [CISA Known Exploited Vulnerabilities Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
 
 
 ---
@@ -1970,6 +2520,18 @@ graph LR
 **ตัวกระตุ้น**: IPS Alert ("Exploit Attempt"), WAF Log ("พบ CVE-XXXX")
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[Exploit Alert] --> Verify{Vulnerable?}
+    Verify -->|Patched| False[False Positive]
+    Verify -->|Vulnerable| Response{Server Response?}
+    Response -->|200 OK/Shell| Succ[Success]
+    Response -->|403/Drop| Fail[Attempt Blocked]
+    Succ --> Isolate[Isolate Host]
+    Fail --> BlockIP[Block Attacker]
+```
+
 -   **ยืนยัน CVE**: ช่องโหว่ไหนที่กำลังถูกโจมตี? (เช่น Log4Shell, BlueKeep)
 -   **ตรวจสอบเครื่อง**: เครื่องเป้าหมายมีช่องโหว่นั้นหรือไม่? (เช็คผล Vuln Scan)
 -   **ผลลัพธ์**: Server มีการตอบสนองผิดปกติหรือไม่? (Reverse Shell?)
@@ -1985,6 +2547,11 @@ graph LR
 
 ## 4. การกู้คืน (Recovery)
 -   **ยืนยัน Patch**: สแกนช่องโหว่ซ้ำเพื่อตรวจสอบว่าได้รับการแก้ไขแล้ว
+-   **ผลกระทบ (Attribute)**: [Integrity]
+
+## References
+-   [MITRE ATT&CK T1190 (Exploit Public-Facing Application)](https://attack.mitre.org/techniques/T1190/)
+-   [CISA Known Exploited Vulnerabilities Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
 
 
 ---
@@ -1998,6 +2565,19 @@ graph LR
 **Trigger**: SIEM Alert ("Login from two distant locations within short time").
 
 ## 1. Analysis (Triage)
+
+```mermaid
+graph TD
+    Alert[Imp. Travel Alert] --> VPN{Corporate VPN?}
+    VPN -->|Yes| False[False Positive]
+    VPN -->|No| Speed{Physics Possible?}
+    Speed -->|Yes| False
+    Speed -->|No| User{User Traveling?}
+    User -->|Yes| False
+    User -->|No| True[True Positive]
+    True --> Kill[Terminate Session]
+```
+
 -   [ ] **Check Locations**: Are the countries/cities logical? (e.g., US -> China in 10 mins).
 -   [ ] **Check VPN**: Is the user on a corporate VPN that routes traffic?
 -   [ ] **Check User Context**: Is the user traveling? Did they report this?
@@ -2013,6 +2593,11 @@ graph LR
 
 ## 4. Recovery
 -   [ ] **Monitor Account**: Watch for further anomalies for 24 hours.
+-   **Attribute**: [Confidentiality]
+
+## References
+-   [MITRE ATT&CK T1078 (Valid Accounts)](https://attack.mitre.org/techniques/T1078/)
+-   [Microsoft Identity Protection](https://learn.microsoft.com/en-us/entra/id-protection/concept-identity-protection-risks)
 
 
 ---
@@ -2026,6 +2611,19 @@ graph LR
 **ตัวกระตุ้น**: แจ้งเตือน SIEM ("ล็อกอินจากสองสถานที่ห่างไกลในเวลาสั้นๆ")
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[Imp. Travel Alert] --> VPN{Corporate VPN?}
+    VPN -->|Yes| False[False Positive]
+    VPN -->|No| Speed{Physics Possible?}
+    Speed -->|Yes| False
+    Speed -->|No| User{User Traveling?}
+    User -->|Yes| False
+    User -->|No| True[True Positive]
+    True --> Kill[Terminate Session]
+```
+
 -   [ ] **ตรวจสอบสถานที่**: ประเทศ/เมือง มีเหตุผลหรือไม่? (เช่น ไทย -> จีน ภายใน 10 นาที)
 -   [ ] **ตรวจสอบ VPN**: ผู้ใช้ต่อ VPN องค์กรที่อาจเปลี่ยน IP หรือไม่?
 -   [ ] **บริบทผู้ใช้**: ผู้ใช้อยู่ระหว่างการเดินทางหรือไม่? มีการแจ้งล่วงหน้าหรือไม่?
@@ -2041,6 +2639,11 @@ graph LR
 
 ## 4. การกู้คืน (Recovery)
 -   [ ] **เฝ้าระวัง**: จับตาดูบัญชีนี้เป็นพิเศษ 24 ชั่วโมง
+-   **ผลกระทบ (Attribute)**: [Confidentiality]
+
+## References
+-   [MITRE ATT&CK T1078 (Valid Accounts)](https://attack.mitre.org/techniques/T1078/)
+-   [Microsoft Identity Protection](https://learn.microsoft.com/en-us/entra/id-protection/concept-identity-protection-risks)
 
 
 ---
@@ -2054,6 +2657,17 @@ graph LR
 **Trigger**: UEBA Alert (Abnormal Access Hours), Data Access Logs (Bulk File Copy).
 
 ## 1. Analysis (Triage)
+
+```mermaid
+graph TD
+    Alert[Insider Alert] --> Context{Leaver?}
+    Context -->|Notice Period| HighRisk[High Risk]
+    Context -->|Normal| Baseline{Abnormal?}
+    Baseline -->|Yes| HighRisk
+    Baseline -->|No| False[False Positive]
+    HighRisk --> HR[Contact HR]
+```
+
 -   **Context**: Is the user leaving the company (Notice period)?
 -   **Baseline**: Is this normal behavior for their role (e.g., Backup Administrator)?
 -   **HR Check**: Check employment status.
@@ -2069,6 +2683,11 @@ graph LR
 
 ## 4. Recovery
 -   **Legal Action**: HR and Legal to determine employment termination or legal proceedings.
+-   **Attribute**: [Confidentiality]
+
+## References
+-   [MITRE ATT&CK T1534 (Internal Spearphishing)](https://attack.mitre.org/techniques/T1534/)
+-   [CISA Insider Threat Mitigation Guide](https://www.cisa.gov/topics/physical-security/insider-threat-mitigation)
 
 
 ---
@@ -2082,6 +2701,17 @@ graph LR
 **ตัวกระตุ้น**: UEBA Alert (เวลาเข้างานผิดปกติ), Data Access Logs (การก๊อปปี้ไฟล์จำนวนมาก)
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[Insider Alert] --> Context{Leaver?}
+    Context -->|Notice Period| HighRisk[High Risk]
+    Context -->|Normal| Baseline{Abnormal?}
+    Baseline -->|Yes| HighRisk
+    Baseline -->|No| False[False Positive]
+    HighRisk --> HR[Contact HR]
+```
+
 -   **บริบท**: พนักงานคนนี้กำลังจะลาออกหรือไม่? (อยู่ในช่วง Notice period)
 -   **Baseline**: เป็นพฤติกรรมปกติของตำแหน่งงานหรือไม่? (เช่น Admin ทำ Backup)
 -   **HR Check**: ตรวจสอบสถานะการจ้างงาน
@@ -2097,6 +2727,11 @@ graph LR
 
 ## 4. การกู้คืน (Recovery)
 -   **กฎหมาย**: HR และฝ่ายกฎหมายพิจารณาเลิกจ้างหรือดำเนินคดี
+-   **ผลกระทบ (Attribute)**: [Confidentiality]
+
+## References
+-   [MITRE ATT&CK T1534 (Internal Spearphishing)](https://attack.mitre.org/techniques/T1534/)
+-   [CISA Insider Threat Mitigation Guide](https://www.cisa.gov/topics/physical-security/insider-threat-mitigation)
 
 
 ---
@@ -2110,6 +2745,17 @@ graph LR
 **Trigger**: EDR/SIEM Alert ("Remote Service Creation", "SMB/RDP to multiple hosts").
 
 ## 1. Analysis (Triage)
+
+```mermaid
+graph TD
+    Alert[LatMov Alert] --> Identify[Identify Source]
+    Identify --> Check{Authorized?}
+    Check -->|Admin Work| False[False Positive]
+    Check -->|Unknown| Dest{Destination?}
+    Dest -->|Critical Asset| True[True Positive]
+    True --> Isolate[Isolate Source]
+```
+
 -   **Source**: Identify Patient Zero (First infected host).
 -   **Method**: How are they moving? (PsExec, WMI, RDP, WinRM).
 -   **Credentials**: Which user account is being leveraged?
@@ -2125,6 +2771,11 @@ graph LR
 
 ## 4. Recovery
 -   **Segmentation**: Review network segmentation. Workstations should generally not talk to other workstations (Client-to-Client communication).
+-   **Attribute**: [Confidentiality / Integrity]
+
+## References
+-   [MITRE ATT&CK T1021 (Remote Services)](https://attack.mitre.org/techniques/T1021/)
+-   [JPCERT Lateral Movement Guide](https://www.jpcert.or.jp/english/pub/sr/20170612ac-ir_research_en.pdf)
 
 
 ---
@@ -2138,6 +2789,17 @@ graph LR
 **ตัวกระตุ้น**: แจ้งเตือน EDR/SIEM ("Remote Service Creation", "SMB/RDP ไปยังหลายเครื่อง")
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[LatMov Alert] --> Identify[Identify Source]
+    Identify --> Check{Authorized?}
+    Check -->|Admin Work| False[False Positive]
+    Check -->|Unknown| Dest{Destination?}
+    Dest -->|Critical Asset| True[True Positive]
+    True --> Isolate[Isolate Source]
+```
+
 -   **ต้นตอ (Source)**: หา Patient Zero (เครื่องแรกที่ติดเชื้อ)
 -   **วิธีการ**: แฮกเกอร์ใช้วิธีไหน? (PsExec, WMI, RDP, WinRM)
 -   **บัญชีผู้ใช้**: บัญชีไหนที่ถูกนำมาใช้?
@@ -2153,6 +2815,11 @@ graph LR
 
 ## 4. การกู้คืน (Recovery)
 -   **Segmentation**: ทบทวนการแบ่งโซนเครือข่าย โดยปกติ Workstation ไม่ควรคุยกันเองได้ (Block Client-to-Client)
+-   **ผลกระทบ (Attribute)**: [Confidentiality / Integrity]
+
+## References
+-   [MITRE ATT&CK T1021 (Remote Services)](https://attack.mitre.org/techniques/T1021/)
+-   [JPCERT Lateral Movement Guide](https://www.jpcert.or.jp/english/pub/sr/20170612ac-ir_research_en.pdf)
 
 
 ---
@@ -2166,6 +2833,17 @@ graph LR
 **Trigger**: SIEM Alert ("Event Log Cleared", "Audit Policy Disabled").
 
 ## 1. Analysis (Triage)
+
+```mermaid
+graph TD
+    Alert[Log Cleared] --> User{Who?}
+    User -->|System| Maint{Maintenance?}
+    User -->|Admin| Context{Change Ticket?}
+    Maint -->|Yes| False[False Positive]
+    Context -->|No| Suspicious[Suspicious]
+    Suspicious --> Isolate[Isolate Host]
+```
+
 -   **Event ID**: Windows Security Log ID 1102 ("The audit log was cleared").
 -   **User**: Who cleared it? Was it System or a User?
 -   **Correlation**: What happened *immediately before* or *after* the clearing? (Often used to hide malware installation).
@@ -2180,6 +2858,11 @@ graph LR
 
 ## 4. Recovery
 -   **Re-image**: A system with cleared logs cannot be trusted. Re-image is recommended.
+-   **Attribute**: [Integrity]
+
+## References
+-   [MITRE ATT&CK T1070 (Indicator Removal on Host)](https://attack.mitre.org/techniques/T1070/)
+-   [SIGMA Rule: Security Event Log Cleared](https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_event_log_cleared.yml)
 
 
 ---
@@ -2193,6 +2876,17 @@ graph LR
 **ตัวกระตุ้น**: แจ้งเตือน SIEM ("Event Log Cleared", "Audit Policy Disabled")
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[Log Cleared] --> User{Who?}
+    User -->|System| Maint{Maintenance?}
+    User -->|Admin| Context{Change Ticket?}
+    Maint -->|Yes| False[False Positive]
+    Context -->|No| Suspicious[Suspicious]
+    Suspicious --> Isolate[Isolate Host]
+```
+
 -   **Event ID**: Windows Security Log ID 1102 ("The audit log was cleared")
 -   **ผู้กระทำ**: ใครเป็นคนลบ? System หรือ User?
 -   **ความเชื่อมโยง**: เกิดอะไรขึ้น *ก่อน* หรือ *หลัง* การลบ? (มักทำเพื่อซ่อนการติดตั้งมัลแวร์)
@@ -2207,6 +2901,11 @@ graph LR
 
 ## 4. การกู้คืน (Recovery)
 -   **ลงระบบใหม่ (Re-image)**: เครื่องที่ถูกลบ Log ถือว่าไม่น่าเชื่อถืออีกต่อไป ควรล้างเครื่องลงใหม่
+-   **ผลกระทบ (Attribute)**: [Integrity]
+
+## References
+-   [MITRE ATT&CK T1070 (Indicator Removal on Host)](https://attack.mitre.org/techniques/T1070/)
+-   [SIGMA Rule: Security Event Log Cleared](https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_event_log_cleared.yml)
 
 
 ---
@@ -2220,6 +2919,18 @@ graph LR
 **Trigger**: User Report ("I left my laptop at the airport"), MDM Alert ("Device Offline > 30 Days").
 
 ## 1. Analysis (Triage)
+
+```mermaid
+graph TD
+    Alert[Device Lost] --> Encrypted{Encrypted?}
+    Encrypted -->|No| Critical[Critical Risk]
+    Encrypted -->|Yes| Online{Device Online?}
+    Online -->|Yes| Wipe[Remote Wipe]
+    Online -->|No| Pending[Queue Wipe]
+    Critical --> Wipe
+    Wipe --> Reset[Reset Creds]
+```
+
 -   **Device Type**: Laptop (Full Disk Encryption?) or Mobile (Passcode?)
 -   **Data Sensitivity**: What data was on the device? (Source code, customer lists).
 -   **Last Online**: When did it last check in with MDM?
@@ -2232,6 +2943,11 @@ graph LR
 ## 3. Recovery
 -   **Replacement**: IT to provision a new device for the user.
 -   **Monitoring**: Watch for login attempts from the old device's serial number.
+-   **Attribute**: [Confidentiality / Availability]
+
+## References
+-   [NIST SP 800-46 (Telework and Remote Access Security)](https://csrc.nist.gov/publications/detail/sp/800-46/rev-2/final)
+-   [MITRE ATT&CK T1025 (Data from Removable Media)](https://attack.mitre.org/techniques/T1025/)
 
 
 ---
@@ -2245,6 +2961,18 @@ graph LR
 **ตัวกระตุ้น**: ผู้ใช้แจ้ง ("ลืมโน้ตบุ๊กไว้ที่สนามบิน"), แจ้งเตือน MDM ("อุปกรณ์ Offline นานกว่า 30 วัน")
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[Device Lost] --> Encrypted{Encrypted?}
+    Encrypted -->|No| Critical[Critical Risk]
+    Encrypted -->|Yes| Online{Device Online?}
+    Online -->|Yes| Wipe[Remote Wipe]
+    Online -->|No| Pending[Queue Wipe]
+    Critical --> Wipe
+    Wipe --> Reset[Reset Creds]
+```
+
 -   **ประเภทอุปกรณ์**: โน้ตบุ๊ก (เข้ารหัสทั้งลูก?) หรือ มือถือ (มีรหัสผ่าน?)
 -   **ข้อมูลภายใน**: มีข้อมูลสำคัญอะไรบ้าง? (Source code, รายชื่อลูกค้า)
 -   **ออนไลน์ล่าสุด**: เชื่อมต่อ MDM ครั้งสุดท้ายเมื่อไหร่?
@@ -2257,6 +2985,11 @@ graph LR
 ## 3. การกู้คืน (Recovery)
 -   **จัดหาเครื่องใหม่**: IT เบิกเครื่องใหม่ให้ผู้ใช้งาน
 -   **เฝ้าระวัง**: จับตาดูการพยายามล็อกอินจาก Serial number ของเครื่องเก่า
+-   **ผลกระทบ (Attribute)**: [Confidentiality / Availability]
+
+## References
+-   [NIST SP 800-46 (Telework and Remote Access Security)](https://csrc.nist.gov/publications/detail/sp/800-46/rev-2/final)
+-   [MITRE ATT&CK T1025 (Data from Removable Media)](https://attack.mitre.org/techniques/T1025/)
 
 
 ---
@@ -2268,9 +3001,22 @@ graph LR
 **ID**: PB-03
 **Severity**: Medium/High
 **Trigger**: EDR alert ("Malicious File Detected"), AV logs, User Report.
+**Attribute**: [Integrity]
 
 ## 1. Analysis (Triage)
--   [ ] **Verify Hash**: Check file hash on VirusTotal/ThreatFox.
+
+```mermaid
+graph TD
+    Alert[AV Alert] --> Verify{File exists?}
+    Verify -->|No| Cleaned[AV Cleaned It]
+    Verify -->|Yes| Hash[Check Hash]
+    Hash -->|Known Bad| Isolate[Isolate]
+    Hash -->|Unknown| Sandbox[Sandbox Analysis]
+    Sandbox -->|Malicious| Isolate
+    Sandbox -->|Benign| False[False Positive]
+```
+
+-   **Verify**: Check full disk path. Check hash on VirusTotal/ThreatFox.
 -   [ ] **Check Path**: Is it in a temp folder (`%TEMP%`, `Downloads`) or System32?
 -   [ ] **Identify User**: Who executed the file?
 
@@ -2282,6 +3028,10 @@ graph LR
 ## 3. Eradication
 -   [ ] **Delete File**: Remove the artifact and persistence mechanisms (Registry Run keys, Scheduled Tasks).
 -   [ ] **Full Scan**: Run a full system scan.
+
+## References
+-   [MITRE ATT&CK T1204 (User Execution)](https://attack.mitre.org/techniques/T1204/)
+-   [NIST SP 800-83 (Guide to Malware Incident Prevention and Handling)](https://csrc.nist.gov/publications/detail/sp/800-83/rev-1/final)
 
 ## 4. Recovery
 -   [ ] **Un-isolate**: Reconnect host after verifying clean status.
@@ -2299,6 +3049,18 @@ graph LR
 **ตัวกระตุ้น**: แจ้งเตือน EDR ("พบไฟล์อันตราย"), AV logs, ผู้ใช้งานแจ้ง
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[AV Alert] --> Verify{File exists?}
+    Verify -->|No| Cleaned[AV Cleaned It]
+    Verify -->|Yes| Hash[Check Hash]
+    Hash -->|Known Bad| Isolate[Isolate]
+    Hash -->|Unknown| Sandbox[Sandbox Analysis]
+    Sandbox -->|Malicious| Isolate
+    Sandbox -->|Benign| False[False Positive]
+```
+
 -   [ ] **ตรวจสอบ Hash**: เช็คค่า Hash ของไฟล์ใน VirusTotal/ThreatFox
 -   [ ] **ตรวจสอบ Path**: ไฟล์อยู่ที่ไหน? (`%TEMP%`, `Downloads`) หรือ System32?
 -   [ ] **ระบุผู้ใช้**: ใครเป็นคนรันไฟล์?
@@ -2315,6 +3077,11 @@ graph LR
 ## 4. การกู้คืน (Recovery)
 -   [ ] **ยกเลิกการแยกเครื่อง**: เชื่อมต่อเครือข่ายกลับคืนหลังยืนยันความปลอดภัย
 -   [ ] **เปลี่ยนรหัสผ่าน**: หากมัลแวร์เป็นประเภทขโมยข้อมูล (Infostealer) ต้องรีเซ็ตรหัสผ่านผู้ใช้
+-   **ผลกระทบ (Attribute)**: [Integrity]
+
+## References
+-   [MITRE ATT&CK T1204 (User Execution)](https://attack.mitre.org/techniques/T1204/)
+-   [NIST SP 800-83 (Guide to Malware Incident Prevention and Handling)](https://csrc.nist.gov/publications/detail/sp/800-83/rev-1/final)
 
 
 ---
@@ -2354,6 +3121,10 @@ flowchart TD
 ## 4. Recovery
 -   Unblock user account after password reset and verification.
 
+## References
+-   [MITRE ATT&CK T1566 (Phishing)](https://attack.mitre.org/techniques/T1566/)
+-   [CISA Phishing Guidance](https://www.cisa.gov/shields-up/phishing-preventing-email-attacks)
+
 
 ---
 
@@ -2390,7 +3161,11 @@ flowchart TD
 -   **MFA**: ตรวจสอบว่า MFA เปิดอยู่ และเช็ค Log ว่ามีการกด Accept แปลกๆ หรือไม่
 
 ## 4. การกู้คืน (Recovery)
--   ปลลดบล็อกบัญชีผู้ใช้หลังจากเปลี่ยนรหัสผ่านและตรวจสอบความปลอดภัยแล้ว
+-   ปลดบล็อกบัญชีผู้ใช้หลังจากเปลี่ยนรหัสผ่านและตรวจสอบความปลอดภัยแล้ว
+
+## References
+-   [MITRE ATT&CK T1566 (Phishing)](https://attack.mitre.org/techniques/T1566/)
+-   [CISA Phishing Guidance](https://www.cisa.gov/shields-up/phishing-preventing-email-attacks)
 
 
 ---
@@ -2404,6 +3179,17 @@ flowchart TD
 **Trigger**: EDR Alert ("Mimikatz detected"), Security Log ("Member added to Domain Admins").
 
 ## 1. Analysis (Triage)
+
+```mermaid
+graph TD
+    Alert[PrivEsc Alert] --> ChangeLog{Change Mgmt?}
+    ChangeLog -->|Approved| False[False Positive]
+    ChangeLog -->|Unknown| User{Verify User}
+    User -->|Valid| False
+    User -->|Unauthorized| True[True Positive]
+    True --> Remove[Remove Rights]
+```
+
 -   [ ] **Verify User**: Did an admin legitimately add this user? Check Change Management logs.
 -   [ ] **Check Process**: What process made the change? (e.g., `net.exe`, PowerShell).
 
@@ -2419,6 +3205,11 @@ flowchart TD
 ## 4. Recovery
 -   [ ] **Restore Permissions**: Revert permissions to the baseline state.
 -   [ ] **Full Audit**: Conduct a full audit of the Active Directory.
+-   **Attribute**: [Integrity]
+
+## References
+-   [MITRE ATT&CK T1098 (Account Manipulation)](https://attack.mitre.org/techniques/T1098/)
+-   [Active Directory Security Best Practices](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory)
 
 
 ---
@@ -2432,6 +3223,17 @@ flowchart TD
 **ตัวกระตุ้น**: แจ้งเตือน EDR ("พบ Mimikatz"), Security Log ("มีการเพิ่มสมาชิกใน Domain Admins")
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[PrivEsc Alert] --> ChangeLog{Change Mgmt?}
+    ChangeLog -->|Approved| False[False Positive]
+    ChangeLog -->|Unknown| User{Verify User}
+    User -->|Valid| False
+    User -->|Unauthorized| True[True Positive]
+    True --> Remove[Remove Rights]
+```
+
 -   [ ] **ตรวจสอบผู้ใช้**: แอดมินเป็นคนทำรายการนี้จริงหรือไม่? เช็คบันทึก Change Management
 -   [ ] **ตรวจสอบ Process**: โปรแกรมอะไรเป็นตัวสั่งการ? (เช่น `net.exe`, PowerShell)
 
@@ -2447,6 +3249,11 @@ flowchart TD
 ## 4. การกู้คืน (Recovery)
 -   [ ] **คืนค่าสิทธิ์**: ปรับสิทธิ์กลับสู่สถานะปกติ
 -   [ ] **Audit**: ตรวจสอบ Active Directory ทั้งระบบอย่างละเอียด
+-   **ผลกระทบ (Attribute)**: [Integrity]
+
+## References
+-   [MITRE ATT&CK T1098 (Account Manipulation)](https://attack.mitre.org/techniques/T1098/)
+-   [Active Directory Security Best Practices](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory)
 
 
 ---
@@ -2457,7 +3264,7 @@ flowchart TD
 
 **Severity**: Critical | **Category**: Malware
 
-## 1. Immediate Action (Containment)
+## 1. Analysis Flow
 
 ```mermaid
 graph TD
@@ -2472,22 +3279,28 @@ graph TD
     Patch --> Reconnect[Reconnect to Network]
 ```
 
--   **Isolate Host**: Use EDR (SentinelOne/CrowdStrike) to "Network Isolate" the infected host immediately.
--   **Disconnect Network**: If EDR fails, physically disconnect the cable or disable Wi-Fi.
--   **Disable User**: Disable the compromised user account in Active Directory/Entra ID.
-
-## 2. Identification (Scope)
--   **Identify Strain**: Use ID Ransomware or check extension/ransom note.
+## 1. Analysis
+-   **Verify**: Check for `.encrypted` extensions or ransom notes.
 -   **Lateral Movement**: Check logs for SMB/RDP traffic from the infected host to others.
 -   **Data Exfiltration**: Check Firewall logs for large outbound transfers.
+
+## 2. Containment
+-   **Isolate Host**: Use EDR to "Network Isolate" the infected host immediately.
+-   **Disconnect Network**: If EDR fails, physically disconnect cable/Wi-Fi.
+-   **Disable User**: Disable the compromised user account in AD.
 
 ## 3. Eradication & Recovery
 -   **Wipe & Re-image**: Do not attempt to clean. Format the drive and reinstall the OS from a clean image.
 -   **Restore Data**: Restore files from the last known good backup (Offline/Immutable backups preferred).
+-   **Attribute**: [Availability / Confidentiality]
 -   **Patch**: Ensure the vulnerability (e.g., RDP, Phishing) used for entry is patched before reconnecting.
 
 ## 4. Notification
 -   Notify Legal/Compliance teams immediately due to potential data breach (GDPR/PDPA).
+
+## References
+-   [MITRE ATT&CK T1486 (Data Encrypted for Impact)](https://attack.mitre.org/techniques/T1486/)
+-   [CISA Ransomware Guide](https://www.cisa.gov/stopransomware/ransomware-guide)
 
 
 ---
@@ -2498,7 +3311,26 @@ graph TD
 
 **ความรุนแรง**: วิกฤต (Critical) | **หมวดหมู่**: มัลแวร์ (Malware)
 
-## 1. การดำเนินการทันที (Containment)
+## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[ตรวจพบ Ransomware] --> Isolate{แยกเครื่อง}
+    Isolate -->|EDR| NetworkIso[ตัดเน็ตด้วย EDR]
+    Isolate -->|Physical| PullCable[ดึงสายแลน]
+    NetworkIso --> Identify[ระบุสายพันธุ์]
+    PullCable --> Identify
+    Identify --> Wipe[ล้างเครื่อง/ลงใหม่]
+    Wipe --> Restore[กู้ข้อมูล]
+    Restore --> Patch[อุดช่องโหว่]
+    Patch --> Reconnect[ต่อกลับเครือข่าย]
+```
+
+-   **ระบุสายพันธุ์**: ใช้เว็บ ID Ransomware หรือตรวจสอบนามสกุลไฟล์/จดหมายเรียกค่าไถ่
+-   **การเคลื่อนที่ (Lateral Movement)**: ตรวจสอบ Log การเชื่อมต่อ SMB/RDP จากเครื่องที่ติดเชื้อไปยังเครื่องอื่น
+-   **การขโมยข้อมูล**: ตรวจสอบ Firewall log เพื่อหาการโอนถ่ายข้อมูลออกข้างนอกที่มีขนาดใหญ่ผิดปกติ
+
+## 2. การจำกัดวง (Containment)
 
 ```mermaid
 graph TD
@@ -2517,10 +3349,6 @@ graph TD
 -   **ตัดการเชื่อมต่อ**: หาก EDR ไม่ทำงาน ให้ดึงสายแลนออกหรือปิด Wi-Fi
 -   **ปิดบัญชีผู้ใช้**: Disable บัญชีผู้ใช้ที่เกี่ยวข้องใน Active Directory/Entra ID
 
-## 2. การระบุขอบเขต (Identification)
--   **ระบุสายพันธุ์**: ใช้เว็บ ID Ransomware หรือตรวจสอบนามสกุลไฟล์/จดหมายเรียกค่าไถ่
--   **การเคลื่อนที่ (Lateral Movement)**: ตรวจสอบ Log การเชื่อมต่อ SMB/RDP จากเครื่องที่ติดเชื้อไปยังเครื่องอื่น
--   **การขโมยข้อมูล**: ตรวจสอบ Firewall log เพื่อหาการโอนถ่ายข้อมูลออกข้างนอกที่มีขนาดใหญ่ผิดปกติ
 
 ## 3. การกำจัดและกู้คืน (Eradication & Recovery)
 -   **ล้างเครื่อง (Wipe & Re-image)**: อย่าพยายามกำจัดไวรัส ให้ Format และลง OS ใหม่จาก Image ที่สะอาด
@@ -2529,6 +3357,10 @@ graph TD
 
 ## 4. การแจ้งเตือน (Notification)
 -   แจ้งฝ่ายกฎหมาย/Compliance ทันที เนื่องจากอาจมีข้อมูลรั่วไหล (PDPA/GDPR)
+
+## References
+-   [MITRE ATT&CK T1486 (Data Encrypted for Impact)](https://attack.mitre.org/techniques/T1486/)
+-   [CISA Ransomware Guide](https://www.cisa.gov/stopransomware/ransomware-guide)
 
 
 ---
@@ -2542,6 +3374,16 @@ graph TD
 **Trigger**: SIEM Alert ("User added to Domain Admins", "New Local Admin created").
 
 ## 1. Analysis (Triage)
+
+```mermaid
+graph TD
+    Alert[New Admin] --> Ticket{Change Request?}
+    Ticket -->|Yes| False[False Positive]
+    Ticket -->|No| Creator{Who Created?}
+    Creator -->|Compromised Admin| True[True Positive]
+    True --> Delete[Delete Account]
+```
+
 -   **Verify Ticket**: Was there a Change Request for this new account?
 -   **Verify Creator**: Who created it? Was the creator account compromised?
 
@@ -2555,6 +3397,11 @@ graph TD
 
 ## 4. Recovery
 -   **Review Access**: Conduct a full review of all privileged groups.
+-   **Attribute**: [Integrity]
+
+## References
+-   [MITRE ATT&CK T1098 (Account Manipulation)](https://attack.mitre.org/techniques/T1098/)
+-   [Microsoft Securing Privileged Access](https://learn.microsoft.com/en-us/security/compass/securing-privileged-access)
 
 
 ---
@@ -2568,6 +3415,16 @@ graph TD
 **ตัวกระตุ้น**: แจ้งเตือน SIEM ("มีการเพิ่ม User ในกลุ่ม Domain Admins", "สร้าง Local Admin ใหม่")
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[New Admin] --> Ticket{Change Request?}
+    Ticket -->|Yes| False[False Positive]
+    Ticket -->|No| Creator{Who Created?}
+    Creator -->|Compromised Admin| True[True Positive]
+    True --> Delete[Delete Account]
+```
+
 -   **ตรวจสอบ Ticket**: มี Change Request สำหรับการสร้างบัญชีนี้หรือไม่?
 -   **ผู้สร้าง**: ใครเป็นคนสร้าง? บัญชีคนสร้างถูกแฮกหรือไม่?
 
@@ -2581,6 +3438,11 @@ graph TD
 
 ## 4. การกู้คืน (Recovery)
 -   **รีวิวสิทธิ์**: ตรวจสอบสมาชิกในกลุ่ม Privileged ทั้งหมดใหม่
+-   **ผลกระทบ (Attribute)**: [Integrity]
+
+## References
+-   [MITRE ATT&CK T1098 (Account Manipulation)](https://attack.mitre.org/techniques/T1098/)
+-   [Microsoft Securing Privileged Access](https://learn.microsoft.com/en-us/security/compass/securing-privileged-access)
 
 
 ---
@@ -2594,6 +3456,19 @@ graph TD
 **Trigger**: EDR Alert ("PowerShell - EncodedCommand", "WScript - Suspicious execution").
 
 ## 1. Analysis (Triage)
+
+```mermaid
+graph TD
+    Alert[Script Alert] --> Decode[Decode Command]
+    Decode -->|Obfuscated| Sandbox[Sandbox]
+    Decode -->|Clear Text| Analyze{Malicious?}
+    Sandbox -->|Malicious| True[True Positive]
+    Sandbox -->|Benign| False[False Positive]
+    Analyze -->|Yes| True
+    Analyze -->|No| False
+    True --> Kill[Kill Process]
+```
+
 -   **Decode**: Decode the Base64 command (`-EncodedCommand`) to see what it does.
 -   **Parent Process**: Who spawned this script? (`WinWord.exe` -> `powershell.exe` = Phishing).
 -   **Permissions**: Was it run as System/Admin?
@@ -2608,6 +3483,11 @@ graph TD
 
 ## 4. Recovery
 -   **AppLocker**: Consider enforcing stricter AppLocker policies to block unauthorized scripts.
+-   **Attribute**: [Integrity]
+
+## References
+-   [MITRE ATT&CK T1059 (Command and Scripting Interpreter)](https://attack.mitre.org/techniques/T1059/)
+-   [Red Canary: PowerShell Security Guide](https://redcanary.com/threat-detection-report/techniques/powershell/)
 
 
 ---
@@ -2621,6 +3501,19 @@ graph TD
 **ตัวกระตุ้น**: แจ้งเตือน EDR ("PowerShell - EncodedCommand", "WScript - Suspicious execution")
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[Script Alert] --> Decode[Decode Command]
+    Decode -->|Obfuscated| Sandbox[Sandbox]
+    Decode -->|Clear Text| Analyze{Malicious?}
+    Sandbox -->|Malicious| True[True Positive]
+    Sandbox -->|Benign| False[False Positive]
+    Analyze -->|Yes| True
+    Analyze -->|No| False
+    True --> Kill[Kill Process]
+```
+
 -   **ถอดรหัส (Decode)**: ถอดรหัส Base64 เพื่อดูว่าคำสั่งทำอะไร
 -   **Parent Process**: ใครเป็นคนเรียกสคริปต์นี้? (`WinWord.exe` -> `powershell.exe` = Phishing)
 -   **สิทธิ์ (Permissions)**: Run ด้วยสิทธิ์ System หรือ Admin หรือไม่?
@@ -2635,6 +3528,11 @@ graph TD
 
 ## 4. การกู้คืน (Recovery)
 -   **AppLocker**: พิจารณาเปิดใช้ AppLocker เพื่อบล็อกการรันสคริปต์ที่ไม่ได้รับอนุญาต
+-   **ผลกระทบ (Attribute)**: [Integrity]
+
+## References
+-   [MITRE ATT&CK T1059 (Command and Scripting Interpreter)](https://attack.mitre.org/techniques/T1059/)
+-   [Red Canary: PowerShell Security Guide](https://redcanary.com/threat-detection-report/techniques/powershell/)
 
 
 ---
@@ -2648,6 +3546,17 @@ graph TD
 **Trigger**: WAF Alert (SQLi, XSS, RCE), Web Server Error Logs (500s).
 
 ## 1. Analysis (Triage)
+
+```mermaid
+graph TD
+    Alert[WAF Alert] --> Decode[Decode Payload]
+    Decode -->|Malicious Syntax?| Check{Success?}
+    Check -->|200 OK + Data| Breach[True Positive - Breach]
+    Check -->|403/500| Scan[True Positive - Attempt]
+    Breach --> Offline[Take Offline]
+    Scan --> Ban[Ban IP]
+```
+
 -   **Verify Payload**: Decode the payload (Base64/URL). Is it malicious syntax (`UNION SELECT`, `<script>`)?
 -   **Check Success**: Did the server return 200 OK with sensitive data size? Or 500 Error?
 -   **Scope**: Is it a scanner (Automation) or targeted manual attack?
@@ -2663,6 +3572,11 @@ graph TD
 
 ## 4. Recovery
 -   **Penetration Test**: Re-test the fix before going online.
+-   **Attribute**: [Integrity / Confidentiality]
+
+## References
+-   [OWASP Top 10](https://owasp.org/www-project-top-ten/)
+-   [MITRE ATT&CK T1190 (Exploit Public-Facing Application)](https://attack.mitre.org/techniques/T1190/)
 
 
 ---
@@ -2676,6 +3590,17 @@ graph TD
 **ตัวกระตุ้น**: แจ้งเตือน WAF (SQLi, XSS, RCE), Web Server Error Logs (500s)
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[WAF Alert] --> Decode[Decode Payload]
+    Decode -->|Malicious Syntax?| Check{Success?}
+    Check -->|200 OK + Data| Breach[True Positive - Breach]
+    Check -->|403/500| Scan[True Positive - Attempt]
+    Breach --> Offline[Take Offline]
+    Scan --> Ban[Ban IP]
+```
+
 -   **ตรวจสอบ Payload**: ถอดรหัส (Base64/URL) ดูว่าเป็นคำสั่งอันตรายหรือไม่ (`UNION SELECT`, `<script>`)
 -   **ตรวจสอบผลลัพธ์**: Server ตอบกลับ 200 OK พร้อมข้อมูลขนาดใหญ่หรือไม่?
 -   **ขอบเขต**: เป็นเครื่องสแกนอัตโนมัติ หรือคนเจาะจงโจมตี?
@@ -2691,6 +3616,11 @@ graph TD
 
 ## 4. การกู้คืน (Recovery)
 -   **Penetration Test**: ทดสอบเจาะระบบซ้ำเพื่อยืนยันว่าช่องโหว่ถูกปิดแล้ว
+-   **ผลกระทบ (Attribute)**: [Integrity / Confidentiality]
+
+## References
+-   [OWASP Top 10](https://owasp.org/www-project-top-ten/)
+-   [MITRE ATT&CK T1190 (Exploit Public-Facing Application)](https://attack.mitre.org/techniques/T1190/)
 
 
 ---
@@ -2702,6 +3632,20 @@ graph TD
 This document outlines a systematic approach to troubleshooting complex issues within the SOC infrastructure.
 
 ## 1. Defining the Problem
+
+```mermaid
+graph TD
+    Issue[Issue Reported] --> Define[Define Scope/Symptoms]
+    Define --> Layer1{Physical/Net?}
+    Layer1 -->|Fail| FixNet[Fix Connectivity]
+    Layer1 -->|Pass| Layer2{App/Service?}
+    Layer2 -->|Fail| FixApp[Restart/Debug Service]
+    Layer2 -->|Pass| Layer3{Data Flow?}
+    Layer3 -->|Fail| FixData[Check Config/Logs]
+    Layer3 -->|Pass| RCA[Root Cause Analysis]
+```
+
+-   **Symptoms**: What is exactly failing? (e.g., "Alerts not showing", "Login failed").
 -   **Symptoms**: What is exactly failing? (e.g., "Alerts not showing", "Login failed").
 -   **Scope**: Is it affecting one user, one sensor, or the whole platform?
 -   **Timeline**: When did it start? Was there a recent change (Deployment/RFC)?
@@ -2741,6 +3685,10 @@ This document outlines a systematic approach to troubleshooting complex issues w
 -   Document the Root Cause Analysis (RCA).
 -   Update Knowledge Base (KB) and SOPs to prevent recurrence.
 
+## References
+-   [USE Method (Brendan Gregg)](https://www.brendangregg.com/usemethod.html)
+-   [Google SRE Handbook](https://sre.google/sre-book/table-of-contents/)
+
 
 ---
 
@@ -2751,6 +3699,20 @@ This document outlines a systematic approach to troubleshooting complex issues w
 เอกสารนี้ระบุแนวทางที่เป็นระบบในการแก้ปัญหาระบบโครงสร้างพื้นฐาน SOC
 
 ## 1. นิยามปัญหา (Defining the Problem)
+
+```mermaid
+graph TD
+    Issue[รับแจ้งปัญหา] --> Define[ระบุขอบเขต/อาการ]
+    Define --> Layer1{ระดับ Network?}
+    Layer1 -->|ล่ม| FixNet[แก้การเชื่อมต่อ]
+    Layer1 -->|ปกติ| Layer2{ระดับ App?}
+    Layer2 -->|ล่ม| FixApp[Restart/Debug Service]
+    Layer2 -->|ปกติ| Layer3{ระดับ Data?}
+    Layer3 -->|ล่ม| FixData[เช็ค Config/Logs]
+    Layer3 -->|ปกติ| RCA[วิเคราะห์เชิงลึก]
+```
+
+-   **อาการ**: อะไรล้มเหลว? (เช่น "Alert ไม่ขึ้น", "Login ไม่ได้")
 -   **อาการ**: อะไรล้มเหลว? (เช่น "Alert ไม่ขึ้น", "Login ไม่ได้")
 -   **ขอบเขต**: กระทบผู้ใช้คนเดียว, Sensor ตัวเดียว, หรือทั้งระบบ?
 -   **เวลา**: เริ่มเป็นเมื่อไหร่? มีการเปลี่ยนแปลงระบบเร็วๆ นี้หรือไม่ (Deployment/RFC)?
@@ -2789,6 +3751,10 @@ This document outlines a systematic approach to troubleshooting complex issues w
 ## 4. การทำเอกสาร (Documentation)
 -   บันทึกการวิเคราะห์สาเหตุที่แท้จริง (RCA)
 -   อัปเดต Knowledge Base (KB) และ SOP เพื่อป้องกันการเกิดซ้ำ
+
+## References
+-   [USE Method (Brendan Gregg)](https://www.brendangregg.com/usemethod.html)
+-   [Google SRE Handbook](https://sre.google/sre-book/table-of-contents/)
 
 
 ---

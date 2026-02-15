@@ -5,6 +5,19 @@
 **Trigger**: User Report ("Suspicious Invoice"), Mail Filter ("Forwarding Rule created").
 
 ## 1. Analysis (Triage)
+
+```mermaid
+graph TD
+    Alert[Suspicious Email] --> Header[Check Headers]
+    Header --> SPF{SPF/DKIM Fail?}
+    SPF -->|Yes| Spoof[Spoofing]
+    SPF -->|No| Content{Urgent Request?}
+    Content -->|Wire Transfer| Finance[Check w/ Finance]
+    Finance -->|Fake| BEC[BEC Confirmed]
+    Spoof --> BEC
+    BEC --> Reset[Reset Password]
+```
+
 -   **Header Analysis**: Check `Return-Path`, `Reply-To`, and `SPF/DKIM` results.
 -   **Rule Check**: Look for Inbox Rules named "." or "Move to RSS Feeds" (Common hiding tactic).
 -   **Login Logs**: Check for successful logins from foreign countries prior to the email.
@@ -20,3 +33,8 @@
 
 ## 4. Recovery
 -   **Notify Finance**: If the email involved payments, immediately stop wire transfers.
+-   **Attribute**: [Integrity / Confidentiality]
+
+## References
+-   [MITRE ATT&CK T1566 (Phishing)](https://attack.mitre.org/techniques/T1566/)
+-   [FBI BEC Scams](https://www.fbi.gov/scams-and-safety/common-scams-and-crimes/business-email-compromise)

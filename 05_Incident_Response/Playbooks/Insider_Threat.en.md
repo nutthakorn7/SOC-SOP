@@ -5,6 +5,17 @@
 **Trigger**: UEBA Alert (Abnormal Access Hours), Data Access Logs (Bulk File Copy).
 
 ## 1. Analysis (Triage)
+
+```mermaid
+graph TD
+    Alert[Insider Alert] --> Context{Leaver?}
+    Context -->|Notice Period| HighRisk[High Risk]
+    Context -->|Normal| Baseline{Abnormal?}
+    Baseline -->|Yes| HighRisk
+    Baseline -->|No| False[False Positive]
+    HighRisk --> HR[Contact HR]
+```
+
 -   **Context**: Is the user leaving the company (Notice period)?
 -   **Baseline**: Is this normal behavior for their role (e.g., Backup Administrator)?
 -   **HR Check**: Check employment status.
@@ -20,3 +31,8 @@
 
 ## 4. Recovery
 -   **Legal Action**: HR and Legal to determine employment termination or legal proceedings.
+-   **Attribute**: [Confidentiality]
+
+## References
+-   [MITRE ATT&CK T1534 (Internal Spearphishing)](https://attack.mitre.org/techniques/T1534/)
+-   [CISA Insider Threat Mitigation Guide](https://www.cisa.gov/topics/physical-security/insider-threat-mitigation)

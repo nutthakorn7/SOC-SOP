@@ -5,6 +5,17 @@
 **ตัวกระตุ้น**: แจ้งเตือน SIEM ("Event Log Cleared", "Audit Policy Disabled")
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[Log Cleared] --> User{Who?}
+    User -->|System| Maint{Maintenance?}
+    User -->|Admin| Context{Change Ticket?}
+    Maint -->|Yes| False[False Positive]
+    Context -->|No| Suspicious[Suspicious]
+    Suspicious --> Isolate[Isolate Host]
+```
+
 -   **Event ID**: Windows Security Log ID 1102 ("The audit log was cleared")
 -   **ผู้กระทำ**: ใครเป็นคนลบ? System หรือ User?
 -   **ความเชื่อมโยง**: เกิดอะไรขึ้น *ก่อน* หรือ *หลัง* การลบ? (มักทำเพื่อซ่อนการติดตั้งมัลแวร์)
@@ -19,3 +30,8 @@
 
 ## 4. การกู้คืน (Recovery)
 -   **ลงระบบใหม่ (Re-image)**: เครื่องที่ถูกลบ Log ถือว่าไม่น่าเชื่อถืออีกต่อไป ควรล้างเครื่องลงใหม่
+-   **ผลกระทบ (Attribute)**: [Integrity]
+
+## References
+-   [MITRE ATT&CK T1070 (Indicator Removal on Host)](https://attack.mitre.org/techniques/T1070/)
+-   [SIGMA Rule: Security Event Log Cleared](https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_event_log_cleared.yml)

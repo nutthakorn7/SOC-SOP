@@ -4,6 +4,20 @@ This document defines the Key Performance Indicators (KPIs) and metrics used to 
 
 ## 1. Operational Metrics (Efficiency)
 
+```mermaid
+graph TD
+    Incident[Incident Closed] --> timestamps[Collect Timestamps]
+    timestamps --> calcMTTD[Calculate MTTD]
+    timestamps --> calcMTTR[Calculate MTTR]
+    calcMTTD --> Report[Daily Report]
+    calcMTTR --> Report
+    Report --> Review{Threshold Exceeded?}
+    Review -->|Yes| Tuner[Tune Process]
+    Review -->|No| Store[Store Logic]
+```
+
+### 1.1 Mean Time To Detect (MTTD)
+
 ### 1.1 Mean Time To Detect (MTTD)
 -   **Definition**: The average time it takes to identify a security threat after it has entered the network.
 -   **Target**: < 30 Minutes.
@@ -33,3 +47,7 @@ This document defines the Key Performance Indicators (KPIs) and metrics used to 
 
 -   **Incidents per Analyst**: Number of cases handled by one analyst per shift.
 -   **Burnout Rate**: Turnover rate of SOC staff (Target: < 15% annually).
+
+## References
+-   [SANS SOC Metrics](https://www.sans.org/white-papers/soc-metrics/)
+-   [MITRE SOC Assessment](https://cat.mitre.org/)

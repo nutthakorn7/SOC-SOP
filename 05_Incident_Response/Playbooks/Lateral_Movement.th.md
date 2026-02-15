@@ -5,6 +5,17 @@
 **ตัวกระตุ้น**: แจ้งเตือน EDR/SIEM ("Remote Service Creation", "SMB/RDP ไปยังหลายเครื่อง")
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[LatMov Alert] --> Identify[Identify Source]
+    Identify --> Check{Authorized?}
+    Check -->|Admin Work| False[False Positive]
+    Check -->|Unknown| Dest{Destination?}
+    Dest -->|Critical Asset| True[True Positive]
+    True --> Isolate[Isolate Source]
+```
+
 -   **ต้นตอ (Source)**: หา Patient Zero (เครื่องแรกที่ติดเชื้อ)
 -   **วิธีการ**: แฮกเกอร์ใช้วิธีไหน? (PsExec, WMI, RDP, WinRM)
 -   **บัญชีผู้ใช้**: บัญชีไหนที่ถูกนำมาใช้?
@@ -20,3 +31,8 @@
 
 ## 4. การกู้คืน (Recovery)
 -   **Segmentation**: ทบทวนการแบ่งโซนเครือข่าย โดยปกติ Workstation ไม่ควรคุยกันเองได้ (Block Client-to-Client)
+-   **ผลกระทบ (Attribute)**: [Confidentiality / Integrity]
+
+## References
+-   [MITRE ATT&CK T1021 (Remote Services)](https://attack.mitre.org/techniques/T1021/)
+-   [JPCERT Lateral Movement Guide](https://www.jpcert.or.jp/english/pub/sr/20170612ac-ir_research_en.pdf)

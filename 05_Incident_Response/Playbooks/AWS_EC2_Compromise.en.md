@@ -10,6 +10,18 @@
 -   **Trigger**: Outbound connection to known C2 IP.
 
 ## 2. Analysis
+
+```mermaid
+graph TD
+    Alert[EC2 Alert] --> Verify[Verify Instance]
+    Verify -->|Production| Netflow{Mining Pool?}
+    Verify -->|Dev/Test| Stop[Stop Instance]
+    Netflow -->|Yes| Snapshot[Snapshot EBS]
+    Netflow -->|No| Investigate[Investigate Process]
+    Snapshot --> Isolate[Isolate SG]
+    Isolate --> Forensics[Forensics]
+```
+
 -   [ ] **Verify Instance**: Identify Instance ID, Region, and Owner tag.
 -   [ ] **Isolate Logic**: Is this a production web server or a dev box?
 -   [ ] **Inspect Netflow**: Check VPC Flow Logs. Is it talking to a mining pool?
@@ -27,6 +39,10 @@
 ## 5. Recovery
 -   [ ] **Validate**: Scan the new instance for vulnerabilities.
 -   [ ] **Restore**: Add back to Load Balancer.
+
+## References
+-   [AWS Security Incident Response Guide](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/welcome.html)
+-   [Amazon EC2 Security Best Practices](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-best-practices.html)
 
 ## 6. Root Cause Analysis (VERIS)
 -   **Actor**: [External]

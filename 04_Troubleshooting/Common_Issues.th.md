@@ -3,6 +3,20 @@
 เอกสารนี้ระบุแนวทางที่เป็นระบบในการแก้ปัญหาระบบโครงสร้างพื้นฐาน SOC
 
 ## 1. นิยามปัญหา (Defining the Problem)
+
+```mermaid
+graph TD
+    Issue[รับแจ้งปัญหา] --> Define[ระบุขอบเขต/อาการ]
+    Define --> Layer1{ระดับ Network?}
+    Layer1 -->|ล่ม| FixNet[แก้การเชื่อมต่อ]
+    Layer1 -->|ปกติ| Layer2{ระดับ App?}
+    Layer2 -->|ล่ม| FixApp[Restart/Debug Service]
+    Layer2 -->|ปกติ| Layer3{ระดับ Data?}
+    Layer3 -->|ล่ม| FixData[เช็ค Config/Logs]
+    Layer3 -->|ปกติ| RCA[วิเคราะห์เชิงลึก]
+```
+
+-   **อาการ**: อะไรล้มเหลว? (เช่น "Alert ไม่ขึ้น", "Login ไม่ได้")
 -   **อาการ**: อะไรล้มเหลว? (เช่น "Alert ไม่ขึ้น", "Login ไม่ได้")
 -   **ขอบเขต**: กระทบผู้ใช้คนเดียว, Sensor ตัวเดียว, หรือทั้งระบบ?
 -   **เวลา**: เริ่มเป็นเมื่อไหร่? มีการเปลี่ยนแปลงระบบเร็วๆ นี้หรือไม่ (Deployment/RFC)?
@@ -41,3 +55,7 @@
 ## 4. การทำเอกสาร (Documentation)
 -   บันทึกการวิเคราะห์สาเหตุที่แท้จริง (RCA)
 -   อัปเดต Knowledge Base (KB) และ SOP เพื่อป้องกันการเกิดซ้ำ
+
+## References
+-   [USE Method (Brendan Gregg)](https://www.brendangregg.com/usemethod.html)
+-   [Google SRE Handbook](https://sre.google/sre-book/table-of-contents/)

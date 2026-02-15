@@ -5,6 +5,19 @@
 **ตัวกระตุ้น**: แจ้งเตือน EDR ("PowerShell - EncodedCommand", "WScript - Suspicious execution")
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[Script Alert] --> Decode[Decode Command]
+    Decode -->|Obfuscated| Sandbox[Sandbox]
+    Decode -->|Clear Text| Analyze{Malicious?}
+    Sandbox -->|Malicious| True[True Positive]
+    Sandbox -->|Benign| False[False Positive]
+    Analyze -->|Yes| True
+    Analyze -->|No| False
+    True --> Kill[Kill Process]
+```
+
 -   **ถอดรหัส (Decode)**: ถอดรหัส Base64 เพื่อดูว่าคำสั่งทำอะไร
 -   **Parent Process**: ใครเป็นคนเรียกสคริปต์นี้? (`WinWord.exe` -> `powershell.exe` = Phishing)
 -   **สิทธิ์ (Permissions)**: Run ด้วยสิทธิ์ System หรือ Admin หรือไม่?
@@ -19,3 +32,8 @@
 
 ## 4. การกู้คืน (Recovery)
 -   **AppLocker**: พิจารณาเปิดใช้ AppLocker เพื่อบล็อกการรันสคริปต์ที่ไม่ได้รับอนุญาต
+-   **ผลกระทบ (Attribute)**: [Integrity]
+
+## References
+-   [MITRE ATT&CK T1059 (Command and Scripting Interpreter)](https://attack.mitre.org/techniques/T1059/)
+-   [Red Canary: PowerShell Security Guide](https://redcanary.com/threat-detection-report/techniques/powershell/)

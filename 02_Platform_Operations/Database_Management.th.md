@@ -4,6 +4,20 @@
 
 ## 1. การจำแนกประเภทข้อมูล (Data Classification)
 
+```mermaid
+graph TD
+    Data[นำเข้าข้อมูล] --> Classify{จำแนกประเภท}
+    Classify -->|ลับที่สุด| Encrypt[เข้ารหัส & จำกัดสิทธิ์]
+    Classify -->|ลับ| Secure[ควบคุมการเข้าถึง]
+    Classify -->|ภายใน| Store[จัดเก็บปกติ]
+    Encrypt --> Retain[นโยบายเก็บรักษา]
+    Secure --> Retain
+    Store --> Retain
+    Retain --> Archive[Archive/Purge]
+```
+
+ข้อมูลใน SOC ต้องได้รับการจำแนกเพื่อกำหนดการจัดการที่เหมาะสม:
+
 ข้อมูลใน SOC ต้องได้รับการจำแนกเพื่อกำหนดการจัดการที่เหมาะสม:
 -   **ลับที่สุด (Restricted)**: PII ที่ละเอียดอ่อน, รหัสผ่าน, Private Keys (ต้องป้องกันสูงสุด)
 -   **ลับ (Confidential)**: ทรัพย์สินทางปัญญาภายใน, แผนผังเครือข่าย, รายงานช่องโหว่
@@ -33,3 +47,7 @@
 ## 4. การสำรองและกู้คืน (Backup & Recovery)
 -   **ความถี่**: สำรองค่า Configuration ทุกวัน; สำรองข้อมูล Real-time หรือทุกชั่วโมง
 -   **การทดสอบ**: ต้องมีการซ้อมแผนกู้คืนภัยพิบัติ (DR) ทุกไตรมาสเพื่อยืนยันว่าสามารถกู้คืนข้อมูลได้จริง
+
+## References
+-   [NIST SP 800-53 (Security/Privacy Controls)](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final)
+-   [GDPR Data Retention](https://gdpr.eu/)

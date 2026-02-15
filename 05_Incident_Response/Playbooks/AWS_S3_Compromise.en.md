@@ -10,6 +10,17 @@
 -   **Trigger**: Massive data egress from a specific bucket.
 
 ## 2. Analysis
+
+```mermaid
+graph TD
+    Alert[S3 Alert] --> Config[Check Config]
+    Config -->|Public| Block[Block Public Access]
+    Config -->|Private| Egress{High Egress?}
+    Egress -->|Yes| User{Identify User}
+    User -->|Compromised| Disable[Disable Keys]
+    Block --> Logs[Review Access Logs]
+```
+
 -   [ ] **Verify Config**: Check bucket permissions in AWS Console > S3.
     -   Is "Block Public Access" turned off?
     -   Is there a Bucket Policy allowing `"Principal": "*"`?
@@ -31,6 +42,10 @@
 -   [ ] **Validate**: Confirm public access is blocked via AWS Config.
 -   [ ] **Notify**: Inform Data Privacy Officer if PII was accessed.
 -   [ ] **Monitor**: Watch for re-attempted access for 24 hours.
+
+## References
+-   [AWS S3 Security Best Practices](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html)
+-   [Preventing Public Access to S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html)
 
 ## 6. Root Cause Analysis (VERIS)
 -   **Actor**: [External / Internal / Partner]

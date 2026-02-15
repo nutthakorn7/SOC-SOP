@@ -4,6 +4,16 @@
 
 ## 1. การเชื่อมต่อ Log Source
 
+```mermaid
+graph LR
+    Source[แหล่งข้อมูล] -->|ส่งข้อมูล| Normal[ปรับมาตรฐาน]
+    Normal -->|เติมบริบท| Enrich[Enrichment]
+    Enrich -->|จัดเก็บ| Storage[SIEM/Data Lake]
+    Storage -->|แจ้งเตือน| Monitor[เฝ้าระวัง]
+```
+
+### 1.1 กลไกการส่งข้อมูล
+
 ### 1.1 กลไกการส่งข้อมูล
 -   **API-based**: บริการ Cloud (AWS, M365, SaaS) มักต้องใช้วิธี API Polling
 -   **Agent-based**: Server/Endpoint ใช้ Agent (เช่น Filebeat, Winlogbeat, OSQuery)
@@ -32,3 +42,7 @@
 -   **Heartbeat**: ตรวจสอบว่า Integration ส่งสัญญาณสถานะมาสม่ำเสมอ
 -   **ความสดใหม่ของข้อมูล**: แจ้งเตือนหาก Log Source หยุดส่งข้อมูลเกิน 1 ชั่วโมง
 -   **อัตรา Error**: เฝ้าระวัง API error (401/403/429) เพื่อตรวจจับปัญหา Credential หรือ Quota
+
+## References
+-   [Sigma: Generic Signature Format](https://github.com/SigmaHQ/sigma)
+-   [Elastic Common Schema (ECS)](https://www.elastic.co/guide/en/ecs/current/index.html)

@@ -13,6 +13,19 @@
 
 ## 2. ขั้นตอนการส่งต่องาน (Handoff Procedure)
 
+```mermaid
+graph TD
+    Start[จบกะเดิม] --> Checklist[ตรวจสอบ Checklist]
+    Checklist --> Log[อัปเดต Handover Log]
+    Log --> Brief[สรุปงานให้กะถัดไป]
+    Brief --> Questions{มีข้อสงสัย?}
+    Questions -->|มี| Clarify[อธิบายเพิ่มเติม]
+    Questions -->|ไม่มี| Sign[เซ็นรับงาน]
+    Sign --> End[เริ่มกะใหม่]
+```
+
+การส่งต่องานที่เป็นมาตรฐานช่วยป้องกันไม่ให้งานหลุด หัวหน้ากะที่กำลังจะออกเวรต้องสรุปข้อมูลให้หัวหน้ากะที่มารับเวรฟัง:
+
 การส่งต่องานที่เป็นมาตรฐานช่วยป้องกันไม่ให้งานหลุด หัวหน้ากะที่กำลังจะออกเวรต้องสรุปข้อมูลให้หัวหน้ากะที่มารับเวรฟัง:
 
 ### 2.1 รายการตรวจสอบสำคัญ (Critical Checklist)
@@ -35,3 +48,7 @@
 -   อัปเดต Ticket ทั้งหมดที่รับผิดชอบ
 -   ทำเอกสารสรุป Case ที่ปิดแล้วให้เรียบร้อย
 -   เตรียมข้อมูลสำหรับทำ Handover Log
+
+## References
+-   [SANS SOC Handbook](https://www.sans.org/white-papers/soc-handbook/)
+-   [NIST SP 800-61r2 (Incident Handling)](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)

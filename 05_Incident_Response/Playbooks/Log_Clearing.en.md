@@ -5,6 +5,17 @@
 **Trigger**: SIEM Alert ("Event Log Cleared", "Audit Policy Disabled").
 
 ## 1. Analysis (Triage)
+
+```mermaid
+graph TD
+    Alert[Log Cleared] --> User{Who?}
+    User -->|System| Maint{Maintenance?}
+    User -->|Admin| Context{Change Ticket?}
+    Maint -->|Yes| False[False Positive]
+    Context -->|No| Suspicious[Suspicious]
+    Suspicious --> Isolate[Isolate Host]
+```
+
 -   **Event ID**: Windows Security Log ID 1102 ("The audit log was cleared").
 -   **User**: Who cleared it? Was it System or a User?
 -   **Correlation**: What happened *immediately before* or *after* the clearing? (Often used to hide malware installation).
@@ -19,3 +30,8 @@
 
 ## 4. Recovery
 -   **Re-image**: A system with cleared logs cannot be trusted. Re-image is recommended.
+-   **Attribute**: [Integrity]
+
+## References
+-   [MITRE ATT&CK T1070 (Indicator Removal on Host)](https://attack.mitre.org/techniques/T1070/)
+-   [SIGMA Rule: Security Event Log Cleared](https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_event_log_cleared.yml)

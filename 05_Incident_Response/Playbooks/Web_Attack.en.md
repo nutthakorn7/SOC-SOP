@@ -5,6 +5,17 @@
 **Trigger**: WAF Alert (SQLi, XSS, RCE), Web Server Error Logs (500s).
 
 ## 1. Analysis (Triage)
+
+```mermaid
+graph TD
+    Alert[WAF Alert] --> Decode[Decode Payload]
+    Decode -->|Malicious Syntax?| Check{Success?}
+    Check -->|200 OK + Data| Breach[True Positive - Breach]
+    Check -->|403/500| Scan[True Positive - Attempt]
+    Breach --> Offline[Take Offline]
+    Scan --> Ban[Ban IP]
+```
+
 -   **Verify Payload**: Decode the payload (Base64/URL). Is it malicious syntax (`UNION SELECT`, `<script>`)?
 -   **Check Success**: Did the server return 200 OK with sensitive data size? Or 500 Error?
 -   **Scope**: Is it a scanner (Automation) or targeted manual attack?
@@ -20,3 +31,8 @@
 
 ## 4. Recovery
 -   **Penetration Test**: Re-test the fix before going online.
+-   **Attribute**: [Integrity / Confidentiality]
+
+## References
+-   [OWASP Top 10](https://owasp.org/www-project-top-ten/)
+-   [MITRE ATT&CK T1190 (Exploit Public-Facing Application)](https://attack.mitre.org/techniques/T1190/)

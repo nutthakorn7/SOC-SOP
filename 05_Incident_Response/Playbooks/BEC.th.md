@@ -5,6 +5,19 @@
 **ตัวกระตุ้น**: ผู้ใช้แจ้ง ("Invoice น่าสงสัย"), Mail Filter ("สร้างกฎ Forwarding")
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[Suspicious Email] --> Header[Check Headers]
+    Header --> SPF{SPF/DKIM Fail?}
+    SPF -->|Yes| Spoof[Spoofing]
+    SPF -->|No| Content{Urgent Request?}
+    Content -->|Wire Transfer| Finance[Check w/ Finance]
+    Finance -->|Fake| BEC[BEC Confirmed]
+    Spoof --> BEC
+    BEC --> Reset[Reset Password]
+```
+
 -   **วิเคราะห์ Header**: ตรวจสอบ `Return-Path`, `Reply-To`, และผล `SPF/DKIM`
 -   **ตรวจสอบ Rule**: มองหากฎ Inbox ที่ชื่อแปลกๆ เช่น "." หรือ "Move to RSS Feeds" (เทคนิคซ่อนอีเมล)
 -   **ประวัติการล็อกอิน**: มีการล็อกอินจากต่างประเทศก่อนส่งเมลหรือไม่?
@@ -20,3 +33,8 @@
 
 ## 4. การกู้คืน (Recovery)
 -   **แจ้งฝ่ายการเงิน**: หากอีเมลเกี่ยวข้องกับการโอนเงิน ให้ระงับธุรกรรมทันที
+-   **ผลกระทบ (Attribute)**: [Integrity / Confidentiality]
+
+## References
+-   [MITRE ATT&CK T1566 (Phishing)](https://attack.mitre.org/techniques/T1566/)
+-   [FBI BEC Scams](https://www.fbi.gov/scams-and-safety/common-scams-and-crimes/business-email-compromise)

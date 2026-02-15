@@ -54,3 +54,7 @@ Indicators of Compromise (IoCs) ทุกตัวต้องผ่านกร
 2.  ตรวจสอบค่าชื่อเสียง (Reputation Check)
 3.  ใส่ใน SIEM ระบบ Test Mode (Monitor Only)
 4.  ถ้าไม่มี False Positive นาน 24 ชม. จึงเปิด Block Mode
+
+## References
+-   [CREST Cyber Threat Intelligence](https://www.crest-approved.org/knowledge-base/cyber-threat-intelligence/)
+-   [SANS CTI Maturity Model](https://www.sans.org/white-papers/cti-maturity-model/)

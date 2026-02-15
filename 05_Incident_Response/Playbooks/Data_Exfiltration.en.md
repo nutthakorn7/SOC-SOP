@@ -5,6 +5,17 @@
 **Trigger**: DLP Alert, SIEM ("Large Upload to Unknown IP").
 
 ## 1. Analysis (Triage)
+
+```mermaid
+graph TD
+    Alert[DLP Alert] --> Classify{Data Type?}
+    Classify -->|Public| False[False Positive]
+    Classify -->|Confidential| Dest{Destination?}
+    Dest -->|Trusted| False
+    Dest -->|Unknown/Bad| True[True Positive]
+    True --> Block[Block Destination]
+```
+
 -   **Verify Volume**: Is the data transfer size anomalous for this user/server?
 -   **Check Destination**: Is the IP/Domain trusted (e.g., Corporate OneDrive) or unknown?
 -   **Inspect Content**: If possible, check DLP logs for file names or classifications (PII/Confidential).
@@ -21,3 +32,8 @@
 ## 4. Recovery
 -   **Legal Review**: Consult Legal/Privacy team if PII was leaked.
 -   **Damage Assessment**: List exactly what files were lost.
+-   **Attribute**: [Confidentiality]
+
+## References
+-   [MITRE ATT&CK T1048 (Exfiltration Over Alternative Protocol)](https://attack.mitre.org/techniques/T1048/)
+-   [NIST SP 800-61r2 (Data Security)](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)

@@ -5,6 +5,21 @@
 **ตัวกระตุ้น**: CloudTrail/Azure Monitor ("Root/GlobalAdmin Login", "สร้าง IAM User ใหม่")
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[IAM Alert] --> Type{Root or User?}
+    Type -->|User| API{API/Console?}
+    Type -->|Root/Global| Critical[Critical Alert]
+    API -->|Console| Location{Location?}
+    API -->|Programmatic| Key{Access Key?}
+    Location -->|Abnormal| True[True Positive]
+    Location -->|Normal| False[False Positive]
+    Critical --> Legacy[Legacy Use?]
+    Legacy -->|No| True
+    True --> Revoke[Revoke Sessions]
+```
+
 -   **Root Usage**: มีการใช้บัญชี Root หรือ Global Admin หรือไม่? (ควรใช้น้อยมาก)
 -   **API Call**: เป็นการล็อกอินผ่านหน้าเว็บ หรือยิง API?
 -   **ตำแหน่ง**: IP ที่ใช้ตรงกับที่อยู่ของ Admin คนนั้นหรือไม่?
@@ -20,3 +35,8 @@
 
 ## 4. การกู้คืน (Recovery)
 -   **MFA**: บังคับใช้ Hardware MFA สำหรับบัญชีระดับ Root/Global Admin
+-   **ผลกระทบ (Attribute)**: [Integrity / Confidentiality]
+
+## References
+-   [MITRE ATT&CK T1098 (Cloud Account Manipulation)](https://attack.mitre.org/techniques/T1098/)
+-   [AWS Security Incident Response Guide](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/welcome.html)

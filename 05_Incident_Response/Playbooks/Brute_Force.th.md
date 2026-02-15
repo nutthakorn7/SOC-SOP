@@ -5,6 +5,18 @@
 **ตัวกระตุ้น**: แจ้งเตือน SIEM ("ล็อกอินล้มเหลวหลายครั้ง"), IAM Logs
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[Failed Logins] --> Count{Count > Threshold?}
+    Count -->|No| Ignore[Ignore]
+    Count -->|Yes| Source{Source IP?}
+    Source -->|Internal| Contact[Contact User]
+    Source -->|External| Block[Block IP]
+    Contact --> Reset[Reset Password]
+    Block --> Reset
+```
+
 -   [ ] **ตรวจสอบ IP ต้นทาง**: ภายในหรือภายนอก? เป็น VPN ที่รู้จักหรือไม่?
 -   [ ] **ตรวจสอบผู้ใช้**: บัญชีที่ถูกโจมตีมีอยู่จริงหรือไม่? เป็นผู้บริหาร/แอดมินหรือไม่?
 -   [ ] **ปริมาณ**: จำนวนครั้งที่ผิดพลาด? (เช่น > 10 ครั้งใน 1 นาที)
@@ -20,3 +32,8 @@
 
 ## 4. การกู้คืน (Recovery)
 -   [ ] **ปลดล็อกบัญชี**: คืนสิทธิ์การใช้งานให้เจ้าของบัญชีหลังยืนยันตัวตน
+-   **ผลกระทบ (Attribute)**: [Confidentiality]
+
+## References
+-   [MITRE ATT&CK T1110 (Brute Force)](https://attack.mitre.org/techniques/T1110/)
+-   [OWASP Authentication Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html)

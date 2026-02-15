@@ -5,6 +5,17 @@
 **ตัวกระตุ้น**: ผู้ใช้แจ้ง ("ฉันไม่ได้ล็อกอิน"), แจ้งเตือน SIEM ("ล็อกอินจากสถานที่แปลกๆ")
 
 ## 1. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[Suspicious Login] --> Context{Location/Device?}
+    Context -->|Known| False[False Positive]
+    Context -->|Unknown| Contact[Verify with User]
+    Contact -->|User: Yes| Reset[Reset Password]
+    Contact -->|User: No| Compromised[MFA Reset & Revoke]
+    Compromised --> LogAudit[Audit Logs]
+```
+
 -   [ ] **ยืนยันตัวตน**: ติดต่อผู้ใช้ผ่านช่องทางอื่น (โทร/Slack) ว่าได้ทำรายการนั้นจริงหรือไม่
 -   [ ] **ตรวจสอบ Logs**: ดูการกระทำที่ตามมา (เข้าถึงไฟล์, ตั้งค่า Forward อีเมล, เปลี่ยน MFA)
 
@@ -21,3 +32,8 @@
 ## 4. การกู้คืน (Recovery)
 -   [ ] **เปิดใช้งานบัญชี**: คืนสิทธิ์การใช้งาน
 -   [ ] **การเฝ้าระวัง**: เพิ่มชื่อผู้ใช้ในกลุ่ม "High Risk" เพื่อจับตาดูเป็นพิเศษ 48 ชั่วโมง
+-   **ผลกระทบ (Attribute)**: [Confidentiality / Integrity]
+
+## References
+-   [MITRE ATT&CK T1078 (Valid Accounts)](https://attack.mitre.org/techniques/T1078/)
+-   [Azure AD Identity Protection](https://learn.microsoft.com/en-us/azure/active-directory/identity-protection/overview-identity-protection)

@@ -58,3 +58,7 @@ sequenceDiagram
 -   Every deployment must have a predefined rollback strategy.
 -   If verification fails, immediately revert to the pre-deployment snapshot.
 -   Conduct a Root Cause Analysis (RCA) for failed changes.
+
+## References
+-   [ITIL Change Management](https://www.axelos.com/best-practice-solutions/itil)
+-   [DevSecOps Manifesto](https://www.devsecops.org/)

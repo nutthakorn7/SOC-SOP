@@ -10,6 +10,18 @@
 -   **Trigger**: การเชื่อมต่อออกไปยัง C2 Server ที่รู้จัก
 
 ## 2. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[EC2 Alert] --> Verify[Verify Instance]
+    Verify -->|Production| Netflow{Mining Pool?}
+    Verify -->|Dev/Test| Stop[Stop Instance]
+    Netflow -->|Yes| Snapshot[Snapshot EBS]
+    Netflow -->|No| Investigate[Investigate Process]
+    Snapshot --> Isolate[Isolate SG]
+    Isolate --> Forensics[Forensics]
+```
+
 -   [ ] **ระบุเครื่อง**: หา Instance ID, Region, และเจ้าของเครื่อง
 -   [ ] **แยกแยะ**: เป็น Web Server ขายของ หรือเครื่อง Test?
 -   [ ] **ดู Flow**: เช็ค VPC Flow Logs ว่ามีการคุยกับ Mining Pool หรือไม่?
@@ -27,6 +39,10 @@
 ## 5. การกู้คืน (Recovery)
 -   [ ] **ตรวจสอบ**: Scan ช่องโหว่เครื่องใหม่ก่อนใช้งานจริง
 -   [ ] **คืนสภาพ**: นำกลับเข้า Load Balancer
+
+## References
+-   [AWS Security Incident Response Guide](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/welcome.html)
+-   [Amazon EC2 Security Best Practices](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-best-practices.html)
 
 ## 6. วิเคราะห์สาเหตุ (VERIS)
 -   **ผู้กระทำ**: [External]

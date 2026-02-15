@@ -60,3 +60,8 @@ graph LR
 -   6-10: Level 2
 -   11-13: Level 3 (เกณฑ์มาตรฐาน)
 -   14+: Level 4+
+
+## References
+-   [SOC-CMM (Capability Maturity Model)](https://www.soc-cmm.com/)
+-   [MITRE SOC Strategy](https://mitre.org/)
+-   14+: Level 4+

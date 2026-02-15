@@ -3,6 +3,18 @@
 เอกสารนี้กำหนดวงจรชีวิตสำหรับการสร้าง ดูแลรักษา และยกเลิกกฎการตรวจจับภายใน SOC
 
 ## 1. ความต้องการและการวิจัย (Requirement & Research)
+
+```mermaid
+graph TD
+    Req[ความต้องการ] --> Dev[พัฒนา]
+    Dev --> Test[ทดสอบ/จูน]
+    Test --> Deploy[ติดตั้ง]
+    Deploy --> Monitor[เฝ้าระวัง]
+    Monitor --> Review[ทบทวน/ยกเลิก]
+    Review --> Req
+```
+
+-   **Threat Intelligence**: วิเคราะห์รายงานภัยคุกคามล่าสุด, CVE, และข้อมูลจากผู้โจมตี
 -   **Threat Intelligence**: วิเคราะห์รายงานภัยคุกคามล่าสุด, CVE, และข้อมูลจากผู้โจมตี
 -   **Gap Analysis**: ระบุจุดที่ยังขาดการป้องกันใน MITRE ATT&CK Dashboard
 -   **บริบททางธุรกิจ**: ทำความเข้าใจสินทรัพย์สำคัญและความเสี่ยงเฉพาะขององค์กร
@@ -28,3 +40,7 @@
 ## 5. การทบทวนและยกเลิก (Review & Deprecation)
 -   **ตรวจสอบรายไตรมาส**: ทบทวนความเกี่ยวข้องของกฎ เทคนิคการโจมตีเปลี่ยนไป กฎอาจล้าสมัย
 -   **การยกเลิก (Deprecation)**: ยกเลิกกฎที่มีเสียงรบกวนมากเกินไป (Noisy), ไม่มีประสิทธิภาพ, หรือซ้ำซ้อน
+
+## References
+-   [Detection Engineering Weekly](https://detectionengineering.net/)
+-   [MITRE ATT&CK](https://attack.mitre.org/)

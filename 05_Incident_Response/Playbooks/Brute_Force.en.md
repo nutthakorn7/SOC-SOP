@@ -3,8 +3,24 @@
 **ID**: PB-04
 **Severity**: Low/Medium
 **Trigger**: SIEM Alert ("Multiple Failed Logins"), IAM Logs.
+**Attribute**: [Confidentiality]
 
-## 1. Analysis (Triage)
+## 1. Analysis
+
+```mermaid
+graph TD
+    Alert[Failed Logins] --> Count{Count > Threshold?}
+    Count -->|No| Ignore[Ignore]
+    Count -->|Yes| Source{Source IP?}
+    Source -->|Internal| Contact[Contact User]
+    Source -->|External| Block[Block IP]
+    Contact --> Reset[Reset Password]
+    Block --> Reset
+```
+
+-   **Verify**: Is it a single user or multiple users (Password Spray)?
+
+
 -   [ ] **Check Source IP**: Is the IP internal or external? Is it a known VPN?
 -   [ ] **Check User**: Is the targeted account valid? Is it a VIP/Admin?
 -   [ ] **Volume**: How many attempts? (e.g., > 10 failures in 1 min).

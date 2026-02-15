@@ -10,6 +10,17 @@
 -   **Trigger**: ปริมาณการดาวน์โหลดข้อมูล (Egress) สูงผิดปกติจาก Bucket
 
 ## 2. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[S3 Alert] --> Config[Check Config]
+    Config -->|Public| Block[Block Public Access]
+    Config -->|Private| Egress{High Egress?}
+    Egress -->|Yes| User{Identify User}
+    User -->|Compromised| Disable[Disable Keys]
+    Block --> Logs[Review Access Logs]
+```
+
 -   [ ] **ตรวจสอบการตั้งค่า**: ดูสิทธิ์ใน AWS Console > S3
     -   "Block Public Access" ถูกปิดอยู่หรือไม่?
     -   Bucket Policy อนุญาต `"Principal": "*"` หรือไม่?
@@ -31,6 +42,10 @@
 -   [ ] **ยืนยันผล**: ใช้ AWS Config ตรวจสอบว่า Public Access ถูกปิดแล้ว
 -   [ ] **แจ้งเตือน**: แจ้งผูดูแลข้อมูลส่วนบุคคล (DPO) หากมีข้อมูลลูกค้าหลุด
 -   [ ] **เฝ้าระวัง**: ดูแลต่อเนื่อง 24 ชม.
+
+## References
+-   [AWS S3 Security Best Practices](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html)
+-   [Preventing Public Access to S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html)
 
 ## 6. วิเคราะห์สาเหตุ (VERIS)
 -   **ผู้กระทำ**: [External / Internal / Partner]

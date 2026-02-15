@@ -10,6 +10,17 @@
 -   **Trigger**: MFA Fatigue (User ปฏิเสธหลายครั้ง แล้วเผลอกดรับหนึ่งครั้ง)
 
 ## 2. การวิเคราะห์ (Analysis)
+
+```mermaid
+graph TD
+    Alert[Identity Risk] --> User[Contact User]
+    User -->|Confirmed| False[False Positive]
+    User -->|Denied/NoResponse| Logs[Review Sign-ins]
+    Logs -->|Suspicious| Revoke[Revoke Sessions]
+    Revoke --> Reset[Reset Password]
+    Reset --> EnforceMFA[Enforce MFA]
+```
+
 -   [ ] **ติดต่อเจ้าตัว**: โทรหาหรือแชทถาม "คุณได้ล็อกอินจากไนจีเรียหรือไม่?"
 -   [ ] **ดูประวัติ**: เช็ค Sign-in Logs มีการเดารหัสผิดก่อนหน้านั้นไหม?
 -   [ ] **เช็คอุปกรณ์**: อุปกรณ์ที่ใช้ล็อกอินเป็นของบริษัท (Compliant) หรือไม่?
@@ -26,6 +37,10 @@
 ## 5. การกู้คืน (Recovery)
 -   [ ] **ปลดบล็อก**: คืนสิทธิ์การใช้งานเมื่อปลอดภัย
 -   [ ] **เฝ้าระวัง**: จับตาดูบัญชีนี้เป็นพิเศษ 48 ชม.
+
+## References
+-   [Azure Active Directory Identity Protection](https://learn.microsoft.com/en-us/azure/active-directory/identity-protection/overview-identity-protection)
+-   [Remediate Risks and Unblock Users](https://learn.microsoft.com/en-us/azure/active-directory/identity-protection/howto-identity-protection-remediate-unblock)
 
 ## 6. วิเคราะห์สาเหตุ (VERIS)
 -   **ผู้กระทำ**: [External]

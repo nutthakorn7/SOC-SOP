@@ -4,6 +4,20 @@ This document outlines the standard procedures for managing security data throug
 
 ## 1. Data Classification
 
+```mermaid
+graph TD
+    Data[Data Ingestion] --> Classify{Classify Data}
+    Classify -->|Restricted| Encrypt[Encrypt & Restrict]
+    Classify -->|Confidential| Secure[Access Control]
+    Classify -->|Internal| Store[Standard Storage]
+    Encrypt --> Retain[Retention Policy]
+    Secure --> Retain
+    Store --> Retain
+    Retain --> Archive[Archive/Purge]
+```
+
+Data within the SOC must be classified to determine appropriate handling and retention controls:
+
 Data within the SOC must be classified to determine appropriate handling and retention controls:
 -   **Restricted**: Sensitive PII, Credentials, Private Keys. (Highest Protection)
 -   **Confidential**: Internal IP, Network Diagrams, Vulnerability Reports.
@@ -34,3 +48,7 @@ Data within the SOC must be classified to determine appropriate handling and ret
 
 -   **Frequency**: Daily configuration backups; Real-time or hourly data backups.
 -   **Testing**: Disaster Recovery (DR) drills must be conducted quarterly to verify data restoration capabilities.
+
+## References
+-   [NIST SP 800-53 (Security/Privacy Controls)](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final)
+-   [GDPR Data Retention](https://gdpr.eu/)

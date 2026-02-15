@@ -10,6 +10,17 @@
 -   **Trigger**: MFA Fatigue (User denies multiple requests, then accepts one).
 
 ## 2. Analysis
+
+```mermaid
+graph TD
+    Alert[Identity Risk] --> User[Contact User]
+    User -->|Confirmed| False[False Positive]
+    User -->|Denied/NoResponse| Logs[Review Sign-ins]
+    Logs -->|Suspicious| Revoke[Revoke Sessions]
+    Revoke --> Reset[Reset Password]
+    Reset --> EnforceMFA[Enforce MFA]
+```
+
 -   [ ] **Contact User**: Out-of-band verification (Call/Slack). "Did you just login from Nigeria?"
 -   [ ] **Review Sign-ins**: Check Azure AD Sign-in Logs. Were there failed attempts before the success?
 -   [ ] **Check Device**: Was the device Compliant/Hybrid Joined?
@@ -26,6 +37,10 @@
 ## 5. Recovery
 -   [ ] **Unblock**: Restore access after verification.
 -   [ ] **Monitor**: Watch account for 48 hours.
+
+## References
+-   [Azure Active Directory Identity Protection](https://learn.microsoft.com/en-us/azure/active-directory/identity-protection/overview-identity-protection)
+-   [Remediate Risks and Unblock Users](https://learn.microsoft.com/en-us/azure/active-directory/identity-protection/howto-identity-protection-remediate-unblock)
 
 ## 6. Root Cause Analysis (VERIS)
 -   **Actor**: [External]

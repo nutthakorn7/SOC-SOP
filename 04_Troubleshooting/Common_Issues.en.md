@@ -3,6 +3,20 @@
 This document outlines a systematic approach to troubleshooting complex issues within the SOC infrastructure.
 
 ## 1. Defining the Problem
+
+```mermaid
+graph TD
+    Issue[Issue Reported] --> Define[Define Scope/Symptoms]
+    Define --> Layer1{Physical/Net?}
+    Layer1 -->|Fail| FixNet[Fix Connectivity]
+    Layer1 -->|Pass| Layer2{App/Service?}
+    Layer2 -->|Fail| FixApp[Restart/Debug Service]
+    Layer2 -->|Pass| Layer3{Data Flow?}
+    Layer3 -->|Fail| FixData[Check Config/Logs]
+    Layer3 -->|Pass| RCA[Root Cause Analysis]
+```
+
+-   **Symptoms**: What is exactly failing? (e.g., "Alerts not showing", "Login failed").
 -   **Symptoms**: What is exactly failing? (e.g., "Alerts not showing", "Login failed").
 -   **Scope**: Is it affecting one user, one sensor, or the whole platform?
 -   **Timeline**: When did it start? Was there a recent change (Deployment/RFC)?
@@ -41,3 +55,7 @@ This document outlines a systematic approach to troubleshooting complex issues w
 ## 4. Documentation
 -   Document the Root Cause Analysis (RCA).
 -   Update Knowledge Base (KB) and SOPs to prevent recurrence.
+
+## References
+-   [USE Method (Brendan Gregg)](https://www.brendangregg.com/usemethod.html)
+-   [Google SRE Handbook](https://sre.google/sre-book/table-of-contents/)

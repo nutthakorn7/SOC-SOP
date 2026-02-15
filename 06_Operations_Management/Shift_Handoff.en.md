@@ -13,6 +13,19 @@ Standard rotation pattern for 24/7 coverage:
 
 ## 2. Handoff Procedure
 
+```mermaid
+graph TD
+    Start[End of Shift] --> Checklist[Complete Checklist]
+    Checklist --> Log[Update Handover Log]
+    Log --> Brief[Brief Incoming Lead]
+    Brief --> Questions{Any Questions?}
+    Questions -->|Yes| Clarify[Clarify Details]
+    Questions -->|No| Sign[Sign Off]
+    Sign --> End[Start New Shift]
+```
+
+A standardized handoff ensures no incident falls through the cracks. The outgoing Shift Lead must brief the incoming Shift Lead on:
+
 A standardized handoff ensures no incident falls through the cracks. The outgoing Shift Lead must brief the incoming Shift Lead on:
 
 ### 2.1 Critical Checklist
@@ -35,3 +48,7 @@ A standardized handoff ensures no incident falls through the cracks. The outgoin
 -   Update all assigned tickets.
 -   Complete documentation for closed cases.
 -   Prepare Handover Log.
+
+## References
+-   [SANS SOC Handbook](https://www.sans.org/white-papers/soc-handbook/)
+-   [NIST SP 800-61r2 (Incident Handling)](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)

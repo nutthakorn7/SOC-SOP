@@ -5,6 +5,17 @@
 **Trigger**: EDR/SIEM Alert ("Remote Service Creation", "SMB/RDP to multiple hosts").
 
 ## 1. Analysis (Triage)
+
+```mermaid
+graph TD
+    Alert[LatMov Alert] --> Identify[Identify Source]
+    Identify --> Check{Authorized?}
+    Check -->|Admin Work| False[False Positive]
+    Check -->|Unknown| Dest{Destination?}
+    Dest -->|Critical Asset| True[True Positive]
+    True --> Isolate[Isolate Source]
+```
+
 -   **Source**: Identify Patient Zero (First infected host).
 -   **Method**: How are they moving? (PsExec, WMI, RDP, WinRM).
 -   **Credentials**: Which user account is being leveraged?
@@ -20,3 +31,8 @@
 
 ## 4. Recovery
 -   **Segmentation**: Review network segmentation. Workstations should generally not talk to other workstations (Client-to-Client communication).
+-   **Attribute**: [Confidentiality / Integrity]
+
+## References
+-   [MITRE ATT&CK T1021 (Remote Services)](https://attack.mitre.org/techniques/T1021/)
+-   [JPCERT Lateral Movement Guide](https://www.jpcert.or.jp/english/pub/sr/20170612ac-ir_research_en.pdf)

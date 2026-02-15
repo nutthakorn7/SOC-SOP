@@ -4,6 +4,20 @@
 
 ## 1. ตัวชี้วัดด้านการปฏิบัติงาน (Operational Metrics - Efficiency)
 
+```mermaid
+graph TD
+    Incident[ปิดเคส] --> timestamps[เก็บ Timestamp]
+    timestamps --> calcMTTD[คำนวณ MTTD]
+    timestamps --> calcMTTR[คำนวณ MTTR]
+    calcMTTD --> Report[รายงานประจำวัน]
+    calcMTTR --> Report
+    Report --> Review{เกินเกณฑ์หรือไม่?}
+    Review -->|ใช่| Tuner[ปรับจูน process]
+    Review -->|ไม่| Store[บันทึกผล]
+```
+
+### 1.1 เวลาเฉลี่ยในการตรวจจับ (Mean Time To Detect - MTTD)
+
 ### 1.1 เวลาเฉลี่ยในการตรวจจับ (Mean Time To Detect - MTTD)
 -   **นิยาม**: เวลาเฉลี่ยที่ใช้ในการระบุภัยคุกคามหลังจากที่เข้ามาในเครือข่ายแล้ว
 -   **เป้าหมาย**: < 30 นาที
@@ -33,3 +47,7 @@
 
 -   **Incidents per Analyst**: จำนวนเคสที่ Analyst หนึ่งคนรับผิดชอบต่อกะ
 -   **Burnout Rate**: อัตราการลาออกของพนักงาน SOC (เป้าหมาย: < 15% ต่อปี)
+
+## References
+-   [SANS SOC Metrics](https://www.sans.org/white-papers/soc-metrics/)
+-   [MITRE SOC Assessment](https://cat.mitre.org/)

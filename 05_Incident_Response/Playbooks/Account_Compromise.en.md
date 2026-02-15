@@ -4,7 +4,19 @@
 **Severity**: High/Critical
 **Trigger**: User Report ("I didn't log in"), SIEM Alert ("Login from unusual location").
 
-## 1. Analysis (Triage)
+## 1. Analysis
+
+```mermaid
+graph TD
+    Alert[Suspicious Login] --> Context{Location/Device?}
+    Context -->|Known| False[False Positive]
+    Context -->|Unknown| Contact[Verify with User]
+    Contact -->|User: Yes| Reset[Reset Password]
+    Contact -->|User: No| Compromised[MFA Reset & Revoke]
+    Compromised --> LogAudit[Audit Logs]
+```
+
+-   **Verify**: Use "Impossible Travel" logic.
 -   [ ] **Validate Activity**: Confirm with the user via specific channel (Phone/Slack) if they performed the action.
 -   [ ] **Review Logs**: Check for subsequent actions (File Access, Email Forwarding, MFA changes).
 
