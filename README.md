@@ -95,8 +95,10 @@ A structured 4-week curriculum to train new SOC Analysts using this repository.
 ### 06_Operations_Management
 | Document | English | ภาษาไทย |
 | :--- | :--- | :--- |
+| **SOC Team Structure** | [Link](06_Operations_Management/SOC_Team_Structure.en.md) | [ลิ้งค์](06_Operations_Management/SOC_Team_Structure.th.md) |
 | **Shift Handoff** | [Link](06_Operations_Management/Shift_Handoff.en.md) | [ลิ้งค์](06_Operations_Management/Shift_Handoff.th.md) |
 | **SOC KPI Standard** | [Link](06_Operations_Management/SOC_Metrics.en.md) | [ลิ้งค์](06_Operations_Management/SOC_Metrics.th.md) |
+
 
 ## 🛠 Tools / เครื่องมือช่วยงาน
 
