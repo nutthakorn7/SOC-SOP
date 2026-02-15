@@ -31,3 +31,7 @@
 -   **เป้าหมาย 1**: ยกระดับ SOC-CMM ด้าน "Process" ให้ถึง Level 3
 -   **เป้าหมาย 2**: เชื่อมต่อ Log จากระบบ Cloud
 -   **เป้าหมาย 3**: จัดซ้อมรบทางไซเบอร์ (Purple Team)
+
+## References
+-   [SOC-CMM Assessment Model](https://www.soc-cmm.com/)
+-   [Gartner SOC Modernization](https://www.gartner.com/en/information-technology)

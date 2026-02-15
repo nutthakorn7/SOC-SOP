@@ -26,7 +26,20 @@ This document maps our **Standard SOC Playbooks** to specific **Atomic Red Team*
 | **PB-20** | Log Clearing | T1070.001 | `Indicator Removal: Clear Windows Event Logs` |
 
 ## How to use
+
+```mermaid
+graph LR
+    Install[Install Atomic RT] --> Run[Run Test]
+    Run --> Check[Check SIEM Alert]
+    Check --> Follow[Follow Playbook]
+    Follow --> Tune[Tune Rules/Playbook]
+```
+
 1.  Install [Atomic Red Team](https://github.com/redcanaryco/atomic-red-team) on a **TEST MACHINE**.
 2.  Run the test: `Invoke-AtomicTest T1059.001`
 3.  Check your SIEM: Did the alert trigger?
 4.  Follow the Playbook: Did the steps work?
+
+## References
+-   [Atomic Red Team](https://github.com/redcanaryco/atomic-red-team)
+-   [MITRE ATT&CK Techniques](https://attack.mitre.org/techniques/enterprise/)

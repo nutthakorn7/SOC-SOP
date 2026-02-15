@@ -31,3 +31,7 @@
 -   **Goal 1**: Achieve SOC-CMM Level 3 in "Process".
 -   **Goal 2**: Integrate Cloud Logs (AWS/Azure).
 -   **Goal 3**: Conduct Purple Team exercise.
+
+## References
+-   [SOC-CMM Assessment Model](https://www.soc-cmm.com/)
+-   [Gartner SOC Modernization](https://www.gartner.com/en/information-technology)

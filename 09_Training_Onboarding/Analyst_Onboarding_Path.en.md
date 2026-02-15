@@ -68,3 +68,7 @@ gantt
     -   Task: Run `Invoke-AtomicTest T1059.001` (Phishing Simulation) in the Test Lab.
     -   Task: Triage the alert in SIEM.
     -   Task: Submit a mock [Incident Report](../templates/incident_report.en.md).
+
+## References
+-   [SANS SOC Analyst Training](https://www.sans.org/cyber-security-courses/)
+-   [NICE Cybersecurity Workforce Framework](https://niccs.cisa.gov/workforce-development/nice-framework)

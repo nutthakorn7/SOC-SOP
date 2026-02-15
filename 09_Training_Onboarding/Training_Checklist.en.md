@@ -27,3 +27,7 @@
 - [ ] Execute: Atomic Red Team Test (T1059.001)
 - [ ] Submit: Mock Incident Report
 - [ ] **Final Sign-off**: Ready for Production Rotation. (Manager: ________)
+
+## References
+-   [SANS SOC Analyst Training](https://www.sans.org/cyber-security-courses/)
+-   [CompTIA CySA+ Certification](https://www.comptia.org/certifications/cybersecurity-analyst)

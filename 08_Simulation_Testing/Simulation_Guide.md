@@ -11,6 +11,14 @@ This guide explains how to conduct a **Purple Team Exercise** (Red Team Attacks 
 
 ## Execution Workflow (The Feedback Loop)
 
+```mermaid
+graph TD
+    Execute["1. Execute (Red Team)"] --> Detect["2. Detect (Blue Team)"]
+    Detect --> Respond["3. Respond (Blue Team)"]
+    Respond --> Improve["4. Improve (Purple)"]
+    Improve --> Execute
+```
+
 ### Step 1: Execute (Red)
 Run the Atomic Test corresponding to the Playbook you want to test.
 *Example (Phishing)*:
@@ -38,3 +46,7 @@ Recommended Validation Schedule:
 -   **Weekly**: Test 1 high-priority Playbook (Ransomware, Phishing).
 -   **Monthly**: Test 3-5 random Playbooks.
 -   **Quarterly**: Full Chain simulation (Phishing -> Lateral Mov -> Exfil).
+
+## References
+-   [Atomic Red Team](https://github.com/redcanaryco/atomic-red-team)
+-   [MITRE ATT&CK](https://attack.mitre.org/)

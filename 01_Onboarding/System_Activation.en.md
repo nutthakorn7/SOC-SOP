@@ -4,6 +4,18 @@ This document outlines the standard infrastructure requirements and setup proced
 
 ## 1. Core Components
 
+```mermaid
+graph LR
+    Logs[Log Sources] -->|Ingest| SIEM[SIEM]
+    Endpoints[Endpoints] -->|Agent| EDR[EDR]
+    SIEM -->|Alert| SOAR[SOAR]
+    EDR -->|Alert| SOAR
+    SOAR -->|Create| Ticket[Ticketing]
+    Ticket -->|Track| Analyst[SOC Analyst]
+```
+
+A fully functional SOC requires the following core components:
+
 A fully functional SOC requires the following core components:
 
 ### 1.1 SIEM (Security Information and Event Management)
@@ -41,3 +53,7 @@ A fully functional SOC requires the following core components:
 
 -   **Log Shippers**: Use dedicated forwarders to send logs to the SIEM securely (TLS encryption).
 -   **Jump Host**: Use a secure Jump Host or VPN for administrative access to SOC infrastructure.
+
+## References
+-   [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)
+-   [CISA SOC Best Practices](https://www.cisa.gov/topics/cyber-threats-and-advisories)

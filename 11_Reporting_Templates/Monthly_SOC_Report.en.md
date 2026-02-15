@@ -5,6 +5,16 @@
 **Distribution**: CIO, CISO, IT Director
 
 ## 1. Executive Summary
+
+```mermaid
+graph LR
+    Collect[Collect Metrics] --> Analyze[Analyze Trends]
+    Analyze --> Draft[Draft Report]
+    Draft --> Review[Manager Review]
+    Review --> Distribute[Distribute to Execs]
+```
+
+*Provide a 3-5 sentence summary of the SOC's performance this month. Highlight any major incidents or achievements.*
 *Provide a 3-5 sentence summary of the SOC's performance this month. Highlight any major incidents or achievements.*
 
 ## 2. Key Performance Indicators (KPIs)
@@ -35,3 +45,7 @@
 -   [ ] Tuned 5 noisy detection rules.
 -   [ ] Onboarded [New Log Source].
 -   [ ] Completed [Training Module].
+
+## References
+-   [SANS SOC Metrics](https://www.sans.org/white-papers/)
+-   [SOC-CMM](https://www.soc-cmm.com/)

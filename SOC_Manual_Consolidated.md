@@ -273,6 +273,18 @@ This document outlines the standard infrastructure requirements and setup proced
 
 ## 1. Core Components
 
+```mermaid
+graph LR
+    Logs[Log Sources] -->|Ingest| SIEM[SIEM]
+    Endpoints[Endpoints] -->|Agent| EDR[EDR]
+    SIEM -->|Alert| SOAR[SOAR]
+    EDR -->|Alert| SOAR
+    SOAR -->|Create| Ticket[Ticketing]
+    Ticket -->|Track| Analyst[SOC Analyst]
+```
+
+A fully functional SOC requires the following core components:
+
 A fully functional SOC requires the following core components:
 
 ### 1.1 SIEM (Security Information and Event Management)
@@ -311,6 +323,10 @@ A fully functional SOC requires the following core components:
 -   **Log Shippers**: Use dedicated forwarders to send logs to the SIEM securely (TLS encryption).
 -   **Jump Host**: Use a secure Jump Host or VPN for administrative access to SOC infrastructure.
 
+## References
+-   [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)
+-   [CISA SOC Best Practices](https://www.cisa.gov/topics/cyber-threats-and-advisories)
+
 
 ---
 
@@ -321,6 +337,18 @@ A fully functional SOC requires the following core components:
 เอกสารนี้ระบุข้อกำหนดและขั้นตอนการติดตั้งโครงสร้างพื้นฐานสำหรับศูนย์ปฏิบัติการความปลอดภัย (SOC) สมัยใหม่
 
 ## 1. องค์ประกอบหลัก (Core Components)
+
+```mermaid
+graph LR
+    Logs[แหล่ง Log] -->|นำเข้า| SIEM[SIEM]
+    Endpoints[เครื่องปลายทาง] -->|Agent| EDR[EDR]
+    SIEM -->|แจ้งเตือน| SOAR[SOAR]
+    EDR -->|แจ้งเตือน| SOAR
+    SOAR -->|สร้าง Ticket| Ticket[Ticketing]
+    Ticket -->|ติดตาม| Analyst[SOC Analyst]
+```
+
+SOC ที่สมบูรณ์จำเป็นต้องมีองค์ประกอบหลักดังนี้:
 
 SOC ที่สมบูรณ์จำเป็นต้องมีองค์ประกอบหลักดังนี้:
 
@@ -360,6 +388,10 @@ SOC ที่สมบูรณ์จำเป็นต้องมีองค�
 -   **Log Shippers**: ใช้ตัวส่ง Log (Forwarder) เพื่อส่งข้อมูลไปยัง SIEM อย่างปลอดภัย (เข้ารหัส TLS)
 -   **Jump Host**: ใช้ Jump Host หรือ VPN ที่ปลอดภัยสำหรับการเข้าถึงระดับผู้ดูแลระบบ
 
+## References
+-   [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)
+-   [CISA SOC Best Practices](https://www.cisa.gov/topics/cyber-threats-and-advisories)
+
 
 ---
 
@@ -392,6 +424,16 @@ yara -r 10_File_Signatures/ /path/to/scan
 **Distribution**: CIO, CISO, IT Director
 
 ## 1. Executive Summary
+
+```mermaid
+graph LR
+    Collect[Collect Metrics] --> Analyze[Analyze Trends]
+    Analyze --> Draft[Draft Report]
+    Draft --> Review[Manager Review]
+    Review --> Distribute[Distribute to Execs]
+```
+
+*Provide a 3-5 sentence summary of the SOC's performance this month. Highlight any major incidents or achievements.*
 *Provide a 3-5 sentence summary of the SOC's performance this month. Highlight any major incidents or achievements.*
 
 ## 2. Key Performance Indicators (KPIs)
@@ -423,6 +465,10 @@ yara -r 10_File_Signatures/ /path/to/scan
 -   [ ] Onboarded [New Log Source].
 -   [ ] Completed [Training Module].
 
+## References
+-   [SANS SOC Metrics](https://www.sans.org/white-papers/)
+-   [SOC-CMM](https://www.soc-cmm.com/)
+
 
 ---
 
@@ -435,6 +481,16 @@ yara -r 10_File_Signatures/ /path/to/scan
 **ผู้รับมอบ**: CIO, CISO, IT Director
 
 ## 1. บทสรุปผู้บริหาร (Executive Summary)
+
+```mermaid
+graph LR
+    Collect[รวบรวมข้อมูล] --> Analyze[วิเคราะห์แนวโน้ม]
+    Analyze --> Draft[ร่างรายงาน]
+    Draft --> Review[ผู้จัดการตรวจสอบ]
+    Review --> Distribute[ส่งมอบผู้บริหาร]
+```
+
+*สรุปภาพรวมการทำงานของ SOC ในเดือนนี้ 3-5 ประโยค เน้นเหตุการณ์สำคัญหรือความสำเร็จ*
 *สรุปภาพรวมการทำงานของ SOC ในเดือนนี้ 3-5 ประโยค เน้นเหตุการณ์สำคัญหรือความสำเร็จ*
 
 ## 2. ตัวชี้วัดผลการดำเนินงาน (KPIs)
@@ -465,6 +521,10 @@ yara -r 10_File_Signatures/ /path/to/scan
 -   [ ] ปรับปรุงกฎ Alert ที่แจ้งเตือนผิดพลาด 5 กฎ
 -   [ ] นำเข้า Log ใหม่จาก [ระบบ]
 -   [ ] อบรมพนักงานเรื่อง [หัวข้อ]
+
+## References
+-   [SANS SOC Metrics](https://www.sans.org/white-papers/)
+-   [SOC-CMM](https://www.soc-cmm.com/)
 
 
 ---
@@ -505,6 +565,10 @@ yara -r 10_File_Signatures/ /path/to/scan
 -   **Goal 2**: Integrate Cloud Logs (AWS/Azure).
 -   **Goal 3**: Conduct Purple Team exercise.
 
+## References
+-   [SOC-CMM Assessment Model](https://www.soc-cmm.com/)
+-   [Gartner SOC Modernization](https://www.gartner.com/en/information-technology)
+
 
 ---
 
@@ -543,6 +607,10 @@ yara -r 10_File_Signatures/ /path/to/scan
 -   **เป้าหมาย 1**: ยกระดับ SOC-CMM ด้าน "Process" ให้ถึง Level 3
 -   **เป้าหมาย 2**: เชื่อมต่อ Log จากระบบ Cloud
 -   **เป้าหมาย 3**: จัดซ้อมรบทางไซเบอร์ (Purple Team)
+
+## References
+-   [SOC-CMM Assessment Model](https://www.soc-cmm.com/)
+-   [Gartner SOC Modernization](https://www.gartner.com/en/information-technology)
 
 
 ---
@@ -4036,6 +4104,10 @@ gantt
     -   Task: Triage the alert in SIEM.
     -   Task: Submit a mock [Incident Report](../templates/incident_report.en.md).
 
+## References
+-   [SANS SOC Analyst Training](https://www.sans.org/cyber-security-courses/)
+-   [NICE Cybersecurity Workforce Framework](https://niccs.cisa.gov/workforce-development/nice-framework)
+
 
 ---
 
@@ -4112,6 +4184,10 @@ gantt
     -   งาน: Triage Alert ใน SIEM
     -   งาน: ส่ง [Incident Report](../templates/incident_report.th.md) จำลอง
 
+## References
+-   [SANS SOC Analyst Training](https://www.sans.org/cyber-security-courses/)
+-   [NICE Cybersecurity Workforce Framework](https://niccs.cisa.gov/workforce-development/nice-framework)
+
 
 ---
 
@@ -4146,6 +4222,10 @@ gantt
 - [ ] Execute: Atomic Red Team Test (T1059.001)
 - [ ] Submit: Mock Incident Report
 - [ ] **Final Sign-off**: Ready for Production Rotation. (Manager: ________)
+
+## References
+-   [SANS SOC Analyst Training](https://www.sans.org/cyber-security-courses/)
+-   [CompTIA CySA+ Certification](https://www.comptia.org/certifications/cybersecurity-analyst)
 
 
 ---
@@ -4182,6 +4262,10 @@ gantt
 - [ ] ส่งงาน: รายงาน Incident จำลอง
 - [ ] **การอนุมัติผ่านโปร**: พร้อมเข้ากะปฏิบัติงานจริง (ผู้จัดการ: ________)
 
+## References
+-   [SANS SOC Analyst Training](https://www.sans.org/cyber-security-courses/)
+-   [CompTIA CySA+ Certification](https://www.comptia.org/certifications/cybersecurity-analyst)
+
 
 ---
 
@@ -4215,10 +4299,23 @@ This document maps our **Standard SOC Playbooks** to specific **Atomic Red Team*
 | **PB-20** | Log Clearing | T1070.001 | `Indicator Removal: Clear Windows Event Logs` |
 
 ## How to use
+
+```mermaid
+graph LR
+    Install[Install Atomic RT] --> Run[Run Test]
+    Run --> Check[Check SIEM Alert]
+    Check --> Follow[Follow Playbook]
+    Follow --> Tune[Tune Rules/Playbook]
+```
+
 1.  Install [Atomic Red Team](https://github.com/redcanaryco/atomic-red-team) on a **TEST MACHINE**.
 2.  Run the test: `Invoke-AtomicTest T1059.001`
 3.  Check your SIEM: Did the alert trigger?
 4.  Follow the Playbook: Did the steps work?
+
+## References
+-   [Atomic Red Team](https://github.com/redcanaryco/atomic-red-team)
+-   [MITRE ATT&CK Techniques](https://attack.mitre.org/techniques/enterprise/)
 
 
 ---
@@ -4237,6 +4334,14 @@ This guide explains how to conduct a **Purple Team Exercise** (Red Team Attacks 
     -   **SIEM**: To view alerts.
 
 ## Execution Workflow (The Feedback Loop)
+
+```mermaid
+graph TD
+    Execute["1. Execute (Red Team)"] --> Detect["2. Detect (Blue Team)"]
+    Detect --> Respond["3. Respond (Blue Team)"]
+    Respond --> Improve["4. Improve (Purple)"]
+    Improve --> Execute
+```
 
 ### Step 1: Execute (Red)
 Run the Atomic Test corresponding to the Playbook you want to test.
@@ -4265,3 +4370,7 @@ Recommended Validation Schedule:
 -   **Weekly**: Test 1 high-priority Playbook (Ransomware, Phishing).
 -   **Monthly**: Test 3-5 random Playbooks.
 -   **Quarterly**: Full Chain simulation (Phishing -> Lateral Mov -> Exfil).
+
+## References
+-   [Atomic Red Team](https://github.com/redcanaryco/atomic-red-team)
+-   [MITRE ATT&CK](https://attack.mitre.org/)

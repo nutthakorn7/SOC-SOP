@@ -27,3 +27,7 @@
 - [ ] ปฏิบัติ: รัน Atomic Red Team Test (T1059.001)
 - [ ] ส่งงาน: รายงาน Incident จำลอง
 - [ ] **การอนุมัติผ่านโปร**: พร้อมเข้ากะปฏิบัติงานจริง (ผู้จัดการ: ________)
+
+## References
+-   [SANS SOC Analyst Training](https://www.sans.org/cyber-security-courses/)
+-   [CompTIA CySA+ Certification](https://www.comptia.org/certifications/cybersecurity-analyst)
