@@ -115,9 +115,12 @@ A structured 4-week curriculum to train new SOC Analysts using this repository.
 
 ## 🛠 Tools / เครื่องมือช่วยงาน
 
-| Tool | Script | Description |
+| Tool | File | Description |
 | :--- | :--- | :--- |
 | **Export Docs** | [export_docs.py](tools/export_docs.py) | Run `python3 tools/export_docs.py` to merge all docs into a single Markdown file (great for PDF export). |
+| **SOC Maturity Scorer** | [soc_maturity_scorer.html](tools/soc_maturity_scorer.html) | Interactive self-assessment tool — 7 domains, 56 questions, bilingual EN/TH, scored 1–5 maturity levels. |
+| **MITRE ATT&CK Heatmap** | [mitre_attack_heatmap.html](tools/mitre_attack_heatmap.html) | Interactive coverage map — 19 techniques covered, gap analysis, bilingual EN/TH, click-to-detail. |
+| **ATT&CK Navigator Layer** | [mitre_attack_navigator.json](tools/mitre_attack_navigator.json) | Import into [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) for official MITRE view. |
 
 ## 📂 Templates / แบบฟอร์มพร้อมใช้
 

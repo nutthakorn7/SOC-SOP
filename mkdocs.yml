@@ -171,6 +171,9 @@ nav:
     - ศูนย์รวมการเชื่อมต่อ (TH): 03_User_Guides/Integration_Hub.th.md
     - Troubleshooting: 04_Troubleshooting/Common_Issues.en.md
     - แก้ปัญหา (TH): 04_Troubleshooting/Common_Issues.th.md
+  - 🧰 Interactive Tools:
+    - SOC Maturity Scorer: tools/soc_maturity_scorer.html
+    - MITRE ATT&CK Heatmap: tools/mitre_attack_heatmap.html
   - 🎯 Testing & Training:
     - Simulation Guide: 08_Simulation_Testing/Simulation_Guide.md
     - Atomic Test Map: 08_Simulation_Testing/Atomic_Test_Map.md
