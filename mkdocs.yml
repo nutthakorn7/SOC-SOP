@@ -127,6 +127,8 @@ nav:
     - แผน DR/BCP (TH): 05_Incident_Response/Disaster_Recovery_BCP.th.md
     - Incident Classification: 05_Incident_Response/Incident_Classification.en.md
     - อนุกรมวิธานจำแนกเหตุการณ์ (TH): 05_Incident_Response/Incident_Classification.th.md
+    - Forensic Investigation: 05_Incident_Response/Forensic_Investigation.en.md
+    - SOP นิติวิทยาศาสตร์ (TH): 05_Incident_Response/Forensic_Investigation.th.md
     - Playbooks (EN):
       - Phishing: 05_Incident_Response/Playbooks/Phishing.en.md
       - Ransomware: 05_Incident_Response/Playbooks/Ransomware.en.md
@@ -228,6 +230,8 @@ nav:
     - แม่แบบประเมินเครื่องมือ (TH): 06_Operations_Management/Vendor_Evaluation.th.md
     - Log Source Matrix: 06_Operations_Management/Log_Source_Matrix.en.md
     - ตารางแหล่ง Log (TH): 06_Operations_Management/Log_Source_Matrix.th.md
+    - SOC Automation Catalog: 06_Operations_Management/SOC_Automation_Catalog.en.md
+    - แคตตาล็อก Automation (TH): 06_Operations_Management/SOC_Automation_Catalog.th.md
   - 🔧 Guides & Tools:
     - Detection Rules Index: 07_Detection_Rules/README.md
     - ดัชนี Detection Rules (TH): 07_Detection_Rules/README.th.md

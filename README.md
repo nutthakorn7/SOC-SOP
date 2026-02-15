@@ -80,6 +80,7 @@ Start here if you're building a brand-new SOC. Follow the numbered order.
 | **🚨 Escalation Matrix** (NEW) | [Read](05_Incident_Response/Escalation_Matrix.en.md) | [อ่าน](05_Incident_Response/Escalation_Matrix.th.md) |
 | **🏥 Disaster Recovery / BCP** (NEW) | [Read](05_Incident_Response/Disaster_Recovery_BCP.en.md) | [อ่าน](05_Incident_Response/Disaster_Recovery_BCP.th.md) |
 | **📋 Incident Classification** (NEW) | [Read](05_Incident_Response/Incident_Classification.en.md) | [อ่าน](05_Incident_Response/Incident_Classification.th.md) |
+| **🔬 Forensic Investigation** (NEW) | [Read](05_Incident_Response/Forensic_Investigation.en.md) | [อ่าน](05_Incident_Response/Forensic_Investigation.th.md) |
 
 ### 33 Playbooks — Grouped by Category
 
@@ -205,6 +206,7 @@ File-based threat detection: [YARA Index](07_Detection_Rules/yara/README.md) | [
 | **Log Source Onboarding** | [Read](06_Operations_Management/Log_Source_Onboarding.en.md) | [อ่าน](06_Operations_Management/Log_Source_Onboarding.th.md) |
 | **Vendor/Tool Evaluation** | [Read](06_Operations_Management/Vendor_Evaluation.en.md) | [อ่าน](06_Operations_Management/Vendor_Evaluation.th.md) |
 | **📊 Log Source Matrix** (NEW) | [Read](06_Operations_Management/Log_Source_Matrix.en.md) | [อ่าน](06_Operations_Management/Log_Source_Matrix.th.md) |
+| **🤖 SOC Automation Catalog** (NEW) | [Read](06_Operations_Management/SOC_Automation_Catalog.en.md) | [อ่าน](06_Operations_Management/SOC_Automation_Catalog.th.md) |
 | **Data Governance & Retention** | [Read](02_Platform_Operations/Database_Management.en.md) | [อ่าน](02_Platform_Operations/Database_Management.th.md) |
 | **Deployment Procedures** | [Read](02_Platform_Operations/Deployment_Procedures.en.md) | [อ่าน](02_Platform_Operations/Deployment_Procedures.th.md) |
 | **Integration Hub** | [Read](03_User_Guides/Integration_Hub.en.md) | [อ่าน](03_User_Guides/Integration_Hub.th.md) |

@@ -6795,6 +6795,348 @@ graph LR
 
 ---
 
+## File: 06_Operations_Management/SOC_Automation_Catalog.en.md
+
+# SOC Automation Catalog
+
+**Document ID**: OPS-SOP-012
+**Version**: 1.0
+**Classification**: Internal
+**Last Updated**: 2026-02-15
+
+> This catalog lists **every automation** the SOC uses or should implement, organized by category. Use it to track automation maturity, identify manual processes that should be automated, and onboard analysts to existing automations.
+
+---
+
+## Automation Maturity Levels
+
+```mermaid
+graph LR
+    L0[Level 0<br>Fully Manual] --> L1[Level 1<br>Assisted]
+    L1 --> L2[Level 2<br>Semi-Auto]
+    L2 --> L3[Level 3<br>Fully Auto]
+    L3 --> L4[Level 4<br>Self-Tuning]
+
+    style L0 fill:#dc2626,color:#fff
+    style L1 fill:#f97316,color:#fff
+    style L2 fill:#eab308,color:#000
+    style L3 fill:#22c55e,color:#fff
+    style L4 fill:#3b82f6,color:#fff
+```
+
+| Level | Name | Description | Example |
+|:---:|:---|:---|:---|
+| **L0** | Fully Manual | Analyst does everything by hand | Copy-paste IOCs into lookup tools |
+| **L1** | Assisted | Tool provides suggestions, analyst acts | SIEM enriches alert with context |
+| **L2** | Semi-Automated | Tool executes, analyst approves | SOAR submits ticket after analyst confirms |
+| **L3** | Fully Automated | No human intervention needed | Auto-block IOCs from TI feeds |
+| **L4** | Self-Tuning | System learns and adjusts automatically | ML-based alert prioritization |
+
+---
+
+## 1. Alert Triage & Enrichment
+
+| # | Automation | Description | Trigger | Current | Target | Priority |
+|:---:|:---|:---|:---|:---:|:---:|:---:|
+| 1.1 | **IOC Auto-Enrichment** | Lookup hash/IP/domain against TI feeds on alert creation | New alert | L1 | L3 | 🔴 P1 |
+| 1.2 | **Alert Deduplication** | Suppress duplicate alerts from same source within time window | Alert ingestion | L1 | L3 | 🔴 P1 |
+| 1.3 | **Alert Priority Scoring** | Calculate severity based on asset criticality + TI + user risk | New alert | L0 | L2 | 🟠 P2 |
+| 1.4 | **Context Enrichment** | Auto-add user info, asset details, recent activity to alert | New alert | L1 | L3 | 🔴 P1 |
+| 1.5 | **False Positive Filtering** | Auto-close known FP patterns with documentation | Alert ingestion | L0 | L2 | 🟠 P2 |
+| 1.6 | **Alert Correlation** | Group related alerts into incidents automatically | Multiple alerts | L1 | L3 | 🟠 P2 |
+| 1.7 | **GeoIP Enrichment** | Add geographic info to IP-based alerts | IP in alert | L2 | L3 | 🟢 P3 |
+
+---
+
+## 2. Incident Response Automation
+
+| # | Automation | Description | Trigger | Current | Target | Priority |
+|:---:|:---|:---|:---|:---:|:---:|:---:|
+| 2.1 | **Phishing Email Quarantine** | Auto-quarantine reported phishing emails org-wide | User report or detection | L1 | L3 | 🔴 P1 |
+| 2.2 | **Endpoint Isolation** | Auto-isolate endpoint on confirmed malware/C2 | P1/P2 malware alert | L1 | L2 | 🔴 P1 |
+| 2.3 | **Account Disable** | Auto-disable compromised account | Confirmed compromise (P1) | L1 | L2 | 🔴 P1 |
+| 2.4 | **Firewall Block IOC** | Auto-add malicious IPs/domains to firewall block list | Confirmed malicious IOC | L1 | L3 | 🟠 P2 |
+| 2.5 | **Ticket Creation** | Auto-create incident ticket with enriched context | New P1/P2 alert | L2 | L3 | 🟠 P2 |
+| 2.6 | **Notification Dispatch** | Auto-send notifications based on severity and escalation matrix | Incident classification | L1 | L3 | 🟠 P2 |
+| 2.7 | **Evidence Collection** | Auto-collect forensic artifacts (memory, logs) on trigger | P1 incident declared | L0 | L2 | 🟡 P3 |
+| 2.8 | **MFA Reset** | Auto-trigger MFA re-enrollment after account compromise | Account recovery | L0 | L2 | 🟡 P3 |
+
+---
+
+## 3. Threat Intelligence Automation
+
+| # | Automation | Description | Trigger | Current | Target | Priority |
+|:---:|:---|:---|:---|:---:|:---:|:---:|
+| 3.1 | **TI Feed Ingestion** | Auto-ingest IOCs from configured TI feeds | Scheduled (hourly) | L2 | L3 | 🔴 P1 |
+| 3.2 | **IOC Expiry** | Auto-expire old IOCs based on age and confidence | Daily cleanup | L0 | L3 | 🟠 P2 |
+| 3.3 | **Retroactive Hunting** | Re-scan historical logs when new high-confidence IOC arrives | New critical IOC | L0 | L2 | 🟠 P2 |
+| 3.4 | **TI Report Parsing** | Extract IOCs from PDF/email threat reports automatically | Report received | L0 | L2 | 🟡 P3 |
+| 3.5 | **MITRE Mapping** | Auto-tag alerts with ATT&CK techniques based on detection rule | Alert creation | L1 | L3 | 🟠 P2 |
+
+---
+
+## 4. Detection Engineering Automation
+
+| # | Automation | Description | Trigger | Current | Target | Priority |
+|:---:|:---|:---|:---|:---:|:---:|:---:|
+| 4.1 | **Sigma Rule Deployment** | Auto-convert Sigma rules to SIEM query format and deploy | Git push to rules repo | L1 | L3 | 🔴 P1 |
+| 4.2 | **Detection Rule Testing** | Auto-validate new rules against test data before production | PR to rules repo | L0 | L2 | 🟠 P2 |
+| 4.3 | **Rule Performance Metrics** | Auto-track TP/FP ratio per rule, flag underperformers | Weekly schedule | L0 | L2 | 🟠 P2 |
+| 4.4 | **Coverage Gap Report** | Auto-generate MITRE ATT&CK coverage heatmap | Monthly schedule | L0 | L2 | 🟡 P3 |
+| 4.5 | **YARA Rule Scanning** | Auto-scan file submissions against YARA rule set | File submission | L1 | L3 | 🟠 P2 |
+
+---
+
+## 5. Operational Automation
+
+| # | Automation | Description | Trigger | Current | Target | Priority |
+|:---:|:---|:---|:---|:---:|:---:|:---:|
+| 5.1 | **Shift Handoff Report** | Auto-generate shift summary from open tickets and alerts | Shift end | L0 | L2 | 🟠 P2 |
+| 5.2 | **Log Source Health Check** | Auto-alert when log source stops sending for > threshold | Every 15 min | L1 | L3 | 🔴 P1 |
+| 5.3 | **SIEM License Monitor** | Auto-alert when EPS approaches license limit | Hourly check | L0 | L2 | 🟠 P2 |
+| 5.4 | **SLA Breach Warning** | Auto-notify when ticket approaches SLA deadline | Ticket age check | L1 | L3 | 🟠 P2 |
+| 5.5 | **Monthly KPI Report** | Auto-generate SOC metrics dashboard for management | Monthly schedule | L0 | L2 | 🟡 P3 |
+| 5.6 | **Analyst Workload Balance** | Auto-distribute alerts based on analyst availability/skill | Alert assignment | L0 | L2 | 🟡 P3 |
+| 5.7 | **Compliance Evidence Export** | Auto-export evidence for audit (logs, tickets, metrics) | Quarterly schedule | L0 | L2 | 🟡 P3 |
+
+---
+
+## 6. User & Entity Behavior
+
+| # | Automation | Description | Trigger | Current | Target | Priority |
+|:---:|:---|:---|:---|:---:|:---:|:---:|
+| 6.1 | **Impossible Travel Detection** | Auto-detect logins from geographically impossible locations | Login event | L2 | L3 | 🟠 P2 |
+| 6.2 | **Baseline Deviation Alert** | Alert when user behavior deviates significantly from baseline | Continuous | L0 | L2 | 🟡 P3 |
+| 6.3 | **Privileged Account Monitoring** | Auto-alert on unusual privileged account activity | Privileged event | L1 | L3 | 🟠 P2 |
+| 6.4 | **Off-Hours Activity** | Auto-flag activity outside normal working hours | After-hours event | L1 | L2 | 🟡 P3 |
+
+---
+
+## Implementation Roadmap
+
+```mermaid
+gantt
+    title SOC Automation Roadmap
+    dateFormat  YYYY-Q
+    axisFormat  %Y-Q%q
+
+    section P1 Critical
+    IOC Auto-Enrichment          :2026-Q1, 90d
+    Alert Deduplication          :2026-Q1, 90d
+    Phishing Quarantine          :2026-Q1, 90d
+    Sigma Rule Deployment        :2026-Q1, 90d
+    Log Source Health Check      :2026-Q1, 90d
+
+    section P2 High
+    Alert Priority Scoring       :2026-Q2, 90d
+    Endpoint Isolation           :2026-Q2, 90d
+    TI Feed Ingestion            :2026-Q2, 90d
+    Rule Performance Metrics     :2026-Q2, 90d
+
+    section P3 Medium
+    Evidence Collection          :2026-Q3, 90d
+    Shift Handoff Report         :2026-Q3, 90d
+    Monthly KPI Report           :2026-Q3, 90d
+```
+
+---
+
+## Automation Decision Framework
+
+> Use this framework to decide whether to automate a process.
+
+| Factor | Score 1 (Low) | Score 2 (Med) | Score 3 (High) |
+|:---|:---|:---|:---|
+| **Frequency** | Monthly or less | Weekly | Daily or more |
+| **Time per execution** | < 5 min | 5–30 min | > 30 min |
+| **Error risk (manual)** | Low | Medium | High |
+| **Impact if delayed** | Informational | Operational | Security-critical |
+| **Complexity to automate** | High (custom dev) | Medium (API calls) | Low (built-in feature) |
+
+**Scoring:**
+- **12–15**: Automate immediately
+- **8–11**: Plan for next quarter
+- **5–7**: Keep manual, reassess later
+
+---
+
+## Automation Metrics
+
+| Metric | Target | Measurement |
+|:---|:---:|:---|
+| Automation coverage (% of catalog at L2+) | ≥ 50% | Count items at L2+ / total |
+| Mean Time to Enrich (MTTE) | < 30 sec | Alert creation → enrichment complete |
+| Auto-resolved alerts | ≥ 30% of P4 | Auto-closed / total P4 |
+| SOAR playbook execution success rate | ≥ 95% | Successful runs / total runs |
+| Analyst time saved per shift | ≥ 2 hours | Before vs after automation |
+| False positive auto-filter accuracy | ≥ 98% | Correct FP / total auto-filtered |
+
+---
+
+## SOAR Playbook Quick Reference
+
+> These map to the [SOAR Playbook Templates](SOAR_Playbooks.en.md).
+
+| Playbook | Trigger | Key Actions | Auto Level |
+|:---|:---|:---|:---:|
+| PB-PHISH | User report / email alert | Quarantine → URL scan → notify user | L2 |
+| PB-MALWARE | EDR detection | Isolate → collect evidence → ticket | L2 |
+| PB-BRUTE | 10+ failed logins | Check geo → check MFA → block/alert | L2 |
+| PB-IOC-BLOCK | TI feed match | Verify → add to blocklist → notify | L3 |
+| PB-ACCT-COMP | Confirmed compromise | Disable → reset → MFA re-enroll → ticket | L2 |
+| PB-LOG-HEALTH | Source silent > 30 min | Check → alert SOC → ticket to engineering | L3 |
+
+---
+
+## Related Documents
+
+-   [SOAR Playbooks](SOAR_Playbooks.en.md) — Detailed playbook templates
+-   [Threat Hunting Playbook](Threat_Hunting_Playbook.en.md) — Proactive hunting
+-   [Detection Rule Testing SOP](../06_Operations_Management/Detection_Rule_Testing.en.md)
+-   [TI Feeds Integration](../06_Operations_Management/TI_Feeds_Integration.en.md)
+-   [SOC Metrics & KPIs](../06_Operations_Management/SOC_Metrics.en.md)
+-   [Log Source Matrix](../06_Operations_Management/Log_Source_Matrix.en.md)
+-   [SOC Checklists](../06_Operations_Management/SOC_Checklists.en.md)
+
+
+---
+
+## File: 06_Operations_Management/SOC_Automation_Catalog.th.md
+
+# SOC Automation Catalog / แคตตาล็อกระบบอัตโนมัติ SOC
+
+**รหัสเอกสาร**: OPS-SOP-012
+**เวอร์ชัน**: 1.0
+**การจัดชั้นความลับ**: ใช้ภายใน
+**อัปเดตล่าสุด**: 2026-02-15
+
+> แคตตาล็อกนี้รวบรวม **ระบบอัตโนมัติทุกตัว** ที่ SOC ใช้หรือควรนำมาใช้ เพื่อติดตาม automation maturity, ระบุงาน manual ที่ควรทำเป็น auto, และ onboard analyst ใหม่
+
+---
+
+## ระดับความสมบูรณ์ของ Automation
+
+| ระดับ | ชื่อ | คำอธิบาย | ตัวอย่าง |
+|:---:|:---|:---|:---|
+| **L0** | Manual ทั้งหมด | Analyst ทำทุกอย่างด้วยมือ | Copy-paste IOC ไปค้นหา |
+| **L1** | มีตัวช่วย | เครื่องมือแนะนำ, analyst ตัดสินใจ | SIEM เพิ่ม context ให้ alert |
+| **L2** | กึ่งอัตโนมัติ | เครื่องมือทำ, analyst อนุมัติ | SOAR สร้าง ticket หลัง analyst ยืนยัน |
+| **L3** | อัตโนมัติเต็ม | ไม่ต้องมีคนดูแล | Auto-block IOC จาก TI feeds |
+| **L4** | ปรับตัวเอง | ระบบเรียนรู้และปรับเอง | ML จัดลำดับ alert |
+
+---
+
+## 1. Alert Triage & Enrichment
+
+| # | Automation | คำอธิบาย | Trigger | ปัจจุบัน | เป้าหมาย | ลำดับ |
+|:---:|:---|:---|:---|:---:|:---:|:---:|
+| 1.1 | **IOC Auto-Enrichment** | ค้นหา hash/IP/domain จาก TI feeds | Alert ใหม่ | L1 | L3 | 🔴 P1 |
+| 1.2 | **Alert Deduplication** | ระงับ alert ซ้ำจากแหล่งเดียวกัน | Alert ingestion | L1 | L3 | 🔴 P1 |
+| 1.3 | **Alert Priority Scoring** | คำนวณ severity จาก asset + TI + user risk | Alert ใหม่ | L0 | L2 | 🟠 P2 |
+| 1.4 | **Context Enrichment** | เพิ่มข้อมูลผู้ใช้, asset, กิจกรรมล่าสุดใน alert | Alert ใหม่ | L1 | L3 | 🔴 P1 |
+| 1.5 | **FP Filtering** | Auto-close FP ที่รู้จัก, พร้อมบันทึก | Alert ingestion | L0 | L2 | 🟠 P2 |
+| 1.6 | **Alert Correlation** | รวม alert ที่เกี่ยวข้องเป็น incident อัตโนมัติ | หลาย alerts | L1 | L3 | 🟠 P2 |
+
+---
+
+## 2. Incident Response Automation
+
+| # | Automation | คำอธิบาย | Trigger | ปัจจุบัน | เป้าหมาย | ลำดับ |
+|:---:|:---|:---|:---|:---:|:---:|:---:|
+| 2.1 | **Phishing Quarantine** | Quarantine phishing email ทั้งองค์กรอัตโนมัติ | User report / detection | L1 | L3 | 🔴 P1 |
+| 2.2 | **Endpoint Isolation** | Isolate endpoint เมื่อมี malware/C2 | P1/P2 malware alert | L1 | L2 | 🔴 P1 |
+| 2.3 | **Account Disable** | Disable account ที่ถูกบุกรุก | ยืนยัน compromise (P1) | L1 | L2 | 🔴 P1 |
+| 2.4 | **Firewall Block IOC** | เพิ่ม IP/domain อันตรายใน blocklist อัตโนมัติ | IOC ยืนยันอันตราย | L1 | L3 | 🟠 P2 |
+| 2.5 | **Ticket Creation** | สร้าง incident ticket พร้อม context อัตโนมัติ | P1/P2 alert ใหม่ | L2 | L3 | 🟠 P2 |
+| 2.6 | **Notification Dispatch** | ส่งการแจ้งเตือนตาม severity + escalation matrix | Incident classification | L1 | L3 | 🟠 P2 |
+| 2.7 | **Evidence Collection** | เก็บ forensic artifacts อัตโนมัติ | P1 incident | L0 | L2 | 🟡 P3 |
+
+---
+
+## 3. Threat Intelligence Automation
+
+| # | Automation | คำอธิบาย | Trigger | ปัจจุบัน | เป้าหมาย | ลำดับ |
+|:---:|:---|:---|:---|:---:|:---:|:---:|
+| 3.1 | **TI Feed Ingestion** | รับ IOC จาก TI feeds อัตโนมัติ | กำหนดเวลา (ทุกชม.) | L2 | L3 | 🔴 P1 |
+| 3.2 | **IOC Expiry** | ลบ IOC เก่าตามอายุและ confidence | ทำความสะอาดรายวัน | L0 | L3 | 🟠 P2 |
+| 3.3 | **Retroactive Hunting** | สแกน log ย้อนหลังเมื่อได้ IOC ใหม่ที่สำคัญ | IOC วิกฤตใหม่ | L0 | L2 | 🟠 P2 |
+| 3.4 | **MITRE Mapping** | Tag alert ด้วย ATT&CK technique อัตโนมัติ | Alert creation | L1 | L3 | 🟠 P2 |
+
+---
+
+## 4. Detection Engineering Automation
+
+| # | Automation | คำอธิบาย | Trigger | ปัจจุบัน | เป้าหมาย | ลำดับ |
+|:---:|:---|:---|:---|:---:|:---:|:---:|
+| 4.1 | **Sigma Rule Deployment** | แปลง Sigma rules เป็น SIEM query แล้ว deploy | Git push ไป rules repo | L1 | L3 | 🔴 P1 |
+| 4.2 | **Rule Testing** | ทดสอบ rule ใหม่กับ test data ก่อน production | PR ไป rules repo | L0 | L2 | 🟠 P2 |
+| 4.3 | **Rule Performance** | ติดตาม TP/FP ratio ต่อ rule, แจ้ง rule ที่แย่ | รายสัปดาห์ | L0 | L2 | 🟠 P2 |
+| 4.4 | **YARA Scanning** | สแกนไฟล์ที่ส่งมาด้วย YARA rules | File submission | L1 | L3 | 🟠 P2 |
+
+---
+
+## 5. Operational Automation
+
+| # | Automation | คำอธิบาย | Trigger | ปัจจุบัน | เป้าหมาย | ลำดับ |
+|:---:|:---|:---|:---|:---:|:---:|:---:|
+| 5.1 | **Shift Handoff Report** | สร้างสรุปเวรจาก tickets และ alerts อัตโนมัติ | สิ้นสุดเวร | L0 | L2 | 🟠 P2 |
+| 5.2 | **Log Source Health** | แจ้งเตือนเมื่อ log source หยุดส่ง > threshold | ทุก 15 นาที | L1 | L3 | 🔴 P1 |
+| 5.3 | **SLA Breach Warning** | แจ้งเมื่อ ticket ใกล้เลย SLA | ตรวจสอบอายุ ticket | L1 | L3 | 🟠 P2 |
+| 5.4 | **Monthly KPI Report** | สร้างรายงาน KPI อัตโนมัติ | รายเดือน | L0 | L2 | 🟡 P3 |
+
+---
+
+## 6. User & Entity Behavior
+
+| # | Automation | คำอธิบาย | Trigger | ปัจจุบัน | เป้าหมาย | ลำดับ |
+|:---:|:---|:---|:---|:---:|:---:|:---:|
+| 6.1 | **Impossible Travel** | ตรวจจับ login จากสถานที่ที่เป็นไปไม่ได้ | Login event | L2 | L3 | 🟠 P2 |
+| 6.2 | **Privileged Account Monitoring** | แจ้งเตือนกิจกรรมผิดปกติของ privileged account | Privileged event | L1 | L3 | 🟠 P2 |
+| 6.3 | **Off-Hours Activity** | แจ้งเตือนกิจกรรมนอกเวลาทำงาน | After-hours event | L1 | L2 | 🟡 P3 |
+
+---
+
+## กรอบตัดสินใจ Automation
+
+| ปัจจัย | คะแนน 1 (ต่ำ) | คะแนน 2 (กลาง) | คะแนน 3 (สูง) |
+|:---|:---|:---|:---|
+| **ความถี่** | รายเดือนหรือน้อยกว่า | รายสัปดาห์ | รายวันหรือมากกว่า |
+| **เวลาต่อครั้ง** | < 5 นาที | 5–30 นาที | > 30 นาที |
+| **ความเสี่ยงผิดพลาด (manual)** | ต่ำ | ปานกลาง | สูง |
+| **ผลกระทบถ้าล่าช้า** | ข้อมูลแจ้งเตือน | กระทบการปฏิบัติงาน | กระทบความปลอดภัย |
+| **ความยากในการ automate** | สูง (custom dev) | ปานกลาง (API) | ต่ำ (built-in) |
+
+**เกณฑ์คะแนน:**
+- **12–15**: Automate ทันที
+- **8–11**: วางแผนไตรมาสหน้า
+- **5–7**: คง manual, ประเมินใหม่ทีหลัง
+
+---
+
+## ตัวชี้วัด Automation
+
+| ตัวชี้วัด | เป้าหมาย | วิธีวัด |
+|:---|:---:|:---|
+| Automation coverage (% ที่ L2+) | ≥ 50% | จำนวนที่ L2+ / ทั้งหมด |
+| Mean Time to Enrich (MTTE) | < 30 วินาที | Alert creation → enrichment เสร็จ |
+| Alert ที่ auto-resolve | ≥ 30% ของ P4 | Auto-closed / total P4 |
+| SOAR success rate | ≥ 95% | Runs สำเร็จ / total runs |
+| เวลาที่ analyst ประหยัดต่อเวร | ≥ 2 ชม. | ก่อน vs หลัง automation |
+
+---
+
+## เอกสารที่เกี่ยวข้อง
+
+-   [SOAR Playbooks](../05_Incident_Response/SOAR_Playbooks.en.md)
+-   [Threat Hunting Playbook](../05_Incident_Response/Threat_Hunting_Playbook.en.md)
+-   [Detection Rule Testing SOP](Detection_Rule_Testing.en.md)
+-   [TI Feeds Integration](TI_Feeds_Integration.en.md)
+-   [SOC Metrics & KPIs](SOC_Metrics.en.md)
+-   [Log Source Matrix](Log_Source_Matrix.en.md)
+
+
+---
+
 ## File: 06_Operations_Management/SOC_Checklists.en.md
 
 # SOC Operational Checklists — Daily / Weekly / Monthly
@@ -10399,6 +10741,523 @@ aws iam generate-credential-report && aws iam get-credential-report --output tex
 - [กรอบ IR](Framework.th.md)
 - [สถานการณ์จำลอง](Tabletop_Exercises.th.md)
 - [ตารางความรุนแรง](Severity_Matrix.th.md)
+
+
+---
+
+## File: 05_Incident_Response/Forensic_Investigation.en.md
+
+# Forensic Investigation SOP
+
+**Document ID**: IR-SOP-017
+**Version**: 1.0
+**Classification**: Confidential
+**Last Updated**: 2026-02-15
+
+> Digital forensics preserves **legally admissible evidence** and enables thorough **root cause analysis**. This SOP covers when to engage forensics, how to collect evidence properly, and the end-to-end investigation workflow.
+
+---
+
+## When to Engage Forensics
+
+| Trigger | Forensic Level | Who Initiates |
+|:---|:---:|:---|
+| P1 incident (confirmed breach) | **Full** | IR Manager |
+| P2 incident (suspected compromise) | **Targeted** | SOC Lead |
+| Data breach with regulatory implications (PDPA/GDPR) | **Full** + Legal hold | DPO / Legal |
+| Insider threat investigation | **Full** + HR involvement | SOC Manager / HR |
+| Law enforcement request | **Full** + Chain of custody | Legal |
+| Post-incident deep dive (after containment) | **Targeted** | IR Lead |
+| Malware requiring reverse engineering | **Targeted** (malware only) | Tier 3 Analyst |
+
+---
+
+## Evidence Types & Priority
+
+| Priority | Evidence Type | Volatility | Collection Method | Tool Examples |
+|:---:|:---|:---:|:---|:---|
+| 🔴 1 | **Memory (RAM)** | Very High | Live memory dump BEFORE shutdown | WinPmem, LiME, Velociraptor |
+| 🔴 2 | **Running Processes** | Very High | Process list + network connections | Velociraptor, GRR, EDR |
+| 🔴 3 | **Network Connections** | Very High | Active connections + DNS cache | netstat, Velociraptor |
+| 🟠 4 | **Temporary / Swap Files** | High | Pagefile, hibernation file | FTK Imager, dd |
+| 🟠 5 | **Event Logs** | Medium | Windows Event, syslog, auth logs | Velociraptor, wevtutil, rsyslog |
+| 🟡 6 | **Disk Image** | Low | Full bit-for-bit disk copy | FTK Imager, dd, ewfacquire |
+| 🟡 7 | **Registry / Config** | Low | Registry hives, crontab, scheduled tasks | RegRipper, Autopsy |
+| 🔵 8 | **Network Logs** | Low | PCAP, NetFlow, firewall logs | Wireshark, tcpdump, SIEM |
+| 🔵 9 | **Application Logs** | Low | Web server, database, custom app logs | SIEM, log server |
+
+> ⚠️ **Always collect in order of volatility** — most volatile first.
+
+---
+
+## Investigation Workflow
+
+```mermaid
+graph TD
+    A[🔔 Incident Declared] --> B[1. Forensic Triage]
+    B --> C[2. Evidence Preservation]
+    C --> D[3. Collection & Imaging]
+    D --> E[4. Analysis]
+    E --> F[5. Findings & Timeline]
+    F --> G[6. Reporting]
+    G --> H[7. Evidence Archiving]
+
+    B --> B1[Determine scope]
+    B --> B2[Legal hold decision]
+    C --> C1[Isolate system]
+    C --> C2[Document state]
+    D --> D1[Memory dump]
+    D --> D2[Disk imaging]
+    D --> D3[Log collection]
+    E --> E1[Timeline analysis]
+    E --> E2[Artifact analysis]
+    E --> E3[Malware analysis]
+
+    style A fill:#3b82f6,color:#fff
+    style H fill:#22c55e,color:#fff
+```
+
+---
+
+### Step 1: Forensic Triage (15–30 min)
+
+- [ ] Receive incident details from IR team
+- [ ] Review available evidence (alerts, logs, EDR timeline)
+- [ ] Determine **scope**: Which systems are involved?
+- [ ] Determine **forensic level**: Full or targeted?
+- [ ] Contact Legal if potential data breach or regulatory impact
+- [ ] Initiate **legal hold** if needed (preserve all relevant data)
+- [ ] Document initial assessment in forensic case file
+
+### Step 2: Evidence Preservation (Immediate)
+
+> ⚠️ **Do NOT power off the system** until memory has been captured.
+
+- [ ] **Do NOT** run antivirus scans (may destroy artifacts)
+- [ ] **Do NOT** install tools on the suspect system if possible
+- [ ] **Do NOT** browse files on the suspect system
+- [ ] Photograph the screen and physical setup
+- [ ] Document running processes, logged-in users, open files
+- [ ] Network-isolate the system (but keep powered on)
+- [ ] Note the exact date/time and timezone
+
+### Step 3: Collection & Imaging (1–4 hours)
+
+#### Memory Acquisition
+
+```bash
+# Windows (run from USB / network share, NOT from suspect disk)
+winpmem_mini_x64.exe output_memory.raw
+
+# Linux
+sudo ./LiME/src/lime-$(uname -r).ko "path=/mnt/usb/memory.lime format=lime"
+
+# Via Velociraptor (remote)
+velociraptor collect -artifact Windows.Memory.Acquisition
+```
+
+#### Disk Imaging
+
+```bash
+# Linux forensic workstation (bit-for-bit copy)
+sudo dc3dd if=/dev/sda of=/mnt/evidence/disk_image.dd hash=sha256 log=/mnt/evidence/imaging.log
+
+# FTK Imager (Windows GUI) — preferred for E01 format
+# File → Create Disk Image → Select Source → E01 format → Verify after
+```
+
+#### Log Collection
+
+```bash
+# Windows Event Logs (all)
+wevtutil epl Security C:\evidence\security.evtx
+wevtutil epl System C:\evidence\system.evtx
+wevtutil epl "Microsoft-Windows-Sysmon/Operational" C:\evidence\sysmon.evtx
+wevtutil epl "Microsoft-Windows-PowerShell/Operational" C:\evidence\powershell.evtx
+
+# Linux logs
+tar czf /mnt/usb/linux_logs.tar.gz /var/log/
+
+# Cloud (AWS CloudTrail last 90 days)
+aws cloudtrail lookup-events --start-time 2026-01-01 --end-time 2026-02-15 > events.json
+```
+
+#### Hash Verification
+
+```bash
+# Always hash evidence immediately after collection
+sha256sum /mnt/evidence/disk_image.dd > /mnt/evidence/disk_image.dd.sha256
+sha256sum /mnt/evidence/memory.raw > /mnt/evidence/memory.raw.sha256
+```
+
+### Step 4: Analysis (4–48 hours)
+
+#### 4a. Timeline Analysis
+
+Build a unified timeline from all evidence sources:
+
+| Source | Tool | What to Extract |
+|:---|:---|:---|
+| Windows Events | EvtxECmd, Hayabusa | Logons, process creation, service install |
+| MFT (NTFS) | MFTECmd | File creation/modification/access times |
+| Prefetch | PECmd | Program execution history |
+| Registry | RegRipper | User activity, USB history, recent files |
+| Browser History | Hindsight, BrowsingHistoryView | URLs, downloads, searches |
+| Memory | Volatility 3 | Running processes, network, injected code |
+
+```bash
+# Example: Volatility 3 process listing
+vol -f memory.raw windows.pslist
+vol -f memory.raw windows.netscan
+vol -f memory.raw windows.malfind
+```
+
+#### 4b. Key Artifacts to Examine
+
+| OS | Artifact | Location | What It Reveals |
+|:---|:---|:---|:---|
+| Windows | Prefetch | `C:\Windows\Prefetch\` | Programs that ran, when, how many times |
+| Windows | Amcache | `C:\Windows\appcompat\Programs\Amcache.hve` | Installed/executed programs |
+| Windows | ShimCache | `SYSTEM\CurrentControlSet\Control\Session Manager\AppCompatCache` | Program execution evidence |
+| Windows | UserAssist | `NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist` | GUI programs executed |
+| Windows | $MFT | Root of NTFS volume | All file metadata, timestamps |
+| Windows | Jump Lists | `%AppData%\Microsoft\Windows\Recent\AutomaticDestinations` | Recent files per application |
+| Linux | auth.log | `/var/log/auth.log` | Authentication events |
+| Linux | .bash_history | `~/.bash_history` | Command history |
+| Linux | wtmp/btmp | `/var/log/wtmp`, `/var/log/btmp` | Login success/failure |
+| Linux | crontab | `/var/spool/cron/` | Scheduled tasks (persistence) |
+
+#### 4c. Malware Analysis (if applicable)
+
+| Level | Activity | Tool |
+|:---|:---|:---|
+| **Static** | Hash lookup, strings, PE header, imports | VirusTotal, PEStudio, strings |
+| **Dynamic** | Execute in sandbox, observe behavior | ANY.RUN, Cuckoo Sandbox |
+| **Code** | Decompile, reverse engineer | Ghidra, IDA Pro, dnSpy |
+
+### Step 5: Findings & Timeline (2–4 hours)
+
+- [ ] Build chronological timeline of attacker activity
+- [ ] Identify **initial access vector** (how they got in)
+- [ ] Map activity to **MITRE ATT&CK techniques**
+- [ ] Identify all **compromised accounts, systems, and data**
+- [ ] Determine **dwell time** (first access → detection)
+- [ ] Identify **data accessed or exfiltrated**
+- [ ] Determine if attacker still has access
+
+### Step 6: Reporting (4–8 hours)
+
+Forensic report should include:
+
+1. **Executive Summary** — Non-technical overview for management
+2. **Incident Timeline** — Chronological sequence of events
+3. **Scope of Compromise** — Systems, accounts, data affected
+4. **Root Cause** — How the incident occurred
+5. **MITRE ATT&CK Mapping** — Techniques used
+6. **Evidence Inventory** — All evidence collected with hashes
+7. **Findings** — Detailed technical analysis
+8. **Indicators of Compromise** — IOCs for detection
+9. **Recommendations** — Remediation and prevention steps
+10. **Chain of Custody Log** — Evidence handling record
+
+### Step 7: Evidence Archiving
+
+| Item | Retention | Storage | Access |
+|:---|:---:|:---|:---|
+| Forensic images (disk, memory) | 2 years | Encrypted offline storage | Forensic team + Legal |
+| Case files and reports | 5 years | Secure file server | SOC Lead + Legal |
+| IOCs extracted | Indefinite | TI Platform | SOC team |
+| Chain of custody logs | 7 years | Legal archives | Legal only |
+
+---
+
+## Chain of Custody Template
+
+| # | Date/Time | Action | Item | From | To | Signature |
+|:---:|:---|:---|:---|:---|:---|:---|
+| 1 | [datetime] | Collected | Memory dump (sha256: abc...) | System X | Analyst A | [sign] |
+| 2 | [datetime] | Collected | Disk image (sha256: def...) | System X | Analyst A | [sign] |
+| 3 | [datetime] | Transferred | Disk image | Analyst A | Evidence Locker | [sign] |
+| 4 | [datetime] | Analyzed | Disk image (working copy) | Evidence Locker | Analyst B | [sign] |
+
+> Every transfer of evidence MUST be documented. Unbroken chain of custody is required for legal proceedings.
+
+---
+
+## Forensic Toolkit
+
+### Essential Tools (Free / Open Source)
+
+| Tool | Purpose | OS |
+|:---|:---|:---|
+| **Velociraptor** | Remote evidence collection, hunting | Cross-platform |
+| **Volatility 3** | Memory forensics | Cross-platform |
+| **Autopsy** | Disk forensics (GUI) | Windows/Linux |
+| **Hayabusa** | Windows event log analysis (fast) | Cross-platform |
+| **KAPE** | Automated artifact collection | Windows |
+| **FTK Imager** | Disk imaging, evidence preview | Windows |
+| **Plaso / log2timeline** | Super timeline creation | Cross-platform |
+| **RegRipper** | Registry analysis | Windows |
+| **Ghidra** | Reverse engineering | Cross-platform |
+| **Wireshark** | Network forensics | Cross-platform |
+| **CyberChef** | Data decoding/transformation | Web |
+
+---
+
+## Related Documents
+
+-   [Evidence Collection](Evidence_Collection.en.md) — Basic evidence collection procedures
+-   [IR Framework](Framework.en.md) — Incident response lifecycle
+-   [Incident Classification](Incident_Classification.en.md) — How to classify incidents
+-   [Escalation Matrix](Escalation_Matrix.en.md) — Escalation procedures
+-   [Communication Templates](Communication_Templates.en.md) — Notification templates
+-   [Lessons Learned Template](Lessons_Learned_Template.en.md) — Post-incident review
+
+
+---
+
+## File: 05_Incident_Response/Forensic_Investigation.th.md
+
+# Forensic Investigation SOP / SOP การสืบสวนทางนิติวิทยาศาสตร์ดิจิทัล
+
+**รหัสเอกสาร**: IR-SOP-017
+**เวอร์ชัน**: 1.0
+**การจัดชั้นความลับ**: ลับ
+**อัปเดตล่าสุด**: 2026-02-15
+
+> นิติวิทยาศาสตร์ดิจิทัลรักษา **หลักฐานที่ยอมรับทางกฎหมาย** และช่วยวิเคราะห์ **สาเหตุที่แท้จริง** ได้อย่างละเอียด SOP นี้ครอบคลุมเมื่อไรควรทำ forensics, วิธีเก็บหลักฐานอย่างถูกต้อง, และขั้นตอนการสืบสวนทั้งหมด
+
+---
+
+## เมื่อไรควรทำ Forensics
+
+| เงื่อนไข | ระดับ Forensic | ผู้เริ่ม |
+|:---|:---:|:---|
+| P1 incident (ยืนยันถูกบุกรุก) | **เต็มรูปแบบ** | IR Manager |
+| P2 incident (สงสัยถูกบุกรุก) | **เฉพาะจุด** | SOC Lead |
+| Data breach ที่มีผลกระทบกฎหมาย (PDPA/GDPR) | **เต็มรูปแบบ** + Legal hold | DPO / กฎหมาย |
+| สืบสวนภัยคุกคามจากภายใน | **เต็มรูปแบบ** + HR มีส่วนร่วม | SOC Manager / HR |
+| คำร้องจากหน่วยงานบังคับใช้กฎหมาย | **เต็มรูปแบบ** + Chain of custody | กฎหมาย |
+| สืบสวนเชิงลึกหลังควบคุมเหตุการณ์ | **เฉพาะจุด** | IR Lead |
+| Malware ต้อง reverse engineering | **เฉพาะจุด** (malware) | Tier 3 Analyst |
+
+---
+
+## ประเภทหลักฐาน & ลำดับความสำคัญ
+
+| ลำดับ | ประเภท | ความเปลี่ยนแปลงง่าย | วิธีเก็บ | เครื่องมือ |
+|:---:|:---|:---:|:---|:---|
+| 🔴 1 | **หน่วยความจำ (RAM)** | สูงมาก | Memory dump ก่อนปิดเครื่อง | WinPmem, LiME, Velociraptor |
+| 🔴 2 | **Running Processes** | สูงมาก | รายการ process + network connections | Velociraptor, EDR |
+| 🔴 3 | **Network Connections** | สูงมาก | Active connections + DNS cache | netstat, Velociraptor |
+| 🟠 4 | **Temporary / Swap Files** | สูง | Pagefile, hibernation file | FTK Imager, dd |
+| 🟠 5 | **Event Logs** | ปานกลาง | Windows Event, syslog, auth logs | Velociraptor, wevtutil |
+| 🟡 6 | **Disk Image** | ต่ำ | สำเนาดิสก์แบบ bit-for-bit | FTK Imager, dd |
+| 🟡 7 | **Registry / Config** | ต่ำ | Registry hives, crontab, scheduled tasks | RegRipper, Autopsy |
+| 🔵 8 | **Network Logs** | ต่ำ | PCAP, NetFlow, firewall logs | Wireshark, SIEM |
+| 🔵 9 | **Application Logs** | ต่ำ | Web server, database, app logs | SIEM |
+
+> ⚠️ **ต้องเก็บตามลำดับ volatility เสมอ** — สิ่งที่เปลี่ยนง่ายที่สุดก่อน
+
+---
+
+## ขั้นตอนการสืบสวน
+
+```mermaid
+graph TD
+    A[🔔 ประกาศ Incident] --> B[1. Forensic Triage]
+    B --> C[2. รักษาหลักฐาน]
+    C --> D[3. เก็บ & Imaging]
+    D --> E[4. วิเคราะห์]
+    E --> F[5. สรุปผล & Timeline]
+    F --> G[6. เขียนรายงาน]
+    G --> H[7. จัดเก็บหลักฐาน]
+
+    style A fill:#3b82f6,color:#fff
+    style H fill:#22c55e,color:#fff
+```
+
+---
+
+### ขั้นที่ 1: Forensic Triage (15–30 นาที)
+
+- [ ] รับรายละเอียด incident จากทีม IR
+- [ ] ทบทวนหลักฐานที่มี (alerts, logs, EDR timeline)
+- [ ] กำหนด **ขอบเขต**: ระบบใดเกี่ยวข้อง?
+- [ ] กำหนด **ระดับ forensic**: เต็มรูปแบบหรือเฉพาะจุด?
+- [ ] ติดต่อฝ่ายกฎหมายถ้ามีผลกระทบ data breach / กฎหมาย
+- [ ] เริ่ม **legal hold** ถ้าจำเป็น (รักษาข้อมูลทั้งหมดที่เกี่ยวข้อง)
+
+### ขั้นที่ 2: รักษาหลักฐาน (ทันที)
+
+> ⚠️ **ห้ามปิดเครื่อง** จนกว่าจะเก็บ memory เสร็จ
+
+- [ ] **ห้าม** สแกน antivirus (อาจทำลาย artifacts)
+- [ ] **ห้าม** ติดตั้งเครื่องมือบนเครื่องต้องสงสัย (ถ้าเป็นไปได้)
+- [ ] **ห้าม** เปิดดูไฟล์บนเครื่องต้องสงสัย
+- [ ] ถ่ายรูปหน้าจอและการตั้งค่าทางกายภาพ
+- [ ] บันทึก processes ที่ทำงาน, ผู้ใช้ที่ login, ไฟล์ที่เปิด
+- [ ] แยกเครื่องออกจากเครือข่าย (แต่เปิดเครื่องไว้)
+- [ ] จดวันเวลาและ timezone ที่แน่นอน
+
+### ขั้นที่ 3: เก็บ & Imaging (1–4 ชม.)
+
+#### Memory Acquisition
+
+```bash
+# Windows (รันจาก USB / network share ไม่ใช่จากดิสก์ต้องสงสัย)
+winpmem_mini_x64.exe output_memory.raw
+
+# Linux
+sudo ./LiME/src/lime-$(uname -r).ko "path=/mnt/usb/memory.lime format=lime"
+
+# ผ่าน Velociraptor (remote)
+velociraptor collect -artifact Windows.Memory.Acquisition
+```
+
+#### Disk Imaging
+
+```bash
+# Linux forensic workstation (สำเนา bit-for-bit)
+sudo dc3dd if=/dev/sda of=/mnt/evidence/disk_image.dd hash=sha256 log=/mnt/evidence/imaging.log
+```
+
+#### Log Collection
+
+```bash
+# Windows Event Logs (ทั้งหมด)
+wevtutil epl Security C:\evidence\security.evtx
+wevtutil epl System C:\evidence\system.evtx
+wevtutil epl "Microsoft-Windows-Sysmon/Operational" C:\evidence\sysmon.evtx
+
+# Linux logs
+tar czf /mnt/usb/linux_logs.tar.gz /var/log/
+```
+
+#### ตรวจสอบ Hash
+
+```bash
+# Hash หลักฐานทันทีหลังเก็บ
+sha256sum /mnt/evidence/disk_image.dd > /mnt/evidence/disk_image.dd.sha256
+sha256sum /mnt/evidence/memory.raw > /mnt/evidence/memory.raw.sha256
+```
+
+### ขั้นที่ 4: วิเคราะห์ (4–48 ชม.)
+
+#### 4a. Timeline Analysis
+
+สร้าง unified timeline จากทุกแหล่งหลักฐาน:
+
+| แหล่ง | เครื่องมือ | สิ่งที่ดึง |
+|:---|:---|:---|
+| Windows Events | EvtxECmd, Hayabusa | Logons, process creation, service install |
+| MFT (NTFS) | MFTECmd | เวลาสร้าง/แก้ไข/เข้าถึงไฟล์ |
+| Prefetch | PECmd | ประวัติการรันโปรแกรม |
+| Registry | RegRipper | กิจกรรมผู้ใช้, USB history |
+| Browser | Hindsight | URLs, downloads, searches |
+| Memory | Volatility 3 | Processes, network, injected code |
+
+```bash
+# Volatility 3: รายการ process
+vol -f memory.raw windows.pslist
+vol -f memory.raw windows.netscan
+vol -f memory.raw windows.malfind
+```
+
+#### 4b. Artifacts สำคัญ
+
+| OS | Artifact | ตำแหน่ง | สิ่งที่เปิดเผย |
+|:---|:---|:---|:---|
+| Windows | Prefetch | `C:\Windows\Prefetch\` | โปรแกรมที่รัน, เมื่อไร, กี่ครั้ง |
+| Windows | Amcache | `C:\Windows\appcompat\Programs\Amcache.hve` | โปรแกรมที่ติดตั้ง/รัน |
+| Windows | $MFT | Root ของ NTFS volume | Metadata ไฟล์ทั้งหมด |
+| Linux | auth.log | `/var/log/auth.log` | Authentication events |
+| Linux | .bash_history | `~/.bash_history` | ประวัติคำสั่ง |
+| Linux | crontab | `/var/spool/cron/` | Scheduled tasks (persistence) |
+
+#### 4c. วิเคราะห์ Malware (ถ้ามี)
+
+| ระดับ | กิจกรรม | เครื่องมือ |
+|:---|:---|:---|
+| **Static** | ค้นหา hash, strings, PE header | VirusTotal, PEStudio |
+| **Dynamic** | รันใน sandbox, สังเกตพฤติกรรม | ANY.RUN, Cuckoo |
+| **Code** | Decompile, reverse engineer | Ghidra, IDA Pro |
+
+### ขั้นที่ 5: สรุปผล & Timeline (2–4 ชม.)
+
+- [ ] สร้าง timeline ตามลำดับเวลาของกิจกรรมผู้บุกรุก
+- [ ] ระบุ **ช่องทางเข้าเริ่มต้น** (initial access vector)
+- [ ] แมปกิจกรรมกับ **MITRE ATT&CK techniques**
+- [ ] ระบุ **accounts, ระบบ, และข้อมูล** ที่ถูกบุกรุก
+- [ ] คำนวณ **dwell time** (เข้าถึงครั้งแรก → ตรวจพบ)
+- [ ] ระบุ **ข้อมูลที่ถูกเข้าถึงหรือนำออก**
+
+### ขั้นที่ 6: เขียนรายงาน (4–8 ชม.)
+
+รายงาน forensic ต้องประกอบด้วย:
+
+1. **สรุปผู้บริหาร** — ภาพรวมไม่เทคนิคสำหรับผู้บริหาร
+2. **Timeline** — ลำดับเวลาของเหตุการณ์
+3. **ขอบเขตการถูกบุกรุก** — ระบบ, accounts, ข้อมูลที่ได้รับผลกระทบ
+4. **สาเหตุที่แท้จริง** — เหตุการณ์เกิดขึ้นได้อย่างไร
+5. **MITRE ATT&CK Mapping** — Techniques ที่ใช้
+6. **รายการหลักฐาน** — หลักฐานทั้งหมดพร้อม hashes
+7. **ผลการวิเคราะห์** — รายละเอียดทางเทคนิค
+8. **IOCs** — Indicators of Compromise สำหรับ detection
+9. **คำแนะนำ** — ขั้นตอนแก้ไขและป้องกัน
+10. **บันทึก Chain of Custody** — ประวัติการจัดการหลักฐาน
+
+### ขั้นที่ 7: จัดเก็บหลักฐาน
+
+| รายการ | เก็บนาน | ที่จัดเก็บ | สิทธิ์เข้าถึง |
+|:---|:---:|:---|:---|
+| Forensic images (disk, memory) | 2 ปี | Encrypted offline storage | ทีม Forensic + กฎหมาย |
+| Case files และรายงาน | 5 ปี | Secure file server | SOC Lead + กฎหมาย |
+| IOCs ที่ดึงออกมา | ไม่จำกัด | TI Platform | ทีม SOC |
+| Chain of custody logs | 7 ปี | Legal archives | กฎหมายเท่านั้น |
+
+---
+
+## Template Chain of Custody
+
+| # | วันเวลา | การดำเนินการ | รายการ | จาก | ถึง | ลายเซ็น |
+|:---:|:---|:---|:---|:---|:---|:---|
+| 1 | [datetime] | เก็บ | Memory dump (sha256: abc...) | System X | Analyst A | [เซ็น] |
+| 2 | [datetime] | เก็บ | Disk image (sha256: def...) | System X | Analyst A | [เซ็น] |
+| 3 | [datetime] | ส่งต่อ | Disk image | Analyst A | ตู้เก็บหลักฐาน | [เซ็น] |
+| 4 | [datetime] | วิเคราะห์ | Disk image (working copy) | ตู้เก็บหลักฐาน | Analyst B | [เซ็น] |
+
+> การส่งต่อหลักฐานทุกครั้ง **ต้อง** บันทึก Chain of custody ที่ต่อเนื่องจำเป็นสำหรับการดำเนินคดี
+
+---
+
+## ชุดเครื่องมือ Forensic
+
+### เครื่องมือจำเป็น (ฟรี / Open Source)
+
+| เครื่องมือ | วัตถุประสงค์ | OS |
+|:---|:---|:---|
+| **Velociraptor** | เก็บหลักฐานระยะไกล, hunting | Cross-platform |
+| **Volatility 3** | Memory forensics | Cross-platform |
+| **Autopsy** | Disk forensics (GUI) | Windows/Linux |
+| **Hayabusa** | วิเคราะห์ Windows event log (เร็ว) | Cross-platform |
+| **KAPE** | เก็บ artifact อัตโนมัติ | Windows |
+| **FTK Imager** | Disk imaging, preview หลักฐาน | Windows |
+| **Plaso / log2timeline** | สร้าง super timeline | Cross-platform |
+| **Ghidra** | Reverse engineering | Cross-platform |
+| **Wireshark** | Network forensics | Cross-platform |
+| **CyberChef** | Decode/แปลงข้อมูล | Web |
+
+---
+
+## เอกสารที่เกี่ยวข้อง
+
+-   [Evidence Collection](Evidence_Collection.en.md) — ขั้นตอนเก็บหลักฐานเบื้องต้น
+-   [IR Framework](Framework.en.md) — วงจรชีวิตการตอบสนอง
+-   [Incident Classification](Incident_Classification.en.md) — วิธีจำแนกเหตุการณ์
+-   [Escalation Matrix](Escalation_Matrix.en.md) — ขั้นตอนการส่งต่อ
+-   [Communication Templates](Communication_Templates.en.md) — แม่แบบการแจ้งเตือน
+-   [Lessons Learned Template](Lessons_Learned_Template.en.md) — ทบทวนหลังเหตุการณ์
 
 
 ---
