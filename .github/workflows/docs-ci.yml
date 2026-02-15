@@ -1,0 +1,88 @@
+name: SOC Docs CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-docs:
+    name: Validate Documentation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Check internal links
+        run: python3 tools/check_links.py
+
+      - name: Check bilingual pairs exist
+        run: |
+          echo "Checking for orphaned single-language files..."
+          ERRORS=0
+          for f in $(find . -name "*.en.md" -not -path "./.git/*" -not -path "./.github/*"); do
+            th_file="${f%.en.md}.th.md"
+            if [ ! -f "$th_file" ]; then
+              echo "❌ Missing Thai pair: $th_file (for $f)"
+              ERRORS=$((ERRORS + 1))
+            fi
+          done
+          for f in $(find . -name "*.th.md" -not -path "./.git/*" -not -path "./.github/*"); do
+            en_file="${f%.th.md}.en.md"
+            if [ ! -f "$en_file" ]; then
+              echo "❌ Missing English pair: $en_file (for $f)"
+              ERRORS=$((ERRORS + 1))
+            fi
+          done
+          if [ $ERRORS -gt 0 ]; then
+            echo "❌ Found $ERRORS orphaned files without bilingual pair"
+            exit 1
+          fi
+          echo "✅ All bilingual pairs are complete"
+
+      - name: Check required sections
+        run: |
+          echo "Checking for Required Sections..."
+          WARNINGS=0
+          for f in $(find . -name "*.en.md" -not -path "./.git/*" -not -path "./.github/*" -not -path "./00_Getting_Started/*" -not -name "README.md" -not -name "AGENTS.md" -not -name "CLAUDE.md"); do
+            if ! grep -q "## Related Documents\|## เอกสารที่เกี่ยวข้อง" "$f"; then
+              echo "⚠️  Missing 'Related Documents' section: $f"
+              WARNINGS=$((WARNINGS + 1))
+            fi
+            if ! grep -q "## References" "$f"; then
+              echo "⚠️  Missing 'References' section: $f"
+              WARNINGS=$((WARNINGS + 1))
+            fi
+          done
+          if [ $WARNINGS -gt 0 ]; then
+            echo "⚠️  Found $WARNINGS missing sections (non-blocking)"
+          else
+            echo "✅ All required sections present"
+          fi
+
+      - name: Verify consolidated manual can be generated
+        run: python3 tools/export_docs.py
+
+      - name: Check for duplicate lines
+        run: |
+          echo "Scanning for consecutive duplicate lines..."
+          DUPES=0
+          for f in $(find . -name "*.md" -not -path "./.git/*"); do
+            dupes=$(awk 'NF && prev == $0 {print FILENAME":"NR": "$0} {prev=$0}' "$f")
+            if [ -n "$dupes" ]; then
+              echo "$dupes"
+              DUPES=$((DUPES + 1))
+            fi
+          done
+          if [ $DUPES -gt 0 ]; then
+            echo "⚠️  Found files with consecutive duplicate lines (non-blocking)"
+          else
+            echo "✅ No consecutive duplicate lines found"
+          fi
