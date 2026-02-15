@@ -121,3 +121,11 @@ For offline reading or printing, download the consolidated manual:
 1.  **Standardization**: Ensure procedures remain vendor-agnostic where possible.
 2.  **Bilingual**: Maintain both English and Thai versions.
 3.  **Review**: Changes should be reviewed by SOC Managers or Lead Engineers.
+
+---
+
+<p align="center">
+  <b>Built with 🛡️ by</b><br>
+  <a href="https://cyberdefense.co.th"><b>cyberdefense.co.th</b></a><br>
+  Line OA: <code>@cyberdefense</code>
+</p>
