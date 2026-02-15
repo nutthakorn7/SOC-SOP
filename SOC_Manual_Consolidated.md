@@ -9226,6 +9226,438 @@ Timeline + สาเหตุ + ผลกระทบ + สิ่งที่ด
 
 ---
 
+## File: 05_Incident_Response/Disaster_Recovery_BCP.en.md
+
+# SOC Disaster Recovery & Business Continuity Plan
+
+**Document ID**: OPS-SOP-011
+**Version**: 1.0
+**Classification**: Confidential
+**Last Updated**: 2026-02-15
+
+> When the SOC itself goes down — SIEM failure, network outage, ransomware hitting SOC infrastructure — this plan tells you **how to keep operating** and **how to recover**.
+
+---
+
+## Scope
+
+This document covers:
+- 🛡️ SOC infrastructure failures (SIEM, EDR, ticketing, network)
+- 🔄 Failover and manual operating procedures
+- 📋 Recovery steps and priorities
+- 🎯 RPO/RTO targets for SOC services
+
+This does **NOT** replace the organization-wide BCP/DR plan. It supplements it with SOC-specific procedures.
+
+---
+
+## SOC Service Catalog & RTO/RPO
+
+| # | SOC Service | RTO | RPO | Priority | Backup Method |
+|:---:|:---|:---:|:---:|:---:|:---|
+| 1 | **Alert Monitoring** (SIEM) | 1 hour | 0 min | 🔴 P1 | Secondary SIEM / manual log review |
+| 2 | **Incident Response** (ticketing + comms) | 30 min | 0 min | 🔴 P1 | Email + phone + spreadsheet |
+| 3 | **EDR Console** | 2 hours | 0 min | 🔴 P1 | Endpoint isolation via GPO/firewall |
+| 4 | **Threat Intelligence** (TIP) | 4 hours | 24 hours | 🟠 P2 | Manual IOC lookup (VirusTotal, OTX) |
+| 5 | **Log Ingestion Pipeline** | 2 hours | 1 hour | 🟠 P2 | Local log buffering / syslog failover |
+| 6 | **Detection Rules Engine** | 4 hours | 0 min | 🟠 P2 | Rules stored in Git (restore from repo) |
+| 7 | **Dashboard / Reporting** | 8 hours | 24 hours | 🟡 P3 | Manual reports via email |
+| 8 | **SOC Wiki / Knowledge Base** | 24 hours | Weekly | 🟡 P3 | Offline copies / printed SOPs |
+| 9 | **Automation / SOAR** | 4 hours | 0 min | 🟠 P2 | Manual playbook execution |
+| 10 | **Communication Channels** (Slack/Teams) | 30 min | 0 min | 🔴 P1 | Phone tree + personal mobile |
+
+> **RTO** = Recovery Time Objective (max downtime allowed)
+> **RPO** = Recovery Point Objective (max data loss allowed)
+
+---
+
+## Disaster Scenarios & Response Procedures
+
+### Scenario 1: SIEM Down / Unavailable
+
+```mermaid
+graph TD
+    A[SIEM Down] --> B{Duration?}
+    B -->|< 1 hour| C[Wait for auto-recovery]
+    B -->|1-4 hours| D[Activate Secondary SIEM]
+    B -->|> 4 hours| E[Manual Log Review Mode]
+    C --> F[Verify backlog processing]
+    D --> F
+    E --> G[Deploy emergency queries]
+    G --> F
+    F --> H[Return to normal ops]
+```
+
+| Step | Action | Owner | Notes |
+|:---:|:---|:---|:---|
+| 1 | Confirm SIEM is down (not a network issue) | SOC Tier 1 | Check SIEM health endpoint |
+| 2 | Notify SOC Lead + SOC Engineering | On-duty analyst | Slack + phone |
+| 3 | Activate secondary SIEM (if available) | SOC Engineering | Switch DNS/proxy for log forwarding |
+| 4 | If no secondary: switch to **Manual Log Review Mode** | SOC Tier 2 | Use direct log access (see below) |
+| 5 | Begin reviewing critical logs directly | All analysts | Focus: Firewall, AD, EDR console |
+| 6 | Track alerts manually in emergency spreadsheet | SOC Tier 1 | Template: `templates/emergency_alert_tracker.xlsx` |
+| 7 | Inform stakeholders of reduced visibility | SOC Lead | Use [Communication Templates](Communication_Templates.en.md) |
+| 8 | Once restored: verify no events were lost | SOC Engineering | Check log timestamps for gaps |
+| 9 | Process any backlogged alerts | All analysts | Prioritize P1/P2 timeframes |
+
+**Manual Log Review Mode — Where to look:**
+
+| Log Source | Direct Access Method | Priority Checks |
+|:---|:---|:---|
+| Firewall | Firewall GUI / CLI | Blocked outbound traffic, new allow rules |
+| Active Directory | Event Viewer on DC | 4720 (new account), 4728 (group change), 4625 (failed logon) |
+| EDR Console | EDR web portal directly | Active detections, quarantine events |
+| Email Gateway | Gateway admin portal | Phishing detections, blocked attachments |
+| Cloud (AWS/Azure) | Cloud console directly | IAM changes, security findings |
+
+---
+
+### Scenario 2: EDR Platform Down
+
+| Step | Action | Owner |
+|:---:|:---|:---|
+| 1 | Confirm EDR is down (check console + agent health) | SOC Tier 1 |
+| 2 | Notify SOC Lead + vendor | SOC Lead |
+| 3 | Shift to **network-based detection** (IDS/IPS, firewall) | SOC Tier 2 |
+| 4 | Deploy emergency GPO to block known-bad hashes | SOC Engineering |
+| 5 | Increase firewall monitoring (outbound anomalies) | SOC Tier 1 |
+| 6 | If > 4 hours: consider temporary host-based logging (Sysmon) | SOC Engineering |
+| 7 | Once restored: run full environment scan | EDR Admin |
+
+---
+
+### Scenario 3: Network Outage (SOC Can't Reach Monitored Environment)
+
+| Step | Action | Owner |
+|:---:|:---|:---|
+| 1 | Confirm scope of outage (partial vs full) | SOC Tier 1 |
+| 2 | Contact NOC / network team for ETA | SOC Lead |
+| 3 | If partial: focus monitoring on reachable segments | SOC Tier 2 |
+| 4 | If full: activate **on-site SOC personnel** (if available) | SOC Manager |
+| 5 | Monitor cloud environments independently | SOC Tier 2 |
+| 6 | Once restored: scan for events during blackout period | All analysts |
+
+---
+
+### Scenario 4: SOC Infrastructure Ransomware Attack
+
+> ⚠️ **This is the worst-case scenario.** SOC tools themselves are compromised.
+
+| Step | Action | Owner | Within |
+|:---:|:---|:---|:---:|
+| 1 | **Isolate SOC network segment immediately** | SOC Engineering | **5 min** |
+| 2 | Switch to **out-of-band communication** (personal mobile, pre-shared numbers) | SOC Lead | **10 min** |
+| 3 | Activate external IR vendor | SOC Manager/CISO | **30 min** |
+| 4 | Assess blast radius (which SOC tools are compromised?) | IR Team | **1 hour** |
+| 5 | Stand up **emergency SOC** on clean infrastructure | SOC Engineering | **2 hours** |
+| 6 | Restore from known-good backups (see backup schedule below) | SOC Engineering | **4 hours** |
+| 7 | Rebuild compromised systems from scratch (do NOT trust cleaned images) | SOC Engineering | **24–72 hours** |
+| 8 | Conduct full post-incident review | IR Lead | **1 week** |
+
+**Emergency SOC Kit (pre-staged):**
+- Clean laptop with pre-configured VPN
+- Printed copy of SOPs and escalation matrix
+- Portable SIEM (e.g., Security Onion on USB)
+- Pre-shared phone list (not stored digitally only)
+- Backup cloud accounts (separate from production)
+
+---
+
+### Scenario 5: Ticketing System / SOAR Down
+
+| Step | Action | Owner |
+|:---:|:---|:---|
+| 1 | Confirm ticketing/SOAR is unavailable | SOC Tier 1 |
+| 2 | Switch to **emergency alert tracker** (Google Sheets / Excel) | SOC All |
+| 3 | Execute playbooks **manually** using this SOP repo | SOC Tier 2 |
+| 4 | Track all manual actions for later entry | SOC Tier 1 |
+| 5 | Once restored: backfill tickets from emergency tracker | SOC Tier 1 |
+
+---
+
+## Backup Schedule
+
+| System | Backup Type | Frequency | Retention | Storage Location |
+|:---|:---|:---:|:---:|:---|
+| **SIEM Configuration** | Full export | Daily | 30 days | S3 / off-site NAS |
+| **SIEM Data** | Incremental | Hourly | 90 days | Separate storage cluster |
+| **Detection Rules** (Sigma/YARA) | Git repo | On every change | Unlimited | GitHub + local mirror |
+| **SOAR Playbooks** | Export | Daily | 30 days | S3 / off-site NAS |
+| **Ticketing System DB** | Full + WAL | Hourly | 30 days | Cross-region DB replica |
+| **EDR Configuration** | Vendor snapshot | Weekly | 12 weeks | Cloud backup |
+| **SOC Wiki / Docs** | Git repo | On every change | Unlimited | GitHub + local mirror |
+| **Dashboards / Reports** | JSON export | Weekly | 90 days | S3 / off-site NAS |
+| **TI Feeds / IOC DB** | Full dump | Daily | 30 days | S3 / off-site NAS |
+
+### Backup Verification
+
+- [ ] **Monthly**: Restore test of SIEM config backup
+- [ ] **Quarterly**: Full DR drill (simulate SIEM failure + recovery)
+- [ ] **Annually**: Full SOC infrastructure recovery test
+
+---
+
+## Communication During DR
+
+| Priority | Channel | Use |
+|:---|:---|:---|
+| 🔴 Primary | **Phone tree** (see [Escalation Matrix](Escalation_Matrix.en.md)) | When all digital channels may be compromised |
+| 🟠 Secondary | **Personal mobile + WhatsApp group** | If Slack/Teams is down but phones work |
+| 🟡 Tertiary | **Pre-shared email on alternate provider** (e.g., Gmail) | If corporate email is down |
+| 🔵 Last resort | **Physical meetup at pre-designated location** | Total infrastructure failure |
+
+> ⚠️ **Pre-stage these channels NOW.** Don't set them up during an incident.
+
+---
+
+## DR Testing Schedule
+
+| Test Type | Frequency | Duration | Participants | Pass Criteria |
+|:---|:---:|:---:|:---|:---|
+| **Tabletop Exercise** (DR scenario discussion) | Quarterly | 2 hours | SOC team + Management | Roles clear, procedures understood |
+| **SIEM Failover Test** | Semi-annually | 4 hours | SOC Engineering | RTO met within target, no data loss |
+| **Full DR Drill** (complete SOC infrastructure) | Annually | 1 day | SOC team + IT + Management | All P1 services restored within RTO |
+| **Communication Test** (phone tree + backup comms) | Quarterly | 30 min | All SOC personnel | 100% reachable via backup channel |
+| **Backup Restore Test** | Monthly | 2 hours | SOC Engineering | Config restored, rules validated |
+
+---
+
+## SOC Degradation Levels
+
+| Level | Condition | Capability | Actions |
+|:---:|:---|:---|:---|
+| 🟢 **Normal** | All systems operational | Full detection + response | Normal operations |
+| 🟡 **Degraded** | 1–2 secondary tools down | Partial detection, full response | Notify stakeholders, increase manual checks |
+| 🟠 **Limited** | SIEM or EDR down | Significantly reduced detection | Activate manual procedures, notify management |
+| 🔴 **Emergency** | Multiple critical tools down | Manual-only operations | Full DR activation, external IR support |
+| ⚫ **Black** | SOC infrastructure compromised | Zero internal capability | External IR vendor takes lead |
+
+---
+
+## Annual Review Checklist
+
+- [ ] Review and update all RTO/RPO targets
+- [ ] Verify backup procedures are working
+- [ ] Update contact lists and phone trees
+- [ ] Test DR communication channels
+- [ ] Conduct at least one full DR drill
+- [ ] Update emergency SOC kit contents
+- [ ] Review vendor contracts for IR support
+- [ ] Brief all SOC personnel on DR procedures
+- [ ] Update this document with lessons learned
+
+---
+
+## Related Documents
+
+-   [Escalation Matrix](Escalation_Matrix.en.md) — Who to call during incidents
+-   [Communication Templates](Communication_Templates.en.md) — Pre-written notifications
+-   [IR Framework](Framework.en.md) — Incident response lifecycle
+-   [SOC Checklists](../06_Operations_Management/SOC_Checklists.en.md) — Daily/weekly/monthly checks
+-   [SLA Template](../06_Operations_Management/SLA_Template.en.md) — Service level agreements
+
+
+---
+
+## File: 05_Incident_Response/Disaster_Recovery_BCP.th.md
+
+# SOC Disaster Recovery & Business Continuity Plan / แผน DR/BCP สำหรับ SOC
+
+**รหัสเอกสาร**: OPS-SOP-011
+**เวอร์ชัน**: 1.0
+**การจัดชั้นความลับ**: ลับ
+**อัปเดตล่าสุด**: 2026-02-15
+
+> เมื่อ SOC ล่มเอง — SIEM ล่ม, เครือข่ายขัดข้อง, ransomware โจมตีระบบของ SOC — แผนนี้บอกว่า **จะปฏิบัติงานต่ออย่างไร** และ **จะกู้คืนอย่างไร**
+
+---
+
+## ขอบเขต
+
+เอกสารนี้ครอบคลุม:
+- 🛡️ ระบบ SOC ล้มเหลว (SIEM, EDR, ticketing, network)
+- 🔄 ขั้นตอน failover และการปฏิบัติงานแบบ manual
+- 📋 ขั้นตอนการกู้คืนและลำดับความสำคัญ
+- 🎯 เป้าหมาย RPO/RTO สำหรับบริการ SOC
+
+เอกสารนี้ **ไม่** ทดแทนแผน BCP/DR ขององค์กร แต่เสริมด้วยขั้นตอนเฉพาะ SOC
+
+---
+
+## บริการของ SOC & RTO/RPO
+
+| # | บริการ SOC | RTO | RPO | ลำดับ | วิธีสำรอง |
+|:---:|:---|:---:|:---:|:---:|:---|
+| 1 | **Alert Monitoring** (SIEM) | 1 ชม. | 0 นาที | 🔴 P1 | Secondary SIEM / ตรวจ log แบบ manual |
+| 2 | **Incident Response** (ticket + สื่อสาร) | 30 นาที | 0 นาที | 🔴 P1 | Email + โทร + spreadsheet |
+| 3 | **EDR Console** | 2 ชม. | 0 นาที | 🔴 P1 | Isolate endpoint ผ่าน GPO/firewall |
+| 4 | **Threat Intelligence** (TIP) | 4 ชม. | 24 ชม. | 🟠 P2 | ตรวจ IOC manual (VirusTotal, OTX) |
+| 5 | **Log Ingestion Pipeline** | 2 ชม. | 1 ชม. | 🟠 P2 | Buffer log ในเครื่อง / syslog failover |
+| 6 | **Detection Rules Engine** | 4 ชม. | 0 นาที | 🟠 P2 | Rules เก็บใน Git (restore จาก repo) |
+| 7 | **Dashboard / Reporting** | 8 ชม. | 24 ชม. | 🟡 P3 | รายงาน manual ผ่าน email |
+| 8 | **SOC Wiki / Knowledge Base** | 24 ชม. | รายสัปดาห์ | 🟡 P3 | สำเนาออฟไลน์ / SOP ที่พิมพ์ |
+| 9 | **Automation / SOAR** | 4 ชม. | 0 นาที | 🟠 P2 | ทำ playbook แบบ manual |
+| 10 | **Communication Channels** (Slack/Teams) | 30 นาที | 0 นาที | 🔴 P1 | Phone tree + มือถือส่วนตัว |
+
+> **RTO** = Recovery Time Objective (เวลา downtime สูงสุดที่ยอมรับได้)
+> **RPO** = Recovery Point Objective (ข้อมูลที่ยอมให้สูญเสียได้สูงสุด)
+
+---
+
+## สถานการณ์ภัยพิบัติ & ขั้นตอนตอบสนอง
+
+### สถานการณ์ 1: SIEM ล่ม / ใช้งานไม่ได้
+
+```mermaid
+graph TD
+    A[SIEM ล่ม] --> B{ระยะเวลา?}
+    B -->|< 1 ชม.| C[รอ auto-recovery]
+    B -->|1-4 ชม.| D[เปิดใช้ Secondary SIEM]
+    B -->|> 4 ชม.| E[โหมดตรวจ Log แบบ Manual]
+    C --> F[ตรวจสอบ backlog]
+    D --> F
+    E --> G[Deploy emergency queries]
+    G --> F
+    F --> H[กลับสู่ปฏิบัติการปกติ]
+```
+
+| ขั้น | การดำเนินการ | ผู้รับผิดชอบ | หมายเหตุ |
+|:---:|:---|:---|:---|
+| 1 | ยืนยันว่า SIEM ล่มจริง (ไม่ใช่ปัญหา network) | SOC Tier 1 | ตรวจ health endpoint |
+| 2 | แจ้ง SOC Lead + SOC Engineering | Analyst ประจำเวร | Slack + โทร |
+| 3 | เปิดใช้ secondary SIEM (ถ้ามี) | SOC Engineering | เปลี่ยน DNS ส่ง log |
+| 4 | ถ้าไม่มี: เปลี่ยนเป็น **โหมดตรวจ Log แบบ Manual** | SOC Tier 2 | ใช้ direct log access |
+| 5 | เริ่มตรวจ critical logs โดยตรง | ทุกคน | เน้น: Firewall, AD, EDR |
+| 6 | ติดตาม alert ใน emergency spreadsheet | SOC Tier 1 | Template สำรอง |
+| 7 | แจ้ง stakeholders ว่า visibility ลดลง | SOC Lead | ใช้ [Communication Templates](Communication_Templates.en.md) |
+| 8 | เมื่อกู้คืนแล้ว: ตรวจสอบไม่มี event หาย | SOC Engineering | ตรวจ timestamp gaps |
+| 9 | ประมวลผล alert ที่ค้างอยู่ | ทุกคน | เน้น P1/P2 ก่อน |
+
+**โหมดตรวจ Log แบบ Manual — ดูที่ไหน:**
+
+| Log Source | วิธีเข้าถึงโดยตรง | สิ่งที่ต้องตรวจ |
+|:---|:---|:---|
+| Firewall | GUI / CLI ของ Firewall | Outbound ที่ถูกบล็อก, allow rules ใหม่ |
+| Active Directory | Event Viewer บน DC | 4720 (สร้าง account), 4728 (เพิ่ม group) |
+| EDR Console | Web portal EDR โดยตรง | Active detections, quarantine |
+| Email Gateway | Admin portal ของ gateway | Phishing, attachment ที่ถูกบล็อก |
+| Cloud (AWS/Azure) | Cloud console โดยตรง | IAM changes, security findings |
+
+---
+
+### สถานการณ์ 2: EDR Platform ล่ม
+
+| ขั้น | การดำเนินการ | ผู้รับผิดชอบ |
+|:---:|:---|:---|
+| 1 | ยืนยัน EDR ล่ม (ตรวจ console + agent health) | SOC Tier 1 |
+| 2 | แจ้ง SOC Lead + vendor | SOC Lead |
+| 3 | เปลี่ยนไปใช้ **network-based detection** (IDS/IPS, firewall) | SOC Tier 2 |
+| 4 | Deploy emergency GPO บล็อก hash ที่เป็นอันตราย | SOC Engineering |
+| 5 | เพิ่มการ monitor firewall (outbound anomalies) | SOC Tier 1 |
+| 6 | ถ้า > 4 ชม.: พิจารณาติดตั้ง Sysmon ชั่วคราว | SOC Engineering |
+| 7 | เมื่อกู้คืนแล้ว: สแกนระบบทั้งหมด | EDR Admin |
+
+---
+
+### สถานการณ์ 3: Network Outage (SOC เข้าถึงระบบไม่ได้)
+
+| ขั้น | การดำเนินการ | ผู้รับผิดชอบ |
+|:---:|:---|:---|
+| 1 | ยืนยันขอบเขตของ outage (บางส่วน vs ทั้งหมด) | SOC Tier 1 |
+| 2 | ติดต่อ NOC / ทีมเครือข่ายเพื่อ ETA | SOC Lead |
+| 3 | ถ้าบางส่วน: monitor เฉพาะ segment ที่เข้าถึงได้ | SOC Tier 2 |
+| 4 | ถ้าทั้งหมด: เปิดใช้ **เจ้าหน้าที่ on-site** (ถ้ามี) | SOC Manager |
+| 5 | Monitor cloud environments แยกต่างหาก | SOC Tier 2 |
+| 6 | เมื่อกู้คืนแล้ว: สแกน events ช่วงที่ขาดหาย | ทุกคน |
+
+---
+
+### สถานการณ์ 4: SOC ถูก Ransomware โจมตี
+
+> ⚠️ **นี่คือสถานการณ์เลวร้ายที่สุด** เครื่องมือ SOC เองถูกบุกรุก
+
+| ขั้น | การดำเนินการ | ผู้รับผิดชอบ | ภายใน |
+|:---:|:---|:---|:---:|
+| 1 | **แยก SOC network segment ทันที** | SOC Engineering | **5 นาที** |
+| 2 | เปลี่ยนเป็น **การสื่อสารสำรอง** (มือถือส่วนตัว) | SOC Lead | **10 นาที** |
+| 3 | เปิดใช้ external IR vendor | SOC Manager/CISO | **30 นาที** |
+| 4 | ประเมินขอบเขตความเสียหาย | IR Team | **1 ชม.** |
+| 5 | ตั้ง **emergency SOC** บนระบบสะอาด | SOC Engineering | **2 ชม.** |
+| 6 | Restore จาก backup ที่เชื่อถือได้ | SOC Engineering | **4 ชม.** |
+| 7 | Rebuild ระบบที่ถูกบุกรุกตั้งแต่ต้น (ห้ามใช้ image ที่ clean แล้ว) | SOC Engineering | **24–72 ชม.** |
+| 8 | ทบทวนหลังเหตุการณ์ | IR Lead | **1 สัปดาห์** |
+
+**ชุดฉุกเฉิน SOC (เตรียมไว้ล่วงหน้า):**
+- Laptop สะอาดพร้อม VPN
+- SOP และ Escalation Matrix ฉบับพิมพ์
+- Portable SIEM (เช่น Security Onion บน USB)
+- รายชื่อโทรศัพท์ (ไม่เก็บเฉพาะในดิจิทัล)
+- บัญชี cloud สำรอง (แยกจาก production)
+
+---
+
+### สถานการณ์ 5: Ticketing / SOAR ล่ม
+
+| ขั้น | การดำเนินการ | ผู้รับผิดชอบ |
+|:---:|:---|:---|
+| 1 | ยืนยัน ticketing/SOAR ใช้งานไม่ได้ | SOC Tier 1 |
+| 2 | เปลี่ยนเป็น **emergency alert tracker** (Google Sheets / Excel) | ทุกคน |
+| 3 | ทำ playbook **แบบ manual** ตาม SOP repo | SOC Tier 2 |
+| 4 | บันทึกทุกการดำเนินการเพื่อกรอกย้อนหลัง | SOC Tier 1 |
+| 5 | เมื่อกู้คืนแล้ว: กรอก ticket จาก emergency tracker | SOC Tier 1 |
+
+---
+
+## ตาราง Backup
+
+| ระบบ | ประเภท Backup | ความถี่ | เก็บนาน | ที่จัดเก็บ |
+|:---|:---|:---:|:---:|:---|
+| **SIEM Configuration** | Full export | ทุกวัน | 30 วัน | S3 / NAS นอกสถานที่ |
+| **SIEM Data** | Incremental | ทุกชม. | 90 วัน | Storage cluster แยก |
+| **Detection Rules** (Sigma/YARA) | Git repo | ทุกครั้งที่เปลี่ยน | ไม่จำกัด | GitHub + mirror ในเครื่อง |
+| **SOAR Playbooks** | Export | ทุกวัน | 30 วัน | S3 / NAS นอกสถานที่ |
+| **Ticketing System DB** | Full + WAL | ทุกชม. | 30 วัน | DB replica ข้ามภูมิภาค |
+| **EDR Configuration** | Vendor snapshot | ทุกสัปดาห์ | 12 สัปดาห์ | Cloud backup |
+| **SOC Wiki / Docs** | Git repo | ทุกครั้งที่เปลี่ยน | ไม่จำกัด | GitHub + mirror ในเครื่อง |
+
+---
+
+## การสื่อสารในช่วง DR
+
+| ลำดับ | ช่องทาง | ใช้เมื่อ |
+|:---|:---|:---|
+| 🔴 หลัก | **Phone tree** (ดู [Escalation Matrix](Escalation_Matrix.en.md)) | เมื่อช่องทางดิจิทัลอาจถูกบุกรุก |
+| 🟠 สำรอง | **มือถือส่วนตัว + WhatsApp group** | Slack/Teams ล่มแต่โทรได้ |
+| 🟡 ตติยภูมิ | **Email สำรองบน provider อื่น** (เช่น Gmail) | Email องค์กรล่ม |
+| 🔵 สุดท้าย | **นัดเจอตัวที่สถานที่กำหนดไว้** | ระบบล่มทั้งหมด |
+
+> ⚠️ **เตรียมช่องทางเหล่านี้ตั้งแต่ตอนนี้** อย่ารอตั้งค่าตอนเกิดเหตุ
+
+---
+
+## ระดับ SOC Degradation
+
+| ระดับ | สภาวะ | ความสามารถ | การดำเนินการ |
+|:---:|:---|:---|:---|
+| 🟢 **ปกติ** | ระบบทั้งหมดทำงาน | ตรวจจับ + ตอบสนองเต็มที่ | ปฏิบัติการปกติ |
+| 🟡 **ลดลง** | เครื่องมือรอง 1–2 ตัวล่ม | ตรวจจับบางส่วน, ตอบสนองเต็มที่ | แจ้ง stakeholders, เพิ่ม manual |
+| 🟠 **จำกัด** | SIEM หรือ EDR ล่ม | ตรวจจับลดลงมาก | เปิดใช้ขั้นตอน manual, แจ้งผู้บริหาร |
+| 🔴 **ฉุกเฉิน** | เครื่องมือวิกฤตหลายตัวล่ม | ปฏิบัติการ manual เท่านั้น | DR activation เต็มรูปแบบ |
+| ⚫ **Black** | ระบบ SOC ถูกบุกรุก | ไม่มีความสามารถภายใน | External IR vendor นำทีม |
+
+---
+
+## เอกสารที่เกี่ยวข้อง
+
+-   [Escalation Matrix](Escalation_Matrix.en.md) — ใครต้องแจ้งเมื่อเกิดเหตุ
+-   [Communication Templates](Communication_Templates.en.md) — แม่แบบการแจ้งเตือน
+-   [IR Framework](Framework.en.md) — วงจรชีวิตการตอบสนองต่อเหตุการณ์
+-   [SOC Checklists](../06_Operations_Management/SOC_Checklists.en.md) — รายการตรวจสอบ
+-   [SLA Template](../06_Operations_Management/SLA_Template.en.md) — ข้อตกลงระดับบริการ
+
+
+---
+
 ## File: 05_Incident_Response/Escalation_Matrix.en.md
 
 # Escalation Matrix
@@ -10084,6 +10516,519 @@ graph LR
 -   [MITRE ATT&CK](https://attack.mitre.org/)
 
 -   [ISO/IEC 27035 (Information Security Incident Management)](https://www.iso.org/standard/60803.html)
+
+
+---
+
+## File: 05_Incident_Response/Incident_Classification.en.md
+
+# Incident Classification Taxonomy
+
+**Document ID**: IR-SOP-016
+**Version**: 1.0
+**Classification**: Internal
+**Last Updated**: 2026-02-15
+
+> Consistent classification is critical for **accurate metrics**, **proper escalation**, and **compliance reporting**. This taxonomy ensures every analyst classifies incidents the same way.
+
+---
+
+## Classification Hierarchy
+
+```mermaid
+graph TD
+    INC[🔔 New Incident] --> CAT[1. Category]
+    CAT --> SUB[2. Sub-Category]
+    SUB --> SEV[3. Severity P1-P4]
+    SEV --> SCOPE[4. Scope]
+    SCOPE --> TTP[5. MITRE ATT&CK TTP]
+    TTP --> CLASSIFIED[✅ Fully Classified]
+
+    style INC fill:#3b82f6,color:#fff
+    style CLASSIFIED fill:#22c55e,color:#fff
+```
+
+Every incident MUST be classified along **5 dimensions** before triage is complete.
+
+---
+
+## 1. Incident Categories
+
+| Code | Category | Description | Example |
+|:---:|:---|:---|:---|
+| **MAL** | Malware | Malicious software detected or executed | Ransomware, trojan, worm, cryptominer |
+| **PHI** | Phishing / Social Engineering | Deception targeting people | Email phishing, vishing, smishing, BEC |
+| **UNA** | Unauthorized Access | Illegitimate access to systems or data | Brute force, credential stuffing, stolen creds |
+| **PRV** | Privilege Escalation | Gaining higher privileges than authorized | Local privilege escalation, admin abuse |
+| **LAT** | Lateral Movement | Attacker moving between systems | Pass-the-hash, RDP abuse, WMI execution |
+| **EXF** | Data Exfiltration / Leakage | Unauthorized data leaving the organization | DNS tunneling, cloud upload, USB copy |
+| **DOS** | Denial of Service | Disrupting availability | DDoS, application-layer flood, resource exhaustion |
+| **WEB** | Web Application Attack | Targeting web services | SQLi, XSS, SSRF, path traversal |
+| **INS** | Insider Threat | Threats from within the organization | Data theft by employee, sabotage, policy violation |
+| **CLD** | Cloud / SaaS Incident | Cloud-specific security events | IAM misconfiguration, exposed bucket, token theft |
+| **SUP** | Supply Chain | Compromise through trusted third party | Compromised update, dependency hijack |
+| **VUL** | Vulnerability Exploitation | Exploiting known or zero-day vulnerabilities | CVE exploitation, zero-day, misconfiguration |
+| **POL** | Policy Violation | Violation of security policies | Shadow IT, unapproved software, data mishandling |
+| **PHY** | Physical Security | Physical security breaches | Lost device, tailgating, unauthorized facility access |
+| **OTH** | Other / Unclassified | Does not fit any category above | — |
+
+---
+
+## 2. Sub-Categories (by Parent Category)
+
+<details>
+<summary><b>MAL — Malware Sub-Categories</b></summary>
+
+| Code | Sub-Category | Description |
+|:---:|:---|:---|
+| MAL-RAN | Ransomware | Encryption + ransom demand |
+| MAL-TRO | Trojan / RAT | Remote access backdoor |
+| MAL-WRM | Worm | Self-propagating malware |
+| MAL-CRY | Cryptominer | Unauthorized mining activity |
+| MAL-BOT | Botnet | Part of command & control network |
+| MAL-WIP | Wiper | Destructive malware (data destruction) |
+| MAL-DRP | Dropper / Loader | Downloads and installs additional malware |
+| MAL-PUP | PUP / Adware | Potentially unwanted program |
+
+</details>
+
+<details>
+<summary><b>PHI — Phishing / Social Engineering Sub-Categories</b></summary>
+
+| Code | Sub-Category | Description |
+|:---:|:---|:---|
+| PHI-EML | Email Phishing | Malicious email with link or attachment |
+| PHI-SPR | Spear Phishing | Targeted phishing against specific individuals |
+| PHI-BEC | Business Email Compromise | Impersonation for financial fraud |
+| PHI-VSH | Vishing | Voice-based social engineering |
+| PHI-SMI | Smishing | SMS-based phishing |
+| PHI-QRS | QR Phishing (Quishing) | Malicious QR codes |
+
+</details>
+
+<details>
+<summary><b>UNA — Unauthorized Access Sub-Categories</b></summary>
+
+| Code | Sub-Category | Description |
+|:---:|:---|:---|
+| UNA-BRU | Brute Force | Password guessing attack |
+| UNA-CRD | Credential Theft | Stolen or compromised credentials |
+| UNA-IMP | Impossible Travel | Login from geographically impossible location |
+| UNA-MFA | MFA Bypass / Fatigue | Circumventing multi-factor authentication |
+| UNA-DEF | Default Credentials | Using unchanged default passwords |
+| UNA-SSO | SSO / Token Abuse | OAuth token theft or replay |
+
+</details>
+
+<details>
+<summary><b>CLD — Cloud / SaaS Sub-Categories</b></summary>
+
+| Code | Sub-Category | Description |
+|:---:|:---|:---|
+| CLD-IAM | IAM Misconfiguration | Overly permissive roles or policies |
+| CLD-EXP | Public Exposure | Publicly accessible storage/service |
+| CLD-TOK | Token / Key Leak | API keys or tokens exposed |
+| CLD-CFG | Infrastructure Misconfiguration | Security group, network, or config issue |
+| CLD-BIL | Billing Anomaly | Unexpected cost increase (possible compromise) |
+
+</details>
+
+<details>
+<summary><b>EXF — Data Exfiltration Sub-Categories</b></summary>
+
+| Code | Sub-Category | Description |
+|:---:|:---|:---|
+| EXF-DNS | DNS Tunneling | Data exfiltration via DNS |
+| EXF-WEB | Web Upload | Upload to cloud storage / paste site |
+| EXF-USB | Removable Media | Data copy to USB/external drive |
+| EXF-EML | Email | Bulk data sent via email |
+| EXF-ENC | Encrypted Channel | Exfiltration over encrypted tunnel |
+
+</details>
+
+---
+
+## 3. Severity Classification
+
+> Reference: [Severity Matrix](Severity_Matrix.en.md) for full definitions.
+
+| Severity | Impact Criteria | Examples |
+|:---:|:---|:---|
+| **P1** 🔴 Critical | Immediate business impact, data breach, multiple systems compromised | Active ransomware, confirmed data breach, compromise of critical infrastructure |
+| **P2** 🟠 High | Significant impact, single system compromised, potential for spread | Confirmed malware, account takeover, lateral movement detected |
+| **P3** 🟡 Medium | Limited impact, contained or potential threat | Phishing (no click), policy violation, suspicious but unconfirmed |
+| **P4** 🔵 Low | Minimal/no impact, informational | False positive, vulnerability scan finding, known acceptable risk |
+
+### Severity Scoring Formula
+
+Use this formula when severity is not immediately obvious:
+
+| Factor | Weight | Score 1 (Low) | Score 2 (Med) | Score 3 (High) | Score 4 (Critical) |
+|:---|:---:|:---|:---|:---|:---|
+| **Confidentiality Impact** | 3× | No data | Internal data | Customer PII | Financial/health data |
+| **Number of Systems** | 2× | 1 system | 2–10 systems | 11–100 systems | 100+ / critical infra |
+| **Active Threat** | 3× | Historical/FP | Possible | Likely | Confirmed active |
+| **Containment** | 2× | Already contained | Partially contained | Not contained | Spreading |
+
+**Score Thresholds:**
+- 10–15 → P4, 16–25 → P3, 26–35 → P2, 36–40 → P1
+
+---
+
+## 4. Scope Classification
+
+| Scope | Definition | Example |
+|:---:|:---|:---|
+| **Individual** | Single user or endpoint affected | One laptop with malware |
+| **Departmental** | Multiple users/systems in one department | Finance team phishing campaign |
+| **Organizational** | Affects multiple departments or sites | Ransomware spreading across network |
+| **External** | Involves third parties, customers, or public | Customer data breach, public exposure |
+| **Industry** | Part of a wider campaign targeting the sector | APT targeting financial sector |
+
+---
+
+## 5. MITRE ATT&CK Mapping
+
+Every incident MUST be mapped to at least one ATT&CK technique.
+
+| Tactic | Common Techniques | Example Incident |
+|:---|:---|:---|
+| **Initial Access** | T1566 (Phishing), T1190 (Exploit), T1133 (External Remote Services) | Phishing email with macro |
+| **Execution** | T1059 (Command/Scripting), T1204 (User Execution) | PowerShell download cradle |
+| **Persistence** | T1053 (Scheduled Task), T1547 (Boot/Logon Autostart) | New scheduled task for backdoor |
+| **Privilege Escalation** | T1548 (Abuse Elevation), T1068 (Exploitation for PE) | Local admin exploit |
+| **Defense Evasion** | T1027 (Obfuscation), T1070 (Indicator Removal) | Log clearing after compromise |
+| **Credential Access** | T1003 (OS Credential Dumping), T1110 (Brute Force) | LSASS memory dump |
+| **Discovery** | T1087 (Account Discovery), T1018 (Remote System Discovery) | AD enumeration |
+| **Lateral Movement** | T1021 (Remote Services), T1570 (Lateral Tool Transfer) | PsExec to domain controller |
+| **Collection** | T1560 (Archive Collected Data), T1114 (Email Collection) | Zip file staging |
+| **C2** | T1071 (Application Layer Protocol), T1572 (Protocol Tunneling) | HTTPS beacon to C2 server |
+| **Exfiltration** | T1048 (Exfiltration Over Alternative Protocol), T1567 (Exfil Over Web Service) | DNS tunneling data out |
+| **Impact** | T1486 (Data Encrypted for Impact), T1489 (Service Stop) | Ransomware encryption |
+
+---
+
+## Classification Workflow
+
+```mermaid
+flowchart TD
+    A[Alert Received] --> B[Assign Category Code]
+    B --> C[Assign Sub-Category]
+    C --> D[Determine Severity P1-P4]
+    D --> E[Determine Scope]
+    E --> F[Map to MITRE TTP]
+    F --> G{All 5 fields filled?}
+    G -->|Yes| H[✅ Classification Complete]
+    G -->|No| I[🔄 Gather more info]
+    I --> B
+    H --> J[Proceed to Investigation]
+
+    style A fill:#3b82f6,color:#fff
+    style H fill:#22c55e,color:#fff
+    style I fill:#f59e0b,color:#fff
+```
+
+### Ticket Classification Template
+
+```
+Category:      [MAL/PHI/UNA/PRV/LAT/EXF/DOS/WEB/INS/CLD/SUP/VUL/POL/PHY/OTH]
+Sub-Category:  [e.g., MAL-RAN]
+Severity:      [P1/P2/P3/P4]
+Scope:         [Individual/Departmental/Organizational/External/Industry]
+MITRE TTP:     [T-code(s), e.g., T1486, T1059.001]
+```
+
+---
+
+## Reclassification Rules
+
+| Trigger | Action |
+|:---|:---|
+| New evidence changes impact assessment | Reclassify severity, document reason |
+| Additional systems found compromised | Upgrade scope, consider severity upgrade |
+| Root cause changes category | Update category & sub-category |
+| False positive confirmed | Downgrade to P4 or close |
+| Escalation timeline exceeded | Auto-upgrade by one severity level |
+
+> ⚠️ **All reclassifications must be documented** with timestamp and reason in the ticket.
+
+---
+
+## Classification Metrics
+
+Track these metrics to ensure consistent classification:
+
+| Metric | Target | Why It Matters |
+|:---|:---:|:---|
+| % of incidents fully classified | ≥ 95% | Ensures taxonomy adoption |
+| Reclassification rate | < 15% | Indicates initial accuracy |
+| Time to classify | < 10 min | Ensures triage speed |
+| MITRE coverage (unique techniques seen) | Track trend | Measures threat landscape visibility |
+| Category distribution | Track monthly | Identifies trends and emerging threats |
+
+---
+
+## Related Documents
+
+-   [Severity Matrix](Severity_Matrix.en.md) — Full severity definitions
+-   [Escalation Matrix](Escalation_Matrix.en.md) — Who to escalate to by severity
+-   [IR Framework](Framework.en.md) — Incident response lifecycle
+-   [Tier 1 Runbook](Tier1_Runbook.en.md) — Analyst triage procedures
+-   [SOAR Playbooks](SOAR_Playbooks.en.md) — Automated response playbooks
+-   [Threat Hunting Playbook](Threat_Hunting_Playbook.en.md) — Proactive hunting
+
+
+---
+
+## File: 05_Incident_Response/Incident_Classification.th.md
+
+# Incident Classification Taxonomy / อนุกรมวิธานการจำแนกเหตุการณ์
+
+**รหัสเอกสาร**: IR-SOP-016
+**เวอร์ชัน**: 1.0
+**การจัดชั้นความลับ**: ใช้ภายใน
+**อัปเดตล่าสุด**: 2026-02-15
+
+> การจำแนกเหตุการณ์อย่างสม่ำเสมอมีความสำคัญต่อ **ตัวชี้วัดที่แม่นยำ**, **การส่งต่อที่ถูกต้อง**, และ **การรายงานตามกฎหมาย** อนุกรมวิธานนี้ช่วยให้ analyst ทุกคนจำแนกเหตุการณ์ในรูปแบบเดียวกัน
+
+---
+
+## ลำดับชั้นการจำแนก
+
+```mermaid
+graph TD
+    INC[🔔 เหตุการณ์ใหม่] --> CAT[1. หมวดหมู่]
+    CAT --> SUB[2. หมวดย่อย]
+    SUB --> SEV[3. ระดับความรุนแรง P1-P4]
+    SEV --> SCOPE[4. ขอบเขต]
+    SCOPE --> TTP[5. MITRE ATT&CK TTP]
+    TTP --> CLASSIFIED[✅ จำแนกครบ]
+
+    style INC fill:#3b82f6,color:#fff
+    style CLASSIFIED fill:#22c55e,color:#fff
+```
+
+ทุกเหตุการณ์ **ต้อง** จำแนกใน **5 มิติ** ก่อนจบการ triage
+
+---
+
+## 1. หมวดหมู่เหตุการณ์
+
+| รหัส | หมวดหมู่ | คำอธิบาย | ตัวอย่าง |
+|:---:|:---|:---|:---|
+| **MAL** | มัลแวร์ | ซอฟต์แวร์อันตรายถูกตรวจพบหรือทำงาน | Ransomware, trojan, worm, cryptominer |
+| **PHI** | Phishing / Social Engineering | หลอกลวงที่มุ่งเป้าคน | Email phishing, vishing, smishing, BEC |
+| **UNA** | การเข้าถึงโดยไม่ได้รับอนุญาต | เข้าถึงระบบหรือข้อมูลอย่างผิดกฎ | Brute force, credential stuffing |
+| **PRV** | การยกระดับสิทธิ์ | ได้สิทธิ์สูงกว่าที่อนุญาต | Local privilege escalation, admin abuse |
+| **LAT** | Lateral Movement | ผู้โจมตีเคลื่อนตัวระหว่างระบบ | Pass-the-hash, RDP abuse |
+| **EXF** | การนำข้อมูลออก / รั่วไหล | ข้อมูลออกจากองค์กรโดยไม่ได้รับอนุญาต | DNS tunneling, cloud upload |
+| **DOS** | Denial of Service | ทำให้ระบบหยุดให้บริการ | DDoS, resource exhaustion |
+| **WEB** | การโจมตี Web Application | มุ่งเป้า web services | SQLi, XSS, SSRF |
+| **INS** | ภัยคุกคามจากภายใน | ภัยคุกคามจากคนในองค์กร | ขโมยข้อมูล, sabotage |
+| **CLD** | เหตุการณ์ Cloud / SaaS | ปัญหาความปลอดภัยเฉพาะ cloud | IAM misconfiguration, bucket เปิดสาธารณะ |
+| **SUP** | Supply Chain | บุกรุกผ่านบุคคลที่สามที่เชื่อถือ | Compromised update |
+| **VUL** | การใช้ช่องโหว่ | ใช้ช่องโหว่ที่รู้จักหรือ zero-day | CVE exploitation |
+| **POL** | การละเมิดนโยบาย | ละเมิดนโยบายความปลอดภัย | Shadow IT, ซอฟต์แวร์ไม่ได้รับอนุมัติ |
+| **PHY** | ความปลอดภัยทางกายภาพ | การละเมิดทางกายภาพ | อุปกรณ์หาย, tailgating |
+| **OTH** | อื่น ๆ | ไม่เข้าหมวดใด | — |
+
+---
+
+## 2. หมวดย่อย (ตามหมวดหลัก)
+
+<details>
+<summary><b>MAL — หมวดย่อยมัลแวร์</b></summary>
+
+| รหัส | หมวดย่อย | คำอธิบาย |
+|:---:|:---|:---|
+| MAL-RAN | Ransomware | เข้ารหัสข้อมูล + เรียกค่าไถ่ |
+| MAL-TRO | Trojan / RAT | Backdoor เข้าถึงระยะไกล |
+| MAL-WRM | Worm | มัลแวร์แพร่กระจายเอง |
+| MAL-CRY | Cryptominer | ขุดเหมืองโดยไม่ได้รับอนุญาต |
+| MAL-BOT | Botnet | เป็นส่วนหนึ่งของ C2 network |
+| MAL-WIP | Wiper | มัลแวร์ทำลายข้อมูล |
+| MAL-DRP | Dropper / Loader | ดาวน์โหลดและติดตั้งมัลแวร์เพิ่ม |
+| MAL-PUP | PUP / Adware | โปรแกรมไม่พึงประสงค์ |
+
+</details>
+
+<details>
+<summary><b>PHI — หมวดย่อย Phishing</b></summary>
+
+| รหัส | หมวดย่อย | คำอธิบาย |
+|:---:|:---|:---|
+| PHI-EML | Email Phishing | Email อันตรายมี link หรือ attachment |
+| PHI-SPR | Spear Phishing | Phishing มุ่งเป้าบุคคลเฉพาะ |
+| PHI-BEC | BEC | ปลอมตัวเพื่อฉ้อโกงทางการเงิน |
+| PHI-VSH | Vishing | หลอกลวงทางโทรศัพท์ |
+| PHI-SMI | Smishing | Phishing ผ่าน SMS |
+| PHI-QRS | QR Phishing (Quishing) | QR code อันตราย |
+
+</details>
+
+<details>
+<summary><b>UNA — หมวดย่อยการเข้าถึงผิดกฎ</b></summary>
+
+| รหัส | หมวดย่อย | คำอธิบาย |
+|:---:|:---|:---|
+| UNA-BRU | Brute Force | โจมตีด้วยการเดารหัสผ่าน |
+| UNA-CRD | Credential Theft | ข้อมูลรับรองถูกขโมย |
+| UNA-IMP | Impossible Travel | Login จากสถานที่ที่เป็นไปไม่ได้ |
+| UNA-MFA | MFA Bypass / Fatigue | หลีกเลี่ยง MFA |
+| UNA-DEF | Default Credentials | ใช้รหัสผ่านเริ่มต้นที่ไม่เปลี่ยน |
+| UNA-SSO | SSO / Token Abuse | ขโมยหรือ replay OAuth token |
+
+</details>
+
+<details>
+<summary><b>CLD — หมวดย่อย Cloud</b></summary>
+
+| รหัส | หมวดย่อย | คำอธิบาย |
+|:---:|:---|:---|
+| CLD-IAM | IAM Misconfiguration | Role หรือ policy อนุญาตมากเกินไป |
+| CLD-EXP | Public Exposure | Storage/service เปิดสาธารณะ |
+| CLD-TOK | Token / Key Leak | API keys หรือ tokens ถูกเปิดเผย |
+| CLD-CFG | Infrastructure Misconfiguration | Security group, network config ผิด |
+| CLD-BIL | Billing Anomaly | ค่าใช้จ่ายเพิ่มสูงผิดปกติ |
+
+</details>
+
+<details>
+<summary><b>EXF — หมวดย่อยการนำข้อมูลออก</b></summary>
+
+| รหัส | หมวดย่อย | คำอธิบาย |
+|:---:|:---|:---|
+| EXF-DNS | DNS Tunneling | นำข้อมูลออกผ่าน DNS |
+| EXF-WEB | Web Upload | อัปโหลดไป cloud storage / paste site |
+| EXF-USB | Removable Media | คัดลอกข้อมูลใส่ USB/external drive |
+| EXF-EML | Email | ส่งข้อมูลจำนวนมากทาง email |
+| EXF-ENC | Encrypted Channel | นำข้อมูลออกผ่าน encrypted tunnel |
+
+</details>
+
+---
+
+## 3. การจำแนกระดับความรุนแรง
+
+> อ้างอิง: [Severity Matrix](Severity_Matrix.en.md) สำหรับนิยามเต็ม
+
+| ระดับ | เกณฑ์ผลกระทบ | ตัวอย่าง |
+|:---:|:---|:---|
+| **P1** 🔴 วิกฤต | กระทบธุรกิจทันที, ข้อมูลรั่ว, หลายระบบถูกบุกรุก | Ransomware ทำงาน, data breach ยืนยัน |
+| **P2** 🟠 สูง | กระทบมาก, ระบบเดียวถูกบุกรุก, มีโอกาสแพร่กระจาย | Malware ยืนยัน, account takeover |
+| **P3** 🟡 ปานกลาง | กระทบจำกัด, ควบคุมได้หรือเป็นไปได้ | Phishing (ไม่มีคนคลิก), ละเมิดนโยบาย |
+| **P4** 🔵 ต่ำ | กระทบน้อย/ไม่กระทบ, ข้อมูลแจ้งเตือน | False positive, ผล vulnerability scan |
+
+### สูตรคำนวณความรุนแรง
+
+| ปัจจัย | น้ำหนัก | คะแนน 1 (ต่ำ) | คะแนน 2 (กลาง) | คะแนน 3 (สูง) | คะแนน 4 (วิกฤต) |
+|:---|:---:|:---|:---|:---|:---|
+| **ผลกระทบต่อความลับ** | 3× | ไม่มีข้อมูล | ข้อมูลภายใน | PII ลูกค้า | ข้อมูลการเงิน/สุขภาพ |
+| **จำนวนระบบ** | 2× | 1 ระบบ | 2–10 ระบบ | 11–100 ระบบ | 100+ / ระบบวิกฤต |
+| **ภัยคุกคามที่ยังทำงาน** | 3× | เก่า/FP | เป็นไปได้ | น่าจะใช่ | ยืนยันว่าทำงานอยู่ |
+| **การควบคุม** | 2× | ควบคุมได้แล้ว | ควบคุมบางส่วน | ยังไม่ควบคุม | กำลังแพร่กระจาย |
+
+**เกณฑ์คะแนน:**
+- 10–15 → P4, 16–25 → P3, 26–35 → P2, 36–40 → P1
+
+---
+
+## 4. การจำแนกขอบเขต
+
+| ขอบเขต | นิยาม | ตัวอย่าง |
+|:---:|:---|:---|
+| **บุคคล** | ผู้ใช้หรือ endpoint เดียวได้รับผลกระทบ | Laptop เครื่องเดียวมี malware |
+| **แผนก** | ผู้ใช้/ระบบหลายตัวในแผนกเดียว | ทีมการเงินถูก phishing |
+| **องค์กร** | กระทบหลายแผนกหรือหลายสาขา | Ransomware แพร่ทั้ง network |
+| **ภายนอก** | เกี่ยวข้องกับบุคคลที่สาม, ลูกค้า, สาธารณะ | ข้อมูลลูกค้ารั่วไหล |
+| **อุตสาหกรรม** | เป็นส่วนหนึ่งของแคมเปญที่มุ่งเป้าภาคส่วน | APT โจมตีภาคการเงิน |
+
+---
+
+## 5. การแมปกับ MITRE ATT&CK
+
+ทุกเหตุการณ์ **ต้อง** แมปกับอย่างน้อยหนึ่ง ATT&CK technique
+
+| Tactic | Techniques ที่พบบ่อย | ตัวอย่างเหตุการณ์ |
+|:---|:---|:---|
+| **Initial Access** | T1566 (Phishing), T1190 (Exploit) | Email phishing มี macro |
+| **Execution** | T1059 (Command/Scripting), T1204 (User Execution) | PowerShell download cradle |
+| **Persistence** | T1053 (Scheduled Task), T1547 (Autostart) | Scheduled task สำหรับ backdoor |
+| **Privilege Escalation** | T1548 (Abuse Elevation), T1068 (PE Exploit) | Local admin exploit |
+| **Defense Evasion** | T1027 (Obfuscation), T1070 (Indicator Removal) | ลบ log หลังบุกรุก |
+| **Credential Access** | T1003 (Credential Dumping), T1110 (Brute Force) | LSASS memory dump |
+| **Lateral Movement** | T1021 (Remote Services), T1570 (Tool Transfer) | PsExec ไป domain controller |
+| **Exfiltration** | T1048 (Alt Protocol), T1567 (Web Service) | DNS tunneling |
+| **Impact** | T1486 (Encryption for Impact), T1489 (Service Stop) | Ransomware encryption |
+
+---
+
+## ขั้นตอนการจำแนก
+
+```mermaid
+flowchart TD
+    A[รับ Alert] --> B[กำหนดรหัสหมวดหมู่]
+    B --> C[กำหนดหมวดย่อย]
+    C --> D[กำหนดระดับ P1-P4]
+    D --> E[กำหนดขอบเขต]
+    E --> F[แมปกับ MITRE TTP]
+    F --> G{กรอกครบ 5 ฟิลด์?}
+    G -->|ใช่| H[✅ จำแนกเสร็จ]
+    G -->|ไม่| I[🔄 เก็บข้อมูลเพิ่ม]
+    I --> B
+    H --> J[ดำเนินการสืบสวน]
+
+    style A fill:#3b82f6,color:#fff
+    style H fill:#22c55e,color:#fff
+    style I fill:#f59e0b,color:#fff
+```
+
+### Template สำหรับ Ticket
+
+```
+Category:      [MAL/PHI/UNA/PRV/LAT/EXF/DOS/WEB/INS/CLD/SUP/VUL/POL/PHY/OTH]
+Sub-Category:  [เช่น MAL-RAN]
+Severity:      [P1/P2/P3/P4]
+Scope:         [บุคคล/แผนก/องค์กร/ภายนอก/อุตสาหกรรม]
+MITRE TTP:     [T-code, เช่น T1486, T1059.001]
+```
+
+---
+
+## กฎการเปลี่ยนระดับ
+
+| เงื่อนไข | การดำเนินการ |
+|:---|:---|
+| หลักฐานใหม่เปลี่ยนการประเมินผลกระทบ | เปลี่ยนระดับ, บันทึกเหตุผล |
+| พบระบบที่ถูกบุกรุกเพิ่ม | ยกระดับขอบเขต, พิจารณายกระดับความรุนแรง |
+| Root cause เปลี่ยนหมวดหมู่ | อัปเดตหมวดหมู่ |
+| ยืนยัน false positive | ลดเป็น P4 หรือปิด |
+| เกินเวลาส่งต่อ | Auto-upgrade หนึ่งระดับ |
+
+> ⚠️ **การเปลี่ยนระดับทุกครั้งต้องบันทึก** พร้อม timestamp และเหตุผลใน ticket
+
+---
+
+## ตัวชี้วัดการจำแนก
+
+| ตัวชี้วัด | เป้าหมาย | เหตุผล |
+|:---|:---:|:---|
+| % เหตุการณ์ที่จำแนกครบ | ≥ 95% | วัดการนำ taxonomy ไปใช้ |
+| อัตราการเปลี่ยนระดับ | < 15% | วัดความแม่นยำเริ่มต้น |
+| เวลาในการจำแนก | < 10 นาที | วัดความเร็ว triage |
+| MITRE coverage (unique techniques) | ติดตามแนวโน้ม | วัด visibility ของ threat landscape |
+| การกระจายตัวตามหมวดหมู่ | ติดตามรายเดือน | ระบุแนวโน้มและภัยคุกคามใหม่ |
+
+---
+
+## เอกสารที่เกี่ยวข้อง
+
+-   [Severity Matrix](Severity_Matrix.en.md) — นิยามระดับความรุนแรงฉบับเต็ม
+-   [Escalation Matrix](Escalation_Matrix.en.md) — ใครต้องส่งต่อเมื่อไร
+-   [IR Framework](Framework.en.md) — วงจรชีวิตการตอบสนอง
+-   [Tier 1 Runbook](Tier1_Runbook.en.md) — ขั้นตอน triage สำหรับ analyst
+-   [SOAR Playbooks](SOAR_Playbooks.en.md) — Playbooks อัตโนมัติ
+-   [Threat Hunting Playbook](Threat_Hunting_Playbook.en.md) — การล่าเชิงรุก
 
 
 ---

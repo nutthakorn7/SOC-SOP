@@ -123,6 +123,10 @@ nav:
     - คู่มือการล่าภัยคุกคาม (TH): 05_Incident_Response/Threat_Hunting_Playbook.th.md
     - Escalation Matrix: 05_Incident_Response/Escalation_Matrix.en.md
     - ตารางการส่งต่อ (TH): 05_Incident_Response/Escalation_Matrix.th.md
+    - Disaster Recovery / BCP: 05_Incident_Response/Disaster_Recovery_BCP.en.md
+    - แผน DR/BCP (TH): 05_Incident_Response/Disaster_Recovery_BCP.th.md
+    - Incident Classification: 05_Incident_Response/Incident_Classification.en.md
+    - อนุกรมวิธานจำแนกเหตุการณ์ (TH): 05_Incident_Response/Incident_Classification.th.md
     - Playbooks (EN):
       - Phishing: 05_Incident_Response/Playbooks/Phishing.en.md
       - Ransomware: 05_Incident_Response/Playbooks/Ransomware.en.md

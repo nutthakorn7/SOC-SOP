@@ -78,6 +78,8 @@ Start here if you're building a brand-new SOC. Follow the numbered order.
 | **Interview Guide** (T1/T2/Lead) | [Read](05_Incident_Response/Interview_Guide.en.md) | [อ่าน](05_Incident_Response/Interview_Guide.th.md) |
 | **🎯 Threat Hunting Playbook** (NEW) | [Read](05_Incident_Response/Threat_Hunting_Playbook.en.md) | [อ่าน](05_Incident_Response/Threat_Hunting_Playbook.th.md) |
 | **🚨 Escalation Matrix** (NEW) | [Read](05_Incident_Response/Escalation_Matrix.en.md) | [อ่าน](05_Incident_Response/Escalation_Matrix.th.md) |
+| **🏥 Disaster Recovery / BCP** (NEW) | [Read](05_Incident_Response/Disaster_Recovery_BCP.en.md) | [อ่าน](05_Incident_Response/Disaster_Recovery_BCP.th.md) |
+| **📋 Incident Classification** (NEW) | [Read](05_Incident_Response/Incident_Classification.en.md) | [อ่าน](05_Incident_Response/Incident_Classification.th.md) |
 
 ### 33 Playbooks — Grouped by Category
 
