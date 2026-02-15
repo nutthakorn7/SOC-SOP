@@ -215,6 +215,8 @@ File-based threat detection: [YARA Index](07_Detection_Rules/yara/README.md) | [
 | **☁️ Cloud Security Monitoring** (NEW) | [Read](06_Operations_Management/Cloud_Security_Monitoring.en.md) | [อ่าน](06_Operations_Management/Cloud_Security_Monitoring.th.md) |
 | **🕵️ Insider Threat Program** (NEW) | [Read](06_Operations_Management/Insider_Threat_Program.en.md) | [อ่าน](06_Operations_Management/Insider_Threat_Program.th.md) |
 | **🛡️ Vulnerability Management** (NEW) | [Read](06_Operations_Management/Vulnerability_Management.en.md) | [อ่าน](06_Operations_Management/Vulnerability_Management.th.md) |
+| **🔒 Data Loss Prevention (DLP)** (NEW) | [Read](06_Operations_Management/DLP_SOP.en.md) | [อ่าน](06_Operations_Management/DLP_SOP.th.md) |
+| **🌐 Network Security Monitoring** (NEW) | [Read](06_Operations_Management/Network_Security_Monitoring.en.md) | [อ่าน](06_Operations_Management/Network_Security_Monitoring.th.md) |
 | **Data Governance & Retention** | [Read](02_Platform_Operations/Database_Management.en.md) | [อ่าน](02_Platform_Operations/Database_Management.th.md) |
 | **Deployment Procedures** | [Read](02_Platform_Operations/Deployment_Procedures.en.md) | [อ่าน](02_Platform_Operations/Deployment_Procedures.th.md) |
 | **Integration Hub** | [Read](03_User_Guides/Integration_Hub.en.md) | [อ่าน](03_User_Guides/Integration_Hub.th.md) |

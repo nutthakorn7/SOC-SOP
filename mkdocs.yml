@@ -248,6 +248,10 @@ nav:
     - โปรแกรม Insider Threat (TH): 06_Operations_Management/Insider_Threat_Program.th.md
     - Vulnerability Management: 06_Operations_Management/Vulnerability_Management.en.md
     - การจัดการช่องโหว่ (TH): 06_Operations_Management/Vulnerability_Management.th.md
+    - Data Loss Prevention (DLP): 06_Operations_Management/DLP_SOP.en.md
+    - SOP ป้องกันข้อมูลรั่วไหล (TH): 06_Operations_Management/DLP_SOP.th.md
+    - Network Security Monitoring: 06_Operations_Management/Network_Security_Monitoring.en.md
+    - เฝ้าระวังเครือข่าย (TH): 06_Operations_Management/Network_Security_Monitoring.th.md
   - 🔧 Guides & Tools:
     - Detection Rules Index: 07_Detection_Rules/README.md
     - ดัชนี Detection Rules (TH): 07_Detection_Rules/README.th.md

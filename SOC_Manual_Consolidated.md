@@ -6235,6 +6235,400 @@ graph TD
 
 ---
 
+## File: 06_Operations_Management/DLP_SOP.en.md
+
+# Data Loss Prevention (DLP) SOP
+
+**Document ID**: OPS-SOP-024
+**Version**: 1.0
+**Classification**: Confidential
+**Last Updated**: 2026-02-15
+
+> SOC procedures for **detecting, investigating, and preventing data loss** through DLP technology, policy enforcement, and incident response. Covers endpoint DLP, network DLP, cloud DLP, and email DLP.
+
+---
+
+## Data Classification
+
+| Level | Label | Examples | DLP Action |
+|:---|:---:|:---|:---|
+| **L4** | 🔴 Secret | Encryption keys, security configs, board minutes | Block + alert SOC + CISO notify |
+| **L3** | 🟠 Confidential | PII, financial data, source code, customer data | Block + alert SOC |
+| **L2** | 🟡 Internal | Internal reports, meeting notes, HR documents | Alert SOC on external transfer |
+| **L1** | 🟢 Public | Marketing materials, public website content | Log only |
+
+---
+
+## DLP Architecture
+
+```mermaid
+graph TD
+    subgraph Endpoints["💻 Endpoint DLP"]
+        A[USB monitoring]
+        B[Print monitoring]
+        C[Screen capture detection]
+        D[Clipboard monitoring]
+        E[Local file copy tracking]
+    end
+    
+    subgraph Network["🌐 Network DLP"]
+        F[Email gateway DLP]
+        G[Web proxy inspection]
+        H[HTTPS inspection]
+        I[FTP/SFTP monitoring]
+    end
+    
+    subgraph Cloud["☁️ Cloud DLP"]
+        J[CASB integration]
+        K[Cloud storage monitoring]
+        L[SaaS app scanning]
+        M[API-based DLP]
+    end
+    
+    Endpoints --> N["🔍 DLP Policy Engine"]
+    Network --> N
+    Cloud --> N
+    N --> O["⚡ SOC Alert Queue"]
+    N --> P["📊 DLP Dashboard"]
+    
+    style N fill:#3b82f6,color:#fff
+    style O fill:#dc2626,color:#fff
+```
+
+---
+
+## DLP Policies
+
+### Policy Categories
+
+| Policy ID | Category | Detection Method | Action | Severity |
+|:---|:---|:---|:---|:---:|
+| DLP-001 | **Credit card numbers** | Regex + Luhn validation | Block + alert | P1 |
+| DLP-002 | **Thai national ID** | 13-digit pattern + checksum | Block + alert | P1 |
+| DLP-003 | **PII (name + address + phone)** | Named entity + proximity | Alert | P2 |
+| DLP-004 | **Source code** | File extension + keyword | Block external | P2 |
+| DLP-005 | **Financial statements** | Keyword + document class | Block external | P2 |
+| DLP-006 | **Password/credential files** | File name + content pattern | Block all channels | P1 |
+| DLP-007 | **Customer database exports** | Large CSV/Excel + PII columns | Block + alert | P1 |
+| DLP-008 | **Intellectual property** | Classification label + keyword | Block external | P2 |
+| DLP-009 | **Medical/health records** | ICD codes + patient identifiers | Block + alert | P1 |
+| DLP-010 | **Encryption keys/certificates** | File extension + header pattern | Block all | P1 |
+
+### Channel-Specific Policies
+
+| Channel | Policies Applied | Inspection Depth | Action |
+|:---|:---|:---:|:---|
+| **Corporate email** | All DLP-001 to DLP-010 | Full content + attachments | Block/quarantine |
+| **Personal email (webmail)** | DLP-001 to DLP-010 | URL + upload inspection | Block |
+| **USB devices** | DLP-004 to DLP-010 | File content scan before copy | Block + alert |
+| **Cloud storage** | DLP-001 to DLP-010 | CASB real-time scan | Block/quarantine |
+| **Print** | DLP-001, DLP-002, DLP-005, DLP-007 | Print spool content scan | Alert + log |
+| **Messaging apps** | DLP-001, DLP-002, DLP-003 | Content inspection | Alert |
+| **Screen sharing** | DLP-001, DLP-007, DLP-009 | Watermark + detection | Warning |
+
+---
+
+## DLP Incident Response
+
+### DLP Alert Triage
+
+```mermaid
+flowchart TD
+    A[DLP Alert] --> B{Auto-blocked?}
+    B -->|Yes| C[Review blocking action]
+    B -->|No| D[Urgent: Review data exposure]
+    
+    C --> E{Legitimate<br/>business need?}
+    D --> F{Data actually<br/>exposed?}
+    
+    E -->|Yes| G[Override + document exception]
+    E -->|No| H[Investigate user intent]
+    
+    F -->|No| I[Tune policy to prevent alert]
+    F -->|Yes| J[🔴 Data breach response]
+    
+    H --> K{Malicious<br/>intent?}
+    K -->|Yes| L[Insider Threat process]
+    K -->|Negligent| M[Training + policy reminder]
+    K -->|No intent| N[Tune policy]
+    
+    J --> O[Contain + preserve evidence]
+    O --> P[Assess data exposure scope]
+    P --> Q[PDPA breach notification assessment]
+
+    style A fill:#3b82f6,color:#fff
+    style J fill:#dc2626,color:#fff
+    style L fill:#dc2626,color:#fff
+```
+
+### DLP Incident Severity
+
+| Severity | Criteria | Response SLA | Notification |
+|:---|:---|:---:|:---|
+| 🔴 P1 | L4 data confirmed exfiltrated | 30 min | CISO + Legal + DPO |
+| 🔴 P1 | L3 data to external (bulk) | 30 min | CISO + Legal |
+| 🟠 P2 | L3 data to unauthorized internal | 2 hrs | SOC Lead + data owner |
+| 🟠 P2 | L2 data to external (bulk) | 2 hrs | SOC Lead |
+| 🟡 P3 | L2 data to unauthorized internal | 8 hrs | SOC Lead |
+| 🟡 P3 | Policy violation (no data exposed) | 24 hrs | Analyst handles |
+| 🟢 P4 | False positive / tuning needed | 72 hrs | Analyst handles |
+
+### Investigation Checklist
+
+- [ ] Review DLP alert details (policy, channel, content match)
+- [ ] Verify user identity (not shared account)
+- [ ] Assess data classification level
+- [ ] Determine if data actually left the organization
+- [ ] Check if business justification exists
+- [ ] Review user's DLP history (repeat offender?)
+- [ ] Preserve evidence (screenshots, logs, content samples)
+- [ ] Assess PDPA breach notification requirements
+- [ ] Document findings and actions
+- [ ] Update user risk profile (Insider Threat tracker)
+
+---
+
+## PDPA Breach Assessment
+
+### Notification Decision Matrix
+
+| Factor | Notify DPO | Notify PDPC | Notify Data Subjects |
+|:---|:---:|:---:|:---:|
+| L4 data confirmed exposed externally | ✅ | ✅ | ✅ |
+| L3 PII exposed externally (> 500 records) | ✅ | ✅ | ✅ |
+| L3 PII exposed externally (< 500 records) | ✅ | Assess | Assess |
+| L3 data to unauthorized internal | ✅ | ❌ | ❌ |
+| L2 data only | ❌ | ❌ | ❌ |
+| Data encrypted and key not compromised | ✅ | ❌ | ❌ |
+
+### PDPA Notification Timeline
+
+| Action | Deadline |
+|:---|:---:|
+| Notify DPO | Within 24 hours of discovery |
+| Notify PDPC (if required) | Within 72 hours of discovery |
+| Notify data subjects (if high risk) | Without undue delay |
+| Document breach assessment | Within 7 days |
+
+---
+
+## DLP Exception Management
+
+### Exception Process
+
+| Step | Owner | Output |
+|:---:|:---|:---|
+| 1 | User submits exception request via ticketing | Exception request form |
+| 2 | Manager approves business justification | Manager approval |
+| 3 | Data owner confirms data classification | Data owner sign-off |
+| 4 | SOC reviews risk and compensating controls | Risk assessment |
+| 5 | Security Manager approves (L2) or CISO (L3/L4) | Approved exception |
+| 6 | Exception implemented with monitoring | Enhanced monitoring active |
+| 7 | Re-review at expiration (max 90 days) | Renewed or revoked |
+
+### Exception Tracker
+
+| Exception ID | User | Data Type | Channel | Justification | Expiry | Status |
+|:---|:---|:---|:---|:---|:---:|:---|
+| DLP-EX-_____ | _________ | _______ | _______ | _____________ | __-__-__ | Active/Expired |
+
+---
+
+## DLP Tuning
+
+### False Positive Reduction
+
+| Tuning Action | When to Apply | Impact |
+|:---|:---|:---|
+| **Whitelisted senders** | Trusted partner domains | Reduce email DLP FPs |
+| **Approved cloud apps** | Sanctioned business tools | Reduce cloud DLP FPs |
+| **Threshold adjustment** | Too many small-volume alerts | Reduce noise |
+| **Context rules** | Department-specific exceptions | Targeted reduction |
+| **Document classifiers** | Improve classification accuracy | Fewer misclassifications |
+| **User group policies** | Different rules per role | Appropriate enforcement |
+
+### Tuning Metrics
+
+| Metric | Target |
+|:---|:---:|
+| DLP false positive rate | < 20% |
+| Policy accuracy (true match rate) | > 80% |
+| Mean alerts per day | Trending downward |
+| Exception request volume | < 10/month |
+
+---
+
+## Metrics
+
+| Metric | Target | Measurement |
+|:---|:---:|:---|
+| DLP alert response time (P1) | < 30 min | Ticket timestamps |
+| DLP alert response time (P2) | < 2 hrs | Ticket timestamps |
+| Data breach incidents detected by DLP | Tracking | Monthly count |
+| DLP policy coverage (channels monitored) | 100% of defined | Coverage audit |
+| False positive rate | < 20% | FP / total alerts |
+| Exception compliance (within 90 days) | 100% | Exception tracker |
+| User recidivism rate | < 10% | Repeat DLP violations |
+| PDPA notification compliance | 100% | Breach log |
+
+---
+
+## Related Documents
+
+-   [Insider Threat Program](Insider_Threat_Program.en.md) — Insider threat detection
+-   [Forensic Investigation](../05_Incident_Response/Forensic_Investigation.en.md) — Evidence handling
+-   [Incident Classification](../05_Incident_Response/Incident_Classification.en.md) — Severity classification
+-   [Alert Tuning SOP](Alert_Tuning.en.md) — DLP alert tuning
+-   [Cloud Security Monitoring](Cloud_Security_Monitoring.en.md) — Cloud DLP integration
+
+
+---
+
+## File: 06_Operations_Management/DLP_SOP.th.md
+
+# Data Loss Prevention (DLP) SOP / SOP การป้องกันข้อมูลรั่วไหล
+
+**รหัสเอกสาร**: OPS-SOP-024
+**เวอร์ชัน**: 1.0
+**การจัดชั้นความลับ**: ลับ
+**อัปเดตล่าสุด**: 2026-02-15
+
+> ขั้นตอน SOC สำหรับ **ตรวจจับ, สืบสวน, และป้องกันข้อมูลรั่วไหล** ผ่าน DLP technology, การบังคับนโยบาย, และ incident response ครอบคลุม endpoint, network, cloud และ email DLP
+
+---
+
+## การจำแนกข้อมูล
+
+| ระดับ | ป้าย | ตัวอย่าง | DLP Action |
+|:---|:---:|:---|:---|
+| **L4** | 🔴 ความลับสูงสุด | Encryption keys, board minutes | บล็อก + alert + แจ้ง CISO |
+| **L3** | 🟠 ลับ | PII, ข้อมูลการเงิน, source code, ข้อมูลลูกค้า | บล็อก + alert |
+| **L2** | 🟡 ใช้ภายใน | รายงานภายใน, บันทึกประชุม, เอกสาร HR | Alert เมื่อส่งภายนอก |
+| **L1** | 🟢 สาธารณะ | สื่อการตลาด, เว็บไซต์สาธารณะ | บันทึก log |
+
+---
+
+## DLP Policies
+
+| Policy ID | หมวด | วิธีตรวจจับ | Action | Severity |
+|:---|:---|:---|:---|:---:|
+| DLP-001 | **เลขบัตรเครดิต** | Regex + Luhn validation | บล็อก + alert | P1 |
+| DLP-002 | **เลขบัตรประชาชน** | 13 หลัก + checksum | บล็อก + alert | P1 |
+| DLP-003 | **PII (ชื่อ+ที่อยู่+เบอร์โทร)** | Named entity + proximity | Alert | P2 |
+| DLP-004 | **Source code** | นามสกุลไฟล์ + keyword | บล็อกภายนอก | P2 |
+| DLP-005 | **งบการเงิน** | Keyword + document class | บล็อกภายนอก | P2 |
+| DLP-006 | **ไฟล์ password/credential** | ชื่อไฟล์ + content pattern | บล็อกทุกช่องทาง | P1 |
+| DLP-007 | **Export ฐานข้อมูลลูกค้า** | CSV/Excel ขนาดใหญ่ + PII columns | บล็อก + alert | P1 |
+| DLP-008 | **ทรัพย์สินทางปัญญา** | Classification label + keyword | บล็อกภายนอก | P2 |
+
+---
+
+## การตอบสนอง DLP Incident
+
+### DLP Alert Triage
+
+```mermaid
+flowchart TD
+    A[DLP Alert] --> B{ถูกบล็อกแล้ว?}
+    B -->|ใช่| C[ตรวจสอบ blocking]
+    B -->|ไม่| D[เร่งด่วน: ตรวจสอบข้อมูลรั่ว]
+    C --> E{ธุรกิจจำเป็น?}
+    D --> F{ข้อมูลรั่วจริง?}
+    E -->|ใช่| G[Override + บันทึก exception]
+    E -->|ไม่| H[สืบสวนเจตนา]
+    F -->|ไม่| I[ปรับ tune policy]
+    F -->|ใช่| J[🔴 Data breach response]
+    H --> K{จงใจ?}
+    K -->|ใช่| L[Insider Threat process]
+    K -->|ประมาท| M[เทรน + เตือน]
+
+    style A fill:#3b82f6,color:#fff
+    style J fill:#dc2626,color:#fff
+```
+
+### ระดับ Severity
+
+| Severity | เกณฑ์ | SLA | แจ้ง |
+|:---|:---|:---:|:---|
+| 🔴 P1 | L4 ยืนยันรั่วไหล | 30 นาที | CISO + Legal + DPO |
+| 🔴 P1 | L3 ข้อมูลจำนวนมากไปภายนอก | 30 นาที | CISO + Legal |
+| 🟠 P2 | L3 ไปยังบุคคลภายในที่ไม่ได้รับอนุญาต | 2 ชม. | SOC Lead + data owner |
+| 🟡 P3 | L2 ไปภายนอก (bulk) | 8 ชม. | SOC Lead |
+| 🟢 P4 | FP / ต้อง tune | 72 ชม. | Analyst handles |
+
+---
+
+## การประเมิน PDPA Breach
+
+### ตัดสินใจแจ้ง
+
+| ปัจจัย | แจ้ง DPO | แจ้ง PDPC | แจ้งเจ้าของข้อมูล |
+|:---|:---:|:---:|:---:|
+| L4 ยืนยันรั่วไหลภายนอก | ✅ | ✅ | ✅ |
+| L3 PII ภายนอก (> 500 records) | ✅ | ✅ | ✅ |
+| L3 PII ภายนอก (< 500 records) | ✅ | ประเมิน | ประเมิน |
+| L3 ไปยังภายในที่ไม่ได้รับอนุญาต | ✅ | ❌ | ❌ |
+| ข้อมูลเข้ารหัสและ key ไม่ compromise | ✅ | ❌ | ❌ |
+
+### กรอบเวลาแจ้ง PDPA
+
+| Action | กำหนด |
+|:---|:---:|
+| แจ้ง DPO | ภายใน 24 ชม. |
+| แจ้ง PDPC (ถ้าจำเป็น) | ภายใน 72 ชม. |
+| แจ้งเจ้าของข้อมูล (ถ้าเสี่ยงสูง) | โดยไม่ชักช้า |
+| จัดทำเอกสารประเมิน breach | ภายใน 7 วัน |
+
+---
+
+## การจัดการ Exception
+
+| ขั้น | ผู้รับผิดชอบ | ผลลัพธ์ |
+|:---:|:---|:---|
+| 1 | ผู้ใช้ส่งคำขอ exception | แบบฟอร์ม |
+| 2 | ผู้จัดการอนุมัติเหตุผลทางธุรกิจ | อนุมัติผู้จัดการ |
+| 3 | เจ้าของข้อมูลยืนยันการจำแนก | sign-off |
+| 4 | SOC ประเมินความเสี่ยง | การประเมิน |
+| 5 | Security Manager อนุมัติ (L2) หรือ CISO (L3/L4) | อนุมัติ |
+| 6 | ใช้ exception พร้อม monitoring | enhanced monitoring |
+| 7 | ทบทวนเมื่อหมดอายุ (สูงสุด 90 วัน) | ต่อหรือยกเลิก |
+
+---
+
+## การ Tune DLP
+
+| ปรับจูน | เมื่อไร | ผลกระทบ |
+|:---|:---|:---|
+| **Whitelist senders** | Partner domains ที่เชื่อถือ | ลด FP email |
+| **Approved cloud apps** | Business tools ที่อนุมัติ | ลด FP cloud |
+| **ปรับ threshold** | Alert เล็กน้อยเยอะเกินไป | ลด noise |
+| **Context rules** | Exception ตามแผนก | ลดที่เป้าหมาย |
+
+---
+
+## ตัวชี้วัด
+
+| ตัวชี้วัด | เป้าหมาย |
+|:---|:---:|
+| DLP alert response time (P1) | < 30 นาที |
+| DLP alert response time (P2) | < 2 ชม. |
+| DLP policy coverage | 100% |
+| False positive rate | < 20% |
+| Exception compliance (ภายใน 90 วัน) | 100% |
+| PDPA notification compliance | 100% |
+
+---
+
+## เอกสารที่เกี่ยวข้อง
+
+-   [Insider Threat Program](Insider_Threat_Program.en.md) — ตรวจจับ insider threat
+-   [Forensic Investigation](../05_Incident_Response/Forensic_Investigation.en.md) — การจัดการหลักฐาน
+-   [Alert Tuning SOP](Alert_Tuning.en.md) — การ tune DLP alerts
+-   [Cloud Security Monitoring](Cloud_Security_Monitoring.en.md) — Cloud DLP integration
+
+
+---
+
 ## File: 06_Operations_Management/Data_Handling_Protocol.en.md
 
 # Data Handling Protocol (TLP 2.0)
@@ -8393,6 +8787,387 @@ O365: Unified Audit Log → Streaming API
 
 - [ดัชนี Detection Rules](../07_Detection_Rules/README.th.md)
 - [Sigma Validator](../tools/sigma_validator.py)
+
+
+---
+
+## File: 06_Operations_Management/Network_Security_Monitoring.en.md
+
+# Network Security Monitoring SOP
+
+**Document ID**: OPS-SOP-025
+**Version**: 1.0
+**Classification**: Internal
+**Last Updated**: 2026-02-15
+
+> SOC procedures for **monitoring network traffic, detecting network-based attacks, and responding to network security incidents**. Covers IDS/IPS, NDR, DNS monitoring, NetFlow analysis, and network forensics.
+
+---
+
+## Network Monitoring Architecture
+
+```mermaid
+graph TD
+    subgraph Perimeter["🌐 Perimeter"]
+        A[Firewall Logs]
+        B[IDS/IPS Alerts]
+        C[WAF Logs]
+        D[Proxy/Web Gateway]
+    end
+    
+    subgraph Internal["🏢 Internal"]
+        E[NetFlow/sFlow]
+        F[DNS Logs]
+        G[DHCP Logs]
+        H[Network TAP/SPAN]
+    end
+    
+    subgraph NDR["🔍 NDR Platform"]
+        I[Full Packet Capture]
+        J[Protocol Analysis]
+        K[Behavioral Analytics]
+        L[Encrypted Traffic Analysis]
+    end
+    
+    Perimeter --> M["SIEM"]
+    Internal --> M
+    NDR --> M
+    M --> N["SOC Alert Queue"]
+
+    style M fill:#3b82f6,color:#fff
+    style N fill:#dc2626,color:#fff
+```
+
+---
+
+## Network Data Sources
+
+| Source | Key data | Retention | Priority |
+|:---|:---|:---:|:---:|
+| **Firewall logs** | Accept/deny, source/dest IP, port, protocol | 90 days | 🔴 Critical |
+| **IDS/IPS alerts** | Signature matches, anomalies | 90 days | 🔴 Critical |
+| **DNS query logs** | Domain resolution, query types | 90 days | 🔴 Critical |
+| **Proxy/web gateway** | URL, user agent, bytes, category | 90 days | 🔴 Critical |
+| **NetFlow/sFlow** | Traffic flow metadata (no payload) | 30 days | 🟠 High |
+| **Full packet capture** | Complete traffic content | 7 days | 🟠 High |
+| **DHCP logs** | IP-to-MAC mapping | 90 days | 🟡 Medium |
+| **VPN logs** | Connection times, source IPs, users | 90 days | 🟡 Medium |
+| **WAF logs** | Web attack attempts, blocked requests | 90 days | 🟡 Medium |
+| **Wi-Fi controller** | SSID connections, rogue APs | 30 days | 🟡 Medium |
+
+---
+
+## Critical Network Detections
+
+### Perimeter Attacks
+
+| Detection | Description | Data Source | Severity | MITRE |
+|:---|:---|:---|:---:|:---|
+| Port scan detected | Systematic port scanning from single source | Firewall / IDS | P3 | T1046 |
+| Brute-force attempt | Repeated connection attempts to same port | Firewall / IDS | P2 | T1110 |
+| Exploit attempt | IDS signature match for known exploit | IDS | P1 | varies |
+| DDoS indicators | Abnormal traffic volume from multiple sources | Firewall / NetFlow | P1 | T1498/T1499 |
+| Unauthorized VPN access | VPN connection from blocked country/IP | VPN logs | P2 | T1133 |
+
+### Lateral Movement
+
+| Detection | Description | Data Source | Severity | MITRE |
+|:---|:---|:---|:---:|:---|
+| Internal port scan | Host scanning multiple internal IPs | NetFlow / IDS | P2 | T1046 |
+| SMB lateral movement | Unusual SMB connections between hosts | NDR / NetFlow | P1 | T1021.002 |
+| RDP to unusual hosts | RDP to servers not in normal baseline | NetFlow / EDR | P2 | T1021.001 |
+| Pass-the-hash | NTLM relay or overpass-the-hash detected | NDR / Sysmon | P1 | T1550.002 |
+| WinRM across segments | WinRM between network zones | NetFlow / Sysmon | P2 | T1021.006 |
+
+### Command & Control (C2)
+
+| Detection | Description | Data Source | Severity | MITRE |
+|:---|:---|:---|:---:|:---|
+| DNS tunneling | High-frequency DNS queries with encoded data | DNS logs | P1 | T1071.004 |
+| Beaconing pattern | Regular-interval outbound connections | NDR / Proxy | P1 | T1071 |
+| Domain generation algorithm | Many NXD responses from single host | DNS logs | P2 | T1568.002 |
+| Known C2 infrastructure | Connection to TI-flagged IP/domain | Proxy / Firewall | P1 | T1071 |
+| Encrypted C2 (JA3/JA4) | Unusual TLS fingerprint to rare domain | NDR | P2 | T1573 |
+| Long DNS TXT queries | TXT records > 200 bytes | DNS logs | P2 | T1071.004 |
+
+### Data Exfiltration
+
+| Detection | Description | Data Source | Severity | MITRE |
+|:---|:---|:---|:---:|:---|
+| Large outbound transfer | > 500 MB to single external IP | NetFlow / Proxy | P1 | T1048 |
+| Unusual upload destination | Upload to IP/domain never seen before | Proxy / NDR | P2 | T1567 |
+| Exfil over DNS | DNS queries with encoded payload data | DNS logs | P1 | T1048.001 |
+| After-hours data transfer | Large transfers 22:00–06:00 | NetFlow / Proxy | P2 | T1048 |
+| Encrypted exfil to cloud | TLS to personal cloud storage | Proxy / CASB | P2 | T1567.002 |
+
+---
+
+## Network Segmentation Monitoring
+
+### Zone Matrix
+
+| Zone | Allowed Destinations | Blocked | Monitoring |
+|:---|:---|:---|:---|
+| **DMZ** | Internet (specific ports), Internal DB (specific) | All other internal | Full PCAP + IDS |
+| **Server Zone** | Other servers (specific), DMZ (response only) | Workstations (direct) | NetFlow + IDS |
+| **Workstation Zone** | DMZ (via proxy), Server Zone (specific) | Direct Internet | Proxy logs + NetFlow |
+| **Management Zone** | All zones (admin ports only) | Internet | Full PCAP + IDS |
+| **IoT Zone** | IoT gateway only | All other zones | Full PCAP + IDS |
+
+### Cross-Zone Violations
+
+| Violation | Severity | Response |
+|:---|:---:|:---|
+| Workstation → Server (non-standard port) | P2 | Investigate, may indicate lateral movement |
+| Server → Workstation (any) | P1 | Investigate immediately, reversed connection suspicious |
+| IoT → Server/Workstation | P1 | Contain, possible IoT compromise |
+| DMZ → Internal (non-standard) | P1 | Investigate, possible DMZ breach |
+| Any zone → Management | P2 | Verify authorized admin access |
+
+---
+
+## DNS Security Monitoring
+
+### DNS Detections
+
+| Detection | Logic | Severity |
+|:---|:---|:---:|
+| **New domain (< 30 days old)** | Domain creation date query | P3 |
+| **DGA detection** | Entropy analysis + NXD ratio | P2 |
+| **DNS tunneling** | Query length > 50 chars + high frequency | P1 |
+| **Typosquatting** | Edit distance < 3 from corporate domains | P2 |
+| **IDN homograph** | Unicode lookalike domains | P2 |
+| **DNS over HTTPS (DoH)** | TLS to known DoH providers | P3 |
+| **Fast-flux DNS** | Domain resolving to many IPs rapidly | P2 |
+| **Sinkhole response** | DNS resolving to known sinkhole IP | P2 |
+
+### DNS Blocklist Integration
+
+| Source | Update Frequency | Type |
+|:---|:---:|:---|
+| TI feeds (commercial) | Real-time | Malware C2 domains |
+| OSINT feeds | Hourly | Known malicious domains |
+| Internal blocklist | As needed | Policy-blocked categories |
+| Sinkhole feeds | Daily | Compromised domains |
+
+---
+
+## Network Incident Response
+
+### Response Actions
+
+| Action | Tool | Command/Procedure | Impact |
+|:---|:---|:---|:---|
+| **Block IP** | Firewall | Add to deny list | Immediate, may affect legitimate traffic |
+| **Block domain** | DNS Firewall/Proxy | Add to blocklist | Low impact |
+| **Isolate host** | Switch/NAC/EDR | Port shutdown or VLAN change | Host offline |
+| **Capture packets** | PCAP tool | Start targeted capture | Storage intensive |
+| **Rate limit** | Firewall/IPS | Limit connections per source | Partial mitigation |
+| **Sinkhole domain** | DNS | Redirect to internal sinkhole | Identifies infected hosts |
+
+### Network IR Workflow
+
+```mermaid
+flowchart TD
+    A[Network Alert] --> B{Alert source?}
+    B -->|IDS/IPS| C[Review signature details]
+    B -->|NDR| D[Review behavioral anomaly]
+    B -->|DNS| E[Review domain/query]
+    B -->|NetFlow| F[Review traffic patterns]
+    
+    C --> G{True positive?}
+    D --> G
+    E --> G
+    F --> G
+    
+    G -->|FP| H[Tune rule, close]
+    G -->|TP| I[Assess scope]
+    
+    I --> J[How many hosts affected?]
+    J --> K{Single host}
+    J --> L{Multiple hosts}
+    
+    K --> M[Contain host + investigate]
+    L --> N[🔴 Major incident — escalate]
+    
+    M --> O[Block IOCs network-wide]
+    N --> O
+    O --> P[Hunt for additional compromise]
+    P --> Q[Remediate + lessons learned]
+
+    style A fill:#3b82f6,color:#fff
+    style N fill:#dc2626,color:#fff
+    style Q fill:#22c55e,color:#fff
+```
+
+---
+
+## Metrics
+
+| Metric | Target | Measurement |
+|:---|:---:|:---|
+| Network alert MTTD | < 5 min | SIEM → alert time |
+| Network alert MTTR (P1) | < 30 min | Ticket resolution |
+| IDS/IPS signature coverage | ≥ 95% of known CVEs | Ruleset audit |
+| DNS monitoring coverage | 100% of internal DNS | DNS log audit |
+| NetFlow collection coverage | ≥ 90% of segments | Coverage audit |
+| Network segmentation violations detected | 100% | Zone violation alerts |
+| False positive rate (network alerts) | < 15% | FP / total alerts |
+| PCAP availability for P1 investigations | ≥ 95% | Forensic readiness audit |
+
+---
+
+## Related Documents
+
+-   [Log Source Matrix](Log_Source_Matrix.en.md) — All data sources
+-   [Cloud Security Monitoring](Cloud_Security_Monitoring.en.md) — Cloud network
+-   [Threat Landscape Report](Threat_Landscape_Report.en.md) — Active threats
+-   [Forensic Investigation](../05_Incident_Response/Forensic_Investigation.en.md) — Network forensics
+-   [Alert Tuning SOP](Alert_Tuning.en.md) — Network alert tuning
+-   [DLP SOP](DLP_SOP.en.md) — Network DLP integration
+
+
+---
+
+## File: 06_Operations_Management/Network_Security_Monitoring.th.md
+
+# Network Security Monitoring SOP / SOP การเฝ้าระวังความปลอดภัยเครือข่าย
+
+**รหัสเอกสาร**: OPS-SOP-025
+**เวอร์ชัน**: 1.0
+**การจัดชั้นความลับ**: ใช้ภายใน
+**อัปเดตล่าสุด**: 2026-02-15
+
+> ขั้นตอน SOC สำหรับ **เฝ้าระวัง traffic เครือข่าย, ตรวจจับการโจมตี, และตอบสนอง** ครอบคลุม IDS/IPS, NDR, DNS monitoring, NetFlow, และ network forensics
+
+---
+
+## แหล่งข้อมูลเครือข่าย
+
+| แหล่ง | ข้อมูลสำคัญ | เก็บ | ลำดับ |
+|:---|:---|:---:|:---:|
+| **Firewall logs** | Accept/deny, source/dest, port | 90 วัน | 🔴 Critical |
+| **IDS/IPS alerts** | Signature matches, anomalies | 90 วัน | 🔴 Critical |
+| **DNS query logs** | Domain, query types | 90 วัน | 🔴 Critical |
+| **Proxy/web gateway** | URL, user agent, bytes | 90 วัน | 🔴 Critical |
+| **NetFlow/sFlow** | Flow metadata | 30 วัน | 🟠 High |
+| **Full packet capture** | Traffic content ทั้งหมด | 7 วัน | 🟠 High |
+| **DHCP logs** | IP-to-MAC mapping | 90 วัน | 🟡 Medium |
+| **VPN logs** | Connection times, IPs, users | 90 วัน | 🟡 Medium |
+
+---
+
+## Network Detections ที่สำคัญ
+
+### Perimeter Attacks
+
+| Detection | คำอธิบาย | Severity | MITRE |
+|:---|:---|:---:|:---|
+| Port scan | สแกน port อย่างเป็นระบบ | P3 | T1046 |
+| Brute-force | เชื่อมต่อซ้ำ port เดียว | P2 | T1110 |
+| Exploit attempt | IDS signature match | P1 | varies |
+| DDoS indicators | Traffic volume ผิดปกติ | P1 | T1498 |
+
+### Lateral Movement
+
+| Detection | คำอธิบาย | Severity | MITRE |
+|:---|:---|:---:|:---|
+| Internal port scan | Host สแกน IP ภายใน | P2 | T1046 |
+| SMB lateral movement | SMB connections ผิดปกติ | P1 | T1021.002 |
+| RDP ไปยัง host ผิดปกติ | RDP ไป server ที่ไม่ปกติ | P2 | T1021.001 |
+| Pass-the-hash | NTLM relay detected | P1 | T1550.002 |
+
+### Command & Control
+
+| Detection | คำอธิบาย | Severity | MITRE |
+|:---|:---|:---:|:---|
+| DNS tunneling | DNS query ถี่ + encoded data | P1 | T1071.004 |
+| Beaconing pattern | เชื่อมต่อ outbound เป็นจังหวะ | P1 | T1071 |
+| DGA detection | NXD responses จำนวนมาก | P2 | T1568.002 |
+| Known C2 | เชื่อมต่อ TI-flagged IP/domain | P1 | T1071 |
+| Encrypted C2 (JA3/JA4) | TLS fingerprint ผิดปกติ | P2 | T1573 |
+
+### Data Exfiltration
+
+| Detection | คำอธิบาย | Severity | MITRE |
+|:---|:---|:---:|:---|
+| Large outbound transfer | > 500 MB ไปยัง IP ภายนอก | P1 | T1048 |
+| Upload ปลายทางใหม่ | Upload ไป IP/domain ที่ไม่เคยเห็น | P2 | T1567 |
+| Exfil over DNS | DNS query + payload data | P1 | T1048.001 |
+| After-hours data transfer | Transfer ขนาดใหญ่ 22:00–06:00 | P2 | T1048 |
+
+---
+
+## การเฝ้าระวัง Network Segmentation
+
+### Zone Matrix
+
+| Zone | อนุญาต | บล็อก | Monitoring |
+|:---|:---|:---|:---|
+| **DMZ** | Internet (ports เฉพาะ), Internal DB (เฉพาะ) | Internal อื่นๆ | Full PCAP + IDS |
+| **Server** | Servers อื่น (เฉพาะ), DMZ (response) | Workstations (ตรง) | NetFlow + IDS |
+| **Workstation** | DMZ (ผ่าน proxy), Server (เฉพาะ) | Internet ตรง | Proxy + NetFlow |
+| **Management** | ทุก zone (admin ports) | Internet | Full PCAP + IDS |
+
+### Cross-Zone Violations
+
+| Violation | Severity | Response |
+|:---|:---:|:---|
+| Workstation → Server (non-standard port) | P2 | สืบสวน lateral movement |
+| Server → Workstation | P1 | สืบสวนทันที |
+| IoT → Server/Workstation | P1 | Contain ทันที |
+| DMZ → Internal (non-standard) | P1 | อาจ DMZ breach |
+
+---
+
+## DNS Security Monitoring
+
+| Detection | Logic | Severity |
+|:---|:---|:---:|
+| Domain ใหม่ (< 30 วัน) | ตรวจ domain creation date | P3 |
+| DGA detection | Entropy analysis + NXD ratio | P2 |
+| DNS tunneling | Query > 50 chars + ความถี่สูง | P1 |
+| Typosquatting | Edit distance < 3 จาก corporate domains | P2 |
+| DNS over HTTPS (DoH) | TLS ไป DoH providers | P3 |
+| Fast-flux DNS | Domain → หลาย IP เร็ว | P2 |
+
+---
+
+## Network Incident Response
+
+### Response Actions
+
+| Action | เครื่องมือ | ผลกระทบ |
+|:---|:---|:---|
+| **บล็อก IP** | Firewall | ทันที |
+| **บล็อก domain** | DNS Firewall/Proxy | ต่ำ |
+| **แยก host** | Switch/NAC/EDR | Host offline |
+| **Capture packets** | PCAP tool | ใช้ storage มาก |
+| **Rate limit** | Firewall/IPS | บรรเทาบางส่วน |
+| **Sinkhole domain** | DNS | ระบุ infected hosts |
+
+---
+
+## ตัวชี้วัด
+
+| ตัวชี้วัด | เป้าหมาย |
+|:---|:---:|
+| Network alert MTTD | < 5 นาที |
+| Network alert MTTR (P1) | < 30 นาที |
+| IDS/IPS signature coverage | ≥ 95% |
+| DNS monitoring coverage | 100% |
+| NetFlow coverage | ≥ 90% |
+| Zone violation detection | 100% |
+| False positive rate | < 15% |
+
+---
+
+## เอกสารที่เกี่ยวข้อง
+
+-   [Log Source Matrix](Log_Source_Matrix.en.md) — แหล่งข้อมูลทั้งหมด
+-   [Cloud Security Monitoring](Cloud_Security_Monitoring.en.md) — Cloud network
+-   [DLP SOP](DLP_SOP.en.md) — Network DLP
+-   [Alert Tuning SOP](Alert_Tuning.en.md) — การ tune network alerts
 
 
 ---
