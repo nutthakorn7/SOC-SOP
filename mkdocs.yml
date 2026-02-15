@@ -232,6 +232,10 @@ nav:
     - ตารางแหล่ง Log (TH): 06_Operations_Management/Log_Source_Matrix.th.md
     - SOC Automation Catalog: 06_Operations_Management/SOC_Automation_Catalog.en.md
     - แคตตาล็อก Automation (TH): 06_Operations_Management/SOC_Automation_Catalog.th.md
+    - KPI Dashboard Template: 06_Operations_Management/KPI_Dashboard_Template.en.md
+    - แม่แบบ Dashboard KPI (TH): 06_Operations_Management/KPI_Dashboard_Template.th.md
+    - Threat Landscape Report: 06_Operations_Management/Threat_Landscape_Report.en.md
+    - รายงานภูมิทัศน์ภัยคุกคาม (TH): 06_Operations_Management/Threat_Landscape_Report.th.md
   - 🔧 Guides & Tools:
     - Detection Rules Index: 07_Detection_Rules/README.md
     - ดัชนี Detection Rules (TH): 07_Detection_Rules/README.th.md

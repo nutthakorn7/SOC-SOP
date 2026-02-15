@@ -5608,6 +5608,545 @@ python tools/sigma_validator.py path/to/rule.yml
 
 ---
 
+## File: 06_Operations_Management/KPI_Dashboard_Template.en.md
+
+# SOC KPI Dashboard Template
+
+**Document ID**: OPS-SOP-013
+**Version**: 1.0
+**Classification**: Internal
+**Last Updated**: 2026-02-15
+
+> A ready-to-use **executive dashboard template** for monthly SOC performance reporting. Copy these sections into your BI tool (Grafana, Power BI, Kibana) or use as a manual report template.
+
+---
+
+## Dashboard Overview
+
+```mermaid
+graph LR
+    subgraph "Executive Summary"
+        A[Total Alerts]
+        B[Incidents Created]
+        C[MTTD / MTTR]
+        D[SLA Compliance]
+    end
+
+    subgraph "Operational Detail"
+        E[Alert Volume Trend]
+        F[Top Categories]
+        G[Analyst Workload]
+        H[Detection Coverage]
+    end
+
+    subgraph "Strategic"
+        I[Risk Posture]
+        J[Automation Rate]
+        K[Maturity Score]
+        L[Budget/ROI]
+    end
+```
+
+---
+
+## Section 1: Executive Summary Cards
+
+> 🎯 **Audience**: CISO, CTO, Board
+> 📅 **Frequency**: Monthly
+
+### Top-Line KPIs
+
+| KPI | This Month | Last Month | Trend | Target | Status |
+|:---|:---:|:---:|:---:|:---:|:---:|
+| **Total Alerts** | _____ | _____ | ↑/↓ _% | — | — |
+| **True Positive Rate** | ___% | ___% | ↑/↓ | ≥ 80% | 🟢/🟡/🔴 |
+| **Incidents Created** | _____ | _____ | ↑/↓ _% | — | — |
+| **P1/P2 Incidents** | _____ | _____ | ↑/↓ _% | — | — |
+| **MTTD** (Mean Time to Detect) | ___ min | ___ min | ↑/↓ | < 15 min | 🟢/🟡/🔴 |
+| **MTTR** (Mean Time to Respond) | ___ min | ___ min | ↑/↓ | < 60 min | 🟢/🟡/🔴 |
+| **MTTC** (Mean Time to Contain) | ___ hrs | ___ hrs | ↑/↓ | < 4 hrs | 🟢/🟡/🔴 |
+| **SLA Compliance** | ___% | ___% | ↑/↓ | ≥ 95% | 🟢/🟡/🔴 |
+| **Automation Rate** | ___% | ___% | ↑/↓ | ≥ 40% | 🟢/🟡/🔴 |
+| **Data Breach Count** | _____ | _____ | ↑/↓ | 0 | 🟢/🟡/🔴 |
+
+**Status Legend**: 🟢 On Target | 🟡 Needs Attention (within 10%) | 🔴 Below Target
+
+---
+
+## Section 2: Alert Analytics
+
+### 2a. Alert Volume Trend (12-month)
+
+| Month | Total Alerts | True Positive | False Positive | TP Rate | Alerts/Analyst/Day |
+|:---|:---:|:---:|:---:|:---:|:---:|
+| _____ | _____ | _____ | _____ | ___% | _____ |
+| _____ | _____ | _____ | _____ | ___% | _____ |
+| _____ | _____ | _____ | _____ | ___% | _____ |
+
+> 📊 **Visualization**: Line chart showing alert volume trend with TP/FP breakdown.
+
+### 2b. Alert Categories (Top 10)
+
+| Rank | Category | Count | % of Total | Trend | Top Source |
+|:---:|:---|:---:|:---:|:---:|:---|
+| 1 | ______________ | _____ | ___% | ↑/↓ | ______________ |
+| 2 | ______________ | _____ | ___% | ↑/↓ | ______________ |
+| 3 | ______________ | _____ | ___% | ↑/↓ | ______________ |
+| 4 | ______________ | _____ | ___% | ↑/↓ | ______________ |
+| 5 | ______________ | _____ | ___% | ↑/↓ | ______________ |
+
+> 📊 **Visualization**: Donut chart or horizontal bar chart.
+
+### 2c. Alert Sources
+
+| Source | Count | % of Total | TP Rate | Noise Ratio |
+|:---|:---:|:---:|:---:|:---:|
+| SIEM | _____ | ___% | ___% | ___% |
+| EDR | _____ | ___% | ___% | ___% |
+| Email Gateway | _____ | ___% | ___% | ___% |
+| Cloud | _____ | ___% | ___% | ___% |
+| WAF / IDS | _____ | ___% | ___% | ___% |
+| TI Feed Match | _____ | ___% | ___% | ___% |
+| User Report | _____ | ___% | ___% | ___% |
+
+---
+
+## Section 3: Incident Metrics
+
+### 3a. Incidents by Severity
+
+| Severity | Count | % | Avg MTTR | SLA Met | SLA Breached |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| **P1** 🔴 | _____ | ___% | ___ min | _____ | _____ |
+| **P2** 🟠 | _____ | ___% | ___ min | _____ | _____ |
+| **P3** 🟡 | _____ | ___% | ___ hrs | _____ | _____ |
+| **P4** 🔵 | _____ | ___% | ___ hrs | _____ | _____ |
+
+### 3b. Incidents by Category
+
+| Category Code | Category | Count | % | Avg Severity |
+|:---:|:---|:---:|:---:|:---:|
+| MAL | Malware | _____ | ___% | P__ |
+| PHI | Phishing | _____ | ___% | P__ |
+| UNA | Unauthorized Access | _____ | ___% | P__ |
+| CLD | Cloud | _____ | ___% | P__ |
+| POL | Policy Violation | _____ | ___% | P__ |
+| ___ | Other | _____ | ___% | P__ |
+
+> Reference: [Incident Classification Taxonomy](../05_Incident_Response/Incident_Classification.en.md)
+
+### 3c. SLA Performance
+
+```mermaid
+graph LR
+    subgraph "SLA Targets"
+        P1[P1: Respond < 15 min] --> P1R[Met: __%]
+        P2[P2: Respond < 30 min] --> P2R[Met: __%]
+        P3[P3: Respond < 4 hrs] --> P3R[Met: __%]
+        P4[P4: Respond < 24 hrs] --> P4R[Met: __%]
+    end
+```
+
+---
+
+## Section 4: Detection Coverage
+
+### 4a. MITRE ATT&CK Coverage Summary
+
+| Tactic | Techniques Covered | Total Techniques | Coverage % |
+|:---|:---:|:---:|:---:|
+| Initial Access | __/__ | 9 | ___% |
+| Execution | __/__ | 14 | ___% |
+| Persistence | __/__ | 20 | ___% |
+| Privilege Escalation | __/__ | 13 | ___% |
+| Defense Evasion | __/__ | 42 | ___% |
+| Credential Access | __/__ | 17 | ___% |
+| Discovery | __/__ | 31 | ___% |
+| Lateral Movement | __/__ | 9 | ___% |
+| Collection | __/__ | 17 | ___% |
+| C2 | __/__ | 16 | ___% |
+| Exfiltration | __/__ | 9 | ___% |
+| Impact | __/__ | 14 | ___% |
+| **Total** | **__/211** | **211** | **___%** |
+
+> 📊 **Visualization**: ATT&CK Navigator heatmap (embed screenshot from MITRE ATT&CK Navigator).
+
+### 4b. Detection Rules Health
+
+| Metric | Value | Target | Status |
+|:---|:---:|:---:|:---:|
+| Total active rules | _____ | — | — |
+| Rules added this month | _____ | ≥ 5 | 🟢/🟡/🔴 |
+| Rules tuned/updated | _____ | ≥ 10% | 🟢/🟡/🔴 |
+| Rules disabled (high FP) | _____ | < 5% | 🟢/🟡/🔴 |
+| Rules with 0 hits (30 days) | _____ | < 20% | 🟢/🟡/🔴 |
+| Average TP rate per rule | ___% | ≥ 70% | 🟢/🟡/🔴 |
+
+### 4c. Log Source Health
+
+| Category | Sources Expected | Sources Collecting | Coverage | Gaps |
+|:---|:---:|:---:|:---:|:---|
+| Endpoint | _____ | _____ | ___% | ______________ |
+| Network | _____ | _____ | ___% | ______________ |
+| Cloud | _____ | _____ | ___% | ______________ |
+| Identity | _____ | _____ | ___% | ______________ |
+| Application | _____ | _____ | ___% | ______________ |
+
+> Reference: [Log Source Matrix](../06_Operations_Management/Log_Source_Matrix.en.md)
+
+---
+
+## Section 5: Team Performance
+
+### 5a. Analyst Workload
+
+| Analyst | Alerts Handled | Incidents Closed | Avg MTTR | TP Rate | Escalations |
+|:---|:---:|:---:|:---:|:---:|:---:|
+| ______________ | _____ | _____ | ___ min | ___% | _____ |
+| ______________ | _____ | _____ | ___ min | ___% | _____ |
+| ______________ | _____ | _____ | ___ min | ___% | _____ |
+| **Team Average** | **_____** | **_____** | **___ min** | **___%** | **_____** |
+
+### 5b. Training & Certification
+
+| Metric | Value | Target |
+|:---|:---:|:---:|
+| Training hours completed (team) | _____ hrs | ≥ 40 hrs/person/year |
+| New certifications earned | _____ | ≥ 2/person/year |
+| Tabletop exercises conducted | _____ | ≥ 4/year |
+| Purple team exercises | _____ | ≥ 2/year |
+
+### 5c. Shift Coverage
+
+| Metric | Value | Target | Status |
+|:---|:---:|:---:|:---:|
+| Staffing fill rate | ___% | ≥ 95% | 🟢/🟡/🔴 |
+| After-hours coverage | ___% | 100% | 🟢/🟡/🔴 |
+| Average shift handoff quality | ___/5 | ≥ 4/5 | 🟢/🟡/🔴 |
+| Analyst attrition rate | ___% | < 15%/year | 🟢/🟡/🔴 |
+
+---
+
+## Section 6: Automation & Efficiency
+
+| Metric | Value | Target | Status |
+|:---|:---:|:---:|:---:|
+| **SOAR playbook executions** | _____ | — | — |
+| **SOAR success rate** | ___% | ≥ 95% | 🟢/🟡/🔴 |
+| **Alerts auto-enriched** | ___% | ≥ 90% | 🟢/🟡/🔴 |
+| **Alerts auto-resolved (P4)** | ___% | ≥ 30% | 🟢/🟡/🔴 |
+| **Time saved by automation** | ___ hrs | ≥ 40 hrs/mo | 🟢/🟡/🔴 |
+| **Automation catalog L2+ coverage** | ___% | ≥ 50% | 🟢/🟡/🔴 |
+| **Mean Time to Enrich** | ___ sec | < 30 sec | 🟢/🟡/🔴 |
+
+> Reference: [SOC Automation Catalog](../06_Operations_Management/SOC_Automation_Catalog.en.md)
+
+---
+
+## Section 7: Risk & Compliance
+
+| Metric | Value | Target | Status |
+|:---|:---:|:---:|:---:|
+| Overdue vulnerability patches (critical) | _____ | 0 | 🟢/🟡/🔴 |
+| Regulatory notifications on time | ___% | 100% | 🟢/🟡/🔴 |
+| Compliance evidence collected | ___% | 100% | 🟢/🟡/🔴 |
+| Open risk acceptances | _____ | < 10 | 🟢/🟡/🔴 |
+| Audit findings (open) | _____ | 0 | 🟢/🟡/🔴 |
+| PDPA breach notifications < 72 hrs | ___% | 100% | 🟢/🟡/🔴 |
+
+---
+
+## Section 8: Executive Narrative
+
+> Fill this section with context, commentary, and recommendations for leadership.
+
+### Key Highlights
+1. _____________________________________________________
+2. _____________________________________________________
+3. _____________________________________________________
+
+### Notable Incidents
+| Date | Summary | Severity | MTTR | Status |
+|:---|:---|:---:|:---:|:---:|
+| _____ | _______________________________________ | P__ | ___ | Closed/Open |
+| _____ | _______________________________________ | P__ | ___ | Closed/Open |
+
+### Concerns & Risks
+1. _____________________________________________________
+2. _____________________________________________________
+
+### Resource Requests
+| Request | Justification | Priority | Estimated Cost |
+|:---|:---|:---:|:---:|
+| ______________ | _______________________________________ | P_ | $_____ |
+| ______________ | _______________________________________ | P_ | $_____ |
+
+### Next Month Focus Areas
+1. _____________________________________________________
+2. _____________________________________________________
+3. _____________________________________________________
+
+---
+
+## Appendix: BI Tool Configuration
+
+### Grafana Dashboard JSON
+
+```json
+{
+  "panels": [
+    {
+      "title": "Total Alerts (30 days)",
+      "type": "stat",
+      "datasource": "SIEM",
+      "query": "SELECT COUNT(*) FROM alerts WHERE timestamp >= NOW() - INTERVAL '30 days'"
+    },
+    {
+      "title": "MTTR (P1/P2)",
+      "type": "gauge",
+      "datasource": "Ticketing",
+      "query": "SELECT AVG(resolved_at - created_at) FROM incidents WHERE severity IN ('P1','P2') AND resolved_at IS NOT NULL"
+    }
+  ]
+}
+```
+
+### Recommended Refresh Rates
+
+| Dashboard Section | Refresh Rate |
+|:---|:---:|
+| Alert Volume (real-time) | 5 min |
+| Incident Metrics | 15 min |
+| SLA Compliance | 1 hour |
+| Detection Coverage | Daily |
+| Team Performance | Weekly |
+| Executive Summary | Monthly |
+
+---
+
+## Related Documents
+
+-   [SOC Metrics & KPIs](SOC_Metrics.en.md) — Full KPI definitions and formulas
+-   [Log Source Matrix](Log_Source_Matrix.en.md) — Data source coverage
+-   [SOC Automation Catalog](SOC_Automation_Catalog.en.md) — Automation maturity
+-   [Incident Classification](../05_Incident_Response/Incident_Classification.en.md) — Category taxonomy
+-   [SLA Template](SLA_Template.en.md) — SLA definitions
+-   [SOC Checklists](SOC_Checklists.en.md) — Operational checklists
+
+
+---
+
+## File: 06_Operations_Management/KPI_Dashboard_Template.th.md
+
+# SOC KPI Dashboard Template / แม่แบบ Dashboard ตัวชี้วัด SOC
+
+**รหัสเอกสาร**: OPS-SOP-013
+**เวอร์ชัน**: 1.0
+**การจัดชั้นความลับ**: ใช้ภายใน
+**อัปเดตล่าสุด**: 2026-02-15
+
+> แม่แบบ **executive dashboard** สำหรับรายงานผลการดำเนินงาน SOC รายเดือน คัดลอกส่วนเหล่านี้ไปใช้ใน BI tool (Grafana, Power BI, Kibana) หรือใช้เป็นรายงาน manual
+
+---
+
+## ส่วนที่ 1: สรุปสำหรับผู้บริหาร
+
+> 🎯 **กลุ่มเป้าหมาย**: CISO, CTO, คณะกรรมการ
+> 📅 **ความถี่**: รายเดือน
+
+### KPI หลัก
+
+| KPI | เดือนนี้ | เดือนก่อน | แนวโน้ม | เป้าหมาย | สถานะ |
+|:---|:---:|:---:|:---:|:---:|:---:|
+| **Alert ทั้งหมด** | _____ | _____ | ↑/↓ _% | — | — |
+| **True Positive Rate** | ___% | ___% | ↑/↓ | ≥ 80% | 🟢/🟡/🔴 |
+| **Incident ที่สร้าง** | _____ | _____ | ↑/↓ _% | — | — |
+| **P1/P2 Incidents** | _____ | _____ | ↑/↓ _% | — | — |
+| **MTTD** (เวลาเฉลี่ยในการตรวจพบ) | ___ นาที | ___ นาที | ↑/↓ | < 15 นาที | 🟢/🟡/🔴 |
+| **MTTR** (เวลาเฉลี่ยในการตอบสนอง) | ___ นาที | ___ นาที | ↑/↓ | < 60 นาที | 🟢/🟡/🔴 |
+| **MTTC** (เวลาเฉลี่ยในการควบคุม) | ___ ชม. | ___ ชม. | ↑/↓ | < 4 ชม. | 🟢/🟡/🔴 |
+| **SLA Compliance** | ___% | ___% | ↑/↓ | ≥ 95% | 🟢/🟡/🔴 |
+| **Automation Rate** | ___% | ___% | ↑/↓ | ≥ 40% | 🟢/🟡/🔴 |
+| **Data Breach** | _____ | _____ | ↑/↓ | 0 | 🟢/🟡/🔴 |
+
+**สัญลักษณ์**: 🟢 ได้ตามเป้า | 🟡 ต้องดูแล (ภายใน 10%) | 🔴 ต่ำกว่าเป้า
+
+---
+
+## ส่วนที่ 2: Alert Analytics
+
+### 2a. แนวโน้มปริมาณ Alert (12 เดือน)
+
+| เดือน | Alert ทั้งหมด | True Positive | False Positive | TP Rate | Alert/Analyst/วัน |
+|:---|:---:|:---:|:---:|:---:|:---:|
+| _____ | _____ | _____ | _____ | ___% | _____ |
+| _____ | _____ | _____ | _____ | ___% | _____ |
+
+> 📊 **Visualization**: Line chart แสดงแนวโน้ม alert พร้อมแยก TP/FP
+
+### 2b. หมวดหมู่ Alert (Top 10)
+
+| อันดับ | หมวดหมู่ | จำนวน | % ของทั้งหมด | แนวโน้ม |
+|:---:|:---|:---:|:---:|:---:|
+| 1 | ______________ | _____ | ___% | ↑/↓ |
+| 2 | ______________ | _____ | ___% | ↑/↓ |
+| 3 | ______________ | _____ | ___% | ↑/↓ |
+
+### 2c. แหล่ง Alert
+
+| แหล่ง | จำนวน | % ของทั้งหมด | TP Rate | Noise Ratio |
+|:---|:---:|:---:|:---:|:---:|
+| SIEM | _____ | ___% | ___% | ___% |
+| EDR | _____ | ___% | ___% | ___% |
+| Email Gateway | _____ | ___% | ___% | ___% |
+| Cloud | _____ | ___% | ___% | ___% |
+
+---
+
+## ส่วนที่ 3: ตัวชี้วัด Incident
+
+### 3a. Incidents ตามระดับความรุนแรง
+
+| ระดับ | จำนวน | % | Avg MTTR | SLA ผ่าน | SLA ไม่ผ่าน |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| **P1** 🔴 | _____ | ___% | ___ นาที | _____ | _____ |
+| **P2** 🟠 | _____ | ___% | ___ นาที | _____ | _____ |
+| **P3** 🟡 | _____ | ___% | ___ ชม. | _____ | _____ |
+| **P4** 🔵 | _____ | ___% | ___ ชม. | _____ | _____ |
+
+### 3b. Incidents ตามหมวดหมู่
+
+| รหัส | หมวดหมู่ | จำนวน | % |
+|:---:|:---|:---:|:---:|
+| MAL | มัลแวร์ | _____ | ___% |
+| PHI | Phishing | _____ | ___% |
+| UNA | การเข้าถึงผิดกฎ | _____ | ___% |
+| CLD | Cloud | _____ | ___% |
+| POL | ละเมิดนโยบาย | _____ | ___% |
+
+> อ้างอิง: [Incident Classification](../05_Incident_Response/Incident_Classification.en.md)
+
+---
+
+## ส่วนที่ 4: Detection Coverage
+
+### 4a. MITRE ATT&CK Coverage
+
+| Tactic | Techniques ที่ครอบคลุม | ทั้งหมด | Coverage % |
+|:---|:---:|:---:|:---:|
+| Initial Access | __/__ | 9 | ___% |
+| Execution | __/__ | 14 | ___% |
+| Persistence | __/__ | 20 | ___% |
+| Defense Evasion | __/__ | 42 | ___% |
+| Credential Access | __/__ | 17 | ___% |
+| Lateral Movement | __/__ | 9 | ___% |
+| Exfiltration | __/__ | 9 | ___% |
+| Impact | __/__ | 14 | ___% |
+| **รวม** | **__/211** | **211** | **___%** |
+
+### 4b. สุขภาพ Detection Rules
+
+| ตัวชี้วัด | ค่า | เป้าหมาย | สถานะ |
+|:---|:---:|:---:|:---:|
+| Rules ทั้งหมดที่ active | _____ | — | — |
+| Rules ใหม่เดือนนี้ | _____ | ≥ 5 | 🟢/🟡/🔴 |
+| Rules ที่ปรับปรุง | _____ | ≥ 10% | 🟢/🟡/🔴 |
+| Rules ที่ disable (FP สูง) | _____ | < 5% | 🟢/🟡/🔴 |
+
+### 4c. สุขภาพ Log Source
+
+| หมวด | คาดหวัง | เก็บจริง | Coverage |
+|:---|:---:|:---:|:---:|
+| Endpoint | _____ | _____ | ___% |
+| Network | _____ | _____ | ___% |
+| Cloud | _____ | _____ | ___% |
+| Identity | _____ | _____ | ___% |
+
+> อ้างอิง: [Log Source Matrix](Log_Source_Matrix.en.md)
+
+---
+
+## ส่วนที่ 5: ผลงานทีม
+
+### 5a. Workload ต่อ Analyst
+
+| Analyst | Alerts | Incidents | Avg MTTR | TP Rate |
+|:---|:---:|:---:|:---:|:---:|
+| ______________ | _____ | _____ | ___ นาที | ___% |
+| ______________ | _____ | _____ | ___ นาที | ___% |
+| **ค่าเฉลี่ยทีม** | **_____** | **_____** | **___ นาที** | **___%** |
+
+### 5b. การฝึกอบรม
+
+| ตัวชี้วัด | ค่า | เป้าหมาย |
+|:---|:---:|:---:|
+| ชม. ฝึกอบรม (ทีม) | _____ ชม. | ≥ 40 ชม./คน/ปี |
+| Certification ใหม่ | _____ | ≥ 2/คน/ปี |
+| Tabletop exercises | _____ | ≥ 4/ปี |
+
+---
+
+## ส่วนที่ 6: Automation & ประสิทธิภาพ
+
+| ตัวชี้วัด | ค่า | เป้าหมาย | สถานะ |
+|:---|:---:|:---:|:---:|
+| SOAR executions | _____ | — | — |
+| SOAR success rate | ___% | ≥ 95% | 🟢/🟡/🔴 |
+| Alert auto-enriched | ___% | ≥ 90% | 🟢/🟡/🔴 |
+| Alert auto-resolved (P4) | ___% | ≥ 30% | 🟢/🟡/🔴 |
+| เวลาที่ประหยัดจาก automation | ___ ชม. | ≥ 40 ชม./เดือน | 🟢/🟡/🔴 |
+
+> อ้างอิง: [SOC Automation Catalog](SOC_Automation_Catalog.en.md)
+
+---
+
+## ส่วนที่ 7: ความเสี่ยง & Compliance
+
+| ตัวชี้วัด | ค่า | เป้าหมาย | สถานะ |
+|:---|:---:|:---:|:---:|
+| Vulnerability patches ค้าง (critical) | _____ | 0 | 🟢/🟡/🔴 |
+| การแจ้งหน่วยงานกำกับตรงเวลา | ___% | 100% | 🟢/🟡/🔴 |
+| PDPA breach notification < 72 ชม. | ___% | 100% | 🟢/🟡/🔴 |
+| Audit findings ที่ยังเปิด | _____ | 0 | 🟢/🟡/🔴 |
+
+---
+
+## ส่วนที่ 8: สรุปเชิงบรรยายสำหรับผู้บริหาร
+
+### จุดเด่นประจำเดือน
+1. _____________________________________________________
+2. _____________________________________________________
+
+### เหตุการณ์สำคัญ
+| วันที่ | สรุป | ระดับ | MTTR | สถานะ |
+|:---|:---|:---:|:---:|:---:|
+| _____ | _______________________________________ | P__ | ___ | ปิด/เปิด |
+
+### ข้อกังวลและความเสี่ยง
+1. _____________________________________________________
+
+### คำขอทรัพยากร
+| คำขอ | เหตุผล | ลำดับ | งบประมาณ |
+|:---|:---|:---:|:---:|
+| ______________ | _______________________________ | P_ | $_____ |
+
+### แผนงานเดือนหน้า
+1. _____________________________________________________
+2. _____________________________________________________
+
+---
+
+## เอกสารที่เกี่ยวข้อง
+
+-   [SOC Metrics & KPIs](SOC_Metrics.en.md) — นิยาม KPI และสูตรคำนวณ
+-   [Log Source Matrix](Log_Source_Matrix.en.md) — ครอบคลุมแหล่งข้อมูล
+-   [SOC Automation Catalog](SOC_Automation_Catalog.en.md) — Automation maturity
+-   [Incident Classification](../05_Incident_Response/Incident_Classification.en.md) — อนุกรมวิธาน
+-   [SLA Template](SLA_Template.en.md) — นิยาม SLA
+
+
+---
+
 ## File: 06_Operations_Management/Log_Source_Matrix.en.md
 
 # Log Source Matrix
@@ -8596,6 +9135,478 @@ Indicators of Compromise (IoCs) ทุกตัวต้องผ่านกร
 ## References
 -   [CREST Cyber Threat Intelligence](https://www.crest-approved.org/knowledge-base/cyber-threat-intelligence/)
 -   [SANS CTI Maturity Model](https://www.sans.org/white-papers/cti-maturity-model/)
+
+
+---
+
+## File: 06_Operations_Management/Threat_Landscape_Report.en.md
+
+# Threat Landscape Report Template
+
+**Document ID**: IR-SOP-018
+**Version**: 1.0
+**Classification**: Internal
+**Last Updated**: 2026-02-15
+
+> A **quarterly/monthly template** for producing threat landscape reports that keep stakeholders informed about the evolving threat environment and how the SOC is adapting. Use this to brief leadership, justify investments, and prioritize defenses.
+
+---
+
+## Report Metadata
+
+| Field | Value |
+|:---|:---|
+| **Report Period** | [Month/Quarter] [Year] |
+| **Prepared By** | [SOC Lead / Threat Intel Analyst] |
+| **Distribution** | [CISO, SOC Team, IT Leadership] |
+| **Classification** | [Internal / Confidential] |
+| **Next Report Due** | [Date] |
+
+---
+
+## Executive Summary
+
+> Write 3–5 sentences summarizing the most important threat developments this period.
+
+_________________________________________________________________________________
+_________________________________________________________________________________
+_________________________________________________________________________________
+
+### Key Takeaways
+
+| # | Finding | Risk Level | Action Required |
+|:---:|:---|:---:|:---|
+| 1 | ________________________________________________ | 🔴/🟠/🟡 | ________________________ |
+| 2 | ________________________________________________ | 🔴/🟠/🟡 | ________________________ |
+| 3 | ________________________________________________ | 🔴/🟠/🟡 | ________________________ |
+
+---
+
+## Section 1: Global Threat Landscape
+
+### 1a. Major Threat Developments
+
+> Document 3–5 significant threat developments from the reporting period.
+
+| # | Development | Source | Relevance to Our Org |
+|:---:|:---|:---|:---:|
+| 1 | ________________________________________________ | [CISA/CERT/News] | 🔴 High / 🟡 Medium / 🟢 Low |
+| 2 | ________________________________________________ | [CISA/CERT/News] | 🔴 High / 🟡 Medium / 🟢 Low |
+| 3 | ________________________________________________ | [CISA/CERT/News] | 🔴 High / 🟡 Medium / 🟢 Low |
+
+### 1b. Active Threat Actor Groups
+
+| Group / Alias | Attribution | Primary Targets | TTPs | Relevance |
+|:---|:---|:---|:---|:---:|
+| ______________ | [Nation-state/Criminal/Hacktivist] | [Sector/Region] | T______, T______ | 🔴/🟡/🟢 |
+| ______________ | [Nation-state/Criminal/Hacktivist] | [Sector/Region] | T______, T______ | 🔴/🟡/🟢 |
+| ______________ | [Nation-state/Criminal/Hacktivist] | [Sector/Region] | T______, T______ | 🔴/🟡/🟢 |
+
+### 1c. Industry-Specific Threats
+
+| Threat | Affected Industries | Attack Vector | Our Exposure |
+|:---|:---|:---|:---:|
+| ______________ | ______________ | ______________ | 🔴/🟡/🟢 |
+| ______________ | ______________ | ______________ | 🔴/🟡/🟢 |
+
+---
+
+## Section 2: Vulnerability Landscape
+
+### 2a. Critical Vulnerabilities (This Period)
+
+| CVE | CVSS | Affected Product | Exploited in Wild? | Our Status |
+|:---|:---:|:---|:---:|:---:|
+| CVE-____-_____ | __._ | ______________ | ✅ Yes / ❌ No | ✅ Patched / ⚠️ In Progress / ❌ Vulnerable |
+| CVE-____-_____ | __._ | ______________ | ✅ Yes / ❌ No | ✅ Patched / ⚠️ In Progress / ❌ Vulnerable |
+| CVE-____-_____ | __._ | ______________ | ✅ Yes / ❌ No | ✅ Patched / ⚠️ In Progress / ❌ Vulnerable |
+
+### 2b. Zero-Day Tracking
+
+| Vendor | Product | Discovery Date | Patch Available? | Mitigation Applied? |
+|:---|:---|:---:|:---:|:---:|
+| ______________ | ______________ | ______________ | ✅/❌ | ✅/❌ |
+
+### 2c. Patch Compliance Summary
+
+| Category | Total Assets | Patched (30 days) | % Compliant | Gap |
+|:---|:---:|:---:|:---:|:---|
+| Servers | _____ | _____ | ___% | ______________ |
+| Workstations | _____ | _____ | ___% | ______________ |
+| Network Devices | _____ | _____ | ___% | ______________ |
+| Cloud Resources | _____ | _____ | ___% | ______________ |
+
+---
+
+## Section 3: Threat Intelligence from SOC Operations
+
+### 3a. Threats Detected by SOC
+
+| Category | Incidents | Trend | Top Technique | Example |
+|:---|:---:|:---:|:---|:---|
+| Phishing | _____ | ↑/↓ _% | T1566.___ | ________________________ |
+| Malware | _____ | ↑/↓ _% | T1059.___ | ________________________ |
+| Unauthorized Access | _____ | ↑/↓ _% | T1110.___ | ________________________ |
+| Cloud Threats | _____ | ↑/↓ _% | T1078.___ | ________________________ |
+| Data Exfiltration | _____ | ↑/↓ _% | T1567.___ | ________________________ |
+
+### 3b. IOC Statistics
+
+| IOC Type | Total Ingested | Matched in Logs | Match Rate | Actionable |
+|:---|:---:|:---:|:---:|:---:|
+| IP Addresses | _____ | _____ | ___% | _____ |
+| Domains | _____ | _____ | ___% | _____ |
+| File Hashes | _____ | _____ | ___% | _____ |
+| URLs | _____ | _____ | ___% | _____ |
+| Email Addresses | _____ | _____ | ___% | _____ |
+
+### 3c. TI Feed Effectiveness
+
+| Feed Source | IOCs Received | True Matches | FP Rate | Value Score |
+|:---|:---:|:---:|:---:|:---:|
+| ______________ | _____ | _____ | ___% | ★★★★★ |
+| ______________ | _____ | _____ | ___% | ★★★★☆ |
+| ______________ | _____ | _____ | ___% | ★★★☆☆ |
+
+---
+
+## Section 4: MITRE ATT&CK Analysis
+
+### 4a. Techniques Observed This Period
+
+```mermaid
+graph TD
+    subgraph "Initial Access"
+        T1566[T1566 Phishing]
+        T1190[T1190 Exploit Public App]
+    end
+    subgraph "Execution"
+        T1059[T1059 Command Line]
+        T1204[T1204 User Execution]
+    end
+    subgraph "Persistence"
+        T1053[T1053 Scheduled Task]
+    end
+    subgraph "C2"
+        T1071[T1071 App Layer Protocol]
+    end
+
+    T1566 --> T1204
+    T1204 --> T1059
+    T1059 --> T1053
+    T1053 --> T1071
+```
+
+> Replace with actual observed techniques. Include ATT&CK Navigator heatmap screenshot if available.
+
+### 4b. Technique Frequency
+
+| MITRE Technique | Count | Trend | Detection Status |
+|:---|:---:|:---:|:---:|
+| T1566 Phishing | _____ | ↑/↓ | ✅ Detected / ⚠️ Partial / ❌ No Rule |
+| T1059 Command/Scripting | _____ | ↑/↓ | ✅ Detected / ⚠️ Partial / ❌ No Rule |
+| T1078 Valid Accounts | _____ | ↑/↓ | ✅ Detected / ⚠️ Partial / ❌ No Rule |
+| T1021 Remote Services | _____ | ↑/↓ | ✅ Detected / ⚠️ Partial / ❌ No Rule |
+| ______________ | _____ | ↑/↓ | ✅ Detected / ⚠️ Partial / ❌ No Rule |
+
+### 4c. Detection Gap Analysis
+
+| Tactic | Techniques NOT Covered | Risk | Recommended Action |
+|:---|:---|:---:|:---|
+| ______________ | T______, T______ | 🔴/🟡 | ________________________ |
+| ______________ | T______, T______ | 🔴/🟡 | ________________________ |
+
+---
+
+## Section 5: Regional & Regulatory Threats
+
+### 5a. Thailand / ASEAN Specific Threats
+
+| Threat | Target Sector | Source | SOC Action |
+|:---|:---|:---|:---|
+| ______________ | ______________ | [ThaiCERT/ASEAN CERT] | ________________________ |
+| ______________ | ______________ | [ThaiCERT/ASEAN CERT] | ________________________ |
+
+### 5b. Regulatory Updates
+
+| Regulation | Update | Effective Date | Impact on SOC |
+|:---|:---|:---:|:---|
+| PDPA | ________________________ | ____-__-__ | ________________________ |
+| BOT Cyber Resilience | ________________________ | ____-__-__ | ________________________ |
+| SEC Thailand | ________________________ | ____-__-__ | ________________________ |
+| NIST CSF 2.0 | ________________________ | ____-__-__ | ________________________ |
+
+---
+
+## Section 6: Recommendations & Action Items
+
+### Immediate Actions (This Month)
+
+| # | Action | Owner | Due Date | Status |
+|:---:|:---|:---|:---:|:---:|
+| 1 | ________________________________________________ | ______________ | ____-__-__ | ⬜/🔲/✅ |
+| 2 | ________________________________________________ | ______________ | ____-__-__ | ⬜/🔲/✅ |
+| 3 | ________________________________________________ | ______________ | ____-__-__ | ⬜/🔲/✅ |
+
+### Strategic Recommendations (Next Quarter)
+
+| # | Recommendation | Justification | Estimated Effort | Priority |
+|:---:|:---|:---|:---:|:---:|
+| 1 | ________________________________________________ | ________________________ | ___ person-days | P_ |
+| 2 | ________________________________________________ | ________________________ | ___ person-days | P_ |
+
+### Detection Rule Changes
+
+| Action | Rule / Technique | Reason |
+|:---|:---|:---|
+| **Add** | ______________ | New threat observed |
+| **Tune** | ______________ | High FP rate |
+| **Disable** | ______________ | No longer relevant |
+
+---
+
+## Section 7: Threat Forecast
+
+> Predict likely threats for the next 30–90 days based on current intelligence.
+
+| # | Predicted Threat | Confidence | Basis | Preparedness |
+|:---:|:---|:---:|:---|:---:|
+| 1 | ________________________________________________ | High/Med/Low | ________________________ | ✅ Ready / ⚠️ Partial / ❌ Not Ready |
+| 2 | ________________________________________________ | High/Med/Low | ________________________ | ✅ Ready / ⚠️ Partial / ❌ Not Ready |
+| 3 | ________________________________________________ | High/Med/Low | ________________________ | ✅ Ready / ⚠️ Partial / ❌ Not Ready |
+
+---
+
+## Intelligence Sources
+
+| Source | Type | Frequency | URL/Access |
+|:---|:---|:---:|:---|
+| CISA Alerts | Government | Real-time | https://www.cisa.gov/known-exploited-vulnerabilities |
+| ThaiCERT | Government/Regional | Weekly | https://www.thaicert.or.th |
+| MITRE ATT&CK | Framework | Quarterly | https://attack.mitre.org |
+| AlienVault OTX | Community | Real-time | https://otx.alienvault.com |
+| VirusTotal | Commercial | Real-time | https://www.virustotal.com |
+| Abuse.ch | Community | Real-time | https://abuse.ch |
+| [Vendor TI Feed] | Commercial | ____________ | ______________ |
+
+---
+
+## Related Documents
+
+-   [Threat Hunting Playbook](../05_Incident_Response/Threat_Hunting_Playbook.en.md) — Proactive threat hunting
+-   [TI Feeds Integration](TI_Feeds_Integration.en.md) — Feed configuration
+-   [SOC Metrics & KPIs](SOC_Metrics.en.md) — Performance measurement
+-   [KPI Dashboard Template](KPI_Dashboard_Template.en.md) — Monthly reporting
+-   [Incident Classification](../05_Incident_Response/Incident_Classification.en.md) — Category taxonomy
+-   [Log Source Matrix](Log_Source_Matrix.en.md) — Detection data sources
+
+
+---
+
+## File: 06_Operations_Management/Threat_Landscape_Report.th.md
+
+# Threat Landscape Report Template / แม่แบบรายงานภูมิทัศน์ภัยคุกคาม
+
+**รหัสเอกสาร**: IR-SOP-018
+**เวอร์ชัน**: 1.0
+**การจัดชั้นความลับ**: ใช้ภายใน
+**อัปเดตล่าสุด**: 2026-02-15
+
+> แม่แบบ **รายไตรมาส/รายเดือน** สำหรับสร้างรายงานภูมิทัศน์ภัยคุกคาม เพื่อ brief ผู้บริหาร, สนับสนุนการลงทุน, และจัดลำดับการป้องกัน
+
+---
+
+## ข้อมูลรายงาน
+
+| ฟิลด์ | ค่า |
+|:---|:---|
+| **ช่วงเวลารายงาน** | [เดือน/ไตรมาส] [ปี] |
+| **จัดทำโดย** | [SOC Lead / Threat Intel Analyst] |
+| **ผู้รับ** | [CISO, ทีม SOC, ผู้บริหาร IT] |
+| **การจัดชั้นความลับ** | [ใช้ภายใน / ลับ] |
+| **รายงานฉบับถัดไป** | [วันที่] |
+
+---
+
+## สรุปสำหรับผู้บริหาร
+
+> เขียน 3–5 ประโยคสรุปพัฒนาการภัยคุกคามสำคัญในรอบนี้
+
+_________________________________________________________________________________
+_________________________________________________________________________________
+
+### ประเด็นสำคัญ
+
+| # | ข้อค้นพบ | ระดับเสี่ยง | การดำเนินการ |
+|:---:|:---|:---:|:---|
+| 1 | ________________________________________________ | 🔴/🟠/🟡 | ________________________ |
+| 2 | ________________________________________________ | 🔴/🟠/🟡 | ________________________ |
+| 3 | ________________________________________________ | 🔴/🟠/🟡 | ________________________ |
+
+---
+
+## ส่วนที่ 1: ภูมิทัศน์ภัยคุกคามระดับโลก
+
+### 1a. พัฒนาการสำคัญ
+
+| # | พัฒนาการ | แหล่ง | ความเกี่ยวข้องกับเรา |
+|:---:|:---|:---|:---:|
+| 1 | ________________________________________________ | [CISA/CERT/News] | 🔴 สูง / 🟡 กลาง / 🟢 ต่ำ |
+| 2 | ________________________________________________ | [CISA/CERT/News] | 🔴 สูง / 🟡 กลาง / 🟢 ต่ำ |
+
+### 1b. กลุ่มผู้โจมตีที่ยังเคลื่อนไหว
+
+| กลุ่ม | แหล่งที่มา | เป้าหมายหลัก | TTPs | ความเกี่ยวข้อง |
+|:---|:---|:---|:---|:---:|
+| ______________ | [รัฐ/อาชญากร/Hacktivist] | [ภาคส่วน/ภูมิภาค] | T______ | 🔴/🟡/🟢 |
+| ______________ | [รัฐ/อาชญากร/Hacktivist] | [ภาคส่วน/ภูมิภาค] | T______ | 🔴/🟡/🟢 |
+
+### 1c. ภัยคุกคามเฉพาะอุตสาหกรรม
+
+| ภัยคุกคาม | อุตสาหกรรมที่ได้รับผลกระทบ | ช่องทางโจมตี | ความเสี่ยงของเรา |
+|:---|:---|:---|:---:|
+| ______________ | ______________ | ______________ | 🔴/🟡/🟢 |
+
+---
+
+## ส่วนที่ 2: ภูมิทัศน์ช่องโหว่
+
+### 2a. ช่องโหว่วิกฤต (รอบนี้)
+
+| CVE | CVSS | ผลิตภัณฑ์ | ถูกใช้จริง? | สถานะของเรา |
+|:---|:---:|:---|:---:|:---:|
+| CVE-____-_____ | __._ | ______________ | ✅ ใช่ / ❌ ไม่ | ✅ ปะแก้แล้ว / ⚠️ กำลังทำ / ❌ มีช่องโหว่ |
+| CVE-____-_____ | __._ | ______________ | ✅ ใช่ / ❌ ไม่ | ✅ ปะแก้แล้ว / ⚠️ กำลังทำ / ❌ มีช่องโหว่ |
+
+### 2b. สรุป Patch Compliance
+
+| หมวด | Assets ทั้งหมด | Patched (30 วัน) | % Compliant |
+|:---|:---:|:---:|:---:|
+| Servers | _____ | _____ | ___% |
+| Workstations | _____ | _____ | ___% |
+| Network Devices | _____ | _____ | ___% |
+| Cloud Resources | _____ | _____ | ___% |
+
+---
+
+## ส่วนที่ 3: Threat Intelligence จาก SOC
+
+### 3a. ภัยคุกคามที่ SOC ตรวจพบ
+
+| หมวด | Incidents | แนวโน้ม | Technique หลัก | ตัวอย่าง |
+|:---|:---:|:---:|:---|:---|
+| Phishing | _____ | ↑/↓ _% | T1566.___ | ________________________ |
+| Malware | _____ | ↑/↓ _% | T1059.___ | ________________________ |
+| Unauthorized Access | _____ | ↑/↓ _% | T1110.___ | ________________________ |
+| Cloud | _____ | ↑/↓ _% | T1078.___ | ________________________ |
+
+### 3b. สถิติ IOC
+
+| ประเภท IOC | รับเข้า | พบใน Logs | อัตรา Match | Actionable |
+|:---|:---:|:---:|:---:|:---:|
+| IP Addresses | _____ | _____ | ___% | _____ |
+| Domains | _____ | _____ | ___% | _____ |
+| File Hashes | _____ | _____ | ___% | _____ |
+
+### 3c. ประสิทธิภาพ TI Feed
+
+| แหล่ง Feed | IOCs ที่ได้รับ | Match จริง | FP Rate | คะแนน |
+|:---|:---:|:---:|:---:|:---:|
+| ______________ | _____ | _____ | ___% | ★★★★★ |
+| ______________ | _____ | _____ | ___% | ★★★★☆ |
+
+---
+
+## ส่วนที่ 4: MITRE ATT&CK Analysis
+
+### 4a. Techniques ที่สังเกตพบ
+
+| MITRE Technique | จำนวน | แนวโน้ม | สถานะ Detection |
+|:---|:---:|:---:|:---:|
+| T1566 Phishing | _____ | ↑/↓ | ✅ ตรวจได้ / ⚠️ บางส่วน / ❌ ไม่มี Rule |
+| T1059 Command/Scripting | _____ | ↑/↓ | ✅ ตรวจได้ / ⚠️ บางส่วน / ❌ ไม่มี Rule |
+| T1078 Valid Accounts | _____ | ↑/↓ | ✅ ตรวจได้ / ⚠️ บางส่วน / ❌ ไม่มี Rule |
+
+### 4b. Detection Gap Analysis
+
+| Tactic | Techniques ที่ไม่ครอบคลุม | ความเสี่ยง | การดำเนินการ |
+|:---|:---|:---:|:---|
+| ______________ | T______, T______ | 🔴/🟡 | ________________________ |
+
+---
+
+## ส่วนที่ 5: ภัยคุกคามระดับภูมิภาค & กฎระเบียบ
+
+### 5a. ภัยคุกคามเฉพาะ ไทย / ASEAN
+
+| ภัยคุกคาม | ภาคส่วนเป้าหมาย | แหล่ง | การดำเนินการ SOC |
+|:---|:---|:---|:---|
+| ______________ | ______________ | [ThaiCERT/ASEAN CERT] | ________________________ |
+| ______________ | ______________ | [ThaiCERT/ASEAN CERT] | ________________________ |
+
+### 5b. อัปเดตกฎระเบียบ
+
+| กฎระเบียบ | อัปเดต | มีผลบังคับ | ผลกระทบต่อ SOC |
+|:---|:---|:---:|:---|
+| PDPA | ________________________ | ____-__-__ | ________________________ |
+| ธปท. Cyber Resilience | ________________________ | ____-__-__ | ________________________ |
+| กลต. | ________________________ | ____-__-__ | ________________________ |
+
+---
+
+## ส่วนที่ 6: คำแนะนำ & Action Items
+
+### การดำเนินการทันที (เดือนนี้)
+
+| # | การดำเนินการ | ผู้รับผิดชอบ | กำหนด | สถานะ |
+|:---:|:---|:---|:---:|:---:|
+| 1 | ________________________________________________ | ______________ | ____-__-__ | ⬜/🔲/✅ |
+| 2 | ________________________________________________ | ______________ | ____-__-__ | ⬜/🔲/✅ |
+
+### คำแนะนำเชิงกลยุทธ์ (ไตรมาสหน้า)
+
+| # | คำแนะนำ | เหตุผล | ความพยายาม | ลำดับ |
+|:---:|:---|:---|:---:|:---:|
+| 1 | ________________________________________________ | ________________________ | ___ person-days | P_ |
+
+### เปลี่ยนแปลง Detection Rules
+
+| การดำเนินการ | Rule / Technique | เหตุผล |
+|:---|:---|:---|
+| **เพิ่ม** | ______________ | ภัยคุกคามใหม่ |
+| **ปรับ** | ______________ | FP สูง |
+| **ปิด** | ______________ | ไม่เกี่ยวข้องแล้ว |
+
+---
+
+## ส่วนที่ 7: การคาดการณ์ภัยคุกคาม
+
+| # | ภัยคุกคามที่คาดว่าจะเกิด | ความมั่นใจ | พื้นฐาน | ความพร้อม |
+|:---:|:---|:---:|:---|:---:|
+| 1 | ________________________________________________ | สูง/กลาง/ต่ำ | ________________________ | ✅ พร้อม / ⚠️ บางส่วน / ❌ ยังไม่พร้อม |
+| 2 | ________________________________________________ | สูง/กลาง/ต่ำ | ________________________ | ✅ พร้อม / ⚠️ บางส่วน / ❌ ยังไม่พร้อม |
+
+---
+
+## แหล่ง Intelligence
+
+| แหล่ง | ประเภท | ความถี่ | URL |
+|:---|:---|:---:|:---|
+| CISA Alerts | รัฐบาล | Real-time | https://www.cisa.gov/known-exploited-vulnerabilities |
+| ThaiCERT | รัฐบาล/ภูมิภาค | รายสัปดาห์ | https://www.thaicert.or.th |
+| MITRE ATT&CK | Framework | รายไตรมาส | https://attack.mitre.org |
+| AlienVault OTX | ชุมชน | Real-time | https://otx.alienvault.com |
+
+---
+
+## เอกสารที่เกี่ยวข้อง
+
+-   [Threat Hunting Playbook](../05_Incident_Response/Threat_Hunting_Playbook.en.md) — การล่าภัยคุกคาม
+-   [TI Feeds Integration](TI_Feeds_Integration.en.md) — การตั้งค่า feed
+-   [SOC Metrics & KPIs](SOC_Metrics.en.md) — ตัวชี้วัด
+-   [KPI Dashboard Template](KPI_Dashboard_Template.en.md) — รายงานรายเดือน
+-   [Incident Classification](../05_Incident_Response/Incident_Classification.en.md) — อนุกรมวิธาน
+-   [Log Source Matrix](Log_Source_Matrix.en.md) — แหล่ง detection
 
 
 ---
