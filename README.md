@@ -379,6 +379,8 @@ For offline reading or printing, download the consolidated manual:
 
 Looking to build, improve, or scale your Security Operations Center? I offer hands-on, practical training and consulting services:
 
+> 📖 **[View Full Course Catalog →](TRAINING.md)** — 6 หลักสูตร, detailed modules, learning outcomes
+
 | 🎯 Service | Description |
 |:---|:---|
 | **🏗️ SOC Building Workshop** | ออกแบบและจัดตั้ง SOC ตั้งแต่ศูนย์ — architecture, staffing, tools, processes |
