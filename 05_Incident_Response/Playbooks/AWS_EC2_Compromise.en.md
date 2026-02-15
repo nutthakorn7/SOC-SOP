@@ -40,6 +40,11 @@ graph TD
 -   [ ] **Validate**: Scan the new instance for vulnerabilities.
 -   [ ] **Restore**: Add back to Load Balancer.
 
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
+
 ## References
 -   [AWS Security Incident Response Guide](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/welcome.html)
 -   [Amazon EC2 Security Best Practices](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-best-practices.html)

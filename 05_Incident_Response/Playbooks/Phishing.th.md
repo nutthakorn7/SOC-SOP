@@ -31,6 +31,11 @@ flowchart TD
 ## 4. การกู้คืน (Recovery)
 -   ปลดบล็อกบัญชีผู้ใช้หลังจากเปลี่ยนรหัสผ่านและตรวจสอบความปลอดภัยแล้ว
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
+-   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+
 ## References
 -   [MITRE ATT&CK T1566 (Phishing)](https://attack.mitre.org/techniques/T1566/)
 -   [CISA Phishing Guidance](https://www.cisa.gov/shields-up/phishing-preventing-email-attacks)

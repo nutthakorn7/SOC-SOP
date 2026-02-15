@@ -52,6 +52,11 @@ A fully functional SOC requires the following core components:
 -   **Log Shippers**: Use dedicated forwarders to send logs to the SIEM securely (TLS encryption).
 -   **Jump Host**: Use a secure Jump Host or VPN for administrative access to SOC infrastructure.
 
+## Related Documents
+-   [Analyst Onboarding Path](../09_Training_Onboarding/Analyst_Onboarding_Path.en.md)
+-   [Data Governance & Retention](../02_Platform_Operations/Database_Management.en.md)
+-   [Deployment Procedures](../02_Platform_Operations/Deployment_Procedures.en.md)
+
 ## References
 -   [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)
 -   [CISA SOC Best Practices](https://www.cisa.gov/topics/cyber-threats-and-advisories)

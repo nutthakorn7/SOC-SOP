@@ -48,6 +48,11 @@ graph TD
 -   **Incidents per Analyst**: จำนวนเคสที่ Analyst หนึ่งคนรับผิดชอบต่อกะ
 -   **Burnout Rate**: อัตราการลาออกของพนักงาน SOC (เป้าหมาย: < 15% ต่อปี)
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../05_Incident_Response/Framework.th.md)
+-   [แบบประเมิน SOC](SOC_Assessment_Checklist.th.md)
+-   [ตัวชี้วัด SOC](SOC_Metrics.th.md)
+
 ## References
 -   [SANS SOC Metrics](https://www.sans.org/white-papers/soc-metrics/)
 -   [MITRE SOC Assessment](https://cat.mitre.org/)

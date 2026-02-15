@@ -33,6 +33,11 @@ graph TD
 -   [ ] **Audit**: ตรวจสอบ Active Directory ทั้งระบบอย่างละเอียด
 -   **ผลกระทบ (Attribute)**: [Integrity]
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
+-   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+
 ## References
 -   [MITRE ATT&CK T1098 (Account Manipulation)](https://attack.mitre.org/techniques/T1098/)
 -   [Active Directory Security Best Practices](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory)

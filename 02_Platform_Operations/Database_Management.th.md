@@ -46,6 +46,11 @@ graph TD
 -   **ความถี่**: สำรองค่า Configuration ทุกวัน; สำรองข้อมูล Real-time หรือทุกชั่วโมง
 -   **การทดสอบ**: ต้องมีการซ้อมแผนกู้คืนภัยพิบัติ (DR) ทุกไตรมาสเพื่อยืนยันว่าสามารถกู้คืนข้อมูลได้จริง
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [โปรโตคอลการจัดการข้อมูล (TLP)](../06_Operations_Management/Data_Handling_Protocol.th.md)
+-   [ขั้นตอนการ Deploy](Deployment_Procedures.th.md)
+-   [การติดตั้ง SOC](../01_Onboarding/System_Activation.th.md)
+
 ## References
 -   [NIST SP 800-53 (Security/Privacy Controls)](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final)
 -   [GDPR Data Retention](https://gdpr.eu/)

@@ -40,6 +40,14 @@ graph LR
 -   Conduct Post-Incident Review (PIR) within 72 hours.
 -   Update Detection Rules and Playbooks based on findings.
 
+## Related Documents
+-   [Incident Report Template](../templates/incident_report.en.md)
+-   [PB-01 Phishing](Playbooks/Phishing.en.md) | [PB-02 Ransomware](Playbooks/Ransomware.en.md) | [PB-03 Malware](Playbooks/Malware_Infection.en.md)
+-   [Shift Handoff Standard](../06_Operations_Management/Shift_Handoff.en.md)
+-   [SOC Metrics & KPIs](../06_Operations_Management/SOC_Metrics.en.md)
+
 ## References
 -   [NIST SP 800-61r2 (Computer Security Incident Handling Guide)](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
+-   [MITRE ATT&CK](https://attack.mitre.org/)
+
 -   [ISO/IEC 27035 (Information Security Incident Management)](https://www.iso.org/standard/60803.html)

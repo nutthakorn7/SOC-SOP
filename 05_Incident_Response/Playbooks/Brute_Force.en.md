@@ -36,3 +36,13 @@ graph TD
 
 ## 4. Recovery
 -   [ ] **Unlock Account**: Restore access to the legitimate user after verification.
+
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [PB-05 Account Compromise](Account_Compromise.en.md)
+
+## References
+-   [MITRE ATT&CK T1110 (Brute Force)](https://attack.mitre.org/techniques/T1110/)
+-   [OWASP Brute Force Prevention](https://owasp.org/www-community/controls/Blocking_Brute_Force_Attacks)
+

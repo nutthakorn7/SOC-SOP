@@ -33,6 +33,11 @@ graph TD
 -   **Segmentation**: Review network segmentation. Workstations should generally not talk to other workstations (Client-to-Client communication).
 -   **Attribute**: [Confidentiality / Integrity]
 
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
+
 ## References
 -   [MITRE ATT&CK T1021 (Remote Services)](https://attack.mitre.org/techniques/T1021/)
 -   [JPCERT Lateral Movement Guide](https://www.jpcert.or.jp/english/pub/sr/20170612ac-ir_research_en.pdf)

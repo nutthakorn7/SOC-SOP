@@ -40,6 +40,11 @@ graph TD
 -   [ ] **ตรวจสอบ**: Scan ช่องโหว่เครื่องใหม่ก่อนใช้งานจริง
 -   [ ] **คืนสภาพ**: นำกลับเข้า Load Balancer
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
+-   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+
 ## References
 -   [AWS Security Incident Response Guide](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/welcome.html)
 -   [Amazon EC2 Security Best Practices](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-best-practices.html)

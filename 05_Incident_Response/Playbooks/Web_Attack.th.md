@@ -33,6 +33,11 @@ graph TD
 -   **Penetration Test**: ทดสอบเจาะระบบซ้ำเพื่อยืนยันว่าช่องโหว่ถูกปิดแล้ว
 -   **ผลกระทบ (Attribute)**: [Integrity / Confidentiality]
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
+-   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+
 ## References
 -   [OWASP Top 10](https://owasp.org/www-project-top-ten/)
 -   [MITRE ATT&CK T1190 (Exploit Public-Facing Application)](https://attack.mitre.org/techniques/T1190/)

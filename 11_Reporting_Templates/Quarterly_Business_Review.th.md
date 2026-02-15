@@ -32,6 +32,11 @@
 -   **เป้าหมาย 2**: เชื่อมต่อ Log จากระบบ Cloud
 -   **เป้าหมาย 3**: จัดซ้อมรบทางไซเบอร์ (Purple Team)
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [รายงานประจำเดือน](Monthly_SOC_Report.th.md)
+-   [แบบประเมิน SOC](../06_Operations_Management/SOC_Assessment_Checklist.th.md)
+-   [ตัวชี้วัด SOC](../06_Operations_Management/SOC_Metrics.th.md)
+
 ## References
 -   [SOC-CMM Assessment Model](https://www.soc-cmm.com/)
 -   [Gartner SOC Modernization](https://www.gartner.com/en/information-technology)

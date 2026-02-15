@@ -57,6 +57,11 @@ Data within the SOC must be classified to determine appropriate handling and ret
 -   **Frequency**: Daily configuration backups; Real-time or hourly data backups.
 -   **Testing**: Disaster Recovery (DR) drills must be conducted quarterly to verify data restoration capabilities.
 
+## Related Documents
+-   [Data Handling Protocol (TLP)](../06_Operations_Management/Data_Handling_Protocol.en.md)
+-   [Deployment Procedures](Deployment_Procedures.en.md)
+-   [SOC Infrastructure Setup](../01_Onboarding/System_Activation.en.md)
+
 ## References
 -   [NIST SP 800-53 (Security/Privacy Controls)](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final)
 -   [GDPR Data Retention](https://gdpr.eu/)
@@ -113,6 +118,11 @@ graph TD
 ## 4. การสำรองและกู้คืน (Backup & Recovery)
 -   **ความถี่**: สำรองค่า Configuration ทุกวัน; สำรองข้อมูล Real-time หรือทุกชั่วโมง
 -   **การทดสอบ**: ต้องมีการซ้อมแผนกู้คืนภัยพิบัติ (DR) ทุกไตรมาสเพื่อยืนยันว่าสามารถกู้คืนข้อมูลได้จริง
+
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [โปรโตคอลการจัดการข้อมูล (TLP)](../06_Operations_Management/Data_Handling_Protocol.th.md)
+-   [ขั้นตอนการ Deploy](Deployment_Procedures.th.md)
+-   [การติดตั้ง SOC](../01_Onboarding/System_Activation.th.md)
 
 ## References
 -   [NIST SP 800-53 (Security/Privacy Controls)](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final)
@@ -184,6 +194,11 @@ sequenceDiagram
 -   If verification fails, immediately revert to the pre-deployment snapshot.
 -   Conduct a Root Cause Analysis (RCA) for failed changes.
 
+## Related Documents
+-   [Change Request Template](../templates/change_request_rfc.en.md)
+-   [Data Governance & Retention](Database_Management.en.md)
+-   [SOC Infrastructure Setup](../01_Onboarding/System_Activation.en.md)
+
 ## References
 -   [ITIL Change Management](https://www.axelos.com/best-practice-solutions/itil)
 -   [DevSecOps Manifesto](https://www.devsecops.org/)
@@ -254,6 +269,11 @@ sequenceDiagram
 -   หากขั้นตอนการตรวจสอบล้มเหลว ให้ย้อนกลับไปยังสถานะก่อนหน้าทันที
 -   ทำ Root Cause Analysis (RCA) สำหรับการเปลี่ยนแปลงที่ล้มเหลว
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [แบบฟอร์ม Change Request](../templates/change_request_rfc.th.md)
+-   [ธรรมาภิบาลข้อมูล](Database_Management.th.md)
+-   [การติดตั้ง SOC](../01_Onboarding/System_Activation.th.md)
+
 ## References
 -   [ITIL Change Management](https://www.axelos.com/best-practice-solutions/itil)
 -   [DevSecOps Manifesto](https://www.devsecops.org/)
@@ -317,6 +337,11 @@ A fully functional SOC requires the following core components:
 -   **Log Shippers**: Use dedicated forwarders to send logs to the SIEM securely (TLS encryption).
 -   **Jump Host**: Use a secure Jump Host or VPN for administrative access to SOC infrastructure.
 
+## Related Documents
+-   [Analyst Onboarding Path](../09_Training_Onboarding/Analyst_Onboarding_Path.en.md)
+-   [Data Governance & Retention](../02_Platform_Operations/Database_Management.en.md)
+-   [Deployment Procedures](../02_Platform_Operations/Deployment_Procedures.en.md)
+
 ## References
 -   [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)
 -   [CISA SOC Best Practices](https://www.cisa.gov/topics/cyber-threats-and-advisories)
@@ -379,6 +404,11 @@ SOC ที่สมบูรณ์จำเป็นต้องมีองค�
 
 -   **Log Shippers**: ใช้ตัวส่ง Log (Forwarder) เพื่อส่งข้อมูลไปยัง SIEM อย่างปลอดภัย (เข้ารหัส TLS)
 -   **Jump Host**: ใช้ Jump Host หรือ VPN ที่ปลอดภัยสำหรับการเข้าถึงระดับผู้ดูแลระบบ
+
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [หลักสูตรฝึกอบรม Analyst](../09_Training_Onboarding/Analyst_Onboarding_Path.th.md)
+-   [ธรรมาภิบาลข้อมูล](../02_Platform_Operations/Database_Management.th.md)
+-   [ขั้นตอนการ Deploy](../02_Platform_Operations/Deployment_Procedures.th.md)
 
 ## References
 -   [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)
@@ -456,6 +486,11 @@ graph LR
 -   [ ] Onboarded [New Log Source].
 -   [ ] Completed [Training Module].
 
+## Related Documents
+-   [SOC Metrics & KPIs](../06_Operations_Management/SOC_Metrics.en.md)
+-   [Quarterly Business Review](Quarterly_Business_Review.en.md)
+-   [SOC Assessment Checklist](../06_Operations_Management/SOC_Assessment_Checklist.en.md)
+
 ## References
 -   [SANS SOC Metrics](https://www.sans.org/white-papers/)
 -   [SOC-CMM](https://www.soc-cmm.com/)
@@ -512,6 +547,11 @@ graph LR
 -   [ ] นำเข้า Log ใหม่จาก [ระบบ]
 -   [ ] อบรมพนักงานเรื่อง [หัวข้อ]
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [ตัวชี้วัด SOC](../06_Operations_Management/SOC_Metrics.th.md)
+-   [รายงานรายไตรมาส](Quarterly_Business_Review.th.md)
+-   [แบบประเมิน SOC](../06_Operations_Management/SOC_Assessment_Checklist.th.md)
+
 ## References
 -   [SANS SOC Metrics](https://www.sans.org/white-papers/)
 -   [SOC-CMM](https://www.soc-cmm.com/)
@@ -555,6 +595,11 @@ graph LR
 -   **Goal 2**: Integrate Cloud Logs (AWS/Azure).
 -   **Goal 3**: Conduct Purple Team exercise.
 
+## Related Documents
+-   [Monthly SOC Report](Monthly_SOC_Report.en.md)
+-   [SOC Assessment Checklist](../06_Operations_Management/SOC_Assessment_Checklist.en.md)
+-   [SOC Metrics & KPIs](../06_Operations_Management/SOC_Metrics.en.md)
+
 ## References
 -   [SOC-CMM Assessment Model](https://www.soc-cmm.com/)
 -   [Gartner SOC Modernization](https://www.gartner.com/en/information-technology)
@@ -597,6 +642,11 @@ graph LR
 -   **เป้าหมาย 1**: ยกระดับ SOC-CMM ด้าน "Process" ให้ถึง Level 3
 -   **เป้าหมาย 2**: เชื่อมต่อ Log จากระบบ Cloud
 -   **เป้าหมาย 3**: จัดซ้อมรบทางไซเบอร์ (Purple Team)
+
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [รายงานประจำเดือน](Monthly_SOC_Report.th.md)
+-   [แบบประเมิน SOC](../06_Operations_Management/SOC_Assessment_Checklist.th.md)
+-   [ตัวชี้วัด SOC](../06_Operations_Management/SOC_Metrics.th.md)
 
 ## References
 -   [SOC-CMM Assessment Model](https://www.soc-cmm.com/)
@@ -660,6 +710,11 @@ graph TD
 ## 4. Usage in Incident Reports
 All Incident Reports MUST be marked with a TLP level at the top of the document.
 
+## Related Documents
+-   [Incident Response Framework](../05_Incident_Response/Framework.en.md)
+-   [SOC Assessment Checklist](SOC_Assessment_Checklist.en.md)
+-   [SOC Metrics & KPIs](SOC_Metrics.en.md)
+
 ## References
 -   [FIRST.org TLP 2.0 Standard](https://www.first.org/tlp/)
 -   [CISA Traffic Light Protocol](https://www.cisa.gov/tlp)
@@ -721,6 +776,11 @@ graph TD
 
 ## 4. การใข้งานในรายงาน (Incident Reports)
 รายงานเหตุการณ์ทุกฉบับ ต้องระบุระดับ TLP อย่างชัดเจนที่ส่วนหัวของเอกสาร
+
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../05_Incident_Response/Framework.th.md)
+-   [แบบประเมิน SOC](SOC_Assessment_Checklist.th.md)
+-   [ตัวชี้วัด SOC](SOC_Metrics.th.md)
 
 ## References
 -   [FIRST.org TLP 2.0 Standard](https://www.first.org/tlp/)
@@ -793,6 +853,11 @@ Count the "Yes" answers to determine approximate maturity.
 -   6-10: Level 2
 -   11-13: Level 3 (Target Baseline)
 -   14+: Level 4+
+
+## Related Documents
+-   [Incident Response Framework](../05_Incident_Response/Framework.en.md)
+-   [SOC Assessment Checklist](SOC_Assessment_Checklist.en.md)
+-   [SOC Metrics & KPIs](SOC_Metrics.en.md)
 
 ## References
 -   [SOC-CMM (Capability Maturity Model)](https://www.soc-cmm.com/)
@@ -867,6 +932,11 @@ graph LR
 -   11-13: Level 3 (เกณฑ์มาตรฐาน)
 -   14+: Level 4+
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../05_Incident_Response/Framework.th.md)
+-   [แบบประเมิน SOC](SOC_Assessment_Checklist.th.md)
+-   [ตัวชี้วัด SOC](SOC_Metrics.th.md)
+
 ## References
 -   [SOC-CMM (Capability Maturity Model)](https://www.soc-cmm.com/)
 -   [MITRE SOC Strategy](https://mitre.org/)
@@ -927,6 +997,11 @@ graph TD
 -   **Incidents per Analyst**: Number of cases handled by one analyst per shift.
 -   **Burnout Rate**: Turnover rate of SOC staff (Target: < 15% annually).
 
+## Related Documents
+-   [Incident Response Framework](../05_Incident_Response/Framework.en.md)
+-   [SOC Assessment Checklist](SOC_Assessment_Checklist.en.md)
+-   [SOC Metrics & KPIs](SOC_Metrics.en.md)
+
 ## References
 -   [SANS SOC Metrics](https://www.sans.org/white-papers/soc-metrics/)
 -   [MITRE SOC Assessment](https://cat.mitre.org/)
@@ -985,6 +1060,11 @@ graph TD
 
 -   **Incidents per Analyst**: จำนวนเคสที่ Analyst หนึ่งคนรับผิดชอบต่อกะ
 -   **Burnout Rate**: อัตราการลาออกของพนักงาน SOC (เป้าหมาย: < 15% ต่อปี)
+
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../05_Incident_Response/Framework.th.md)
+-   [แบบประเมิน SOC](SOC_Assessment_Checklist.th.md)
+-   [ตัวชี้วัด SOC](SOC_Metrics.th.md)
 
 ## References
 -   [SANS SOC Metrics](https://www.sans.org/white-papers/soc-metrics/)
@@ -1046,6 +1126,11 @@ A standardized handoff ensures no incident falls through the cracks. The outgoin
 -   Complete documentation for closed cases.
 -   Prepare Handover Log.
 
+## Related Documents
+-   [Incident Response Framework](../05_Incident_Response/Framework.en.md)
+-   [SOC Assessment Checklist](SOC_Assessment_Checklist.en.md)
+-   [SOC Metrics & KPIs](SOC_Metrics.en.md)
+
 ## References
 -   [SANS SOC Handbook](https://www.sans.org/white-papers/soc-handbook/)
 -   [NIST SP 800-61r2 (Incident Handling)](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
@@ -1105,6 +1190,11 @@ graph TD
 -   อัปเดต Ticket ทั้งหมดที่รับผิดชอบ
 -   ทำเอกสารสรุป Case ที่ปิดแล้วให้เรียบร้อย
 -   เตรียมข้อมูลสำหรับทำ Handover Log
+
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../05_Incident_Response/Framework.th.md)
+-   [แบบประเมิน SOC](SOC_Assessment_Checklist.th.md)
+-   [ตัวชี้วัด SOC](SOC_Metrics.th.md)
 
 ## References
 -   [SANS SOC Handbook](https://www.sans.org/white-papers/soc-handbook/)
@@ -1173,6 +1263,11 @@ All Indicators of Compromise (IoCs) must go through the **Review Process** befor
 3.  Analyst updates reference list in SIEM (Test Mode).
 4.  If stable > 24 hours, move to Block Mode.
 
+## Related Documents
+-   [Incident Response Framework](../05_Incident_Response/Framework.en.md)
+-   [SOC Assessment Checklist](SOC_Assessment_Checklist.en.md)
+-   [SOC Metrics & KPIs](SOC_Metrics.en.md)
+
 ## References
 -   [CREST Cyber Threat Intelligence](https://www.crest-approved.org/knowledge-base/cyber-threat-intelligence/)
 -   [SANS CTI Maturity Model](https://www.sans.org/white-papers/cti-maturity-model/)
@@ -1238,6 +1333,11 @@ Indicators of Compromise (IoCs) ทุกตัวต้องผ่านกร
 2.  ตรวจสอบค่าชื่อเสียง (Reputation Check)
 3.  ใส่ใน SIEM ระบบ Test Mode (Monitor Only)
 4.  ถ้าไม่มี False Positive นาน 24 ชม. จึงเปิด Block Mode
+
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../05_Incident_Response/Framework.th.md)
+-   [แบบประเมิน SOC](SOC_Assessment_Checklist.th.md)
+-   [ตัวชี้วัด SOC](SOC_Metrics.th.md)
 
 ## References
 -   [CREST Cyber Threat Intelligence](https://www.crest-approved.org/knowledge-base/cyber-threat-intelligence/)
@@ -1393,6 +1493,11 @@ graph LR
 -   **Data Freshness**: Alert if log sources stop sending data for >1 hour.
 -   **Error Rate**: Monitor API error rates (401/403/429) to detect credential or quota issues.
 
+## Related Documents
+-   [Detection Engineering Lifecycle](Content_Management.en.md)
+-   [Troubleshooting Methodology](../04_Troubleshooting/Common_Issues.en.md)
+-   [Threat Intelligence Lifecycle](../06_Operations_Management/Threat_Intelligence_Lifecycle.en.md)
+
 ## References
 -   [Sigma: Generic Signature Format](https://github.com/SigmaHQ/sigma)
 -   [Elastic Common Schema (ECS)](https://www.elastic.co/guide/en/ecs/current/index.html)
@@ -1445,6 +1550,11 @@ graph LR
 -   **ความสดใหม่ของข้อมูล**: แจ้งเตือนหาก Log Source หยุดส่งข้อมูลเกิน 1 ชั่วโมง
 -   **อัตรา Error**: เฝ้าระวัง API error (401/403/429) เพื่อตรวจจับปัญหา Credential หรือ Quota
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [วงจรชีวิตวิศวกรรมการตรวจจับ](Content_Management.th.md)
+-   [วิธีการแก้ปัญหามาตรฐาน](../04_Troubleshooting/Common_Issues.th.md)
+-   [วงจรชีวิต Threat Intelligence](../06_Operations_Management/Threat_Intelligence_Lifecycle.th.md)
+
 ## References
 -   [Sigma: Generic Signature Format](https://github.com/SigmaHQ/sigma)
 -   [Elastic Common Schema (ECS)](https://www.elastic.co/guide/en/ecs/current/index.html)
@@ -1496,8 +1606,16 @@ graph LR
 -   Conduct Post-Incident Review (PIR) within 72 hours.
 -   Update Detection Rules and Playbooks based on findings.
 
+## Related Documents
+-   [Incident Report Template](../templates/incident_report.en.md)
+-   [PB-01 Phishing](Playbooks/Phishing.en.md) | [PB-02 Ransomware](Playbooks/Ransomware.en.md) | [PB-03 Malware](Playbooks/Malware_Infection.en.md)
+-   [Shift Handoff Standard](../06_Operations_Management/Shift_Handoff.en.md)
+-   [SOC Metrics & KPIs](../06_Operations_Management/SOC_Metrics.en.md)
+
 ## References
 -   [NIST SP 800-61r2 (Computer Security Incident Handling Guide)](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
+-   [MITRE ATT&CK](https://attack.mitre.org/)
+
 -   [ISO/IEC 27035 (Information Security Incident Management)](https://www.iso.org/standard/60803.html)
 
 
@@ -1546,8 +1664,16 @@ graph LR
 -   ทำ Post-Incident Review (PIR) ภายใน 72 ชั่วโมง
 -   อัปเดต Detection Rules และ Playbook ตามสิ่งที่ได้เรียนรู้
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [แบบฟอร์ม Incident Report](../templates/incident_report.th.md)
+-   [PB-01 Phishing](Playbooks/Phishing.th.md) | [PB-02 Ransomware](Playbooks/Ransomware.th.md) | [PB-03 Malware](Playbooks/Malware_Infection.th.md)
+-   [มาตรฐานการส่งมอบกะ](../06_Operations_Management/Shift_Handoff.th.md)
+-   [ตัวชี้วัด SOC](../06_Operations_Management/SOC_Metrics.th.md)
+
 ## References
 -   [NIST SP 800-61r2 (Computer Security Incident Handling Guide)](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
+-   [MITRE ATT&CK](https://attack.mitre.org/)
+
 -   [ISO/IEC 27035 (Information Security Incident Management)](https://www.iso.org/standard/60803.html)
 
 
@@ -1596,6 +1722,11 @@ graph TD
 ## 5. Recovery
 -   [ ] **Validate**: Scan the new instance for vulnerabilities.
 -   [ ] **Restore**: Add back to Load Balancer.
+
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
 
 ## References
 -   [AWS Security Incident Response Guide](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/welcome.html)
@@ -1653,6 +1784,11 @@ graph TD
 ## 5. การกู้คืน (Recovery)
 -   [ ] **ตรวจสอบ**: Scan ช่องโหว่เครื่องใหม่ก่อนใช้งานจริง
 -   [ ] **คืนสภาพ**: นำกลับเข้า Load Balancer
+
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
+-   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
 
 ## References
 -   [AWS Security Incident Response Guide](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/welcome.html)
@@ -1714,6 +1850,11 @@ graph TD
 -   [ ] **Notify**: Inform Data Privacy Officer if PII was accessed.
 -   [ ] **Monitor**: Watch for re-attempted access for 24 hours.
 
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
+
 ## References
 -   [AWS S3 Security Best Practices](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html)
 -   [Preventing Public Access to S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html)
@@ -1774,6 +1915,11 @@ graph TD
 -   [ ] **แจ้งเตือน**: แจ้งผูดูแลข้อมูลส่วนบุคคล (DPO) หากมีข้อมูลลูกค้าหลุด
 -   [ ] **เฝ้าระวัง**: ดูแลต่อเนื่อง 24 ชม.
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
+-   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+
 ## References
 -   [AWS S3 Security Best Practices](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html)
 -   [Preventing Public Access to S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html)
@@ -1825,6 +1971,16 @@ graph TD
 -   [ ] **Enable Account**: Restore access.
 -   [ ] **Monitoring**: Add user to "High Risk" monitoring group for 48 hours.
 
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [PB-06 Impossible Travel](Impossible_Travel.en.md)
+
+## References
+-   [MITRE ATT&CK T1078 (Valid Accounts)](https://attack.mitre.org/techniques/T1078/)
+-   [CISA Account Security](https://www.cisa.gov/secure-our-world)
+
+
 
 ---
 
@@ -1865,6 +2021,11 @@ graph TD
 -   [ ] **เปิดใช้งานบัญชี**: คืนสิทธิ์การใช้งาน
 -   [ ] **การเฝ้าระวัง**: เพิ่มชื่อผู้ใช้ในกลุ่ม "High Risk" เพื่อจับตาดูเป็นพิเศษ 48 ชั่วโมง
 -   **ผลกระทบ (Attribute)**: [Confidentiality / Integrity]
+
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
+-   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1078 (Valid Accounts)](https://attack.mitre.org/techniques/T1078/)
@@ -1914,6 +2075,11 @@ graph TD
 ## 5. Recovery
 -   [ ] **Unblock**: Restore access after verification.
 -   [ ] **Monitor**: Watch account for 48 hours.
+
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
 
 ## References
 -   [Azure Active Directory Identity Protection](https://learn.microsoft.com/en-us/azure/active-directory/identity-protection/overview-identity-protection)
@@ -1970,6 +2136,11 @@ graph TD
 -   [ ] **ปลดบล็อก**: คืนสิทธิ์การใช้งานเมื่อปลอดภัย
 -   [ ] **เฝ้าระวัง**: จับตาดูบัญชีนี้เป็นพิเศษ 48 ชม.
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
+-   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+
 ## References
 -   [Azure Active Directory Identity Protection](https://learn.microsoft.com/en-us/azure/active-directory/identity-protection/overview-identity-protection)
 -   [Remediate Risks and Unblock Users](https://learn.microsoft.com/en-us/azure/active-directory/identity-protection/howto-identity-protection-remediate-unblock)
@@ -2022,6 +2193,11 @@ graph TD
 -   **Notify Finance**: If the email involved payments, immediately stop wire transfers.
 -   **Attribute**: [Integrity / Confidentiality]
 
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
+
 ## References
 -   [MITRE ATT&CK T1566 (Phishing)](https://attack.mitre.org/techniques/T1566/)
 -   [FBI BEC Scams](https://www.fbi.gov/scams-and-safety/common-scams-and-crimes/business-email-compromise)
@@ -2067,6 +2243,11 @@ graph TD
 ## 4. การกู้คืน (Recovery)
 -   **แจ้งฝ่ายการเงิน**: หากอีเมลเกี่ยวข้องกับการโอนเงิน ให้ระงับธุรกรรมทันที
 -   **ผลกระทบ (Attribute)**: [Integrity / Confidentiality]
+
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
+-   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1566 (Phishing)](https://attack.mitre.org/techniques/T1566/)
@@ -2116,6 +2297,16 @@ graph TD
 ## 4. Recovery
 -   [ ] **Unlock Account**: Restore access to the legitimate user after verification.
 
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [PB-05 Account Compromise](Account_Compromise.en.md)
+
+## References
+-   [MITRE ATT&CK T1110 (Brute Force)](https://attack.mitre.org/techniques/T1110/)
+-   [OWASP Brute Force Prevention](https://owasp.org/www-community/controls/Blocking_Brute_Force_Attacks)
+
+
 
 ---
 
@@ -2156,6 +2347,11 @@ graph TD
 ## 4. การกู้คืน (Recovery)
 -   [ ] **ปลดล็อกบัญชี**: คืนสิทธิ์การใช้งานให้เจ้าของบัญชีหลังยืนยันตัวตน
 -   **ผลกระทบ (Attribute)**: [Confidentiality]
+
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
+-   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1110 (Brute Force)](https://attack.mitre.org/techniques/T1110/)
@@ -2200,6 +2396,11 @@ graph TD
 -   **Threat Intel**: Submit the C2 IOC to Threat Intelligence Platform to update all tools.
 -   **Attribute**: [Confidentiality / Integrity]
 
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
+
 ## References
 -   [MITRE ATT&CK T1071 (Application Layer Protocol)](https://attack.mitre.org/techniques/T1071/)
 -   [SANS Hunt Evil: Beaconing](https://www.sans.org/white-papers/39600/)
@@ -2242,6 +2443,11 @@ graph TD
 ## 4. การกู้คืน (Recovery)
 -   **Threat Intel**: ส่งข้อมูล C2 IP/Domain ไปยังระบบ Threat Intelligence เพื่ออัปเดตเครื่องมือป้องกันอื่นๆ
 -   **ผลกระทบ (Attribute)**: [Confidentiality / Integrity]
+
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
+-   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1071 (Application Layer Protocol)](https://attack.mitre.org/techniques/T1071/)
@@ -2291,6 +2497,11 @@ graph TD
 -   **MFA**: Enforce hardware MFA for Root/Global Admins.
 -   **Attribute**: [Integrity / Confidentiality]
 
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
+
 ## References
 -   [MITRE ATT&CK T1098 (Cloud Account Manipulation)](https://attack.mitre.org/techniques/T1098/)
 -   [AWS Security Incident Response Guide](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/welcome.html)
@@ -2339,6 +2550,11 @@ graph TD
 -   **MFA**: บังคับใช้ Hardware MFA สำหรับบัญชีระดับ Root/Global Admin
 -   **ผลกระทบ (Attribute)**: [Integrity / Confidentiality]
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
+-   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+
 ## References
 -   [MITRE ATT&CK T1098 (Cloud Account Manipulation)](https://attack.mitre.org/techniques/T1098/)
 -   [AWS Security Incident Response Guide](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/welcome.html)
@@ -2380,6 +2596,11 @@ graph TD
 -   **Scale Up**: Add more web server instances (Auto-scaling) if possible to handle load.
 -   **Attribute**: [Availability]
 
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
+
 ## References
 -   [MITRE ATT&CK T1498 (Network Denial of Service)](https://attack.mitre.org/techniques/T1498/)
 -   [CISA DDoS Quick Guide](https://www.cisa.gov/sites/default/files/publications/ddos-quick-guide.pdf)
@@ -2420,6 +2641,11 @@ graph TD
 -   **เฝ้าระวัง**: ดูหน้ากราฟ Traffic อย่างใกล้ชิดเมื่อเปิดใช้งานกฎป้องกัน
 -   **ขยายระบบ**: เพิ่มจำนวน Server (Auto-scaling) เพื่อรองรับโหลดถ้าทำได้
 -   **ผลกระทบ (Attribute)**: [Availability]
+
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
+-   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1498 (Network Denial of Service)](https://attack.mitre.org/techniques/T1498/)
@@ -2466,6 +2692,11 @@ graph TD
 -   **Damage Assessment**: List exactly what files were lost.
 -   **Attribute**: [Confidentiality]
 
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
+
 ## References
 -   [MITRE ATT&CK T1048 (Exfiltration Over Alternative Protocol)](https://attack.mitre.org/techniques/T1048/)
 -   [NIST SP 800-61r2 (Data Security)](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
@@ -2510,6 +2741,11 @@ graph TD
 -   **ฝ่ายกฎหมาย**: ปรึกษาทีมกฎหมายหากมีข้อมูล PII รั่วไหล
 -   **ประเมินความเสียหาย**: ลิสต์รายการไฟล์ที่สูญหายทั้งหมด
 -   **ผลกระทบ (Attribute)**: [Confidentiality]
+
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
+-   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1048 (Exfiltration Over Alternative Protocol)](https://attack.mitre.org/techniques/T1048/)
@@ -2556,6 +2792,11 @@ graph TD
 -   **Verify Patch**: Run a vulnerability scan to confirm the hole is closed.
 -   **Attribute**: [Integrity]
 
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
+
 ## References
 -   [MITRE ATT&CK T1190 (Exploit Public-Facing Application)](https://attack.mitre.org/techniques/T1190/)
 -   [CISA Known Exploited Vulnerabilities Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
@@ -2600,6 +2841,11 @@ graph TD
 ## 4. การกู้คืน (Recovery)
 -   **ยืนยัน Patch**: สแกนช่องโหว่ซ้ำเพื่อตรวจสอบว่าได้รับการแก้ไขแล้ว
 -   **ผลกระทบ (Attribute)**: [Integrity]
+
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
+-   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1190 (Exploit Public-Facing Application)](https://attack.mitre.org/techniques/T1190/)
@@ -2647,6 +2893,11 @@ graph TD
 -   [ ] **Monitor Account**: Watch for further anomalies for 24 hours.
 -   **Attribute**: [Confidentiality]
 
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
+
 ## References
 -   [MITRE ATT&CK T1078 (Valid Accounts)](https://attack.mitre.org/techniques/T1078/)
 -   [Microsoft Identity Protection](https://learn.microsoft.com/en-us/entra/id-protection/concept-identity-protection-risks)
@@ -2693,6 +2944,11 @@ graph TD
 -   [ ] **เฝ้าระวัง**: จับตาดูบัญชีนี้เป็นพิเศษ 24 ชั่วโมง
 -   **ผลกระทบ (Attribute)**: [Confidentiality]
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
+-   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+
 ## References
 -   [MITRE ATT&CK T1078 (Valid Accounts)](https://attack.mitre.org/techniques/T1078/)
 -   [Microsoft Identity Protection](https://learn.microsoft.com/en-us/entra/id-protection/concept-identity-protection-risks)
@@ -2736,6 +2992,11 @@ graph TD
 ## 4. Recovery
 -   **Legal Action**: HR and Legal to determine employment termination or legal proceedings.
 -   **Attribute**: [Confidentiality]
+
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
 
 ## References
 -   [MITRE ATT&CK T1534 (Internal Spearphishing)](https://attack.mitre.org/techniques/T1534/)
@@ -2781,6 +3042,11 @@ graph TD
 -   **กฎหมาย**: HR และฝ่ายกฎหมายพิจารณาเลิกจ้างหรือดำเนินคดี
 -   **ผลกระทบ (Attribute)**: [Confidentiality]
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
+-   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+
 ## References
 -   [MITRE ATT&CK T1534 (Internal Spearphishing)](https://attack.mitre.org/techniques/T1534/)
 -   [CISA Insider Threat Mitigation Guide](https://www.cisa.gov/topics/physical-security/insider-threat-mitigation)
@@ -2824,6 +3090,11 @@ graph TD
 ## 4. Recovery
 -   **Segmentation**: Review network segmentation. Workstations should generally not talk to other workstations (Client-to-Client communication).
 -   **Attribute**: [Confidentiality / Integrity]
+
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
 
 ## References
 -   [MITRE ATT&CK T1021 (Remote Services)](https://attack.mitre.org/techniques/T1021/)
@@ -2869,6 +3140,11 @@ graph TD
 -   **Segmentation**: ทบทวนการแบ่งโซนเครือข่าย โดยปกติ Workstation ไม่ควรคุยกันเองได้ (Block Client-to-Client)
 -   **ผลกระทบ (Attribute)**: [Confidentiality / Integrity]
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
+-   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+
 ## References
 -   [MITRE ATT&CK T1021 (Remote Services)](https://attack.mitre.org/techniques/T1021/)
 -   [JPCERT Lateral Movement Guide](https://www.jpcert.or.jp/english/pub/sr/20170612ac-ir_research_en.pdf)
@@ -2911,6 +3187,11 @@ graph TD
 ## 4. Recovery
 -   **Re-image**: A system with cleared logs cannot be trusted. Re-image is recommended.
 -   **Attribute**: [Integrity]
+
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
 
 ## References
 -   [MITRE ATT&CK T1070 (Indicator Removal on Host)](https://attack.mitre.org/techniques/T1070/)
@@ -2955,6 +3236,11 @@ graph TD
 -   **ลงระบบใหม่ (Re-image)**: เครื่องที่ถูกลบ Log ถือว่าไม่น่าเชื่อถืออีกต่อไป ควรล้างเครื่องลงใหม่
 -   **ผลกระทบ (Attribute)**: [Integrity]
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
+-   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+
 ## References
 -   [MITRE ATT&CK T1070 (Indicator Removal on Host)](https://attack.mitre.org/techniques/T1070/)
 -   [SIGMA Rule: Security Event Log Cleared](https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_event_log_cleared.yml)
@@ -2996,6 +3282,11 @@ graph TD
 -   **Replacement**: IT to provision a new device for the user.
 -   **Monitoring**: Watch for login attempts from the old device's serial number.
 -   **Attribute**: [Confidentiality / Availability]
+
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
 
 ## References
 -   [NIST SP 800-46 (Telework and Remote Access Security)](https://csrc.nist.gov/publications/detail/sp/800-46/rev-2/final)
@@ -3039,6 +3330,11 @@ graph TD
 -   **เฝ้าระวัง**: จับตาดูการพยายามล็อกอินจาก Serial number ของเครื่องเก่า
 -   **ผลกระทบ (Attribute)**: [Confidentiality / Availability]
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
+-   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+
 ## References
 -   [NIST SP 800-46 (Telework and Remote Access Security)](https://csrc.nist.gov/publications/detail/sp/800-46/rev-2/final)
 -   [MITRE ATT&CK T1025 (Data from Removable Media)](https://attack.mitre.org/techniques/T1025/)
@@ -3080,6 +3376,11 @@ graph TD
 ## 3. Eradication
 -   [ ] **Delete File**: Remove the artifact and persistence mechanisms (Registry Run keys, Scheduled Tasks).
 -   [ ] **Full Scan**: Run a full system scan.
+
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
 
 ## References
 -   [MITRE ATT&CK T1204 (User Execution)](https://attack.mitre.org/techniques/T1204/)
@@ -3131,6 +3432,11 @@ graph TD
 -   [ ] **เปลี่ยนรหัสผ่าน**: หากมัลแวร์เป็นประเภทขโมยข้อมูล (Infostealer) ต้องรีเซ็ตรหัสผ่านผู้ใช้
 -   **ผลกระทบ (Attribute)**: [Integrity]
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
+-   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+
 ## References
 -   [MITRE ATT&CK T1204 (User Execution)](https://attack.mitre.org/techniques/T1204/)
 -   [NIST SP 800-83 (Guide to Malware Incident Prevention and Handling)](https://csrc.nist.gov/publications/detail/sp/800-83/rev-1/final)
@@ -3173,6 +3479,11 @@ flowchart TD
 ## 4. Recovery
 -   Unblock user account after password reset and verification.
 
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
+
 ## References
 -   [MITRE ATT&CK T1566 (Phishing)](https://attack.mitre.org/techniques/T1566/)
 -   [CISA Phishing Guidance](https://www.cisa.gov/shields-up/phishing-preventing-email-attacks)
@@ -3214,6 +3525,11 @@ flowchart TD
 
 ## 4. การกู้คืน (Recovery)
 -   ปลดบล็อกบัญชีผู้ใช้หลังจากเปลี่ยนรหัสผ่านและตรวจสอบความปลอดภัยแล้ว
+
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
+-   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1566 (Phishing)](https://attack.mitre.org/techniques/T1566/)
@@ -3259,6 +3575,11 @@ graph TD
 -   [ ] **Full Audit**: Conduct a full audit of the Active Directory.
 -   **Attribute**: [Integrity]
 
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
+
 ## References
 -   [MITRE ATT&CK T1098 (Account Manipulation)](https://attack.mitre.org/techniques/T1098/)
 -   [Active Directory Security Best Practices](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory)
@@ -3302,6 +3623,11 @@ graph TD
 -   [ ] **คืนค่าสิทธิ์**: ปรับสิทธิ์กลับสู่สถานะปกติ
 -   [ ] **Audit**: ตรวจสอบ Active Directory ทั้งระบบอย่างละเอียด
 -   **ผลกระทบ (Attribute)**: [Integrity]
+
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
+-   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1098 (Account Manipulation)](https://attack.mitre.org/techniques/T1098/)
@@ -3349,6 +3675,11 @@ graph TD
 
 ## 4. Notification
 -   Notify Legal/Compliance teams immediately due to potential data breach (GDPR/PDPA).
+
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
 
 ## References
 -   [MITRE ATT&CK T1486 (Data Encrypted for Impact)](https://attack.mitre.org/techniques/T1486/)
@@ -3410,6 +3741,11 @@ graph TD
 ## 4. การแจ้งเตือน (Notification)
 -   แจ้งฝ่ายกฎหมาย/Compliance ทันที เนื่องจากอาจมีข้อมูลรั่วไหล (PDPA/GDPR)
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
+-   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+
 ## References
 -   [MITRE ATT&CK T1486 (Data Encrypted for Impact)](https://attack.mitre.org/techniques/T1486/)
 -   [CISA Ransomware Guide](https://www.cisa.gov/stopransomware/ransomware-guide)
@@ -3451,6 +3787,11 @@ graph TD
 -   **Review Access**: Conduct a full review of all privileged groups.
 -   **Attribute**: [Integrity]
 
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
+
 ## References
 -   [MITRE ATT&CK T1098 (Account Manipulation)](https://attack.mitre.org/techniques/T1098/)
 -   [Microsoft Securing Privileged Access](https://learn.microsoft.com/en-us/security/compass/securing-privileged-access)
@@ -3491,6 +3832,11 @@ graph TD
 ## 4. การกู้คืน (Recovery)
 -   **รีวิวสิทธิ์**: ตรวจสอบสมาชิกในกลุ่ม Privileged ทั้งหมดใหม่
 -   **ผลกระทบ (Attribute)**: [Integrity]
+
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
+-   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1098 (Account Manipulation)](https://attack.mitre.org/techniques/T1098/)
@@ -3537,6 +3883,11 @@ graph TD
 -   **AppLocker**: Consider enforcing stricter AppLocker policies to block unauthorized scripts.
 -   **Attribute**: [Integrity]
 
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
+
 ## References
 -   [MITRE ATT&CK T1059 (Command and Scripting Interpreter)](https://attack.mitre.org/techniques/T1059/)
 -   [Red Canary: PowerShell Security Guide](https://redcanary.com/threat-detection-report/techniques/powershell/)
@@ -3582,6 +3933,11 @@ graph TD
 -   **AppLocker**: พิจารณาเปิดใช้ AppLocker เพื่อบล็อกการรันสคริปต์ที่ไม่ได้รับอนุญาต
 -   **ผลกระทบ (Attribute)**: [Integrity]
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
+-   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+
 ## References
 -   [MITRE ATT&CK T1059 (Command and Scripting Interpreter)](https://attack.mitre.org/techniques/T1059/)
 -   [Red Canary: PowerShell Security Guide](https://redcanary.com/threat-detection-report/techniques/powershell/)
@@ -3626,6 +3982,11 @@ graph TD
 -   **Penetration Test**: Re-test the fix before going online.
 -   **Attribute**: [Integrity / Confidentiality]
 
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
+
 ## References
 -   [OWASP Top 10](https://owasp.org/www-project-top-ten/)
 -   [MITRE ATT&CK T1190 (Exploit Public-Facing Application)](https://attack.mitre.org/techniques/T1190/)
@@ -3669,6 +4030,11 @@ graph TD
 ## 4. การกู้คืน (Recovery)
 -   **Penetration Test**: ทดสอบเจาะระบบซ้ำเพื่อยืนยันว่าช่องโหว่ถูกปิดแล้ว
 -   **ผลกระทบ (Attribute)**: [Integrity / Confidentiality]
+
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
+-   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
 
 ## References
 -   [OWASP Top 10](https://owasp.org/www-project-top-ten/)
@@ -3736,6 +4102,11 @@ graph TD
 -   Document the Root Cause Analysis (RCA).
 -   Update Knowledge Base (KB) and SOPs to prevent recurrence.
 
+## Related Documents
+-   [Tool Integration Strategy](../03_User_Guides/Integration_Hub.en.md)
+-   [SOC Infrastructure Setup](../01_Onboarding/System_Activation.en.md)
+-   [Deployment Procedures](../02_Platform_Operations/Deployment_Procedures.en.md)
+
 ## References
 -   [USE Method (Brendan Gregg)](https://www.brendangregg.com/usemethod.html)
 -   [Google SRE Handbook](https://sre.google/sre-book/table-of-contents/)
@@ -3801,6 +4172,11 @@ graph TD
 ## 4. การทำเอกสาร (Documentation)
 -   บันทึกการวิเคราะห์สาเหตุที่แท้จริง (RCA)
 -   อัปเดต Knowledge Base (KB) และ SOP เพื่อป้องกันการเกิดซ้ำ
+
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กลยุทธ์การเชื่อมต่อเครื่องมือ](../03_User_Guides/Integration_Hub.th.md)
+-   [การติดตั้ง SOC](../01_Onboarding/System_Activation.th.md)
+-   [ขั้นตอนการ Deploy](../02_Platform_Operations/Deployment_Procedures.th.md)
 
 ## References
 -   [USE Method (Brendan Gregg)](https://www.brendangregg.com/usemethod.html)
@@ -4295,6 +4671,11 @@ graph LR
 3.  Check your SIEM: Did the alert trigger?
 4.  Follow the Playbook: Did the steps work?
 
+## Related Documents
+-   [Simulation & Purple Teaming Guide](Simulation_Guide.md)
+-   [Incident Response Framework](../05_Incident_Response/Framework.en.md)
+-   [PB-01 Phishing](../05_Incident_Response/Playbooks/Phishing.en.md)
+
 ## References
 -   [Atomic Red Team](https://github.com/redcanaryco/atomic-red-team)
 -   [MITRE ATT&CK Techniques](https://attack.mitre.org/techniques/enterprise/)
@@ -4352,6 +4733,11 @@ Recommended Validation Schedule:
 -   **Weekly**: Test 1 high-priority Playbook (Ransomware, Phishing).
 -   **Monthly**: Test 3-5 random Playbooks.
 -   **Quarterly**: Full Chain simulation (Phishing -> Lateral Mov -> Exfil).
+
+## Related Documents
+-   [Atomic Test Map](Atomic_Test_Map.md)
+-   [Incident Response Framework](../05_Incident_Response/Framework.en.md)
+-   [Detection Engineering Lifecycle](../03_User_Guides/Content_Management.en.md)
 
 ## References
 -   [Atomic Red Team](https://github.com/redcanaryco/atomic-red-team)

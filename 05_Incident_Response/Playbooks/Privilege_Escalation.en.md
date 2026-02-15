@@ -33,6 +33,11 @@ graph TD
 -   [ ] **Full Audit**: Conduct a full audit of the Active Directory.
 -   **Attribute**: [Integrity]
 
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
+
 ## References
 -   [MITRE ATT&CK T1098 (Account Manipulation)](https://attack.mitre.org/techniques/T1098/)
 -   [Active Directory Security Best Practices](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory)

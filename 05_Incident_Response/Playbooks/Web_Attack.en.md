@@ -33,6 +33,11 @@ graph TD
 -   **Penetration Test**: Re-test the fix before going online.
 -   **Attribute**: [Integrity / Confidentiality]
 
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
+
 ## References
 -   [OWASP Top 10](https://owasp.org/www-project-top-ten/)
 -   [MITRE ATT&CK T1190 (Exploit Public-Facing Application)](https://attack.mitre.org/techniques/T1190/)

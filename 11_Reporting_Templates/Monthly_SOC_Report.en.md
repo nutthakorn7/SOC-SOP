@@ -45,6 +45,11 @@ graph LR
 -   [ ] Onboarded [New Log Source].
 -   [ ] Completed [Training Module].
 
+## Related Documents
+-   [SOC Metrics & KPIs](../06_Operations_Management/SOC_Metrics.en.md)
+-   [Quarterly Business Review](Quarterly_Business_Review.en.md)
+-   [SOC Assessment Checklist](../06_Operations_Management/SOC_Assessment_Checklist.en.md)
+
 ## References
 -   [SANS SOC Metrics](https://www.sans.org/white-papers/)
 -   [SOC-CMM](https://www.soc-cmm.com/)

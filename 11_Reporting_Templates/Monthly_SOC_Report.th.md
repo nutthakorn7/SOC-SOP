@@ -45,6 +45,11 @@ graph LR
 -   [ ] นำเข้า Log ใหม่จาก [ระบบ]
 -   [ ] อบรมพนักงานเรื่อง [หัวข้อ]
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [ตัวชี้วัด SOC](../06_Operations_Management/SOC_Metrics.th.md)
+-   [รายงานรายไตรมาส](Quarterly_Business_Review.th.md)
+-   [แบบประเมิน SOC](../06_Operations_Management/SOC_Assessment_Checklist.th.md)
+
 ## References
 -   [SANS SOC Metrics](https://www.sans.org/white-papers/)
 -   [SOC-CMM](https://www.soc-cmm.com/)

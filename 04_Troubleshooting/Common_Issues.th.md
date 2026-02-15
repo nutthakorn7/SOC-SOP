@@ -55,6 +55,11 @@ graph TD
 -   บันทึกการวิเคราะห์สาเหตุที่แท้จริง (RCA)
 -   อัปเดต Knowledge Base (KB) และ SOP เพื่อป้องกันการเกิดซ้ำ
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กลยุทธ์การเชื่อมต่อเครื่องมือ](../03_User_Guides/Integration_Hub.th.md)
+-   [การติดตั้ง SOC](../01_Onboarding/System_Activation.th.md)
+-   [ขั้นตอนการ Deploy](../02_Platform_Operations/Deployment_Procedures.th.md)
+
 ## References
 -   [USE Method (Brendan Gregg)](https://www.brendangregg.com/usemethod.html)
 -   [Google SRE Handbook](https://sre.google/sre-book/table-of-contents/)

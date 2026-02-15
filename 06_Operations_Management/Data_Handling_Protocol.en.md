@@ -51,6 +51,11 @@ graph TD
 ## 4. Usage in Incident Reports
 All Incident Reports MUST be marked with a TLP level at the top of the document.
 
+## Related Documents
+-   [Incident Response Framework](../05_Incident_Response/Framework.en.md)
+-   [SOC Assessment Checklist](SOC_Assessment_Checklist.en.md)
+-   [SOC Metrics & KPIs](SOC_Metrics.en.md)
+
 ## References
 -   [FIRST.org TLP 2.0 Standard](https://www.first.org/tlp/)
 -   [CISA Traffic Light Protocol](https://www.cisa.gov/tlp)

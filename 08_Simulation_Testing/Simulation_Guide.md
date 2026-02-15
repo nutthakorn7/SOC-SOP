@@ -47,6 +47,11 @@ Recommended Validation Schedule:
 -   **Monthly**: Test 3-5 random Playbooks.
 -   **Quarterly**: Full Chain simulation (Phishing -> Lateral Mov -> Exfil).
 
+## Related Documents
+-   [Atomic Test Map](Atomic_Test_Map.md)
+-   [Incident Response Framework](../05_Incident_Response/Framework.en.md)
+-   [Detection Engineering Lifecycle](../03_User_Guides/Content_Management.en.md)
+
 ## References
 -   [Atomic Red Team](https://github.com/redcanaryco/atomic-red-team)
 -   [MITRE ATT&CK](https://attack.mitre.org/)

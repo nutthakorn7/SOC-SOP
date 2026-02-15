@@ -32,6 +32,11 @@ graph TD
 -   **Threat Intel**: Submit the C2 IOC to Threat Intelligence Platform to update all tools.
 -   **Attribute**: [Confidentiality / Integrity]
 
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
+
 ## References
 -   [MITRE ATT&CK T1071 (Application Layer Protocol)](https://attack.mitre.org/techniques/T1071/)
 -   [SANS Hunt Evil: Beaconing](https://www.sans.org/white-papers/39600/)

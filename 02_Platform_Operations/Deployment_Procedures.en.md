@@ -59,6 +59,11 @@ sequenceDiagram
 -   If verification fails, immediately revert to the pre-deployment snapshot.
 -   Conduct a Root Cause Analysis (RCA) for failed changes.
 
+## Related Documents
+-   [Change Request Template](../templates/change_request_rfc.en.md)
+-   [Data Governance & Retention](Database_Management.en.md)
+-   [SOC Infrastructure Setup](../01_Onboarding/System_Activation.en.md)
+
 ## References
 -   [ITIL Change Management](https://www.axelos.com/best-practice-solutions/itil)
 -   [DevSecOps Manifesto](https://www.devsecops.org/)

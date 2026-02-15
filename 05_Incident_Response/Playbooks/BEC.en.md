@@ -35,6 +35,11 @@ graph TD
 -   **Notify Finance**: If the email involved payments, immediately stop wire transfers.
 -   **Attribute**: [Integrity / Confidentiality]
 
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
+
 ## References
 -   [MITRE ATT&CK T1566 (Phishing)](https://attack.mitre.org/techniques/T1566/)
 -   [FBI BEC Scams](https://www.fbi.gov/scams-and-safety/common-scams-and-crimes/business-email-compromise)

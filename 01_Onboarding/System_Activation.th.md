@@ -52,6 +52,11 @@ SOC ที่สมบูรณ์จำเป็นต้องมีองค�
 -   **Log Shippers**: ใช้ตัวส่ง Log (Forwarder) เพื่อส่งข้อมูลไปยัง SIEM อย่างปลอดภัย (เข้ารหัส TLS)
 -   **Jump Host**: ใช้ Jump Host หรือ VPN ที่ปลอดภัยสำหรับการเข้าถึงระดับผู้ดูแลระบบ
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [หลักสูตรฝึกอบรม Analyst](../09_Training_Onboarding/Analyst_Onboarding_Path.th.md)
+-   [ธรรมาภิบาลข้อมูล](../02_Platform_Operations/Database_Management.th.md)
+-   [ขั้นตอนการ Deploy](../02_Platform_Operations/Deployment_Procedures.th.md)
+
 ## References
 -   [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)
 -   [CISA SOC Best Practices](https://www.cisa.gov/topics/cyber-threats-and-advisories)

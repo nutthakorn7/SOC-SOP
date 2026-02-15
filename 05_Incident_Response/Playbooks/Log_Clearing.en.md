@@ -32,6 +32,11 @@ graph TD
 -   **Re-image**: A system with cleared logs cannot be trusted. Re-image is recommended.
 -   **Attribute**: [Integrity]
 
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
+
 ## References
 -   [MITRE ATT&CK T1070 (Indicator Removal on Host)](https://attack.mitre.org/techniques/T1070/)
 -   [SIGMA Rule: Security Event Log Cleared](https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/security/win_security_event_log_cleared.yml)

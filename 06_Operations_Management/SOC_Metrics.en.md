@@ -48,6 +48,11 @@ graph TD
 -   **Incidents per Analyst**: Number of cases handled by one analyst per shift.
 -   **Burnout Rate**: Turnover rate of SOC staff (Target: < 15% annually).
 
+## Related Documents
+-   [Incident Response Framework](../05_Incident_Response/Framework.en.md)
+-   [SOC Assessment Checklist](SOC_Assessment_Checklist.en.md)
+-   [SOC Metrics & KPIs](SOC_Metrics.en.md)
+
 ## References
 -   [SANS SOC Metrics](https://www.sans.org/white-papers/soc-metrics/)
 -   [MITRE SOC Assessment](https://cat.mitre.org/)

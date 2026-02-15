@@ -49,6 +49,11 @@ graph TD
 -   ทำเอกสารสรุป Case ที่ปิดแล้วให้เรียบร้อย
 -   เตรียมข้อมูลสำหรับทำ Handover Log
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../05_Incident_Response/Framework.th.md)
+-   [แบบประเมิน SOC](SOC_Assessment_Checklist.th.md)
+-   [ตัวชี้วัด SOC](SOC_Metrics.th.md)
+
 ## References
 -   [SANS SOC Handbook](https://www.sans.org/white-papers/soc-handbook/)
 -   [NIST SP 800-61r2 (Incident Handling)](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)

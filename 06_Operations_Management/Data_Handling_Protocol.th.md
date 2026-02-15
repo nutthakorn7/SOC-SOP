@@ -51,6 +51,11 @@ graph TD
 ## 4. การใข้งานในรายงาน (Incident Reports)
 รายงานเหตุการณ์ทุกฉบับ ต้องระบุระดับ TLP อย่างชัดเจนที่ส่วนหัวของเอกสาร
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../05_Incident_Response/Framework.th.md)
+-   [แบบประเมิน SOC](SOC_Assessment_Checklist.th.md)
+-   [ตัวชี้วัด SOC](SOC_Metrics.th.md)
+
 ## References
 -   [FIRST.org TLP 2.0 Standard](https://www.first.org/tlp/)
 -   [CISA Traffic Light Protocol](https://www.cisa.gov/tlp)

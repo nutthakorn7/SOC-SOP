@@ -33,3 +33,13 @@ graph TD
 ## 4. Recovery
 -   [ ] **Enable Account**: Restore access.
 -   [ ] **Monitoring**: Add user to "High Risk" monitoring group for 48 hours.
+
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [PB-06 Impossible Travel](Impossible_Travel.en.md)
+
+## References
+-   [MITRE ATT&CK T1078 (Valid Accounts)](https://attack.mitre.org/techniques/T1078/)
+-   [CISA Account Security](https://www.cisa.gov/secure-our-world)
+

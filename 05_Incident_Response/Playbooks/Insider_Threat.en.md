@@ -33,6 +33,11 @@ graph TD
 -   **Legal Action**: HR and Legal to determine employment termination or legal proceedings.
 -   **Attribute**: [Confidentiality]
 
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
+
 ## References
 -   [MITRE ATT&CK T1534 (Internal Spearphishing)](https://attack.mitre.org/techniques/T1534/)
 -   [CISA Insider Threat Mitigation Guide](https://www.cisa.gov/topics/physical-security/insider-threat-mitigation)

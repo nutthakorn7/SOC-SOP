@@ -61,6 +61,11 @@ Count the "Yes" answers to determine approximate maturity.
 -   11-13: Level 3 (Target Baseline)
 -   14+: Level 4+
 
+## Related Documents
+-   [Incident Response Framework](../05_Incident_Response/Framework.en.md)
+-   [SOC Assessment Checklist](SOC_Assessment_Checklist.en.md)
+-   [SOC Metrics & KPIs](SOC_Metrics.en.md)
+
 ## References
 -   [SOC-CMM (Capability Maturity Model)](https://www.soc-cmm.com/)
 -   [MITRE SOC Strategy](https://mitre.org/)

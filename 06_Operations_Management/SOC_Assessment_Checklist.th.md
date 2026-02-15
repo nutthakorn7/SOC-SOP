@@ -61,6 +61,11 @@ graph LR
 -   11-13: Level 3 (เกณฑ์มาตรฐาน)
 -   14+: Level 4+
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [กรอบการตอบสนองเหตุการณ์](../05_Incident_Response/Framework.th.md)
+-   [แบบประเมิน SOC](SOC_Assessment_Checklist.th.md)
+-   [ตัวชี้วัด SOC](SOC_Metrics.th.md)
+
 ## References
 -   [SOC-CMM (Capability Maturity Model)](https://www.soc-cmm.com/)
 -   [MITRE SOC Strategy](https://mitre.org/)

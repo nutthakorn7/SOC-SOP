@@ -32,6 +32,11 @@
 -   **Goal 2**: Integrate Cloud Logs (AWS/Azure).
 -   **Goal 3**: Conduct Purple Team exercise.
 
+## Related Documents
+-   [Monthly SOC Report](Monthly_SOC_Report.en.md)
+-   [SOC Assessment Checklist](../06_Operations_Management/SOC_Assessment_Checklist.en.md)
+-   [SOC Metrics & KPIs](../06_Operations_Management/SOC_Metrics.en.md)
+
 ## References
 -   [SOC-CMM Assessment Model](https://www.soc-cmm.com/)
 -   [Gartner SOC Modernization](https://www.gartner.com/en/information-technology)

@@ -59,6 +59,11 @@ sequenceDiagram
 -   หากขั้นตอนการตรวจสอบล้มเหลว ให้ย้อนกลับไปยังสถานะก่อนหน้าทันที
 -   ทำ Root Cause Analysis (RCA) สำหรับการเปลี่ยนแปลงที่ล้มเหลว
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [แบบฟอร์ม Change Request](../templates/change_request_rfc.th.md)
+-   [ธรรมาภิบาลข้อมูล](Database_Management.th.md)
+-   [การติดตั้ง SOC](../01_Onboarding/System_Activation.th.md)
+
 ## References
 -   [ITIL Change Management](https://www.axelos.com/best-practice-solutions/itil)
 -   [DevSecOps Manifesto](https://www.devsecops.org/)

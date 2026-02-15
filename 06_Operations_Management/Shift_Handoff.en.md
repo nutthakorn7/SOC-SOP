@@ -49,6 +49,11 @@ A standardized handoff ensures no incident falls through the cracks. The outgoin
 -   Complete documentation for closed cases.
 -   Prepare Handover Log.
 
+## Related Documents
+-   [Incident Response Framework](../05_Incident_Response/Framework.en.md)
+-   [SOC Assessment Checklist](SOC_Assessment_Checklist.en.md)
+-   [SOC Metrics & KPIs](SOC_Metrics.en.md)
+
 ## References
 -   [SANS SOC Handbook](https://www.sans.org/white-papers/soc-handbook/)
 -   [NIST SP 800-61r2 (Incident Handling)](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)

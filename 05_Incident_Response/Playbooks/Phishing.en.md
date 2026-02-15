@@ -31,6 +31,11 @@ flowchart TD
 ## 4. Recovery
 -   Unblock user account after password reset and verification.
 
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
+
 ## References
 -   [MITRE ATT&CK T1566 (Phishing)](https://attack.mitre.org/techniques/T1566/)
 -   [CISA Phishing Guidance](https://www.cisa.gov/shields-up/phishing-preventing-email-attacks)

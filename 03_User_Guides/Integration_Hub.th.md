@@ -41,6 +41,11 @@ graph LR
 -   **ความสดใหม่ของข้อมูล**: แจ้งเตือนหาก Log Source หยุดส่งข้อมูลเกิน 1 ชั่วโมง
 -   **อัตรา Error**: เฝ้าระวัง API error (401/403/429) เพื่อตรวจจับปัญหา Credential หรือ Quota
 
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+-   [วงจรชีวิตวิศวกรรมการตรวจจับ](Content_Management.th.md)
+-   [วิธีการแก้ปัญหามาตรฐาน](../04_Troubleshooting/Common_Issues.th.md)
+-   [วงจรชีวิต Threat Intelligence](../06_Operations_Management/Threat_Intelligence_Lifecycle.th.md)
+
 ## References
 -   [Sigma: Generic Signature Format](https://github.com/SigmaHQ/sigma)
 -   [Elastic Common Schema (ECS)](https://www.elastic.co/guide/en/ecs/current/index.html)

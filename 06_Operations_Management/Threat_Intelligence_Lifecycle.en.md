@@ -56,6 +56,11 @@ All Indicators of Compromise (IoCs) must go through the **Review Process** befor
 3.  Analyst updates reference list in SIEM (Test Mode).
 4.  If stable > 24 hours, move to Block Mode.
 
+## Related Documents
+-   [Incident Response Framework](../05_Incident_Response/Framework.en.md)
+-   [SOC Assessment Checklist](SOC_Assessment_Checklist.en.md)
+-   [SOC Metrics & KPIs](SOC_Metrics.en.md)
+
 ## References
 -   [CREST Cyber Threat Intelligence](https://www.crest-approved.org/knowledge-base/cyber-threat-intelligence/)
 -   [SANS CTI Maturity Model](https://www.sans.org/white-papers/cti-maturity-model/)

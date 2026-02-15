@@ -36,6 +36,11 @@ graph TD
 ## 4. Notification
 -   Notify Legal/Compliance teams immediately due to potential data breach (GDPR/PDPA).
 
+## Related Documents
+-   [Incident Response Framework](../Framework.en.md)
+-   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Shift Handover Log](../../templates/shift_handover.en.md)
+
 ## References
 -   [MITRE ATT&CK T1486 (Data Encrypted for Impact)](https://attack.mitre.org/techniques/T1486/)
 -   [CISA Ransomware Guide](https://www.cisa.gov/stopransomware/ransomware-guide)

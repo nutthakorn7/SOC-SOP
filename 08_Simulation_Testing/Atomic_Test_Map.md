@@ -40,6 +40,11 @@ graph LR
 3.  Check your SIEM: Did the alert trigger?
 4.  Follow the Playbook: Did the steps work?
 
+## Related Documents
+-   [Simulation & Purple Teaming Guide](Simulation_Guide.md)
+-   [Incident Response Framework](../05_Incident_Response/Framework.en.md)
+-   [PB-01 Phishing](../05_Incident_Response/Playbooks/Phishing.en.md)
+
 ## References
 -   [Atomic Red Team](https://github.com/redcanaryco/atomic-red-team)
 -   [MITRE ATT&CK Techniques](https://attack.mitre.org/techniques/enterprise/)

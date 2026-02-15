@@ -41,6 +41,11 @@ graph LR
 -   **Data Freshness**: Alert if log sources stop sending data for >1 hour.
 -   **Error Rate**: Monitor API error rates (401/403/429) to detect credential or quota issues.
 
+## Related Documents
+-   [Detection Engineering Lifecycle](Content_Management.en.md)
+-   [Troubleshooting Methodology](../04_Troubleshooting/Common_Issues.en.md)
+-   [Threat Intelligence Lifecycle](../06_Operations_Management/Threat_Intelligence_Lifecycle.en.md)
+
 ## References
 -   [Sigma: Generic Signature Format](https://github.com/SigmaHQ/sigma)
 -   [Elastic Common Schema (ECS)](https://www.elastic.co/guide/en/ecs/current/index.html)
