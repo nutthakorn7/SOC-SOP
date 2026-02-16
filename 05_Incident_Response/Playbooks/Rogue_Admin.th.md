@@ -206,6 +206,25 @@ sequenceDiagram
 - [PB-14 ภัยคุกคามจากภายใน](Insider_Threat.th.md)
 - [PB-15 การลบ Log](Log_Clearing.th.md)
 
+## Rogue Admin Detection Indicators
+
+| Indicator | Detection | Risk |
+|:---|:---|:---|
+| Off-hours admin action | Time-based alerting | High |
+| Unauthorized config change | Change management diff | High |
+| Security control disable | SIEM watchlist | Critical |
+| Bulk data access | UEBA volume anomaly | Critical |
+| Account creation/modification | AD audit logs | Medium |
+
+### Investigation Steps (Sensitive)
+
+| Step | Action | Precaution |
+|:---|:---|:---|
+| 1 | Review all admin actions (30d) | Query by SOC manager only |
+| 2 | Compare approved vs actual changes | Cross-ref with CAB records |
+| 3 | Capture forensic evidence | Legal hold if needed |
+| 4 | Coordinate HR + Legal | In-person only |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1078 — Valid Accounts](https://attack.mitre.org/techniques/T1078/)

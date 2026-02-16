@@ -207,6 +207,26 @@ graph LR
 - [PB-04 Brute Force](Brute_Force.th.md)
 - [PB-01 ฟิชชิง](Phishing.th.md)
 
+## Account Compromise Assessment
+
+| Indicator | Source | Severity |
+|:---|:---|:---|
+| Login from new location | Azure AD/SIEM | Medium |
+| MFA bypass detected | Auth logs | Critical |
+| Password changed unexpectedly | AD audit | High |
+| New inbox rules | Exchange/M365 | High |
+| Mass email sent | Email gateway | Medium |
+
+### Recovery Steps
+
+| Step | Action | Verification |
+|:---|:---|:---|
+| 1 | Reset password | Confirm with user |
+| 2 | Revoke all sessions | Check active sessions |
+| 3 | Re-enroll MFA | Verify new device |
+| 4 | Review inbox rules | Remove malicious |
+| 5 | Check OAuth apps | Revoke suspicious |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1078 — Valid Accounts](https://attack.mitre.org/techniques/T1078/)

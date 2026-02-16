@@ -193,6 +193,25 @@ graph TD
 - [PB-13 C2 Communication](C2_Communication.th.md)
 - [PB-08 Data Exfiltration](Data_Exfiltration.th.md)
 
+## DNS Tunneling Detection Indicators
+
+| Indicator | Normal | Suspicious | Threshold |
+|:---|:---|:---|:---|
+| Query length | < 30 chars | > 50 chars | Alert > 60 |
+| Subdomain depth | 1-3 levels | > 5 levels | Alert > 4 |
+| Query entropy | < 3.0 | > 3.5 | Alert > 3.5 |
+| TXT record volume | < 5/hr | > 50/hr | Alert > 20 |
+| NXDOMAIN ratio | < 5% | > 30% | Alert > 20% |
+
+### DNS Analysis Tools
+
+| Tool | Purpose | Usage |
+|:---|:---|:---|
+| dns2tcp | Detect tunneling | Monitor traffic |
+| Passive DNS | Historical lookup | Investigate domains |
+| Zeek dns.log | Log analysis | Query forensics |
+| DNScat2 detection | Known tool fingerprint | Signature match |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1071.004 — DNS](https://attack.mitre.org/techniques/T1071/004/)

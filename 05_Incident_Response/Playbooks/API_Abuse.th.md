@@ -182,6 +182,33 @@ graph TD
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)
 - [PB-10 Web Attack](Web_Attack.th.md)
 
+## API Threat Landscape
+
+| Attack Type | Method | Detection |
+|:---|:---|:---|
+| Credential stuffing | Automated login attempts | Rate analysis |
+| BOLA/IDOR | Object ID manipulation | Auth boundary check |
+| Mass data scraping | Systematic enumeration | Volume anomaly |
+| Injection | SQLi/XSS via API params | WAF + input validation |
+| Token theft | JKT/OAuth hijack | Token anomaly |
+
+### Rate Limiting Strategy
+
+| Endpoint Type | Normal Rate | Alert Threshold | Block Threshold |
+|:---|:---|:---|:---|
+| Authentication | 5/min | 10/min | 20/min |
+| Data query | 60/min | 120/min | 200/min |
+| File upload | 10/min | 20/min | 50/min |
+| Admin actions | 30/min | 60/min | 100/min |
+
+### API Security Checklist
+- [ ] Authentication on all endpoints
+- [ ] Rate limiting configured
+- [ ] Input validation active
+- [ ] Logging all API calls
+- [ ] Token expiration enforced
+- [ ] CORS properly configured
+
 ## อ้างอิง
 
 - [OWASP API Security Top 10](https://owasp.org/API-Security/)

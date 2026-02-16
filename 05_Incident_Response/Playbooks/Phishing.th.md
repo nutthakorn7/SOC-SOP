@@ -197,6 +197,25 @@ sequenceDiagram
 - [PB-05 บัญชีถูกบุกรุก](Account_Compromise.th.md)
 - [PB-26 การหลีกเลี่ยง MFA](MFA_Bypass.th.md)
 
+## Phishing Email Analysis Checklist
+
+| Check | How | Tool |
+|:---|:---|:---|
+| Sender reputation | SPF/DKIM/DMARC | Email headers |
+| URL analysis | Sandbox detonation | URLScan/VirusTotal |
+| Attachment scan | Hash + sandbox | Any.run/JoeSandbox |
+| Header analysis | Examine X-headers | MXToolbox |
+| Reply-to mismatch | Compare From vs Reply | Manual |
+
+### Phishing Response Workflow
+
+| Impact Level | Response | Owner |
+|:---|:---|:---|
+| Clicked link only | Monitor user | SOC Tier 1 |
+| Entered credentials | Reset password + MFA | SOC Tier 2 |
+| Downloaded malware | Full IR playbook | IR Team |
+| Multiple victims | Company-wide alert | SOC + Comms |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1566 — Phishing](https://attack.mitre.org/techniques/T1566/)

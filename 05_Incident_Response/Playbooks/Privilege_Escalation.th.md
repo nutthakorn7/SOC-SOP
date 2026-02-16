@@ -209,6 +209,25 @@ graph LR
 - [PB-09 Lateral Movement](Lateral_Movement.th.md)
 - [PB-05 บัญชีถูกบุกรุก](Account_Compromise.th.md)
 
+## Privilege Escalation Techniques
+
+| Technique | OS | Detection Event |
+|:---|:---|:---|
+| UAC bypass | Windows | Sysmon Event 1 |
+| Sudo abuse | Linux | auth.log |
+| Token manipulation | Windows | Event 4672 |
+| Kernel exploit | Both | EDR behavioral |
+| Misconfigured SUID | Linux | find command audit |
+
+### Response Priority
+
+| Escalation Type | Severity | Response |
+|:---|:---|:---|
+| Domain Admin gained | Critical | Immediate IR |
+| Local admin gained | High | Investigate + contain |
+| Service account abuse | High | Rotate + monitor |
+| Application privilege | Medium | Review + fix |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK — Privilege Escalation](https://attack.mitre.org/tactics/TA0004/)

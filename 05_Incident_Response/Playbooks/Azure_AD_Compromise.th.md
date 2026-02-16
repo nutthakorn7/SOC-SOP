@@ -201,6 +201,26 @@ sequenceDiagram
 - [PB-05 บัญชีถูกบุกรุก](Account_Compromise.th.md)
 - [PB-26 MFA Bypass](MFA_Bypass.th.md)
 
+## Azure AD Investigation Queries
+
+| Query Purpose | Log Source | Key Fields |
+|:---|:---|:---|
+| Risky sign-ins | Azure AD Sign-in | riskState, riskLevel |
+| MFA bypass | Azure AD Sign-in | authenticationRequirement |
+| Privilege changes | Azure AD Audit | targetResources |
+| App consent grants | Azure AD Audit | operationType |
+| Conditional Access | Sign-in logs | conditionalAccessStatus |
+
+### Azure AD Containment Actions
+
+| Action | Impact | Speed | Reversible |
+|:---|:---|:---|:---|
+| Disable user account | High | Immediate | ✅ |
+| Revoke all sessions | Medium | Immediate | ✅ |
+| Reset password + MFA | Medium | < 15 min | N/A |
+| Block sign-in | High | Immediate | ✅ |
+| Remove role assignments | High | < 30 min | ✅ |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1098 — Account Manipulation](https://attack.mitre.org/techniques/T1098/)

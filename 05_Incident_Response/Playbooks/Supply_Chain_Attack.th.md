@@ -196,6 +196,25 @@ sequenceDiagram
 - [PB-03 มัลแวร์](Malware_Infection.th.md)
 - [PB-18 Exploit](Exploit.th.md)
 
+## Supply Chain Attack Indicators
+
+| Indicator | Source | Detection |
+|:---|:---|:---|
+| Modified package hash | Build pipeline | Checksum verify |
+| Unusual update timing | Vendor advisories | Off-cycle alert |
+| New network connections | NDR | Post-update monitoring |
+| Embedded backdoor | SAST/DAST | Code scan |
+| Dependency confusion | Package manager | Namespace check |
+
+### Vendor Risk Tiers (Supply Chain)
+
+| Tier | Access Level | Monitoring | Assessment |
+|:---|:---|:---|:---|
+| Critical | Code/infrastructure | Continuous | Quarterly |
+| High | Data processing | Weekly review | Semi-annual |
+| Medium | Network access | Monthly review | Annual |
+| Low | No access | Periodic | Biennial |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1195 — Supply Chain Compromise](https://attack.mitre.org/techniques/T1195/)

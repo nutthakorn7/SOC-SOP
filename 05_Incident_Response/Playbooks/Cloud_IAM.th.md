@@ -202,6 +202,25 @@ sequenceDiagram
 - [PB-22 AWS EC2 Compromise](AWS_EC2_Compromise.th.md)
 - [PB-21 AWS S3 Compromise](AWS_S3_Compromise.th.md)
 
+## IAM Risk Indicators
+
+| Indicator | Risk Level | Detection |
+|:---|:---|:---|
+| Unused admin keys > 90d | High | IAM Access Analyzer |
+| MFA not enabled (admin) | Critical | IAM policy check |
+| Overprivileged roles | Medium | Permission analysis |
+| Cross-account access | Medium | CloudTrail review |
+| Root account usage | Critical | CloudTrail alert |
+
+### IAM Incident Containment
+
+| Action | AWS | Azure | GCP |
+|:---|:---|:---|:---|
+| Disable access key | ✅ update-access-key | ✅ Portal | ✅ disable key |
+| Revoke sessions | ✅ Inline deny policy | ✅ Revoke sessions | ✅ IAM |
+| Reset credentials | ✅ Console/CLI | ✅ Portal/PS | ✅ Console |
+| Remove permissions | ✅ Detach policy | ✅ Remove role | ✅ Remove binding |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1078.004 — Cloud Accounts](https://attack.mitre.org/techniques/T1078/004/)

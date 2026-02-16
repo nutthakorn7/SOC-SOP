@@ -187,6 +187,34 @@ sequenceDiagram
 - [PB-16 Cloud IAM](Cloud_IAM.th.md)
 - [PB-31 Cryptomining](Cryptomining.th.md)
 
+## AWS-Specific Investigation Steps
+
+| Check | AWS Service | Command/Console |
+|:---|:---|:---|
+| Instance metadata | EC2 | describe-instances |
+| Security groups | VPC | describe-security-groups |
+| IAM role abuse | IAM | get-instance-profile |
+| CloudTrail events | CloudTrail | lookup-events |
+| VPC flow logs | VPC | Filter by instance ENI |
+
+### Containment Actions Matrix
+
+| Action | Impact | Reversible | Speed |
+|:---|:---|:---|:---|
+| Security group deny-all | Moderate | ✅ Yes | Fast |
+| Instance stop | High | ✅ Yes | Fast |
+| Snapshot + terminate | High | ❌ No | Medium |
+| IAM role revoke | Moderate | ✅ Yes | Fast |
+| VPC isolation | High | ✅ Yes | Medium |
+
+### Cloud Forensics Checklist
+- [ ] Capture instance metadata
+- [ ] Create EBS snapshot (evidence)
+- [ ] Export CloudTrail logs (72 hrs)
+- [ ] Capture VPC flow logs
+- [ ] Check Lambda/serverless for persistence
+- [ ] Review IAM key usage
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1190 — Exploit Public-Facing Application](https://attack.mitre.org/techniques/T1190/)

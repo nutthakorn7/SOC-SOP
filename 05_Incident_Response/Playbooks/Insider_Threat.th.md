@@ -202,6 +202,24 @@ sequenceDiagram
 - [PB-20 แอดมินกระทำผิด](Rogue_Admin.th.md)
 - [PB-08 การนำข้อมูลออก](Data_Exfiltration.th.md)
 
+## Insider Threat Indicators Correlation
+
+| Category | Behavioral | Technical | Combined Risk |
+|:---|:---|:---|:---|
+| Pre-resignation | Notice given | Mass download | 🔴 Critical |
+| Disgruntled | Performance issues | After-hours access | 🟠 High |
+| Negligent | Policy violations | Unpatched system | 🟡 Medium |
+| Compromised | Phished | Unusual C2 traffic | 🔴 Critical |
+
+### Investigation without Alerting Subject
+
+| Step | Method | Precaution |
+|:---|:---|:---|
+| Monitor activity | Silent DLP/UEBA | Need-to-know only |
+| Review access logs | Backend query | No user-facing alerts |
+| Capture evidence | Forensic copy | Legal hold |
+| Coordinate HR/Legal | Offline meeting | Secure channel |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK — Insider Threat](https://attack.mitre.org/techniques/T1078/)

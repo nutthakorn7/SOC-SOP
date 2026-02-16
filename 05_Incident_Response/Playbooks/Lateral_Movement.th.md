@@ -193,6 +193,37 @@ sequenceDiagram
 - [PB-07 การยกระดับสิทธิ์](Privilege_Escalation.th.md)
 - [PB-13 C2](C2_Communication.th.md)
 
+## Detection Correlation Matrix
+
+| Technique | Data Source | Detection Logic |
+|:---|:---|:---|
+| PsExec | Windows Event 7045 | New service + remote IP |
+| WMI | Sysmon Event 1 | wmiprvse.exe spawn |
+| RDP | Event 4624 Type 10 | Unusual src→dst pair |
+| SMB | Zeek smb_files.log | Admin share access |
+| WinRM | Event 4656 | Remote PowerShell |
+
+### Lateral Movement Timeline Reconstruction
+
+```
+Time    Source        Destination    Method     Evidence
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+T+0     Workstation1  Server-A      PsExec     Event 7045
+T+5min  Server-A      Server-B      WMI        Sysmon 1
+T+12min Server-B      DC-01         RDP        Event 4624
+T+15min DC-01         File-Server   SMB        smb_files
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+### Containment Priority
+
+| Target | Action | Priority |
+|:---|:---|:---|
+| Source host | Isolate | P1 |
+| Compromised creds | Disable | P1 |
+| Accessed servers | Monitor | P2 |
+| Network segment | Restrict | P2 |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK — Lateral Movement](https://attack.mitre.org/tactics/TA0008/)

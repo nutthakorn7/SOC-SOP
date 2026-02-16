@@ -218,6 +218,24 @@ graph LR
 - [PB-05 บัญชีถูกบุกรุก](Account_Compromise.th.md)
 - [PB-17 BEC](BEC.th.md)
 
+## MFA Bypass Techniques & Detection
+
+| Technique | Detection | Prevention |
+|:---|:---|:---|
+| SIM swap | Phone number change alert | Hardware tokens |
+| Prompt bombing | Multiple push denials | Number matching |
+| Token theft | Session anomaly | Binding to device |
+| Adversary-in-the-middle | TLS cert anomaly | FIDO2/WebAuthn |
+
+### MFA Hardening Recommendations
+
+| Current MFA | Upgrade To | Priority |
+|:---|:---|:---|
+| SMS OTP | Authenticator app | High |
+| Push notification | Number matching | High |
+| Software token | FIDO2 hardware key | Critical |
+| No MFA | Any MFA | Critical |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1556.006 — MFA Modification](https://attack.mitre.org/techniques/T1556/006/)

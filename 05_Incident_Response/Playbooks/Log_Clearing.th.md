@@ -202,6 +202,24 @@ graph LR
 - [PB-14 ภัยคุกคามจากภายใน](Insider_Threat.th.md)
 - [PB-20 แอดมินกระทำผิด](Rogue_Admin.th.md)
 
+## Log Tampering Detection Matrix
+
+| Log Type | Expected Volume | Clearing Indicator | Detection |
+|:---|:---|:---|:---|
+| Windows Security | > 100 events/hr | Event 1102 | Immediate |
+| Linux syslog | > 50 lines/hr | Sudden gap | 5 min check |
+| Application | Varies | Zero events | Baseline compare |
+| Firewall | > 200 events/hr | Counter reset | Continuous |
+
+### Anti-Tampering Controls
+
+| Control | Implementation | Priority |
+|:---|:---|:---|
+| Log forwarding | Real-time to SIEM | P1 |
+| Immutable storage | WORM/append-only | P1 |
+| Integrity monitoring | File hash checking | P2 |
+| Admin audit trail | Privileged action logging | P1 |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1070 — Indicator Removal](https://attack.mitre.org/techniques/T1070/)

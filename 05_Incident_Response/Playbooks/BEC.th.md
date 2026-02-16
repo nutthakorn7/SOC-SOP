@@ -200,6 +200,31 @@ sequenceDiagram
 - [PB-01 ฟิชชิง](Phishing.th.md)
 - [PB-05 บัญชีถูกบุกรุก](Account_Compromise.th.md)
 
+## BEC Attack Pattern Recognition
+
+| Pattern | Red Flags | Urgency Claim |
+|:---|:---|:---|
+| CEO fraud | Impersonates executive | "Urgent wire transfer" |
+| Invoice fraud | Modified payment details | "Updated bank info" |
+| Attorney impersonation | Legal urgency | "Confidential matter" |
+| Data theft | HR/payroll request | "Need all W-2s" |
+| Account compromise | Real account, fake request | Varies |
+
+### Financial Impact Assessment
+
+| Check | Action | Owner |
+|:---|:---|:---|
+| Wire initiated? | Contact bank immediately | Finance |
+| Amount transferred? | Document for reporting | Finance |
+| Multiple victims? | Company-wide alert | SOC |
+| Law enforcement? | FBI IC3 report | Legal |
+
+### BEC Prevention Checklist
+- [ ] DMARC/DKIM/SPF configured
+- [ ] External email banner enabled
+- [ ] Wire transfer requires verbal confirmation
+- [ ] Domain lookalike monitoring active
+
 ## อ้างอิง
 
 - [FBI — BEC Scams](https://www.ic3.gov/Media/Y2022/PSA220504)

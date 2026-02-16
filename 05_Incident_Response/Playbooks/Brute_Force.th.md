@@ -177,6 +177,39 @@ graph LR
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)
 - [PB-05 บัญชีถูกบุกรุก](Account_Compromise.th.md)
 
+## Account Lockout Impact Assessment
+
+| System Type | Lockout Policy | Business Impact |
+|:---|:---|:---|
+| Active Directory | 5 attempts / 30 min | Medium-High |
+| VPN Gateway | 3 attempts / 15 min | High |
+| Web Application | 10 attempts / 60 min | Low-Medium |
+| Database | 5 attempts / 30 min | High |
+| Cloud Console | 3 attempts / 5 min | Critical |
+
+### Brute Force Attack Patterns
+
+| Pattern | Detection | Response |
+|:---|:---|:---|
+| Horizontal (password spray) | Multiple users, same password | Block source IP |
+| Vertical (single target) | Many attempts, one user | Lock account |
+| Credential stuffing | Known breach list | Rate limit + CAPTCHA |
+| Reverse brute force | Common passwords, all users | Alert + block |
+
+### Response Automation
+
+```mermaid
+flowchart TD
+    A[Failed logins > threshold] --> B{Source type?}
+    B -->|Internal| C[Alert + investigate]
+    B -->|External| D{Known bad IP?}
+    D -->|Yes| E[Auto-block + log]
+    D -->|No| F[Rate limit + monitor]
+    C --> G{Compromised?}
+    G -->|Yes| H[Reset creds + scan]
+    G -->|No| I[User awareness]
+```
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1110 — Brute Force](https://attack.mitre.org/techniques/T1110/)

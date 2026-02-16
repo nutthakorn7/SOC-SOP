@@ -192,6 +192,27 @@ graph TD
 - [แม่แบบรายงานเหตุการณ์](../../templates/incident_report.th.md)
 - [PB-28 อุปกรณ์มือถือถูกบุกรุก](Mobile_Compromise.th.md)
 
+## Device Type Response Matrix
+
+| Device Type | Remote Wipe | Data Risk | Priority |
+|:---|:---|:---|:---|
+| Laptop (encrypted) | ✅ MDM | Low | Medium |
+| Laptop (unencrypted) | ✅ MDM | Critical | Urgent |
+| Mobile (managed) | ✅ MDM | Low | Medium |
+| Mobile (BYOD) | Limited | Medium | High |
+| USB/External drive | ❌ N/A | High | High |
+
+### Lost Device Checklist
+
+| Step | Action | Timeline | Owner |
+|:---|:---|:---|:---|
+| 1 | Report to SOC | Immediately | User |
+| 2 | Revoke access tokens | 15 min | SOC |
+| 3 | Change passwords | 30 min | User + IT |
+| 4 | Remote wipe (if possible) | 1 hr | MDM Admin |
+| 5 | File police report | 24 hrs | User |
+| 6 | Assess data exposure | 48 hrs | Security |
+
 ## อ้างอิง
 
 - [NIST SP 800-124r2 — Mobile Device Management](https://csrc.nist.gov/publications/detail/sp/800-124/rev-2/final)

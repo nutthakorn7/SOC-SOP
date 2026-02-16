@@ -198,6 +198,31 @@ sequenceDiagram
 - [แม่แบบรายงานเหตุการณ์](../../templates/incident_report.th.md)
 - [บันทึกการส่งมอบกะ](../../templates/shift_handover.th.md)
 
+## DDoS Attack Classification
+
+| Type | Layer | Volume | Mitigation |
+|:---|:---|:---|:---|
+| Volumetric | L3/L4 | > 10 Gbps | ISP scrubbing |
+| Protocol | L3/L4 | SYN/UDP flood | Rate limiting |
+| Application | L7 | HTTP flood | WAF + CAPTCHA |
+| Amplification | L3 | DNS/NTP reflect | BCP38 filtering |
+
+### DDoS Response Escalation
+
+| Severity | Impact | Response | Contact |
+|:---|:---|:---|:---|
+| Low | < 50% capacity | Monitor | SOC |
+| Medium | 50-80% capacity | Activate mitigation | SOC + NOC |
+| High | > 80% capacity | ISP scrubbing | NOC + ISP |
+| Critical | Service down | Full response | All + Management |
+
+### Mitigation Activation Checklist
+- [ ] Enable DDoS protection (CDN/WAF)
+- [ ] Contact ISP for upstream filtering
+- [ ] Activate geo-blocking if applicable
+- [ ] Scale infrastructure if cloud-based
+- [ ] Enable rate limiting on all edges
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1498 — Network Denial of Service](https://attack.mitre.org/techniques/T1498/)

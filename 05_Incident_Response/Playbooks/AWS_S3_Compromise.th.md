@@ -197,6 +197,28 @@ sequenceDiagram
 - [PB-27 Cloud Storage Exposure](Cloud_Storage_Exposure.th.md)
 - [PB-16 Cloud IAM](Cloud_IAM.th.md)
 
+## S3 Security Assessment
+
+| Check | Finding | Severity |
+|:---|:---|:---|
+| Public access block | Disabled | Critical |
+| Bucket policy | Allow * | Critical |
+| ACL grants | Public read/write | Critical |
+| Encryption | Not enabled | High |
+| Versioning | Disabled | Medium |
+| Logging | Not enabled | Medium |
+
+### S3 Incident Response Steps
+
+| Step | Action | AWS CLI |
+|:---|:---|:---|
+| 1 | Block public access | `put-public-access-block` |
+| 2 | Review bucket policy | `get-bucket-policy` |
+| 3 | Check access logs | S3 server access logs |
+| 4 | Identify exposed data | `list-objects-v2` |
+| 5 | Assess data sensitivity | Manual review |
+| 6 | Enable encryption | `put-bucket-encryption` |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1530 — Data from Cloud Storage](https://attack.mitre.org/techniques/T1530/)

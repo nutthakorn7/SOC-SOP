@@ -214,6 +214,25 @@ sequenceDiagram
 - [PB-02 Ransomware](Ransomware.th.md)
 - [PB-03 มัลแวร์](Malware_Infection.th.md)
 
+## OT/ICS Safety Priorities
+
+| Priority | Action | Rationale |
+|:---|:---|:---|
+| 1 | Protect human safety | Life first |
+| 2 | Preserve physical process | Prevent damage |
+| 3 | Contain cyber threat | Limit spread |
+| 4 | Gather evidence | Investigation |
+| 5 | Restore operations | Business continuity |
+
+### ICS Protocol Monitoring
+
+| Protocol | Port | Monitor For |
+|:---|:---|:---|
+| Modbus | 502 | Unauthorized writes |
+| DNP3 | 20000 | Unusual commands |
+| OPC UA | 4840 | Config changes |
+| BACnet | 47808 | Unauthorized access |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK for ICS](https://attack.mitre.org/matrices/ics/)

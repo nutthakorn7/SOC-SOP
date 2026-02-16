@@ -195,6 +195,27 @@ graph TD
 - [PB-08 Data Exfiltration](Data_Exfiltration.th.md)
 - [PB-14 Insider Threat](Insider_Threat.th.md)
 
+## Data Staging Detection
+
+| Indicator | Source | Detection |
+|:---|:---|:---|
+| Bulk file copy to temp | EDR file events | Volume threshold |
+| Archive creation (zip/rar) | Process monitoring | New archiver process |
+| Clipboard data hoarding | DLP | Content analysis |
+| Database export | DB audit logs | Large SELECT queries |
+| Screenshot capture | EDR | Screen capture tools |
+
+### Data Collection TTPs (MITRE ATT&CK)
+
+| Technique | ID | Detection Priority |
+|:---|:---|:---|
+| Data from Local System | T1005 | High |
+| Data from Network Share | T1039 | High |
+| Input Capture | T1056 | Medium |
+| Screen Capture | T1113 | Medium |
+| Archive Collected Data | T1560 | Critical |
+| Data Staged | T1074 | Critical |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK — Collection](https://attack.mitre.org/tactics/TA0009/)

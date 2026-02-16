@@ -192,6 +192,34 @@ sequenceDiagram
 - [PB-08 การนำข้อมูลออก](Data_Exfiltration.th.md)
 - [นโยบายธรรมาภิบาลข้อมูล](../../07_Compliance_Privacy/Data_Governance_Policy.th.md)
 
+## Shadow IT Discovery Methods
+
+| Method | Coverage | Detection Rate |
+|:---|:---|:---|
+| Proxy/Firewall logs | Web SaaS | 80% |
+| CASB | Cloud apps | 90% |
+| DNS analysis | All internet | 70% |
+| Endpoint agent | Installed apps | 95% |
+| Financial review | Paid services | 60% |
+
+### Risk Rating Matrix
+
+| Factor | Low | Medium | High |
+|:---|:---|:---|:---|
+| Data sensitivity | Public | Internal | Confidential |
+| User count | < 5 | 5-50 | 50+ |
+| Data transfer | < 1 GB | 1-50 GB | 50+ GB |
+| Authentication | SSO/MFA | Password only | None |
+
+### Shadow IT Response Workflow
+
+| Phase | Action | Owner | SLA |
+|:---|:---|:---|:---|
+| Discover | Identify unauthorized service | SOC | Ongoing |
+| Assess | Risk rating + data audit | Security | 48 hrs |
+| Decide | Approve / Block / Migrate | CISO | 5 days |
+| Execute | Implement decision | IT + Security | 14 days |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1567 — Exfiltration Over Web Service](https://attack.mitre.org/techniques/T1567/)

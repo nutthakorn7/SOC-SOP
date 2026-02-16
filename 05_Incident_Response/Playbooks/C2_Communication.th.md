@@ -200,6 +200,32 @@ sequenceDiagram
 - [PB-03 มัลแวร์](Malware_Infection.th.md)
 - [PB-25 DNS Tunneling](DNS_Tunneling.th.md)
 
+## C2 Protocol Detection
+
+| Protocol | Detection | Difficulty |
+|:---|:---|:---|
+| HTTP/S beaconing | JA3/JA3S fingerprint | Medium |
+| DNS tunneling | Entropy + volume | Medium |
+| ICMP tunneling | Payload analysis | High |
+| Cloud service abuse | Domain reputation | Hard |
+| Custom protocol | ML behavioral | Very Hard |
+
+### Beaconing Analysis Template
+
+| Feature | Value | Normal? | Score |
+|:---|:---|:---|:---|
+| Interval | 60s ± 5s | ❌ Too regular | +3 |
+| Jitter | 8% | ❌ Low variance | +2 |
+| Packet size | 256 bytes | ⚠️ Fixed | +1 |
+| Session duration | 24/7 | ❌ Non-human | +3 |
+
+### C2 Containment Steps
+- [ ] Block C2 domain/IP at firewall
+- [ ] Sinkhole DNS for C2 domain
+- [ ] Isolate infected endpoints
+- [ ] Capture memory for analysis
+- [ ] Identify all beaconing hosts
+
 ## อ้างอิง
 
 - [MITRE ATT&CK — Command and Control](https://attack.mitre.org/tactics/TA0011/)

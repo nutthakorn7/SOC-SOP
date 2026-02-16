@@ -207,6 +207,25 @@ graph LR
 - [PB-05 บัญชีถูกบุกรุก](Account_Compromise.th.md)
 - [PB-19 อุปกรณ์สูญหาย](Lost_Device.th.md)
 
+## Mobile Threat Assessment
+
+| Threat | iOS Risk | Android Risk | Detection |
+|:---|:---|:---|:---|
+| Jailbreak/Root | Medium | High | MDM check |
+| Malicious app | Low | High | App scanning |
+| Network MitM | Medium | Medium | Certificate pinning |
+| SMS phishing | Medium | Medium | User report |
+| Device theft | Medium | Medium | MDM geofencing |
+
+### MDM Response Actions
+
+| Action | iOS | Android | Impact |
+|:---|:---|:---|:---|
+| Remote lock | ✅ | ✅ | Low |
+| Remote wipe | ✅ | ✅ | High |
+| App removal | ✅ | ✅ | Medium |
+| VPN force | ✅ | ✅ | Low |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK Mobile — T1456](https://attack.mitre.org/techniques/T1456/)

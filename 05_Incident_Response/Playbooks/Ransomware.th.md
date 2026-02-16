@@ -188,6 +188,40 @@ graph TD
 - [PB-03 มัลแวร์](Malware_Infection.th.md)
 - [PB-09 Lateral Movement](Lateral_Movement.th.md)
 
+## Ransomware Decision Framework
+
+| Question | Yes | No |
+|:---|:---|:---|
+| Backups available? | Restore from backup | Assess alternatives |
+| Backups verified clean? | Begin restore | Scan backups first |
+| Ransom affordable? | Legal consult | Focus on recovery |
+| Decryptor available? | Use ID Ransomware | Continue assessment |
+| Critical data affected? | Escalate to CEO | Standard IR |
+
+### Recovery Priority Matrix
+
+| System | Priority | RTO | Restore Method |
+|:---|:---|:---|:---|
+| Domain Controllers | P1 | 4 hrs | DSRM restore |
+| Core databases | P1 | 8 hrs | Backup restore |
+| Email servers | P2 | 12 hrs | Cloud failover |
+| File servers | P2 | 24 hrs | Backup restore |
+| Workstations | P3 | 48 hrs | Reimage |
+
+### Post-Ransomware Hardening
+
+```
+Hardening Checklist:
+━━━━━━━━━━━━━━━━━━━
+☐ Patch all systems to current
+☐ Reset ALL credentials
+☐ Enable MFA everywhere
+☐ Segment network (micro)
+☐ Deploy EDR on all endpoints
+☐ Implement backup 3-2-1 rule
+☐ Test restore procedures
+```
+
 ## อ้างอิง
 
 - [CISA — Ransomware Guide](https://www.cisa.gov/stopransomware)

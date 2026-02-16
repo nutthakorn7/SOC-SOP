@@ -208,6 +208,24 @@ sequenceDiagram
 - [PB-22 AWS EC2 Compromise](AWS_EC2_Compromise.th.md)
 - [PB-16 Cloud IAM](Cloud_IAM.th.md)
 
+## Cryptomining Detection Indicators
+
+| Indicator | Source | Threshold |
+|:---|:---|:---|
+| High CPU sustained | EDR/Performance | > 80% for 30 min |
+| Mining pool connection | Network flow | Known pool IPs/domains |
+| Stratum protocol | Network inspection | stratum+tcp:// |
+| GPU utilization spike | Endpoint agent | Unexpected > 60% |
+
+### Resource Impact Assessment
+
+| Host Type | Business Impact | Priority |
+|:---|:---|:---|
+| Production server | High (performance) | P1 |
+| Cloud instance | High (cost) | P1 |
+| User workstation | Medium | P2 |
+| Dev/test server | Low | P3 |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1496 — Resource Hijacking](https://attack.mitre.org/techniques/T1496/)

@@ -181,6 +181,31 @@ sequenceDiagram
 - [PB-05 บัญชีถูกบุกรุก](Account_Compromise.th.md)
 - [PB-26 MFA Bypass](MFA_Bypass.th.md)
 
+## False Positive Assessment
+
+| Scenario | Likely FP? | Verification |
+|:---|:---|:---|
+| VPN + office login | ✅ High | Check VPN logs |
+| Mobile + desktop | ✅ Medium | User confirmation |
+| Two countries < 2 hrs | ❌ Low | Investigate |
+| Service account travel | ❌ Very Low | Alert immediately |
+
+### Velocity Analysis Template
+
+| Login 1 | Login 2 | Distance | Time | Speed | Verdict |
+|:---|:---|:---|:---|:---|:---|
+| Bangkok | Singapore | 1,400 km | 30 min | Impossible | ⚠️ Alert |
+| Bangkok | Chiang Mai | 600 km | 3 hrs | Possible (flight) | ℹ️ Verify |
+| Office | Home (VPN) | Same city | 5 min | VPN likely | ✅ FP |
+
+### Investigation Checklist
+- [ ] Verify both login sources (IP geolocation)
+- [ ] Check for VPN/proxy usage
+- [ ] Contact user for confirmation
+- [ ] Review session tokens and cookies
+- [ ] Check for credential sharing
+- [ ] Assess data access during sessions
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1078 — Valid Accounts](https://attack.mitre.org/techniques/T1078/)

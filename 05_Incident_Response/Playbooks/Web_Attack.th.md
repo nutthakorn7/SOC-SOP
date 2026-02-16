@@ -209,6 +209,25 @@ graph TD
 - [PB-30 API Abuse](API_Abuse.th.md)
 - [PB-18 Exploit](Exploit.th.md)
 
+## OWASP Top 10 Detection Rules
+
+| Attack | WAF Rule | SIEM Correlation |
+|:---|:---|:---|
+| SQL Injection | Pattern match | DB error spike |
+| XSS | Script tag filter | Reflected content |
+| SSRF | Internal IP block | Unusual outbound |
+| Path Traversal | ../ pattern | File access logs |
+| Broken Auth | Rate limiting | Failed login pattern |
+
+### Web Attack Forensics
+
+| Evidence | Location | Collection |
+|:---|:---|:---|
+| Access logs | Web server | Export + preserve |
+| WAF logs | WAF console | API export |
+| Application logs | App server | Centralized logging |
+| Client-side | Browser console | Screenshot/HAR |
+
 ## อ้างอิง
 
 - [OWASP Top 10](https://owasp.org/Top10/)

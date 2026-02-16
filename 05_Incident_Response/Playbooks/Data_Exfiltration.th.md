@@ -208,6 +208,26 @@ sequenceDiagram
 - [PB-14 ภัยคุกคามจากภายใน](Insider_Threat.th.md)
 - [PB-25 DNS Tunneling](DNS_Tunneling.th.md)
 
+## Exfiltration Channel Detection
+
+| Channel | Detection Method | Difficulty |
+|:---|:---|:---|
+| Email attachment | DLP content scan | Easy |
+| Cloud upload | CASB + proxy logs | Medium |
+| USB copy | Endpoint agent | Easy |
+| DNS tunneling | DNS analytics | Hard |
+| Encrypted channel | TLS inspection | Hard |
+| Physical (camera/print) | DLP + physical security | Very Hard |
+
+### Volume-based Alert Thresholds
+
+| Data Type | Threshold | Time Window | Action |
+|:---|:---|:---|:---|
+| Any upload | > 500 MB | 1 hour | Alert SOC |
+| PII/PHI | > 1 record | Any | Alert immediately |
+| Source code | > 10 files | 1 day | Alert + block |
+| Database export | > 1,000 rows | Single query | Alert + block |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK — Exfiltration](https://attack.mitre.org/tactics/TA0010/)

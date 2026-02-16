@@ -190,6 +190,25 @@ graph TD
 - [PB-18 Exploit](Exploit.th.md)
 - [PB-09 Lateral Movement](Lateral_Movement.th.md)
 
+## Network Discovery TTPs
+
+| Technique | Tool | Detection |
+|:---|:---|:---|
+| Port scanning | nmap, masscan | IDS + flow analysis |
+| ARP scanning | arp-scan | ARP anomaly |
+| Service enumeration | nmap -sV | Unusual connections |
+| SNMP sweep | snmpwalk | SNMP traps |
+| DNS zone transfer | dig axfr | DNS query logs |
+
+### Normal vs Suspicious Scanning
+
+| Attribute | Normal (IT Admin) | Suspicious (Threat) |
+|:---|:---|:---|
+| Source | Known mgmt subnet | User workstation |
+| Time | Business hours | After hours |
+| Scope | Specific subnet | Entire network |
+| Tools | Authorized scanner | Unknown binary |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1046 — Network Service Discovery](https://attack.mitre.org/techniques/T1046/)

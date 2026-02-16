@@ -200,6 +200,26 @@ graph TD
 - [PB-03 มัลแวร์](Malware_Infection.th.md)
 - [PB-13 C2 Communication](C2_Communication.th.md)
 
+## Script Risk Assessment
+
+| Script Type | Risk Level | Common Abuse |
+|:---|:---|:---|
+| PowerShell (-Enc) | High | Obfuscated payload |
+| VBScript/JScript | High | Dropper, downloader |
+| Bash/Shell | Medium | Reverse shell |
+| Python | Medium | Recon, exploitation |
+| Batch (.bat/.cmd) | Medium | Persistence |
+
+### Suspicious Script Indicators
+
+| Indicator | Example | Detection |
+|:---|:---|:---|
+| Base64 encoding | -EncodedCommand | Regex pattern |
+| Download cradle | IEX(IWR ...) | Process + network |
+| AMSI bypass | [Ref].Assembly | String match |
+| Obfuscation | String concatenation | Entropy analysis |
+| Uncommon parent | Office → cmd → PS | Process tree |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1059 — Command & Scripting Interpreter](https://attack.mitre.org/techniques/T1059/)

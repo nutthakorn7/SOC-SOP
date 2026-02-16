@@ -196,6 +196,34 @@ sequenceDiagram
 - [PB-16 Cloud IAM](Cloud_IAM.th.md)
 - [PB-08 การนำข้อมูลออก](Data_Exfiltration.th.md)
 
+## Cloud Storage Risk Matrix
+
+| Provider | Service | Common Misconfiguration |
+|:---|:---|:---|
+| AWS | S3 | Public bucket policy |
+| Azure | Blob Storage | Public container |
+| GCP | Cloud Storage | allUsers permission |
+
+### Exposure Assessment Template
+
+| Item | Check | Status |
+|:---|:---|:---|
+| Public access enabled | ☐ Yes / ☐ No | ⚠️/✅ |
+| Sensitive data present | ☐ Yes / ☐ No | ⚠️/✅ |
+| Access logs enabled | ☐ Yes / ☐ No | ⚠️/✅ |
+| Encryption at rest | ☐ Yes / ☐ No | ⚠️/✅ |
+| Data exposed duration | ______ hrs/days | - |
+| Data download count | ______ | - |
+
+### Remediation Priority
+
+| Data Type | Response SLA | Notification |
+|:---|:---|:---|
+| PII/PHI | 1 hr fix | PDPA 72 hr |
+| Credentials/Keys | 30 min | Rotate immediately |
+| Internal docs | 4 hrs | Internal notice |
+| Public data | 24 hrs | None required |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1530 — Data from Cloud Storage](https://attack.mitre.org/techniques/T1530/)
