@@ -1,47 +1,93 @@
-# Playbook: การยกระดับสิทธิ์ (Privilege Escalation)
+# Playbook: Privilege Escalation / การยกระดับสิทธิ์
 
 **ID**: PB-07
-**ระดับความรุนแรง**: สูง/วิกฤต | **หมวดหมู่**: การโจมตี
+**ระดับความรุนแรง**: สูง/วิกฤต | **หมวดหมู่**: Identity & Access
 **MITRE ATT&CK**: [T1068](https://attack.mitre.org/techniques/T1068/) (Exploitation for Privilege Escalation), [T1078](https://attack.mitre.org/techniques/T1078/) (Valid Accounts)
-**ทริกเกอร์**: EDR alert, AD anomaly, Event 4672/4728/4732, SIEM correlation
+**ทริกเกอร์**: EDR alert, SIEM (Event 4672/4728/4732), PAM alert, sudo anomaly
+
+---
+
+## ผังการตัดสินใจ
+
+```mermaid
+graph TD
+    Alert["🚨 Privilege Escalation"] --> Type{"⚙️ ประเภท?"}
+    Type -->|Exploit-based| Exploit["💥 Kernel/App Exploit"]
+    Type -->|Credential-based| Cred["🔑 Credential Theft"]
+    Type -->|Config-based| Config["⚙️ Misconfiguration"]
+    Exploit --> Impact{"📊 ระดับสิทธิ์?"}
+    Cred --> Impact
+    Config --> Impact
+    Impact -->|Domain Admin| Critical["🔴 DCSync / Golden Ticket"]
+    Impact -->|Local Admin| High["🟠 Lateral Movement Risk"]
+    Impact -->|Elevated User| Medium["🟡 Monitor + Revert"]
+```
 
 ---
 
 ## 1. การวิเคราะห์
 
-### 1.1 วิธีการยกระดับสิทธิ์
+### 1.1 เทคนิคการยกระดับสิทธิ์
 
-| วิธี | Windows Event | ความรุนแรง |
-|:---|:---|:---|
-| **เพิ่มใน Admin group** | 4728, 4732 | 🔴 สูง |
-| **Token manipulation** | 4672 (special privileges) | 🔴 สูง |
-| **Exploit (local)** | Process anomaly | 🔴 สูง |
-| **Pass-the-Hash** | 4624 (NTLM auth) | 🔴 วิกฤต |
-| **DCSync** | 4662 (replication) | 🔴 วิกฤต |
-| **Golden Ticket** | 4769 anomaly | 🔴 วิกฤต |
-| **Sudo abuse** (Linux) | sudo log | 🟠 สูง |
+| เทคนิค | ตัวบ่งชี้ | Event ID | ความรุนแรง |
+|:---|:---|:---|:---|
+| **Kernel Exploit** | Exploit binary, SYSTEM shell | — | 🔴 วิกฤต |
+| **UAC Bypass** | Auto-elevate abuse | — | 🟠 สูง |
+| **Token Manipulation** | Token impersonation/theft | 4672 | 🔴 สูง |
+| **Sudo/SUID Abuse** (Linux) | sudo misconfig, SUID binary | — | 🟠 สูง |
+| **Service Permissions** | Modifiable service path/binary | 7045 | 🟠 สูง |
+| **DLL Hijacking** | DLL ใน writable path | — | 🟠 สูง |
+| **Group Policy Abuse** | GPO modification | — | 🔴 สูง |
+| **DCSync** | Domain replication (mimikatz) | 4662 | 🔴 วิกฤต |
+| **Golden Ticket** | Forged Kerberos TGT | — | 🔴 วิกฤต |
+| **Silver Ticket** | Forged service ticket | — | 🔴 สูง |
 
-### 1.2 รายการตรวจสอบ
+### 1.2 Windows Event IDs สำคัญ
+
+| Event ID | ความหมาย |
+|:---|:---|
+| **4672** | Special privileges assigned (admin logon) |
+| **4728** | Member added to security-enabled global group |
+| **4732** | Member added to security-enabled local group |
+| **4756** | Member added to universal group |
+| **4662** | Operation performed on AD object (DCSync indicator) |
+| **7045** | New service installed |
+
+### 1.3 รายการตรวจสอบ
 
 | รายการ | วิธีตรวจสอบ | เสร็จ |
 |:---|:---|:---:|
-| วิธีที่ใช้ยกระดับสิทธิ์ | EDR / Event Logs | ☐ |
-| บัญชีที่ได้รับสิทธิ์เพิ่ม | AD audit | ☐ |
-| กิจกรรมหลังยกระดับ | SIEM timeline | ☐ |
-| เครื่องมือที่ใช้ (Mimikatz, etc.) | EDR | ☐ |
-| มี lateral movement ตามมาหรือไม่ | SIEM correlation | ☐ |
+| ผู้ใช้/process ที่ได้รับสิทธิ์สูง | EDR / SIEM | ☐ |
+| เทคนิคที่ใช้ (exploit/credential/misconfig) | EDR analysis | ☐ |
+| ระดับสิทธิ์ที่ได้ (local admin/domain admin/SYSTEM) | EDR / AD audit | ☐ |
+| มี lateral movement ตามมา? | SIEM correlation | ☐ |
+| มี DCSync / credential dumping? | Event 4662 / SIEM | ☐ |
+| AD group membership เปลี่ยน? | Event 4728/4732 | ☐ |
+| มี GPO ถูกแก้ไข? | Group Policy audit | ☐ |
+| Entry vector (ได้สิทธิ์เริ่มต้นอย่างไร) | EDR timeline | ☐ |
 
 ---
 
 ## 2. การควบคุม
 
+### 2.1 Local Privilege Escalation
+
 | # | การดำเนินการ | เสร็จ |
 |:---:|:---|:---:|
-| 1 | **ล็อกบัญชี** ที่ถูกยกระดับ | ☐ |
-| 2 | **ลบ** ออกจาก admin group | ☐ |
-| 3 | **Isolate** host ที่ถูกใช้ | ☐ |
-| 4 | **หมุนเวียน** admin credentials | ☐ |
-| 5 | หาก DCSync → **รีเซ็ต KRBTGT** 2 ครั้ง | ☐ |
+| 1 | **Isolate** host | ☐ |
+| 2 | **Kill** malicious process | ☐ |
+| 3 | **ลบ** local admin ที่เพิ่มมา | ☐ |
+| 4 | **Patch** vulnerability ที่ใช้ exploit | ☐ |
+
+### 2.2 Domain-level Escalation
+
+| # | การดำเนินการ | เสร็จ |
+|:---:|:---|:---:|
+| 1 | **รีเซ็ต KRBTGT** password (2 ครั้ง, ห่างกัน 12 ชม.) | ☐ |
+| 2 | **รีเซ็ต** compromised Domain Admin password | ☐ |
+| 3 | **ลบ** unauthorized group memberships | ☐ |
+| 4 | **Revert** GPO changes | ☐ |
+| 5 | **Scan** ทุก DC สำหรับ persistence | ☐ |
 
 ---
 
@@ -49,9 +95,11 @@
 
 | # | การดำเนินการ | เสร็จ |
 |:---:|:---|:---:|
-| 1 | ลบ attack tools ทั้งหมด | ☐ |
-| 2 | ลบ persistence | ☐ |
-| 3 | หมุนเวียน credentials ทั้งหมดที่อาจถูกขโมย | ☐ |
+| 1 | ลบ exploit tools (mimikatz, Rubeus, SharpHound) | ☐ |
+| 2 | ลบ persistence (services, scheduled tasks, registry) | ☐ |
+| 3 | หมุนเวียน credentials ทั้งหมดที่เข้าถึงได้ | ☐ |
+| 4 | ลบ forged tickets / cached credentials | ☐ |
+| 5 | แก้ไข misconfiguration ที่ถูกใช้ (service perms, SUID) | ☐ |
 
 ---
 
@@ -59,10 +107,12 @@
 
 | # | การดำเนินการ | เสร็จ |
 |:---:|:---|:---:|
-| 1 | ใช้ LAPS / Credential Guard | ☐ |
-| 2 | ใช้ Protected Users group | ☐ |
-| 3 | Tiered admin model | ☐ |
-| 4 | ตรวจสอบสิทธิ์ admin ทุกไตรมาส | ☐ |
+| 1 | Deploy **LAPS** (Local Admin Password Solution) | ☐ |
+| 2 | เปิด **Credential Guard** | ☐ |
+| 3 | ใช้ **PAM** (Privileged Access Management) / PIM | ☐ |
+| 4 | ใช้ **Admin Tiering** (Tier 0/1/2) | ☐ |
+| 5 | เปิด **Protected Users** security group | ☐ |
+| 6 | ตรวจ AD permissions ทุกไตรมาส | ☐ |
 
 ---
 
@@ -70,9 +120,11 @@
 
 | เงื่อนไข | ยกระดับไปยัง |
 |:---|:---|
-| Domain Admin / DCSync / Golden Ticket | CISO + Major Incident |
-| Lateral movement ตามมา | [PB-09 Lateral Movement](Lateral_Movement.th.md) |
-| ข้อมูลถูกเข้าถึง | [PB-08 Data Exfiltration](Data_Exfiltration.th.md) |
+| Domain Admin compromise | CISO + Major Incident |
+| DCSync / Golden Ticket | CISO + AD team ทันที |
+| หลาย host ได้รับ escalation | Major Incident |
+| ข้อมูลถูกเข้าถึง | Legal + DPO |
+| Lateral movement ตรวจพบ | [PB-09 Lateral Movement](Lateral_Movement.th.md) |
 
 ---
 
@@ -80,6 +132,7 @@
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)
 - [PB-09 Lateral Movement](Lateral_Movement.th.md)
+- [PB-05 บัญชีถูกบุกรุก](Account_Compromise.th.md)
 
 ## อ้างอิง
 

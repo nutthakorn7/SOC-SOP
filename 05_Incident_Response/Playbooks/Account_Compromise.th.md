@@ -3,46 +3,83 @@
 **ID**: PB-05
 **ระดับความรุนแรง**: สูง | **หมวดหมู่**: Identity & Access
 **MITRE ATT&CK**: [T1078](https://attack.mitre.org/techniques/T1078/) (Valid Accounts), [T1110](https://attack.mitre.org/techniques/T1110/) (Brute Force)
-**ทริกเกอร์**: IdP risk alert, impossible travel, MFA anomaly, credential leak (TI)
+**ทริกเกอร์**: Identity Protection alert, SIEM (impossible travel, anomalous activity), leaked credential alert, ผู้ใช้รายงาน
+
+---
+
+## ผังการตัดสินใจ
+
+```mermaid
+graph TD
+    Alert["🚨 Account Compromise"] --> Source{"📋 แหล่งที่มา?"}
+    Source -->|Credential Leak| Leak["💧 ตรวจ Dark Web"]
+    Source -->|Brute Force| BF["🔑 Login สำเร็จ?"]
+    Source -->|Phishing| Phish["📧 AiTM / Token Theft?"]
+    Source -->|Insider Report| Report["👤 User ไม่ได้ Login"]
+    Leak --> Reset["🔐 Force Reset"]
+    BF -->|ใช่| Investigate["🔎 ตรวจกิจกรรม"]
+    BF -->|ไม่| Block["🔒 Block IP"]
+    Phish --> Investigate
+    Report --> Investigate
+    Investigate --> Impact{"📊 กิจกรรมผิดปกติ?"}
+    Impact -->|ข้อมูลถูกเข้าถึง| Data["🔴 Legal + DPO"]
+    Impact -->|Inbox rules สร้าง| BEC["🔴 BEC Investigation"]
+    Impact -->|ไม่มีกิจกรรม| Contain["🟠 Reset + Monitor"]
+```
 
 ---
 
 ## 1. การวิเคราะห์
 
-### 1.1 ตัวบ่งชี้ Account Compromise
+### 1.1 ตัวบ่งชี้การบุกรุกบัญชี
 
-| ตัวบ่งชี้ | การตรวจจับ | ความรุนแรง |
+| ตัวบ่งชี้ | วิธีตรวจสอบ | ความรุนแรง |
 |:---|:---|:---|
-| Login จาก IP/location ผิดปกติ | SIEM / IdP | 🟠 สูง |
-| Impossible travel | UEBA | 🟠 สูง |
-| Credentials ถูกพบใน dark web | TI feeds | 🔴 วิกฤต |
-| MFA bypass / fatigue | IdP logs | 🔴 วิกฤต |
-| สร้าง inbox rules / forwarding | Exchange audit | 🔴 สูง |
-| ดาวน์โหลดข้อมูลมากผิดปกติ | DLP / Cloud audit | 🔴 สูง |
+| **Login จาก IP/ประเทศผิดปกติ** | Sign-in logs / GeoIP | 🟠 สูง |
+| **MFA ถูกปิดหรือเปลี่ยน** | IdP audit logs | 🔴 วิกฤต |
+| **Inbox forwarding rules** สร้างใหม่ | Exchange audit | 🔴 สูง |
+| **OAuth apps** ถูก consent | Enterprise Apps | 🔴 สูง |
+| **Credential ใน breach database** | Have I Been Pwned / TI | 🟠 สูง |
+| **Password spray สำเร็จ** | SIEM (Event 4624 after 4625s) | 🔴 สูง |
 
 ### 1.2 รายการตรวจสอบ
 
 | รายการ | วิธีตรวจสอบ | เสร็จ |
 |:---|:---|:---:|
-| บัญชีใดถูกบุกรุก? | SIEM / IdP | ☐ |
-| เข้าสู่ระบบจาก IP/location ไหน? | Sign-in logs | ☐ |
-| ทำกิจกรรมอะไรหลัง login? | Cloud audit / SIEM | ☐ |
-| มี inbox rules ถูกสร้าง? | Exchange audit | ☐ |
-| มี OAuth apps ถูก consent? | Enterprise Apps | ☐ |
-| ข้อมูลอะไรถูกเข้าถึง? | File audit logs | ☐ |
-| บัญชีมีสิทธิ์ admin หรือไม่? | IAM / AD | ☐ |
+| บัญชีที่ได้รับผลกระทบ (+role/privileges) | IdP | ☐ |
+| Sign-in details (IP, device, client app, MFA method) | Sign-in logs | ☐ |
+| Credential source (leak, phishing, brute force) | TI / SIEM | ☐ |
+| กิจกรรมหลัง login (files accessed, emails sent) | Cloud audit | ☐ |
+| Inbox rules / forwarding สร้างใหม่? | Exchange audit | ☐ |
+| OAuth apps ถูก consent? | Enterprise Apps | ☐ |
+| MFA methods เปลี่ยน? | IdP audit | ☐ |
+| มีบัญชีอื่นถูกบุกรุกด้วย? (same password) | SIEM pivot | ☐ |
+| ข้อมูลอะไรถูกเข้าถึง? | File audit / DLP | ☐ |
+
+### 1.3 กิจกรรมหลังบุกรุก (Post-Compromise)
+
+| กิจกรรม | ตรวจสอบ | เสร็จ |
+|:---|:---|:---:|
+| ดาวน์โหลดข้อมูลจาก SharePoint/OneDrive | Cloud audit | ☐ |
+| ส่งอีเมลไปยัง external (BEC attempt) | Message trace | ☐ |
+| สร้าง inbox rules (auto-delete/forward) | Get-InboxRule | ☐ |
+| เพิ่ม delegates/permissions | Get-MailboxPermission | ☐ |
+| consent OAuth app (Mail.Read/Send) | Enterprise Apps | ☐ |
+| Password/MFA เปลี่ยน | IdP audit | ☐ |
+| เข้าถึง VPN/internal applications | VPN/App logs | ☐ |
 
 ---
 
 ## 2. การควบคุม
 
-| # | การดำเนินการ | เสร็จ |
-|:---:|:---|:---:|
-| 1 | **เพิกถอน sessions** และ tokens ทั้งหมด | ☐ |
-| 2 | **รีเซ็ตรหัสผ่าน** ผ่านช่องทางที่ยืนยัน | ☐ |
-| 3 | **ปิดบัญชี** ชั่วคราว (ถ้ายังไม่ยืนยันตัวผู้ใช้ได้) | ☐ |
-| 4 | **ลบ** inbox rules / OAuth consents ที่อันตราย | ☐ |
-| 5 | **Block** source IP | ☐ |
+| # | การดำเนินการ | เครื่องมือ | เสร็จ |
+|:---:|:---|:---|:---:|
+| 1 | **รีเซ็ตรหัสผ่าน** ทันที (out-of-band) | IdP admin | ☐ |
+| 2 | **เพิกถอน sessions** และ refresh tokens ทั้งหมด | IdP admin | ☐ |
+| 3 | **ลบ inbox forwarding rules** ที่อันตราย | Exchange admin | ☐ |
+| 4 | **ลบ OAuth apps** ที่ไม่ได้รับอนุมัติ | Enterprise Apps | ☐ |
+| 5 | **Block** source IP ที่ firewall/proxy | Security tools | ☐ |
+| 6 | **ตรวจ** shared/similar passwords กับบัญชีอื่น | Password audit | ☐ |
 
 ---
 
@@ -50,10 +87,10 @@
 
 | # | การดำเนินการ | เสร็จ |
 |:---:|:---|:---:|
-| 1 | ลบ forwarding rules และ delegates | ☐ |
-| 2 | ลบ OAuth app consents ที่ไม่ได้รับอนุมัติ | ☐ |
-| 3 | ล้างและลงทะเบียน MFA ใหม่ | ☐ |
-| 4 | ตรวจสอบว่าผู้โจมตีเข้าถึงบัญชีอื่นหรือไม่ | ☐ |
+| 1 | ลงทะเบียน **MFA ใหม่** (FIDO2/passkeys ถ้าเป็นไปได้) | ☐ |
+| 2 | ลบ delegates/permissions ที่เพิ่มมา | ☐ |
+| 3 | ลบ app registrations / credentials ที่สร้างระหว่างโจมตี | ☐ |
+| 4 | ตรวจว่า attacker ส่งอีเมลหลอกจากบัญชีนี้ → แจ้ง recipients | ☐ |
 
 ---
 
@@ -61,10 +98,12 @@
 
 | # | การดำเนินการ | เสร็จ |
 |:---:|:---|:---:|
-| 1 | เปิดบัญชีด้วย phishing-resistant MFA | ☐ |
-| 2 | บังคับ Conditional Access policies | ☐ |
-| 3 | เปิด credential monitoring (dark web) | ☐ |
-| 4 | ติดตามบัญชี 30 วัน | ☐ |
+| 1 | เปิด **Credential Leak Monitoring** (dark web) | ☐ |
+| 2 | บังคับ **Phishing-resistant MFA** (FIDO2/passkeys) | ☐ |
+| 3 | เปิด **CAE** (Continuous Access Evaluation) | ☐ |
+| 4 | บังคับ **Password Complexity** + ห้ามใช้ซ้ำ | ☐ |
+| 5 | ใช้ **Conditional Access** (location, device compliance) | ☐ |
+| 6 | **Security awareness training** สำหรับ phishing | ☐ |
 
 ---
 
@@ -72,19 +111,20 @@
 
 | เงื่อนไข | ยกระดับไปยัง |
 |:---|:---|
-| Admin account ถูกบุกรุก | CISO + Major Incident |
-| MFA ถูก bypass | [PB-26 MFA Bypass](MFA_Bypass.th.md) |
-| ข้อมูลถูกนำออก | Legal + DPO (PDPA 72 ชม.) |
-| BEC follow-up | [PB-17 BEC](BEC.th.md) |
-| หลายบัญชี | Major Incident |
+| Admin/privileged account | CISO ทันที |
+| BEC indicators (inbox rules + financial requests) | [PB-17 BEC](BEC.th.md) |
+| ข้อมูลสำคัญถูกเข้าถึง/ดาวน์โหลด | [PB-08 Data Exfil](Data_Exfiltration.th.md) + Legal |
+| Token theft / AiTM | [PB-26 MFA Bypass](MFA_Bypass.th.md) |
+| หลายบัญชีถูกบุกรุก (same campaign) | Major Incident |
+| Lateral movement ตรวจพบ | [PB-09 Lateral Movement](Lateral_Movement.th.md) |
 
 ---
 
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)
+- [PB-04 Brute Force](Brute_Force.th.md)
 - [PB-01 ฟิชชิง](Phishing.th.md)
-- [PB-26 MFA Bypass](MFA_Bypass.th.md)
 
 ## อ้างอิง
 

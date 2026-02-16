@@ -1,48 +1,91 @@
-# Playbook: การโจมตีเว็บแอปพลิเคชัน (Web Attack)
+# Playbook: Web Attack / การโจมตีเว็บแอปพลิเคชัน
 
 **ID**: PB-10
-**ระดับความรุนแรง**: สูง | **หมวดหมู่**: ความปลอดภัยแอปพลิเคชัน
+**ระดับความรุนแรง**: สูง/วิกฤต | **หมวดหมู่**: ความปลอดภัยแอปพลิเคชัน
 **MITRE ATT&CK**: [T1190](https://attack.mitre.org/techniques/T1190/) (Exploit Public-Facing Application)
-**ทริกเกอร์**: WAF alert, IDS/IPS, รายงาน Bug Bounty, Defacement
+**ทริกเกอร์**: WAF alert, IDS/IPS, SIEM correlation, Bug bounty report
+
+---
+
+## ผังการตัดสินใจ
+
+```mermaid
+graph TD
+    Alert["🚨 Web Attack Alert"] --> Type{"⚙️ ประเภท OWASP?"}
+    Type -->|SQLi| SQL["💉 SQL Injection"]
+    Type -->|XSS| XSS["📜 Cross-Site Scripting"]
+    Type -->|RCE/RFI| RCE["💥 Remote Code Execution"]
+    Type -->|Path Traversal| Path["📂 File Access"]
+    Type -->|Auth Bypass| Auth["🔓 Authentication Bypass"]
+    SQL --> Data{"📊 ข้อมูลรั่วไหล?"}
+    XSS --> Session{"🍪 Session Hijack?"}
+    RCE --> Shell{"🐚 Web Shell?"}
+    Path --> Sensitive{"📁 ไฟล์สำคัญ?"}
+    Auth --> Access{"👤 เข้าถึง Admin?"}
+    Shell -->|ใช่| Critical["🔴 Isolate ทันที"]
+```
 
 ---
 
 ## 1. การวิเคราะห์
 
-### 1.1 ประเภทการโจมตีเว็บ
+### 1.1 ประเภท Web Attack (OWASP Top 10 Mapping)
 
-| ประเภท | OWASP | ตัวบ่งชี้ |
-|:---|:---|:---|
-| **SQL Injection** | A03 | `'`, `UNION SELECT`, `1=1` | 
-| **XSS** | A03 | `<script>`, Event handlers |
-| **Path Traversal** | A01 | `../`, `%2e%2e` |
-| **Remote File Inclusion** | A08 | External URL params |
-| **Web Shell** | A03 | New PHP/ASPX files |
-| **SSRF** | A10 | Internal IP ใน URL params |
-| **Command Injection** | A03 | `; | && ` charactersBin |
-| **Brute Force (Auth)** | A07 | Login failures สูง |
+| ประเภท | OWASP | ลักษณะ | ความรุนแรง |
+|:---|:---|:---|:---|
+| **SQL Injection** | A03 | `' OR 1=1--`, UNION SELECT | 🔴 วิกฤต |
+| **Cross-Site Scripting (XSS)** | A03 | `<script>`, stored/reflected | 🟠 สูง |
+| **Remote Code Execution (RCE)** | A03 | Command injection, file upload | 🔴 วิกฤต |
+| **LFI/RFI** | A01 | `../../etc/passwd`, remote include | 🔴 สูง |
+| **SSRF** | A10 | `http://169.254.169.254/` | 🔴 สูง |
+| **Authentication Bypass** | A07 | Broken auth, JWT manipulation | 🔴 วิกฤต |
+| **Broken Access Control** | A01 | IDOR, privilege escalation | 🔴 สูง |
+| **Deserialization** | A08 | Object injection → RCE | 🔴 วิกฤต |
 
 ### 1.2 รายการตรวจสอบ
 
 | รายการ | วิธีตรวจสอบ | เสร็จ |
 |:---|:---|:---:|
-| ประเภทการโจมตี | WAF logs | ☐ |
-| โจมตีสำเร็จหรือแค่ attempt? | Response code (200 vs 403/500) | ☐ |
-| Source IP | WAF / Web logs | ☐ |
-| Endpoint ที่ถูกโจมตี | URL path analysis | ☐ |
-| มี web shell ถูกวาง? | FIM / file scan | ☐ |
-| มีข้อมูลรั่วไหล? | Response body size | ☐ |
+| URL / endpoint ที่ถูกโจมตี | WAF / access logs | ☐ |
+| ประเภทการโจมตี (ดูตาราง 1.1) | WAF rule / payload analysis | ☐ |
+| โจมตีสำเร็จ หรือถูก WAF block? | WAF logs (block vs detect) | ☐ |
+| Source IP | WAF / access logs | ☐ |
+| มี web shell ถูกวาง? | File integrity / EDR | ☐ |
+| มีข้อมูลรั่วไหล? (SQLi → DB dump) | DB query logs | ☐ |
+| มีหลาย endpoint ถูกโจมตี? (automated scan) | WAF | ☐ |
+| มี lateral movement ตามมา? | SIEM | ☐ |
+
+### 1.3 Web Shell Indicators
+
+| ตัวบ่งชี้ | เครื่องมือ |
+|:---|:---|
+| ไฟล์ใหม่ใน web root (*.php, *.aspx, *.jsp) | File integrity monitoring |
+| POST requests ไปยังไฟล์ที่ไม่รู้จัก | Access logs |
+| Outbound connections จาก web server | Netflow / EDR |
+| Process spawn จาก web server (cmd, bash) | EDR / Sysmon |
 
 ---
 
 ## 2. การควบคุม
 
+### 2.1 Attack Blocked (WAF caught)
+
 | # | การดำเนินการ | เสร็จ |
 |:---:|:---|:---:|
-| 1 | **Block** source IP ที่ WAF/Firewall | ☐ |
-| 2 | **Virtual patch** — เพิ่ม WAF rule สำหรับ attack pattern | ☐ |
-| 3 | **ลบ web shell** หากพบ | ☐ |
-| 4 | **Take offline** หากข้อมูลรั่วไหลอยู่ | ☐ |
+| 1 | **Block** source IP ที่ WAF/firewall | ☐ |
+| 2 | **ตรวจ** ว่ามี bypass attempts อื่น | ☐ |
+| 3 | **เพิ่ม** WAF virtual patch สำหรับ vulnerability | ☐ |
+
+### 2.2 Attack Succeeded
+
+| # | การดำเนินการ | เสร็จ |
+|:---:|:---|:---:|
+| 1 | **ย้าย** web application ไปหลัง WAF (ถ้ายังไม่มี) | ☐ |
+| 2 | **Virtual patch** ที่ WAF สำหรับ attack pattern | ☐ |
+| 3 | **ค้นหาและลบ web shell** | ☐ |
+| 4 | **Block** source IP + C2 IPs | ☐ |
+| 5 | **Isolate** web server (ถ้า RCE confirmed) | ☐ |
+| 6 | **หมุนเวียน** DB credentials (SQLi) / API keys | ☐ |
 
 ---
 
@@ -50,10 +93,11 @@
 
 | # | การดำเนินการ | เสร็จ |
 |:---:|:---|:---:|
-| 1 | **Patch** แอปพลิเคชันที่มีช่องโหว่ | ☐ |
-| 2 | ลบ backdoor / web shell ทั้งหมด | ☐ |
-| 3 | ตรวจ database สำหรับ injected data | ☐ |
-| 4 | รีเซ็ต application credentials | ☐ |
+| 1 | **แก้ไข source code** — fix vulnerability | ☐ |
+| 2 | ลบ web shell + backdoor | ☐ |
+| 3 | ลบ persistence (cron, scheduled tasks) | ☐ |
+| 4 | หมุนเวียน credentials ทั้งหมด (DB, API, session secrets) | ☐ |
+| 5 | Rebuild web server จาก clean image (ถ้า RCE) | ☐ |
 
 ---
 
@@ -61,10 +105,12 @@
 
 | # | การดำเนินการ | เสร็จ |
 |:---:|:---|:---:|
-| 1 | ปรับ WAF rules ถาวร | ☐ |
-| 2 | เพิ่ม input validation / parameterized queries | ☐ |
-| 3 | สั่ง penetration test | ☐ |
-| 4 | เปิด SAST/DAST ใน CI/CD | ☐ |
+| 1 | Deploy **WAF** พร้อม OWASP Core Rule Set | ☐ |
+| 2 | สั่ง **SAST/DAST** security scan | ☐ |
+| 3 | เปิด **parameterized queries** (prevent SQLi) | ☐ |
+| 4 | เปิด **Content-Security-Policy** headers (prevent XSS) | ☐ |
+| 5 | เปิด **file integrity monitoring** บน web root | ☐ |
+| 6 | ตั้ง **web application pen test** ทุก 6 เดือน | ☐ |
 
 ---
 
@@ -72,16 +118,18 @@
 
 | เงื่อนไข | ยกระดับไปยัง |
 |:---|:---|
-| SQL Injection สำเร็จ — ข้อมูลรั่ว | Legal + DPO (PDPA 72 ชม.) |
-| Web shell ถูกวาง | Tier 2 + [PB-13 C2](C2_Communication.th.md) |
-| Defacement | PR + Management |
-| SSRF เข้าถึงระบบภายใน | Major Incident |
+| Web shell confirmed (RCE) | SOC Lead + CISO |
+| SQLi + data exfiltrated | Legal + DPO (PDPA 72 ชม.) |
+| หลาย applications ถูกโจมตี | Major Incident |
+| Zero-day ใน web framework | [PB-24 Zero-Day](Zero_Day_Exploit.th.md) |
+| SSRF → cloud metadata access | [PB-16 Cloud IAM](Cloud_IAM.th.md) |
 
 ---
 
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)
+- [PB-30 API Abuse](API_Abuse.th.md)
 - [PB-18 Exploit](Exploit.th.md)
 
 ## อ้างอิง
