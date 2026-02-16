@@ -52,6 +52,49 @@ A fully functional SOC requires the following core components:
 -   **Log Shippers**: Use dedicated forwarders to send logs to the SIEM securely (TLS encryption).
 -   **Jump Host**: Use a secure Jump Host or VPN for administrative access to SOC infrastructure.
 
+## 4. Tool Access Matrix
+
+| Tool | Tier 1 Analyst | Tier 2 Analyst | Tier 3/IR | SOC Engineer | SOC Manager |
+|:---|:---:|:---:|:---:|:---:|:---:|
+| SIEM (Read) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| SIEM (Write/Config) | ❌ | ❌ | ✅ | ✅ | ✅ |
+| EDR (View/Triage) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| EDR (Isolate/Contain) | ❌ | ✅ | ✅ | ✅ | ✅ |
+| SOAR (Execute Playbooks) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| SOAR (Configure Workflows) | ❌ | ❌ | ✅ | ✅ | ✅ |
+| Ticketing (Create/Update) | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Ticketing (Admin) | ❌ | ❌ | ❌ | ✅ | ✅ |
+| Firewall/Proxy (View Logs) | ❌ | ✅ | ✅ | ✅ | ✅ |
+| Firewall/Proxy (Block) | ❌ | ❌ | ✅ | ✅ | ✅ |
+
+## 5. Health Check Schedule
+
+| Component | Check | Frequency | Owner |
+|:---|:---|:---|:---|
+| SIEM Indexing | Verify all parsers active, no queue backlog | Hourly (automated) | SOC Engineering |
+| EDR Coverage | Verify agent health on ≥95% endpoints | Daily | SOC Engineering |
+| SOAR Connectivity | Test all integrations (API health check) | Daily | SOC Engineering |
+| Log Forwarding | Confirm all critical sources reporting | Every shift | Shift Lead |
+| Backup Status | Verify last backup success | Daily | SOC Engineering |
+| Certificate Expiry | Check TLS certs for all SOC tools | Weekly | SOC Engineering |
+
+## 6. Initial Setup Checklist
+
+| # | Task | Owner | Done |
+|:---:|:---|:---|:---:|
+| 1 | Provision network segment for SOC infrastructure | Network Team | ☐ |
+| 2 | Deploy SIEM cluster with HA configuration | SOC Engineering | ☐ |
+| 3 | Install EDR agents on all endpoints | Endpoint Team | ☐ |
+| 4 | Configure SOAR integrations (SIEM, EDR, Ticketing) | SOC Engineering | ☐ |
+| 5 | Set up ticketing system and workflow rules | SOC Engineering | ☐ |
+| 6 | Enable audit logging on all SOC tools | SOC Engineering | ☐ |
+| 7 | Configure MFA for all SOC analyst accounts | IAM Team | ☐ |
+| 8 | Implement RBAC roles (Analyst, Engineer, Manager) | IAM Team | ☐ |
+| 9 | Set up jump host / VPN access | Network Team | ☐ |
+| 10 | Validate log ingestion from all critical sources | SOC Engineering | ☐ |
+| 11 | Import baseline detection rules | Detection Engineering | ☐ |
+| 12 | Conduct initial health check validation | SOC Manager | ☐ |
+
 ## Related Documents
 -   [Analyst Onboarding Path](../09_Training_Onboarding/Analyst_Onboarding_Path.en.md)
 -   [Data Governance & Retention](../02_Platform_Operations/Database_Management.en.md)

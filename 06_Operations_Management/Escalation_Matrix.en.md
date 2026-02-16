@@ -59,6 +59,34 @@ When escalating, include:
 5. **What is needed** — approval, resources, expertise
 6. **Urgency** — why escalation is needed now
 
+## After-Hours Escalation
+
+| Time | Primary Contact | Backup Contact | Method |
+|:---|:---|:---|:---|
+| Business hours (08:00–18:00) | SOC Lead on shift | SOC Manager | Chat → Phone |
+| After hours (18:00–08:00) | On-call SOC Lead | SOC Manager (phone) | Phone only |
+| Weekends / Holidays | On-call rotation | SOC Manager (phone) | Phone only |
+| Critical (any time) | SOC Manager direct | CISO | Phone + SMS |
+
+## Override & Bypass Rules
+
+| Scenario | Can Bypass Normal Escalation? | Authority Required |
+|:---|:---|:---|
+| Active data breach in progress | ✅ Yes — escalate directly to CISO | SOC Lead |
+| Ransomware with active encryption | ✅ Yes — skip to L3 + Management | Any analyst |
+| Nation-state / APT indicators | ✅ Yes — direct to CISO + Legal | SOC Manager |
+| Routine false positive | ❌ No | Follow standard path |
+
+## Escalation Metrics
+
+| KPI | Target | Measurement |
+|:---|:---|:---|
+| Escalation response time (Critical) | < 15 min | Time from escalation to acknowledgment |
+| Escalation response time (High) | < 30 min | Time from escalation to acknowledgment |
+| Escalation accuracy | > 90% | Escalations that were justified |
+| Missed escalations | 0 | Incidents that should have been escalated but weren't |
+| Mean time to management notification | < 1 hour | For Critical/High incidents |
+
 ## Related Documents
 
 - [IR Framework](../05_Incident_Response/Framework.en.md)

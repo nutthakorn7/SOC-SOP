@@ -59,6 +59,53 @@ sequenceDiagram
 -   If verification fails, immediately revert to the pre-deployment snapshot.
 -   Conduct a Root Cause Analysis (RCA) for failed changes.
 
+## 4. Change Risk Assessment
+
+| Risk Level | Criteria | Approval | Maintenance Window |
+|:---|:---|:---|:---|
+| **Low** | Cosmetic, documentation, non-impacting | SOC Lead | Anytime |
+| **Medium** | New detection rule, parser update | SOC Manager | Business hours |
+| **High** | SIEM config, integration change | SOC Manager + CAB | Maintenance window |
+| **Critical** | Infrastructure, network, auth changes | CISO + CAB | Scheduled downtime |
+
+## 5. Maintenance Windows
+
+| Window | Schedule | Duration | Use For |
+|:---|:---|:---|:---|
+| **Standard** | Tuesday & Thursday 02:00–06:00 | 4 hours | Medium/High changes |
+| **Emergency** | As needed (CAB approval) | 2 hours | Critical hotfixes |
+| **Extended** | Last Saturday of month 00:00–08:00 | 8 hours | Infrastructure upgrades |
+
+## 6. Deployment Checklist
+
+| # | Step | Owner | Done |
+|:---:|:---|:---|:---:|
+| 1 | RFC submitted and approved | Engineer | ☐ |
+| 2 | Peer review completed (detection rules) | Detection Eng | ☐ |
+| 3 | Pre-deployment snapshot/backup taken | Engineer | ☐ |
+| 4 | Change tested in staging environment | Engineer | ☐ |
+| 5 | Rollback plan documented and tested | Engineer | ☐ |
+| 6 | Deployment window confirmed | SOC Manager | ☐ |
+| 7 | Stakeholders notified of change | SOC Lead | ☐ |
+| 8 | Change deployed to production | Engineer | ☐ |
+| 9 | Post-deployment verification completed | Engineer | ☐ |
+| 10 | Monitoring for 30 min post-change (no errors) | SOC Lead | ☐ |
+| 11 | RFC closed with results documented | Engineer | ☐ |
+
+## 7. Detection-as-Code Pipeline
+
+```mermaid
+graph LR
+    Author["Author Rule"] --> PR["Pull Request"]
+    PR --> Review["Peer Review"]
+    Review --> CI["CI Pipeline"]
+    CI --> Syntax["Syntax Check"]
+    Syntax --> Unit["Unit Test"]
+    Unit --> Staging["Deploy Staging"]
+    Staging --> Validate["Validate 24h"]
+    Validate --> Prod["Deploy Production"]
+```
+
 ## Related Documents
 -   [Change Request Template](../templates/change_request_rfc.en.md)
 -   [Data Governance & Retention](Database_Management.en.md)

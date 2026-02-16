@@ -53,6 +53,44 @@ Actions Taken: [Containment/investigation steps]
 Decision Required: [What approval/guidance is needed]
 ```
 
+### External / Regulatory Notification
+
+```
+Subject: Security Incident Notification - [Organization Name]
+
+Date: [YYYY-MM-DD]
+Incident Reference: #[ID]
+Nature of Incident: [Brief description]
+Personal Data Affected: [Yes/No — if yes, describe scope]
+Containment Status: [Contained/Under Investigation]
+Remediation Actions: [Steps taken and planned]
+DPO Contact: [Name, Email, Phone]
+```
+
+## Stakeholder RACI Matrix
+
+| Activity | SOC Analyst | SOC Lead | SOC Manager | CISO | Legal/DPO |
+|:---|:---:|:---:|:---:|:---:|:---:|
+| Initial alert triage | **R** | I | | | |
+| Incident escalation | R | **A** | I | | |
+| Internal notification | | R | **A** | I | |
+| External breach notification | | | R | **A** | **R** |
+| Press/media communication | | | I | R | **A** |
+| Regulatory reporting | | | R | A | **R** |
+| Post-incident review | R | R | **A** | I | I |
+
+*R = Responsible, A = Accountable, C = Consulted, I = Informed*
+
+## Communication Audit Checklist
+
+| Item | Frequency | Owner | Status |
+|:---|:---|:---|:---:|
+| Escalation contact list current | Monthly | SOC Manager | ☐ |
+| Notification templates reviewed | Quarterly | SOC Lead | ☐ |
+| War room procedure tested | Quarterly | SOC Manager | ☐ |
+| External notification process tested | Annually | CISO + Legal | ☐ |
+| Stakeholder communication preferences updated | Annually | SOC Manager | ☐ |
+
 ## Related Documents
 
 - [Shift Handoff Standard](Shift_Handoff.en.md)

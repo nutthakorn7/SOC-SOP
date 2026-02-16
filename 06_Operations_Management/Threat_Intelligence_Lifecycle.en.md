@@ -56,6 +56,65 @@ All Indicators of Compromise (IoCs) must go through the **Review Process** befor
 3.  Analyst updates reference list in SIEM (Test Mode).
 4.  If stable > 24 hours, move to Block Mode.
 
+### IoC Aging & Confidence Scoring
+
+| IoC Type | Initial Confidence | Aging Policy | Auto-Expire |
+|:---|:---:|:---|:---:|
+| IP Address | Medium (60%) | Decrease 10%/week | 30 days |
+| Domain | Medium (60%) | Decrease 5%/week | 60 days |
+| File Hash (MD5/SHA256) | High (90%) | Stable | Never |
+| URL | Medium (60%) | Decrease 10%/week | 30 days |
+| Email Address | High (80%) | Decrease 5%/month | 180 days |
+| JA3/JA3S Hash | High (85%) | Stable | 90 days |
+| YARA Rule | High (90%) | Stable | Review annually |
+
+### IoC Review Workflow
+
+```mermaid
+graph LR
+    Collect["Collect IoC"] --> Validate["Validate (VT/OSINT)"]
+    Validate --> Score["Assign Confidence"]
+    Score --> Test["SIEM Test Mode 24h"]
+    Test --> FP{"False Positives?"}
+    FP -->|Yes| Refine["Refine / Drop"]
+    FP -->|No| Block["Move to Block"]
+    Block --> Monitor["Monitor & Age"]
+    Monitor --> Expire{"Expired?"}
+    Expire -->|Yes| Archive["Archive"]
+    Expire -->|No| Monitor
+```
+
+## 4. TI Platform Integration
+
+| Platform | Type | Data Format | Update Frequency | Integration |
+|:---|:---|:---|:---|:---|
+| MISP | Internal TIP | STIX 2.1 | Real-time | API → SIEM |
+| AlienVault OTX | OSINT | OTX Pulse | Hourly | API → SIEM |
+| VirusTotal | Enrichment | JSON API | On-demand | API → SOAR |
+| AbuseIPDB | OSINT | CSV/API | Daily | API → Firewall |
+| CISA KEV | Gov Advisory | JSON | Daily | API → Vuln Mgmt |
+| Sector ISAC | Community | STIX/TAXII | Daily | TAXII → MISP |
+
+## 5. Priority Intelligence Requirements (PIRs)
+
+| # | PIR | Owner | Review |
+|:---:|:---|:---|:---|
+| 1 | What threat actors are targeting our industry sector? | CTI Analyst | Monthly |
+| 2 | Are there active campaigns exploiting our technology stack? | CTI Analyst | Weekly |
+| 3 | What new CVEs affect our critical assets? | Vuln Mgmt | Daily |
+| 4 | Are our IoC feeds detecting current campaign infrastructure? | Detection Eng | Weekly |
+| 5 | What TTPs are trending in our region (APAC/Thailand)? | CTI Analyst | Monthly |
+
+## 6. CTI Maturity Levels
+
+| Level | Description | Activities |
+|:---|:---|:---|
+| **Level 0** | None | No TI program |
+| **Level 1** | Reactive | IoC feeds only, no analysis |
+| **Level 2** | Managed | Structured collection, basic analysis, SIEM integration |
+| **Level 3** | Proactive | PIR-driven, threat hunting, TIP platform |
+| **Level 4** | Predictive | Attribution, adversary tracking, board-level reporting |
+
 ## Related Documents
 -   [Incident Response Framework](../05_Incident_Response/Framework.en.md)
 -   [SOC Assessment Checklist](SOC_Assessment_Checklist.en.md)

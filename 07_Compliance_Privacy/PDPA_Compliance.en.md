@@ -45,6 +45,48 @@ graph TD
     Notify --> PDPC["DPO → PDPC Notification"]
 ```
 
+## Data Subject Rights
+
+SOC analysts must be aware of the following rights that data subjects may exercise:
+
+| Right | SOC Impact | Action |
+|:---|:---|:---|
+| **Right of Access** | Data subject may request copies of their PII | Forward request to DPO, do not fulfill directly |
+| **Right to Erasure** | Data subject may request deletion | DPO evaluates; SOC retains if required for active case |
+| **Right to Rectification** | Data subject may request correction | Forward to DPO |
+| **Right to Object** | Data subject may object to processing | DPO evaluates; security purposes may override |
+| **Right to Data Portability** | Data subject may request export | Forward to DPO |
+
+## DPO Coordination
+
+| Scenario | SOC Action | DPO Action | Timeline |
+|:---|:---|:---|:---|
+| PII found in investigation | Log access, classify data | Informed for oversight | Immediately |
+| Suspected data breach | Escalate to DPO | Assess notification obligation | ≤ 72 hours |
+| Data subject request received | Forward to DPO | Process and respond | ≤ 30 days |
+| Forensic evidence contains PII | Apply TLP:RED, restrict access | Approve retention | Before analysis |
+
+## Evidence Handling with PII
+
+1. **Minimize** — Redact PII from investigation notes when not essential
+2. **Encrypt** — Store evidence containing PII in encrypted storage only
+3. **Label** — Mark all documents containing PII with `TLP:RED` or `TLP:AMBER`
+4. **Audit Trail** — Log all access to evidence containing PII
+5. **Retention** — Delete PII from investigation workspace after case closure
+6. **Transfer** — Never transfer PII via unencrypted channels (no plain email)
+
+## PDPA Compliance Audit Checklist
+
+| Item | Frequency | Owner | Status |
+|:---|:---|:---|:---:|
+| PII access logging enabled in all SOC tools | Monthly | SOC Engineer | ☐ |
+| Data classification labels applied to cases | Every case | Analyst | ☐ |
+| Breach notification SOP tested | Quarterly | SOC Manager | ☐ |
+| DPO contact information current | Monthly | SOC Manager | ☐ |
+| Evidence retention policy compliance | Quarterly | SOC Lead | ☐ |
+| Data subject request handling procedure tested | Annually | DPO + SOC | ☐ |
+| PDPA training completed by all SOC staff | Annually | HR + SOC Manager | ☐ |
+
 ## Related Documents
 
 - [Data Handling Protocol](../06_Operations_Management/Data_Handling_Protocol.en.md)

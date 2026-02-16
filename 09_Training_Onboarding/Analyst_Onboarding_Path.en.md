@@ -69,6 +69,48 @@ gantt
     -   Task: Triage the alert in SIEM.
     -   Task: Submit a mock [Incident Report](../templates/incident_report.en.md).
 
+## Competency Assessment
+
+| Skill | Assessment Method | Pass Criteria |
+|:---|:---|:---|
+| SIEM Query Writing | Practical exam | Write 3 correct queries in 30 min |
+| Alert Triage | Mock alert exercise | Correctly classify 8/10 alerts |
+| Incident Documentation | Submit mock IR report | Manager review score ≥ 80% |
+| Playbook Execution | Tabletop exercise | Follow playbook with no critical gaps |
+| Tool Proficiency | Hands-on demo | Navigate SIEM, EDR, SOAR independently |
+| Communication | Escalation role-play | Correct escalation path and content |
+
+## Mentorship Program
+
+| Week | Mentor Activity | New Analyst Activity |
+|:---|:---|:---|
+| Week 1 | Shadow mentor during shift | Observe triage, take notes, ask questions |
+| Week 2 | Mentor reviews analyst's first triages | Triage alerts with mentor review before closing |
+| Week 3 | Mentor available for questions only | Triage independently, escalate if unsure |
+| Week 4 | Mentor evaluates final drill | Complete drill independently |
+
+## Graduation Criteria
+
+To be cleared for independent production shifts, new analysts must:
+
+- [ ] Complete all 4 weeks of curriculum
+- [ ] Pass competency assessment (all skills ≥ 80%)
+- [ ] Complete at least 1 purple team drill
+- [ ] Submit 1 mock incident report (approved by manager)
+- [ ] Demonstrate proficiency in SIEM, EDR, and ticketing tools
+- [ ] Receive mentor sign-off
+- [ ] Complete PDPA awareness training
+
+## Continuing Education
+
+| Certification | Target Timeline | Relevance |
+|:---|:---|:---|
+| CompTIA Security+ | Month 3 | Foundational security knowledge |
+| SANS SEC401 / GISF | Month 6 | SOC operations fundamentals |
+| CySA+ / GCIH | Year 1 | Incident handling expertise |
+| SANS SEC504 / GCIH | Year 1-2 | Advanced incident response |
+| BTL1 (Blue Team Level 1) | Year 1 | Practical blue team skills |
+
 ## Related Documents
 -   [Training Checklist](Training_Checklist.en.md)
 -   [Incident Response Framework](../05_Incident_Response/Framework.en.md)

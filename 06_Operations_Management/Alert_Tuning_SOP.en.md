@@ -52,6 +52,42 @@ graph LR
 | **Requested By** | |
 | **Approved By** | |
 
+## Tuning Governance
+
+| Action | Approver | Documentation |
+|:---|:---|:---|
+| Add whitelist/exception | SOC Lead | Tuning log entry |
+| Modify rule logic | Detection Engineering Lead | RFC + peer review |
+| Disable rule | SOC Manager | RFC + risk acceptance |
+| Re-enable disabled rule | Detection Engineering Lead | Tuning log entry |
+
+## Tuning Log
+
+Maintain a centralized tuning log (spreadsheet or wiki) with the following fields:
+
+| Date | Rule ID | Rule Name | Change Type | Reason | Changed By | Approved By | Rollback? |
+|:---|:---|:---|:---|:---|:---|:---|:---:|
+| [Date] | [ID] | [Name] | [Whitelist/Threshold/Disable] | [FP reason] | [Analyst] | [Lead] | ☐ |
+
+## Review Cadence
+
+| Review | Frequency | Participants | Output |
+|:---|:---|:---|:---|
+| FP Rate Review | Weekly | SOC Lead + Analysts | Top 10 noisy rules list |
+| Disabled Rules Audit | Monthly | SOC Manager + Detection Eng | Re-enable or document risk |
+| Detection Coverage Gap | Quarterly | SOC Manager + CISO | Coverage vs MITRE ATT&CK |
+| Tuning Sprint | Quarterly | Detection Engineering | Batch tune 10-20 rules |
+
+## Tuning KPIs
+
+| Metric | Target | Current |
+|:---|:---|:---|
+| Overall False Positive Rate | < 10% | [XX]% |
+| Rules with FPR > 50% | 0 | [X] |
+| Disabled rules count | < 5% of total | [X] |
+| Mean time from FP report to tune | < 48 hours | [XX] hours |
+| Tuning requests backlog | < 10 | [X] |
+
 ## Related Documents
 
 - [SOC Metrics & KPIs](SOC_Metrics.en.md)

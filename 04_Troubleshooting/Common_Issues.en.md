@@ -55,6 +55,58 @@ graph TD
 -   Document the Root Cause Analysis (RCA).
 -   Update Knowledge Base (KB) and SOPs to prevent recurrence.
 
+### RCA Template
+
+| Field | Description |
+|:---|:---|
+| **Issue ID** | Unique identifier |
+| **Date Detected** | When the issue was first observed |
+| **Affected Systems** | SIEM, EDR, log sources, etc. |
+| **Impact** | Alerts missed, false positives, performance degradation |
+| **Root Cause** | Technical explanation of why it happened |
+| **Resolution** | Steps taken to fix the issue |
+| **Prevention** | Changes to prevent recurrence |
+| **Owner** | Who resolved and who approved |
+
+## 5. Diagnostic Commands Quick Reference
+
+| Purpose | Command | Platform |
+|:---|:---|:---|
+| Check service status | `systemctl status <service>` | Linux |
+| View recent logs | `journalctl -u <service> --since "1 hour ago"` | Linux |
+| Check disk space | `df -h` | Linux/macOS |
+| Check memory usage | `free -m` | Linux |
+| Test TCP connectivity | `nc -zv <host> <port>` | Linux/macOS |
+| DNS lookup | `dig <hostname>` / `nslookup <hostname>` | All |
+| Check process status | `docker ps` / `docker logs <container>` | Docker |
+| Check certificate expiry | `openssl s_client -connect <host>:443 2>/dev/null \| openssl x509 -noout -dates` | All |
+
+## 6. Additional Failure Scenarios
+
+### 6.1 SIEM Alert Delay
+1. Check SIEM indexing queue status (backlog)
+2. Verify data pipeline health (Kafka/Logstash/etc.)
+3. Check for hot storage capacity issues
+4. Review correlation rule performance (slow queries)
+
+### 6.2 EDR Agent Not Reporting
+1. Verify agent service is running on endpoint
+2. Check network connectivity to EDR cloud/management server
+3. Verify agent version is compatible with server
+4. Check for endpoint firewall blocking agent traffic
+
+### 6.3 Authentication Failures (SOC Tools)
+1. Verify IdP/SSO service health
+2. Check MFA provider status
+3. Verify user account is not locked out
+4. Check certificate validity for SAML/OAuth configurations
+
+### 6.4 SOAR Playbook Failures
+1. Check API connectivity to integrated tools
+2. Verify API keys/tokens are not expired
+3. Review playbook execution logs for error details
+4. Check rate limiting on target API endpoints
+
 ## Related Documents
 -   [Tool Integration Strategy](../03_User_Guides/Integration_Hub.en.md)
 -   [SOC Infrastructure Setup](../01_Onboarding/System_Activation.en.md)
