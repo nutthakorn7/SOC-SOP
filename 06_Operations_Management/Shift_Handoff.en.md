@@ -6,7 +6,7 @@ This document defines the standard procedures for managing SOC shifts and ensuri
 
 ## 1. Shift Structure
 
-### 1.1 Standard Rotation (24/7)
+### 1.1 Standard Rotation (24/7 — 8-Hour Shifts)
 
 | Shift | Hours | Duration | Peak Alert Volume |
 |:---|:---:|:---:|:---|
@@ -38,7 +38,7 @@ Four teams (**Alpha, Bravo, Charlie, Delta**) rotate to ensure 24/7 coverage:
 | **Week 3** | 🅱️N | 🅱️N | 🅲D | 🅲D | 🅲D | 🅲D | 🅳D |
 | **Week 4** | 🅳D | 🅳D | 🅳D | 🅲N | 🅲N | 🅲N | 🅲N |
 
-*D = Day (08:00–20:00), N = Night (20:00–08:00). Teams not shown are on their 4 days off.*
+*D = Day (08:00–20:00), N = Night (20:00–08:00) — Teams not shown are on their 4 days off.*
 
 > **Note**: Teams on days off serve as **on-call backup** for the first 2 of their 4 off-days.
 
@@ -70,6 +70,7 @@ Four teams (**Alpha, Bravo, Charlie, Delta**) rotate to ensure 24/7 coverage:
 | Model | Staffing | Best For | Minimum FTE |
 |:---|:---|:---|:---:|
 | **24/7 Full** | 3 shifts × 365 days | Large SOC, critical infrastructure | 12–15 |
+| **24/7 (4on4off)** | 2 shifts × 4 teams | Mid-size SOC, cost optimization | 8–10 |
 | **16/5 + On-Call** | 2 shifts weekdays + on-call nights/weekends | Mid-size SOC | 6–8 |
 | **8/5 + On-Call** | Business hours + on-call | Small SOC, startup phase | 3–4 |
 | **8/5 + MSSP** | Business hours in-house + MSSP after hours | Hybrid SOC | 2–3 + MSSP |
@@ -195,9 +196,9 @@ SOC analyst burnout is a significant operational risk. The following measures he
 | **Rotation frequency** | Rotate shift patterns every 4–6 weeks |
 | **Break schedule** | 15-min break every 2 hours during shift |
 | **Task variety** | Rotate between triage, investigation, and hunt |
-| **Workload balancing** | Max 15–20 alerts per analyst per shift |
+| **Workload balancing** | Max 15–20 alerts per analyst per shift (8h) |
 | **Overtime limits** | Max 2 consecutive shift covers, escalate to management |
-| **Mental health** | Access to employee assistance program |
+| **Mental health** | Access to employee assistance program (EAP) |
 
 ---
 
