@@ -31,10 +31,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Deployment Procedures: rollback procedures, change window schedule
   - Executive Dashboard: KPI definitions with RAG thresholds
   - Interview Guide: 3 scenario-based questions, scoring rubric
-- **Full TH-EN parity maintained** — All 20 enhanced EN files have matching TH versions
+  - Shift Handover template: completed example, common mistakes table
+  - Incident Report template: executive summary, timeline example, evidence checklist
+  - Change Request RFC template: risk assessment matrix, approval matrix, validation checklist
+  - Atomic Test Map: testing frequency matrix (12 tactics), result tracking
+  - Vendor Evaluation: 3-year TCO comparison model, POC checklist
+  - SLA Template: penalty/credit structure, quarterly review agenda
+  - Change Management: emergency change process with Mermaid, post-implementation review
+- **Full TH-EN parity maintained** — All 27 enhanced EN files have matching TH versions
 
 ### Changed
-- Project total now **85,647 lines** across 244 documents
+- Project total now **86,280 lines** across 244 documents
 
 ---
 
