@@ -220,6 +220,14 @@ sequenceDiagram
 | Decide | Approve / Block / Migrate | CISO | 5 days |
 | Execute | Implement decision | IT + Security | 14 days |
 
+### Risk Acceptance Process
+
+| Step | Owner | SLA |
+|:---|:---|:---|
+| Risk assessment | Security | 48 hrs |
+| Business justification | Requester | 5 days |
+| CISO approval | CISO | 3 days |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1567 — Exfiltration Over Web Service](https://attack.mitre.org/techniques/T1567/)

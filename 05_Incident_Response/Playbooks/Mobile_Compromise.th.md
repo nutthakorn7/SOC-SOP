@@ -226,6 +226,14 @@ graph LR
 | App removal | ✅ | ✅ | Medium |
 | VPN force | ✅ | ✅ | Low |
 
+### App Analysis Steps
+
+| Check | Tool | Action |
+|:---|:---|:---|
+| App permissions | MDM report | Review |
+| Network behavior | Proxy logs | Analyze |
+| File system changes | Forensic tool | Investigate |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK Mobile — T1456](https://attack.mitre.org/techniques/T1456/)

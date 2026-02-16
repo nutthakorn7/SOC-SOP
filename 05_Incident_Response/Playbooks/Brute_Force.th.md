@@ -219,6 +219,14 @@ flowchart TD
 | MFA | Required | Prevent credential-only |
 | Password history | 12 | Prevent reuse |
 
+### Account Recovery Steps
+
+| Step | Action | Verify |
+|:---|:---|:---|
+| 1 | Reset password | Confirm with user |
+| 2 | Enable MFA | New device enroll |
+| 3 | Review login history | Check for success |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1110 — Brute Force](https://attack.mitre.org/techniques/T1110/)

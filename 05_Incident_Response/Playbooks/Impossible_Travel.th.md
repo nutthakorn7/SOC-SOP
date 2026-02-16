@@ -214,6 +214,14 @@ sequenceDiagram
 | Commercial VPN | IP reputation DB | TI Feed |
 | Tor exit nodes | Published list | Auto-block |
 
+### Response Decision Matrix
+
+| Confidence | Action | SLA |
+|:---|:---|:---|
+| High (no VPN) | Suspend + investigate | 15 min |
+| Medium | User verification | 1 hr |
+| Low (VPN likely) | Log + monitor | 24 hrs |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1078 — Valid Accounts](https://attack.mitre.org/techniques/T1078/)

@@ -225,6 +225,14 @@ sequenceDiagram
 - [ ] Wire transfer requires verbal confirmation
 - [ ] Domain lookalike monitoring active
 
+### Wire Recall Process
+
+| Timeline | Success Rate | Action |
+|:---|:---|:---|
+| < 24 hrs | 50-70% | Contact bank urgently |
+| 24-48 hrs | 20-40% | Bank + law enforcement |
+| > 48 hrs | < 10% | Law enforcement only |
+
 ## อ้างอิง
 
 - [FBI — BEC Scams](https://www.ic3.gov/Media/Y2022/PSA220504)

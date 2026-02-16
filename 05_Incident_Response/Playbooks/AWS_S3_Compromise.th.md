@@ -227,6 +227,14 @@ sequenceDiagram
 | Data access patterns | CloudTrail | Daily review |
 | Encryption status | S3 inventory | Weekly |
 
+### Data Exposure Impact
+
+| Data Type | Notification Required |
+|:---|:---|
+| PII | PDPA + affected users |
+| Credentials | Rotate + notify owners |
+| Internal docs | Risk assessment only |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1530 — Data from Cloud Storage](https://attack.mitre.org/techniques/T1530/)

@@ -224,6 +224,14 @@ sequenceDiagram
 | IAM Roles | Scope down permissions | P1 |
 | CloudTrail | Ensure enabled all regions | P1 |
 
+### Instance Metadata Protection
+
+| Setting | Recommended | Check Command |
+|:---|:---|:---|
+| IMDSv2 | Required | describe-instances |
+| SSRF protection | Enabled | Security review |
+| Role permissions | Least privilege | IAM Access Analyzer |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1190 — Exploit Public-Facing Application](https://attack.mitre.org/techniques/T1190/)

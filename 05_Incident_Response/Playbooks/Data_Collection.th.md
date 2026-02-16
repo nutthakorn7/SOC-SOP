@@ -225,6 +225,14 @@ graph TD
 | IP/Trade secrets | Critical | Legal + forensics |
 | Internal docs | Medium | Assess scope |
 
+### Collection Method Indicators
+
+| Method | Log Source | Alert |
+|:---|:---|:---|
+| Bulk file copy | EDR | Volume threshold |
+| Archive creation | Process log | Archiver from user |
+| DB export | DB audit | Large query result |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK — Collection](https://attack.mitre.org/tactics/TA0009/)

@@ -217,6 +217,14 @@ graph TD
 | Volume | < 100 requests | 10K+ requests |
 | Auth required | Yes (legit key) | Bypassed auth |
 
+### API Key Rotation
+
+| When | Action |
+|:---|:---|
+| Compromised key | Rotate immediately |
+| Suspicious usage | Rotate + investigate |
+| Regular rotation | Every 90 days |
+
 ## อ้างอิง
 
 - [OWASP API Security Top 10](https://owasp.org/API-Security/)
