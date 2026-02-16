@@ -44,9 +44,9 @@
 
 | Category | Count | Highlights |
 |:---|:---:|:---|
-| 📄 Documents (EN+TH) | 170+ | Bilingual, vendor-agnostic SOPs |
-| 🛡️ IR Playbooks | 33 | PB-01 Phishing → PB-33 Azure AD, MITRE mapped |
-| 🔍 Sigma Detection Rules | 33 | Ready-to-import SIEM rules |
+| 📄 Documents (EN+TH) | 240 | Bilingual, vendor-agnostic SOPs |
+| 🛡️ IR Playbooks | 35 | PB-01 Phishing → PB-35 Data Collection, MITRE mapped |
+| 🔍 Sigma Detection Rules | 35 | Ready-to-import SIEM rules |
 | 🧬 YARA Rules | 5 | File-based threat detection |
 | 📋 Templates | 6 | Incident report, shift log, RFC, dashboards |
 | 🧰 Interactive Tools | 2 | SOC Maturity Scorer + MITRE Heatmap |
@@ -101,7 +101,7 @@ Start here if you're building a brand-new SOC. Follow the numbered order.
 | **Lessons Learned Template** | [Read](05_Incident_Response/Lessons_Learned_Template.en.md) | [อ่าน](05_Incident_Response/Lessons_Learned_Template.th.md) |
 | **📘 Playbook Development Guide** | [Read](05_Incident_Response/Playbook_Development_Guide.en.md) | [อ่าน](05_Incident_Response/Playbook_Development_Guide.th.md) |
 
-### 33 Playbooks — Grouped by Category
+### 35 Playbooks — Grouped by Category
 
 All playbooks are bilingual (EN+TH) and MITRE ATT&CK mapped.
 
@@ -160,13 +160,15 @@ All playbooks are bilingual (EN+TH) and MITRE ATT&CK mapped.
 </details>
 
 <details>
-<summary><b>☁️ Cloud-Specific (PB-31 → PB-33)</b> — AWS & Azure</summary>
+<summary><b>☁️ Cloud & Discovery (PB-31 → PB-35)</b> — AWS, Azure & Recon</summary>
 
 | # | Playbook | EN | TH |
 |:---:|:---|:---:|:---:|
 | 31 | AWS EC2 Compromise | [📄](05_Incident_Response/Playbooks/AWS_EC2_Compromise.en.md) | [📄](05_Incident_Response/Playbooks/AWS_EC2_Compromise.th.md) |
 | 32 | AWS S3 Compromise | [📄](05_Incident_Response/Playbooks/AWS_S3_Compromise.en.md) | [📄](05_Incident_Response/Playbooks/AWS_S3_Compromise.th.md) |
 | 33 | Azure AD Compromise | [📄](05_Incident_Response/Playbooks/Azure_AD_Compromise.en.md) | [📄](05_Incident_Response/Playbooks/Azure_AD_Compromise.th.md) |
+| 34 | Network Discovery | [📄](05_Incident_Response/Playbooks/Network_Discovery.en.md) | [📄](05_Incident_Response/Playbooks/Network_Discovery.th.md) |
+| 35 | Data Collection | [📄](05_Incident_Response/Playbooks/Data_Collection.en.md) | [📄](05_Incident_Response/Playbooks/Data_Collection.th.md) |
 
 </details>
 
@@ -174,9 +176,9 @@ All playbooks are bilingual (EN+TH) and MITRE ATT&CK mapped.
 
 ## 🔍 Detection & Threat Intelligence / การตรวจจับและข่าวกรองภัยคุกคาม
 
-### Sigma Detection Rules (33 Rules)
+### Sigma Detection Rules (35 Rules)
 
-Ready-to-import rules mapped to MITRE ATT&CK. See full index: [README](08_Detection_Engineering/README.md) | [ดัชนี (TH)](08_Detection_Engineering/README.th.md)
+Ready-to-import rules mapped to MITRE ATT&CK. See full index: [README](08_Detection_Engineering/README.en.md) | [ดัชนี (TH)](08_Detection_Engineering/README.th.md)
 
 | Category | Rule Examples | Count |
 |:---|:---|:---:|
