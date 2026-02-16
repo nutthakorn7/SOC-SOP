@@ -1,43 +1,113 @@
-# Playbook: การเคลื่อนที่ภายในเครือข่าย (Lateral Movement)
+# Playbook: การเคลื่อนไหวด้านข้าง (Lateral Movement)
 
-**ID**: PB-12
-**ความรุนแรง**: สูง
-**ตัวกระตุ้น**: แจ้งเตือน EDR/SIEM ("Remote Service Creation", "SMB/RDP ไปยังหลายเครื่อง")
+**ID**: PB-09
+**ระดับความรุนแรง**: สูง/วิกฤต | **หมวดหมู่**: การโจมตี / Post-Exploitation
+**MITRE ATT&CK**: [T1021](https://attack.mitre.org/techniques/T1021/) (Remote Services), [T1550](https://attack.mitre.org/techniques/T1550/) (Use Alternate Authentication Material)
+**ทริกเกอร์**: EDR alert, SIEM correlation (RDP/SMB anomaly), AD anomaly, threat hunt finding
 
-## 1. การวิเคราะห์ (Analysis)
+---
+
+## ผังการตัดสินใจ
 
 ```mermaid
 graph TD
-    Alert[LatMov Alert] --> Identify[Identify Source]
-    Identify --> Check{Authorized?}
-    Check -->|Admin Work| False[False Positive]
-    Check -->|Unknown| Dest{Destination?}
-    Dest -->|Critical Asset| True[True Positive]
-    True --> Isolate[Isolate Source]
+    Alert["🚨 Lateral Movement"] --> Method{"⚙️ วิธีการ?"}
+    Method -->|RDP/SMB/WinRM| Remote["🖥️ Remote Service"]
+    Method -->|PtH/PtT| Cred["🔑 Credential-based"]
+    Method -->|PsExec/WMI| Exec["⚡ Remote Execution"]
+    Method -->|SSH/Jump Host| SSH["🐧 Linux/Unix"]
+    Remote --> Scope["📊 ระบุ Scope"]
+    Cred --> Scope
+    Exec --> Scope
+    SSH --> Scope
+    Scope --> Multi{"🖥️ กี่เครื่อง?"}
+    Multi -->|1-2| Contain["🔒 Isolate Hosts"]
+    Multi -->|>3| Major["🔴 Major Incident"]
 ```
 
--   **ต้นตอ (Source)**: หา Patient Zero (เครื่องแรกที่ติดเชื้อ)
--   **วิธีการ**: แฮกเกอร์ใช้วิธีไหน? (PsExec, WMI, RDP, WinRM)
--   **บัญชีผู้ใช้**: บัญชีไหนที่ถูกนำมาใช้?
+---
 
-## 2. การจำกัดวง (Containment)
--   **ปิดบัญชี**: Disable บัญชีที่ถูกแฮก
--   **แยกเครื่อง**: ตัดการเชื่อมต่อเครื่องต้นทาง
--   **บล็อกพอร์ต**: หากจำเป็น ให้บล็อก SMB (445) หรือ RDP (3389) ใน Zone นั้นชั่วคราว
+## 1. การวิเคราะห์
 
-## 3. การกำจัด (Eradication)
--   **ไล่รอย**: หาเครื่องปลายทางทั้งหมดที่เครื่องต้นทางเชื่อมต่อไปถึง
--   **สแกน/ล้าง**: ตรวจสอบและสแกนทุกเครื่องที่ถูกสัมผัส
+### 1.1 วิธี Lateral Movement
 
-## 4. การกู้คืน (Recovery)
--   **Segmentation**: ทบทวนการแบ่งโซนเครือข่าย โดยปกติ Workstation ไม่ควรคุยกันเองได้ (Block Client-to-Client)
--   **ผลกระทบ (Attribute)**: [Confidentiality / Integrity]
+| วิธี | Windows Event ID | ตัวบ่งชี้ |
+|:---|:---|:---|
+| **RDP** | 4624 (Type 10) | RDP จาก server-to-server |
+| **SMB/Admin Share** | 5140, 5145 | Access \\C$ \\ADMIN$ |
+| **PsExec** | 7045 (service install) | PSEXESVC service |
+| **WMI** | 4648 + WMI provider | WmiPrvSE.exe child |
+| **Pass-the-Hash** | 4624 (NTLM, Type 3) | NTLM จาก workstation |
+| **Pass-the-Ticket** | 4768/4769 anomaly | TGT/TGS ผิดปกติ |
+| **SSH** | sshd auth.log | Key-based ผิดปกติ |
 
-## เอกสารที่เกี่ยวข้อง (Related Documents)
--   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
--   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+### 1.2 รายการตรวจสอบ
 
-## References
--   [MITRE ATT&CK T1021 (Remote Services)](https://attack.mitre.org/techniques/T1021/)
--   [JPCERT Lateral Movement Guide](https://www.jpcert.or.jp/english/pub/sr/20170612ac-ir_research_en.pdf)
+| รายการ | วิธีตรวจสอบ | เสร็จ |
+|:---|:---|:---:|
+| Source host (patient zero) | EDR / SIEM | ☐ |
+| Destination hosts ทั้งหมด | SIEM lateral search | ☐ |
+| บัญชีที่ใช้ (user / service / admin) | AD logs | ☐ |
+| วิธีการ (RDP/PsExec/WMI/PtH) | EDR / Event ID | ☐ |
+| เวลาและ pattern | SIEM timeline | ☐ |
+| Tools ที่ใช้ (Mimikatz, Impacket, etc.) | EDR | ☐ |
+| ข้อมูลที่เข้าถึงบน destination hosts | EDR / file audit | ☐ |
+
+---
+
+## 2. การควบคุม
+
+| # | การดำเนินการ | เสร็จ |
+|:---:|:---|:---:|
+| 1 | **Isolate** ทุก host ที่ได้รับผลกระทบ | ☐ |
+| 2 | **รีเซ็ตรหัสผ่าน** บัญชีที่ถูกใช้ | ☐ |
+| 3 | **ปิดบัญชี** service accounts ที่ถูกใช้ | ☐ |
+| 4 | **Block** lateral movement tools ที่ EDR | ☐ |
+| 5 | **จำกัด RDP / SMB** ระหว่าง workstations | ☐ |
+| 6 | **เพิ่ม monitoring** บน AD (Event 4624, 4648) | ☐ |
+
+---
+
+## 3. การกำจัด
+
+| # | การดำเนินการ | เสร็จ |
+|:---:|:---|:---:|
+| 1 | ลบ malware/implant จากทุก host | ☐ |
+| 2 | ลบ persistence ทั้งหมด | ☐ |
+| 3 | รีเซ็ต KRBTGT 2 ครั้ง (หาก Golden Ticket) | ☐ |
+| 4 | หมุนเวียน service account credentials | ☐ |
+
+---
+
+## 4. การฟื้นฟู
+
+| # | การดำเนินการ | เสร็จ |
+|:---:|:---|:---:|
+| 1 | ใช้ LAPS สำหรับ local admin passwords | ☐ |
+| 2 | บังคับ network segmentation | ☐ |
+| 3 | ปิด RDP/SMB ระหว่าง workstations (peer-to-peer) | ☐ |
+| 4 | ใช้ Credential Guard / Protected Users group | ☐ |
+| 5 | ติดตาม 30 วัน | ☐ |
+
+---
+
+## 5. เกณฑ์การยกระดับ
+
+| เงื่อนไข | ยกระดับไปยัง |
+|:---|:---|
+| Domain Admin credentials ถูกขโมย | CISO + Major Incident |
+| >3 hosts ถูกบุกรุก | Major Incident |
+| Golden Ticket / DCSync | [PB-07 Priv Escalation](Privilege_Escalation.th.md) |
+| ข้อมูลถูก staging/exfiltrate | [PB-08 Data Exfiltration](Data_Exfiltration.th.md) |
+
+---
+
+## เอกสารที่เกี่ยวข้อง
+
+- [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)
+- [PB-07 การยกระดับสิทธิ์](Privilege_Escalation.th.md)
+- [PB-13 C2](C2_Communication.th.md)
+
+## อ้างอิง
+
+- [MITRE ATT&CK — Lateral Movement](https://attack.mitre.org/tactics/TA0008/)

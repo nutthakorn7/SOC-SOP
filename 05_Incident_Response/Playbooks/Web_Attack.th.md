@@ -1,43 +1,90 @@
-# Playbook: การโจมตีเว็บแอปพลิเคชัน (Web Application Attack)
+# Playbook: การโจมตีเว็บแอปพลิเคชัน (Web Attack)
 
 **ID**: PB-10
-**ความรุนแรง**: สูง
-**ตัวกระตุ้น**: แจ้งเตือน WAF (SQLi, XSS, RCE), Web Server Error Logs (500s)
+**ระดับความรุนแรง**: สูง | **หมวดหมู่**: ความปลอดภัยแอปพลิเคชัน
+**MITRE ATT&CK**: [T1190](https://attack.mitre.org/techniques/T1190/) (Exploit Public-Facing Application)
+**ทริกเกอร์**: WAF alert, IDS/IPS, รายงาน Bug Bounty, Defacement
 
-## 1. การวิเคราะห์ (Analysis)
+---
 
-```mermaid
-graph TD
-    Alert[WAF Alert] --> Decode[Decode Payload]
-    Decode -->|Malicious Syntax?| Check{Success?}
-    Check -->|200 OK + Data| Breach[True Positive - Breach]
-    Check -->|403/500| Scan[True Positive - Attempt]
-    Breach --> Offline[Take Offline]
-    Scan --> Ban[Ban IP]
-```
+## 1. การวิเคราะห์
 
--   **ตรวจสอบ Payload**: ถอดรหัส (Base64/URL) ดูว่าเป็นคำสั่งอันตรายหรือไม่ (`UNION SELECT`, `<script>`)
--   **ตรวจสอบผลลัพธ์**: Server ตอบกลับ 200 OK พร้อมข้อมูลขนาดใหญ่หรือไม่?
--   **ขอบเขต**: เป็นเครื่องสแกนอัตโนมัติ หรือคนเจาะจงโจมตี?
+### 1.1 ประเภทการโจมตีเว็บ
 
-## 2. การจำกัดวง (Containment)
--   **บล็อก IP**: แบน IP ของผู้โจมตีที่ WAF
--   **Virtual Patching**: สร้างกฎ WAF เฉพาะกิจเพื่อบล็อกช่องโหว่นั้น (เช่น บล็อก String ของ Log4j)
--   **ออฟไลน์**: หากมีการฝัง Web Shell หรือ RCE สำเร็จ ต้องปิดเว็บทันที
+| ประเภท | OWASP | ตัวบ่งชี้ |
+|:---|:---|:---|
+| **SQL Injection** | A03 | `'`, `UNION SELECT`, `1=1` | 
+| **XSS** | A03 | `<script>`, Event handlers |
+| **Path Traversal** | A01 | `../`, `%2e%2e` |
+| **Remote File Inclusion** | A08 | External URL params |
+| **Web Shell** | A03 | New PHP/ASPX files |
+| **SSRF** | A10 | Internal IP ใน URL params |
+| **Command Injection** | A03 | `; | && ` charactersBin |
+| **Brute Force (Auth)** | A07 | Login failures สูง |
 
-## 3. การกำจัด (Eradication)
--   **แก้โค้ด**: Developer ต้องปิดช่องโหว่ที่ต้นเหตุ (Source code)
--   **หา Web Shell**: สแกนโฟลเดอร์เว็บหาไฟล์แปลกปลอม (`cmd.php`)
+### 1.2 รายการตรวจสอบ
 
-## 4. การกู้คืน (Recovery)
--   **Penetration Test**: ทดสอบเจาะระบบซ้ำเพื่อยืนยันว่าช่องโหว่ถูกปิดแล้ว
--   **ผลกระทบ (Attribute)**: [Integrity / Confidentiality]
+| รายการ | วิธีตรวจสอบ | เสร็จ |
+|:---|:---|:---:|
+| ประเภทการโจมตี | WAF logs | ☐ |
+| โจมตีสำเร็จหรือแค่ attempt? | Response code (200 vs 403/500) | ☐ |
+| Source IP | WAF / Web logs | ☐ |
+| Endpoint ที่ถูกโจมตี | URL path analysis | ☐ |
+| มี web shell ถูกวาง? | FIM / file scan | ☐ |
+| มีข้อมูลรั่วไหล? | Response body size | ☐ |
 
-## เอกสารที่เกี่ยวข้อง (Related Documents)
--   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
--   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+---
 
-## References
--   [OWASP Top 10](https://owasp.org/www-project-top-ten/)
--   [MITRE ATT&CK T1190 (Exploit Public-Facing Application)](https://attack.mitre.org/techniques/T1190/)
+## 2. การควบคุม
+
+| # | การดำเนินการ | เสร็จ |
+|:---:|:---|:---:|
+| 1 | **Block** source IP ที่ WAF/Firewall | ☐ |
+| 2 | **Virtual patch** — เพิ่ม WAF rule สำหรับ attack pattern | ☐ |
+| 3 | **ลบ web shell** หากพบ | ☐ |
+| 4 | **Take offline** หากข้อมูลรั่วไหลอยู่ | ☐ |
+
+---
+
+## 3. การกำจัด
+
+| # | การดำเนินการ | เสร็จ |
+|:---:|:---|:---:|
+| 1 | **Patch** แอปพลิเคชันที่มีช่องโหว่ | ☐ |
+| 2 | ลบ backdoor / web shell ทั้งหมด | ☐ |
+| 3 | ตรวจ database สำหรับ injected data | ☐ |
+| 4 | รีเซ็ต application credentials | ☐ |
+
+---
+
+## 4. การฟื้นฟู
+
+| # | การดำเนินการ | เสร็จ |
+|:---:|:---|:---:|
+| 1 | ปรับ WAF rules ถาวร | ☐ |
+| 2 | เพิ่ม input validation / parameterized queries | ☐ |
+| 3 | สั่ง penetration test | ☐ |
+| 4 | เปิด SAST/DAST ใน CI/CD | ☐ |
+
+---
+
+## 5. เกณฑ์การยกระดับ
+
+| เงื่อนไข | ยกระดับไปยัง |
+|:---|:---|
+| SQL Injection สำเร็จ — ข้อมูลรั่ว | Legal + DPO (PDPA 72 ชม.) |
+| Web shell ถูกวาง | Tier 2 + [PB-13 C2](C2_Communication.th.md) |
+| Defacement | PR + Management |
+| SSRF เข้าถึงระบบภายใน | Major Incident |
+
+---
+
+## เอกสารที่เกี่ยวข้อง
+
+- [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)
+- [PB-18 Exploit](Exploit.th.md)
+
+## อ้างอิง
+
+- [OWASP Top 10](https://owasp.org/Top10/)
+- [MITRE ATT&CK T1190](https://attack.mitre.org/techniques/T1190/)
