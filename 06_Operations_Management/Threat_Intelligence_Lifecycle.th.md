@@ -55,6 +55,35 @@ Indicators of Compromise (IoCs) ทุกตัวต้องผ่านกร
 3.  ใส่ใน SIEM ระบบ Test Mode (Monitor Only)
 4.  ถ้าไม่มี False Positive นาน 24 ชม. จึงเปิด Block Mode
 
+### คะแนนความเชื่อมั่นและอายุ IoC
+
+| ประเภท IoC | ความเชื่อมั่นเริ่มต้น | นโยบายอายุ | หมดอายุอัตโนมัติ |
+|:---|:---:|:---|:---:|
+| IP Address | กลาง (60%) | ลด 10%/สัปดาห์ | 30 วัน |
+| Domain | กลาง (60%) | ลด 5%/สัปดาห์ | 60 วัน |
+| File Hash (MD5/SHA256) | สูง (90%) | คงที่ | ไม่มี |
+| URL | กลาง (60%) | ลด 10%/สัปดาห์ | 30 วัน |
+| Email Address | สูง (80%) | ลด 5%/เดือน | 180 วัน |
+
+## แพลตฟอร์ม TI Integration
+
+| แพลตฟอร์ม | ประเภท | รูปแบบข้อมูล | ความถี่อัปเดต | Integration |
+|:---|:---|:---|:---|:---|
+| MISP | Internal TIP | STIX 2.1 | Real-time | API → SIEM |
+| AlienVault OTX | OSINT | OTX Pulse | รายชั่วโมง | API → SIEM |
+| VirusTotal | Enrichment | JSON API | ตามต้องการ | API → SOAR |
+| AbuseIPDB | OSINT | CSV/API | รายวัน | API → Firewall |
+| CISA KEV | Gov Advisory | JSON | รายวัน | API → Vuln Mgmt |
+
+## ข้อกำหนดข่าวกรองเชิงลำดับความสำคัญ (PIRs)
+
+| # | PIR | ผู้รับผิดชอบ | ทบทวน |
+|:---:|:---|:---|:---|
+| 1 | กลุ่มภัยคุกคามใดที่กำลังเล็งเป้าอุตสาหกรรมของเรา? | CTI Analyst | รายเดือน |
+| 2 | มีแคมเปญที่ active ใช้ประโยชน์จาก Tech stack ของเราหรือไม่? | CTI Analyst | รายสัปดาห์ |
+| 3 | CVE ใหม่ใดที่ส่งผลกระทบต่อทรัพย์สินสำคัญของเรา? | Vuln Mgmt | รายวัน |
+| 4 | IoC feeds ของเราตรวจจับโครงสร้างแคมเปญปัจจุบันได้หรือไม่? | Detection Eng | รายสัปดาห์ |
+
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กรอบการตอบสนองเหตุการณ์](../05_Incident_Response/Framework.th.md)
 -   [แบบประเมิน SOC](SOC_Assessment_Checklist.th.md)

@@ -67,6 +67,28 @@ python tools/sigma_validator.py path/to/rule.yml
 
 ---
 
+## ตารางผลการทดสอบ
+
+| Rule ID | ชื่อกฎ | ผลลัพธ์ | หมายเหตุ |
+|:---|:---|:---:|:---|
+| [ID] | [ชื่อ] | [✅/⚠️/❌] | [หมายเหตุ] |
+
+## เกณฑ์การทดสอบ
+
+| ระดับ | เกณฑ์ | การดำเนินการ |
+|:---:|:---|:---|
+| ✅ ผ่าน | แจ้งเตือนถูกต้อง, context ครบ, severity ถูก | Deploy ไปยัง Production |
+| ⚠️ บางส่วน | แจ้งเตือนแต่ context ไม่ครบหรือ severity ผิด | ปรับปรุงแล้ว retest |
+| ❌ ไม่ผ่าน | ไม่มีแจ้งเตือนหรือ FP สูง | แก้ไข logic แล้ว retest |
+
+## รอบการทดสอบ
+
+| การทดสอบ | ความถี่ | ผู้รับผิดชอบ |
+|:---|:---|:---|
+| ทดสอบกฎใหม่ | ก่อน deploy ทุกครั้ง | Detection Engineering |
+| ทดสอบกฎที่มีอยู่ (regression) | รายเดือน | Detection Engineering |
+| Full coverage test | รายไตรมาส | SOC Manager + Detection Eng |
+
 ## เอกสารที่เกี่ยวข้อง
 
 - [SOP จัดการเปลี่ยนแปลง](Change_Management.th.md)

@@ -55,6 +55,46 @@ graph TD
 -   บันทึกการวิเคราะห์สาเหตุที่แท้จริง (RCA)
 -   อัปเดต Knowledge Base (KB) และ SOP เพื่อป้องกันการเกิดซ้ำ
 
+### เทมเพลต RCA
+
+| ฟิลด์ | คำอธิบาย |
+|:---|:---|
+| **รหัสปัญหา** | หมายเลขเฉพาะ |
+| **วันที่ตรวจพบ** | เมื่อพบปัญหาครั้งแรก |
+| **ระบบที่ได้รับผลกระทบ** | SIEM, EDR, log sources ฯลฯ |
+| **ผลกระทบ** | แจ้งเตือนพลาด, FP, ประสิทธิภาพลดลง |
+| **สาเหตุหลัก** | คำอธิบายทางเทคนิค |
+| **การแก้ไข** | ขั้นตอนที่ดำเนินการ |
+| **การป้องกัน** | การเปลี่ยนแปลงเพื่อป้องกันการเกิดซ้ำ |
+
+## คำสั่งวินิจฉัยอ้างอิง
+
+| วัตถุประสงค์ | คำสั่ง | แพลตฟอร์ม |
+|:---|:---|:---|
+| ตรวจสอบสถานะบริการ | `systemctl status <service>` | Linux |
+| ดูล็อกล่าสุด | `journalctl -u <service> --since "1 hour ago"` | Linux |
+| ตรวจสอบพื้นที่ดิสก์ | `df -h` | Linux/macOS |
+| ทดสอบการเชื่อมต่อ TCP | `nc -zv <host> <port>` | Linux/macOS |
+| ตรวจสอบ DNS | `dig <hostname>` / `nslookup <hostname>` | ทั้งหมด |
+| ตรวจสอบ Container | `docker ps` / `docker logs <container>` | Docker |
+
+## สถานการณ์ความล้มเหลวเพิ่มเติม
+
+### SIEM Alert ล่าช้า
+1. ตรวจสอบสถานะ Queue ของ SIEM indexing
+2. ตรวจสอบ Data pipeline (Kafka/Logstash)
+3. ตรวจสอบพื้นที่จัดเก็บ Hot storage
+
+### EDR Agent ไม่รายงาน
+1. ตรวจสอบ Agent service บน Endpoint
+2. ตรวจสอบการเชื่อมต่อเครือข่ายไปยัง EDR server
+3. ตรวจสอบเวอร์ชัน Agent ว่ารองรับ
+
+### SOAR Playbook ล้มเหลว
+1. ตรวจสอบ API connectivity
+2. ตรวจสอบ API key/token ว่าหมดอายุหรือไม่
+3. ตรวจสอบ Rate limiting ของ API endpoint
+
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กลยุทธ์การเชื่อมต่อเครื่องมือ](../03_User_Guides/Integration_Hub.th.md)
 -   [การติดตั้ง SOC](../01_Onboarding/System_Activation.th.md)

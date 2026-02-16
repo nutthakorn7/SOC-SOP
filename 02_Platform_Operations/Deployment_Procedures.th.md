@@ -59,6 +59,29 @@ sequenceDiagram
 -   หากขั้นตอนการตรวจสอบล้มเหลว ให้ย้อนกลับไปยังสถานะก่อนหน้าทันที
 -   ทำ Root Cause Analysis (RCA) สำหรับการเปลี่ยนแปลงที่ล้มเหลว
 
+## การประเมินความเสี่ยงของการเปลี่ยนแปลง
+
+| ระดับความเสี่ยง | เกณฑ์ | การอนุมัติ | หน้าต่างบำรุงรักษา |
+|:---|:---|:---|:---|
+| **ต่ำ** | เอกสาร, การเปลี่ยนแปลงที่ไม่กระทบ | SOC Lead | ทุกเวลา |
+| **กลาง** | Detection rule ใหม่, อัปเดต Parser | SOC Manager | เวลาทำการ |
+| **สูง** | Config SIEM, เปลี่ยน Integration | SOC Manager + CAB | หน้าต่างบำรุงรักษา |
+| **วิกฤต** | โครงสร้างพื้นฐาน, เครือข่าย, Auth | CISO + CAB | Downtime ที่กำหนด |
+
+## รายการตรวจสอบการ Deploy
+
+| # | ขั้นตอน | ผู้รับผิดชอบ | เสร็จ |
+|:---:|:---|:---|:---:|
+| 1 | RFC ถูกส่งและอนุมัติ | Engineer | ☐ |
+| 2 | Peer review เสร็จสมบูรณ์ | Detection Eng | ☐ |
+| 3 | สร้าง Snapshot/Backup ก่อน Deploy | Engineer | ☐ |
+| 4 | ทดสอบในสภาพแวดล้อม Staging | Engineer | ☐ |
+| 5 | แผน Rollback มีเอกสารและทดสอบ | Engineer | ☐ |
+| 6 | แจ้งผู้มีส่วนได้ส่วนเสีย | SOC Lead | ☐ |
+| 7 | Deploy ไปยัง Production | Engineer | ☐ |
+| 8 | ตรวจสอบหลัง Deploy 30 นาที | SOC Lead | ☐ |
+| 9 | ปิด RFC พร้อมบันทึกผลลัพธ์ | Engineer | ☐ |
+
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [แบบฟอร์ม Change Request](../templates/change_request_rfc.th.md)
 -   [ธรรมาภิบาลข้อมูล](Database_Management.th.md)

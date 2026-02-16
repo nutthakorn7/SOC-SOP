@@ -45,6 +45,35 @@ Invoke-AtomicTest T1059.001
 - **รายเดือน**: ทดสอบ 3–5 Playbooks แบบสุ่ม
 - **รายไตรมาส**: จำลอง full chain (Phishing → Lateral Mov → Exfil)
 
+## ตารางครอบคลุมการทดสอบ
+
+| MITRE Tactic | Playbook | Atomic Test | Sigma Rule | ผลลัพธ์ |
+|:---|:---|:---|:---|:---|
+| Initial Access | PB-01 Phishing | T1566.001 | cloud_email_inbox_rule | [ผ่าน/ไม่ผ่าน] |
+| Execution | PB-11 Suspicious Script | T1059.001 | proc_powershell_encoded | [ผ่าน/ไม่ผ่าน] |
+| Privilege Escalation | PB-06 | T1068 | win_domain_admin_group_add | [ผ่าน/ไม่ผ่าน] |
+| Defense Evasion | PB-20 Log Clearing | T1070.001 | win_security_log_cleared | [ผ่าน/ไม่ผ่าน] |
+| Lateral Movement | PB-09 | T1021.002 | win_admin_share_access | [ผ่าน/ไม่ผ่าน] |
+| Exfiltration | PB-08 | T1041 | net_large_upload | [ผ่าน/ไม่ผ่าน] |
+| Impact | PB-02 Ransomware | T1486 | file_bulk_renaming | [ผ่าน/ไม่ผ่าน] |
+
+## เกณฑ์การให้คะแนน
+
+| คะแนน | คำจำกัดความ | การดำเนินการ |
+|:---:|:---|:---|
+| ✅ **ผ่าน** | แจ้งเตือนภายใน SLA, ระดับความรุนแรงถูกต้อง | บันทึกผลลัพธ์ |
+| ⚠️ **บางส่วน** | แจ้งเตือนแต่ล่าช้า/ขาดบริบท | ปรับ Sigma rule + อัปเดต Playbook |
+| ❌ **ไม่ผ่าน** | ไม่มีแจ้งเตือน | สร้าง/แก้ไข Sigma rule |
+
+## ข้อผิดพลาดที่พบบ่อย
+
+| ข้อผิดพลาด | วิธีป้องกัน |
+|:---|:---|
+| รันในระบบ Production | ใช้สภาพแวดล้อม Lab/Sandbox เท่านั้น |
+| ไม่มีการอนุมัติ Change Control | ยื่น RFC ก่อนทำ Simulation |
+| ทดสอบโดยไม่เปิด Monitoring | ตรวจสอบว่า SIEM, EDR ทำงานอยู่ |
+| ไม่ทำ Cleanup หลังทดสอบ | ย้อนกลับการเปลี่ยนแปลงทุกครั้ง |
+
 ## เอกสารที่เกี่ยวข้อง
 - [Atomic Test Map](Atomic_Test_Map.en.md)
 - [IR Framework](../05_Incident_Response/Framework.th.md)

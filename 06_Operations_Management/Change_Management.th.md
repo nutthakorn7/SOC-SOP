@@ -59,6 +59,27 @@ graph TD
 
 ---
 
+## การประเมินความเสี่ยง
+
+| ระดับ | เกณฑ์ | การอนุมัติ | หน้าต่างบำรุงรักษา |
+|:---|:---|:---|:---|
+| **ต่ำ** | เอกสาร, ไม่กระทบ | SOC Lead | ทุกเวลา |
+| **กลาง** | Detection rule, Parser | SOC Manager | เวลาทำการ |
+| **สูง** | SIEM config, Integration | SOC Manager + CAB | กำหนดเวลา |
+| **วิกฤต** | โครงสร้างพื้นฐาน, Auth | CISO + CAB | Downtime กำหนด |
+
+## รายการตรวจสอบการเปลี่ยนแปลง
+
+| # | ขั้นตอน | ผู้รับผิดชอบ | เสร็จ |
+|:---:|:---|:---|:---:|
+| 1 | RFC ถูกส่งและอนุมัติ | Engineer | ☐ |
+| 2 | Peer review เสร็จ | Detection Eng | ☐ |
+| 3 | สำรองข้อมูลก่อน Deploy | Engineer | ☐ |
+| 4 | ทดสอบใน Staging | Engineer | ☐ |
+| 5 | แผน Rollback พร้อม | Engineer | ☐ |
+| 6 | Deploy ไปยัง Production | Engineer | ☐ |
+| 7 | ตรวจสอบ 30 นาทีหลัง Deploy | SOC Lead | ☐ |
+
 ## เอกสารที่เกี่ยวข้อง
 
 - [แม่แบบ Change Request](../templates/change_request_rfc.th.md)
