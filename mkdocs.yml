@@ -135,170 +135,182 @@ nav:
     - อนุกรมวิธานจำแนกเหตุการณ์ (TH): 05_Incident_Response/Incident_Classification.th.md
     - Forensic Investigation: 05_Incident_Response/Forensic_Investigation.en.md
     - SOP นิติวิทยาศาสตร์ (TH): 05_Incident_Response/Forensic_Investigation.th.md
-    - Playbooks (EN):
-      - Phishing: 05_Incident_Response/Playbooks/Phishing.en.md
-      - Ransomware: 05_Incident_Response/Playbooks/Ransomware.en.md
-      - Malware Infection: 05_Incident_Response/Playbooks/Malware_Infection.en.md
-      - Brute Force: 05_Incident_Response/Playbooks/Brute_Force.en.md
-      - Account Compromise: 05_Incident_Response/Playbooks/Account_Compromise.en.md
-      - Impossible Travel: 05_Incident_Response/Playbooks/Impossible_Travel.en.md
-      - Privilege Escalation: 05_Incident_Response/Playbooks/Privilege_Escalation.en.md
-      - Data Exfiltration: 05_Incident_Response/Playbooks/Data_Exfiltration.en.md
-      - DDoS Attack: 05_Incident_Response/Playbooks/DDoS_Attack.en.md
-      - Exploit: 05_Incident_Response/Playbooks/Exploit.en.md
-      - Suspicious Script: 05_Incident_Response/Playbooks/Suspicious_Script.en.md
-      - Lateral Movement: 05_Incident_Response/Playbooks/Lateral_Movement.en.md
-      - C2 Communication: 05_Incident_Response/Playbooks/C2_Communication.en.md
-      - Insider Threat: 05_Incident_Response/Playbooks/Insider_Threat.en.md
-      - Log Clearing: 05_Incident_Response/Playbooks/Log_Clearing.en.md
-      - Lost Device: 05_Incident_Response/Playbooks/Lost_Device.en.md
-      - Rogue Admin: 05_Incident_Response/Playbooks/Rogue_Admin.en.md
-      - BEC: 05_Incident_Response/Playbooks/BEC.en.md
-      - Web Attack: 05_Incident_Response/Playbooks/Web_Attack.en.md
-      - AWS EC2 Compromise: 05_Incident_Response/Playbooks/AWS_EC2_Compromise.en.md
-      - AWS S3 Compromise: 05_Incident_Response/Playbooks/AWS_S3_Compromise.en.md
-      - Azure AD Compromise: 05_Incident_Response/Playbooks/Azure_AD_Compromise.en.md
-      - Cloud IAM: 05_Incident_Response/Playbooks/Cloud_IAM.en.md
-      - Supply Chain Attack: 05_Incident_Response/Playbooks/Supply_Chain_Attack.en.md
-      - API Abuse: 05_Incident_Response/Playbooks/API_Abuse.en.md
-      - Cryptomining: 05_Incident_Response/Playbooks/Cryptomining.en.md
-      - DNS Tunneling: 05_Incident_Response/Playbooks/DNS_Tunneling.en.md
-      - Zero-Day Exploit: 05_Incident_Response/Playbooks/Zero_Day_Exploit.en.md
-      - MFA Bypass: 05_Incident_Response/Playbooks/MFA_Bypass.en.md
-      - Cloud Storage Exposure: 05_Incident_Response/Playbooks/Cloud_Storage_Exposure.en.md
-      - Mobile Compromise: 05_Incident_Response/Playbooks/Mobile_Compromise.en.md
-      - Shadow IT: 05_Incident_Response/Playbooks/Shadow_IT.en.md
-      - OT/ICS Incident: 05_Incident_Response/Playbooks/OT_ICS_Incident.en.md
-      - Network Discovery: 05_Incident_Response/Playbooks/Network_Discovery.en.md
-      - Data Collection: 05_Incident_Response/Playbooks/Data_Collection.en.md
-      - Credential Dumping: 05_Incident_Response/Playbooks/Credential_Dumping.en.md
-      - SQL Injection: 05_Incident_Response/Playbooks/SQL_Injection.en.md
-      - Wiper Attack: 05_Incident_Response/Playbooks/Wiper_Attack.en.md
-      - Living Off The Land: 05_Incident_Response/Playbooks/Living_Off_The_Land.en.md
-      - USB Removable Media: 05_Incident_Response/Playbooks/USB_Removable_Media.en.md
-      - VPN Abuse: 05_Incident_Response/Playbooks/VPN_Abuse.en.md
-      - Email Account Takeover: 05_Incident_Response/Playbooks/Email_Account_Takeover.en.md
-      - Watering Hole: 05_Incident_Response/Playbooks/Watering_Hole.en.md
-      - Drive-By Download: 05_Incident_Response/Playbooks/Drive_By_Download.en.md
-      - Rootkit / Bootkit: 05_Incident_Response/Playbooks/Rootkit_Bootkit.en.md
-      - SIM Swap: 05_Incident_Response/Playbooks/SIM_Swap.en.md
-      - Cloud Cryptojacking: 05_Incident_Response/Playbooks/Cloud_Cryptojacking.en.md
-      - Deepfake Social Engineering: 05_Incident_Response/Playbooks/Deepfake_Social_Engineering.en.md
-      - Typosquatting: 05_Incident_Response/Playbooks/Typosquatting.en.md
-      - Unauthorized Scanning: 05_Incident_Response/Playbooks/Unauthorized_Scanning.en.md
-    - Playbooks (TH):
-      - Phishing: 05_Incident_Response/Playbooks/Phishing.th.md
-      - Ransomware: 05_Incident_Response/Playbooks/Ransomware.th.md
-      - Malware Infection: 05_Incident_Response/Playbooks/Malware_Infection.th.md
-      - Brute Force: 05_Incident_Response/Playbooks/Brute_Force.th.md
-      - Account Compromise: 05_Incident_Response/Playbooks/Account_Compromise.th.md
-      - Impossible Travel: 05_Incident_Response/Playbooks/Impossible_Travel.th.md
-      - Privilege Escalation: 05_Incident_Response/Playbooks/Privilege_Escalation.th.md
-      - Data Exfiltration: 05_Incident_Response/Playbooks/Data_Exfiltration.th.md
-      - DDoS Attack: 05_Incident_Response/Playbooks/DDoS_Attack.th.md
-      - Exploit: 05_Incident_Response/Playbooks/Exploit.th.md
-      - Suspicious Script: 05_Incident_Response/Playbooks/Suspicious_Script.th.md
-      - Lateral Movement: 05_Incident_Response/Playbooks/Lateral_Movement.th.md
-      - C2 Communication: 05_Incident_Response/Playbooks/C2_Communication.th.md
-      - Insider Threat: 05_Incident_Response/Playbooks/Insider_Threat.th.md
-      - Log Clearing: 05_Incident_Response/Playbooks/Log_Clearing.th.md
-      - Lost Device: 05_Incident_Response/Playbooks/Lost_Device.th.md
-      - Rogue Admin: 05_Incident_Response/Playbooks/Rogue_Admin.th.md
-      - BEC: 05_Incident_Response/Playbooks/BEC.th.md
-      - Web Attack: 05_Incident_Response/Playbooks/Web_Attack.th.md
-      - AWS EC2 Compromise: 05_Incident_Response/Playbooks/AWS_EC2_Compromise.th.md
-      - AWS S3 Compromise: 05_Incident_Response/Playbooks/AWS_S3_Compromise.th.md
-      - Azure AD Compromise: 05_Incident_Response/Playbooks/Azure_AD_Compromise.th.md
-      - Cloud IAM: 05_Incident_Response/Playbooks/Cloud_IAM.th.md
-      - Supply Chain Attack: 05_Incident_Response/Playbooks/Supply_Chain_Attack.th.md
-      - API Abuse: 05_Incident_Response/Playbooks/API_Abuse.th.md
-      - Cryptomining: 05_Incident_Response/Playbooks/Cryptomining.th.md
-      - DNS Tunneling: 05_Incident_Response/Playbooks/DNS_Tunneling.th.md
-      - Zero-Day Exploit: 05_Incident_Response/Playbooks/Zero_Day_Exploit.th.md
-      - MFA Bypass: 05_Incident_Response/Playbooks/MFA_Bypass.th.md
-      - Cloud Storage Exposure: 05_Incident_Response/Playbooks/Cloud_Storage_Exposure.th.md
-      - Mobile Compromise: 05_Incident_Response/Playbooks/Mobile_Compromise.th.md
-      - Shadow IT: 05_Incident_Response/Playbooks/Shadow_IT.th.md
-      - OT/ICS Incident: 05_Incident_Response/Playbooks/OT_ICS_Incident.th.md
-      - Network Discovery: 05_Incident_Response/Playbooks/Network_Discovery.th.md
-      - Data Collection: 05_Incident_Response/Playbooks/Data_Collection.th.md
-      - Credential Dumping: 05_Incident_Response/Playbooks/Credential_Dumping.th.md
-      - SQL Injection: 05_Incident_Response/Playbooks/SQL_Injection.th.md
-      - Wiper Attack: 05_Incident_Response/Playbooks/Wiper_Attack.th.md
-      - Living Off The Land: 05_Incident_Response/Playbooks/Living_Off_The_Land.th.md
-      - USB Removable Media: 05_Incident_Response/Playbooks/USB_Removable_Media.th.md
-      - VPN Abuse: 05_Incident_Response/Playbooks/VPN_Abuse.th.md
-      - Email Account Takeover: 05_Incident_Response/Playbooks/Email_Account_Takeover.th.md
-      - Watering Hole: 05_Incident_Response/Playbooks/Watering_Hole.th.md
-      - Drive-By Download: 05_Incident_Response/Playbooks/Drive_By_Download.th.md
-      - Rootkit / Bootkit: 05_Incident_Response/Playbooks/Rootkit_Bootkit.th.md
-      - SIM Swap: 05_Incident_Response/Playbooks/SIM_Swap.th.md
-      - Cloud Cryptojacking: 05_Incident_Response/Playbooks/Cloud_Cryptojacking.th.md
-      - Deepfake Social Engineering: 05_Incident_Response/Playbooks/Deepfake_Social_Engineering.th.md
-      - Typosquatting: 05_Incident_Response/Playbooks/Typosquatting.th.md
-      - Unauthorized Scanning: 05_Incident_Response/Playbooks/Unauthorized_Scanning.th.md
+    # ── 📧 Email & Social Engineering ──
+    - Playbooks — Email & Social:
+      - PB-01 Phishing (EN): 05_Incident_Response/Playbooks/Phishing.en.md
+      - PB-01 Phishing (TH): 05_Incident_Response/Playbooks/Phishing.th.md
+      - PB-17 BEC (EN): 05_Incident_Response/Playbooks/BEC.en.md
+      - PB-17 BEC (TH): 05_Incident_Response/Playbooks/BEC.th.md
+      - PB-41 Email Account Takeover (EN): 05_Incident_Response/Playbooks/Email_Account_Takeover.en.md
+      - PB-41 Email Account Takeover (TH): 05_Incident_Response/Playbooks/Email_Account_Takeover.th.md
+      - PB-49 Deepfake Social Engineering (EN): 05_Incident_Response/Playbooks/Deepfake_Social_Engineering.en.md
+      - PB-49 Deepfake Social Engineering (TH): 05_Incident_Response/Playbooks/Deepfake_Social_Engineering.th.md
+    # ── 🦠 Malware & Ransomware ──
+    - Playbooks — Malware & Ransomware:
+      - PB-02 Ransomware (EN): 05_Incident_Response/Playbooks/Ransomware.en.md
+      - PB-02 Ransomware (TH): 05_Incident_Response/Playbooks/Ransomware.th.md
+      - PB-03 Malware Infection (EN): 05_Incident_Response/Playbooks/Malware_Infection.en.md
+      - PB-03 Malware Infection (TH): 05_Incident_Response/Playbooks/Malware_Infection.th.md
+      - PB-11 Suspicious Script (EN): 05_Incident_Response/Playbooks/Suspicious_Script.en.md
+      - PB-11 Suspicious Script (TH): 05_Incident_Response/Playbooks/Suspicious_Script.th.md
+      - PB-38 Wiper Attack (EN): 05_Incident_Response/Playbooks/Wiper_Attack.en.md
+      - PB-38 Wiper Attack (TH): 05_Incident_Response/Playbooks/Wiper_Attack.th.md
+      - PB-39 Living Off The Land (EN): 05_Incident_Response/Playbooks/Living_Off_The_Land.en.md
+      - PB-39 Living Off The Land (TH): 05_Incident_Response/Playbooks/Living_Off_The_Land.th.md
+      - PB-46 Rootkit / Bootkit (EN): 05_Incident_Response/Playbooks/Rootkit_Bootkit.en.md
+      - PB-46 Rootkit / Bootkit (TH): 05_Incident_Response/Playbooks/Rootkit_Bootkit.th.md
+    # ── 🔑 Identity & Access ──
+    - Playbooks — Identity & Access:
+      - PB-04 Brute Force (EN): 05_Incident_Response/Playbooks/Brute_Force.en.md
+      - PB-04 Brute Force (TH): 05_Incident_Response/Playbooks/Brute_Force.th.md
+      - PB-05 Account Compromise (EN): 05_Incident_Response/Playbooks/Account_Compromise.en.md
+      - PB-05 Account Compromise (TH): 05_Incident_Response/Playbooks/Account_Compromise.th.md
+      - PB-06 Impossible Travel (EN): 05_Incident_Response/Playbooks/Impossible_Travel.en.md
+      - PB-06 Impossible Travel (TH): 05_Incident_Response/Playbooks/Impossible_Travel.th.md
+      - PB-07 Privilege Escalation (EN): 05_Incident_Response/Playbooks/Privilege_Escalation.en.md
+      - PB-07 Privilege Escalation (TH): 05_Incident_Response/Playbooks/Privilege_Escalation.th.md
+      - PB-14 Insider Threat (EN): 05_Incident_Response/Playbooks/Insider_Threat.en.md
+      - PB-14 Insider Threat (TH): 05_Incident_Response/Playbooks/Insider_Threat.th.md
+      - PB-16 Rogue Admin (EN): 05_Incident_Response/Playbooks/Rogue_Admin.en.md
+      - PB-16 Rogue Admin (TH): 05_Incident_Response/Playbooks/Rogue_Admin.th.md
+      - PB-27 MFA Bypass (EN): 05_Incident_Response/Playbooks/MFA_Bypass.en.md
+      - PB-27 MFA Bypass (TH): 05_Incident_Response/Playbooks/MFA_Bypass.th.md
+      - PB-36 Credential Dumping (EN): 05_Incident_Response/Playbooks/Credential_Dumping.en.md
+      - PB-36 Credential Dumping (TH): 05_Incident_Response/Playbooks/Credential_Dumping.th.md
+    # ── 🌐 Network & Web ──
+    - Playbooks — Network & Web:
+      - PB-09 DDoS Attack (EN): 05_Incident_Response/Playbooks/DDoS_Attack.en.md
+      - PB-09 DDoS Attack (TH): 05_Incident_Response/Playbooks/DDoS_Attack.th.md
+      - PB-10 Exploit (EN): 05_Incident_Response/Playbooks/Exploit.en.md
+      - PB-10 Exploit (TH): 05_Incident_Response/Playbooks/Exploit.th.md
+      - PB-12 Lateral Movement (EN): 05_Incident_Response/Playbooks/Lateral_Movement.en.md
+      - PB-12 Lateral Movement (TH): 05_Incident_Response/Playbooks/Lateral_Movement.th.md
+      - PB-13 C2 Communication (EN): 05_Incident_Response/Playbooks/C2_Communication.en.md
+      - PB-13 C2 Communication (TH): 05_Incident_Response/Playbooks/C2_Communication.th.md
+      - PB-18 Web Attack (EN): 05_Incident_Response/Playbooks/Web_Attack.en.md
+      - PB-18 Web Attack (TH): 05_Incident_Response/Playbooks/Web_Attack.th.md
+      - PB-22 API Abuse (EN): 05_Incident_Response/Playbooks/API_Abuse.en.md
+      - PB-22 API Abuse (TH): 05_Incident_Response/Playbooks/API_Abuse.th.md
+      - PB-24 DNS Tunneling (EN): 05_Incident_Response/Playbooks/DNS_Tunneling.en.md
+      - PB-24 DNS Tunneling (TH): 05_Incident_Response/Playbooks/DNS_Tunneling.th.md
+      - PB-25 Zero-Day Exploit (EN): 05_Incident_Response/Playbooks/Zero_Day_Exploit.en.md
+      - PB-25 Zero-Day Exploit (TH): 05_Incident_Response/Playbooks/Zero_Day_Exploit.th.md
+      - PB-34 Network Discovery (EN): 05_Incident_Response/Playbooks/Network_Discovery.en.md
+      - PB-34 Network Discovery (TH): 05_Incident_Response/Playbooks/Network_Discovery.th.md
+      - PB-37 SQL Injection (EN): 05_Incident_Response/Playbooks/SQL_Injection.en.md
+      - PB-37 SQL Injection (TH): 05_Incident_Response/Playbooks/SQL_Injection.th.md
+      - PB-42 Watering Hole (EN): 05_Incident_Response/Playbooks/Watering_Hole.en.md
+      - PB-42 Watering Hole (TH): 05_Incident_Response/Playbooks/Watering_Hole.th.md
+      - PB-43 Drive-By Download (EN): 05_Incident_Response/Playbooks/Drive_By_Download.en.md
+      - PB-43 Drive-By Download (TH): 05_Incident_Response/Playbooks/Drive_By_Download.th.md
+      - PB-50 Unauthorized Scanning (EN): 05_Incident_Response/Playbooks/Unauthorized_Scanning.en.md
+      - PB-50 Unauthorized Scanning (TH): 05_Incident_Response/Playbooks/Unauthorized_Scanning.th.md
+    # ── ☁️ Cloud & Infrastructure ──
+    - Playbooks — Cloud & Infrastructure:
+      - PB-19 AWS EC2 Compromise (EN): 05_Incident_Response/Playbooks/AWS_EC2_Compromise.en.md
+      - PB-19 AWS EC2 Compromise (TH): 05_Incident_Response/Playbooks/AWS_EC2_Compromise.th.md
+      - PB-20 AWS S3 Compromise (EN): 05_Incident_Response/Playbooks/AWS_S3_Compromise.en.md
+      - PB-20 AWS S3 Compromise (TH): 05_Incident_Response/Playbooks/AWS_S3_Compromise.th.md
+      - PB-21 Azure AD Compromise (EN): 05_Incident_Response/Playbooks/Azure_AD_Compromise.en.md
+      - PB-21 Azure AD Compromise (TH): 05_Incident_Response/Playbooks/Azure_AD_Compromise.th.md
+      - PB-22 Cloud IAM (EN): 05_Incident_Response/Playbooks/Cloud_IAM.en.md
+      - PB-22 Cloud IAM (TH): 05_Incident_Response/Playbooks/Cloud_IAM.th.md
+      - PB-23 Cryptomining (EN): 05_Incident_Response/Playbooks/Cryptomining.en.md
+      - PB-23 Cryptomining (TH): 05_Incident_Response/Playbooks/Cryptomining.th.md
+      - PB-28 Cloud Storage Exposure (EN): 05_Incident_Response/Playbooks/Cloud_Storage_Exposure.en.md
+      - PB-28 Cloud Storage Exposure (TH): 05_Incident_Response/Playbooks/Cloud_Storage_Exposure.th.md
+      - PB-30 Shadow IT (EN): 05_Incident_Response/Playbooks/Shadow_IT.en.md
+      - PB-30 Shadow IT (TH): 05_Incident_Response/Playbooks/Shadow_IT.th.md
+      - PB-41 VPN Abuse (EN): 05_Incident_Response/Playbooks/VPN_Abuse.en.md
+      - PB-41 VPN Abuse (TH): 05_Incident_Response/Playbooks/VPN_Abuse.th.md
+      - PB-48 Cloud Cryptojacking (EN): 05_Incident_Response/Playbooks/Cloud_Cryptojacking.en.md
+      - PB-48 Cloud Cryptojacking (TH): 05_Incident_Response/Playbooks/Cloud_Cryptojacking.th.md
+    # ── 📦 Data & Supply Chain ──
+    - Playbooks — Data & Supply Chain:
+      - PB-08 Data Exfiltration (EN): 05_Incident_Response/Playbooks/Data_Exfiltration.en.md
+      - PB-08 Data Exfiltration (TH): 05_Incident_Response/Playbooks/Data_Exfiltration.th.md
+      - PB-15 Log Clearing (EN): 05_Incident_Response/Playbooks/Log_Clearing.en.md
+      - PB-15 Log Clearing (TH): 05_Incident_Response/Playbooks/Log_Clearing.th.md
+      - PB-21 Supply Chain Attack (EN): 05_Incident_Response/Playbooks/Supply_Chain_Attack.en.md
+      - PB-21 Supply Chain Attack (TH): 05_Incident_Response/Playbooks/Supply_Chain_Attack.th.md
+      - PB-35 Data Collection (EN): 05_Incident_Response/Playbooks/Data_Collection.en.md
+      - PB-35 Data Collection (TH): 05_Incident_Response/Playbooks/Data_Collection.th.md
+      - PB-49 Typosquatting (EN): 05_Incident_Response/Playbooks/Typosquatting.en.md
+      - PB-49 Typosquatting (TH): 05_Incident_Response/Playbooks/Typosquatting.th.md
+    # ── 📱 Physical & Mobile ──
+    - Playbooks — Physical & Mobile:
+      - PB-16 Lost Device (EN): 05_Incident_Response/Playbooks/Lost_Device.en.md
+      - PB-16 Lost Device (TH): 05_Incident_Response/Playbooks/Lost_Device.th.md
+      - PB-29 Mobile Compromise (EN): 05_Incident_Response/Playbooks/Mobile_Compromise.en.md
+      - PB-29 Mobile Compromise (TH): 05_Incident_Response/Playbooks/Mobile_Compromise.th.md
+      - PB-31 OT/ICS Incident (EN): 05_Incident_Response/Playbooks/OT_ICS_Incident.en.md
+      - PB-31 OT/ICS Incident (TH): 05_Incident_Response/Playbooks/OT_ICS_Incident.th.md
+      - PB-40 USB Removable Media (EN): 05_Incident_Response/Playbooks/USB_Removable_Media.en.md
+      - PB-40 USB Removable Media (TH): 05_Incident_Response/Playbooks/USB_Removable_Media.th.md
+      - PB-47 SIM Swap (EN): 05_Incident_Response/Playbooks/SIM_Swap.en.md
+      - PB-47 SIM Swap (TH): 05_Incident_Response/Playbooks/SIM_Swap.th.md
   - 📊 Operations:
-    # --- Team & Daily Operations ---
-    - SOC Team Structure: 06_Operations_Management/SOC_Team_Structure.en.md
-    - โครงสร้างทีม (TH): 06_Operations_Management/SOC_Team_Structure.th.md
-    - Shift Handoff: 06_Operations_Management/Shift_Handoff.en.md
-    - ส่งมอบกะ (TH): 06_Operations_Management/Shift_Handoff.th.md
-    - SOC Checklists: 06_Operations_Management/SOC_Checklists.en.md
-    - รายการตรวจสอบ (TH): 06_Operations_Management/SOC_Checklists.th.md
-    - SOC Metrics & KPIs: 06_Operations_Management/SOC_Metrics.en.md
-    - ตัวชี้วัด (TH): 06_Operations_Management/SOC_Metrics.th.md
-    - SOC Communication SOP: 06_Operations_Management/SOC_Communication.en.md
-    - SOP การสื่อสาร SOC (TH): 06_Operations_Management/SOC_Communication.th.md
-    - KPI Dashboard Template: 06_Operations_Management/KPI_Dashboard_Template.en.md
-    - แม่แบบ Dashboard KPI (TH): 06_Operations_Management/KPI_Dashboard_Template.th.md
-    - Log Source Matrix: 06_Operations_Management/Log_Source_Matrix.en.md
-    - ตารางแหล่ง Log (TH): 06_Operations_Management/Log_Source_Matrix.th.md
-    - Log Source Onboarding: 06_Operations_Management/Log_Source_Onboarding.en.md
-    - คู่มือ Onboard Log (TH): 06_Operations_Management/Log_Source_Onboarding.th.md
-    - SOC Automation Catalog: 06_Operations_Management/SOC_Automation_Catalog.en.md
-    - แคตตาล็อก Automation (TH): 06_Operations_Management/SOC_Automation_Catalog.th.md
-    - Alert Tuning: 06_Operations_Management/Alert_Tuning.en.md
-    - การปรับจูน Alert (TH): 06_Operations_Management/Alert_Tuning.th.md
-    - SOC Capacity Planning: 06_Operations_Management/SOC_Capacity_Planning.en.md
-    - การวางแผนกำลังคน SOC (TH): 06_Operations_Management/SOC_Capacity_Planning.th.md
-    # --- Security Monitoring ---
-    - Network Security Monitoring: 06_Operations_Management/Network_Security_Monitoring.en.md
-    - เฝ้าระวังเครือข่าย (TH): 06_Operations_Management/Network_Security_Monitoring.th.md
-    - Cloud Security Monitoring: 06_Operations_Management/Cloud_Security_Monitoring.en.md
-    - การเฝ้าระวัง Cloud Security (TH): 06_Operations_Management/Cloud_Security_Monitoring.th.md
-    - Data Loss Prevention (DLP): 06_Operations_Management/DLP_SOP.en.md
-    - SOP ป้องกันข้อมูลรั่วไหล (TH): 06_Operations_Management/DLP_SOP.th.md
-    - Insider Threat Program: 06_Operations_Management/Insider_Threat_Program.en.md
-    - โปรแกรม Insider Threat (TH): 06_Operations_Management/Insider_Threat_Program.th.md
-    # --- Threat Intelligence ---
-    - Threat Intelligence: 06_Operations_Management/Threat_Intelligence_Lifecycle.en.md
-    - ข่าวกรองภัย (TH): 06_Operations_Management/Threat_Intelligence_Lifecycle.th.md
-    - TI Feeds Integration: 06_Operations_Management/TI_Feeds_Integration.en.md
-    - เชื่อมต่อ TI Feeds (TH): 06_Operations_Management/TI_Feeds_Integration.th.md
-    - Threat Landscape Report: 06_Operations_Management/Threat_Landscape_Report.en.md
-    - รายงานภูมิทัศน์ภัยคุกคาม (TH): 06_Operations_Management/Threat_Landscape_Report.th.md
-    - Detection Rule Testing: 06_Operations_Management/Detection_Rule_Testing.en.md
-    - SOP ทดสอบ Rule (TH): 06_Operations_Management/Detection_Rule_Testing.th.md
-    # --- Risk & Governance ---
-    - Vulnerability Management: 06_Operations_Management/Vulnerability_Management.en.md
-    - การจัดการช่องโหว่ (TH): 06_Operations_Management/Vulnerability_Management.th.md
-    - Third-Party Risk: 06_Operations_Management/Third_Party_Risk.en.md
-    - ความเสี่ยงบุคคลที่สาม (TH): 06_Operations_Management/Third_Party_Risk.th.md
-    - SOC Maturity Assessment: 06_Operations_Management/SOC_Maturity_Assessment.en.md
-    - ประเมินวุฒิภาวะ SOC (TH): 06_Operations_Management/SOC_Maturity_Assessment.th.md
-    - SOC Assessment: 06_Operations_Management/SOC_Assessment_Checklist.en.md
-    - แบบประเมิน (TH): 06_Operations_Management/SOC_Assessment_Checklist.th.md
-    - SLA Template: 06_Operations_Management/SLA_Template.en.md
-    - แม่แบบ SLA (TH): 06_Operations_Management/SLA_Template.th.md
-    - Vendor Evaluation: 06_Operations_Management/Vendor_Evaluation.en.md
-    - แม่แบบประเมินเครื่องมือ (TH): 06_Operations_Management/Vendor_Evaluation.th.md
-    # --- Policies & Processes ---
-    - Data Handling Protocol: 06_Operations_Management/Data_Handling_Protocol.en.md
-    - โปรโตคอลข้อมูล (TH): 06_Operations_Management/Data_Handling_Protocol.th.md
-    - Change Management: 06_Operations_Management/Change_Management.en.md
-    - การจัดการเปลี่ยนแปลง (TH): 06_Operations_Management/Change_Management.th.md
-    - Access Control Policy: 06_Operations_Management/Access_Control.en.md
-    - นโยบายควบคุมการเข้าถึง (TH): 06_Operations_Management/Access_Control.th.md
+    - 👥 Team & Daily Operations:
+      - SOC Team Structure: 06_Operations_Management/SOC_Team_Structure.en.md
+      - โครงสร้างทีม (TH): 06_Operations_Management/SOC_Team_Structure.th.md
+      - Shift Handoff: 06_Operations_Management/Shift_Handoff.en.md
+      - ส่งมอบกะ (TH): 06_Operations_Management/Shift_Handoff.th.md
+      - SOC Checklists: 06_Operations_Management/SOC_Checklists.en.md
+      - รายการตรวจสอบ (TH): 06_Operations_Management/SOC_Checklists.th.md
+      - SOC Metrics & KPIs: 06_Operations_Management/SOC_Metrics.en.md
+      - ตัวชี้วัด (TH): 06_Operations_Management/SOC_Metrics.th.md
+      - SOC Communication SOP: 06_Operations_Management/SOC_Communication.en.md
+      - SOP การสื่อสาร SOC (TH): 06_Operations_Management/SOC_Communication.th.md
+      - KPI Dashboard Template: 06_Operations_Management/KPI_Dashboard_Template.en.md
+      - แม่แบบ Dashboard KPI (TH): 06_Operations_Management/KPI_Dashboard_Template.th.md
+      - SOC Capacity Planning: 06_Operations_Management/SOC_Capacity_Planning.en.md
+      - การวางแผนกำลังคน SOC (TH): 06_Operations_Management/SOC_Capacity_Planning.th.md
+    - 📡 Security Monitoring:
+      - Log Source Matrix: 06_Operations_Management/Log_Source_Matrix.en.md
+      - ตารางแหล่ง Log (TH): 06_Operations_Management/Log_Source_Matrix.th.md
+      - Log Source Onboarding: 06_Operations_Management/Log_Source_Onboarding.en.md
+      - คู่มือ Onboard Log (TH): 06_Operations_Management/Log_Source_Onboarding.th.md
+      - Alert Tuning: 06_Operations_Management/Alert_Tuning.en.md
+      - การปรับจูน Alert (TH): 06_Operations_Management/Alert_Tuning.th.md
+      - SOC Automation Catalog: 06_Operations_Management/SOC_Automation_Catalog.en.md
+      - แคตตาล็อก Automation (TH): 06_Operations_Management/SOC_Automation_Catalog.th.md
+      - Network Security Monitoring: 06_Operations_Management/Network_Security_Monitoring.en.md
+      - เฝ้าระวังเครือข่าย (TH): 06_Operations_Management/Network_Security_Monitoring.th.md
+      - Cloud Security Monitoring: 06_Operations_Management/Cloud_Security_Monitoring.en.md
+      - การเฝ้าระวัง Cloud Security (TH): 06_Operations_Management/Cloud_Security_Monitoring.th.md
+      - Data Loss Prevention (DLP): 06_Operations_Management/DLP_SOP.en.md
+      - SOP ป้องกันข้อมูลรั่วไหล (TH): 06_Operations_Management/DLP_SOP.th.md
+      - Insider Threat Program: 06_Operations_Management/Insider_Threat_Program.en.md
+      - โปรแกรม Insider Threat (TH): 06_Operations_Management/Insider_Threat_Program.th.md
+    - 🔍 Threat Intelligence:
+      - Threat Intelligence Lifecycle: 06_Operations_Management/Threat_Intelligence_Lifecycle.en.md
+      - ข่าวกรองภัย (TH): 06_Operations_Management/Threat_Intelligence_Lifecycle.th.md
+      - TI Feeds Integration: 06_Operations_Management/TI_Feeds_Integration.en.md
+      - เชื่อมต่อ TI Feeds (TH): 06_Operations_Management/TI_Feeds_Integration.th.md
+      - Threat Landscape Report: 06_Operations_Management/Threat_Landscape_Report.en.md
+      - รายงานภูมิทัศน์ภัยคุกคาม (TH): 06_Operations_Management/Threat_Landscape_Report.th.md
+      - Detection Rule Testing: 06_Operations_Management/Detection_Rule_Testing.en.md
+      - SOP ทดสอบ Rule (TH): 06_Operations_Management/Detection_Rule_Testing.th.md
+    - ⚖️ Risk & Governance:
+      - Vulnerability Management: 06_Operations_Management/Vulnerability_Management.en.md
+      - การจัดการช่องโหว่ (TH): 06_Operations_Management/Vulnerability_Management.th.md
+      - Third-Party Risk: 06_Operations_Management/Third_Party_Risk.en.md
+      - ความเสี่ยงบุคคลที่สาม (TH): 06_Operations_Management/Third_Party_Risk.th.md
+      - SOC Maturity Assessment: 06_Operations_Management/SOC_Maturity_Assessment.en.md
+      - ประเมินวุฒิภาวะ SOC (TH): 06_Operations_Management/SOC_Maturity_Assessment.th.md
+      - SOC Assessment: 06_Operations_Management/SOC_Assessment_Checklist.en.md
+      - แบบประเมิน (TH): 06_Operations_Management/SOC_Assessment_Checklist.th.md
+      - SLA Template: 06_Operations_Management/SLA_Template.en.md
+      - แม่แบบ SLA (TH): 06_Operations_Management/SLA_Template.th.md
+      - Vendor Evaluation: 06_Operations_Management/Vendor_Evaluation.en.md
+      - แม่แบบประเมินเครื่องมือ (TH): 06_Operations_Management/Vendor_Evaluation.th.md
+    - 📋 Policies & Processes:
+      - Data Handling Protocol: 06_Operations_Management/Data_Handling_Protocol.en.md
+      - โปรโตคอลข้อมูล (TH): 06_Operations_Management/Data_Handling_Protocol.th.md
+      - Change Management: 06_Operations_Management/Change_Management.en.md
+      - การจัดการเปลี่ยนแปลง (TH): 06_Operations_Management/Change_Management.th.md
+      - Access Control Policy: 06_Operations_Management/Access_Control.en.md
+      - นโยบายควบคุมการเข้าถึง (TH): 06_Operations_Management/Access_Control.th.md
 
   - 🔧 Guides & Tools:
     - Detection Rules Index: 08_Detection_Engineering/README.md
