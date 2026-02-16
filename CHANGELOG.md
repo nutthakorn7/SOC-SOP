@@ -7,6 +7,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.9.0] - 2026-02-16
+
+### Added
+- **Thin document enhancement** — 40 files expanded across 4 batches (+2,370 lines total), bringing all key SOPs above 150 lines
+  - PDPA Compliance: penalty table, cross-border guidance, 72h breach workflow, DPIA checklist
+  - SOC Communication: crisis plan, war room activation, on-call procedures, communication guidelines
+  - Simulation Guide: lab environment setup, 3 detailed test scenarios, debrief template
+  - SOC Team Structure: interview questions (T1/T2/T3), skills matrix, Thailand salary benchmarks
+  - Data Handling Protocol: TLP marking in practice, DLP controls, data retention schedule
+  - Common Issues: SIEM/EDR/log source troubleshooting scripts, escalation matrix
+  - SOC Assessment Checklist: detailed scoring rubric (Business, People, Process domains)
+  - Threat Intelligence Lifecycle: TI report template, Diamond Model analysis, STIX/TAXII reference
+  - Access Control: break-glass emergency access, Privileged Access Management (PAM)
+  - Lessons Learned Template: common patterns table, facilitator checklist, blameless culture guide
+  - Detection Rule Testing: TDD workflow, CI/CD pipeline, quality benchmarks, rule lifecycle
+  - Data Governance Policy: SOC data classification, data lifecycle management, quality standards
+  - Monthly SOC Report: dashboard visualization guide, trend analysis template, executive summary
+  - Quickstart Guide: 10-item FAQ section
+  - Analyst Onboarding Path: 90-day structured onboarding plan
+  - System Activation: pre-flight validation checklist, log sources priority table
+  - Database Management: capacity planning guide, backup strategy
+  - Deployment Procedures: rollback procedures, change window schedule
+  - Executive Dashboard: KPI definitions with RAG thresholds
+  - Interview Guide: 3 scenario-based questions, scoring rubric
+- **Full TH-EN parity maintained** — All 20 enhanced EN files have matching TH versions
+
+### Changed
+- Project total now **85,647 lines** across 244 documents
+
+---
+
 ## [2.8.0] - 2026-02-16
 
 ### Added
