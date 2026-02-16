@@ -10,10 +10,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.8.0] - 2026-02-16
 
 ### Added
-- **Complete TH-EN parity** — All 240 files now have near-identical line counts between Thai and English versions
+- **Complete TH-EN parity** — All 244 files now have near-identical line counts between Thai and English versions
   - Non-playbook documents: max gap ≤ 3 lines (120 file pairs)
   - Playbook documents: max gap ≤ 5 lines (35 file pairs)
   - Total lines added for parity: +3,416 across 13 expansion batches
+- **Tier 1 Runbook v2.0** — Complete rewrite (229 → 519 lines EN, 227 → 517 lines TH)
+  - Added: SIEM query templates, 10 alert types, FP cheat sheet, first-day checklist, log source reference, KPIs, 3 Mermaid flow diagrams
+- **Tier 2 Runbook** — New (383 lines EN/TH)
+  - Investigation methodology, SIEM correlation queries, containment framework, MITRE ATT&CK mapping, incident documentation template, T1 mentoring guide
+- **Tier 3 Runbook** — New (429 lines EN, 428 lines TH)
+  - Threat hunting framework, LOLBin/persistence/C2 hunt queries, malware analysis workflow, Sigma/YARA templates, forensics commands, purple team guide, TI report template
 - **Targeted content additions** — Tables, checklists, quick reference cards, decision matrices, and workflow templates added to all Thai documents to achieve content equivalence
 
 ### Changed

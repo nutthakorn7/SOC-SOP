@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/📄_Documents-240-blue?style=for-the-badge" alt="Documents">
+  <img src="https://img.shields.io/badge/📄_Documents-244-blue?style=for-the-badge" alt="Documents">
   <img src="https://img.shields.io/badge/🛡️_Playbooks-35-red?style=for-the-badge" alt="Playbooks">
   <img src="https://img.shields.io/badge/🔍_Sigma_Rules-35-orange?style=for-the-badge" alt="Sigma Rules">
   <img src="https://img.shields.io/badge/🌐_Bilingual-EN%2FTH-green?style=for-the-badge" alt="Bilingual">
@@ -44,7 +44,7 @@
 
 | Category | Count | Highlights |
 |:---|:---:|:---|
-| 📄 Documents (EN+TH) | 240 | Bilingual, vendor-agnostic SOPs |
+| 📄 Documents (EN+TH) | 244 | Bilingual, vendor-agnostic SOPs |
 | 🛡️ IR Playbooks | 35 | PB-01 Phishing → PB-35 Data Collection, MITRE mapped |
 | 🔍 Sigma Detection Rules | 35 | Ready-to-import SIEM rules |
 | 🧬 YARA Rules | 16 | File-based threat detection |
@@ -80,7 +80,9 @@ Start here if you're building a brand-new SOC. Follow the numbered order.
 | **Severity Matrix** (P1–P4) | [Read](05_Incident_Response/Severity_Matrix.en.md) | [อ่าน](05_Incident_Response/Severity_Matrix.th.md) |
 | **📋 Incident Classification** | [Read](05_Incident_Response/Incident_Classification.en.md) | [อ่าน](05_Incident_Response/Incident_Classification.th.md) |
 | **🚨 Escalation Matrix** | [Read](05_Incident_Response/Escalation_Matrix.en.md) | [อ่าน](05_Incident_Response/Escalation_Matrix.th.md) |
-| **Tier 1 Runbook** | [Read](05_Incident_Response/Tier1_Runbook.en.md) | [อ่าน](05_Incident_Response/Tier1_Runbook.th.md) |
+| **Tier 1 Runbook** — Alert Triage | [Read](05_Incident_Response/Tier1_Runbook.en.md) | [อ่าน](05_Incident_Response/Tier1_Runbook.th.md) |
+| **Tier 2 Runbook** — Investigation | [Read](05_Incident_Response/Tier2_Runbook.en.md) | [อ่าน](05_Incident_Response/Tier2_Runbook.th.md) |
+| **Tier 3 Runbook** — Threat Hunting | [Read](05_Incident_Response/Tier3_Runbook.en.md) | [อ่าน](05_Incident_Response/Tier3_Runbook.th.md) |
 | **Communication Templates** (6) | [Read](05_Incident_Response/Communication_Templates.en.md) | [อ่าน](05_Incident_Response/Communication_Templates.th.md) |
 
 ### Investigation & Evidence / การสืบสวนและหลักฐาน
