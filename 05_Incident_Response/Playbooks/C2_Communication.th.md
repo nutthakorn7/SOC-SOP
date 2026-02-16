@@ -13,7 +13,7 @@
 - [ ] ตรวจ TLS inspection coverage สำหรับ encrypted C2
 - [ ] ใช้ JA3/JA3S fingerprint detection
 - [ ] ใช้ DNS sinkholing สำหรับ C2 domains
-- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+- [ ] จัดทำ [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ### ผังวงจรชีวิต C2
 
@@ -196,7 +196,7 @@ sequenceDiagram
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)
-- [แม่แบบรายงานเหตุการณ์](../../templates/incident_report.th.md)
+- [แม่แบบรายงานเหตุการณ์](../../11_Reporting_Templates/incident_report.th.md)
 - [PB-03 มัลแวร์](Malware_Infection.th.md)
 - [PB-25 DNS Tunneling](DNS_Tunneling.th.md)
 

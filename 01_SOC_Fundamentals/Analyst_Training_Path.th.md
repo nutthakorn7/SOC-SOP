@@ -207,5 +207,5 @@ graph TD
 
 - [แผนงานสร้าง SOC](SOC_Building_Roadmap.th.md)
 - [งบประมาณและจัดคน](Budget_Staffing.th.md)
-- [คู่มือ Tier 1](../05_Incident_Response/Tier1_Runbook.th.md)
+- [คู่มือ Tier 1](../05_Incident_Response/Runbooks/Tier1_Runbook.th.md)
 - [คู่มือสัมภาษณ์](../05_Incident_Response/Interview_Guide.th.md)

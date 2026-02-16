@@ -185,7 +185,7 @@ graph TD
 - [ ] Update runbook with ISP/CDN escalation contacts and procedures
 - [ ] Implement GeoIP-based filtering if attacks originated from specific regions
 - [ ] Schedule DDoS simulation exercise with mitigation provider
-- [ ] Document findings in [Incident Report](../../templates/incident_report.en.md)
+- [ ] Document findings in [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ---
 
@@ -228,7 +228,7 @@ sequenceDiagram
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)
-- [Incident Report](../../templates/incident_report.en.md)
+- [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 - [Disaster Recovery / BCP](../Disaster_Recovery_BCP.en.md)
 
 ## References

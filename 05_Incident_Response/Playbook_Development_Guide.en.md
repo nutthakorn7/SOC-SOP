@@ -214,7 +214,7 @@ approver: [SOC Lead]
 
 -   [IR Framework](Framework.en.md) — NIST-based framework
 -   [Severity Matrix](Severity_Matrix.en.md) — P1–P4 definitions
--   [Tier 1 Runbook](Tier1_Runbook.en.md) — Day-to-day procedures
+-   [Tier 1 Runbook](Runbooks/Tier1_Runbook.en.md) — Day-to-day procedures
 -   [SOAR Playbooks](SOAR_Playbooks.en.md) — Automation templates
 -   [Lessons Learned Template](Lessons_Learned_Template.en.md) — Post-incident review
 -   [SOC Automation Catalog](../06_Operations_Management/SOC_Automation_Catalog.en.md) — Automation inventory

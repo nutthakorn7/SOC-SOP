@@ -182,7 +182,7 @@ graph TD
 - [ ] Implement DNS sinkholing for identified C2 domains
 - [ ] Review and update proxy category blocklists
 - [ ] Conduct threat hunt for similar beaconing patterns
-- [ ] Document findings in [Incident Report](../../templates/incident_report.en.md)
+- [ ] Document findings in [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ---
 
@@ -228,7 +228,7 @@ sequenceDiagram
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)
-- [Incident Report](../../templates/incident_report.en.md)
+- [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 - [PB-03 Malware Infection](Malware_Infection.en.md)
 - [PB-12 Lateral Movement](Lateral_Movement.en.md)
 - [PB-08 Data Exfiltration](Data_Exfiltration.en.md)

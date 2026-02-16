@@ -13,7 +13,7 @@
 - [ ] ใช้ Smart Lockout / IP-based throttling
 - [ ] พิจารณาใช้ Passwordless authentication
 - [ ] สร้าง detection rule สำหรับ pattern ที่พบ
-- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+- [ ] จัดทำ [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ### ผังรูปแบบการโจมตี
 

@@ -175,7 +175,7 @@ graph TD
 - [ ] Review and harden service account permissions
 - [ ] Deploy PAM solution for all privileged access
 - [ ] Create detection rules for observed escalation technique
-- [ ] Document findings in [Incident Report](../../templates/incident_report.en.md)
+- [ ] Document findings in [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ---
 
@@ -219,7 +219,7 @@ graph LR
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)
-- [Incident Report](../../templates/incident_report.en.md)
+- [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 - [PB-05 Account Compromise](Account_Compromise.en.md)
 - [PB-12 Lateral Movement](Lateral_Movement.en.md)
 - [PB-15 Rogue Admin](Rogue_Admin.en.md)

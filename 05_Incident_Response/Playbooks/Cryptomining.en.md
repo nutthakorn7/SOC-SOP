@@ -219,7 +219,7 @@ sequenceDiagram
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)
-- [Incident Report](../../templates/incident_report.en.md)
+- [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 - [PB-03 Malware Infection](Malware_Infection.en.md)
 - [PB-18 Exploit](Exploit.en.md)
 - [PB-22 AWS EC2](AWS_EC2_Compromise.en.md)

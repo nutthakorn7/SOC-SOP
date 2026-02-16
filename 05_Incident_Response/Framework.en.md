@@ -96,7 +96,7 @@ graph TD
 | 5 | **Classify** — Assign: TP / FP / Suspicious | < 30 min |
 | 6 | **Route** — TP → Open incident, FP → Close & tune, Suspicious → Escalate | — |
 
-> 📚 **Detailed procedure**: [Tier 1 Runbook](Tier1_Runbook.en.md)
+> 📚 **Detailed procedure**: [Tier 1 Runbook](Runbooks/Tier1_Runbook.en.md)
 
 ### 2.3 Classification
 
@@ -277,13 +277,13 @@ Quick reference for SLA targets across all phases:
 
 ## Related Documents
 
-- [Tier 1 Runbook](Tier1_Runbook.en.md) — Step-by-step triage procedure
+- [Tier 1 Runbook](Runbooks/Tier1_Runbook.en.md) — Step-by-step triage procedure
 - [Severity Matrix](Severity_Matrix.en.md) — Classification criteria
 - [Incident Classification](Incident_Classification.en.md) — Taxonomy and categories
 - [Escalation Matrix](Escalation_Matrix.en.md) — Escalation paths and SLAs
 - [Forensic Investigation](Forensic_Investigation.en.md) — Evidence handling procedures
 - [Communication Templates](Communication_Templates.en.md) — Pre-drafted notifications
-- [Incident Report Template](../templates/incident_report.en.md) — Post-incident documentation
+- [Incident Report Template](../11_Reporting_Templates/incident_report.en.md) — Post-incident documentation
 - [Shift Handoff Standard](../06_Operations_Management/Shift_Handoff.en.md) — Operational continuity
 
 ### Playbooks

@@ -251,6 +251,6 @@
 -   SOC Charter — ภารกิจและโครงสร้าง
 -   Roles & Responsibilities — นิยาม tier
 -   Training Program — แผนฝึกอบรมระยะยาว
--   [Tier 1 Runbook](../05_Incident_Response/Tier1_Runbook.en.md) — ขั้นตอนรายวัน
+-   [Tier 1 Runbook](../05_Incident_Response/Runbooks/Tier1_Runbook.en.md) — ขั้นตอนรายวัน
 -   [IR Framework](../05_Incident_Response/Framework.en.md) — วงจร IR
 -   [Escalation Matrix](../05_Incident_Response/Escalation_Matrix.en.md) — เมื่อไรต้อง escalate

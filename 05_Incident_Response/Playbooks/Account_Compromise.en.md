@@ -174,7 +174,7 @@ graph TD
 - [ ] Enforce password complexity and expiration policies
 - [ ] Create Sigma rule for observed credential abuse patterns
 - [ ] Conduct phishing simulation if phishing was the entry vector
-- [ ] Document findings in [Incident Report](../../templates/incident_report.en.md)
+- [ ] Document findings in [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ---
 
@@ -219,7 +219,7 @@ graph LR
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)
-- [Incident Report](../../templates/incident_report.en.md)
+- [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 - [PB-01 Phishing](Phishing.en.md)
 - [PB-04 Brute Force](Brute_Force.en.md)
 - [PB-06 Impossible Travel](Impossible_Travel.en.md)

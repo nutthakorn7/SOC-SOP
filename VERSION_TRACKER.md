@@ -33,7 +33,7 @@
 | [Severity Matrix](05_Incident_Response/Severity_Matrix.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Incident Classification](05_Incident_Response/Incident_Classification.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Escalation Matrix](05_Incident_Response/Escalation_Matrix.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
-| [Tier 1 Runbook](05_Incident_Response/Tier1_Runbook.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [Tier 1 Runbook](05_Incident_Response/Runbooks/Tier1_Runbook.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Communication Templates](05_Incident_Response/Communication_Templates.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Forensic Investigation](05_Incident_Response/Forensic_Investigation.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Evidence Collection](05_Incident_Response/Evidence_Collection.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
@@ -121,9 +121,9 @@
 | [Monthly SOC Report](11_Reporting_Templates/Monthly_SOC_Report.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Quarterly Business Review](11_Reporting_Templates/Quarterly_Business_Review.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Executive Dashboard](11_Reporting_Templates/Executive_Dashboard.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
-| [Incident Report Template](templates/incident_report.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
-| [Shift Handover Template](templates/shift_handover.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
-| [Change Request (RFC)](templates/change_request_rfc.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [Incident Report Template](11_Reporting_Templates/incident_report.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [Shift Handover Template](11_Reporting_Templates/shift_handover.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [Change Request (RFC)](11_Reporting_Templates/change_request_rfc.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 
 ---
 

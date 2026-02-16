@@ -225,7 +225,7 @@ sequenceDiagram
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)
-- [Incident Report](../../templates/incident_report.en.md)
+- [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 - [PB-16 Cloud IAM](Cloud_IAM.en.md)
 - [PB-22 AWS EC2](AWS_EC2_Compromise.en.md)
 - [PB-27 Cloud Storage Exposure](Cloud_Storage_Exposure.en.md)

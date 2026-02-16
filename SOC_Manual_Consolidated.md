@@ -56,7 +56,7 @@ SOCSOP/
 ├── 10_Training_Onboarding/   # Analyst curriculum, training checklists
 ├── 08_Detection_Engineering/file_signatures/       # YARA rules
 ├── 11_Reporting_Templates/   # Monthly/quarterly executive reports
-├── templates/                # Incident report, shift handover, RFC forms
+├── 11_Reporting_Templates/  # (templates moved here)                # Incident report, shift handover, RFC forms
 ├── tools/                    # Utility scripts (export, link check)
 └── assets/                   # Images (hero banner, etc.)
 ```
@@ -545,7 +545,7 @@ SOCSOP/
 ├── 10_Training_Onboarding/   # Analyst curriculum, training checklists
 ├── 08_Detection_Engineering/file_signatures/       # YARA rules
 ├── 11_Reporting_Templates/   # Monthly/quarterly executive reports
-├── templates/                # Incident report, shift handover, RFC forms
+├── 11_Reporting_Templates/  # (templates moved here)                # Incident report, shift handover, RFC forms
 ├── tools/                    # Utility scripts (export, link check)
 └── assets/                   # Images (hero banner, etc.)
 ```
@@ -942,7 +942,7 @@ External references, standards, frameworks.
 | `10_Training_Onboarding/` | Analyst training materials |
 | `07_Compliance_Privacy/` | Regulatory compliance |
 | `11_Reporting_Templates/` | Reports and dashboards |
-| `templates/` | Operational form templates |
+| `11_Reporting_Templates/` | Operational form templates |
 | `sigma_rules/` | Detection rules (YAML) |
 | `tools/` | Scripts and interactive tools |
 
@@ -1196,7 +1196,7 @@ When adding new documents, update these files (see [workflow](.agent/workflows/u
 | 11:30–13:00 | 1.3 | **Alert Triage Methodology** — TP vs FP, severity scoring, prioritization |
 | 14:00–16:00 | 🔬 | **Lab: SIEM Alert Triage** — Triage 20 real alerts, classify TP/FP, assign severity |
 
-📚 *Reference: [Tier 1 Runbook](05_Incident_Response/Tier1_Runbook.en.md) · [Severity Matrix](05_Incident_Response/Severity_Matrix.en.md) · [Classification](05_Incident_Response/Incident_Classification.en.md)*
+📚 *Reference: [Tier 1 Runbook](05_Incident_Response/Runbooks/Tier1_Runbook.en.md) · [Severity Matrix](05_Incident_Response/Severity_Matrix.en.md) · [Classification](05_Incident_Response/Incident_Classification.en.md)*
 
 </details>
 
@@ -1646,7 +1646,7 @@ When adding new documents, update these files (see [workflow](.agent/workflows/u
 | [Severity Matrix](05_Incident_Response/Severity_Matrix.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Incident Classification](05_Incident_Response/Incident_Classification.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Escalation Matrix](05_Incident_Response/Escalation_Matrix.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
-| [Tier 1 Runbook](05_Incident_Response/Tier1_Runbook.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [Tier 1 Runbook](05_Incident_Response/Runbooks/Tier1_Runbook.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Communication Templates](05_Incident_Response/Communication_Templates.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Forensic Investigation](05_Incident_Response/Forensic_Investigation.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Evidence Collection](05_Incident_Response/Evidence_Collection.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
@@ -1727,9 +1727,9 @@ When adding new documents, update these files (see [workflow](.agent/workflows/u
 | [Monthly SOC Report](11_Reporting_Templates/Monthly_SOC_Report.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Quarterly Business Review](11_Reporting_Templates/Quarterly_Business_Review.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Executive Dashboard](11_Reporting_Templates/Executive_Dashboard.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
-| [Incident Report Template](templates/incident_report.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
-| [Shift Handover Template](templates/shift_handover.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
-| [Change Request (RFC)](templates/change_request_rfc.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [Incident Report Template](11_Reporting_Templates/incident_report.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [Shift Handover Template](11_Reporting_Templates/shift_handover.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [Change Request (RFC)](11_Reporting_Templates/change_request_rfc.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 
 ---
 
@@ -1940,7 +1940,7 @@ sequenceDiagram
 -   Conduct a Root Cause Analysis (RCA) for failed changes.
 
 ## Related Documents
--   [Change Request Template](../templates/change_request_rfc.en.md)
+-   [Change Request Template](../11_Reporting_Templates/change_request_rfc.en.md)
 -   [Data Governance & Retention](Database_Management.en.md)
 -   [SOC Infrastructure Setup](../10_Training_Onboarding/System_Activation.en.md)
 
@@ -2015,7 +2015,7 @@ sequenceDiagram
 -   ทำ Root Cause Analysis (RCA) สำหรับการเปลี่ยนแปลงที่ล้มเหลว
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
--   [แบบฟอร์ม Change Request](../templates/change_request_rfc.th.md)
+-   [แบบฟอร์ม Change Request](../11_Reporting_Templates/change_request_rfc.th.md)
 -   [ธรรมาภิบาลข้อมูล](Database_Management.th.md)
 -   [การติดตั้ง SOC](../10_Training_Onboarding/System_Activation.th.md)
 
@@ -2522,7 +2522,7 @@ If the candidate lacks these basics, add 4 weeks of pre-training (see Appendix).
 
 | Week | Topic | Resources | Hands-On Lab |
 |:---:|:---|:---|:---|
-| 13 | **Alert triage** — Severity classification, true vs false positive | [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md), [Tier 1 Runbook](../05_Incident_Response/Tier1_Runbook.en.md) | Triage 20 sample alerts |
+| 13 | **Alert triage** — Severity classification, true vs false positive | [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md), [Tier 1 Runbook](../05_Incident_Response/Runbooks/Tier1_Runbook.en.md) | Triage 20 sample alerts |
 | 14 | **IOC enrichment** — VirusTotal, AbuseIPDB, URLhaus, Shodan | LetsDefend.io free labs | Enrich 10 IOCs using free tools |
 | 15 | **MITRE ATT&CK** — Tactics, techniques, procedures mapping | ATT&CK Navigator (online) | Map 5 alerts to ATT&CK techniques |
 | 16 | **Ticket writing** — Proper documentation, evidence preservation | [Communication Templates](../05_Incident_Response/Communication_Templates.en.md) | Write 5 incident tickets from sample data |
@@ -2656,7 +2656,7 @@ Ready for Independent Work: □ Yes □ No
 
 - [SOC Building Roadmap](SOC_Building_Roadmap.en.md)
 - [Budget & Staffing](Budget_Staffing.en.md)
-- [Tier 1 Runbook](../05_Incident_Response/Tier1_Runbook.en.md)
+- [Tier 1 Runbook](../05_Incident_Response/Runbooks/Tier1_Runbook.en.md)
 - [Interview Guide](../05_Incident_Response/Interview_Guide.en.md)
 - [Analyst Onboarding](../10_Training_Onboarding/Analyst_Onboarding_Path.en.md)
 
@@ -2816,7 +2816,7 @@ Cert: __________________  วันที่ผ่าน: ________
 
 - [แผนงานสร้าง SOC](SOC_Building_Roadmap.th.md)
 - [งบประมาณและจัดคน](Budget_Staffing.th.md)
-- [คู่มือ Tier 1](../05_Incident_Response/Tier1_Runbook.th.md)
+- [คู่มือ Tier 1](../05_Incident_Response/Runbooks/Tier1_Runbook.th.md)
 - [คู่มือสัมภาษณ์](../05_Incident_Response/Interview_Guide.th.md)
 
 
@@ -3966,7 +3966,7 @@ Start with these documents from this repo:
 
 1. ✅ [IR Framework](../05_Incident_Response/Framework.en.md) — How to handle incidents
 2. ✅ [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md) — P1/P2/P3/P4 classification
-3. ✅ [Tier 1 Runbook](../05_Incident_Response/Tier1_Runbook.en.md) — Day-to-day analyst guide
+3. ✅ [Tier 1 Runbook](../05_Incident_Response/Runbooks/Tier1_Runbook.en.md) — Day-to-day analyst guide
 4. ✅ [Shift Handoff](../06_Operations_Management/Shift_Handoff.en.md) — If running shifts
 5. ✅ [Communication Templates](../05_Incident_Response/Communication_Templates.en.md) — Who to notify
 
@@ -4189,7 +4189,7 @@ If you're starting from zero, read these documents in this order:
 | 1 | **This guide** (you're here!) | Overall roadmap |
 | 2 | [IR Framework](../05_Incident_Response/Framework.en.md) | How incidents work |
 | 3 | [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md) | P1/P2/P3/P4 |
-| 4 | [Tier 1 Runbook](../05_Incident_Response/Tier1_Runbook.en.md) | Daily operations |
+| 4 | [Tier 1 Runbook](../05_Incident_Response/Runbooks/Tier1_Runbook.en.md) | Daily operations |
 | 5 | [SOC Team Structure](../06_Operations_Management/SOC_Team_Structure.en.md) | Roles & shifts |
 | 6 | [Detection Rules Index](../08_Detection_Engineering/README.en.md) | What rules to deploy |
 | 7 | [Log Source Onboarding](../06_Operations_Management/Log_Source_Onboarding.en.md) | How to add logs |
@@ -4300,7 +4300,7 @@ If you're starting from zero, read these documents in this order:
 
 ### Deploy 10 Sigma Rules แรก
 
-เริ่มจาก `win_multiple_failed_logins`, `proc_office_spawn_powershell`, `cloud_unusual_login` + อ่าน [Tier 1 Runbook](../05_Incident_Response/Tier1_Runbook.th.md)
+เริ่มจาก `win_multiple_failed_logins`, `proc_office_spawn_powershell`, `cloud_unusual_login` + อ่าน [Tier 1 Runbook](../05_Incident_Response/Runbooks/Tier1_Runbook.th.md)
 
 ---
 
@@ -4377,7 +4377,7 @@ If you're starting from zero, read these documents in this order:
 
 - [กรอบ IR](../05_Incident_Response/Framework.th.md)
 - [ตารางความรุนแรง](../05_Incident_Response/Severity_Matrix.th.md)
-- [คู่มือ Tier 1](../05_Incident_Response/Tier1_Runbook.th.md)
+- [คู่มือ Tier 1](../05_Incident_Response/Runbooks/Tier1_Runbook.th.md)
 - [โครงสร้างทีม SOC](../06_Operations_Management/SOC_Team_Structure.th.md)
 - [เครื่องมือวัด Maturity](../tools/soc_maturity_scorer.html)
 
@@ -6357,7 +6357,7 @@ graph TD
 
 ### Step 1: Submit Change Request
 
-Use the [Change Request Template](../templates/change_request_rfc.en.md) and include:
+Use the [Change Request Template](../11_Reporting_Templates/change_request_rfc.en.md) and include:
 
 | Field | Required | Description |
 |:---|:---:|:---|
@@ -6454,7 +6454,7 @@ Within 24 hours of deployment:
 
 ## Related Documents
 
-- [Change Request Template](../templates/change_request_rfc.en.md)
+- [Change Request Template](../11_Reporting_Templates/change_request_rfc.en.md)
 - [Detection Rule Testing SOP](Detection_Rule_Testing.en.md)
 - [SOC Checklists](SOC_Checklists.en.md)
 
@@ -6502,7 +6502,7 @@ graph TD
 ```
 
 ### ขั้นตอนสำคัญ:
-1. **ส่ง Change Request** — ใช้ [แม่แบบ](../templates/change_request_rfc.th.md)
+1. **ส่ง Change Request** — ใช้ [แม่แบบ](../11_Reporting_Templates/change_request_rfc.th.md)
 2. **Review เทคนิค** — ตรวจสอบความถูกต้อง, conflict, rollback plan
 3. **ทดสอบ** — Validate syntax, ทดสอบกับข้อมูลจริง 7 วัน
 4. **อนุมัติ** — ตามระดับประเภท
@@ -6526,7 +6526,7 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง
 
-- [แม่แบบ Change Request](../templates/change_request_rfc.th.md)
+- [แม่แบบ Change Request](../11_Reporting_Templates/change_request_rfc.th.md)
 - [SOP ทดสอบ Detection Rule](Detection_Rule_Testing.th.md)
 - [รายการตรวจสอบ SOC](SOC_Checklists.th.md)
 
@@ -7040,7 +7040,7 @@ Defines communication channels, escalation paths, and protocols for SOC teams du
 | **When** | Start of each shift |
 | **Channel** | #soc-general + ticketing system |
 | **Duration** | 10–15 minutes |
-| **Format** | Use [Shift Handover Template](../templates/shift_handover.en.md) |
+| **Format** | Use [Shift Handover Template](../11_Reporting_Templates/shift_handover.en.md) |
 | **Required** | Open incidents, pending actions, system health, queue volume |
 
 ### Daily Standup
@@ -7211,7 +7211,7 @@ ETA to resolution: [estimate]
 
 | รายการ | รายละเอียด |
 |:---|:---|
-| **Shift Handoff** | ต้นกะทุกครั้ง, 10–15 นาที, ใช้[แม่แบบ](../templates/shift_handover.th.md) |
+| **Shift Handoff** | ต้นกะทุกครั้ง, 10–15 นาที, ใช้[แม่แบบ](../11_Reporting_Templates/shift_handover.th.md) |
 | **Daily Standup** | ต้นวัน, 15 นาที, สรุปเหตุข้ามคืน + pending + blockers |
 | **Weekly Meeting** | ทุกสัปดาห์, KPI + trends + detection gaps + training |
 
@@ -11485,7 +11485,7 @@ flowchart LR
 
 ## Related Documents
 
-- [Tier 1 Runbook](../05_Incident_Response/Tier1_Runbook.en.md)
+- [Tier 1 Runbook](../05_Incident_Response/Runbooks/Tier1_Runbook.en.md)
 - [SOC Metrics](../06_Operations_Management/SOC_Metrics.en.md)
 - [Shift Handoff](../06_Operations_Management/Shift_Handoff.en.md)
 - [Tabletop Exercises](../05_Incident_Response/Tabletop_Exercises.en.md)
@@ -11594,7 +11594,7 @@ flowchart LR
 
 ## เอกสารที่เกี่ยวข้อง
 
-- [คู่มือ Tier 1](../05_Incident_Response/Tier1_Runbook.th.md)
+- [คู่มือ Tier 1](../05_Incident_Response/Runbooks/Tier1_Runbook.th.md)
 - [ตัวชี้วัด SOC](SOC_Metrics.th.md)
 - [ส่งมอบกะ](Shift_Handoff.th.md)
 
@@ -15127,7 +15127,7 @@ gantt
 | Document | Priority | Completed |
 |:---|:---:|:---:|
 | [IR Framework](../05_Incident_Response/Framework.en.md) | 🔴 Must | ⬜ |
-| [Tier 1 Runbook](../05_Incident_Response/Tier1_Runbook.en.md) | 🔴 Must | ⬜ |
+| [Tier 1 Runbook](../05_Incident_Response/Runbooks/Tier1_Runbook.en.md) | 🔴 Must | ⬜ |
 | Top 5 Playbooks (Phishing, Malware, Unauth Access, Ransomware, BEC) | 🔴 Must | ⬜ |
 | [Alert Tuning SOP](../06_Operations_Management/Alert_Tuning.en.md) | 🟡 Should | ⬜ |
 | [Evidence Collection](../05_Incident_Response/Evidence_Collection.en.md) | 🟡 Should | ⬜ |
@@ -15274,7 +15274,7 @@ gantt
 -   SOC Charter — Mission and structure
 -   Roles & Responsibilities — Tier definitions
 -   Training Program — Long-term training
--   [Tier 1 Runbook](../05_Incident_Response/Tier1_Runbook.en.md) — Day-to-day procedures
+-   [Tier 1 Runbook](../05_Incident_Response/Runbooks/Tier1_Runbook.en.md) — Day-to-day procedures
 -   [IR Framework](../05_Incident_Response/Framework.en.md) — Incident response lifecycle
 -   [SOC Checklists](../06_Operations_Management/SOC_Checklists.en.md) — Operational checklists
 -   [Escalation Matrix](../05_Incident_Response/Escalation_Matrix.en.md) — When to escalate
@@ -15471,7 +15471,7 @@ gantt
 -   SOC Charter — ภารกิจและโครงสร้าง
 -   Roles & Responsibilities — นิยาม tier
 -   Training Program — แผนฝึกอบรมระยะยาว
--   [Tier 1 Runbook](../05_Incident_Response/Tier1_Runbook.en.md) — ขั้นตอนรายวัน
+-   [Tier 1 Runbook](../05_Incident_Response/Runbooks/Tier1_Runbook.en.md) — ขั้นตอนรายวัน
 -   [IR Framework](../05_Incident_Response/Framework.en.md) — วงจร IR
 -   [Escalation Matrix](../05_Incident_Response/Escalation_Matrix.en.md) — เมื่อไรต้อง escalate
 
@@ -17692,7 +17692,7 @@ graph LR
 -   Update Detection Rules and Playbooks based on findings.
 
 ## Related Documents
--   [Incident Report Template](../templates/incident_report.en.md)
+-   [Incident Report Template](../11_Reporting_Templates/incident_report.en.md)
 -   [PB-01 Phishing](Playbooks/Phishing.en.md) | [PB-02 Ransomware](Playbooks/Ransomware.en.md) | [PB-03 Malware](Playbooks/Malware_Infection.en.md)
 -   [Shift Handoff Standard](../06_Operations_Management/Shift_Handoff.en.md)
 -   [SOC Metrics & KPIs](../06_Operations_Management/SOC_Metrics.en.md)
@@ -17750,7 +17750,7 @@ graph LR
 -   อัปเดต Detection Rules และ Playbook ตามสิ่งที่ได้เรียนรู้
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
--   [แบบฟอร์ม Incident Report](../templates/incident_report.th.md)
+-   [แบบฟอร์ม Incident Report](../11_Reporting_Templates/incident_report.th.md)
 -   [PB-01 Phishing](Playbooks/Phishing.th.md) | [PB-02 Ransomware](Playbooks/Ransomware.th.md) | [PB-03 Malware](Playbooks/Malware_Infection.th.md)
 -   [มาตรฐานการส่งมอบกะ](../06_Operations_Management/Shift_Handoff.th.md)
 -   [ตัวชี้วัด SOC](../06_Operations_Management/SOC_Metrics.th.md)
@@ -18664,7 +18664,7 @@ IT Manager:     ____________________ Date: __________
 
 - [IR Framework](Framework.en.md)
 - [Communication Templates](Communication_Templates.en.md)
-- [Incident Report Template](../templates/incident_report.en.md)
+- [Incident Report Template](../11_Reporting_Templates/incident_report.en.md)
 
 
 ---
@@ -20381,8 +20381,8 @@ Incidents may be **upgraded or downgraded** during investigation:
 ## Related Documents
 
 - [Incident Response Playbooks](../05_Incident_Response/Playbooks/)
-- [Shift Handover Template](../templates/shift_handover.en.md)
-- [Incident Report Template](../templates/incident_report.en.md)
+- [Shift Handover Template](../11_Reporting_Templates/shift_handover.en.md)
+- [Incident Report Template](../11_Reporting_Templates/incident_report.en.md)
 - [MITRE ATT&CK Coverage Heatmap](../tools/mitre_attack_heatmap.html)
 
 ## References
@@ -20569,8 +20569,8 @@ graph TD
 ## เอกสารที่เกี่ยวข้อง
 
 - [Incident Response Playbooks](../05_Incident_Response/Playbooks/)
-- [แบบฟอร์มส่งมอบกะ](../templates/shift_handover.th.md)
-- [แบบฟอร์มรายงานเหตุการณ์](../templates/incident_report.th.md)
+- [แบบฟอร์มส่งมอบกะ](../11_Reporting_Templates/shift_handover.th.md)
+- [แบบฟอร์มรายงานเหตุการณ์](../11_Reporting_Templates/incident_report.th.md)
 - [แผนที่ Coverage MITRE ATT&CK](../tools/mitre_attack_heatmap.html)
 
 ## References
@@ -21729,7 +21729,7 @@ graph LR
 
 ---
 
-## File: 05_Incident_Response/Tier1_Runbook.en.md
+## File: 05_Incident_Response/Runbooks/Tier1_Runbook.en.md
 
 # SOC Tier 1 Analyst Runbook
 
@@ -21963,7 +21963,7 @@ Before ending your shift:
 
 ---
 
-## File: 05_Incident_Response/Tier1_Runbook.th.md
+## File: 05_Incident_Response/Runbooks/Tier1_Runbook.th.md
 
 # คู่มือปฏิบัติงาน SOC Tier 1
 
@@ -22163,8 +22163,8 @@ flowchart TD
 -   [Incident Response Framework](../Framework.en.md)
 -   [Data Exfiltration Playbook](Data_Exfiltration.en.md)
 -   [Web Attack Playbook](Web_Attack.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
--   [Shift Handover Log](../../templates/shift_handover.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
+-   [Shift Handover Log](../../11_Reporting_Templates/shift_handover.en.md)
 
 ## References
 -   [MITRE ATT&CK T1106 — Native API](https://attack.mitre.org/techniques/T1106/)
@@ -22223,8 +22223,8 @@ flowchart TD
 -   [กรอบ Incident Response](../Framework.th.md)
 -   [Playbook: Data Exfiltration](Data_Exfiltration.th.md)
 -   [Playbook: Web Attack](Web_Attack.th.md)
--   [แบบฟอร์มรายงาน Incident](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์มรายงาน Incident](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1106 — Native API](https://attack.mitre.org/techniques/T1106/)
@@ -22280,8 +22280,8 @@ graph TD
 
 ## Related Documents
 -   [Incident Response Framework](../Framework.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
--   [Shift Handover Log](../../templates/shift_handover.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
+-   [Shift Handover Log](../../11_Reporting_Templates/shift_handover.en.md)
 
 ## References
 -   [AWS Security Incident Response Guide](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/welcome.html)
@@ -22342,8 +22342,8 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
--   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์ม Incident Report](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [AWS Security Incident Response Guide](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/welcome.html)
@@ -22407,8 +22407,8 @@ graph TD
 
 ## Related Documents
 -   [Incident Response Framework](../Framework.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
--   [Shift Handover Log](../../templates/shift_handover.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
+-   [Shift Handover Log](../../11_Reporting_Templates/shift_handover.en.md)
 
 ## References
 -   [AWS S3 Security Best Practices](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html)
@@ -22472,8 +22472,8 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
--   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์ม Incident Report](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [AWS S3 Security Best Practices](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html)
@@ -22528,7 +22528,7 @@ graph TD
 
 ## Related Documents
 -   [Incident Response Framework](../Framework.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
 -   [PB-06 Impossible Travel](Impossible_Travel.en.md)
 
 ## References
@@ -22579,8 +22579,8 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
--   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์ม Incident Report](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1078 (Valid Accounts)](https://attack.mitre.org/techniques/T1078/)
@@ -22633,8 +22633,8 @@ graph TD
 
 ## Related Documents
 -   [Incident Response Framework](../Framework.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
--   [Shift Handover Log](../../templates/shift_handover.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
+-   [Shift Handover Log](../../11_Reporting_Templates/shift_handover.en.md)
 
 ## References
 -   [Azure Active Directory Identity Protection](https://learn.microsoft.com/en-us/azure/active-directory/identity-protection/overview-identity-protection)
@@ -22693,8 +22693,8 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
--   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์ม Incident Report](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [Azure Active Directory Identity Protection](https://learn.microsoft.com/en-us/azure/active-directory/identity-protection/overview-identity-protection)
@@ -22750,8 +22750,8 @@ graph TD
 
 ## Related Documents
 -   [Incident Response Framework](../Framework.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
--   [Shift Handover Log](../../templates/shift_handover.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
+-   [Shift Handover Log](../../11_Reporting_Templates/shift_handover.en.md)
 
 ## References
 -   [MITRE ATT&CK T1566 (Phishing)](https://attack.mitre.org/techniques/T1566/)
@@ -22801,8 +22801,8 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
--   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์ม Incident Report](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1566 (Phishing)](https://attack.mitre.org/techniques/T1566/)
@@ -22854,7 +22854,7 @@ graph TD
 
 ## Related Documents
 -   [Incident Response Framework](../Framework.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
 -   [PB-05 Account Compromise](Account_Compromise.en.md)
 
 ## References
@@ -22905,8 +22905,8 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
--   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์ม Incident Report](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1110 (Brute Force)](https://attack.mitre.org/techniques/T1110/)
@@ -22953,8 +22953,8 @@ graph TD
 
 ## Related Documents
 -   [Incident Response Framework](../Framework.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
--   [Shift Handover Log](../../templates/shift_handover.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
+-   [Shift Handover Log](../../11_Reporting_Templates/shift_handover.en.md)
 
 ## References
 -   [MITRE ATT&CK T1071 (Application Layer Protocol)](https://attack.mitre.org/techniques/T1071/)
@@ -23001,8 +23001,8 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
--   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์ม Incident Report](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1071 (Application Layer Protocol)](https://attack.mitre.org/techniques/T1071/)
@@ -23054,8 +23054,8 @@ graph TD
 
 ## Related Documents
 -   [Incident Response Framework](../Framework.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
--   [Shift Handover Log](../../templates/shift_handover.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
+-   [Shift Handover Log](../../11_Reporting_Templates/shift_handover.en.md)
 
 ## References
 -   [MITRE ATT&CK T1098 (Cloud Account Manipulation)](https://attack.mitre.org/techniques/T1098/)
@@ -23107,8 +23107,8 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
--   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์ม Incident Report](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1098 (Cloud Account Manipulation)](https://attack.mitre.org/techniques/T1098/)
@@ -23273,8 +23273,8 @@ flowchart TD
 -   [Incident Response Framework](../Framework.en.md)
 -   [Malware Infection Playbook](Malware_Infection.en.md)
 -   [Exploit Playbook](Exploit.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
--   [Shift Handover Log](../../templates/shift_handover.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
+-   [Shift Handover Log](../../11_Reporting_Templates/shift_handover.en.md)
 
 ## References
 -   [MITRE ATT&CK T1496 — Resource Hijacking](https://attack.mitre.org/techniques/T1496/)
@@ -23336,8 +23336,8 @@ flowchart TD
 -   [กรอบ Incident Response](../Framework.th.md)
 -   [Playbook: Malware Infection](Malware_Infection.th.md)
 -   [Playbook: Exploit](Exploit.th.md)
--   [แบบฟอร์มรายงาน Incident](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์มรายงาน Incident](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1496 — Resource Hijacking](https://attack.mitre.org/techniques/T1496/)
@@ -23383,8 +23383,8 @@ graph TD
 
 ## Related Documents
 -   [Incident Response Framework](../Framework.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
--   [Shift Handover Log](../../templates/shift_handover.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
+-   [Shift Handover Log](../../11_Reporting_Templates/shift_handover.en.md)
 
 ## References
 -   [MITRE ATT&CK T1498 (Network Denial of Service)](https://attack.mitre.org/techniques/T1498/)
@@ -23429,8 +23429,8 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
--   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์ม Incident Report](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1498 (Network Denial of Service)](https://attack.mitre.org/techniques/T1498/)
@@ -23490,8 +23490,8 @@ flowchart TD
 -   [Incident Response Framework](../Framework.en.md)
 -   [Data Exfiltration Playbook](Data_Exfiltration.en.md)
 -   [C2 Communication Playbook](C2_Communication.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
--   [Shift Handover Log](../../templates/shift_handover.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
+-   [Shift Handover Log](../../11_Reporting_Templates/shift_handover.en.md)
 
 ## References
 -   [MITRE ATT&CK T1071.004 — Application Layer Protocol: DNS](https://attack.mitre.org/techniques/T1071/004/)
@@ -23553,8 +23553,8 @@ flowchart TD
 -   [กรอบ Incident Response](../Framework.th.md)
 -   [Playbook: Data Exfiltration](Data_Exfiltration.th.md)
 -   [Playbook: C2 Communication](C2_Communication.th.md)
--   [แบบฟอร์มรายงาน Incident](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์มรายงาน Incident](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1071.004 — Application Layer Protocol: DNS](https://attack.mitre.org/techniques/T1071/004/)
@@ -23605,8 +23605,8 @@ graph TD
 
 ## Related Documents
 -   [Incident Response Framework](../Framework.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
--   [Shift Handover Log](../../templates/shift_handover.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
+-   [Shift Handover Log](../../11_Reporting_Templates/shift_handover.en.md)
 
 ## References
 -   [MITRE ATT&CK T1048 (Exfiltration Over Alternative Protocol)](https://attack.mitre.org/techniques/T1048/)
@@ -23655,8 +23655,8 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
--   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์ม Incident Report](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1048 (Exfiltration Over Alternative Protocol)](https://attack.mitre.org/techniques/T1048/)
@@ -23705,8 +23705,8 @@ graph TD
 
 ## Related Documents
 -   [Incident Response Framework](../Framework.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
--   [Shift Handover Log](../../templates/shift_handover.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
+-   [Shift Handover Log](../../11_Reporting_Templates/shift_handover.en.md)
 
 ## References
 -   [MITRE ATT&CK T1190 (Exploit Public-Facing Application)](https://attack.mitre.org/techniques/T1190/)
@@ -23755,8 +23755,8 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
--   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์ม Incident Report](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1190 (Exploit Public-Facing Application)](https://attack.mitre.org/techniques/T1190/)
@@ -23806,8 +23806,8 @@ graph TD
 
 ## Related Documents
 -   [Incident Response Framework](../Framework.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
--   [Shift Handover Log](../../templates/shift_handover.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
+-   [Shift Handover Log](../../11_Reporting_Templates/shift_handover.en.md)
 
 ## References
 -   [MITRE ATT&CK T1078 (Valid Accounts)](https://attack.mitre.org/techniques/T1078/)
@@ -23857,8 +23857,8 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
--   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์ม Incident Report](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1078 (Valid Accounts)](https://attack.mitre.org/techniques/T1078/)
@@ -23906,8 +23906,8 @@ graph TD
 
 ## Related Documents
 -   [Incident Response Framework](../Framework.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
--   [Shift Handover Log](../../templates/shift_handover.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
+-   [Shift Handover Log](../../11_Reporting_Templates/shift_handover.en.md)
 
 ## References
 -   [MITRE ATT&CK T1534 (Internal Spearphishing)](https://attack.mitre.org/techniques/T1534/)
@@ -23955,8 +23955,8 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
--   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์ม Incident Report](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1534 (Internal Spearphishing)](https://attack.mitre.org/techniques/T1534/)
@@ -24004,8 +24004,8 @@ graph TD
 
 ## Related Documents
 -   [Incident Response Framework](../Framework.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
--   [Shift Handover Log](../../templates/shift_handover.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
+-   [Shift Handover Log](../../11_Reporting_Templates/shift_handover.en.md)
 
 ## References
 -   [MITRE ATT&CK T1021 (Remote Services)](https://attack.mitre.org/techniques/T1021/)
@@ -24053,8 +24053,8 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
--   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์ม Incident Report](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1021 (Remote Services)](https://attack.mitre.org/techniques/T1021/)
@@ -24101,8 +24101,8 @@ graph TD
 
 ## Related Documents
 -   [Incident Response Framework](../Framework.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
--   [Shift Handover Log](../../templates/shift_handover.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
+-   [Shift Handover Log](../../11_Reporting_Templates/shift_handover.en.md)
 
 ## References
 -   [MITRE ATT&CK T1070 (Indicator Removal on Host)](https://attack.mitre.org/techniques/T1070/)
@@ -24149,8 +24149,8 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
--   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์ม Incident Report](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1070 (Indicator Removal on Host)](https://attack.mitre.org/techniques/T1070/)
@@ -24196,8 +24196,8 @@ graph TD
 
 ## Related Documents
 -   [Incident Response Framework](../Framework.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
--   [Shift Handover Log](../../templates/shift_handover.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
+-   [Shift Handover Log](../../11_Reporting_Templates/shift_handover.en.md)
 
 ## References
 -   [NIST SP 800-46 (Telework and Remote Access Security)](https://csrc.nist.gov/publications/detail/sp/800-46/rev-2/final)
@@ -24243,8 +24243,8 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
--   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์ม Incident Report](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [NIST SP 800-46 (Telework and Remote Access Security)](https://csrc.nist.gov/publications/detail/sp/800-46/rev-2/final)
@@ -24392,8 +24392,8 @@ graph TD
 
 ## Related Documents
 -   [Incident Response Framework](../Framework.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
--   [Shift Handover Log](../../templates/shift_handover.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
+-   [Shift Handover Log](../../11_Reporting_Templates/shift_handover.en.md)
 
 ## References
 -   [MITRE ATT&CK T1204 (User Execution)](https://attack.mitre.org/techniques/T1204/)
@@ -24447,8 +24447,8 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
--   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์ม Incident Report](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1204 (User Execution)](https://attack.mitre.org/techniques/T1204/)
@@ -24713,8 +24713,8 @@ flowchart TD
 
 ## Related Documents
 -   [Incident Response Framework](../Framework.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
--   [Shift Handover Log](../../templates/shift_handover.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
+-   [Shift Handover Log](../../11_Reporting_Templates/shift_handover.en.md)
 
 ## References
 -   [MITRE ATT&CK T1566 (Phishing)](https://attack.mitre.org/techniques/T1566/)
@@ -24760,8 +24760,8 @@ flowchart TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
--   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์ม Incident Report](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1566 (Phishing)](https://attack.mitre.org/techniques/T1566/)
@@ -24809,8 +24809,8 @@ graph TD
 
 ## Related Documents
 -   [Incident Response Framework](../Framework.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
--   [Shift Handover Log](../../templates/shift_handover.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
+-   [Shift Handover Log](../../11_Reporting_Templates/shift_handover.en.md)
 
 ## References
 -   [MITRE ATT&CK T1098 (Account Manipulation)](https://attack.mitre.org/techniques/T1098/)
@@ -24858,8 +24858,8 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
--   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์ม Incident Report](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1098 (Account Manipulation)](https://attack.mitre.org/techniques/T1098/)
@@ -24910,8 +24910,8 @@ graph TD
 
 ## Related Documents
 -   [Incident Response Framework](../Framework.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
--   [Shift Handover Log](../../templates/shift_handover.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
+-   [Shift Handover Log](../../11_Reporting_Templates/shift_handover.en.md)
 
 ## References
 -   [MITRE ATT&CK T1486 (Data Encrypted for Impact)](https://attack.mitre.org/techniques/T1486/)
@@ -24975,8 +24975,8 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
--   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์ม Incident Report](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1486 (Data Encrypted for Impact)](https://attack.mitre.org/techniques/T1486/)
@@ -25021,8 +25021,8 @@ graph TD
 
 ## Related Documents
 -   [Incident Response Framework](../Framework.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
--   [Shift Handover Log](../../templates/shift_handover.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
+-   [Shift Handover Log](../../11_Reporting_Templates/shift_handover.en.md)
 
 ## References
 -   [MITRE ATT&CK T1098 (Account Manipulation)](https://attack.mitre.org/techniques/T1098/)
@@ -25067,8 +25067,8 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
--   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์ม Incident Report](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1098 (Account Manipulation)](https://attack.mitre.org/techniques/T1098/)
@@ -25225,8 +25225,8 @@ flowchart TD
 -   [Incident Response Framework](../Framework.en.md)
 -   [Malware Infection Playbook](Malware_Infection.en.md)
 -   [Data Exfiltration Playbook](Data_Exfiltration.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
--   [Shift Handover Log](../../templates/shift_handover.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
+-   [Shift Handover Log](../../11_Reporting_Templates/shift_handover.en.md)
 
 ## References
 -   [MITRE ATT&CK T1195 — Supply Chain Compromise](https://attack.mitre.org/techniques/T1195/)
@@ -25291,8 +25291,8 @@ flowchart TD
 -   [กรอบ Incident Response](../Framework.th.md)
 -   [Playbook: Malware Infection](Malware_Infection.th.md)
 -   [Playbook: Data Exfiltration](Data_Exfiltration.th.md)
--   [แบบฟอร์มรายงาน Incident](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์มรายงาน Incident](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1195 — Supply Chain Compromise](https://attack.mitre.org/techniques/T1195/)
@@ -25343,8 +25343,8 @@ graph TD
 
 ## Related Documents
 -   [Incident Response Framework](../Framework.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
--   [Shift Handover Log](../../templates/shift_handover.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
+-   [Shift Handover Log](../../11_Reporting_Templates/shift_handover.en.md)
 
 ## References
 -   [MITRE ATT&CK T1059 (Command and Scripting Interpreter)](https://attack.mitre.org/techniques/T1059/)
@@ -25393,8 +25393,8 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
--   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์ม Incident Report](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1059 (Command and Scripting Interpreter)](https://attack.mitre.org/techniques/T1059/)
@@ -25442,8 +25442,8 @@ graph TD
 
 ## Related Documents
 -   [Incident Response Framework](../Framework.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
--   [Shift Handover Log](../../templates/shift_handover.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
+-   [Shift Handover Log](../../11_Reporting_Templates/shift_handover.en.md)
 
 ## References
 -   [OWASP Top 10](https://owasp.org/www-project-top-ten/)
@@ -25491,8 +25491,8 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
--   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์ม Incident Report](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [OWASP Top 10](https://owasp.org/www-project-top-ten/)
@@ -25561,8 +25561,8 @@ flowchart TD
 -   [Exploit Playbook](Exploit.en.md)
 -   [Supply Chain Attack Playbook](Supply_Chain_Attack.en.md)
 -   [Lateral Movement Playbook](Lateral_Movement.en.md)
--   [Incident Report Template](../../templates/incident_report.en.md)
--   [Shift Handover Log](../../templates/shift_handover.en.md)
+-   [Incident Report Template](../../11_Reporting_Templates/incident_report.en.md)
+-   [Shift Handover Log](../../11_Reporting_Templates/shift_handover.en.md)
 
 ## References
 -   [MITRE ATT&CK T1190 — Exploit Public-Facing Application](https://attack.mitre.org/techniques/T1190/)
@@ -25634,8 +25634,8 @@ flowchart TD
 -   [Playbook: Exploit](Exploit.th.md)
 -   [Playbook: Supply Chain Attack](Supply_Chain_Attack.th.md)
 -   [Playbook: Lateral Movement](Lateral_Movement.th.md)
--   [แบบฟอร์มรายงาน Incident](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+-   [แบบฟอร์มรายงาน Incident](../../11_Reporting_Templates/incident_report.th.md)
+-   [แบบฟอร์มส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## References
 -   [MITRE ATT&CK T1190 — Exploit Public-Facing Application](https://attack.mitre.org/techniques/T1190/)
@@ -26876,7 +26876,7 @@ graph TD
 
 ---
 
-## File: templates/change_request_rfc.en.md
+## File: 11_Reporting_Templates/change_request_rfc.en.md
 
 # Request for Change (RFC)
 
@@ -26917,7 +26917,7 @@ graph TD
 
 ---
 
-## File: templates/change_request_rfc.th.md
+## File: 11_Reporting_Templates/change_request_rfc.th.md
 
 # แบบฟอร์มร้องขอการเปลี่ยนแปลง (Request for Change - RFC)
 
@@ -26958,7 +26958,7 @@ graph TD
 
 ---
 
-## File: templates/incident_report.en.md
+## File: 11_Reporting_Templates/incident_report.en.md
 
 # Incident Report Template
 
@@ -27007,7 +27007,7 @@ graph TD
 
 ---
 
-## File: templates/incident_report.th.md
+## File: 11_Reporting_Templates/incident_report.th.md
 
 # แบบฟอร์มรายงานเหตุการณ์ (Incident Report Template)
 
@@ -27056,7 +27056,7 @@ graph TD
 
 ---
 
-## File: templates/shift_handover.en.md
+## File: 11_Reporting_Templates/shift_handover.en.md
 
 # Shift Handover Log
 
@@ -27094,7 +27094,7 @@ graph TD
 
 ---
 
-## File: templates/shift_handover.th.md
+## File: 11_Reporting_Templates/shift_handover.th.md
 
 # แบบฟอร์มส่งต่องานกะ (Shift Handover Log)
 
@@ -28285,14 +28285,14 @@ gantt
     -   Task: Locate where "Critical" data is stored in our SIEM.
 -   **Day 3: Change Management**
     -   Read: [Deployment Procedures](../02_Platform_Operations/Deployment_Procedures.en.md) - Learn how we deploy changes (RFC/CAB).
-    -   Read: [Template - Change Request](../templates/change_request_rfc.en.md).
+    -   Read: [Template - Change Request](../11_Reporting_Templates/change_request_rfc.en.md).
 
 ## Week 2: Incident Response (The "How-To")
 **Goal**: Learn how to handle alerts using Standard Playbooks.
 
 -   **Day 1: The Framework**
     -   Read: [Incident Response Framework](../05_Incident_Response/Framework.en.md) - The NIST lifecycle.
-    -   Read: [Template - Incident Report](../templates/incident_report.en.md).
+    -   Read: [Template - Incident Report](../11_Reporting_Templates/incident_report.en.md).
 -   **Day 2: Core Playbooks (Identity)**
     -   Read: [PB-01 Phishing](../05_Incident_Response/Playbooks/Phishing.en.md).
     -   Read: [PB-04 Brute Force](../05_Incident_Response/Playbooks/Brute_Force.en.md).
@@ -28318,7 +28318,7 @@ gantt
 -   **Day 2: Final Exam (Drill)**
     -   Task: Run `Invoke-AtomicTest T1059.001` (Phishing Simulation) in the Test Lab.
     -   Task: Triage the alert in SIEM.
-    -   Task: Submit a mock [Incident Report](../templates/incident_report.en.md).
+    -   Task: Submit a mock [Incident Report](../11_Reporting_Templates/incident_report.en.md).
 
 ## Related Documents
 -   [Training Checklist](Training_Checklist.en.md)
@@ -28370,14 +28370,14 @@ gantt
     -   งาน: ระบุตำแหน่งที่เก็บข้อมูล "Critical" ใน SIEM
 -   **วันที่ 3: การจัดการการเปลี่ยนแปลง**
     -   อ่าน: [Deployment Procedures](../02_Platform_Operations/Deployment_Procedures.th.md) - เรียนรู้วิธีการ Deploy (RFC/CAB)
-    -   อ่าน: [แบบฟอร์ม - Change Request](../templates/change_request_rfc.th.md)
+    -   อ่าน: [แบบฟอร์ม - Change Request](../11_Reporting_Templates/change_request_rfc.th.md)
 
 ## สัปดาห์ที่ 2: การรับมือภัยคุกคาม (Incident Response)
 **เป้าหมาย**: เรียนรู้วิธีจัดการกับ Alert โดยใช้ Playbook มาตรฐาน
 
 -   **วันที่ 1: กรอบการทำงาน**
     -   อ่าน: [Incident Response Framework](../05_Incident_Response/Framework.th.md) - วงจรชีวิตตาม NIST
-    -   อ่าน: [แบบฟอร์ม - Incident Report](../templates/incident_report.th.md)
+    -   อ่าน: [แบบฟอร์ม - Incident Report](../11_Reporting_Templates/incident_report.th.md)
 -   **วันที่ 2: Playbook หลัก (Identity)**
     -   อ่าน: [PB-01 Phishing](../05_Incident_Response/Playbooks/Phishing.th.md)
     -   อ่าน: [PB-04 Brute Force](../05_Incident_Response/Playbooks/Brute_Force.th.md)
@@ -28403,7 +28403,7 @@ gantt
 -   **วันที่ 2: การสอบปฏิบัติ (Drill)**
     -   งาน: รัน `Invoke-AtomicTest T1059.001` (Phishing Simulation) ในห้อง Lab
     -   งาน: Triage Alert ใน SIEM
-    -   งาน: ส่ง [Incident Report](../templates/incident_report.th.md) จำลอง
+    -   งาน: ส่ง [Incident Report](../11_Reporting_Templates/incident_report.th.md) จำลอง
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [Training Checklist](Training_Checklist.th.md)
@@ -28452,7 +28452,7 @@ gantt
 ## Related Documents
 -   [Analyst Onboarding Path](Analyst_Onboarding_Path.en.md)
 -   [Simulation Guide](../09_Simulation_Testing/Simulation_Guide.en.md)
--   [Incident Report Template](../templates/incident_report.en.md)
+-   [Incident Report Template](../11_Reporting_Templates/incident_report.en.md)
 
 ## References
 -   [SANS SOC Analyst Training](https://www.sans.org/cyber-security-courses/)
@@ -28496,7 +28496,7 @@ gantt
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [เส้นทางการเตรียมความพร้อม Analyst](Analyst_Onboarding_Path.th.md)
 -   [คู่มือจำลองการโจมตี](../09_Simulation_Testing/Simulation_Guide.en.md)
--   [แบบฟอร์มรายงาน Incident](../templates/incident_report.th.md)
+-   [แบบฟอร์มรายงาน Incident](../11_Reporting_Templates/incident_report.th.md)
 
 ## References
 -   [SANS SOC Analyst Training](https://www.sans.org/cyber-security-courses/)

@@ -226,7 +226,7 @@ graph LR
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)
-- [Incident Report](../../templates/incident_report.en.md)
+- [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 - [PB-01 Phishing](Phishing.en.md)
 - [PB-05 Account Compromise](Account_Compromise.en.md)
 - [PB-06 Impossible Travel](Impossible_Travel.en.md)

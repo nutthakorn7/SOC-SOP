@@ -215,10 +215,10 @@ graph TD
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)
-- [Incident Report](../../templates/incident_report.en.md)
+- [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 - [PB-08 Data Exfiltration](Data_Exfiltration.en.md)
 - [PB-10 Web Attack](Web_Attack.en.md)
-- [Shift Handover Log](../../templates/shift_handover.en.md)
+- [Shift Handover Log](../../11_Reporting_Templates/shift_handover.en.md)
 
 ## References
 

@@ -13,7 +13,7 @@
 - [ ] ใช้ S3 access logging และ CloudTrail
 - [ ] เปิด SSE-KMS encryption สำหรับ sensitive buckets
 - [ ] ใช้ VPC endpoints สำหรับ S3 access
-- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+- [ ] จัดทำ [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ### ผังการตรวจจับ S3 Exposure
 

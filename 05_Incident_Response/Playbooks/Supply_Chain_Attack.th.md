@@ -13,7 +13,7 @@
 - [ ] ใช้ SCA (Software Composition Analysis) ใน CI/CD
 - [ ] ตรวจ code signing certificates
 - [ ] ใช้ allowlist สำหรับ approved packages/vendors
-- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+- [ ] จัดทำ [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ### ผังเวกเตอร์ Supply Chain
 

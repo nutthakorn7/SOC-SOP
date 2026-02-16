@@ -177,6 +177,6 @@
 
 ## เอกสารที่เกี่ยวข้อง
 
-- [คู่มือ Tier 1](../05_Incident_Response/Tier1_Runbook.th.md)
+- [คู่มือ Tier 1](../05_Incident_Response/Runbooks/Tier1_Runbook.th.md)
 - [ตัวชี้วัด SOC](SOC_Metrics.th.md)
 - [ส่งมอบกะ](Shift_Handoff.th.md)

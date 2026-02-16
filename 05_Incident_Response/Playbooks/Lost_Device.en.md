@@ -173,7 +173,7 @@ graph TD
 - [ ] Issue replacement device with pre-configured security baseline
 - [ ] Conduct awareness training on physical device security
 - [ ] Review insurance coverage for lost/stolen equipment
-- [ ] Document findings in [Incident Report](../../templates/incident_report.en.md)
+- [ ] Document findings in [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ---
 
@@ -214,7 +214,7 @@ graph TD
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)
-- [Incident Report](../../templates/incident_report.en.md)
+- [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 - [PB-05 Account Compromise](Account_Compromise.en.md)
 - [Data Governance Policy](../../07_Compliance_Privacy/Data_Governance_Policy.en.md)
 - [PDPA Compliance](../../07_Compliance_Privacy/PDPA_Compliance.en.md)

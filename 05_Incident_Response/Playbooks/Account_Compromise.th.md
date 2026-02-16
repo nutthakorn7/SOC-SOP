@@ -36,7 +36,7 @@ graph TD
 - [ ] ใช้ sign-in risk policies (Azure AD / Okta)
 - [ ] ตรวจสอบและเพิกถอน OAuth app consents ที่ค้าง
 - [ ] สร้าง Sigma rule สำหรับรูปแบบ credential abuse ที่พบ
-- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+- [ ] จัดทำ [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 
 ## 1. การวิเคราะห์

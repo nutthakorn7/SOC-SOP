@@ -34,14 +34,14 @@ gantt
     -   Task: Locate where "Critical" data is stored in our SIEM.
 -   **Day 3: Change Management**
     -   Read: [Deployment Procedures](../02_Platform_Operations/Deployment_Procedures.en.md) - Learn how we deploy changes (RFC/CAB).
-    -   Read: [Template - Change Request](../templates/change_request_rfc.en.md).
+    -   Read: [Template - Change Request](../11_Reporting_Templates/change_request_rfc.en.md).
 
 ## Week 2: Incident Response (The "How-To")
 **Goal**: Learn how to handle alerts using Standard Playbooks.
 
 -   **Day 1: The Framework**
     -   Read: [Incident Response Framework](../05_Incident_Response/Framework.en.md) - The NIST lifecycle.
-    -   Read: [Template - Incident Report](../templates/incident_report.en.md).
+    -   Read: [Template - Incident Report](../11_Reporting_Templates/incident_report.en.md).
 -   **Day 2: Core Playbooks (Identity)**
     -   Read: [PB-01 Phishing](../05_Incident_Response/Playbooks/Phishing.en.md).
     -   Read: [PB-04 Brute Force](../05_Incident_Response/Playbooks/Brute_Force.en.md).
@@ -67,7 +67,7 @@ gantt
 -   **Day 2: Final Exam (Drill)**
     -   Task: Run `Invoke-AtomicTest T1059.001` (Phishing Simulation) in the Test Lab.
     -   Task: Triage the alert in SIEM.
-    -   Task: Submit a mock [Incident Report](../templates/incident_report.en.md).
+    -   Task: Submit a mock [Incident Report](../11_Reporting_Templates/incident_report.en.md).
 
 ## Competency Assessment
 

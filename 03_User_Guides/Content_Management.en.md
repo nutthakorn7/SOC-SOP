@@ -132,7 +132,7 @@ experimental → test → stable → deprecated
 
 ### Deployment Process
 
-1. Submit rule via [Change Request (RFC)](../templates/change_request_rfc.en.md)
+1. Submit rule via [Change Request (RFC)](../11_Reporting_Templates/change_request_rfc.en.md)
 2. Deploy to staging SIEM
 3. Validate against test cases
 4. Promote to production

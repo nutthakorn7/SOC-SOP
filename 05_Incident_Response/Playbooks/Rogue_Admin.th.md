@@ -13,7 +13,7 @@
 - [ ] เปิด command-line logging สำหรับ admin sessions
 - [ ] ทบทวน separation of duties policies
 - [ ] ทำ access recertification สำหรับ privileged accounts
-- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+- [ ] จัดทำ [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ### ผังตัวบ่งชี้พฤติกรรม
 
@@ -202,7 +202,7 @@ sequenceDiagram
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)
-- [แม่แบบรายงานเหตุการณ์](../../templates/incident_report.th.md)
+- [แม่แบบรายงานเหตุการณ์](../../11_Reporting_Templates/incident_report.th.md)
 - [PB-14 ภัยคุกคามจากภายใน](Insider_Threat.th.md)
 - [PB-15 การลบ Log](Log_Clearing.th.md)
 

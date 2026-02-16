@@ -174,7 +174,7 @@
 
 ## Related Documents
 
-- [Tier 1 Runbook](../05_Incident_Response/Tier1_Runbook.en.md)
+- [Tier 1 Runbook](../05_Incident_Response/Runbooks/Tier1_Runbook.en.md)
 - [SOC Metrics](../06_Operations_Management/SOC_Metrics.en.md)
 - [Shift Handoff](../06_Operations_Management/Shift_Handoff.en.md)
 - [Tabletop Exercises](../05_Incident_Response/Tabletop_Exercises.en.md)

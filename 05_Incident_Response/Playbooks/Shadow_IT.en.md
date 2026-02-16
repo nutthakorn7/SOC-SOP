@@ -178,7 +178,7 @@ graph TD
 - [ ] Update employee code of conduct regarding unsanctioned services
 - [ ] Conduct awareness training on data security risks
 - [ ] Review OAuth app consent policies (restrict by default)
-- [ ] Document findings in [Incident Report](../../templates/incident_report.en.md)
+- [ ] Document findings in [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ---
 
@@ -220,7 +220,7 @@ sequenceDiagram
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)
-- [Incident Report](../../templates/incident_report.en.md)
+- [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 - [PB-08 Data Exfiltration](Data_Exfiltration.en.md)
 - [Data Governance Policy](../../07_Compliance_Privacy/Data_Governance_Policy.en.md)
 - [PDPA Compliance](../../07_Compliance_Privacy/PDPA_Compliance.en.md)

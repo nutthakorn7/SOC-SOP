@@ -13,7 +13,7 @@
 - [ ] Disable NTLM ที่เป็นไปได้
 - [ ] ทบทวน admin account tiering (Tier 0/1/2)
 - [ ] สร้าง detection rule สำหรับ technique ที่พบ
-- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+- [ ] จัดทำ [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ### ผังเส้นทางการโจมตี
 

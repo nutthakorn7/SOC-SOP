@@ -13,7 +13,7 @@
 - [ ] ทบทวน auto-scaling และ rate-limiting configurations
 - [ ] ทำ capacity planning จาก bandwidth ที่พบ
 - [ ] จัด DDoS simulation exercise กับ mitigation provider
-- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+- [ ] จัดทำ [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ### ผังชั้นป้องกัน DDoS
 
@@ -195,8 +195,8 @@ sequenceDiagram
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)
-- [แม่แบบรายงานเหตุการณ์](../../templates/incident_report.th.md)
-- [บันทึกการส่งมอบกะ](../../templates/shift_handover.th.md)
+- [แม่แบบรายงานเหตุการณ์](../../11_Reporting_Templates/incident_report.th.md)
+- [บันทึกการส่งมอบกะ](../../11_Reporting_Templates/shift_handover.th.md)
 
 ## DDoS Attack Classification
 

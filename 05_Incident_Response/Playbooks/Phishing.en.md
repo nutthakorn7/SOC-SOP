@@ -174,7 +174,7 @@ flowchart TD
 - [ ] Submit phishing URL/domain to community blocklists
 - [ ] Create/update Sigma detection rule if novel technique
 - [ ] Send awareness reminder to affected users
-- [ ] Document in [Incident Report](../../templates/incident_report.en.md)
+- [ ] Document in [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ---
 
@@ -217,7 +217,7 @@ sequenceDiagram
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)
-- [Incident Report](../../templates/incident_report.en.md)
+- [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 - [PB-05 Account Compromise](Account_Compromise.en.md)
 - [PB-17 BEC](BEC.en.md)
 - [Alert Tuning SOP](../../06_Operations_Management/Alert_Tuning.en.md)

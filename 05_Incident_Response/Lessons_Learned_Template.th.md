@@ -121,7 +121,7 @@ _อธิบาย root cause 2–3 ประโยค_
 
 ## เอกสารที่เกี่ยวข้อง
 - [IR Framework](Framework.th.md)
-- [แม่แบบรายงานเหตุการณ์](../templates/incident_report.th.md)
+- [แม่แบบรายงานเหตุการณ์](../11_Reporting_Templates/incident_report.th.md)
 - [Escalation Matrix](Escalation_Matrix.th.md)
 
 ---

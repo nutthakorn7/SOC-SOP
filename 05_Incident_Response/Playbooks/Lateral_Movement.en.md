@@ -223,7 +223,7 @@ sequenceDiagram
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)
-- [Incident Report](../../templates/incident_report.en.md)
+- [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 - [PB-02 Ransomware](Ransomware.en.md)
 - [PB-05 Account Compromise](Account_Compromise.en.md)
 - [PB-13 C2 Communication](C2_Communication.en.md)

@@ -52,7 +52,7 @@
 | 3.1 | Read: [IR Framework (NIST)](../05_Incident_Response/Framework.en.md) | Self-study | ☐ |
 | 3.2 | Read: [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md) | Self-study | ☐ |
 | 3.3 | Read: [Incident Classification](../05_Incident_Response/Incident_Classification.en.md) | Self-study | ☐ |
-| 3.4 | Review: [Incident Report Template](../templates/incident_report.en.md) | Self-study | ☐ |
+| 3.4 | Review: [Incident Report Template](../11_Reporting_Templates/incident_report.en.md) | Self-study | ☐ |
 | 3.5 | Shadow: Observe Tier 2 handling a real incident | Tier 2 Analyst | ☐ |
 | 3.6 | Study: RACI matrix — know who does what | Self-study | ☐ |
 
@@ -170,7 +170,7 @@
 - [Analyst Onboarding Path](Analyst_Onboarding_Path.en.md) — Detailed onboarding roadmap
 - [SOC Team Structure](../06_Operations_Management/SOC_Team_Structure.en.md) — Roles and career paths
 - [Simulation Guide](../09_Simulation_Testing/Simulation_Guide.en.md) — Lab exercises
-- [Incident Report Template](../templates/incident_report.en.md) — Report format
+- [Incident Report Template](../11_Reporting_Templates/incident_report.en.md) — Report format
 
 ## References
 

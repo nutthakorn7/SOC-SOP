@@ -249,6 +249,6 @@ Track these metrics to ensure consistent classification:
 -   [Severity Matrix](Severity_Matrix.en.md) — Full severity definitions
 -   [Escalation Matrix](Escalation_Matrix.en.md) — Who to escalate to by severity
 -   [IR Framework](Framework.en.md) — Incident response lifecycle
--   [Tier 1 Runbook](Tier1_Runbook.en.md) — Analyst triage procedures
+-   [Tier 1 Runbook](Runbooks/Tier1_Runbook.en.md) — Analyst triage procedures
 -   [SOAR Playbooks](SOAR_Playbooks.en.md) — Automated response playbooks
 -   [Threat Hunting Playbook](Threat_Hunting_Playbook.en.md) — Proactive hunting

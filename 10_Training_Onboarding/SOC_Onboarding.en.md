@@ -106,7 +106,7 @@ gantt
 | Document | Priority | Completed |
 |:---|:---:|:---:|
 | [IR Framework](../05_Incident_Response/Framework.en.md) | 🔴 Must | ⬜ |
-| [Tier 1 Runbook](../05_Incident_Response/Tier1_Runbook.en.md) | 🔴 Must | ⬜ |
+| [Tier 1 Runbook](../05_Incident_Response/Runbooks/Tier1_Runbook.en.md) | 🔴 Must | ⬜ |
 | Top 5 Playbooks (Phishing, Malware, Unauth Access, Ransomware, BEC) | 🔴 Must | ⬜ |
 | [Alert Tuning SOP](../06_Operations_Management/Alert_Tuning.en.md) | 🟡 Should | ⬜ |
 | [Evidence Collection](../05_Incident_Response/Evidence_Collection.en.md) | 🟡 Should | ⬜ |
@@ -253,7 +253,7 @@ gantt
 -   SOC Charter — Mission and structure
 -   Roles & Responsibilities — Tier definitions
 -   Training Program — Long-term training
--   [Tier 1 Runbook](../05_Incident_Response/Tier1_Runbook.en.md) — Day-to-day procedures
+-   [Tier 1 Runbook](../05_Incident_Response/Runbooks/Tier1_Runbook.en.md) — Day-to-day procedures
 -   [IR Framework](../05_Incident_Response/Framework.en.md) — Incident response lifecycle
 -   [SOC Checklists](../06_Operations_Management/SOC_Checklists.en.md) — Operational checklists
 -   [Escalation Matrix](../05_Incident_Response/Escalation_Matrix.en.md) — When to escalate

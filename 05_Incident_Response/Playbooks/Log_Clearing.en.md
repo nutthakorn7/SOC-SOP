@@ -221,7 +221,7 @@ graph LR
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)
-- [Incident Report](../../templates/incident_report.en.md)
+- [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 - [PB-15 Rogue Admin](Rogue_Admin.en.md)
 - [PB-12 Lateral Movement](Lateral_Movement.en.md)
 - [PB-07 Privilege Escalation](Privilege_Escalation.en.md)

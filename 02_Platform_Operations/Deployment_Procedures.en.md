@@ -138,7 +138,7 @@ graph LR
 | Major platform upgrade | Maintenance window + CAB approval | CISO | < 4 hours |
 
 ## Related Documents
--   [Change Request Template](../templates/change_request_rfc.en.md)
+-   [Change Request Template](../11_Reporting_Templates/change_request_rfc.en.md)
 -   [Data Governance & Retention](Database_Management.en.md)
 -   [SOC Infrastructure Setup](../10_Training_Onboarding/System_Activation.en.md)
 

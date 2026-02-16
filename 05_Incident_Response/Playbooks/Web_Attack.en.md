@@ -182,7 +182,7 @@ graph TD
 - [ ] Review and tighten input validation and output encoding
 - [ ] Implement Content Security Policy (CSP) headers
 - [ ] Schedule penetration test for affected application
-- [ ] Document findings in [Incident Report](../../templates/incident_report.en.md)
+- [ ] Document findings in [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ---
 
@@ -226,7 +226,7 @@ graph TD
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)
-- [Incident Report](../../templates/incident_report.en.md)
+- [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 - [PB-18 Vulnerability Exploitation](Exploit.en.md)
 - [PB-08 Data Exfiltration](Data_Exfiltration.en.md)
 

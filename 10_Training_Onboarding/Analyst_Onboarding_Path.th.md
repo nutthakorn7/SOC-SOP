@@ -34,14 +34,14 @@ gantt
     -   งาน: ระบุตำแหน่งที่เก็บข้อมูล "Critical" ใน SIEM
 -   **วันที่ 3: การจัดการการเปลี่ยนแปลง**
     -   อ่าน: [Deployment Procedures](../02_Platform_Operations/Deployment_Procedures.th.md) - เรียนรู้วิธีการ Deploy (RFC/CAB)
-    -   อ่าน: [แบบฟอร์ม - Change Request](../templates/change_request_rfc.th.md)
+    -   อ่าน: [แบบฟอร์ม - Change Request](../11_Reporting_Templates/change_request_rfc.th.md)
 
 ## สัปดาห์ที่ 2: การรับมือภัยคุกคาม (Incident Response)
 **เป้าหมาย**: เรียนรู้วิธีจัดการกับ Alert โดยใช้ Playbook มาตรฐาน
 
 -   **วันที่ 1: กรอบการทำงาน**
     -   อ่าน: [Incident Response Framework](../05_Incident_Response/Framework.th.md) - วงจรชีวิตตาม NIST
-    -   อ่าน: [แบบฟอร์ม - Incident Report](../templates/incident_report.th.md)
+    -   อ่าน: [แบบฟอร์ม - Incident Report](../11_Reporting_Templates/incident_report.th.md)
 -   **วันที่ 2: Playbook หลัก (Identity)**
     -   อ่าน: [PB-01 Phishing](../05_Incident_Response/Playbooks/Phishing.th.md)
     -   อ่าน: [PB-04 Brute Force](../05_Incident_Response/Playbooks/Brute_Force.th.md)
@@ -67,7 +67,7 @@ gantt
 -   **วันที่ 2: การสอบปฏิบัติ (Drill)**
     -   งาน: รัน `Invoke-AtomicTest T1059.001` (Phishing Simulation) ในห้อง Lab
     -   งาน: Triage Alert ใน SIEM
-    -   งาน: ส่ง [Incident Report](../templates/incident_report.th.md) จำลอง
+    -   งาน: ส่ง [Incident Report](../11_Reporting_Templates/incident_report.th.md) จำลอง
 
 ## การประเมินสมรรถนะ
 

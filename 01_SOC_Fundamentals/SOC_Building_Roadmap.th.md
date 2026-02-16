@@ -144,7 +144,7 @@ graph LR
 
 ### Deploy 10 Sigma Rules แรก
 
-เริ่มจาก `win_multiple_failed_logins`, `proc_office_spawn_powershell`, `cloud_unusual_login` + อ่าน [Tier 1 Runbook](../05_Incident_Response/Tier1_Runbook.th.md)
+เริ่มจาก `win_multiple_failed_logins`, `proc_office_spawn_powershell`, `cloud_unusual_login` + อ่าน [Tier 1 Runbook](../05_Incident_Response/Runbooks/Tier1_Runbook.th.md)
 
 ---
 
@@ -424,6 +424,6 @@ Total: ~15-25M THB/year (mid-size org)
 
 - [กรอบ IR](../05_Incident_Response/Framework.th.md)
 - [ตารางความรุนแรง](../05_Incident_Response/Severity_Matrix.th.md)
-- [คู่มือ Tier 1](../05_Incident_Response/Tier1_Runbook.th.md)
+- [คู่มือ Tier 1](../05_Incident_Response/Runbooks/Tier1_Runbook.th.md)
 - [โครงสร้างทีม SOC](../06_Operations_Management/SOC_Team_Structure.th.md)
 - [เครื่องมือวัด Maturity](../tools/soc_maturity_scorer.html)

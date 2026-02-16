@@ -13,7 +13,7 @@
 - [ ] ทบทวน application control / AppLocker policies
 - [ ] สร้าง detection rule สำหรับ obfuscation patterns
 - [ ] ใช้ constrained language mode สำหรับ PowerShell
-- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+- [ ] จัดทำ [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ### ผัง Script Analysis Pipeline
 

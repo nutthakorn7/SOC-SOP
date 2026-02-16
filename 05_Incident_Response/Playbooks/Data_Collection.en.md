@@ -160,7 +160,7 @@ An attacker gathers sensitive data from within the environment before exfiltrati
 - [ ] Conduct user access review for affected data repositories
 - [ ] Create Sigma rule for bulk file access patterns
 - [ ] Review data classification labels for affected data
-- [ ] Document findings in [Incident Report](../../templates/incident_report.en.md)
+- [ ] Document findings in [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ## Key Indicators
 

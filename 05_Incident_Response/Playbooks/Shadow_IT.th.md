@@ -13,7 +13,7 @@
 - [ ] ใช้ automated Shadow IT discovery scanning (รายเดือน)
 - [ ] อัพเดท code of conduct เรื่อง unsanctioned services
 - [ ] จัด awareness training เรื่อง data security risks
-- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+- [ ] จัดทำ [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ### ผังการค้นพบ Shadow IT
 
@@ -188,7 +188,7 @@ sequenceDiagram
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)
-- [แม่แบบรายงานเหตุการณ์](../../templates/incident_report.th.md)
+- [แม่แบบรายงานเหตุการณ์](../../11_Reporting_Templates/incident_report.th.md)
 - [PB-08 การนำข้อมูลออก](Data_Exfiltration.th.md)
 - [นโยบายธรรมาภิบาลข้อมูล](../../07_Compliance_Privacy/Data_Governance_Policy.th.md)
 

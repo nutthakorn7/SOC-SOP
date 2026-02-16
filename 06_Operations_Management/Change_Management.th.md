@@ -37,7 +37,7 @@ graph TD
 ```
 
 ### ขั้นตอนสำคัญ:
-1. **ส่ง Change Request** — ใช้ [แม่แบบ](../templates/change_request_rfc.th.md)
+1. **ส่ง Change Request** — ใช้ [แม่แบบ](../11_Reporting_Templates/change_request_rfc.th.md)
 2. **Review เทคนิค** — ตรวจสอบความถูกต้อง, conflict, rollback plan
 3. **ทดสอบ** — Validate syntax, ทดสอบกับข้อมูลจริง 7 วัน
 4. **อนุมัติ** — ตามระดับประเภท
@@ -189,6 +189,6 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง
 
-- [แม่แบบ Change Request](../templates/change_request_rfc.th.md)
+- [แม่แบบ Change Request](../11_Reporting_Templates/change_request_rfc.th.md)
 - [SOP ทดสอบ Detection Rule](Detection_Rule_Testing.th.md)
 - [รายการตรวจสอบ SOC](SOC_Checklists.th.md)

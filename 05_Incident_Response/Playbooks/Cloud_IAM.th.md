@@ -13,7 +13,7 @@
 - [ ] ตรวจสอบ service account key rotation
 - [ ] ใช้ CSPM tool เพื่อเฝ้าระวังอย่างต่อเนื่อง
 - [ ] ทำ access recertification สำหรับ cloud roles
-- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+- [ ] จัดทำ [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ### ผังการตรวจจับ IAM Anomaly
 

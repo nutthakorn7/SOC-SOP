@@ -46,7 +46,7 @@ SOCSOP/
 ├── 10_Training_Onboarding/   # Analyst curriculum, training checklists
 ├── 08_Detection_Engineering/file_signatures/       # YARA rules
 ├── 11_Reporting_Templates/   # Monthly/quarterly executive reports
-├── templates/                # Incident report, shift handover, RFC forms
+├── 11_Reporting_Templates/  # (templates moved here)                # Incident report, shift handover, RFC forms
 ├── tools/                    # Utility scripts (export, link check)
 └── assets/                   # Images (hero banner, etc.)
 ```

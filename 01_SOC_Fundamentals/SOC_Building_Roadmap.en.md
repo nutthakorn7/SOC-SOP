@@ -187,7 +187,7 @@ Start with these documents from this repo:
 
 1. ✅ [IR Framework](../05_Incident_Response/Framework.en.md) — How to handle incidents
 2. ✅ [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md) — P1/P2/P3/P4 classification
-3. ✅ [Tier 1 Runbook](../05_Incident_Response/Tier1_Runbook.en.md) — Day-to-day analyst guide
+3. ✅ [Tier 1 Runbook](../05_Incident_Response/Runbooks/Tier1_Runbook.en.md) — Day-to-day analyst guide
 4. ✅ [Shift Handoff](../06_Operations_Management/Shift_Handoff.en.md) — If running shifts
 5. ✅ [Communication Templates](../05_Incident_Response/Communication_Templates.en.md) — Who to notify
 
@@ -410,7 +410,7 @@ If you're starting from zero, read these documents in this order:
 | 1 | **This guide** (you're here!) | Overall roadmap |
 | 2 | [IR Framework](../05_Incident_Response/Framework.en.md) | How incidents work |
 | 3 | [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md) | P1/P2/P3/P4 |
-| 4 | [Tier 1 Runbook](../05_Incident_Response/Tier1_Runbook.en.md) | Daily operations |
+| 4 | [Tier 1 Runbook](../05_Incident_Response/Runbooks/Tier1_Runbook.en.md) | Daily operations |
 | 5 | [SOC Team Structure](../06_Operations_Management/SOC_Team_Structure.en.md) | Roles & shifts |
 | 6 | [Detection Rules Index](../08_Detection_Engineering/README.en.md) | What rules to deploy |
 | 7 | [Log Source Onboarding](../06_Operations_Management/Log_Source_Onboarding.en.md) | How to add logs |

@@ -13,7 +13,7 @@
 - [ ] จัด awareness training เรื่อง BEC ให้ finance team
 - [ ] ใช้ email authentication (SPF/DKIM/DMARC strict)
 - [ ] ตรวจสอบ vendor email compromise indicators
-- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+- [ ] จัดทำ [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ### ผังขั้นตอนเรียกคืนเงิน (Urgent!)
 

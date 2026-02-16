@@ -128,7 +128,7 @@ The **Shift Handoff Report** must include:
 | **Change Advisories** | Planned changes (patching, config changes) that may affect alerts | If applicable |
 | **Compliance Deadlines** | PDPA notifications, SLA breaches approaching | If applicable |
 
-> 📚 **Template**: [Shift Handover Log](../templates/shift_handover.en.md)
+> 📚 **Template**: [Shift Handover Log](../11_Reporting_Templates/shift_handover.en.md)
 
 ---
 
@@ -233,7 +233,7 @@ SOC Manager should conduct monthly handoff quality audits:
 - [SOC Team Structure](SOC_Team_Structure.en.md) — Roles and responsibilities
 - [SOC Capacity Planning](SOC_Capacity_Planning.en.md) — Staffing models and budgets
 - [SOC Assessment Checklist](SOC_Assessment_Checklist.en.md) — Operational readiness
-- [Shift Handover Template](../templates/shift_handover.en.md) — Handoff report form
+- [Shift Handover Template](../11_Reporting_Templates/shift_handover.en.md) — Handoff report form
 
 ## References
 

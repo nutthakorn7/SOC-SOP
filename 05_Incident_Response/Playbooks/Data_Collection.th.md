@@ -13,7 +13,7 @@
 - [ ] ทำ user access review สำหรับ data repositories
 - [ ] สร้าง Sigma rule สำหรับ bulk file access patterns
 - [ ] ทบทวน data classification labels
-- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+- [ ] จัดทำ [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ### ผังขั้นตอน Data Staging
 

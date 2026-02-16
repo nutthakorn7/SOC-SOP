@@ -230,7 +230,7 @@ sequenceDiagram
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)
-- [Incident Report](../../templates/incident_report.en.md)
+- [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 - [PB-16 Cloud IAM](Cloud_IAM.en.md)
 - [PB-21 AWS S3](AWS_S3_Compromise.en.md)
 

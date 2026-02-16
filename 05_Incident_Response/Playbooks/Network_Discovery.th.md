@@ -13,7 +13,7 @@
 - [ ] ทบทวน application control policies (scanning tools)
 - [ ] สร้าง Sigma rule สำหรับ discovery patterns ใหม่
 - [ ] ทำ tabletop exercise: discovery → lateral movement
-- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+- [ ] จัดทำ [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ### ผังขั้นตอนตรวจจับ
 

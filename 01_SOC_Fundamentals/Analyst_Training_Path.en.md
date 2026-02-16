@@ -75,7 +75,7 @@ If the candidate lacks these basics, add 4 weeks of pre-training (see Appendix).
 
 | Week | Topic | Resources | Hands-On Lab |
 |:---:|:---|:---|:---|
-| 13 | **Alert triage** — Severity classification, true vs false positive | [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md), [Tier 1 Runbook](../05_Incident_Response/Tier1_Runbook.en.md) | Triage 20 sample alerts |
+| 13 | **Alert triage** — Severity classification, true vs false positive | [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md), [Tier 1 Runbook](../05_Incident_Response/Runbooks/Tier1_Runbook.en.md) | Triage 20 sample alerts |
 | 14 | **IOC enrichment** — VirusTotal, AbuseIPDB, URLhaus, Shodan | LetsDefend.io free labs | Enrich 10 IOCs using free tools |
 | 15 | **MITRE ATT&CK** — Tactics, techniques, procedures mapping | ATT&CK Navigator (online) | Map 5 alerts to ATT&CK techniques |
 | 16 | **Ticket writing** — Proper documentation, evidence preservation | [Communication Templates](../05_Incident_Response/Communication_Templates.en.md) | Write 5 incident tickets from sample data |
@@ -209,6 +209,6 @@ Ready for Independent Work: □ Yes □ No
 
 - [SOC Building Roadmap](SOC_Building_Roadmap.en.md)
 - [Budget & Staffing](Budget_Staffing.en.md)
-- [Tier 1 Runbook](../05_Incident_Response/Tier1_Runbook.en.md)
+- [Tier 1 Runbook](../05_Incident_Response/Runbooks/Tier1_Runbook.en.md)
 - [Interview Guide](../05_Incident_Response/Interview_Guide.en.md)
 - [Analyst Onboarding](../10_Training_Onboarding/Analyst_Onboarding_Path.en.md)

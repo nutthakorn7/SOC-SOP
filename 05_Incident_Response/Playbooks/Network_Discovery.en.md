@@ -155,7 +155,7 @@ An attacker conducts internal reconnaissance to map the network topology, identi
 - [ ] Review and tighten application control policies (scanning tools)
 - [ ] Create Sigma detection rule for new discovery patterns observed
 - [ ] Conduct tabletop exercise for discovery → lateral movement scenarios
-- [ ] Document findings in [Incident Report](../../templates/incident_report.en.md)
+- [ ] Document findings in [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ## Key Indicators
 

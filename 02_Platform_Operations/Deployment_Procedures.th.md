@@ -114,7 +114,7 @@ sequenceDiagram
 | Major platform upgrade | Maintenance window + CAB approval | CISO | < 4 ชม. |
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
--   [แบบฟอร์ม Change Request](../templates/change_request_rfc.th.md)
+-   [แบบฟอร์ม Change Request](../11_Reporting_Templates/change_request_rfc.th.md)
 -   [ธรรมาภิบาลข้อมูล](Database_Management.th.md)
 -   [การติดตั้ง SOC](../10_Training_Onboarding/System_Activation.th.md)
 

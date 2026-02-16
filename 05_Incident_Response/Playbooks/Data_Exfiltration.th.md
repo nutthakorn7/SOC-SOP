@@ -13,7 +13,7 @@
 - [ ] แจ้ง Legal/DPO ถ้ามี PII รั่วไหล (PDPA 72h)
 - [ ] สร้าง detection rule สำหรับ anomalous data transfer
 - [ ] ทำ data impact assessment
-- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+- [ ] จัดทำ [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ### ผังการตรวจจับตามช่องทาง
 

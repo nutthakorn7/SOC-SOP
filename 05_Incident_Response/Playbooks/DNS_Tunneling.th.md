@@ -13,7 +13,7 @@
 - [ ] ทบทวน DNS inspection coverage
 - [ ] สร้าง detection rule สำหรับ high-entropy DNS queries
 - [ ] ใช้ DNS logging เฝ้าระวังอย่างต่อเนื่อง
-- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+- [ ] จัดทำ [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ### ผังการตรวจจับ DNS Tunneling
 

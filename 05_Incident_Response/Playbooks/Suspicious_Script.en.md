@@ -221,7 +221,7 @@ graph TD
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)
-- [Incident Report](../../templates/incident_report.en.md)
+- [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 - [PB-01 Phishing](Phishing.en.md)
 - [PB-03 Malware Infection](Malware_Infection.en.md)
 - [PB-13 C2 Communication](C2_Communication.en.md)

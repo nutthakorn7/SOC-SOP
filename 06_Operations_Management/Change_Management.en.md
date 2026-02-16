@@ -57,7 +57,7 @@ graph TD
 
 ### Step 1: Submit Change Request
 
-Use the [Change Request Template](../templates/change_request_rfc.en.md) and include:
+Use the [Change Request Template](../11_Reporting_Templates/change_request_rfc.en.md) and include:
 
 | Field | Required | Description |
 |:---|:---:|:---|
@@ -189,6 +189,6 @@ graph TD
 
 ## Related Documents
 
-- [Change Request Template](../templates/change_request_rfc.en.md)
+- [Change Request Template](../11_Reporting_Templates/change_request_rfc.en.md)
 - [Detection Rule Testing SOP](Detection_Rule_Testing.en.md)
 - [SOC Checklists](SOC_Checklists.en.md)

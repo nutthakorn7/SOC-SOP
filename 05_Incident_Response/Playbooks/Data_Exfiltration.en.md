@@ -228,7 +228,7 @@ sequenceDiagram
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)
-- [Incident Report](../../templates/incident_report.en.md)
+- [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 - [PB-14 Insider Threat](Insider_Threat.en.md)
 - [PB-35 Data Collection](Data_Collection.en.md)
 - [Data Governance Policy](../../07_Compliance_Privacy/Data_Governance_Policy.en.md)

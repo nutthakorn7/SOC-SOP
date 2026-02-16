@@ -34,7 +34,7 @@ graph TD
 - [ ] ทบทวน endpoint hardening (macros, RDP, PowerShell)
 - [ ] ใช้ network segmentation ป้องกัน lateral movement
 - [ ] จัด awareness training เรื่อง phishing/ransomware
-- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+- [ ] จัดทำ [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 
 ## 1. การวิเคราะห์
@@ -184,7 +184,7 @@ graph TD
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)
-- [แม่แบบรายงานเหตุการณ์](../../templates/incident_report.th.md)
+- [แม่แบบรายงานเหตุการณ์](../../11_Reporting_Templates/incident_report.th.md)
 - [PB-03 มัลแวร์](Malware_Infection.th.md)
 - [PB-09 Lateral Movement](Lateral_Movement.th.md)
 

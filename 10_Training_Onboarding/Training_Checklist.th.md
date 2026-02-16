@@ -51,7 +51,7 @@
 | 3.1 | อ่าน: [กรอบ IR (NIST)](../05_Incident_Response/Framework.th.md) | ศึกษาด้วยตนเอง | ☐ |
 | 3.2 | อ่าน: [Severity Matrix](../05_Incident_Response/Severity_Matrix.th.md) | ศึกษาด้วยตนเอง | ☐ |
 | 3.3 | อ่าน: [การจำแนกเหตุการณ์](../05_Incident_Response/Incident_Classification.th.md) | ศึกษาด้วยตนเอง | ☐ |
-| 3.4 | ดู: [แบบฟอร์ม Incident Report](../templates/incident_report.th.md) | ศึกษาด้วยตนเอง | ☐ |
+| 3.4 | ดู: [แบบฟอร์ม Incident Report](../11_Reporting_Templates/incident_report.th.md) | ศึกษาด้วยตนเอง | ☐ |
 | 3.5 | สังเกตการณ์: ดู Tier 2 จัดการ incident จริง | Tier 2 Analyst | ☐ |
 | 3.6 | เรียน: RACI matrix — รู้ว่าใครทำอะไร | ศึกษาด้วยตนเอง | ☐ |
 
@@ -166,7 +166,7 @@
 - [เส้นทางการอบรม Analyst](Analyst_Onboarding_Path.th.md)
 - [โครงสร้างทีม SOC](../06_Operations_Management/SOC_Team_Structure.th.md)
 - [คู่มือการจำลอง](../09_Simulation_Testing/Simulation_Guide.th.md)
-- [แบบฟอร์ม Incident Report](../templates/incident_report.th.md)
+- [แบบฟอร์ม Incident Report](../11_Reporting_Templates/incident_report.th.md)
 
 ### Training Completion Tracking
 

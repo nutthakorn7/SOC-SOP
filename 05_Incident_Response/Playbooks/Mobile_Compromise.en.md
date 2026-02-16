@@ -184,7 +184,7 @@ graph TD
 - [ ] Implement mobile threat defense (MTD) solution
 - [ ] Conduct awareness training on mobile security best practices
 - [ ] Review VPN requirements for mobile corporate access
-- [ ] Document findings in [Incident Report](../../templates/incident_report.en.md)
+- [ ] Document findings in [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ---
 
@@ -227,7 +227,7 @@ graph LR
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)
-- [Incident Report](../../templates/incident_report.en.md)
+- [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 - [PB-05 Account Compromise](Account_Compromise.en.md)
 - [PB-19 Lost/Stolen Device](Lost_Device.en.md)
 

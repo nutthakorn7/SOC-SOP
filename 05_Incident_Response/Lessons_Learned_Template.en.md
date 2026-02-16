@@ -171,4 +171,4 @@ AFTER MEETING:
 
 - [IR Framework](Framework.en.md)
 - [Communication Templates](Communication_Templates.en.md)
-- [Incident Report Template](../templates/incident_report.en.md)
+- [Incident Report Template](../11_Reporting_Templates/incident_report.en.md)

@@ -13,7 +13,7 @@
 - [ ] ตรวจสอบ group memberships (Domain/Enterprise Admins)
 - [ ] ใช้ Credential Guard / LSA protection
 - [ ] ใช้ PAM สำหรับ privileged access ทั้งหมด
-- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+- [ ] จัดทำ [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ### ผัง Admin Tiering Model
 

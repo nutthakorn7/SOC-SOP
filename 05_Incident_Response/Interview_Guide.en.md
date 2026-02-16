@@ -195,4 +195,4 @@ Questions:
 
 - [SOC Team Structure](../06_Operations_Management/SOC_Team_Structure.en.md)
 - [SOC Building Roadmap](../01_SOC_Fundamentals/SOC_Building_Roadmap.en.md)
-- [Tier 1 Runbook](Tier1_Runbook.en.md)
+- [Tier 1 Runbook](Runbooks/Tier1_Runbook.en.md)

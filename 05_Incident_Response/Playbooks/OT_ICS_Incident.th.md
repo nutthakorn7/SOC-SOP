@@ -15,7 +15,7 @@
 - [ ] ทบทวน remote access policies สำหรับ OT
 - [ ] ประสาน vendor สำหรับ firmware/patch updates
 - [ ] จัด tabletop exercise สำหรับ OT incident scenarios
-- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+- [ ] จัดทำ [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ### ผัง Purdue Model
 

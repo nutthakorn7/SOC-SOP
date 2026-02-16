@@ -13,7 +13,7 @@
 - [ ] ทบทวน PIM role assignments
 - [ ] เปิด Identity Protection risk policies
 - [ ] ตรวจ service principal credentials ทั้งหมด
-- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+- [ ] จัดทำ [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ### ผัง Identity Protection Pipeline
 

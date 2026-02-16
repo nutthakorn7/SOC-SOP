@@ -105,12 +105,12 @@ nav:
     - ตารางความรุนแรง (TH): 05_Incident_Response/Severity_Matrix.th.md
     - Tabletop Exercises: 05_Incident_Response/Tabletop_Exercises.en.md
     - สถานการณ์จำลอง (TH): 05_Incident_Response/Tabletop_Exercises.th.md
-    - Tier 1 Runbook: 05_Incident_Response/Tier1_Runbook.en.md
-    - คู่มือ Tier 1 (TH): 05_Incident_Response/Tier1_Runbook.th.md
-    - Tier 2 Runbook: 05_Incident_Response/Tier2_Runbook.en.md
-    - คู่มือ Tier 2 (TH): 05_Incident_Response/Tier2_Runbook.th.md
-    - Tier 3 Runbook: 05_Incident_Response/Tier3_Runbook.en.md
-    - คู่มือ Tier 3 (TH): 05_Incident_Response/Tier3_Runbook.th.md
+    - Tier 1 Runbook: 05_Incident_Response/Runbooks/Tier1_Runbook.en.md
+    - คู่มือ Tier 1 (TH): 05_Incident_Response/Runbooks/Tier1_Runbook.th.md
+    - Tier 2 Runbook: 05_Incident_Response/Runbooks/Tier2_Runbook.en.md
+    - คู่มือ Tier 2 (TH): 05_Incident_Response/Runbooks/Tier2_Runbook.th.md
+    - Tier 3 Runbook: 05_Incident_Response/Runbooks/Tier3_Runbook.en.md
+    - คู่มือ Tier 3 (TH): 05_Incident_Response/Runbooks/Tier3_Runbook.th.md
     - Evidence Collection: 05_Incident_Response/Evidence_Collection.en.md
     - คู่มือเก็บหลักฐาน (TH): 05_Incident_Response/Evidence_Collection.th.md
     - Communication Templates: 05_Incident_Response/Communication_Templates.en.md
@@ -320,12 +320,12 @@ nav:
     - รายงานรายไตรมาส (TH): 11_Reporting_Templates/Quarterly_Business_Review.th.md
     - Executive Dashboard: 11_Reporting_Templates/Executive_Dashboard.en.md
     - Dashboard ผู้บริหาร (TH): 11_Reporting_Templates/Executive_Dashboard.th.md
-    - Incident Report Template: templates/incident_report.en.md
-    - แบบฟอร์ม Incident (TH): templates/incident_report.th.md
-    - Shift Handover Template: templates/shift_handover.en.md
-    - แบบฟอร์มส่งมอบกะ (TH): templates/shift_handover.th.md
-    - Change Request (RFC): templates/change_request_rfc.en.md
-    - แบบฟอร์ม RFC (TH): templates/change_request_rfc.th.md
+    - Incident Report Template: 11_Reporting_Templates/incident_report.en.md
+    - แบบฟอร์ม Incident (TH): 11_Reporting_Templates/incident_report.th.md
+    - Shift Handover Template: 11_Reporting_Templates/shift_handover.en.md
+    - แบบฟอร์มส่งมอบกะ (TH): 11_Reporting_Templates/shift_handover.th.md
+    - Change Request (RFC): 11_Reporting_Templates/change_request_rfc.en.md
+    - แบบฟอร์ม RFC (TH): 11_Reporting_Templates/change_request_rfc.th.md
   - 📋 Version Tracking:
     - Changelog: CHANGELOG.md
     - Document Version Tracker: VERSION_TRACKER.md

@@ -251,6 +251,6 @@ MITRE TTP:     [T-code, เช่น T1486, T1059.001]
 -   [Severity Matrix](Severity_Matrix.en.md) — นิยามระดับความรุนแรงฉบับเต็ม
 -   [Escalation Matrix](Escalation_Matrix.en.md) — ใครต้องส่งต่อเมื่อไร
 -   [IR Framework](Framework.en.md) — วงจรชีวิตการตอบสนอง
--   [Tier 1 Runbook](Tier1_Runbook.en.md) — ขั้นตอน triage สำหรับ analyst
+-   [Tier 1 Runbook](Runbooks/Tier1_Runbook.en.md) — ขั้นตอน triage สำหรับ analyst
 -   [SOAR Playbooks](SOAR_Playbooks.en.md) — Playbooks อัตโนมัติ
 -   [Threat Hunting Playbook](Threat_Hunting_Playbook.en.md) — การล่าเชิงรุก

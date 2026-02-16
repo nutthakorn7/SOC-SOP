@@ -13,7 +13,7 @@
 - [ ] ตรวจสอบข้อมูลที่ถูกเปิดเผย (PII, credentials)
 - [ ] อัพเดท bucket/blob policies ทั้งหมด
 - [ ] แจ้ง PDPA/Legal ถ้ามี PII รั่วไหล
-- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+- [ ] จัดทำ [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ### ผัง Multi-Cloud Containment
 
@@ -192,7 +192,7 @@ sequenceDiagram
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)
-- [แม่แบบรายงานเหตุการณ์](../../templates/incident_report.th.md)
+- [แม่แบบรายงานเหตุการณ์](../../11_Reporting_Templates/incident_report.th.md)
 - [PB-16 Cloud IAM](Cloud_IAM.th.md)
 - [PB-08 การนำข้อมูลออก](Data_Exfiltration.th.md)
 

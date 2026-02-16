@@ -13,7 +13,7 @@
 - [ ] ตรวจ MDM enrollment compliance
 - [ ] ออกอุปกรณ์ทดแทนพร้อม security baseline
 - [ ] จัด awareness training เรื่อง physical security
-- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+- [ ] จัดทำ [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ### ผังการประเมินความเสี่ยง
 
@@ -189,7 +189,7 @@ graph TD
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)
-- [แม่แบบรายงานเหตุการณ์](../../templates/incident_report.th.md)
+- [แม่แบบรายงานเหตุการณ์](../../11_Reporting_Templates/incident_report.th.md)
 - [PB-28 อุปกรณ์มือถือถูกบุกรุก](Mobile_Compromise.th.md)
 
 ## Device Type Response Matrix

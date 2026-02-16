@@ -170,7 +170,7 @@ graph TD
 - [ ] Conduct access recertification for all privileged accounts
 - [ ] Implement break-glass procedure for emergency admin access
 - [ ] Review background check policies for admin-level personnel
-- [ ] Document findings in [Incident Report](../../templates/incident_report.en.md)
+- [ ] Document findings in [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ---
 
@@ -217,7 +217,7 @@ sequenceDiagram
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)
-- [Incident Report](../../templates/incident_report.en.md)
+- [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 - [PB-05 Account Compromise](Account_Compromise.en.md)
 - [PB-07 Privilege Escalation](Privilege_Escalation.en.md)
 - [PB-12 Lateral Movement](Lateral_Movement.en.md)

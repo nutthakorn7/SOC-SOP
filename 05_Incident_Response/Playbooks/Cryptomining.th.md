@@ -13,7 +13,7 @@
 - [ ] บล็อก mining pool connections ที่ firewall
 - [ ] ทบทวน container image scanning policy
 - [ ] ใช้ runtime security เฝ้า abnormal CPU usage
-- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+- [ ] จัดทำ [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ### ผังการตรวจจับ Cryptomining
 

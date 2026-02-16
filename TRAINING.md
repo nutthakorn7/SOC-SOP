@@ -190,7 +190,7 @@
 | 11:30–13:00 | 1.3 | **Alert Triage Methodology** — TP vs FP, severity scoring, prioritization |
 | 14:00–16:00 | 🔬 | **Lab: SIEM Alert Triage** — Triage 20 real alerts, classify TP/FP, assign severity |
 
-📚 *Reference: [Tier 1 Runbook](05_Incident_Response/Tier1_Runbook.en.md) · [Severity Matrix](05_Incident_Response/Severity_Matrix.en.md) · [Classification](05_Incident_Response/Incident_Classification.en.md)*
+📚 *Reference: [Tier 1 Runbook](05_Incident_Response/Runbooks/Tier1_Runbook.en.md) · [Severity Matrix](05_Incident_Response/Severity_Matrix.en.md) · [Classification](05_Incident_Response/Incident_Classification.en.md)*
 
 </details>
 

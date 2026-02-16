@@ -13,7 +13,7 @@
 - [ ] บังคับ OS version minimum ผ่าน MDM
 - [ ] ทบทวน app sideloading policies
 - [ ] ใช้ Mobile Threat Defense (MTD) solution
-- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+- [ ] จัดทำ [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ### ผังตรวจจับภัยคุกคามมือถือ
 
@@ -203,7 +203,7 @@ graph LR
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)
-- [แม่แบบรายงานเหตุการณ์](../../templates/incident_report.th.md)
+- [แม่แบบรายงานเหตุการณ์](../../11_Reporting_Templates/incident_report.th.md)
 - [PB-05 บัญชีถูกบุกรุก](Account_Compromise.th.md)
 - [PB-19 อุปกรณ์สูญหาย](Lost_Device.th.md)
 

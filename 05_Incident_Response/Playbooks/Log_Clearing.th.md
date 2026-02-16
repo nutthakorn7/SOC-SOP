@@ -13,7 +13,7 @@
 - [ ] ทบทวน log retention policies
 - [ ] ใช้ tamper protection สำหรับ EDR logs
 - [ ] สร้าง alert สำหรับ log deletion events
-- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+- [ ] จัดทำ [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ### ผังแหล่ง Log สำรอง
 
@@ -198,7 +198,7 @@ graph LR
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)
-- [แม่แบบรายงานเหตุการณ์](../../templates/incident_report.th.md)
+- [แม่แบบรายงานเหตุการณ์](../../11_Reporting_Templates/incident_report.th.md)
 - [PB-14 ภัยคุกคามจากภายใน](Insider_Threat.th.md)
 - [PB-20 แอดมินกระทำผิด](Rogue_Admin.th.md)
 

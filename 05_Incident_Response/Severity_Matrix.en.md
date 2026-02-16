@@ -188,8 +188,8 @@ Incidents may be **upgraded or downgraded** during investigation:
 ## Related Documents
 
 - [Incident Response Playbooks](../05_Incident_Response/Playbooks/)
-- [Shift Handover Template](../templates/shift_handover.en.md)
-- [Incident Report Template](../templates/incident_report.en.md)
+- [Shift Handover Template](../11_Reporting_Templates/shift_handover.en.md)
+- [Incident Report Template](../11_Reporting_Templates/incident_report.en.md)
 - [MITRE ATT&CK Coverage Heatmap](../tools/mitre_attack_heatmap.html)
 
 ## References

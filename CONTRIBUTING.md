@@ -94,7 +94,7 @@ External references, standards, frameworks.
 | `10_Training_Onboarding/` | Analyst training materials |
 | `07_Compliance_Privacy/` | Regulatory compliance |
 | `11_Reporting_Templates/` | Reports and dashboards |
-| `templates/` | Operational form templates |
+| `11_Reporting_Templates/` | Operational form templates |
 | `sigma_rules/` | Detection rules (YAML) |
 | `tools/` | Scripts and interactive tools |
 

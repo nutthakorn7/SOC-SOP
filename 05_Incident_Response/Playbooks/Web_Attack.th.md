@@ -13,7 +13,7 @@
 - [ ] อัพเดท WAF rules ด้วย attack signatures ที่พบ
 - [ ] รัน DAST/SAST scans
 - [ ] ใช้ Content Security Policy (CSP) headers
-- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+- [ ] จัดทำ [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ### ผังเส้นทางการโจมตีเว็บ
 

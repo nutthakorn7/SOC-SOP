@@ -237,7 +237,7 @@ sequenceDiagram
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)
-- [Incident Report](../../templates/incident_report.en.md)
+- [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 - [PB-03 Malware Infection](Malware_Infection.en.md)
 - [PB-02 Ransomware](Ransomware.en.md)
 

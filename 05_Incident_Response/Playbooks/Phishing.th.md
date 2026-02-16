@@ -193,7 +193,7 @@ sequenceDiagram
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)
-- [แม่แบบรายงานเหตุการณ์](../../templates/incident_report.th.md)
+- [แม่แบบรายงานเหตุการณ์](../../11_Reporting_Templates/incident_report.th.md)
 - [PB-05 บัญชีถูกบุกรุก](Account_Compromise.th.md)
 - [PB-26 การหลีกเลี่ยง MFA](MFA_Bypass.th.md)
 

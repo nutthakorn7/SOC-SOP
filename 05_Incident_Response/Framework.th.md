@@ -241,12 +241,12 @@ graph LR
 
 ## เอกสารที่เกี่ยวข้อง
 
-- [Tier 1 Runbook](Tier1_Runbook.th.md) — ขั้นตอนคัดกรองโดยละเอียด
+- [Tier 1 Runbook](Runbooks/Tier1_Runbook.th.md) — ขั้นตอนคัดกรองโดยละเอียด
 - [Severity Matrix](Severity_Matrix.th.md) — เกณฑ์จำแนกประเภท
 - [การจำแนกเหตุการณ์](Incident_Classification.th.md) — แท็กโซโนมีและหมวดหมู่
 - [Escalation Matrix](Escalation_Matrix.th.md) — เส้นทาง escalation
 - [การสืบสวนนิติวิทยาศาสตร์](Forensic_Investigation.th.md) — ขั้นตอนจัดการหลักฐาน
-- [แบบฟอร์มรายงานเหตุการณ์](../templates/incident_report.th.md) — เอกสารหลังเหตุการณ์
+- [แบบฟอร์มรายงานเหตุการณ์](../11_Reporting_Templates/incident_report.th.md) — เอกสารหลังเหตุการณ์
 - [มาตรฐานส่งมอบกะ](../06_Operations_Management/Shift_Handoff.th.md) — ความต่อเนื่องปฏิบัติการ
 
 ### Playbooks

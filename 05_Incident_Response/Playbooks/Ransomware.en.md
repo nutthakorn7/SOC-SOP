@@ -183,7 +183,7 @@ graph TD
 - [ ] Verify backup strategy (3-2-1 rule with immutable copy)
 - [ ] Create/update detection rules for the attack chain
 - [ ] Brief all SOC analysts on lessons learned
-- [ ] Document in [Incident Report](../../templates/incident_report.en.md)
+- [ ] Document in [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 
 ---
 
@@ -227,7 +227,7 @@ graph TD
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)
-- [Incident Report](../../templates/incident_report.en.md)
+- [Incident Report](../../11_Reporting_Templates/incident_report.en.md)
 - [PB-12 Lateral Movement](Lateral_Movement.en.md)
 - [PB-08 Data Exfiltration](Data_Exfiltration.en.md)
 - [Disaster Recovery / BCP](../Disaster_Recovery_BCP.en.md)

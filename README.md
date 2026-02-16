@@ -80,9 +80,9 @@ Start here if you're building a brand-new SOC. Follow the numbered order.
 | **Severity Matrix** (P1–P4) | [Read](05_Incident_Response/Severity_Matrix.en.md) | [อ่าน](05_Incident_Response/Severity_Matrix.th.md) |
 | **📋 Incident Classification** | [Read](05_Incident_Response/Incident_Classification.en.md) | [อ่าน](05_Incident_Response/Incident_Classification.th.md) |
 | **🚨 Escalation Matrix** | [Read](05_Incident_Response/Escalation_Matrix.en.md) | [อ่าน](05_Incident_Response/Escalation_Matrix.th.md) |
-| **Tier 1 Runbook** — Alert Triage | [Read](05_Incident_Response/Tier1_Runbook.en.md) | [อ่าน](05_Incident_Response/Tier1_Runbook.th.md) |
-| **Tier 2 Runbook** — Investigation | [Read](05_Incident_Response/Tier2_Runbook.en.md) | [อ่าน](05_Incident_Response/Tier2_Runbook.th.md) |
-| **Tier 3 Runbook** — Threat Hunting | [Read](05_Incident_Response/Tier3_Runbook.en.md) | [อ่าน](05_Incident_Response/Tier3_Runbook.th.md) |
+| **Tier 1 Runbook** — Alert Triage | [Read](05_Incident_Response/Runbooks/Tier1_Runbook.en.md) | [อ่าน](05_Incident_Response/Runbooks/Tier1_Runbook.th.md) |
+| **Tier 2 Runbook** — Investigation | [Read](05_Incident_Response/Runbooks/Tier2_Runbook.en.md) | [อ่าน](05_Incident_Response/Runbooks/Tier2_Runbook.th.md) |
+| **Tier 3 Runbook** — Threat Hunting | [Read](05_Incident_Response/Runbooks/Tier3_Runbook.en.md) | [อ่าน](05_Incident_Response/Runbooks/Tier3_Runbook.th.md) |
 | **Communication Templates** (6) | [Read](05_Incident_Response/Communication_Templates.en.md) | [อ่าน](05_Incident_Response/Communication_Templates.th.md) |
 
 ### Investigation & Evidence / การสืบสวนและหลักฐาน
@@ -317,9 +317,9 @@ File-based threat detection: [YARA Index](08_Detection_Engineering/yara/README.m
 
 | Template | English | ภาษาไทย |
 |:---|:---:|:---:|
-| **Incident Report** | [Read](templates/incident_report.en.md) | [อ่าน](templates/incident_report.th.md) |
-| **Shift Handover Log** | [Read](templates/shift_handover.en.md) | [อ่าน](templates/shift_handover.th.md) |
-| **Change Request (RFC)** | [Read](templates/change_request_rfc.en.md) | [อ่าน](templates/change_request_rfc.th.md) |
+| **Incident Report** | [Read](11_Reporting_Templates/incident_report.en.md) | [อ่าน](11_Reporting_Templates/incident_report.th.md) |
+| **Shift Handover Log** | [Read](11_Reporting_Templates/shift_handover.en.md) | [อ่าน](11_Reporting_Templates/shift_handover.th.md) |
+| **Change Request (RFC)** | [Read](11_Reporting_Templates/change_request_rfc.en.md) | [อ่าน](11_Reporting_Templates/change_request_rfc.th.md) |
 
 ---
 
