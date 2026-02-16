@@ -5,6 +5,16 @@
 **MITRE ATT&CK**: [T1098](https://attack.mitre.org/techniques/T1098/) (Account Manipulation), [T1078.004](https://attack.mitre.org/techniques/T1078/004/) (Cloud Accounts)
 **ทริกเกอร์**: CloudTrail/Azure Monitor anomaly, Root/GlobalAdmin login, GuardDuty IAM finding, Billing spike
 
+
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] ทบทวน IAM policies ตาม least privilege
+- [ ] เปิดใช้ SCPs / Permission boundaries
+- [ ] ตรวจสอบ service account key rotation
+- [ ] ใช้ CSPM tool เพื่อเฝ้าระวังอย่างต่อเนื่อง
+- [ ] ทำ access recertification สำหรับ cloud roles
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
 ### ผังการตรวจจับ IAM Anomaly
 
 ```mermaid

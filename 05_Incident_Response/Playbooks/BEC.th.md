@@ -5,6 +5,16 @@
 **MITRE ATT&CK**: [T1566](https://attack.mitre.org/techniques/T1566/) (Phishing), [T1114](https://attack.mitre.org/techniques/T1114/) (Email Collection)
 **ทริกเกอร์**: ผู้ใช้รายงาน (ใบแจ้งหนี้น่าสงสัย), Mail filter (สร้าง forwarding rule), Finance team alert
 
+
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] อัพเดท email gateway rules ตาม pattern ที่พบ
+- [ ] ทบทวน payment approval workflow (dual-approval)
+- [ ] จัด awareness training เรื่อง BEC ให้ finance team
+- [ ] ใช้ email authentication (SPF/DKIM/DMARC strict)
+- [ ] ตรวจสอบ vendor email compromise indicators
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
 ### ผังขั้นตอนเรียกคืนเงิน (Urgent!)
 
 ```mermaid

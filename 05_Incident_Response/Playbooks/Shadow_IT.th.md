@@ -5,6 +5,16 @@
 **MITRE ATT&CK**: [T1567](https://attack.mitre.org/techniques/T1567/) (การนำข้อมูลออกผ่านบริการเว็บ), [T1537](https://attack.mitre.org/techniques/T1537/) (โอนข้อมูลไปยังบัญชีคลาวด์)
 **ทริกเกอร์**: CASB alert, proxy log anomaly, ผู้ใช้รายงาน, SaaS audit, network anomaly
 
+
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] เพิ่ม Shadow IT service ที่พบใน CASB blocklist
+- [ ] ทบทวนและอัพเดท approved SaaS catalog
+- [ ] ใช้ automated Shadow IT discovery scanning (รายเดือน)
+- [ ] อัพเดท code of conduct เรื่อง unsanctioned services
+- [ ] จัด awareness training เรื่อง data security risks
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
 ### ผังการค้นพบ Shadow IT
 
 ```mermaid

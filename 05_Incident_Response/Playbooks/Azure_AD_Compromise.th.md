@@ -5,6 +5,16 @@
 **MITRE ATT&CK**: [T1098](https://attack.mitre.org/techniques/T1098/) (Account Manipulation), [T1556](https://attack.mitre.org/techniques/T1556/) (Modify Authentication Process)
 **ทริกเกอร์**: Identity Protection risk alert, Conditional Access failure, Unified Audit Log anomaly, Sentinel alert
 
+
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] ตรวจสอบ Entra ID Conditional Access policies
+- [ ] ใช้ Phishing-resistant MFA (FIDO2/passkeys)
+- [ ] ทบทวน PIM role assignments
+- [ ] เปิด Identity Protection risk policies
+- [ ] ตรวจ service principal credentials ทั้งหมด
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
 ### ผัง Identity Protection Pipeline
 
 ```mermaid

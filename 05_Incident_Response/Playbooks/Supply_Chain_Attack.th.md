@@ -5,6 +5,16 @@
 **MITRE ATT&CK**: [T1195](https://attack.mitre.org/techniques/T1195/) (Supply Chain Compromise)
 **ทริกเกอร์**: Vendor advisory, TI alert, EDR detection (compromised update), dependency vulnerability scan
 
+
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] ตรวจสอบ SBOM ทั้งหมดหา vulnerable components
+- [ ] ทบทวน vendor risk assessment process
+- [ ] ใช้ SCA (Software Composition Analysis) ใน CI/CD
+- [ ] ตรวจ code signing certificates
+- [ ] ใช้ allowlist สำหรับ approved packages/vendors
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
 ### ผังเวกเตอร์ Supply Chain
 
 ```mermaid

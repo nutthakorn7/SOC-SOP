@@ -5,6 +5,16 @@
 **MITRE ATT&CK**: [T1496](https://attack.mitre.org/techniques/T1496/) (Resource Hijacking)
 **ทริกเกอร์**: GuardDuty/Defender alert, CPU/GPU spike, billing anomaly, network connection to mining pool
 
+
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] ตรวจสอบและ patch vulnerability ที่ใช้เข้ามา
+- [ ] ใช้ resource quota / cost alerts ใน cloud
+- [ ] บล็อก mining pool connections ที่ firewall
+- [ ] ทบทวน container image scanning policy
+- [ ] ใช้ runtime security เฝ้า abnormal CPU usage
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
 ### ผังการตรวจจับ Cryptomining
 
 ```mermaid

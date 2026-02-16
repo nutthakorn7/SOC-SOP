@@ -5,6 +5,16 @@
 **MITRE ATT&CK**: [T1110](https://attack.mitre.org/techniques/T1110/) (Brute Force)
 **ทริกเกอร์**: SIEM alert (Event 4625 spike), IdP lockout, VPN failed logins, SSH fail2ban
 
+
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] บังคับ MFA ทุกบัญชีที่ถูกโจมตี
+- [ ] ทบทวน account lockout policies
+- [ ] ใช้ Smart Lockout / IP-based throttling
+- [ ] พิจารณาใช้ Passwordless authentication
+- [ ] สร้าง detection rule สำหรับ pattern ที่พบ
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
 ### ผังรูปแบบการโจมตี
 
 ```mermaid

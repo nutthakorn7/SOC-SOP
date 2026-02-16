@@ -5,6 +5,16 @@
 **MITRE ATT&CK**: [T1078](https://attack.mitre.org/techniques/T1078/) (บัญชีที่ถูกต้อง), [T1048](https://attack.mitre.org/techniques/T1048/) (การนำข้อมูลออก)
 **ทริกเกอร์**: UEBA alert, DLP alert, HR referral, whistleblower report, ผู้จัดการรายงาน
 
+
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] ทบทวน access controls ตาม least privilege
+- [ ] ใช้ UEBA เฝ้า anomalous behavior ต่อเนื่อง
+- [ ] อัพเดท DLP policies ตาม insider patterns ที่พบ
+- [ ] ประสาน HR สำหรับ disciplinary actions
+- [ ] ทบทวน monitoring policies สำหรับ high-risk users
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
 ### แนวทางการประเมินความเสี่ยง
 
 ```mermaid

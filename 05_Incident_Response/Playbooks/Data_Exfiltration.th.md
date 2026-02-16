@@ -5,6 +5,16 @@
 **MITRE ATT&CK**: [T1041](https://attack.mitre.org/techniques/T1041/) (Exfiltration Over C2 Channel), [T1048](https://attack.mitre.org/techniques/T1048/) (Exfiltration Over Alternative Protocol), [T1567](https://attack.mitre.org/techniques/T1567/) (Exfiltration Over Web Service)
 **ทริกเกอร์**: DLP alert, Netflow anomaly, UEBA alert, proxy/cloud alert, EDR large file copy
 
+
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] อัพเดท DLP policies ตาม exfiltration channel ที่พบ
+- [ ] ทบทวน outbound network rules (cloud, USB, email)
+- [ ] แจ้ง Legal/DPO ถ้ามี PII รั่วไหล (PDPA 72h)
+- [ ] สร้าง detection rule สำหรับ anomalous data transfer
+- [ ] ทำ data impact assessment
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
 ### ผังการตรวจจับตามช่องทาง
 
 ```mermaid

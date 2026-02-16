@@ -5,6 +5,16 @@
 **MITRE ATT&CK**: [T1190](https://attack.mitre.org/techniques/T1190/) (Exploit Public-Facing Application)
 **ทริกเกอร์**: WAF alert, IDS/IPS, SIEM correlation, Bug bounty report
 
+
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] Patch vulnerability ที่ถูก exploit
+- [ ] ทำ code review สำหรับ vulnerability patterns ที่คล้ายกัน
+- [ ] อัพเดท WAF rules ด้วย attack signatures ที่พบ
+- [ ] รัน DAST/SAST scans
+- [ ] ใช้ Content Security Policy (CSP) headers
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
 ### ผังเส้นทางการโจมตีเว็บ
 
 ```mermaid

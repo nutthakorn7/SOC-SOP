@@ -5,6 +5,16 @@
 **MITRE ATT&CK**: [T1556.006](https://attack.mitre.org/techniques/T1556/006/) (MFA Modification), [T1539](https://attack.mitre.org/techniques/T1539/) (Steal Web Session Cookie)
 **ทริกเกอร์**: Identity Protection alert, Conditional Access anomaly, ผู้ใช้รายงาน MFA prompt ไม่ได้ขอ
 
+
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] อัพเกรดเป็น Phishing-resistant MFA (FIDO2/passkeys)
+- [ ] ปิด SMS/Voice MFA ถ้าเป็นไปได้
+- [ ] ใช้ number matching สำหรับ push notifications
+- [ ] ทบทวน MFA registration policies
+- [ ] ใช้ token protection (token binding)
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
 ### ผัง AiTM (Adversary-in-the-Middle) Attack
 
 ```mermaid

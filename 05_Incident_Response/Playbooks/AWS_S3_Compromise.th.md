@@ -5,6 +5,16 @@
 **MITRE ATT&CK**: [T1530](https://attack.mitre.org/techniques/T1530/) (Data from Cloud Storage)
 **ทริกเกอร์**: AWS Config rule violation, GuardDuty S3 finding, Macie PII alert, CloudTrail anomaly
 
+
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] ใช้ S3 Block Public Access เป็น default
+- [ ] ทบทวน bucket policies ทั้งหมด
+- [ ] ใช้ S3 access logging และ CloudTrail
+- [ ] เปิด SSE-KMS encryption สำหรับ sensitive buckets
+- [ ] ใช้ VPC endpoints สำหรับ S3 access
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
 ### ผังการตรวจจับ S3 Exposure
 
 ```mermaid

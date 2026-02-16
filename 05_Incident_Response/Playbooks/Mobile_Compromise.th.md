@@ -5,6 +5,16 @@
 **MITRE ATT&CK**: [T1456](https://attack.mitre.org/techniques/T1456/) (Drive-By Compromise — Mobile), [T1474](https://attack.mitre.org/techniques/T1474/) (Supply Chain Compromise — Mobile)
 **ทริกเกอร์**: MTD alert (malicious app), MDM compliance violation, ผู้ใช้รายงาน SIM swap, phishing on mobile
 
+
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] ทบทวน MDM enrollment compliance
+- [ ] อัพเดท mobile security policy (jailbreak/root detection)
+- [ ] บังคับ OS version minimum ผ่าน MDM
+- [ ] ทบทวน app sideloading policies
+- [ ] ใช้ Mobile Threat Defense (MTD) solution
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
 ### ผังตรวจจับภัยคุกคามมือถือ
 
 ```mermaid

@@ -5,6 +5,16 @@
 **MITRE ATT&CK**: [T1021](https://attack.mitre.org/techniques/T1021/) (Remote Services), [T1550](https://attack.mitre.org/techniques/T1550/) (Use Alternate Authentication Material)
 **ทริกเกอร์**: EDR alert (PsExec, WMI, RDP), SIEM (Event 4648/4624 Type 3), Honey token triggered
 
+
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] ทบทวน network segmentation
+- [ ] ใช้ credential guard / LSA protection
+- [ ] Disable NTLM ที่เป็นไปได้
+- [ ] ทบทวน admin account tiering (Tier 0/1/2)
+- [ ] สร้าง detection rule สำหรับ technique ที่พบ
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
 ### ผังเส้นทางการโจมตี
 
 ```mermaid

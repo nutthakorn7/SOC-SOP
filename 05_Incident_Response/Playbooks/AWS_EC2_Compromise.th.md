@@ -5,6 +5,16 @@
 **MITRE ATT&CK**: [T1190](https://attack.mitre.org/techniques/T1190/) (Exploit Public-Facing App), [T1496](https://attack.mitre.org/techniques/T1496/) (Resource Hijacking)
 **ทริกเกอร์**: GuardDuty finding, CloudWatch CPU alarm, VPC Flow Log anomaly, billing spike
 
+
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] ทบทวน EC2 security groups ตาม least privilege
+- [ ] ใช้ IMDSv2 เพื่อป้องกัน SSRF
+- [ ] ทบทวน IAM instance profile permissions
+- [ ] ใช้ GuardDuty/CloudTrail monitoring
+- [ ] สร้าง golden AMI สำหรับ re-deployment
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
 ### ผังขั้นตอน Forensics
 
 ```mermaid

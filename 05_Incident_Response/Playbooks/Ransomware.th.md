@@ -27,6 +27,16 @@ graph TD
 
 ---
 
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] ทดสอบการ restore จาก backup ให้สมบูรณ์
+- [ ] ใช้ 3-2-1 backup strategy
+- [ ] ทบทวน endpoint hardening (macros, RDP, PowerShell)
+- [ ] ใช้ network segmentation ป้องกัน lateral movement
+- [ ] จัด awareness training เรื่อง phishing/ransomware
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
+
 ## 1. การวิเคราะห์
 
 ### 1.1 รายการตรวจสอบ

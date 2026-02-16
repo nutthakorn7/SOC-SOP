@@ -5,6 +5,16 @@
 **MITRE ATT&CK**: [T1059](https://attack.mitre.org/techniques/T1059/) (Command & Scripting Interpreter)
 **ทริกเกอร์**: EDR alert (script execution), SIEM (Event 4104/4688), AMSI detection, email attachment filter
 
+
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] ทบทวน script execution policies (PowerShell, Python, VBA)
+- [ ] ใช้ AMSI protection ทุก endpoint
+- [ ] ทบทวน application control / AppLocker policies
+- [ ] สร้าง detection rule สำหรับ obfuscation patterns
+- [ ] ใช้ constrained language mode สำหรับ PowerShell
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
 ### ผัง Script Analysis Pipeline
 
 ```mermaid

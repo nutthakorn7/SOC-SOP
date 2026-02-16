@@ -5,6 +5,16 @@
 **MITRE ATT&CK**: [T1078](https://attack.mitre.org/techniques/T1078/) (Valid Accounts)
 **ทริกเกอร์**: SIEM/IdP alert (Login จากสองสถานที่ห่างไกลในเวลาสั้น), Identity Protection
 
+
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] ทบทวน Conditional Access policies
+- [ ] ใช้ sign-in risk policies (medium/high = block/MFA)
+- [ ] ตรวจสอบ token theft indicators
+- [ ] ทบทวน named locations configuration
+- [ ] สร้าง detection rule สำหรับ suspicious login patterns
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
 ### ผังการวิเคราะห์ Impossible Travel
 
 ```mermaid

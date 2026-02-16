@@ -5,6 +5,16 @@
 **MITRE ATT&CK**: [T1071.004](https://attack.mitre.org/techniques/T1071/004/) (Application Layer Protocol: DNS)
 **ทริกเกอร์**: DNS analytics alert (high entropy), SIEM (excessive NXDOMAIN/TXT), IDS/IPS signature
 
+
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] บล็อก DNS-over-HTTPS endpoints ที่ไม่ได้รับอนุญาต
+- [ ] ใช้ DNS sinkholing สำหรับ C2 domains
+- [ ] ทบทวน DNS inspection coverage
+- [ ] สร้าง detection rule สำหรับ high-entropy DNS queries
+- [ ] ใช้ DNS logging เฝ้าระวังอย่างต่อเนื่อง
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
 ### ผังการตรวจจับ DNS Tunneling
 
 ```mermaid

@@ -5,6 +5,16 @@
 **MITRE ATT&CK**: [T1071](https://attack.mitre.org/techniques/T1071/) (Application Layer Protocol), [T1573](https://attack.mitre.org/techniques/T1573/) (Encrypted Channel)
 **ทริกเกอร์**: IDS/IPS alert, EDR beacon detection, DNS anomaly, proxy alert (known C2 domain)
 
+
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] บล็อก C2 domains/IPs ที่ firewall และ DNS
+- [ ] ส่ง C2 indicators ไปยัง threat intel sharing platforms
+- [ ] ตรวจ TLS inspection coverage สำหรับ encrypted C2
+- [ ] ใช้ JA3/JA3S fingerprint detection
+- [ ] ใช้ DNS sinkholing สำหรับ C2 domains
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
 ### ผังวงจรชีวิต C2
 
 ```mermaid

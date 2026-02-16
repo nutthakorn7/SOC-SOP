@@ -5,6 +5,16 @@
 **MITRE ATT&CK**: [T1070.001](https://attack.mitre.org/techniques/T1070/001/) (Clear Windows Event Logs), [T1070.002](https://attack.mitre.org/techniques/T1070/002/) (Clear Linux/Mac Logs)
 **ทริกเกอร์**: SIEM gap detection, Event ID 1102/104, file integrity alert, log integrity failure
 
+
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] ใช้ immutable logging (WORM storage)
+- [ ] ตรวจสอบ log forwarding ว่าสมบูรณ์
+- [ ] ทบทวน log retention policies
+- [ ] ใช้ tamper protection สำหรับ EDR logs
+- [ ] สร้าง alert สำหรับ log deletion events
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
 ### ผังแหล่ง Log สำรอง
 
 ```mermaid

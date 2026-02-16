@@ -5,6 +5,16 @@
 **MITRE ATT&CK**: [T1078](https://attack.mitre.org/techniques/T1078/) (บัญชีที่ถูกต้อง), [T1530](https://attack.mitre.org/techniques/T1530/) (ข้อมูลจากที่เก็บคลาวด์)
 **ทริกเกอร์**: ผู้ใช้รายงานอุปกรณ์หาย/ถูกขโมย, MDM offline alert, ทรัพย์สินไม่ตรง
 
+
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] อัพเดท asset management (สถานะ lost/stolen)
+- [ ] ทบทวน device encryption enforcement policy
+- [ ] ตรวจ MDM enrollment compliance
+- [ ] ออกอุปกรณ์ทดแทนพร้อม security baseline
+- [ ] จัด awareness training เรื่อง physical security
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
 ### ผังการประเมินความเสี่ยง
 
 ```mermaid

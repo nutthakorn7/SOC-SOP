@@ -5,6 +5,16 @@
 **MITRE ATT&CK**: [T1046](https://attack.mitre.org/techniques/T1046/) (Network Service Discovery), [T1018](https://attack.mitre.org/techniques/T1018/) (Remote System Discovery)
 **ทริกเกอร์**: IDS alert (port scan), SIEM (Nmap/Masscan signature), Honeypot trigger, firewall deny spike
 
+
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] อัพเดท IDS/IPS signatures สำหรับ discovery techniques
+- [ ] ติดตั้ง honeypots ใน high-value network segments
+- [ ] ทบทวน application control policies (scanning tools)
+- [ ] สร้าง Sigma rule สำหรับ discovery patterns ใหม่
+- [ ] ทำ tabletop exercise: discovery → lateral movement
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
 ### ผังขั้นตอนตรวจจับ
 
 ```mermaid

@@ -5,6 +5,16 @@
 **MITRE ATT&CK**: [T1498](https://attack.mitre.org/techniques/T1498/) (Network Denial of Service), [T1499](https://attack.mitre.org/techniques/T1499/) (Endpoint Denial of Service)
 **ทริกเกอร์**: Network monitoring alert, WAF/CDN alert, ลูกค้ารายงาน, uptime monitor, NOC alert
 
+
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] ทบทวนแผน DDoS mitigation และอัพเดทตามจำเป็น
+- [ ] อัพเดท ISP/CDN scrubbing agreements
+- [ ] ทบทวน auto-scaling และ rate-limiting configurations
+- [ ] ทำ capacity planning จาก bandwidth ที่พบ
+- [ ] จัด DDoS simulation exercise กับ mitigation provider
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
 ### ผังชั้นป้องกัน DDoS
 
 ```mermaid

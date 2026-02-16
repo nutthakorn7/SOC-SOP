@@ -5,6 +5,16 @@
 **MITRE ATT&CK**: [T1106](https://attack.mitre.org/techniques/T1106/) (Native API), [T1190](https://attack.mitre.org/techniques/T1190/) (Exploit Public-Facing Application)
 **ทริกเกอร์**: API Gateway alert (rate limit), WAF, SIEM (authentication anomaly), ผู้ใช้รายงาน
 
+
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] ทบทวน API rate limiting และ throttling
+- [ ] ใช้ API gateway security policies
+- [ ] ทบทวน API key rotation policies
+- [ ] ตรวจ OWASP API Top 10 risks
+- [ ] ใช้ API security testing ใน CI/CD
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
 ### ผัง API Attack Chain
 
 ```mermaid

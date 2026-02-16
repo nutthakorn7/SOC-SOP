@@ -5,6 +5,16 @@
 **MITRE ATT&CK**: [T1078.002](https://attack.mitre.org/techniques/T1078/002/) (บัญชีโดเมน), [T1098](https://attack.mitre.org/techniques/T1098/) (การจัดการบัญชี)
 **ทริกเกอร์**: PAM alert, AD audit anomaly, whistleblower report, UEBA, SOD violation
 
+
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] ทบทวน admin accounts ทั้งหมดและลบสิทธิ์ที่ไม่จำเป็น
+- [ ] ใช้ PIM/PAM สำหรับ admin access ทั้งหมด
+- [ ] เปิด command-line logging สำหรับ admin sessions
+- [ ] ทบทวน separation of duties policies
+- [ ] ทำ access recertification สำหรับ privileged accounts
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
 ### ผังตัวบ่งชี้พฤติกรรม
 
 ```mermaid

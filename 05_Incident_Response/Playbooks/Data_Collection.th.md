@@ -5,6 +5,16 @@
 **MITRE ATT&CK**: [T1005](https://attack.mitre.org/techniques/T1005/) (Data from Local System), [T1039](https://attack.mitre.org/techniques/T1039/) (Data from Network Shared Drive), [T1213](https://attack.mitre.org/techniques/T1213/) (Data from Information Repositories)
 **ทริกเกอร์**: DLP alert, UEBA (unusual file access), EDR (archive creation), insider threat indicator
 
+
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] อัพเดท DLP rules ตาม staging path patterns ที่พบ
+- [ ] เพิ่ม file archiver monitoring ใน EDR policy
+- [ ] ทำ user access review สำหรับ data repositories
+- [ ] สร้าง Sigma rule สำหรับ bulk file access patterns
+- [ ] ทบทวน data classification labels
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
 ### ผังขั้นตอน Data Staging
 
 ```mermaid

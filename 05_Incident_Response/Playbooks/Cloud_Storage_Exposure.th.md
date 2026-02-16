@@ -5,6 +5,16 @@
 **MITRE ATT&CK**: [T1530](https://attack.mitre.org/techniques/T1530/) (ข้อมูลจากที่เก็บคลาวด์), [T1537](https://attack.mitre.org/techniques/T1537/) (โอนข้อมูลไปบัญชีคลาวด์)
 **ทริกเกอร์**: CASB alert, CSPM finding, ผู้ใช้รายงาน, TI match (leaked data)
 
+
+## หลังเหตุการณ์ (Post-Incident)
+
+- [ ] ใช้ CSPM เพื่อเฝ้า public bucket/blob ต่อเนื่อง
+- [ ] บังคับ block public access เป็น default
+- [ ] ตรวจสอบข้อมูลที่ถูกเปิดเผย (PII, credentials)
+- [ ] อัพเดท bucket/blob policies ทั้งหมด
+- [ ] แจ้ง PDPA/Legal ถ้ามี PII รั่วไหล
+- [ ] จัดทำ [Incident Report](../../templates/incident_report.en.md)
+
 ### ผัง Multi-Cloud Containment
 
 ```mermaid
