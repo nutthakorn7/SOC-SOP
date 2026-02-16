@@ -1,45 +1,61 @@
-# Playbook: การเดินทางที่เป็นไปไม่ได้ (Impossible Travel)
+# Playbook: Impossible Travel
 
 **ID**: PB-06
-**ความรุนแรง**: ปานกลาง
-**ตัวกระตุ้น**: แจ้งเตือน SIEM ("ล็อกอินจากสองสถานที่ห่างไกลในเวลาสั้นๆ")
+**ระดับความรุนแรง**: ปานกลาง/สูง | **หมวดหมู่**: Identity & Access
+**MITRE ATT&CK**: [T1078](https://attack.mitre.org/techniques/T1078/) (Valid Accounts)
+**ทริกเกอร์**: SIEM/IdP alert (Login จากสองสถานที่ห่างไกลในเวลาสั้น)
 
-## 1. การวิเคราะห์ (Analysis)
+## 1. การวิเคราะห์
 
-```mermaid
-graph TD
-    Alert[Imp. Travel Alert] --> VPN{Corporate VPN?}
-    VPN -->|Yes| False[False Positive]
-    VPN -->|No| Speed{Physics Possible?}
-    Speed -->|Yes| False
-    Speed -->|No| User{User Traveling?}
-    User -->|Yes| False
-    User -->|No| True[True Positive]
-    True --> Kill[Terminate Session]
-```
+### 1.1 สาเหตุ False Positive
 
--   [ ] **ตรวจสอบสถานที่**: ประเทศ/เมือง มีเหตุผลหรือไม่? (เช่น ไทย -> จีน ภายใน 10 นาที)
--   [ ] **ตรวจสอบ VPN**: ผู้ใช้ต่อ VPN องค์กรที่อาจเปลี่ยน IP หรือไม่?
--   [ ] **บริบทผู้ใช้**: ผู้ใช้อยู่ระหว่างการเดินทางหรือไม่? มีการแจ้งล่วงหน้าหรือไม่?
+| สาเหตุ | วิธีตรวจสอบ | เสร็จ |
+|:---|:---|:---:|
+| VPN องค์กร (exit node ต่างที่) | VPN logs | ☐ |
+| Cloud proxy / CDN | Proxy logs | ☐ |
+| ผู้ใช้เดินทางจริง (สนามบิน→ต่างประเทศ) | สอบถามผู้ใช้ | ☐ |
+| Mobile network handoff | ISP analysis | ☐ |
+| Shared account | IAM audit | ☐ |
 
-## 2. การจำกัดวง (Containment)
--   [ ] **ตัดการเชื่อมต่อ**: สั่ง Kill session ทั้งหมดของผู้ใช้
--   [ ] **เปลี่ยนรหัสผ่าน**: บังคับรีเซ็ตรหัสผ่าน
--   [ ] **บังคับ MFA**: ต้องใช้ Multi-Factor Authentication ในการล็อกอินใหม่
+### 1.2 รายการตรวจสอบ (หากไม่ใช่ FP)
 
-## 3. การแก้ไข (Remediation)
--   [ ] **บล็อก IP**: ถ้า IP ใด IP หนึ่งดูเป็นอันตราย ให้บล็อกทันที
--   [ ] **ให้ความรู้**: เตือนผู้ใช้เรื่องความปลอดภัยในการเข้าถึงระบบจากภายนอก
+| รายการ | วิธีตรวจสอบ | เสร็จ |
+|:---|:---|:---:|
+| IP ทั้งสองอยู่ที่ไหน? | GeoIP | ☐ |
+| เป็นไปได้ทางกายภาพ? |(ระยะทาง / เวลา) | คำนวณ | ☐ |
+| กิจกรรมหลัง login ที่ location ใหม่ | SIEM / Cloud audit | ☐ |
+| ดาวน์โหลดข้อมูล? | File audit | ☐ |
+| สร้าง inbox rules? | Exchange audit | ☐ |
+| เปลี่ยน MFA? | IdP audit | ☐ |
 
-## 4. การกู้คืน (Recovery)
--   [ ] **เฝ้าระวัง**: จับตาดูบัญชีนี้เป็นพิเศษ 24 ชั่วโมง
--   **ผลกระทบ (Attribute)**: [Confidentiality]
+## 2. การควบคุม
 
-## เอกสารที่เกี่ยวข้อง (Related Documents)
--   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
--   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
+| # | การดำเนินการ | เสร็จ |
+|:---:|:---|:---:|
+| 1 | **ยกเลิก session** ที่ location ผิดปกติ | ☐ |
+| 2 | **รีเซ็ตรหัสผ่าน** | ☐ |
+| 3 | **ติดต่อผู้ใช้** ยืนยันตัวตน | ☐ |
+| 4 | หากยืนยันไม่ได้ → **ล็อกบัญชี** | ☐ |
 
-## References
--   [MITRE ATT&CK T1078 (Valid Accounts)](https://attack.mitre.org/techniques/T1078/)
--   [Microsoft Identity Protection](https://learn.microsoft.com/en-us/entra/id-protection/concept-identity-protection-risks)
+## 3. การฟื้นฟู
+
+| # | การดำเนินการ | เสร็จ |
+|:---:|:---|:---:|
+| 1 | ตั้งค่า Named Locations (trusted IPs) ใน IdP | ☐ |
+| 2 | บังคับ Conditional Access ตาม location | ☐ |
+| 3 | เปิด CAE (Continuous Access Evaluation) | ☐ |
+
+## 4. เกณฑ์การยกระดับ
+
+| เงื่อนไข | ยกระดับไปยัง |
+|:---|:---|
+| Token theft ยืนยัน | [PB-26 MFA Bypass](MFA_Bypass.th.md) |
+| ข้อมูลถูก access | [PB-08 Data Exfil](Data_Exfiltration.th.md) |
+| Admin account | CISO |
+
+## เอกสารที่เกี่ยวข้อง
+- [กรอบ IR](../Framework.th.md)
+- [PB-05 บัญชีถูกบุกรุก](Account_Compromise.th.md)
+
+## อ้างอิง
+- [MITRE ATT&CK T1078 — Valid Accounts](https://attack.mitre.org/techniques/T1078/)
