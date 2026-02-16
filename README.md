@@ -108,108 +108,108 @@ Start here if you're building a brand-new SOC. Follow the numbered order.
 All playbooks are bilingual (EN+TH) and MITRE ATT&CK mapped.
 
 <details>
-<summary><b>🔴 Core Attacks (PB-01 → PB-10)</b> — Covers 80% of real-world incidents</summary>
+<summary><b>📧 Email & Social Engineering</b> — Phishing, BEC, account takeover, deepfake</summary>
 
 | # | Playbook | EN | TH |
 |:---:|:---|:---:|:---:|
 | 01 | Phishing | [📄](05_Incident_Response/Playbooks/Phishing.en.md) | [📄](05_Incident_Response/Playbooks/Phishing.th.md) |
+| 17 | Business Email Compromise | [📄](05_Incident_Response/Playbooks/BEC.en.md) | [📄](05_Incident_Response/Playbooks/BEC.th.md) |
+| 42 | Email Account Takeover | [📄](05_Incident_Response/Playbooks/Email_Account_Takeover.en.md) | [📄](05_Incident_Response/Playbooks/Email_Account_Takeover.th.md) |
+| 48 | Deepfake Social Engineering | [📄](05_Incident_Response/Playbooks/Deepfake_Social_Engineering.en.md) | [📄](05_Incident_Response/Playbooks/Deepfake_Social_Engineering.th.md) |
+
+</details>
+
+<details>
+<summary><b>🦠 Malware & Ransomware</b> — Ransomware, scripts, wipers, LOLBins, rootkits</summary>
+
+| # | Playbook | EN | TH |
+|:---:|:---|:---:|:---:|
 | 02 | Ransomware | [📄](05_Incident_Response/Playbooks/Ransomware.en.md) | [📄](05_Incident_Response/Playbooks/Ransomware.th.md) |
 | 03 | Malware Infection | [📄](05_Incident_Response/Playbooks/Malware_Infection.en.md) | [📄](05_Incident_Response/Playbooks/Malware_Infection.th.md) |
-| 04 | Brute Force | [📄](05_Incident_Response/Playbooks/Brute_Force.en.md) | [📄](05_Incident_Response/Playbooks/Brute_Force.th.md) |
-| 05 | Account Compromise | [📄](05_Incident_Response/Playbooks/Account_Compromise.en.md) | [📄](05_Incident_Response/Playbooks/Account_Compromise.th.md) |
-| 06 | Impossible Travel | [📄](05_Incident_Response/Playbooks/Impossible_Travel.en.md) | [📄](05_Incident_Response/Playbooks/Impossible_Travel.th.md) |
-| 07 | Privilege Escalation | [📄](05_Incident_Response/Playbooks/Privilege_Escalation.en.md) | [📄](05_Incident_Response/Playbooks/Privilege_Escalation.th.md) |
-| 08 | Data Exfiltration | [📄](05_Incident_Response/Playbooks/Data_Exfiltration.en.md) | [📄](05_Incident_Response/Playbooks/Data_Exfiltration.th.md) |
-| 09 | DDoS Attack | [📄](05_Incident_Response/Playbooks/DDoS_Attack.en.md) | [📄](05_Incident_Response/Playbooks/DDoS_Attack.th.md) |
-| 10 | Web App Attack | [📄](05_Incident_Response/Playbooks/Web_Attack.en.md) | [📄](05_Incident_Response/Playbooks/Web_Attack.th.md) |
-
-</details>
-
-<details>
-<summary><b>🟠 Advanced Threats (PB-11 → PB-20)</b> — Insider, lateral movement, evasion</summary>
-
-| # | Playbook | EN | TH |
-|:---:|:---|:---:|:---:|
+| 10 | Exploit | [📄](05_Incident_Response/Playbooks/Exploit.en.md) | [📄](05_Incident_Response/Playbooks/Exploit.th.md) |
 | 11 | Suspicious Script | [📄](05_Incident_Response/Playbooks/Suspicious_Script.en.md) | [📄](05_Incident_Response/Playbooks/Suspicious_Script.th.md) |
-| 12 | Lateral Movement | [📄](05_Incident_Response/Playbooks/Lateral_Movement.en.md) | [📄](05_Incident_Response/Playbooks/Lateral_Movement.th.md) |
-| 13 | C2 Communication | [📄](05_Incident_Response/Playbooks/C2_Communication.en.md) | [📄](05_Incident_Response/Playbooks/C2_Communication.th.md) |
-| 14 | Insider Threat | [📄](05_Incident_Response/Playbooks/Insider_Threat.en.md) | [📄](05_Incident_Response/Playbooks/Insider_Threat.th.md) |
-| 15 | Rogue Admin | [📄](05_Incident_Response/Playbooks/Rogue_Admin.en.md) | [📄](05_Incident_Response/Playbooks/Rogue_Admin.th.md) |
-| 16 | Cloud IAM Anomaly | [📄](05_Incident_Response/Playbooks/Cloud_IAM.en.md) | [📄](05_Incident_Response/Playbooks/Cloud_IAM.th.md) |
-| 17 | Business Email Compromise | [📄](05_Incident_Response/Playbooks/BEC.en.md) | [📄](05_Incident_Response/Playbooks/BEC.th.md) |
-| 18 | Exploit | [📄](05_Incident_Response/Playbooks/Exploit.en.md) | [📄](05_Incident_Response/Playbooks/Exploit.th.md) |
-| 19 | Lost/Stolen Device | [📄](05_Incident_Response/Playbooks/Lost_Device.en.md) | [📄](05_Incident_Response/Playbooks/Lost_Device.th.md) |
-| 20 | Log Clearing | [📄](05_Incident_Response/Playbooks/Log_Clearing.en.md) | [📄](05_Incident_Response/Playbooks/Log_Clearing.th.md) |
-
-</details>
-
-<details>
-<summary><b>🟡 Emerging & Cloud (PB-21 → PB-30)</b> — Supply chain, cloud, mobile, OT</summary>
-
-| # | Playbook | EN | TH |
-|:---:|:---|:---:|:---:|
-| 21 | Supply Chain Attack | [📄](05_Incident_Response/Playbooks/Supply_Chain_Attack.en.md) | [📄](05_Incident_Response/Playbooks/Supply_Chain_Attack.th.md) |
-| 22 | API Abuse | [📄](05_Incident_Response/Playbooks/API_Abuse.en.md) | [📄](05_Incident_Response/Playbooks/API_Abuse.th.md) |
-| 23 | Cryptomining | [📄](05_Incident_Response/Playbooks/Cryptomining.en.md) | [📄](05_Incident_Response/Playbooks/Cryptomining.th.md) |
-| 24 | DNS Tunneling | [📄](05_Incident_Response/Playbooks/DNS_Tunneling.en.md) | [📄](05_Incident_Response/Playbooks/DNS_Tunneling.th.md) |
-| 25 | Zero-Day Exploit | [📄](05_Incident_Response/Playbooks/Zero_Day_Exploit.en.md) | [📄](05_Incident_Response/Playbooks/Zero_Day_Exploit.th.md) |
-| 26 | MFA Bypass / Token Theft | [📄](05_Incident_Response/Playbooks/MFA_Bypass.en.md) | [📄](05_Incident_Response/Playbooks/MFA_Bypass.th.md) |
-| 27 | Cloud Storage Exposure | [📄](05_Incident_Response/Playbooks/Cloud_Storage_Exposure.en.md) | [📄](05_Incident_Response/Playbooks/Cloud_Storage_Exposure.th.md) |
-| 28 | Mobile Device Compromise | [📄](05_Incident_Response/Playbooks/Mobile_Compromise.en.md) | [📄](05_Incident_Response/Playbooks/Mobile_Compromise.th.md) |
-| 29 | Shadow IT | [📄](05_Incident_Response/Playbooks/Shadow_IT.en.md) | [📄](05_Incident_Response/Playbooks/Shadow_IT.th.md) |
-| 30 | OT/ICS Incident | [📄](05_Incident_Response/Playbooks/OT_ICS_Incident.en.md) | [📄](05_Incident_Response/Playbooks/OT_ICS_Incident.th.md) |
-
-</details>
-
-<details>
-<summary><b>☁️ Cloud & Discovery (PB-31 → PB-35)</b> — AWS, Azure & Recon</summary>
-
-| # | Playbook | EN | TH |
-|:---:|:---|:---:|:---:|
-| 31 | AWS EC2 Compromise | [📄](05_Incident_Response/Playbooks/AWS_EC2_Compromise.en.md) | [📄](05_Incident_Response/Playbooks/AWS_EC2_Compromise.th.md) |
-| 32 | AWS S3 Compromise | [📄](05_Incident_Response/Playbooks/AWS_S3_Compromise.en.md) | [📄](05_Incident_Response/Playbooks/AWS_S3_Compromise.th.md) |
-| 33 | Azure AD Compromise | [📄](05_Incident_Response/Playbooks/Azure_AD_Compromise.en.md) | [📄](05_Incident_Response/Playbooks/Azure_AD_Compromise.th.md) |
-| 34 | Network Discovery | [📄](05_Incident_Response/Playbooks/Network_Discovery.en.md) | [📄](05_Incident_Response/Playbooks/Network_Discovery.th.md) |
-| 35 | Data Collection | [📄](05_Incident_Response/Playbooks/Data_Collection.en.md) | [📄](05_Incident_Response/Playbooks/Data_Collection.th.md) |
-
-</details>
-
-<details>
-<summary><b>🔐 Credential & Evasion (PB-36 → PB-40)</b> — Dumping, injection, wipers, LOLBins</summary>
-
-| # | Playbook | EN | TH |
-|:---:|:---|:---:|:---:|
-| 36 | Credential Dumping | [📄](05_Incident_Response/Playbooks/Credential_Dumping.en.md) | [📄](05_Incident_Response/Playbooks/Credential_Dumping.th.md) |
-| 37 | SQL Injection | [📄](05_Incident_Response/Playbooks/SQL_Injection.en.md) | [📄](05_Incident_Response/Playbooks/SQL_Injection.th.md) |
 | 38 | Wiper Attack | [📄](05_Incident_Response/Playbooks/Wiper_Attack.en.md) | [📄](05_Incident_Response/Playbooks/Wiper_Attack.th.md) |
 | 39 | Living Off The Land | [📄](05_Incident_Response/Playbooks/Living_Off_The_Land.en.md) | [📄](05_Incident_Response/Playbooks/Living_Off_The_Land.th.md) |
-| 40 | USB Removable Media | [📄](05_Incident_Response/Playbooks/USB_Removable_Media.en.md) | [📄](05_Incident_Response/Playbooks/USB_Removable_Media.th.md) |
-
-</details>
-
-<details>
-<summary><b>🌐 Network & Access Abuse (PB-41 → PB-45)</b> — VPN, email takeover, bootkits</summary>
-
-| # | Playbook | EN | TH |
-|:---:|:---|:---:|:---:|
-| 41 | VPN Abuse | [📄](05_Incident_Response/Playbooks/VPN_Abuse.en.md) | [📄](05_Incident_Response/Playbooks/VPN_Abuse.th.md) |
-| 42 | Email Account Takeover | [📄](05_Incident_Response/Playbooks/Email_Account_Takeover.en.md) | [📄](05_Incident_Response/Playbooks/Email_Account_Takeover.th.md) |
-| 43 | Watering Hole | [📄](05_Incident_Response/Playbooks/Watering_Hole.en.md) | [📄](05_Incident_Response/Playbooks/Watering_Hole.th.md) |
-| 44 | Drive-By Download | [📄](05_Incident_Response/Playbooks/Drive_By_Download.en.md) | [📄](05_Incident_Response/Playbooks/Drive_By_Download.th.md) |
 | 45 | Rootkit / Bootkit | [📄](05_Incident_Response/Playbooks/Rootkit_Bootkit.en.md) | [📄](05_Incident_Response/Playbooks/Rootkit_Bootkit.th.md) |
 
 </details>
 
 <details>
-<summary><b>🎭 Emerging Threats (PB-46 → PB-50)</b> — SIM swap, cryptojacking, deepfake, typosquatting</summary>
+<summary><b>🔑 Identity & Access</b> — Brute force, credential theft, privilege escalation, MFA bypass</summary>
 
 | # | Playbook | EN | TH |
 |:---:|:---|:---:|:---:|
-| 46 | SIM Swap | [📄](05_Incident_Response/Playbooks/SIM_Swap.en.md) | [📄](05_Incident_Response/Playbooks/SIM_Swap.th.md) |
-| 47 | Cloud Cryptojacking | [📄](05_Incident_Response/Playbooks/Cloud_Cryptojacking.en.md) | [📄](05_Incident_Response/Playbooks/Cloud_Cryptojacking.th.md) |
-| 48 | Deepfake Social Engineering | [📄](05_Incident_Response/Playbooks/Deepfake_Social_Engineering.en.md) | [📄](05_Incident_Response/Playbooks/Deepfake_Social_Engineering.th.md) |
-| 49 | Typosquatting | [📄](05_Incident_Response/Playbooks/Typosquatting.en.md) | [📄](05_Incident_Response/Playbooks/Typosquatting.th.md) |
+| 04 | Brute Force | [📄](05_Incident_Response/Playbooks/Brute_Force.en.md) | [📄](05_Incident_Response/Playbooks/Brute_Force.th.md) |
+| 05 | Account Compromise | [📄](05_Incident_Response/Playbooks/Account_Compromise.en.md) | [📄](05_Incident_Response/Playbooks/Account_Compromise.th.md) |
+| 06 | Impossible Travel | [📄](05_Incident_Response/Playbooks/Impossible_Travel.en.md) | [📄](05_Incident_Response/Playbooks/Impossible_Travel.th.md) |
+| 07 | Privilege Escalation | [📄](05_Incident_Response/Playbooks/Privilege_Escalation.en.md) | [📄](05_Incident_Response/Playbooks/Privilege_Escalation.th.md) |
+| 14 | Insider Threat | [📄](05_Incident_Response/Playbooks/Insider_Threat.en.md) | [📄](05_Incident_Response/Playbooks/Insider_Threat.th.md) |
+| 15 | Rogue Admin | [📄](05_Incident_Response/Playbooks/Rogue_Admin.en.md) | [📄](05_Incident_Response/Playbooks/Rogue_Admin.th.md) |
+| 26 | MFA Bypass / Token Theft | [📄](05_Incident_Response/Playbooks/MFA_Bypass.en.md) | [📄](05_Incident_Response/Playbooks/MFA_Bypass.th.md) |
+| 36 | Credential Dumping | [📄](05_Incident_Response/Playbooks/Credential_Dumping.en.md) | [📄](05_Incident_Response/Playbooks/Credential_Dumping.th.md) |
+
+</details>
+
+<details>
+<summary><b>🌐 Network & Web</b> — DDoS, lateral movement, C2, DNS tunneling, web attacks</summary>
+
+| # | Playbook | EN | TH |
+|:---:|:---|:---:|:---:|
+| 09 | DDoS Attack | [📄](05_Incident_Response/Playbooks/DDoS_Attack.en.md) | [📄](05_Incident_Response/Playbooks/DDoS_Attack.th.md) |
+| 12 | Lateral Movement | [📄](05_Incident_Response/Playbooks/Lateral_Movement.en.md) | [📄](05_Incident_Response/Playbooks/Lateral_Movement.th.md) |
+| 13 | C2 Communication | [📄](05_Incident_Response/Playbooks/C2_Communication.en.md) | [📄](05_Incident_Response/Playbooks/C2_Communication.th.md) |
+| 18 | Web Attack | [📄](05_Incident_Response/Playbooks/Web_Attack.en.md) | [📄](05_Incident_Response/Playbooks/Web_Attack.th.md) |
+| 22 | API Abuse | [📄](05_Incident_Response/Playbooks/API_Abuse.en.md) | [📄](05_Incident_Response/Playbooks/API_Abuse.th.md) |
+| 24 | DNS Tunneling | [📄](05_Incident_Response/Playbooks/DNS_Tunneling.en.md) | [📄](05_Incident_Response/Playbooks/DNS_Tunneling.th.md) |
+| 25 | Zero-Day Exploit | [📄](05_Incident_Response/Playbooks/Zero_Day_Exploit.en.md) | [📄](05_Incident_Response/Playbooks/Zero_Day_Exploit.th.md) |
+| 34 | Network Discovery | [📄](05_Incident_Response/Playbooks/Network_Discovery.en.md) | [📄](05_Incident_Response/Playbooks/Network_Discovery.th.md) |
+| 37 | SQL Injection | [📄](05_Incident_Response/Playbooks/SQL_Injection.en.md) | [📄](05_Incident_Response/Playbooks/SQL_Injection.th.md) |
+| 43 | Watering Hole | [📄](05_Incident_Response/Playbooks/Watering_Hole.en.md) | [📄](05_Incident_Response/Playbooks/Watering_Hole.th.md) |
+| 44 | Drive-By Download | [📄](05_Incident_Response/Playbooks/Drive_By_Download.en.md) | [📄](05_Incident_Response/Playbooks/Drive_By_Download.th.md) |
 | 50 | Unauthorized Scanning | [📄](05_Incident_Response/Playbooks/Unauthorized_Scanning.en.md) | [📄](05_Incident_Response/Playbooks/Unauthorized_Scanning.th.md) |
+
+</details>
+
+<details>
+<summary><b>☁️ Cloud & Infrastructure</b> — AWS, Azure, cloud IAM, cryptojacking, shadow IT</summary>
+
+| # | Playbook | EN | TH |
+|:---:|:---|:---:|:---:|
+| 16 | Cloud IAM Anomaly | [📄](05_Incident_Response/Playbooks/Cloud_IAM.en.md) | [📄](05_Incident_Response/Playbooks/Cloud_IAM.th.md) |
+| 23 | Cryptomining | [📄](05_Incident_Response/Playbooks/Cryptomining.en.md) | [📄](05_Incident_Response/Playbooks/Cryptomining.th.md) |
+| 27 | Cloud Storage Exposure | [📄](05_Incident_Response/Playbooks/Cloud_Storage_Exposure.en.md) | [📄](05_Incident_Response/Playbooks/Cloud_Storage_Exposure.th.md) |
+| 29 | Shadow IT | [📄](05_Incident_Response/Playbooks/Shadow_IT.en.md) | [📄](05_Incident_Response/Playbooks/Shadow_IT.th.md) |
+| 31 | AWS EC2 Compromise | [📄](05_Incident_Response/Playbooks/AWS_EC2_Compromise.en.md) | [📄](05_Incident_Response/Playbooks/AWS_EC2_Compromise.th.md) |
+| 32 | AWS S3 Compromise | [📄](05_Incident_Response/Playbooks/AWS_S3_Compromise.en.md) | [📄](05_Incident_Response/Playbooks/AWS_S3_Compromise.th.md) |
+| 33 | Azure AD Compromise | [📄](05_Incident_Response/Playbooks/Azure_AD_Compromise.en.md) | [📄](05_Incident_Response/Playbooks/Azure_AD_Compromise.th.md) |
+| 41 | VPN Abuse | [📄](05_Incident_Response/Playbooks/VPN_Abuse.en.md) | [📄](05_Incident_Response/Playbooks/VPN_Abuse.th.md) |
+| 47 | Cloud Cryptojacking | [📄](05_Incident_Response/Playbooks/Cloud_Cryptojacking.en.md) | [📄](05_Incident_Response/Playbooks/Cloud_Cryptojacking.th.md) |
+
+</details>
+
+<details>
+<summary><b>📦 Data & Supply Chain</b> — Exfiltration, log clearing, supply chain, data staging</summary>
+
+| # | Playbook | EN | TH |
+|:---:|:---|:---:|:---:|
+| 08 | Data Exfiltration | [📄](05_Incident_Response/Playbooks/Data_Exfiltration.en.md) | [📄](05_Incident_Response/Playbooks/Data_Exfiltration.th.md) |
+| 20 | Log Clearing | [📄](05_Incident_Response/Playbooks/Log_Clearing.en.md) | [📄](05_Incident_Response/Playbooks/Log_Clearing.th.md) |
+| 21 | Supply Chain Attack | [📄](05_Incident_Response/Playbooks/Supply_Chain_Attack.en.md) | [📄](05_Incident_Response/Playbooks/Supply_Chain_Attack.th.md) |
+| 35 | Data Collection | [📄](05_Incident_Response/Playbooks/Data_Collection.en.md) | [📄](05_Incident_Response/Playbooks/Data_Collection.th.md) |
+| 49 | Typosquatting | [📄](05_Incident_Response/Playbooks/Typosquatting.en.md) | [📄](05_Incident_Response/Playbooks/Typosquatting.th.md) |
+
+</details>
+
+<details>
+<summary><b>📱 Physical & Mobile</b> — Lost device, mobile, OT/ICS, USB, SIM swap</summary>
+
+| # | Playbook | EN | TH |
+|:---:|:---|:---:|:---:|
+| 19 | Lost/Stolen Device | [📄](05_Incident_Response/Playbooks/Lost_Device.en.md) | [📄](05_Incident_Response/Playbooks/Lost_Device.th.md) |
+| 28 | Mobile Device Compromise | [📄](05_Incident_Response/Playbooks/Mobile_Compromise.en.md) | [📄](05_Incident_Response/Playbooks/Mobile_Compromise.th.md) |
+| 30 | OT/ICS Incident | [📄](05_Incident_Response/Playbooks/OT_ICS_Incident.en.md) | [📄](05_Incident_Response/Playbooks/OT_ICS_Incident.th.md) |
+| 40 | USB Removable Media | [📄](05_Incident_Response/Playbooks/USB_Removable_Media.en.md) | [📄](05_Incident_Response/Playbooks/USB_Removable_Media.th.md) |
+| 46 | SIM Swap | [📄](05_Incident_Response/Playbooks/SIM_Swap.en.md) | [📄](05_Incident_Response/Playbooks/SIM_Swap.th.md) |
 
 </details>
 
@@ -217,7 +217,7 @@ All playbooks are bilingual (EN+TH) and MITRE ATT&CK mapped.
 
 ## 🔍 Detection & Threat Intelligence / การตรวจจับและข่าวกรองภัยคุกคาม
 
-### Sigma Detection Rules (35 Rules)
+### Sigma Detection Rules (36 Rules)
 
 Ready-to-import rules mapped to MITRE ATT&CK. See full index: [README](08_Detection_Engineering/README.en.md) | [ดัชนี (TH)](08_Detection_Engineering/README.th.md)
 
