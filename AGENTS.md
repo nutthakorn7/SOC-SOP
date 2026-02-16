@@ -11,7 +11,7 @@
 This repository provides **vendor-agnostic, production-ready SOC Standard Operating Procedures** that any organization can adopt to build or mature their Security Operations Center. All content follows NIST, MITRE ATT&CK, and ISO 27001/27035 frameworks.
 
 ### WHAT — Scope
-- 20 Incident Response Playbooks (PB-01 to PB-20)
+- 35 Incident Response Playbooks (PB-01 to PB-35)
 - Operations Management (Shift Handoff, KPIs, Team Structure, CTI, TLP)
 - Detection Engineering (Sigma rules, YARA signatures)
 - Simulation & Purple Teaming

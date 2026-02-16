@@ -3,7 +3,7 @@ import os
 import yaml
 import sys
 
-RULES_DIR = "../07_Detection_Rules"
+RULES_DIR = "../08_Detection_Engineering"
 
 def validate_rules():
     print(f"Validating Sigma Rules in {RULES_DIR}...")

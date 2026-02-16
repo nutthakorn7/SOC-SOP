@@ -10,9 +10,9 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/📄_Documents-170+-blue?style=for-the-badge" alt="Documents">
-  <img src="https://img.shields.io/badge/🛡️_Playbooks-33-red?style=for-the-badge" alt="Playbooks">
-  <img src="https://img.shields.io/badge/🔍_Sigma_Rules-33-orange?style=for-the-badge" alt="Sigma Rules">
+  <img src="https://img.shields.io/badge/📄_Documents-240-blue?style=for-the-badge" alt="Documents">
+  <img src="https://img.shields.io/badge/🛡️_Playbooks-35-red?style=for-the-badge" alt="Playbooks">
+  <img src="https://img.shields.io/badge/🔍_Sigma_Rules-35-orange?style=for-the-badge" alt="Sigma Rules">
   <img src="https://img.shields.io/badge/🌐_Bilingual-EN%2FTH-green?style=for-the-badge" alt="Bilingual">
 </p>
 
