@@ -215,6 +215,31 @@ All playbooks are bilingual (EN+TH) and MITRE ATT&CK mapped.
 
 ---
 
+### 🎯 MITRE ATT&CK Coverage / ความครอบคลุม MITRE ATT&CK
+
+Our 50 playbooks cover **12 of 14 MITRE ATT&CK tactics** mapped across the full kill chain:
+
+| Tactic | ID | Playbooks | Coverage |
+|:---|:---:|:---:|:---:|
+| **Reconnaissance** | TA0043 | PB-50 | 🟡 |
+| **Resource Development** | TA0042 | PB-49 | 🟡 |
+| **Initial Access** | TA0001 | PB-01, 10, 17, 42, 43, 44 | 🟢🟢🟢 |
+| **Execution** | TA0002 | PB-02, 03, 11, 39 | 🟢🟢 |
+| **Persistence** | TA0003 | PB-45, 42 | 🟢 |
+| **Privilege Escalation** | TA0004 | PB-07, 36 | 🟢 |
+| **Defense Evasion** | TA0005 | PB-15, 20, 39, 45 | 🟢🟢 |
+| **Credential Access** | TA0006 | PB-04, 05, 26, 36 | 🟢🟢 |
+| **Discovery** | TA0007 | PB-06, 34 | 🟢 |
+| **Lateral Movement** | TA0008 | PB-12 | 🟡 |
+| **Collection** | TA0009 | PB-35 | 🟡 |
+| **Command & Control** | TA0011 | PB-13, 24 | 🟢 |
+| **Exfiltration** | TA0010 | PB-08 | 🟡 |
+| **Impact** | TA0040 | PB-02, 09, 23, 38, 47 | 🟢🟢 |
+
+> 🟢🟢🟢 = 4+ playbooks | 🟢🟢 = 2-3 playbooks | 🟢 = 2 playbooks | 🟡 = 1 playbook
+
+---
+
 ## 🔍 Detection & Threat Intelligence / การตรวจจับและข่าวกรองภัยคุกคาม
 
 ### Sigma Detection Rules (36 Rules)

@@ -135,6 +135,7 @@ nav:
     - อนุกรมวิธานจำแนกเหตุการณ์ (TH): 05_Incident_Response/Incident_Classification.th.md
     - Forensic Investigation: 05_Incident_Response/Forensic_Investigation.en.md
     - SOP นิติวิทยาศาสตร์ (TH): 05_Incident_Response/Forensic_Investigation.th.md
+    - ⚡ Playbook Quick Reference: docs/Playbook_Quick_Reference.md
     # ── 📧 Email & Social Engineering ──
     - Playbooks — Email & Social:
       - PB-01 Phishing (EN): 05_Incident_Response/Playbooks/Phishing.en.md
