@@ -15,11 +15,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Phase 2: 2 extra diagrams for 15 shortest playbooks (hardening/prevention + forensic artifacts)
   - Phase 3: 2 extra diagrams for remaining 20 playbooks (security architecture + operational workflow)
 - **Diagram topics include**: Password Hardening, Conditional Access, BEC Kill Chain, C2 Framework Classification, Beacon Detection, Least Privilege, Mining Pool Detection, Container Security, DDoS Mitigation, Exfiltration Channels, UEBA Indicators, Log Protection Architecture, MFA Comparison (SMS→FIDO2), Malware Analysis Pipeline, EDR Response Flow, BYOD Architecture, OT/IT Convergence, Email Security Stack (SPF/DKIM/DMARC), AMSI Detection, Secure SDLC, PAM Architecture, SBOM Management, Vendor Risk Assessment, CSPM Pipeline, PDPA Notification
+- **Sigma cross-references** — All 70 playbooks now link to their matching Sigma detection rules (1-4 rules per playbook)
+- **Post-Incident sections** — Added to all 34 TH playbooks (หลังเหตุการณ์) with 6 topic-specific action items each
 
 ### Improved
+- **12 short EN playbooks** expanded: Network Discovery (156→210), Data Collection (176→230), and 10 others
+  - Added eradication, IoC collection, escalation criteria, recovery, and post-incident sections
 - Repository visual guidance significantly enhanced: 350 diagrams total
 - Every playbook now includes both architectural reference diagrams and operational workflows
 - Consistent 5-diagram structure across all playbooks for uniform quality
+- Complete IR lifecycle coverage: Analysis → Containment → Eradication → Recovery → Escalation → Post-Incident
 
 ---
 
