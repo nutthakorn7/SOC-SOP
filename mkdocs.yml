@@ -171,6 +171,21 @@ nav:
       - OT/ICS Incident: 05_Incident_Response/Playbooks/OT_ICS_Incident.en.md
       - Network Discovery: 05_Incident_Response/Playbooks/Network_Discovery.en.md
       - Data Collection: 05_Incident_Response/Playbooks/Data_Collection.en.md
+      - Credential Dumping: 05_Incident_Response/Playbooks/Credential_Dumping.en.md
+      - SQL Injection: 05_Incident_Response/Playbooks/SQL_Injection.en.md
+      - Wiper Attack: 05_Incident_Response/Playbooks/Wiper_Attack.en.md
+      - Living Off The Land: 05_Incident_Response/Playbooks/Living_Off_The_Land.en.md
+      - USB Removable Media: 05_Incident_Response/Playbooks/USB_Removable_Media.en.md
+      - VPN Abuse: 05_Incident_Response/Playbooks/VPN_Abuse.en.md
+      - Email Account Takeover: 05_Incident_Response/Playbooks/Email_Account_Takeover.en.md
+      - Watering Hole: 05_Incident_Response/Playbooks/Watering_Hole.en.md
+      - Drive-By Download: 05_Incident_Response/Playbooks/Drive_By_Download.en.md
+      - Rootkit / Bootkit: 05_Incident_Response/Playbooks/Rootkit_Bootkit.en.md
+      - SIM Swap: 05_Incident_Response/Playbooks/SIM_Swap.en.md
+      - Cloud Cryptojacking: 05_Incident_Response/Playbooks/Cloud_Cryptojacking.en.md
+      - Deepfake Social Engineering: 05_Incident_Response/Playbooks/Deepfake_Social_Engineering.en.md
+      - Typosquatting: 05_Incident_Response/Playbooks/Typosquatting.en.md
+      - Unauthorized Scanning: 05_Incident_Response/Playbooks/Unauthorized_Scanning.en.md
     - Playbooks (TH):
       - Phishing: 05_Incident_Response/Playbooks/Phishing.th.md
       - Ransomware: 05_Incident_Response/Playbooks/Ransomware.th.md
@@ -207,6 +222,21 @@ nav:
       - OT/ICS Incident: 05_Incident_Response/Playbooks/OT_ICS_Incident.th.md
       - Network Discovery: 05_Incident_Response/Playbooks/Network_Discovery.th.md
       - Data Collection: 05_Incident_Response/Playbooks/Data_Collection.th.md
+      - Credential Dumping: 05_Incident_Response/Playbooks/Credential_Dumping.th.md
+      - SQL Injection: 05_Incident_Response/Playbooks/SQL_Injection.th.md
+      - Wiper Attack: 05_Incident_Response/Playbooks/Wiper_Attack.th.md
+      - Living Off The Land: 05_Incident_Response/Playbooks/Living_Off_The_Land.th.md
+      - USB Removable Media: 05_Incident_Response/Playbooks/USB_Removable_Media.th.md
+      - VPN Abuse: 05_Incident_Response/Playbooks/VPN_Abuse.th.md
+      - Email Account Takeover: 05_Incident_Response/Playbooks/Email_Account_Takeover.th.md
+      - Watering Hole: 05_Incident_Response/Playbooks/Watering_Hole.th.md
+      - Drive-By Download: 05_Incident_Response/Playbooks/Drive_By_Download.th.md
+      - Rootkit / Bootkit: 05_Incident_Response/Playbooks/Rootkit_Bootkit.th.md
+      - SIM Swap: 05_Incident_Response/Playbooks/SIM_Swap.th.md
+      - Cloud Cryptojacking: 05_Incident_Response/Playbooks/Cloud_Cryptojacking.th.md
+      - Deepfake Social Engineering: 05_Incident_Response/Playbooks/Deepfake_Social_Engineering.th.md
+      - Typosquatting: 05_Incident_Response/Playbooks/Typosquatting.th.md
+      - Unauthorized Scanning: 05_Incident_Response/Playbooks/Unauthorized_Scanning.th.md
   - 📊 Operations:
     # --- Team & Daily Operations ---
     - SOC Team Structure: 06_Operations_Management/SOC_Team_Structure.en.md

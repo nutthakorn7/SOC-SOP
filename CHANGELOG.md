@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.10.0] - 2026-02-16
+
+### Added
+- **15 new incident response playbooks** (PB-36 to PB-50) with full EN/TH coverage
+  - PB-36 Credential Dumping (T1003) — LSASS, SAM, DCSync, Kerberoasting
+  - PB-37 SQL Injection (T1190) — SQLi detection, WAF, database forensics
+  - PB-38 Wiper Attack (T1485/T1561) — Destructive malware, integrity monitoring
+  - PB-39 Living Off The Land (T1059/T1218) — LOLBins, fileless attacks
+  - PB-40 USB Removable Media (T1091/T1052) — USB threats, BadUSB, DLP
+  - PB-41 VPN Abuse (T1133) — Unauthorized VPN, impossible travel, MFA bypass
+  - PB-42 Email Account Takeover (T1114) — BEC, inbox rules, OAuth abuse
+  - PB-43 Watering Hole (T1189) — Trusted site compromise, exploit kits
+  - PB-44 Drive-By Download (T1189) — Browser exploits, TDS, malvertising
+  - PB-45 Rootkit/Bootkit (T1014/T1542) — Kernel, UEFI, firmware persistence
+  - PB-46 SIM Swap (T1111) — SIM hijacking, SMS MFA bypass, carrier fraud
+  - PB-47 Cloud Cryptojacking (T1496) — Crypto mining, cost spikes, API key abuse
+  - PB-48 Deepfake Social Engineering (T1598) — AI voice/video, exec impersonation
+  - PB-49 Typosquatting (T1583.001) — Domain impersonation, brand abuse, takedown
+  - PB-50 Unauthorized Scanning (T1046) — Port scan, recon, network sweep
+- Each playbook includes 7-8 Mermaid diagrams, Sigma detection rules, and PDPA references
+- Total: 30 new files, 7,230+ lines added across EN and TH versions
+
 ## [2.9.0] - 2026-02-16
 
 ### Added
