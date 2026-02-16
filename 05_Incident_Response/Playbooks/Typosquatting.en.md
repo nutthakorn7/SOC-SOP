@@ -212,7 +212,7 @@ detection:
 ## Related Documents
 - [Phishing Playbook](Phishing.en.md)
 - [BEC Playbook](BEC.en.md)
-- [Brand Abuse Playbook](Brand_Abuse.en.md)
+- [Phishing Playbook](Phishing.en.md)
 
 ## References
 - [MITRE T1583.001 — Domains](https://attack.mitre.org/techniques/T1583/001/)

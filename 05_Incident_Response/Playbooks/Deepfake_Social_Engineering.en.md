@@ -225,7 +225,7 @@ detection:
 ## Related Documents
 - [BEC Playbook](BEC.en.md)
 - [Phishing Playbook](Phishing.en.md)
-- [Social Engineering Playbook](Social_Engineering.en.md)
+- [Business Email Compromise Playbook](BEC.en.md)
 
 ## References
 - [FBI — Business Email Compromise](https://www.ic3.gov/Media/Y2023/PSA230609)

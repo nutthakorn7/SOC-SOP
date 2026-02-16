@@ -220,8 +220,8 @@ detection:
 ```
 
 ## Related Documents
-- [Cloud Security Playbook](Cloud_Security.en.md)
-- [API Key Compromise Playbook](API_Key_Compromise.en.md)
+- [Cloud Security Playbook](Cryptomining.en.md)
+- [API Key Compromise Playbook](Cloud_IAM.en.md)
 - [Account Compromise Playbook](Account_Compromise.en.md)
 
 ## References

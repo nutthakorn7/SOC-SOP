@@ -216,7 +216,7 @@ detection:
 ```
 
 ## เอกสารที่เกี่ยวข้อง
-- [Cloud Security Playbook](Cloud_Security.th.md)
+- [Cryptomining Playbook](Cryptomining.th.md)
 - [Account Compromise Playbook](Account_Compromise.th.md)
 
 ## References
