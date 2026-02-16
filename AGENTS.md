@@ -38,8 +38,8 @@ SOCSOP/
 ├── 02_Platform_Operations/   # Data governance, deployment procedures
 ├── 03_User_Guides/           # Detection engineering, tool integration
 ├── 04_Troubleshooting/       # Standard troubleshooting methodology
-├── 05_Incident_Response/     # IR Framework + 20 Playbooks
-│   └── Playbooks/            # Individual incident playbooks (PB-01 to PB-20)
+├── 05_Incident_Response/     # IR Framework + 50 Playbooks
+│   └── Playbooks/            # Individual incident playbooks (PB-01 to PB-50)
 ├── 06_Operations_Management/ # Shift handoff, metrics, team structure, TLP, CTI
 ├── 08_Detection_Engineering/sigma_rules/       # Sigma detection rules (.yml)
 ├── 08_Simulation_Testing/    # Purple team guides, Atomic Red Team maps

@@ -89,7 +89,7 @@ graph TD
     end
 
     subgraph Phase3["Phase 3: RUN (Month 6-12)"]
-        C1[All 20 Playbooks]
+        C1[All 50 Playbooks]
         C2[EDR on All Endpoints]
         C3[First Purple Team Exercise]
         C4[Monthly KPI Reporting]

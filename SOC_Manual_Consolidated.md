@@ -48,8 +48,8 @@ SOCSOP/
 ├── 02_Platform_Operations/   # Data governance, deployment procedures
 ├── 03_User_Guides/           # Detection engineering, tool integration
 ├── 04_Troubleshooting/       # Standard troubleshooting methodology
-├── 05_Incident_Response/     # IR Framework + 20 Playbooks
-│   └── Playbooks/            # Individual incident playbooks (PB-01 to PB-20)
+├── 05_Incident_Response/     # IR Framework + 50 Playbooks
+│   └── Playbooks/            # Individual incident playbooks (PB-01 to PB-50)
 ├── 06_Operations_Management/ # Shift handoff, metrics, team structure, TLP, CTI
 ├── 08_Detection_Engineering/sigma_rules/       # Sigma detection rules (.yml)
 ├── 08_Simulation_Testing/    # Purple team guides, Atomic Red Team maps
@@ -537,8 +537,8 @@ SOCSOP/
 ├── 02_Platform_Operations/   # Data governance, deployment procedures
 ├── 03_User_Guides/           # Detection engineering, tool integration
 ├── 04_Troubleshooting/       # Standard troubleshooting methodology
-├── 05_Incident_Response/     # IR Framework + 20 Playbooks
-│   └── Playbooks/            # Individual incident playbooks (PB-01 to PB-20)
+├── 05_Incident_Response/     # IR Framework + 50 Playbooks
+│   └── Playbooks/            # Individual incident playbooks (PB-01 to PB-50)
 ├── 06_Operations_Management/ # Shift handoff, metrics, team structure, TLP, CTI
 ├── 08_Detection_Engineering/sigma_rules/       # Sigma detection rules (.yml)
 ├── 08_Simulation_Testing/    # Purple team guides, Atomic Red Team maps
@@ -26089,7 +26089,7 @@ graph TD
     end
 
     subgraph Phase3["Phase 3: RUN (Month 6-12)"]
-        C1[All 20 Playbooks]
+        C1[All 50 Playbooks]
         C2[EDR on All Endpoints]
         C3[First Purple Team Exercise]
         C4[Monthly KPI Reporting]
@@ -26386,7 +26386,7 @@ graph TD
 | Process | Purpose | Document |
 |---|---|---|
 | **Incident Response** | Step-by-step guide to handle attacks | [IR Framework](../05_Incident_Response/Framework.en.md) |
-| **Playbooks** | Specific procedures for each attack type | [20 Playbooks](../05_Incident_Response/Playbooks/) |
+| **Playbooks** | Specific procedures for each attack type | [50 Playbooks](../05_Incident_Response/Playbooks/) |
 | **Shift Handoff** | Ensure continuity between shifts (24/7) | [Shift Handoff](../06_Operations_Management/Shift_Handoff.en.md) |
 | **Detection Engineering** | Create rules that detect bad behavior | [Detection Lifecycle](../03_User_Guides/Content_Management.en.md) |
 | **Reporting** | Show leadership what the SOC is doing | [Monthly Report](../11_Reporting_Templates/Monthly_SOC_Report.en.md) |
@@ -26444,7 +26444,7 @@ graph LR
 ### Phase 3: Response (Month 6-12) — "Run"
 **Goal**: Respond to real incidents effectively.
 
-- [ ] Implement all 20 Playbooks from this repository
+- [ ] Implement all 50 Playbooks from this repository
 - [ ] Hire Tier 2 Incident Responders
 - [ ] Set up EDR on all endpoints
 - [ ] Conduct first Purple Team exercise ([Simulation Guide](../09_Simulation_Testing/Simulation_Guide.en.md))
@@ -26605,7 +26605,7 @@ graph TD
 | กระบวนการ | วัตถุประสงค์ | เอกสาร |
 |---|---|---|
 | **Incident Response** | ขั้นตอนรับมือเหตุการณ์โจมตี | [กรอบ IR](../05_Incident_Response/Framework.th.md) |
-| **Playbooks** | วิธีรับมือเฉพาะแต่ละประเภทการโจมตี | [20 Playbooks](../05_Incident_Response/Playbooks/) |
+| **Playbooks** | วิธีรับมือเฉพาะแต่ละประเภทการโจมตี | [50 Playbooks](../05_Incident_Response/Playbooks/) |
 | **การส่งมอบกะ** | ส่งต่อข้อมูลระหว่างกะ (24/7) | [มาตรฐานส่งมอบกะ](../06_Operations_Management/Shift_Handoff.th.md) |
 | **Detection Engineering** | สร้างกฎตรวจจับพฤติกรรมอันตราย | [วงจรชีวิตการตรวจจับ](../03_User_Guides/Content_Management.th.md) |
 | **การรายงาน** | แสดงผลงาน SOC ให้ผู้บริหาร | [รายงานประจำเดือน](../11_Reporting_Templates/Monthly_SOC_Report.th.md) |
