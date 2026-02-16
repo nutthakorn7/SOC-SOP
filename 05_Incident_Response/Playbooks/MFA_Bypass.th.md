@@ -207,8 +207,8 @@ graph LR
 
 | กฎ | ไฟล์ |
 |:---|:---|
-| MFA Bypass / Token Theft Detection | [cloud_mfa_bypass.yml](../../07_Detection_Rules/cloud_mfa_bypass.yml) |
-| Impossible Travel Detection | [cloud_impossible_travel.yml](../../07_Detection_Rules/cloud_impossible_travel.yml) |
+| MFA Bypass / Token Theft Detection | [cloud_mfa_bypass.yml](../../08_Detection_Engineering/sigma_rules/cloud_mfa_bypass.yml) |
+| Impossible Travel Detection | [cloud_impossible_travel.yml](../../08_Detection_Engineering/sigma_rules/cloud_impossible_travel.yml) |
 
 ## เอกสารที่เกี่ยวข้อง
 

@@ -253,6 +253,6 @@ After validation, create detection rules:
 
 ## Related Documents
 
-- [Detection Rules Index](../07_Detection_Rules/README.md)
+- [Detection Rules Index](../08_Detection_Engineering/README.en.md)
 - [Sigma Rule Validator](../tools/sigma_validator.py)
 - [SOC Metrics & KPIs](SOC_Metrics.en.md)

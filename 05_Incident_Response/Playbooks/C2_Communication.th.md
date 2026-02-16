@@ -189,9 +189,9 @@ sequenceDiagram
 
 | กฎ | ไฟล์ |
 |:---|:---|
-| Network Beaconing Pattern | [net_beaconing.yml](../../07_Detection_Rules/net_beaconing.yml) |
-| DNS Tunneling Detection | [net_dns_tunneling.yml](../../07_Detection_Rules/net_dns_tunneling.yml) |
-| PowerShell Encoded Command | [proc_powershell_encoded.yml](../../07_Detection_Rules/proc_powershell_encoded.yml) |
+| Network Beaconing Pattern | [net_beaconing.yml](../../08_Detection_Engineering/sigma_rules/net_beaconing.yml) |
+| DNS Tunneling Detection | [net_dns_tunneling.yml](../../08_Detection_Engineering/sigma_rules/net_dns_tunneling.yml) |
+| PowerShell Encoded Command | [proc_powershell_encoded.yml](../../08_Detection_Engineering/sigma_rules/proc_powershell_encoded.yml) |
 
 ## เอกสารที่เกี่ยวข้อง
 

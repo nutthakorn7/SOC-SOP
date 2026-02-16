@@ -109,7 +109,7 @@ graph TD
 
 ## Related Documents
 -   [Tool Integration Strategy](../03_User_Guides/Integration_Hub.en.md)
--   [SOC Infrastructure Setup](../01_Onboarding/System_Activation.en.md)
+-   [SOC Infrastructure Setup](../10_Training_Onboarding/System_Activation.en.md)
 -   [Deployment Procedures](../02_Platform_Operations/Deployment_Procedures.en.md)
 
 ## References

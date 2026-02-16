@@ -36,7 +36,7 @@ graph TD
 
 | ขั้นตอน | เวลา | เอกสาร | สิ่งที่จะเรียนรู้ |
 |:---:|:---:|---|---|
-| 4 | 15 นาที | [การติดตั้ง SOC](../01_Onboarding/System_Activation.th.md) | ต้อง Deploy ระบบอะไรบ้าง |
+| 4 | 15 นาที | [การติดตั้ง SOC](../10_Training_Onboarding/System_Activation.th.md) | ต้อง Deploy ระบบอะไรบ้าง |
 | 5 | 10 นาที | [นโยบายข้อมูล](../02_Platform_Operations/Database_Management.th.md) | การจัดการ Log Data และ Retention |
 | 6 | 10 นาที | [แบบประเมิน SOC](../06_Operations_Management/SOC_Assessment_Checklist.th.md) | วิเคราะห์ Gap ของสถานะปัจจุบัน |
 
@@ -46,7 +46,7 @@ graph TD
 |:---:|:---:|---|---|
 | 7 | 20 นาที | [กรอบ IR](../05_Incident_Response/Framework.th.md) | วิธีจัดการ Incident ตั้งแต่ต้นจนจบ |
 | 8 | 30 นาที | **Playbook 5 ชุดแรก** (ดูด้านล่าง) | วิธีตอบสนองต่อการโจมตีที่พบบ่อย |
-| 9 | 15 นาที | [Detection Rules](../07_Detection_Rules/) | กฎ Sigma สำเร็จรูปพร้อม Deploy |
+| 9 | 15 นาที | [Detection Rules](../08_Detection_Engineering/sigma_rules/) | กฎ Sigma สำเร็จรูปพร้อม Deploy |
 | 10 | 10 นาที | [Integration Hub](../03_User_Guides/Integration_Hub.th.md) | วิธีเชื่อมต่อเครื่องมือเข้าด้วยกัน |
 
 ### 🟢 สัปดาห์ที่ 4 — เปิดใช้งาน (Go Live)
@@ -56,7 +56,7 @@ graph TD
 | 11 | 10 นาที | [มาตรฐานส่งมอบกะ](../06_Operations_Management/Shift_Handoff.th.md) | การทำงาน 24/7 |
 | 12 | 10 นาที | [ตัวชี้วัด SOC](../06_Operations_Management/SOC_Metrics.th.md) | MTTD, MTTR, False Positive Rate |
 | 13 | 15 นาที | [รายงานรายเดือน](../11_Reporting_Templates/Monthly_SOC_Report.th.md) | การรายงานให้ผู้บริหาร |
-| 14 | 10 นาที | [หลักสูตร Analyst](../09_Training_Onboarding/Analyst_Onboarding_Path.th.md) | วิธีฝึก Analyst ใหม่ |
+| 14 | 10 นาที | [หลักสูตร Analyst](../10_Training_Onboarding/Analyst_Onboarding_Path.th.md) | วิธีฝึก Analyst ใหม่ |
 
 ## Playbook 5 ชุดที่ต้องเริ่มก่อน
 
@@ -125,7 +125,7 @@ graph TD
 - [ ] **SIEM 1 ตัว** (แนะนำ Wazuh สำหรับองค์กรงบจำกัด)
 - [ ] **Log Source 3 แหล่ง** (Firewall, Active Directory, Email)
 - [ ] **คน 3 คน** (Tier 1 Analyst 2 คน + Manager 1 คน)
-- [ ] **Detection Rules 5 กฎ** (จาก `07_Detection_Rules/`)
+- [ ] **Detection Rules 5 กฎ** (จาก `08_Detection_Engineering/sigma_rules/`)
 - [ ] **Playbook 1 ชุด** (เริ่มจาก Phishing)
 - [ ] **ระบบ Ticketing 1 ตัว** (TheHive หรือ Jira)
 - [ ] **เส้นทาง Escalation 1 เส้น** (Tier 1 → Manager → CISO)
@@ -137,7 +137,7 @@ graph TD
 -   [SOC 101](SOC_101.th.md)
 -   [คำศัพท์สำคัญ](Glossary.th.md)
 -   [โครงสร้างทีม SOC](../06_Operations_Management/SOC_Team_Structure.th.md)
--   [หลักสูตร Analyst](../09_Training_Onboarding/Analyst_Onboarding_Path.th.md)
+-   [หลักสูตร Analyst](../10_Training_Onboarding/Analyst_Onboarding_Path.th.md)
 
 ## References
 -   [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)

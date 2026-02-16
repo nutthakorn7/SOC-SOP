@@ -197,9 +197,9 @@ graph LR
 
 | กฎ | ไฟล์ |
 |:---|:---|
-| Login from Unusual Location | [cloud_unusual_login.yml](../../07_Detection_Rules/cloud_unusual_login.yml) |
-| Multiple Failed Login Attempts | [win_multiple_failed_logins.yml](../../07_Detection_Rules/win_multiple_failed_logins.yml) |
-| Suspicious Inbox Rule Created | [cloud_email_inbox_rule.yml](../../07_Detection_Rules/cloud_email_inbox_rule.yml) |
+| Login from Unusual Location | [cloud_unusual_login.yml](../../08_Detection_Engineering/sigma_rules/cloud_unusual_login.yml) |
+| Multiple Failed Login Attempts | [win_multiple_failed_logins.yml](../../08_Detection_Engineering/sigma_rules/win_multiple_failed_logins.yml) |
+| Suspicious Inbox Rule Created | [cloud_email_inbox_rule.yml](../../08_Detection_Engineering/sigma_rules/cloud_email_inbox_rule.yml) |
 
 ## เอกสารที่เกี่ยวข้อง
 

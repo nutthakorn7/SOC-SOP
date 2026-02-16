@@ -206,7 +206,7 @@ sequenceDiagram
 
 | กฎ | ไฟล์ |
 |:---|:---|
-| OT/ICS Network Anomaly Detection | [net_ot_ics_anomaly.yml](../../07_Detection_Rules/net_ot_ics_anomaly.yml) |
+| OT/ICS Network Anomaly Detection | [net_ot_ics_anomaly.yml](../../08_Detection_Engineering/sigma_rules/net_ot_ics_anomaly.yml) |
 
 ## เอกสารที่เกี่ยวข้อง
 

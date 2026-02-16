@@ -277,5 +277,5 @@ hydra -l admin -P /usr/share/wordlists/rockyou.txt ssh://target_ip
 ## เอกสารที่เกี่ยวข้อง
 
 - [สถานการณ์จำลอง](Tabletop_Exercises.th.md)
-- [ดัชนี Detection Rules](../07_Detection_Rules/README.th.md)
+- [ดัชนี Detection Rules](../08_Detection_Engineering/README.th.md)
 - [แผนที่ MITRE ATT&CK](../tools/mitre_attack_heatmap.html)

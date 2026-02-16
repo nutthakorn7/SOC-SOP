@@ -263,7 +263,7 @@ Track these 5 metrics from day 1 (see [SOC Metrics](../06_Operations_Management/
 | **SOAR Automation** | Month 12+ | Automate repetitive tasks (enrichment, blocking) |
 | **Purple Teaming** | Month 15+ | Test your detections with [Purple Team Guide](../05_Incident_Response/Purple_Team_Exercises.en.md) |
 | **Threat Intelligence** | Month 12+ | Feed integration with [TI Guide](../06_Operations_Management/TI_Feeds_Integration.en.md) |
-| **Compliance Audit** | Month 18+ | Use [Compliance Mapping](../10_Compliance/Compliance_Mapping.en.md) |
+| **Compliance Audit** | Month 18+ | Use [Compliance Mapping](../07_Compliance_Privacy/Compliance_Mapping.en.md) |
 
 ### 4.2 SOC Maturity Levels
 
@@ -412,7 +412,7 @@ If you're starting from zero, read these documents in this order:
 | 3 | [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md) | P1/P2/P3/P4 |
 | 4 | [Tier 1 Runbook](../05_Incident_Response/Tier1_Runbook.en.md) | Daily operations |
 | 5 | [SOC Team Structure](../06_Operations_Management/SOC_Team_Structure.en.md) | Roles & shifts |
-| 6 | [Detection Rules Index](../07_Detection_Rules/README.md) | What rules to deploy |
+| 6 | [Detection Rules Index](../08_Detection_Engineering/README.en.md) | What rules to deploy |
 | 7 | [Log Source Onboarding](../06_Operations_Management/Log_Source_Onboarding.en.md) | How to add logs |
 | 8 | [PB-01 Phishing](../05_Incident_Response/Playbooks/Phishing.en.md) | Your first playbook |
 | 9 | [SOC Metrics](../06_Operations_Management/SOC_Metrics.en.md) | Measuring success |
@@ -425,5 +425,5 @@ If you're starting from zero, read these documents in this order:
 - [SOC Team Structure](../06_Operations_Management/SOC_Team_Structure.en.md)
 - [SOC Maturity Scorer](../tools/soc_maturity_scorer.html)
 - [MITRE ATT&CK Heatmap](../tools/mitre_attack_heatmap.html)
-- [Compliance Mapping](../10_Compliance/Compliance_Mapping.en.md)
+- [Compliance Mapping](../07_Compliance_Privacy/Compliance_Mapping.en.md)
 - [All 30 Playbooks](../05_Incident_Response/Playbooks/)

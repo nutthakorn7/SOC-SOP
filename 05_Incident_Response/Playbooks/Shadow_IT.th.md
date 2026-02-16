@@ -183,7 +183,7 @@ sequenceDiagram
 
 | กฎ | ไฟล์ |
 |:---|:---|
-| Shadow IT — Unauthorized SaaS Usage | [proxy_shadow_it.yml](../../07_Detection_Rules/proxy_shadow_it.yml) |
+| Shadow IT — Unauthorized SaaS Usage | [proxy_shadow_it.yml](../../08_Detection_Engineering/sigma_rules/proxy_shadow_it.yml) |
 
 ## เอกสารที่เกี่ยวข้อง
 

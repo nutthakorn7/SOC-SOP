@@ -19,7 +19,7 @@
 | 1.1 | รับ laptop, บัตรพนักงาน, credentials | IT Ops | ☐ |
 | 1.2 | เซ็น NDA / security clearance | HR + Legal | ☐ |
 | 1.3 | เปิดสิทธิ์: SIEM, EDR, SOAR, Ticketing | IAM Team | ☐ |
-| 1.4 | อ่าน: [System Activation](../01_Onboarding/System_Activation.th.md) | ศึกษาด้วยตนเอง | ☐ |
+| 1.4 | อ่าน: [System Activation](../10_Training_Onboarding/System_Activation.th.md) | ศึกษาด้วยตนเอง | ☐ |
 | 1.5 | อ่าน: [Data Governance Policy](../07_Compliance_Privacy/Data_Governance_Policy.th.md) | ศึกษาด้วยตนเอง | ☐ |
 | 1.6 | อ่าน: [Change Management (RFC)](../06_Operations_Management/Change_Management.th.md) | ศึกษาด้วยตนเอง | ☐ |
 | 1.7 | ทัวร์: ห้อง SOC, war room, โทรศัพท์ escalation | Mentor | ☐ |

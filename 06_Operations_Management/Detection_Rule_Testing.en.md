@@ -127,5 +127,5 @@ After deployment, monitor for 7 days:
 ## Related Documents
 
 - [Change Management SOP](Change_Management.en.md)
-- [Detection Rules Index](../07_Detection_Rules/README.md)
+- [Detection Rules Index](../08_Detection_Engineering/README.en.md)
 - [Use Case Prioritization](../01_SOC_Fundamentals/Use_Case_Prioritization.en.md)

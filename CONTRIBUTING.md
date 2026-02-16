@@ -91,8 +91,8 @@ External references, standards, frameworks.
 | `05_Incident_Response/` | IR framework, playbooks, forensics |
 | `06_Operations_Management/` | Day-to-day operations SOPs |
 | `08_Simulation_Testing/` | Purple team, phishing sim, atomic tests |
-| `09_Training_Onboarding/` | Analyst training materials |
-| `10_Compliance/` | Regulatory compliance |
+| `10_Training_Onboarding/` | Analyst training materials |
+| `07_Compliance_Privacy/` | Regulatory compliance |
 | `11_Reporting_Templates/` | Reports and dashboards |
 | `templates/` | Operational form templates |
 | `sigma_rules/` | Detection rules (YAML) |

@@ -210,9 +210,9 @@ sequenceDiagram
 
 | Rule | File |
 |:---|:---|
-| User Added to Domain Admins | [win_domain_admin_group_add.yml](../../07_Detection_Rules/win_domain_admin_group_add.yml) |
-| New Local User Created | [win_new_user_created.yml](../../07_Detection_Rules/win_new_user_created.yml) |
-| Windows Security Log Cleared | [win_security_log_cleared.yml](../../07_Detection_Rules/win_security_log_cleared.yml) |
+| User Added to Domain Admins | [win_domain_admin_group_add.yml](../../08_Detection_Engineering/sigma_rules/win_domain_admin_group_add.yml) |
+| New Local User Created | [win_new_user_created.yml](../../08_Detection_Engineering/sigma_rules/win_new_user_created.yml) |
+| Windows Security Log Cleared | [win_security_log_cleared.yml](../../08_Detection_Engineering/sigma_rules/win_security_log_cleared.yml) |
 
 ## Related Documents
 

@@ -112,8 +112,8 @@ graph LR
 ## Related Documents
 -   [Shift Handoff Standard](Shift_Handoff.en.md)
 -   [SOC Metrics & KPIs](SOC_Metrics.en.md)
--   [Analyst Onboarding Path](../09_Training_Onboarding/Analyst_Onboarding_Path.en.md)
--   [Training Checklist](../09_Training_Onboarding/Training_Checklist.en.md)
+-   [Analyst Onboarding Path](../10_Training_Onboarding/Analyst_Onboarding_Path.en.md)
+-   [Training Checklist](../10_Training_Onboarding/Training_Checklist.en.md)
 -   [SOC Assessment Checklist](SOC_Assessment_Checklist.en.md)
 
 ## References

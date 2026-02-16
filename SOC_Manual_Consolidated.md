@@ -44,17 +44,17 @@ This repository provides **vendor-agnostic, production-ready SOC Standard Operat
 
 ```
 SOCSOP/
-├── 01_Onboarding/           # SOC infrastructure setup
+├── 10_Training_Onboarding/           # SOC infrastructure setup
 ├── 02_Platform_Operations/   # Data governance, deployment procedures
 ├── 03_User_Guides/           # Detection engineering, tool integration
 ├── 04_Troubleshooting/       # Standard troubleshooting methodology
 ├── 05_Incident_Response/     # IR Framework + 20 Playbooks
 │   └── Playbooks/            # Individual incident playbooks (PB-01 to PB-20)
 ├── 06_Operations_Management/ # Shift handoff, metrics, team structure, TLP, CTI
-├── 07_Detection_Rules/       # Sigma detection rules (.yml)
+├── 08_Detection_Engineering/sigma_rules/       # Sigma detection rules (.yml)
 ├── 08_Simulation_Testing/    # Purple team guides, Atomic Red Team maps
-├── 09_Training_Onboarding/   # Analyst curriculum, training checklists
-├── 10_File_Signatures/       # YARA rules
+├── 10_Training_Onboarding/   # Analyst curriculum, training checklists
+├── 08_Detection_Engineering/file_signatures/       # YARA rules
 ├── 11_Reporting_Templates/   # Monthly/quarterly executive reports
 ├── templates/                # Incident report, shift handover, RFC forms
 ├── tools/                    # Utility scripts (export, link check)
@@ -214,13 +214,13 @@ PB-10 Exploit/Vulnerability  PB-20 Cloud-specific (AWS/Azure)
 
 ## 🔍 Detection Rules
 
-### Sigma Rules (`07_Detection_Rules/`)
+### Sigma Rules (`08_Detection_Engineering/sigma_rules/`)
 - **Format**: Sigma YAML specification v2
 - **Naming**: `<category>_<description>.yml` (e.g., `win_multiple_failed_logins.yml`)
 - **Required fields**: `title`, `status`, `description`, `logsource`, `detection`, `level`, `tags`
 - **Tags**: Must include MITRE ATT&CK technique IDs (e.g., `attack.t1110`)
 
-### YARA Rules (`10_File_Signatures/`)
+### YARA Rules (`08_Detection_Engineering/file_signatures/`)
 - **Format**: YARA rule syntax
 - **Naming**: `<family>_<indicator>.yar`
 - **Required**: `meta`, `strings`, `condition` blocks
@@ -533,17 +533,17 @@ This repository provides **vendor-agnostic, production-ready SOC Standard Operat
 
 ```
 SOCSOP/
-├── 01_Onboarding/           # SOC infrastructure setup
+├── 10_Training_Onboarding/           # SOC infrastructure setup
 ├── 02_Platform_Operations/   # Data governance, deployment procedures
 ├── 03_User_Guides/           # Detection engineering, tool integration
 ├── 04_Troubleshooting/       # Standard troubleshooting methodology
 ├── 05_Incident_Response/     # IR Framework + 20 Playbooks
 │   └── Playbooks/            # Individual incident playbooks (PB-01 to PB-20)
 ├── 06_Operations_Management/ # Shift handoff, metrics, team structure, TLP, CTI
-├── 07_Detection_Rules/       # Sigma detection rules (.yml)
+├── 08_Detection_Engineering/sigma_rules/       # Sigma detection rules (.yml)
 ├── 08_Simulation_Testing/    # Purple team guides, Atomic Red Team maps
-├── 09_Training_Onboarding/   # Analyst curriculum, training checklists
-├── 10_File_Signatures/       # YARA rules
+├── 10_Training_Onboarding/   # Analyst curriculum, training checklists
+├── 08_Detection_Engineering/file_signatures/       # YARA rules
 ├── 11_Reporting_Templates/   # Monthly/quarterly executive reports
 ├── templates/                # Incident report, shift handover, RFC forms
 ├── tools/                    # Utility scripts (export, link check)
@@ -703,13 +703,13 @@ PB-10 Exploit/Vulnerability  PB-20 Cloud-specific (AWS/Azure)
 
 ## 🔍 Detection Rules
 
-### Sigma Rules (`07_Detection_Rules/`)
+### Sigma Rules (`08_Detection_Engineering/sigma_rules/`)
 - **Format**: Sigma YAML specification v2
 - **Naming**: `<category>_<description>.yml` (e.g., `win_multiple_failed_logins.yml`)
 - **Required fields**: `title`, `status`, `description`, `logsource`, `detection`, `level`, `tags`
 - **Tags**: Must include MITRE ATT&CK technique IDs (e.g., `attack.t1110`)
 
-### YARA Rules (`10_File_Signatures/`)
+### YARA Rules (`08_Detection_Engineering/file_signatures/`)
 - **Format**: YARA rule syntax
 - **Naming**: `<family>_<indicator>.yar`
 - **Required**: `meta`, `strings`, `condition` blocks
@@ -939,8 +939,8 @@ External references, standards, frameworks.
 | `05_Incident_Response/` | IR framework, playbooks, forensics |
 | `06_Operations_Management/` | Day-to-day operations SOPs |
 | `08_Simulation_Testing/` | Purple team, phishing sim, atomic tests |
-| `09_Training_Onboarding/` | Analyst training materials |
-| `10_Compliance/` | Regulatory compliance |
+| `10_Training_Onboarding/` | Analyst training materials |
+| `07_Compliance_Privacy/` | Regulatory compliance |
 | `11_Reporting_Templates/` | Reports and dashboards |
 | `templates/` | Operational form templates |
 | `sigma_rules/` | Detection rules (YAML) |
@@ -1456,7 +1456,7 @@ When adding new documents, update these files (see [workflow](.agent/workflows/u
 | 13:00–14:30 | 🔍 | **Workshop: Control Inventory** — สำรวจ controls ที่มีอยู่ |
 | 14:30–16:00 | 🔍 | **Workshop: Gap Identification** — Map controls กับ framework, ระบุช่องว่าง |
 
-📚 *Reference: [Compliance Mapping](10_Compliance/Compliance_Mapping.en.md) · [Gap Analysis](10_Compliance/Compliance_Gap_Analysis.en.md) · [PDPA IR](10_Compliance/PDPA_Incident_Response.en.md)*
+📚 *Reference: [Compliance Mapping](07_Compliance_Privacy/Compliance_Mapping.en.md) · [Gap Analysis](07_Compliance_Privacy/Compliance_Gap_Analysis.en.md) · [PDPA IR](07_Compliance_Privacy/PDPA_Incident_Response.en.md)*
 
 </details>
 
@@ -1708,17 +1708,17 @@ When adding new documents, update these files (see [workflow](.agent/workflows/u
 | [Phishing Simulation](08_Simulation_Testing/Phishing_Simulation.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Simulation Guide](08_Simulation_Testing/Simulation_Guide.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Atomic Test Map](08_Simulation_Testing/Atomic_Test_Map.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
-| [SOC Analyst Onboarding](01_SOC_Overview/SOC_Onboarding.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
-| [Analyst Onboarding Path](09_Training_Onboarding/Analyst_Onboarding_Path.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
-| [Training Checklist](09_Training_Onboarding/Training_Checklist.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [SOC Analyst Onboarding](10_Training_Onboarding/SOC_Onboarding.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [Analyst Onboarding Path](10_Training_Onboarding/Analyst_Onboarding_Path.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [Training Checklist](10_Training_Onboarding/Training_Checklist.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 
 ## 🏛️ Compliance
 
 | Document | Version | Last Updated | Status | Next Review |
 |:---|:---:|:---:|:---:|:---:|
-| [Compliance Mapping](10_Compliance/Compliance_Mapping.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
-| [PDPA Incident Response](10_Compliance/PDPA_Incident_Response.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
-| [Compliance Gap Analysis](10_Compliance/Compliance_Gap_Analysis.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
+| [Compliance Mapping](07_Compliance_Privacy/Compliance_Mapping.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [PDPA Incident Response](07_Compliance_Privacy/PDPA_Incident_Response.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [Compliance Gap Analysis](07_Compliance_Privacy/Compliance_Gap_Analysis.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
 
 ## 📄 Reports & Templates
 
@@ -1805,7 +1805,7 @@ Data within the SOC must be classified to determine appropriate handling and ret
 ## Related Documents
 -   [Data Handling Protocol (TLP)](../06_Operations_Management/Data_Handling_Protocol.en.md)
 -   [Deployment Procedures](Deployment_Procedures.en.md)
--   [SOC Infrastructure Setup](../01_Onboarding/System_Activation.en.md)
+-   [SOC Infrastructure Setup](../10_Training_Onboarding/System_Activation.en.md)
 
 ## References
 -   [NIST SP 800-53 (Security/Privacy Controls)](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final)
@@ -1867,7 +1867,7 @@ graph TD
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [โปรโตคอลการจัดการข้อมูล (TLP)](../06_Operations_Management/Data_Handling_Protocol.th.md)
 -   [ขั้นตอนการ Deploy](Deployment_Procedures.th.md)
--   [การติดตั้ง SOC](../01_Onboarding/System_Activation.th.md)
+-   [การติดตั้ง SOC](../10_Training_Onboarding/System_Activation.th.md)
 
 ## References
 -   [NIST SP 800-53 (Security/Privacy Controls)](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final)
@@ -1942,7 +1942,7 @@ sequenceDiagram
 ## Related Documents
 -   [Change Request Template](../templates/change_request_rfc.en.md)
 -   [Data Governance & Retention](Database_Management.en.md)
--   [SOC Infrastructure Setup](../01_Onboarding/System_Activation.en.md)
+-   [SOC Infrastructure Setup](../10_Training_Onboarding/System_Activation.en.md)
 
 ## References
 -   [ITIL Change Management](https://www.axelos.com/best-practice-solutions/itil)
@@ -2017,7 +2017,7 @@ sequenceDiagram
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [แบบฟอร์ม Change Request](../templates/change_request_rfc.th.md)
 -   [ธรรมาภิบาลข้อมูล](Database_Management.th.md)
--   [การติดตั้ง SOC](../01_Onboarding/System_Activation.th.md)
+-   [การติดตั้ง SOC](../10_Training_Onboarding/System_Activation.th.md)
 
 ## References
 -   [ITIL Change Management](https://www.axelos.com/best-practice-solutions/itil)
@@ -2026,7 +2026,7 @@ sequenceDiagram
 
 ---
 
-## File: 01_Onboarding/System_Activation.en.md
+## File: 10_Training_Onboarding/System_Activation.en.md
 
 # Standard SOC Infrastructure Setup
 
@@ -2083,7 +2083,7 @@ A fully functional SOC requires the following core components:
 -   **Jump Host**: Use a secure Jump Host or VPN for administrative access to SOC infrastructure.
 
 ## Related Documents
--   [Analyst Onboarding Path](../09_Training_Onboarding/Analyst_Onboarding_Path.en.md)
+-   [Analyst Onboarding Path](../10_Training_Onboarding/Analyst_Onboarding_Path.en.md)
 -   [Data Governance & Retention](../02_Platform_Operations/Database_Management.en.md)
 -   [Deployment Procedures](../02_Platform_Operations/Deployment_Procedures.en.md)
 
@@ -2094,7 +2094,7 @@ A fully functional SOC requires the following core components:
 
 ---
 
-## File: 01_Onboarding/System_Activation.th.md
+## File: 10_Training_Onboarding/System_Activation.th.md
 
 # การติดตั้งโครงสร้างพื้นฐาน SOC มาตรฐาน (Standard SOC Infrastructure Setup)
 
@@ -2151,7 +2151,7 @@ SOC ที่สมบูรณ์จำเป็นต้องมีองค�
 -   **Jump Host**: ใช้ Jump Host หรือ VPN ที่ปลอดภัยสำหรับการเข้าถึงระดับผู้ดูแลระบบ
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
--   [หลักสูตรฝึกอบรม Analyst](../09_Training_Onboarding/Analyst_Onboarding_Path.th.md)
+-   [หลักสูตรฝึกอบรม Analyst](../10_Training_Onboarding/Analyst_Onboarding_Path.th.md)
 -   [ธรรมาภิบาลข้อมูล](../02_Platform_Operations/Database_Management.th.md)
 -   [ขั้นตอนการ Deploy](../02_Platform_Operations/Deployment_Procedures.th.md)
 
@@ -2162,7 +2162,7 @@ SOC ที่สมบูรณ์จำเป็นต้องมีองค�
 
 ---
 
-## File: 07_Detection_Rules/README.md
+## File: 08_Detection_Engineering/sigma_rules/README.md
 
 # Detection Rules Index (Sigma)
 
@@ -2278,7 +2278,7 @@ In addition to Sigma rules, this directory contains **10 YARA rules** for file-b
 
 ---
 
-## File: 07_Detection_Rules/README.th.md
+## File: 08_Detection_Engineering/sigma_rules/README.th.md
 
 # ดัชนี Detection Rules (Sigma) — ภาษาไทย
 
@@ -2376,7 +2376,7 @@ In addition to Sigma rules, this directory contains **10 YARA rules** for file-b
 
 ---
 
-## File: 07_Detection_Rules/yara/README.md
+## File: 08_Detection_Engineering/sigma_rules/yara/README.md
 
 # YARA Detection Rules
 
@@ -2658,7 +2658,7 @@ Ready for Independent Work: □ Yes □ No
 - [Budget & Staffing](Budget_Staffing.en.md)
 - [Tier 1 Runbook](../05_Incident_Response/Tier1_Runbook.en.md)
 - [Interview Guide](../05_Incident_Response/Interview_Guide.en.md)
-- [Analyst Onboarding](../09_Training_Onboarding/Analyst_Onboarding_Path.en.md)
+- [Analyst Onboarding](../10_Training_Onboarding/Analyst_Onboarding_Path.en.md)
 
 
 ---
@@ -3616,7 +3616,7 @@ After setup, verify everything works:
 - [SOC Building Roadmap](SOC_Building_Roadmap.en.md)
 - [Technology Stack Guide](Technology_Stack.en.md)
 - [Log Source Onboarding](../06_Operations_Management/Log_Source_Onboarding.en.md)
-- [Detection Rules Index](../07_Detection_Rules/README.md)
+- [Detection Rules Index](../08_Detection_Engineering/README.en.md)
 
 
 ---
@@ -4042,7 +4042,7 @@ Track these 5 metrics from day 1 (see [SOC Metrics](../06_Operations_Management/
 | **SOAR Automation** | Month 12+ | Automate repetitive tasks (enrichment, blocking) |
 | **Purple Teaming** | Month 15+ | Test your detections with [Purple Team Guide](../05_Incident_Response/Purple_Team_Exercises.en.md) |
 | **Threat Intelligence** | Month 12+ | Feed integration with [TI Guide](../06_Operations_Management/TI_Feeds_Integration.en.md) |
-| **Compliance Audit** | Month 18+ | Use [Compliance Mapping](../10_Compliance/Compliance_Mapping.en.md) |
+| **Compliance Audit** | Month 18+ | Use [Compliance Mapping](../07_Compliance_Privacy/Compliance_Mapping.en.md) |
 
 ### 4.2 SOC Maturity Levels
 
@@ -4191,7 +4191,7 @@ If you're starting from zero, read these documents in this order:
 | 3 | [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md) | P1/P2/P3/P4 |
 | 4 | [Tier 1 Runbook](../05_Incident_Response/Tier1_Runbook.en.md) | Daily operations |
 | 5 | [SOC Team Structure](../06_Operations_Management/SOC_Team_Structure.en.md) | Roles & shifts |
-| 6 | [Detection Rules Index](../07_Detection_Rules/README.md) | What rules to deploy |
+| 6 | [Detection Rules Index](../08_Detection_Engineering/README.en.md) | What rules to deploy |
 | 7 | [Log Source Onboarding](../06_Operations_Management/Log_Source_Onboarding.en.md) | How to add logs |
 | 8 | [PB-01 Phishing](../05_Incident_Response/Playbooks/Phishing.en.md) | Your first playbook |
 | 9 | [SOC Metrics](../06_Operations_Management/SOC_Metrics.en.md) | Measuring success |
@@ -4204,7 +4204,7 @@ If you're starting from zero, read these documents in this order:
 - [SOC Team Structure](../06_Operations_Management/SOC_Team_Structure.en.md)
 - [SOC Maturity Scorer](../tools/soc_maturity_scorer.html)
 - [MITRE ATT&CK Heatmap](../tools/mitre_attack_heatmap.html)
-- [Compliance Mapping](../10_Compliance/Compliance_Mapping.en.md)
+- [Compliance Mapping](../07_Compliance_Privacy/Compliance_Mapping.en.md)
 - [All 30 Playbooks](../05_Incident_Response/Playbooks/)
 
 
@@ -4316,7 +4316,7 @@ If you're starting from zero, read these documents in this order:
 
 - Threat Hunting, SOAR Automation, Purple Teaming
 - สอบ SOC Maturity — ใช้ [เครื่องมือวัดคะแนน](../tools/soc_maturity_scorer.html)
-- Compliance audit — ใช้ [Compliance Mapping](../10_Compliance/Compliance_Mapping.th.md)
+- Compliance audit — ใช้ [Compliance Mapping](../07_Compliance_Privacy/Compliance_Mapping.th.md)
 
 ---
 
@@ -4961,7 +4961,7 @@ Score range: 10-50 → Start with highest scoring use cases
 ## Related Documents
 
 - [SOC Building Roadmap](SOC_Building_Roadmap.en.md)
-- [Detection Rules Index](../07_Detection_Rules/README.md)
+- [Detection Rules Index](../08_Detection_Engineering/README.en.md)
 - [Log Source Onboarding](../06_Operations_Management/Log_Source_Onboarding.en.md)
 - [MITRE ATT&CK Heatmap](../tools/mitre_attack_heatmap.html)
 
@@ -5077,13 +5077,13 @@ Score range: 10-50 → Start with highest scoring use cases
 ## เอกสารที่เกี่ยวข้อง
 
 - [แผนงานสร้าง SOC](SOC_Building_Roadmap.th.md)
-- [ดัชนี Detection Rules](../07_Detection_Rules/README.th.md)
+- [ดัชนี Detection Rules](../08_Detection_Engineering/README.th.md)
 - [แผนที่ MITRE ATT&CK](../tools/mitre_attack_heatmap.html)
 
 
 ---
 
-## File: 10_File_Signatures/README.md
+## File: 08_Detection_Engineering/file_signatures/README.md
 
 # YARA Rules (File Signatures)
 
@@ -5097,7 +5097,7 @@ This directory contains YARA rules for detecting malicious files. These rules ca
 
 ## Usage
 ```bash
-yara -r 10_File_Signatures/ /path/to/scan
+yara -r 08_Detection_Engineering/file_signatures/ /path/to/scan
 ```
 
 
@@ -7941,7 +7941,7 @@ After deployment, monitor for 7 days:
 ## Related Documents
 
 - [Change Management SOP](Change_Management.en.md)
-- [Detection Rules Index](../07_Detection_Rules/README.md)
+- [Detection Rules Index](../08_Detection_Engineering/README.en.md)
 - [Use Case Prioritization](../01_SOC_Fundamentals/Use_Case_Prioritization.en.md)
 
 
@@ -8021,7 +8021,7 @@ python tools/sigma_validator.py path/to/rule.yml
 ## เอกสารที่เกี่ยวข้อง
 
 - [SOP จัดการเปลี่ยนแปลง](Change_Management.th.md)
-- [ดัชนี Detection Rules](../07_Detection_Rules/README.md)
+- [ดัชนี Detection Rules](../08_Detection_Engineering/README.en.md)
 
 
 ---
@@ -9267,7 +9267,7 @@ Storage (GB/day) = Daily Events × Avg Event Size (bytes) / 1,073,741,824
 -   [Detection Rule Testing SOP](../06_Operations_Management/Detection_Rule_Testing.en.md)
 -   [TI Feeds Integration](../06_Operations_Management/TI_Feeds_Integration.en.md)
 -   [SOC Metrics & KPIs](../06_Operations_Management/SOC_Metrics.en.md)
--   [Compliance Mapping](../10_Compliance/Compliance_Mapping.en.md)
+-   [Compliance Mapping](../07_Compliance_Privacy/Compliance_Mapping.en.md)
 -   [Infrastructure Setup](../01_SOC_Fundamentals/Infrastructure_Setup.en.md)
 
 
@@ -9458,7 +9458,7 @@ Storage 90 วัน = Storage/วัน × 90
 -   [Detection Rule Testing SOP](Detection_Rule_Testing.en.md)
 -   [TI Feeds Integration](TI_Feeds_Integration.en.md)
 -   [SOC Metrics & KPIs](SOC_Metrics.en.md)
--   [Compliance Mapping](../10_Compliance/Compliance_Mapping.en.md)
+-   [Compliance Mapping](../07_Compliance_Privacy/Compliance_Mapping.en.md)
 -   [Infrastructure Setup](../01_SOC_Fundamentals/Infrastructure_Setup.en.md)
 
 
@@ -9721,7 +9721,7 @@ After validation, create detection rules:
 
 ## Related Documents
 
-- [Detection Rules Index](../07_Detection_Rules/README.md)
+- [Detection Rules Index](../08_Detection_Engineering/README.en.md)
 - [Sigma Rule Validator](../tools/sigma_validator.py)
 - [SOC Metrics & KPIs](SOC_Metrics.en.md)
 
@@ -9832,7 +9832,7 @@ O365: Unified Audit Log → Streaming API
 
 ## เอกสารที่เกี่ยวข้อง
 
-- [ดัชนี Detection Rules](../07_Detection_Rules/README.th.md)
+- [ดัชนี Detection Rules](../08_Detection_Engineering/README.th.md)
 - [Sigma Validator](../tools/sigma_validator.py)
 
 
@@ -11872,7 +11872,7 @@ radar-beta
 -   [KPI Dashboard Template](KPI_Dashboard_Template.en.md) — Monthly reporting
 -   [SOC Automation Catalog](SOC_Automation_Catalog.en.md) — Automation maturity
 -   [Log Source Matrix](Log_Source_Matrix.en.md) — Data source coverage
--   [Compliance Mapping](../10_Compliance/Compliance_Mapping.en.md) — Framework compliance
+-   [Compliance Mapping](../07_Compliance_Privacy/Compliance_Mapping.en.md) — Framework compliance
 -   [Third-Party Risk](Third_Party_Risk.en.md) — Vendor risk management
 -   [Threat Landscape Report](Threat_Landscape_Report.en.md) — Threat awareness
 
@@ -12043,7 +12043,7 @@ radar-beta
 -   [KPI Dashboard Template](KPI_Dashboard_Template.en.md) — รายงานรายเดือน
 -   [SOC Automation Catalog](SOC_Automation_Catalog.en.md) — วุฒิภาวะ automation
 -   [Log Source Matrix](Log_Source_Matrix.en.md) — แหล่งข้อมูล
--   [Compliance Mapping](../10_Compliance/Compliance_Mapping.en.md) — การ comply กับ framework
+-   [Compliance Mapping](../07_Compliance_Privacy/Compliance_Mapping.en.md) — การ comply กับ framework
 -   [Third-Party Risk](Third_Party_Risk.en.md) — ความเสี่ยง vendor
 
 
@@ -12293,8 +12293,8 @@ graph LR
 ## Related Documents
 -   [Shift Handoff Standard](Shift_Handoff.en.md)
 -   [SOC Metrics & KPIs](SOC_Metrics.en.md)
--   [Analyst Onboarding Path](../09_Training_Onboarding/Analyst_Onboarding_Path.en.md)
--   [Training Checklist](../09_Training_Onboarding/Training_Checklist.en.md)
+-   [Analyst Onboarding Path](../10_Training_Onboarding/Analyst_Onboarding_Path.en.md)
+-   [Training Checklist](../10_Training_Onboarding/Training_Checklist.en.md)
 -   [SOC Assessment Checklist](SOC_Assessment_Checklist.en.md)
 
 ## References
@@ -12423,8 +12423,8 @@ graph LR
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [มาตรฐานการส่งมอบกะ](Shift_Handoff.th.md)
 -   [ตัวชี้วัด SOC](SOC_Metrics.th.md)
--   [หลักสูตรฝึกอบรม Analyst](../09_Training_Onboarding/Analyst_Onboarding_Path.th.md)
--   [แบบฟอร์มตรวจสอบการฝึกอบรม](../09_Training_Onboarding/Training_Checklist.th.md)
+-   [หลักสูตรฝึกอบรม Analyst](../10_Training_Onboarding/Analyst_Onboarding_Path.th.md)
+-   [แบบฟอร์มตรวจสอบการฝึกอบรม](../10_Training_Onboarding/Training_Checklist.th.md)
 -   [แบบประเมิน SOC](SOC_Assessment_Checklist.th.md)
 
 ## References
@@ -12839,7 +12839,7 @@ CommonSecurityLog
 
 ## Related Documents
 
-- [Detection Rules (Sigma)](../07_Detection_Rules/README.md)
+- [Detection Rules (Sigma)](../08_Detection_Engineering/README.en.md)
 - [SOAR Playbook Templates](../05_Incident_Response/SOAR_Playbooks.en.md)
 - [Threat Intelligence Lifecycle](../06_Operations_Management/Threat_Intelligence_Lifecycle.en.md)
 - [IOC Enrichment Sub-Playbook](../05_Incident_Response/SOAR_Playbooks.en.md#6-ioc-enrichment)
@@ -13068,7 +13068,7 @@ CommonSecurityLog
 
 ## เอกสารที่เกี่ยวข้อง
 
-- [Detection Rules (Sigma)](../07_Detection_Rules/README.md)
+- [Detection Rules (Sigma)](../08_Detection_Engineering/README.en.md)
 - [SOAR Playbook Templates](../05_Incident_Response/SOAR_Playbooks.th.md)
 - [วงจร Threat Intelligence](Threat_Intelligence_Lifecycle.th.md)
 
@@ -14838,7 +14838,7 @@ graph TD
 ## Related Documents
 -   [Integration Hub](Integration_Hub.en.md)
 -   [Incident Response Framework](../05_Incident_Response/Framework.en.md)
--   [Detection Rules Index](../07_Detection_Rules/README.md)
+-   [Detection Rules Index](../08_Detection_Engineering/README.en.md)
 
 ## References
 -   [Detection Engineering Weekly](https://detectionengineering.net/)
@@ -14894,7 +14894,7 @@ graph TD
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [ศูนย์รวมการเชื่อมต่อ](Integration_Hub.th.md)
 -   [กรอบ Incident Response](../05_Incident_Response/Framework.th.md)
--   [ดัชนี Detection Rules](../07_Detection_Rules/README.th.md)
+-   [ดัชนี Detection Rules](../08_Detection_Engineering/README.th.md)
 
 ## References
 -   [Detection Engineering Weekly](https://detectionengineering.net/)
@@ -15017,7 +15017,7 @@ graph LR
 
 ---
 
-## File: 01_SOC_Overview/SOC_Onboarding.en.md
+## File: 10_Training_Onboarding/SOC_Onboarding.en.md
 
 # SOC Analyst Onboarding Checklist
 
@@ -15282,7 +15282,7 @@ gantt
 
 ---
 
-## File: 01_SOC_Overview/SOC_Onboarding.th.md
+## File: 10_Training_Onboarding/SOC_Onboarding.th.md
 
 # SOC Analyst Onboarding Checklist / Checklist การเตรียมความพร้อม SOC Analyst
 
@@ -16576,7 +16576,7 @@ graph TD
 -   [Severity Matrix](Severity_Matrix.en.md) — Full severity definitions and examples
 -   [Communication Templates](Communication_Templates.en.md) — Pre-written notification templates
 -   [IR Framework](Framework.en.md) — Complete incident response lifecycle
--   [PDPA Incident Response](../10_Compliance/PDPA_Incident_Response.en.md) — Thai data breach notification
+-   [PDPA Incident Response](../07_Compliance_Privacy/PDPA_Incident_Response.en.md) — Thai data breach notification
 -   [SOC Communication SOP](../06_Operations_Management/Communication_SOP.en.md)
 -   [SLA Template](../06_Operations_Management/SLA_Template.en.md)
 
@@ -16774,7 +16774,7 @@ graph TD
 -   [Severity Matrix](Severity_Matrix.en.md) — นิยามระดับความรุนแรงฉบับเต็ม
 -   [Communication Templates](Communication_Templates.en.md) — แม่แบบการแจ้งเตือนสำเร็จรูป
 -   [IR Framework](Framework.en.md) — วงจรชีวิตการตอบสนองต่อเหตุการณ์
--   [PDPA Incident Response](../10_Compliance/PDPA_Incident_Response.en.md) — การแจ้ง data breach ตาม PDPA
+-   [PDPA Incident Response](../07_Compliance_Privacy/PDPA_Incident_Response.en.md) — การแจ้ง data breach ตาม PDPA
 -   [SOC Communication SOP](../06_Operations_Management/Communication_SOP.en.md)
 -   [SLA Template](../06_Operations_Management/SLA_Template.en.md)
 
@@ -19384,7 +19384,7 @@ done
 ## Related Documents
 
 - [Tabletop Exercises](Tabletop_Exercises.en.md)
-- [Detection Rules Index](../07_Detection_Rules/README.md)
+- [Detection Rules Index](../08_Detection_Engineering/README.en.md)
 - [MITRE ATT&CK Heatmap](../tools/mitre_attack_heatmap.html)
 - [Sigma Rule Validator](../tools/sigma_validator.py)
 
@@ -19507,7 +19507,7 @@ Red Team ลงมือ → SOC ควรตรวจพบ → ตรวจว
 ## เอกสารที่เกี่ยวข้อง
 
 - [สถานการณ์จำลอง](Tabletop_Exercises.th.md)
-- [ดัชนี Detection Rules](../07_Detection_Rules/README.th.md)
+- [ดัชนี Detection Rules](../08_Detection_Engineering/README.th.md)
 - [แผนที่ MITRE ATT&CK](../tools/mitre_attack_heatmap.html)
 
 
@@ -19953,7 +19953,7 @@ outputs:
 
 - [IR Playbooks](../05_Incident_Response/Playbooks/)
 - [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md)
-- [Detection Rules](../07_Detection_Rules/README.md)
+- [Detection Rules](../08_Detection_Engineering/README.en.md)
 
 
 ---
@@ -20184,7 +20184,7 @@ outputs: verdict, confidence, enrichment_data
 
 - [IR Playbooks](Playbooks/)
 - [ตารางความรุนแรง](Severity_Matrix.th.md)
-- [Detection Rules](../07_Detection_Rules/README.md)
+- [Detection Rules](../08_Detection_Engineering/README.en.md)
 
 
 ---
@@ -26036,7 +26036,7 @@ graph TD
 
 | Step | Time | Document | What You'll Learn |
 |:---:|:---:|---|---|
-| 4 | 15 min | [Infrastructure Setup](../01_Onboarding/System_Activation.en.md) | What systems you need to deploy |
+| 4 | 15 min | [Infrastructure Setup](../10_Training_Onboarding/System_Activation.en.md) | What systems you need to deploy |
 | 5 | 10 min | [Data Governance](../02_Platform_Operations/Database_Management.en.md) | How to manage log data and retention |
 | 6 | 10 min | [SOC Assessment Checklist](../06_Operations_Management/SOC_Assessment_Checklist.en.md) | Gap analysis for your current state |
 
@@ -26046,7 +26046,7 @@ graph TD
 |:---:|:---:|---|---|
 | 7 | 20 min | [IR Framework](../05_Incident_Response/Framework.en.md) | How to handle incidents end-to-end |
 | 8 | 30 min | **Top 5 Playbooks** (see below) | How to respond to common attacks |
-| 9 | 15 min | [Detection Rules](../07_Detection_Rules/) | Pre-built Sigma rules to deploy |
+| 9 | 15 min | [Detection Rules](../08_Detection_Engineering/sigma_rules/) | Pre-built Sigma rules to deploy |
 | 10 | 10 min | [Integration Hub](../03_User_Guides/Integration_Hub.en.md) | How to connect tools together |
 
 ### 🟢 Week 4 — Operate (Go Live)
@@ -26056,7 +26056,7 @@ graph TD
 | 11 | 10 min | [Shift Handoff](../06_Operations_Management/Shift_Handoff.en.md) | How to run 24/7 operations |
 | 12 | 10 min | [SOC Metrics](../06_Operations_Management/SOC_Metrics.en.md) | MTTD, MTTR, False Positive Rate |
 | 13 | 15 min | [Monthly Report Template](../11_Reporting_Templates/Monthly_SOC_Report.en.md) | Reporting to leadership |
-| 14 | 10 min | [Analyst Onboarding Path](../09_Training_Onboarding/Analyst_Onboarding_Path.en.md) | How to train new hires |
+| 14 | 10 min | [Analyst Onboarding Path](../10_Training_Onboarding/Analyst_Onboarding_Path.en.md) | How to train new hires |
 
 ## Top 5 Playbooks to Start With
 
@@ -26125,7 +26125,7 @@ The absolute minimum you need to start — your "Day 1" checklist:
 - [ ] **1 SIEM deployed** (Wazuh recommended for budget-conscious orgs)
 - [ ] **3 log sources onboarded** (Firewall, Active Directory, Email)
 - [ ] **3 people hired** (2 Tier 1 Analysts + 1 Manager)
-- [ ] **5 detection rules enabled** (from our `07_Detection_Rules/`)
+- [ ] **5 detection rules enabled** (from our `08_Detection_Engineering/sigma_rules/`)
 - [ ] **1 Playbook ready** (start with Phishing)
 - [ ] **1 ticketing system** (TheHive or Jira)
 - [ ] **1 escalation path defined** (Tier 1 → Manager → CISO)
@@ -26137,7 +26137,7 @@ The absolute minimum you need to start — your "Day 1" checklist:
 -   [SOC 101](SOC_101.en.md)
 -   [Glossary of Terms](Glossary.en.md)
 -   [SOC Team Structure](../06_Operations_Management/SOC_Team_Structure.en.md)
--   [Analyst Onboarding Path](../09_Training_Onboarding/Analyst_Onboarding_Path.en.md)
+-   [Analyst Onboarding Path](../10_Training_Onboarding/Analyst_Onboarding_Path.en.md)
 
 ## References
 -   [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)
@@ -26187,7 +26187,7 @@ graph TD
 
 | ขั้นตอน | เวลา | เอกสาร | สิ่งที่จะเรียนรู้ |
 |:---:|:---:|---|---|
-| 4 | 15 นาที | [การติดตั้ง SOC](../01_Onboarding/System_Activation.th.md) | ต้อง Deploy ระบบอะไรบ้าง |
+| 4 | 15 นาที | [การติดตั้ง SOC](../10_Training_Onboarding/System_Activation.th.md) | ต้อง Deploy ระบบอะไรบ้าง |
 | 5 | 10 นาที | [นโยบายข้อมูล](../02_Platform_Operations/Database_Management.th.md) | การจัดการ Log Data และ Retention |
 | 6 | 10 นาที | [แบบประเมิน SOC](../06_Operations_Management/SOC_Assessment_Checklist.th.md) | วิเคราะห์ Gap ของสถานะปัจจุบัน |
 
@@ -26197,7 +26197,7 @@ graph TD
 |:---:|:---:|---|---|
 | 7 | 20 นาที | [กรอบ IR](../05_Incident_Response/Framework.th.md) | วิธีจัดการ Incident ตั้งแต่ต้นจนจบ |
 | 8 | 30 นาที | **Playbook 5 ชุดแรก** (ดูด้านล่าง) | วิธีตอบสนองต่อการโจมตีที่พบบ่อย |
-| 9 | 15 นาที | [Detection Rules](../07_Detection_Rules/) | กฎ Sigma สำเร็จรูปพร้อม Deploy |
+| 9 | 15 นาที | [Detection Rules](../08_Detection_Engineering/sigma_rules/) | กฎ Sigma สำเร็จรูปพร้อม Deploy |
 | 10 | 10 นาที | [Integration Hub](../03_User_Guides/Integration_Hub.th.md) | วิธีเชื่อมต่อเครื่องมือเข้าด้วยกัน |
 
 ### 🟢 สัปดาห์ที่ 4 — เปิดใช้งาน (Go Live)
@@ -26207,7 +26207,7 @@ graph TD
 | 11 | 10 นาที | [มาตรฐานส่งมอบกะ](../06_Operations_Management/Shift_Handoff.th.md) | การทำงาน 24/7 |
 | 12 | 10 นาที | [ตัวชี้วัด SOC](../06_Operations_Management/SOC_Metrics.th.md) | MTTD, MTTR, False Positive Rate |
 | 13 | 15 นาที | [รายงานรายเดือน](../11_Reporting_Templates/Monthly_SOC_Report.th.md) | การรายงานให้ผู้บริหาร |
-| 14 | 10 นาที | [หลักสูตร Analyst](../09_Training_Onboarding/Analyst_Onboarding_Path.th.md) | วิธีฝึก Analyst ใหม่ |
+| 14 | 10 นาที | [หลักสูตร Analyst](../10_Training_Onboarding/Analyst_Onboarding_Path.th.md) | วิธีฝึก Analyst ใหม่ |
 
 ## Playbook 5 ชุดที่ต้องเริ่มก่อน
 
@@ -26276,7 +26276,7 @@ graph TD
 - [ ] **SIEM 1 ตัว** (แนะนำ Wazuh สำหรับองค์กรงบจำกัด)
 - [ ] **Log Source 3 แหล่ง** (Firewall, Active Directory, Email)
 - [ ] **คน 3 คน** (Tier 1 Analyst 2 คน + Manager 1 คน)
-- [ ] **Detection Rules 5 กฎ** (จาก `07_Detection_Rules/`)
+- [ ] **Detection Rules 5 กฎ** (จาก `08_Detection_Engineering/sigma_rules/`)
 - [ ] **Playbook 1 ชุด** (เริ่มจาก Phishing)
 - [ ] **ระบบ Ticketing 1 ตัว** (TheHive หรือ Jira)
 - [ ] **เส้นทาง Escalation 1 เส้น** (Tier 1 → Manager → CISO)
@@ -26288,7 +26288,7 @@ graph TD
 -   [SOC 101](SOC_101.th.md)
 -   [คำศัพท์สำคัญ](Glossary.th.md)
 -   [โครงสร้างทีม SOC](../06_Operations_Management/SOC_Team_Structure.th.md)
--   [หลักสูตร Analyst](../09_Training_Onboarding/Analyst_Onboarding_Path.th.md)
+-   [หลักสูตร Analyst](../10_Training_Onboarding/Analyst_Onboarding_Path.th.md)
 
 ## References
 -   [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)
@@ -26428,12 +26428,12 @@ graph LR
 - [ ] Set up a ticketing system (TheHive or Jira)
 - [ ] Define basic escalation procedures
 
-> 📖 Read: [SOC Infrastructure Setup](../01_Onboarding/System_Activation.en.md)
+> 📖 Read: [SOC Infrastructure Setup](../10_Training_Onboarding/System_Activation.en.md)
 
 ### Phase 2: Detection (Month 3-6) — "Walk"
 **Goal**: Create meaningful alerts that detect real attacks.
 
-- [ ] Implement top 10 detection rules (start with [our Sigma rules](../07_Detection_Rules/))
+- [ ] Implement top 10 detection rules (start with [our Sigma rules](../08_Detection_Engineering/sigma_rules/))
 - [ ] Create your first 5 Playbooks (Phishing, Malware, Brute Force, Account Compromise, Ransomware)
 - [ ] Enable a detection rule for each MITRE ATT&CK tactic
 - [ ] Tune rules to reduce False Positives below 30%
@@ -26491,20 +26491,20 @@ This repository contains everything you need to operate a SOC. Here's the recomm
 |---|---|---|
 | 1 | 📖 You are here | **SOC 101** (this document) |
 | 2 | 👥 Build your team | [SOC Team Structure](../06_Operations_Management/SOC_Team_Structure.en.md) |
-| 3 | 🏗️ Set up infrastructure | [SOC Infrastructure Setup](../01_Onboarding/System_Activation.en.md) |
+| 3 | 🏗️ Set up infrastructure | [SOC Infrastructure Setup](../10_Training_Onboarding/System_Activation.en.md) |
 | 4 | 📋 Learn the IR process | [Incident Response Framework](../05_Incident_Response/Framework.en.md) |
 | 5 | 📕 Study the Playbooks | [PB-01 Phishing](../05_Incident_Response/Playbooks/Phishing.en.md) (start here) |
-| 6 | 🔍 Deploy detection rules | [Detection Rules](../07_Detection_Rules/) |
+| 6 | 🔍 Deploy detection rules | [Detection Rules](../08_Detection_Engineering/sigma_rules/) |
 | 7 | ⏰ Set up shift operations | [Shift Handoff](../06_Operations_Management/Shift_Handoff.en.md) |
 | 8 | 📊 Measure your KPIs | [SOC Metrics](../06_Operations_Management/SOC_Metrics.en.md) |
 | 9 | 🎯 Run simulations | [Simulation Guide](../08_Simulation_Testing/Simulation_Guide.en.md) |
-| 10 | 🎓 Train new analysts | [Analyst Onboarding Path](../09_Training_Onboarding/Analyst_Onboarding_Path.en.md) |
+| 10 | 🎓 Train new analysts | [Analyst Onboarding Path](../10_Training_Onboarding/Analyst_Onboarding_Path.en.md) |
 
 ## Related Documents
 -   [Quickstart Guide](Quickstart_Guide.en.md)
 -   [Glossary of Terms](Glossary.en.md)
 -   [SOC Team Structure](../06_Operations_Management/SOC_Team_Structure.en.md)
--   [SOC Infrastructure Setup](../01_Onboarding/System_Activation.en.md)
+-   [SOC Infrastructure Setup](../10_Training_Onboarding/System_Activation.en.md)
 
 ## References
 -   [NIST Cybersecurity Framework (CSF)](https://www.nist.gov/cyberframework)
@@ -26647,12 +26647,12 @@ graph LR
 - [ ] ตั้งระบบ Ticketing (TheHive หรือ Jira)
 - [ ] กำหนดขั้นตอนการ Escalate เบื้องต้น
 
-> 📖 อ่าน: [การติดตั้ง SOC](../01_Onboarding/System_Activation.th.md)
+> 📖 อ่าน: [การติดตั้ง SOC](../10_Training_Onboarding/System_Activation.th.md)
 
 ### Phase 2: ตรวจจับ (เดือน 3-6) — "เดิน"
 **เป้าหมาย**: สร้างกฎแจ้งเตือนที่ตรวจจับการโจมตีจริง
 
-- [ ] ใช้ 10 Detection Rules แรก (เริ่มจาก [Sigma Rules ของเรา](../07_Detection_Rules/))
+- [ ] ใช้ 10 Detection Rules แรก (เริ่มจาก [Sigma Rules ของเรา](../08_Detection_Engineering/sigma_rules/))
 - [ ] สร้าง 5 Playbook แรก (Phishing, Malware, Brute Force, Account Compromise, Ransomware)
 - [ ] เปิดใช้กฎตรวจจับสำหรับแต่ละ MITRE ATT&CK Tactic
 - [ ] ปรับแต่งกฎให้ลด False Positive ต่ำกว่า 30%
@@ -26708,20 +26708,20 @@ graph LR
 |---|---|---|
 | 1 | 📖 คุณอยู่ตรงนี้ | **SOC 101** (เอกสารนี้) |
 | 2 | 👥 สร้างทีม | [โครงสร้างทีม SOC](../06_Operations_Management/SOC_Team_Structure.th.md) |
-| 3 | 🏗️ ติดตั้งโครงสร้างพื้นฐาน | [การติดตั้ง SOC](../01_Onboarding/System_Activation.th.md) |
+| 3 | 🏗️ ติดตั้งโครงสร้างพื้นฐาน | [การติดตั้ง SOC](../10_Training_Onboarding/System_Activation.th.md) |
 | 4 | 📋 เรียนรู้กระบวนการ IR | [กรอบ Incident Response](../05_Incident_Response/Framework.th.md) |
 | 5 | 📕 ศึกษา Playbook | [PB-01 Phishing](../05_Incident_Response/Playbooks/Phishing.th.md) (เริ่มที่นี่) |
-| 6 | 🔍 Deploy Detection Rules | [Detection Rules](../07_Detection_Rules/) |
+| 6 | 🔍 Deploy Detection Rules | [Detection Rules](../08_Detection_Engineering/sigma_rules/) |
 | 7 | ⏰ จัดระบบกะ | [มาตรฐานส่งมอบกะ](../06_Operations_Management/Shift_Handoff.th.md) |
 | 8 | 📊 วัด KPI | [ตัวชี้วัด SOC](../06_Operations_Management/SOC_Metrics.th.md) |
 | 9 | 🎯 จำลองการโจมตี | [Simulation Guide](../08_Simulation_Testing/Simulation_Guide.en.md) |
-| 10 | 🎓 ฝึกอบรม Analyst ใหม่ | [หลักสูตร Analyst](../09_Training_Onboarding/Analyst_Onboarding_Path.th.md) |
+| 10 | 🎓 ฝึกอบรม Analyst ใหม่ | [หลักสูตร Analyst](../10_Training_Onboarding/Analyst_Onboarding_Path.th.md) |
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [คู่มือเริ่มต้นด่วน](Quickstart_Guide.th.md)
 -   [คำศัพท์สำคัญ](Glossary.th.md)
 -   [โครงสร้างทีม SOC](../06_Operations_Management/SOC_Team_Structure.th.md)
--   [การติดตั้ง SOC](../01_Onboarding/System_Activation.th.md)
+-   [การติดตั้ง SOC](../10_Training_Onboarding/System_Activation.th.md)
 
 ## References
 -   [NIST Cybersecurity Framework (CSF)](https://www.nist.gov/cyberframework)
@@ -26795,7 +26795,7 @@ graph TD
 
 ## Related Documents
 -   [Tool Integration Strategy](../03_User_Guides/Integration_Hub.en.md)
--   [SOC Infrastructure Setup](../01_Onboarding/System_Activation.en.md)
+-   [SOC Infrastructure Setup](../10_Training_Onboarding/System_Activation.en.md)
 -   [Deployment Procedures](../02_Platform_Operations/Deployment_Procedures.en.md)
 
 ## References
@@ -26866,7 +26866,7 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กลยุทธ์การเชื่อมต่อเครื่องมือ](../03_User_Guides/Integration_Hub.th.md)
--   [การติดตั้ง SOC](../01_Onboarding/System_Activation.th.md)
+-   [การติดตั้ง SOC](../10_Training_Onboarding/System_Activation.th.md)
 -   [ขั้นตอนการ Deploy](../02_Platform_Operations/Deployment_Procedures.th.md)
 
 ## References
@@ -27226,7 +27226,7 @@ git push origin vX.Y.Z
 
 ---
 
-## File: 10_Compliance/Compliance_Gap_Analysis.en.md
+## File: 07_Compliance_Privacy/Compliance_Gap_Analysis.en.md
 
 # Compliance Gap Analysis SOP
 
@@ -27447,7 +27447,7 @@ flowchart TD
 
 ---
 
-## File: 10_Compliance/Compliance_Gap_Analysis.th.md
+## File: 07_Compliance_Privacy/Compliance_Gap_Analysis.th.md
 
 # Compliance Gap Analysis SOP / SOP การวิเคราะห์ช่องว่างด้าน Compliance
 
@@ -27568,7 +27568,7 @@ flowchart TD
 
 ---
 
-## File: 10_Compliance/Compliance_Mapping.en.md
+## File: 07_Compliance_Privacy/Compliance_Mapping.en.md
 
 # Compliance Mapping — SOC Playbooks × Frameworks
 
@@ -27712,7 +27712,7 @@ Use this mapping for **audit preparation**, **gap analysis**, and **demonstratin
 → [IR Framework](../05_Incident_Response/Framework.en.md) + [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md) + any Playbook (PB-01 to PB-30)
 
 > "Show me your monitoring and detection capabilities."  
-→ [Detection Rules Index](../07_Detection_Rules/README.md) (33 Sigma rules) + [MITRE ATT&CK Heatmap](../tools/mitre_attack_heatmap.html)
+→ [Detection Rules Index](../08_Detection_Engineering/README.en.md) (33 Sigma rules) + [MITRE ATT&CK Heatmap](../tools/mitre_attack_heatmap.html)
 
 > "Show me evidence of incident learning."  
 → [Post-Incident Review section](../05_Incident_Response/Framework.en.md) in all playbooks
@@ -27726,7 +27726,7 @@ Use this mapping for **audit preparation**, **gap analysis**, and **demonstratin
 → [IR Framework](../05_Incident_Response/Framework.en.md) + [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md)
 
 > "Requirement 11.5.1 — Intrusion detection?"  
-→ [33 Sigma Detection Rules](../07_Detection_Rules/README.md) with MITRE ATT&CK mapping
+→ [33 Sigma Detection Rules](../08_Detection_Engineering/README.en.md) with MITRE ATT&CK mapping
 
 ---
 
@@ -27734,7 +27734,7 @@ Use this mapping for **audit preparation**, **gap analysis**, and **demonstratin
 
 - [IR Framework](../05_Incident_Response/Framework.en.md)
 - [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md)
-- [Detection Rules Index](../07_Detection_Rules/README.md)
+- [Detection Rules Index](../08_Detection_Engineering/README.en.md)
 - [MITRE ATT&CK Heatmap](../tools/mitre_attack_heatmap.html)
 - [SOC Maturity Scorer](../tools/soc_maturity_scorer.html)
 
@@ -27748,7 +27748,7 @@ Use this mapping for **audit preparation**, **gap analysis**, and **demonstratin
 
 ---
 
-## File: 10_Compliance/Compliance_Mapping.th.md
+## File: 07_Compliance_Privacy/Compliance_Mapping.th.md
 
 # Compliance Mapping — SOC Playbooks × Frameworks (ภาษาไทย)
 
@@ -27860,7 +27860,7 @@ Use this mapping for **audit preparation**, **gap analysis**, and **demonstratin
 → [IR Framework](../05_Incident_Response/Framework.en.md) + [ตารางความรุนแรง](../05_Incident_Response/Severity_Matrix.th.md) + Playbook ใดก็ได้ (PB-01 ถึง PB-30)
 
 > "แสดงความสามารถในการเฝ้าระวังและตรวจจับ"  
-→ [ดัชนี Detection Rules](../07_Detection_Rules/README.th.md) (33 กฎ Sigma) + [แผนที่ Coverage MITRE ATT&CK](../tools/mitre_attack_heatmap.html)
+→ [ดัชนี Detection Rules](../08_Detection_Engineering/README.th.md) (33 กฎ Sigma) + [แผนที่ Coverage MITRE ATT&CK](../tools/mitre_attack_heatmap.html)
 
 ### QSA ตรวจ PCI DSS ถาม:
 
@@ -27876,7 +27876,7 @@ Use this mapping for **audit preparation**, **gap analysis**, and **demonstratin
 
 - [IR Framework](../05_Incident_Response/Framework.en.md)
 - [ตารางความรุนแรง](../05_Incident_Response/Severity_Matrix.th.md)
-- [ดัชนี Detection Rules](../07_Detection_Rules/README.th.md)
+- [ดัชนี Detection Rules](../08_Detection_Engineering/README.th.md)
 - [แผนที่ Coverage MITRE ATT&CK](../tools/mitre_attack_heatmap.html)
 - [เครื่องมือวัดคะแนน SOC Maturity](../tools/soc_maturity_scorer.html)
 
@@ -27890,7 +27890,7 @@ Use this mapping for **audit preparation**, **gap analysis**, and **demonstratin
 
 ---
 
-## File: 10_Compliance/PDPA_Incident_Response.en.md
+## File: 07_Compliance_Privacy/PDPA_Incident_Response.en.md
 
 # PDPA Incident Response Guide
 
@@ -28091,12 +28091,12 @@ Maintain a register of all data breaches (required by PDPA):
 - [Evidence Collection](../05_Incident_Response/Evidence_Collection.en.md)
 - [Communication Templates](../05_Incident_Response/Communication_Templates.en.md)
 - [Lessons Learned Template](../05_Incident_Response/Lessons_Learned_Template.en.md)
-- [Compliance Mapping](../10_Compliance/Compliance_Mapping.en.md)
+- [Compliance Mapping](../07_Compliance_Privacy/Compliance_Mapping.en.md)
 
 
 ---
 
-## File: 10_Compliance/PDPA_Incident_Response.th.md
+## File: 07_Compliance_Privacy/PDPA_Incident_Response.th.md
 
 # คู่มือตอบเหตุข้อมูลรั่วตาม PDPA
 
@@ -28247,7 +28247,7 @@ Maintain a register of all data breaches (required by PDPA):
 
 ---
 
-## File: 09_Training_Onboarding/Analyst_Onboarding_Path.en.md
+## File: 10_Training_Onboarding/Analyst_Onboarding_Path.en.md
 
 # SOC Analyst Onboarding Curriculum (4-Week Path)
 
@@ -28278,7 +28278,7 @@ gantt
 **Goal**: Understand *where* we work and *what* we protect.
 
 -   **Day 1: Orientation & Access**
-    -   Read: [System Activation](../01_Onboarding/System_Activation.en.md) - Understand our generic stack (SIEM, EDR, SOAR).
+    -   Read: [System Activation](../10_Training_Onboarding/System_Activation.en.md) - Understand our generic stack (SIEM, EDR, SOAR).
     -   Task: Verify access to all dashboards.
 -   **Day 2: Data & Privacy**
     -   Read: [Data Governance](../02_Platform_Operations/Database_Management.en.md) - Learn data classification (Restricted vs Public).
@@ -28306,7 +28306,7 @@ gantt
 -   **Day 1: The Lifecycle**
     -   Read: [Content Management](../03_User_Guides/Content_Management.en.md) - How we create rules.
 -   **Day 2: Sigma Rules**
-    -   Explore: `07_Detection_Rules/` - Review the YAML files.
+    -   Explore: `08_Detection_Engineering/sigma_rules/` - Review the YAML files.
     -   Task: Compare `proc_office_spawn_powershell.yml` with **PB-01**.
 
 ## Week 4: Simulation & Validation (Purple Team)
@@ -28332,7 +28332,7 @@ gantt
 
 ---
 
-## File: 09_Training_Onboarding/Analyst_Onboarding_Path.th.md
+## File: 10_Training_Onboarding/Analyst_Onboarding_Path.th.md
 
 # หลักสูตรการฝึกอบรมเจ้าหน้าที่ SOC (หลักสูตร 4 สัปดาห์)
 
@@ -28363,7 +28363,7 @@ gantt
 **เป้าหมาย**: เข้าใจว่าเราทำงาน *ที่ไหน* และปกป้อง *อะไร*
 
 -   **วันที่ 1: การปฐมนิเทศและการเข้าถึงระบบ**
-    -   อ่าน: [System Activation](../01_Onboarding/System_Activation.th.md) - ทำความเข้าใจ Stack ของเรา (SIEM, EDR, SOAR)
+    -   อ่าน: [System Activation](../10_Training_Onboarding/System_Activation.th.md) - ทำความเข้าใจ Stack ของเรา (SIEM, EDR, SOAR)
     -   งาน: ตรวจสอบสิทธิ์การเข้าถึง Dashboard ทั้งหมด
 -   **วันที่ 2: ข้อมูลและความเป็นส่วนตัว**
     -   อ่าน: [Data Governance](../02_Platform_Operations/Database_Management.th.md) - เรียนรู้ประเภทข้อมูล (Restricted vs Public)
@@ -28391,7 +28391,7 @@ gantt
 -   **วันที่ 1: วงจรชีวิต**
     -   อ่าน: [Content Management](../03_User_Guides/Content_Management.th.md) - วิธีสร้างกฎ
 -   **วันที่ 2: Sigma Rules**
-    -   สำรวจ: `07_Detection_Rules/` - ดูไฟล์ YAML
+    -   สำรวจ: `08_Detection_Engineering/sigma_rules/` - ดูไฟล์ YAML
     -   งาน: เปรียบเทียบ `proc_office_spawn_powershell.yml` กับ **PB-01**
 
 ## สัปดาห์ที่ 4: การจำลองและตรวจสอบ (Purple Team)
@@ -28417,7 +28417,7 @@ gantt
 
 ---
 
-## File: 09_Training_Onboarding/Training_Checklist.en.md
+## File: 10_Training_Onboarding/Training_Checklist.en.md
 
 # Analyst Training Checklist
 
@@ -28461,7 +28461,7 @@ gantt
 
 ---
 
-## File: 09_Training_Onboarding/Training_Checklist.th.md
+## File: 10_Training_Onboarding/Training_Checklist.th.md
 
 # แบบฟอร์มตรวจสอบการฝึกอบรม (Training Checklist)
 

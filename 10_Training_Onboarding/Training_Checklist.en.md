@@ -19,7 +19,7 @@
 | 1.1 | Receive laptop, badge, credentials | IT Ops | ☐ |
 | 1.2 | Complete security clearance / NDA | HR + Legal | ☐ |
 | 1.3 | Access provisioned: SIEM, EDR, SOAR, Ticketing | IAM Team | ☐ |
-| 1.4 | Read: [System Activation](../01_Onboarding/System_Activation.en.md) | Self-study | ☐ |
+| 1.4 | Read: [System Activation](../10_Training_Onboarding/System_Activation.en.md) | Self-study | ☐ |
 | 1.5 | Read: [Data Governance Policy](../07_Compliance_Privacy/Data_Governance_Policy.en.md) | Self-study | ☐ |
 | 1.6 | Read: [Change Management (RFC)](../06_Operations_Management/Change_Management.en.md) | Self-study | ☐ |
 | 1.7 | Tour: SOC facility, war room, escalation phones | Mentor | ☐ |

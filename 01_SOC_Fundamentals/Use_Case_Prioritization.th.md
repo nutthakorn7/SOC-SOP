@@ -205,5 +205,5 @@ flowchart LR
 ## เอกสารที่เกี่ยวข้อง
 
 - [แผนงานสร้าง SOC](SOC_Building_Roadmap.th.md)
-- [ดัชนี Detection Rules](../07_Detection_Rules/README.th.md)
+- [ดัชนี Detection Rules](../08_Detection_Engineering/README.th.md)
 - [แผนที่ MITRE ATT&CK](../tools/mitre_attack_heatmap.html)

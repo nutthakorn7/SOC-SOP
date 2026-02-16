@@ -112,8 +112,8 @@ graph LR
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [มาตรฐานการส่งมอบกะ](Shift_Handoff.th.md)
 -   [ตัวชี้วัด SOC](SOC_Metrics.th.md)
--   [หลักสูตรฝึกอบรม Analyst](../09_Training_Onboarding/Analyst_Onboarding_Path.th.md)
--   [แบบฟอร์มตรวจสอบการฝึกอบรม](../09_Training_Onboarding/Training_Checklist.th.md)
+-   [หลักสูตรฝึกอบรม Analyst](../10_Training_Onboarding/Analyst_Onboarding_Path.th.md)
+-   [แบบฟอร์มตรวจสอบการฝึกอบรม](../10_Training_Onboarding/Training_Checklist.th.md)
 -   [แบบประเมิน SOC](SOC_Assessment_Checklist.th.md)
 
 ## References

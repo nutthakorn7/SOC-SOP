@@ -274,6 +274,6 @@ done
 ## Related Documents
 
 - [Tabletop Exercises](Tabletop_Exercises.en.md)
-- [Detection Rules Index](../07_Detection_Rules/README.md)
+- [Detection Rules Index](../08_Detection_Engineering/README.en.md)
 - [MITRE ATT&CK Heatmap](../tools/mitre_attack_heatmap.html)
 - [Sigma Rule Validator](../tools/sigma_validator.py)

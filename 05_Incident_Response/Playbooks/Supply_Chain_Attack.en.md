@@ -214,7 +214,7 @@ sequenceDiagram
 
 | Rule | File |
 |:---|:---|
-| Suspicious Dependency Activity | [cloud_supply_chain_compromise.yml](../../07_Detection_Rules/cloud_supply_chain_compromise.yml) |
+| Suspicious Dependency Activity | [cloud_supply_chain_compromise.yml](../../08_Detection_Engineering/sigma_rules/cloud_supply_chain_compromise.yml) |
 
 ## Related Documents
 

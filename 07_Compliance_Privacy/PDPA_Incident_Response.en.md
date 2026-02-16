@@ -197,4 +197,4 @@ Maintain a register of all data breaches (required by PDPA):
 - [Evidence Collection](../05_Incident_Response/Evidence_Collection.en.md)
 - [Communication Templates](../05_Incident_Response/Communication_Templates.en.md)
 - [Lessons Learned Template](../05_Incident_Response/Lessons_Learned_Template.en.md)
-- [Compliance Mapping](../10_Compliance/Compliance_Mapping.en.md)
+- [Compliance Mapping](../07_Compliance_Privacy/Compliance_Mapping.en.md)

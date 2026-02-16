@@ -209,8 +209,8 @@ graph TD
 
 | Rule | File |
 |:---|:---|
-| API Authentication Bypass | [web_api_abuse_auth_bypass.yml](../../07_Detection_Rules/web_api_abuse_auth_bypass.yml) |
-| High Web Request Rate | [web_high_rate_limit.yml](../../07_Detection_Rules/web_high_rate_limit.yml) |
+| API Authentication Bypass | [web_api_abuse_auth_bypass.yml](../../08_Detection_Engineering/sigma_rules/web_api_abuse_auth_bypass.yml) |
+| High Web Request Rate | [web_high_rate_limit.yml](../../08_Detection_Engineering/sigma_rules/web_high_rate_limit.yml) |
 
 ## Related Documents
 

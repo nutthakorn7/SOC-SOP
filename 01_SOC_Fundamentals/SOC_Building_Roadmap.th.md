@@ -222,7 +222,7 @@ graph LR
 
 - Threat Hunting, SOAR Automation, Purple Teaming
 - สอบ SOC Maturity — ใช้ [เครื่องมือวัดคะแนน](../tools/soc_maturity_scorer.html)
-- Compliance audit — ใช้ [Compliance Mapping](../10_Compliance/Compliance_Mapping.th.md)
+- Compliance audit — ใช้ [Compliance Mapping](../07_Compliance_Privacy/Compliance_Mapping.th.md)
 
 ---
 

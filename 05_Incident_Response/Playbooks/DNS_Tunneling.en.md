@@ -210,8 +210,8 @@ graph TD
 
 | Rule | File |
 |:---|:---|
-| DNS Tunneling Detection | [net_dns_tunneling.yml](../../07_Detection_Rules/net_dns_tunneling.yml) |
-| Network Beaconing Pattern | [net_beaconing.yml](../../07_Detection_Rules/net_beaconing.yml) |
+| DNS Tunneling Detection | [net_dns_tunneling.yml](../../08_Detection_Engineering/sigma_rules/net_dns_tunneling.yml) |
+| Network Beaconing Pattern | [net_beaconing.yml](../../08_Detection_Engineering/sigma_rules/net_beaconing.yml) |
 
 ## Related Documents
 

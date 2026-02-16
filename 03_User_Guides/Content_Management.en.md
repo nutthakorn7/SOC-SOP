@@ -45,9 +45,9 @@ graph TD
 
 | Format | Use Case | Repository Path |
 |:---|:---|:---|
-| **Sigma** | SIEM-agnostic detection (primary format) | `07_Detection_Rules/sigma/` |
-| **YARA** | File/binary analysis | `07_Detection_Rules/yara/` |
-| **Snort/Suricata** | Network-level detection | `07_Detection_Rules/ids/` |
+| **Sigma** | SIEM-agnostic detection (primary format) | `08_Detection_Engineering/sigma_rules/sigma/` |
+| **YARA** | File/binary analysis | `08_Detection_Engineering/sigma_rules/yara/` |
+| **Snort/Suricata** | Network-level detection | `08_Detection_Engineering/sigma_rules/ids/` |
 
 ### Required Metadata
 
@@ -136,7 +136,7 @@ experimental → test → stable → deprecated
 2. Deploy to staging SIEM
 3. Validate against test cases
 4. Promote to production
-5. Update [Detection Rules Index](../07_Detection_Rules/README.md)
+5. Update [Detection Rules Index](../08_Detection_Engineering/README.en.md)
 
 ---
 
@@ -180,7 +180,7 @@ experimental → test → stable → deprecated
 
 - [Integration Hub](Integration_Hub.en.md)
 - [IR Framework](../05_Incident_Response/Framework.en.md)
-- [Detection Rules Index](../07_Detection_Rules/README.md)
+- [Detection Rules Index](../08_Detection_Engineering/README.en.md)
 - [Alert Tuning SOP](../06_Operations_Management/Alert_Tuning_SOP.en.md)
 - [Detection Rule Testing](../06_Operations_Management/Detection_Rule_Testing.en.md)
 - [Atomic Test Map](../08_Simulation_Testing/Atomic_Test_Map.en.md)

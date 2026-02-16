@@ -187,6 +187,6 @@ graph TD
 -   [Severity Matrix](Severity_Matrix.en.md) — Full severity definitions and examples
 -   [Communication Templates](Communication_Templates.en.md) — Pre-written notification templates
 -   [IR Framework](Framework.en.md) — Complete incident response lifecycle
--   [PDPA Incident Response](../10_Compliance/PDPA_Incident_Response.en.md) — Thai data breach notification
+-   [PDPA Incident Response](../07_Compliance_Privacy/PDPA_Incident_Response.en.md) — Thai data breach notification
 -   [SOC Communication SOP](../06_Operations_Management/Communication_SOP.en.md)
 -   [SLA Template](../06_Operations_Management/SLA_Template.en.md)

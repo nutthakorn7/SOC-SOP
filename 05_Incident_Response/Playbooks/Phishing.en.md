@@ -211,8 +211,8 @@ sequenceDiagram
 
 | Rule | File |
 |:---|:---|
-| Suspicious Inbox Rule Created | [cloud_email_inbox_rule.yml](../../07_Detection_Rules/cloud_email_inbox_rule.yml) |
-| Office Spawning PowerShell | [proc_office_spawn_powershell.yml](../../07_Detection_Rules/proc_office_spawn_powershell.yml) |
+| Suspicious Inbox Rule Created | [cloud_email_inbox_rule.yml](../../08_Detection_Engineering/sigma_rules/cloud_email_inbox_rule.yml) |
+| Office Spawning PowerShell | [proc_office_spawn_powershell.yml](../../08_Detection_Engineering/sigma_rules/proc_office_spawn_powershell.yml) |
 
 ## Related Documents
 

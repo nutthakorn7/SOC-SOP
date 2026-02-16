@@ -140,7 +140,7 @@ Use this mapping for **audit preparation**, **gap analysis**, and **demonstratin
 → [IR Framework](../05_Incident_Response/Framework.en.md) + [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md) + any Playbook (PB-01 to PB-30)
 
 > "Show me your monitoring and detection capabilities."  
-→ [Detection Rules Index](../07_Detection_Rules/README.md) (33 Sigma rules) + [MITRE ATT&CK Heatmap](../tools/mitre_attack_heatmap.html)
+→ [Detection Rules Index](../08_Detection_Engineering/README.en.md) (33 Sigma rules) + [MITRE ATT&CK Heatmap](../tools/mitre_attack_heatmap.html)
 
 > "Show me evidence of incident learning."  
 → [Post-Incident Review section](../05_Incident_Response/Framework.en.md) in all playbooks
@@ -154,7 +154,7 @@ Use this mapping for **audit preparation**, **gap analysis**, and **demonstratin
 → [IR Framework](../05_Incident_Response/Framework.en.md) + [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md)
 
 > "Requirement 11.5.1 — Intrusion detection?"  
-→ [33 Sigma Detection Rules](../07_Detection_Rules/README.md) with MITRE ATT&CK mapping
+→ [33 Sigma Detection Rules](../08_Detection_Engineering/README.en.md) with MITRE ATT&CK mapping
 
 ---
 
@@ -162,7 +162,7 @@ Use this mapping for **audit preparation**, **gap analysis**, and **demonstratin
 
 - [IR Framework](../05_Incident_Response/Framework.en.md)
 - [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md)
-- [Detection Rules Index](../07_Detection_Rules/README.md)
+- [Detection Rules Index](../08_Detection_Engineering/README.en.md)
 - [MITRE ATT&CK Heatmap](../tools/mitre_attack_heatmap.html)
 - [SOC Maturity Scorer](../tools/soc_maturity_scorer.html)
 

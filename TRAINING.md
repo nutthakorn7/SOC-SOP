@@ -450,7 +450,7 @@
 | 13:00–14:30 | 🔍 | **Workshop: Control Inventory** — สำรวจ controls ที่มีอยู่ |
 | 14:30–16:00 | 🔍 | **Workshop: Gap Identification** — Map controls กับ framework, ระบุช่องว่าง |
 
-📚 *Reference: [Compliance Mapping](10_Compliance/Compliance_Mapping.en.md) · [Gap Analysis](10_Compliance/Compliance_Gap_Analysis.en.md) · [PDPA IR](10_Compliance/PDPA_Incident_Response.en.md)*
+📚 *Reference: [Compliance Mapping](07_Compliance_Privacy/Compliance_Mapping.en.md) · [Gap Analysis](07_Compliance_Privacy/Compliance_Gap_Analysis.en.md) · [PDPA IR](07_Compliance_Privacy/PDPA_Incident_Response.en.md)*
 
 </details>
 

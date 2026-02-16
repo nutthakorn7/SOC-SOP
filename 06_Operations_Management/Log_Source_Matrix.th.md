@@ -199,5 +199,5 @@ Storage 90 วัน = Storage/วัน × 90
 -   [Detection Rule Testing SOP](Detection_Rule_Testing.en.md)
 -   [TI Feeds Integration](TI_Feeds_Integration.en.md)
 -   [SOC Metrics & KPIs](SOC_Metrics.en.md)
--   [Compliance Mapping](../10_Compliance/Compliance_Mapping.en.md)
+-   [Compliance Mapping](../07_Compliance_Privacy/Compliance_Mapping.en.md)
 -   [Infrastructure Setup](../01_SOC_Fundamentals/Infrastructure_Setup.en.md)

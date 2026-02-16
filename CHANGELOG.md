@@ -18,7 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - **Project directory reorganization** — Consolidated from 25 overlapping directories to 12 clean directories with unique prefixes (00–11)
-  - Merged `10_Compliance/` → `07_Compliance_Privacy/`
+  - Merged `07_Compliance_Privacy/` → `07_Compliance_Privacy/`
   - Unified detection engineering (`07_Detection_Rules` + `10_File_Signatures` → `08_Detection_Engineering`)
   - Consolidated onboarding (`01_Onboarding` + `01_SOC_Overview` + `09_Training` → `10_Training_Onboarding`)
   - Renumbered `08_Simulation_Testing` → `09_Simulation_Testing`

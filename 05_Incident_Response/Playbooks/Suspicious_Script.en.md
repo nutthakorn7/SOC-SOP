@@ -214,9 +214,9 @@ graph TD
 
 | Rule | File |
 |:---|:---|
-| PowerShell Encoded Command | [proc_powershell_encoded.yml](../../07_Detection_Rules/proc_powershell_encoded.yml) |
-| Office Spawning PowerShell | [proc_office_spawn_powershell.yml](../../07_Detection_Rules/proc_office_spawn_powershell.yml) |
-| Execution from Temp/Downloads | [proc_temp_folder_execution.yml](../../07_Detection_Rules/proc_temp_folder_execution.yml) |
+| PowerShell Encoded Command | [proc_powershell_encoded.yml](../../08_Detection_Engineering/sigma_rules/proc_powershell_encoded.yml) |
+| Office Spawning PowerShell | [proc_office_spawn_powershell.yml](../../08_Detection_Engineering/sigma_rules/proc_office_spawn_powershell.yml) |
+| Execution from Temp/Downloads | [proc_temp_folder_execution.yml](../../08_Detection_Engineering/sigma_rules/proc_temp_folder_execution.yml) |
 
 ## Related Documents
 

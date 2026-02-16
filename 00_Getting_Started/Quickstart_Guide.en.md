@@ -36,7 +36,7 @@ graph TD
 
 | Step | Time | Document | What You'll Learn |
 |:---:|:---:|---|---|
-| 4 | 15 min | [Infrastructure Setup](../01_Onboarding/System_Activation.en.md) | What systems you need to deploy |
+| 4 | 15 min | [Infrastructure Setup](../10_Training_Onboarding/System_Activation.en.md) | What systems you need to deploy |
 | 5 | 10 min | [Data Governance](../02_Platform_Operations/Database_Management.en.md) | How to manage log data and retention |
 | 6 | 10 min | [SOC Assessment Checklist](../06_Operations_Management/SOC_Assessment_Checklist.en.md) | Gap analysis for your current state |
 
@@ -46,7 +46,7 @@ graph TD
 |:---:|:---:|---|---|
 | 7 | 20 min | [IR Framework](../05_Incident_Response/Framework.en.md) | How to handle incidents end-to-end |
 | 8 | 30 min | **Top 5 Playbooks** (see below) | How to respond to common attacks |
-| 9 | 15 min | [Detection Rules](../07_Detection_Rules/) | Pre-built Sigma rules to deploy |
+| 9 | 15 min | [Detection Rules](../08_Detection_Engineering/sigma_rules/) | Pre-built Sigma rules to deploy |
 | 10 | 10 min | [Integration Hub](../03_User_Guides/Integration_Hub.en.md) | How to connect tools together |
 
 ### 🟢 Week 4 — Operate (Go Live)
@@ -56,7 +56,7 @@ graph TD
 | 11 | 10 min | [Shift Handoff](../06_Operations_Management/Shift_Handoff.en.md) | How to run 24/7 operations |
 | 12 | 10 min | [SOC Metrics](../06_Operations_Management/SOC_Metrics.en.md) | MTTD, MTTR, False Positive Rate |
 | 13 | 15 min | [Monthly Report Template](../11_Reporting_Templates/Monthly_SOC_Report.en.md) | Reporting to leadership |
-| 14 | 10 min | [Analyst Onboarding Path](../09_Training_Onboarding/Analyst_Onboarding_Path.en.md) | How to train new hires |
+| 14 | 10 min | [Analyst Onboarding Path](../10_Training_Onboarding/Analyst_Onboarding_Path.en.md) | How to train new hires |
 
 ## Top 5 Playbooks to Start With
 
@@ -125,7 +125,7 @@ The absolute minimum you need to start — your "Day 1" checklist:
 - [ ] **1 SIEM deployed** (Wazuh recommended for budget-conscious orgs)
 - [ ] **3 log sources onboarded** (Firewall, Active Directory, Email)
 - [ ] **3 people hired** (2 Tier 1 Analysts + 1 Manager)
-- [ ] **5 detection rules enabled** (from our `07_Detection_Rules/`)
+- [ ] **5 detection rules enabled** (from our `08_Detection_Engineering/sigma_rules/`)
 - [ ] **1 Playbook ready** (start with Phishing)
 - [ ] **1 ticketing system** (TheHive or Jira)
 - [ ] **1 escalation path defined** (Tier 1 → Manager → CISO)
@@ -137,7 +137,7 @@ The absolute minimum you need to start — your "Day 1" checklist:
 -   [SOC 101](SOC_101.en.md)
 -   [Glossary of Terms](Glossary.en.md)
 -   [SOC Team Structure](../06_Operations_Management/SOC_Team_Structure.en.md)
--   [Analyst Onboarding Path](../09_Training_Onboarding/Analyst_Onboarding_Path.en.md)
+-   [Analyst Onboarding Path](../10_Training_Onboarding/Analyst_Onboarding_Path.en.md)
 
 ## References
 -   [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)

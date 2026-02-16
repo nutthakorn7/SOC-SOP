@@ -221,9 +221,9 @@ sequenceDiagram
 
 | Rule | File |
 |:---|:---|
-| Large Upload to External IP | [net_large_upload.yml](../../07_Detection_Rules/net_large_upload.yml) |
-| Bulk File Copy to USB | [file_bulk_usb_copy.yml](../../07_Detection_Rules/file_bulk_usb_copy.yml) |
-| Data Collection and Staging | [sigma/win_data_collection_staging.yml](../../07_Detection_Rules/sigma/win_data_collection_staging.yml) |
+| Large Upload to External IP | [net_large_upload.yml](../../08_Detection_Engineering/sigma_rules/net_large_upload.yml) |
+| Bulk File Copy to USB | [file_bulk_usb_copy.yml](../../08_Detection_Engineering/sigma_rules/file_bulk_usb_copy.yml) |
+| Data Collection and Staging | [sigma/win_data_collection_staging.yml](../../08_Detection_Engineering/sigma_rules/sigma/win_data_collection_staging.yml) |
 
 ## Related Documents
 

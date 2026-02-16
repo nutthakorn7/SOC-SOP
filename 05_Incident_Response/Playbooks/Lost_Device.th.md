@@ -184,7 +184,7 @@ graph TD
 
 | กฎ | ไฟล์ |
 |:---|:---|
-| Device Offline for Extended Period | [mdm_device_offline.yml](../../07_Detection_Rules/mdm_device_offline.yml) |
+| Device Offline for Extended Period | [mdm_device_offline.yml](../../08_Detection_Engineering/sigma_rules/mdm_device_offline.yml) |
 
 ## เอกสารที่เกี่ยวข้อง
 

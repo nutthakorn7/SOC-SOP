@@ -34,17 +34,17 @@ This repository provides **vendor-agnostic, production-ready SOC Standard Operat
 
 ```
 SOCSOP/
-├── 01_Onboarding/           # SOC infrastructure setup
+├── 10_Training_Onboarding/           # SOC infrastructure setup
 ├── 02_Platform_Operations/   # Data governance, deployment procedures
 ├── 03_User_Guides/           # Detection engineering, tool integration
 ├── 04_Troubleshooting/       # Standard troubleshooting methodology
 ├── 05_Incident_Response/     # IR Framework + 20 Playbooks
 │   └── Playbooks/            # Individual incident playbooks (PB-01 to PB-20)
 ├── 06_Operations_Management/ # Shift handoff, metrics, team structure, TLP, CTI
-├── 07_Detection_Rules/       # Sigma detection rules (.yml)
+├── 08_Detection_Engineering/sigma_rules/       # Sigma detection rules (.yml)
 ├── 08_Simulation_Testing/    # Purple team guides, Atomic Red Team maps
-├── 09_Training_Onboarding/   # Analyst curriculum, training checklists
-├── 10_File_Signatures/       # YARA rules
+├── 10_Training_Onboarding/   # Analyst curriculum, training checklists
+├── 08_Detection_Engineering/file_signatures/       # YARA rules
 ├── 11_Reporting_Templates/   # Monthly/quarterly executive reports
 ├── templates/                # Incident report, shift handover, RFC forms
 ├── tools/                    # Utility scripts (export, link check)
@@ -204,13 +204,13 @@ PB-10 Exploit/Vulnerability  PB-20 Cloud-specific (AWS/Azure)
 
 ## 🔍 Detection Rules
 
-### Sigma Rules (`07_Detection_Rules/`)
+### Sigma Rules (`08_Detection_Engineering/sigma_rules/`)
 - **Format**: Sigma YAML specification v2
 - **Naming**: `<category>_<description>.yml` (e.g., `win_multiple_failed_logins.yml`)
 - **Required fields**: `title`, `status`, `description`, `logsource`, `detection`, `level`, `tags`
 - **Tags**: Must include MITRE ATT&CK technique IDs (e.g., `attack.t1110`)
 
-### YARA Rules (`10_File_Signatures/`)
+### YARA Rules (`08_Detection_Engineering/file_signatures/`)
 - **Format**: YARA rule syntax
 - **Naming**: `<family>_<indicator>.yar`
 - **Required**: `meta`, `strings`, `condition` blocks

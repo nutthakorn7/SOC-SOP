@@ -85,7 +85,7 @@ sequenceDiagram
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [แบบฟอร์ม Change Request](../templates/change_request_rfc.th.md)
 -   [ธรรมาภิบาลข้อมูล](Database_Management.th.md)
--   [การติดตั้ง SOC](../01_Onboarding/System_Activation.th.md)
+-   [การติดตั้ง SOC](../10_Training_Onboarding/System_Activation.th.md)
 
 ### Deployment Checklist
 

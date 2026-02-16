@@ -27,7 +27,7 @@ gantt
 **Goal**: Understand *where* we work and *what* we protect.
 
 -   **Day 1: Orientation & Access**
-    -   Read: [System Activation](../01_Onboarding/System_Activation.en.md) - Understand our generic stack (SIEM, EDR, SOAR).
+    -   Read: [System Activation](../10_Training_Onboarding/System_Activation.en.md) - Understand our generic stack (SIEM, EDR, SOAR).
     -   Task: Verify access to all dashboards.
 -   **Day 2: Data & Privacy**
     -   Read: [Data Governance](../02_Platform_Operations/Database_Management.en.md) - Learn data classification (Restricted vs Public).
@@ -55,7 +55,7 @@ gantt
 -   **Day 1: The Lifecycle**
     -   Read: [Content Management](../03_User_Guides/Content_Management.en.md) - How we create rules.
 -   **Day 2: Sigma Rules**
-    -   Explore: `07_Detection_Rules/` - Review the YAML files.
+    -   Explore: `08_Detection_Engineering/sigma_rules/` - Review the YAML files.
     -   Task: Compare `proc_office_spawn_powershell.yml` with **PB-01**.
 
 ## Week 4: Simulation & Validation (Purple Team)

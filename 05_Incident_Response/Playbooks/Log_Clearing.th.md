@@ -193,7 +193,7 @@ graph LR
 
 | กฎ | ไฟล์ |
 |:---|:---|
-| Windows Security Log Cleared | [win_security_log_cleared.yml](../../07_Detection_Rules/win_security_log_cleared.yml) |
+| Windows Security Log Cleared | [win_security_log_cleared.yml](../../08_Detection_Engineering/sigma_rules/win_security_log_cleared.yml) |
 
 ## เอกสารที่เกี่ยวข้อง
 

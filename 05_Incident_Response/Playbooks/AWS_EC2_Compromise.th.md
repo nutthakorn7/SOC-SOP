@@ -178,8 +178,8 @@ sequenceDiagram
 
 | กฎ | ไฟล์ |
 |:---|:---|
-| AWS EC2 Crypto Mining | [cloud_aws_ec2_mining.yml](../../07_Detection_Rules/cloud_aws_ec2_mining.yml) |
-| AWS Root Account Login | [cloud_root_login.yml](../../07_Detection_Rules/cloud_root_login.yml) |
+| AWS EC2 Crypto Mining | [cloud_aws_ec2_mining.yml](../../08_Detection_Engineering/sigma_rules/cloud_aws_ec2_mining.yml) |
+| AWS Root Account Login | [cloud_root_login.yml](../../08_Detection_Engineering/sigma_rules/cloud_root_login.yml) |
 
 ## เอกสารที่เกี่ยวข้อง
 

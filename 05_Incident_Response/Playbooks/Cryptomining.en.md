@@ -213,8 +213,8 @@ sequenceDiagram
 
 | Rule | File |
 |:---|:---|
-| Cryptomining Process Detection | [proc_cryptomining_indicators.yml](../../07_Detection_Rules/proc_cryptomining_indicators.yml) |
-| AWS EC2 Crypto Mining Indicator | [cloud_aws_ec2_mining.yml](../../07_Detection_Rules/cloud_aws_ec2_mining.yml) |
+| Cryptomining Process Detection | [proc_cryptomining_indicators.yml](../../08_Detection_Engineering/sigma_rules/proc_cryptomining_indicators.yml) |
+| AWS EC2 Crypto Mining Indicator | [cloud_aws_ec2_mining.yml](../../08_Detection_Engineering/sigma_rules/cloud_aws_ec2_mining.yml) |
 
 ## Related Documents
 

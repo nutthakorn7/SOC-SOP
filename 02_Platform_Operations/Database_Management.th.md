@@ -77,7 +77,7 @@ graph TD
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [โปรโตคอลการจัดการข้อมูล (TLP)](../06_Operations_Management/Data_Handling_Protocol.th.md)
 -   [ขั้นตอนการ Deploy](Deployment_Procedures.th.md)
--   [การติดตั้ง SOC](../01_Onboarding/System_Activation.th.md)
+-   [การติดตั้ง SOC](../10_Training_Onboarding/System_Activation.th.md)
 
 ## Database Performance Monitoring
 

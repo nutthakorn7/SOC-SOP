@@ -108,7 +108,7 @@
 → [IR Framework](../05_Incident_Response/Framework.en.md) + [ตารางความรุนแรง](../05_Incident_Response/Severity_Matrix.th.md) + Playbook ใดก็ได้ (PB-01 ถึง PB-30)
 
 > "แสดงความสามารถในการเฝ้าระวังและตรวจจับ"  
-→ [ดัชนี Detection Rules](../07_Detection_Rules/README.th.md) (33 กฎ Sigma) + [แผนที่ Coverage MITRE ATT&CK](../tools/mitre_attack_heatmap.html)
+→ [ดัชนี Detection Rules](../08_Detection_Engineering/README.th.md) (33 กฎ Sigma) + [แผนที่ Coverage MITRE ATT&CK](../tools/mitre_attack_heatmap.html)
 
 ### QSA ตรวจ PCI DSS ถาม:
 
@@ -124,7 +124,7 @@
 
 - [IR Framework](../05_Incident_Response/Framework.en.md)
 - [ตารางความรุนแรง](../05_Incident_Response/Severity_Matrix.th.md)
-- [ดัชนี Detection Rules](../07_Detection_Rules/README.th.md)
+- [ดัชนี Detection Rules](../08_Detection_Engineering/README.th.md)
 - [แผนที่ Coverage MITRE ATT&CK](../tools/mitre_attack_heatmap.html)
 - [เครื่องมือวัดคะแนน SOC Maturity](../tools/soc_maturity_scorer.html)
 

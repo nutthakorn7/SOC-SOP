@@ -211,4 +211,4 @@ Ready for Independent Work: □ Yes □ No
 - [Budget & Staffing](Budget_Staffing.en.md)
 - [Tier 1 Runbook](../05_Incident_Response/Tier1_Runbook.en.md)
 - [Interview Guide](../05_Incident_Response/Interview_Guide.en.md)
-- [Analyst Onboarding](../09_Training_Onboarding/Analyst_Onboarding_Path.en.md)
+- [Analyst Onboarding](../10_Training_Onboarding/Analyst_Onboarding_Path.en.md)

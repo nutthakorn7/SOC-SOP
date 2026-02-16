@@ -267,5 +267,5 @@ Executive Summary:
 -   [KPI Dashboard Template](KPI_Dashboard_Template.en.md) — รายงานรายเดือน
 -   [SOC Automation Catalog](SOC_Automation_Catalog.en.md) — วุฒิภาวะ automation
 -   [Log Source Matrix](Log_Source_Matrix.en.md) — แหล่งข้อมูล
--   [Compliance Mapping](../10_Compliance/Compliance_Mapping.en.md) — การ comply กับ framework
+-   [Compliance Mapping](../07_Compliance_Privacy/Compliance_Mapping.en.md) — การ comply กับ framework
 -   [Third-Party Risk](Third_Party_Risk.en.md) — ความเสี่ยง vendor

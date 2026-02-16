@@ -130,4 +130,4 @@ python tools/sigma_validator.py path/to/rule.yml
 ## เอกสารที่เกี่ยวข้อง
 
 - [SOP จัดการเปลี่ยนแปลง](Change_Management.th.md)
-- [ดัชนี Detection Rules](../07_Detection_Rules/README.md)
+- [ดัชนี Detection Rules](../08_Detection_Engineering/README.en.md)

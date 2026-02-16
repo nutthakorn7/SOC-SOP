@@ -202,5 +202,5 @@ Storage (GB/day) = Daily Events × Avg Event Size (bytes) / 1,073,741,824
 -   [Detection Rule Testing SOP](../06_Operations_Management/Detection_Rule_Testing.en.md)
 -   [TI Feeds Integration](../06_Operations_Management/TI_Feeds_Integration.en.md)
 -   [SOC Metrics & KPIs](../06_Operations_Management/SOC_Metrics.en.md)
--   [Compliance Mapping](../10_Compliance/Compliance_Mapping.en.md)
+-   [Compliance Mapping](../07_Compliance_Privacy/Compliance_Mapping.en.md)
 -   [Infrastructure Setup](../01_SOC_Fundamentals/Infrastructure_Setup.en.md)

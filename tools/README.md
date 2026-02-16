@@ -6,7 +6,7 @@ This directory contains utility scripts to help maintain the SOC repository. The
 ## 1. Sigma Rule Validation (`validate_sigma.py`)
 **Workflow**: 
 1.  **Trigger**: Runs automatically on every `git push` or `pull request` to `main`.
-2.  **Action**: Scans all `.yml` files in `07_Detection_Rules/`.
+2.  **Action**: Scans all `.yml` files in `08_Detection_Engineering/sigma_rules/`.
 3.  **Check**: Verifies that every rule has required fields (`title`, `logsource`, `detection`, `condition`).
 4.  **Output**: Fails the build if any rule is invalid.
 

@@ -10,5 +10,5 @@ This directory contains YARA rules for detecting malicious files. These rules ca
 
 ## Usage
 ```bash
-yara -r 10_File_Signatures/ /path/to/scan
+yara -r 08_Detection_Engineering/file_signatures/ /path/to/scan
 ```

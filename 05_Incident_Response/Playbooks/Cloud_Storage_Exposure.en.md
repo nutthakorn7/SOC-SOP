@@ -217,8 +217,8 @@ sequenceDiagram
 
 | Rule | File |
 |:---|:---|
-| Cloud Storage Public Access | [cloud_storage_public_access.yml](../../07_Detection_Rules/cloud_storage_public_access.yml) |
-| AWS S3 Public Access Enabled | [cloud_aws_s3_public_access.yml](../../07_Detection_Rules/cloud_aws_s3_public_access.yml) |
+| Cloud Storage Public Access | [cloud_storage_public_access.yml](../../08_Detection_Engineering/sigma_rules/cloud_storage_public_access.yml) |
+| AWS S3 Public Access Enabled | [cloud_aws_s3_public_access.yml](../../08_Detection_Engineering/sigma_rules/cloud_aws_s3_public_access.yml) |
 
 ## Related Documents
 

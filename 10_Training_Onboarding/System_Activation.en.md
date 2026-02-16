@@ -96,7 +96,7 @@ A fully functional SOC requires the following core components:
 | 12 | Conduct initial health check validation | SOC Manager | ☐ |
 
 ## Related Documents
--   [Analyst Onboarding Path](../09_Training_Onboarding/Analyst_Onboarding_Path.en.md)
+-   [Analyst Onboarding Path](../10_Training_Onboarding/Analyst_Onboarding_Path.en.md)
 -   [Data Governance & Retention](../02_Platform_Operations/Database_Management.en.md)
 -   [Deployment Procedures](../02_Platform_Operations/Deployment_Procedures.en.md)
 

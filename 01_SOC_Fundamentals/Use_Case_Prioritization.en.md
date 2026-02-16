@@ -204,6 +204,6 @@ Score range: 10-50 → Start with highest scoring use cases
 ## Related Documents
 
 - [SOC Building Roadmap](SOC_Building_Roadmap.en.md)
-- [Detection Rules Index](../07_Detection_Rules/README.md)
+- [Detection Rules Index](../08_Detection_Engineering/README.en.md)
 - [Log Source Onboarding](../06_Operations_Management/Log_Source_Onboarding.en.md)
 - [MITRE ATT&CK Heatmap](../tools/mitre_attack_heatmap.html)

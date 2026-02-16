@@ -267,6 +267,6 @@ radar-beta
 -   [KPI Dashboard Template](KPI_Dashboard_Template.en.md) — Monthly reporting
 -   [SOC Automation Catalog](SOC_Automation_Catalog.en.md) — Automation maturity
 -   [Log Source Matrix](Log_Source_Matrix.en.md) — Data source coverage
--   [Compliance Mapping](../10_Compliance/Compliance_Mapping.en.md) — Framework compliance
+-   [Compliance Mapping](../07_Compliance_Privacy/Compliance_Mapping.en.md) — Framework compliance
 -   [Third-Party Risk](Third_Party_Risk.en.md) — Vendor risk management
 -   [Threat Landscape Report](Threat_Landscape_Report.en.md) — Threat awareness

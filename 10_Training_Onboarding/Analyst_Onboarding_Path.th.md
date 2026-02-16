@@ -27,7 +27,7 @@ gantt
 **เป้าหมาย**: เข้าใจว่าเราทำงาน *ที่ไหน* และปกป้อง *อะไร*
 
 -   **วันที่ 1: การปฐมนิเทศและการเข้าถึงระบบ**
-    -   อ่าน: [System Activation](../01_Onboarding/System_Activation.th.md) - ทำความเข้าใจ Stack ของเรา (SIEM, EDR, SOAR)
+    -   อ่าน: [System Activation](../10_Training_Onboarding/System_Activation.th.md) - ทำความเข้าใจ Stack ของเรา (SIEM, EDR, SOAR)
     -   งาน: ตรวจสอบสิทธิ์การเข้าถึง Dashboard ทั้งหมด
 -   **วันที่ 2: ข้อมูลและความเป็นส่วนตัว**
     -   อ่าน: [Data Governance](../02_Platform_Operations/Database_Management.th.md) - เรียนรู้ประเภทข้อมูล (Restricted vs Public)
@@ -55,7 +55,7 @@ gantt
 -   **วันที่ 1: วงจรชีวิต**
     -   อ่าน: [Content Management](../03_User_Guides/Content_Management.th.md) - วิธีสร้างกฎ
 -   **วันที่ 2: Sigma Rules**
-    -   สำรวจ: `07_Detection_Rules/` - ดูไฟล์ YAML
+    -   สำรวจ: `08_Detection_Engineering/sigma_rules/` - ดูไฟล์ YAML
     -   งาน: เปรียบเทียบ `proc_office_spawn_powershell.yml` กับ **PB-01**
 
 ## สัปดาห์ที่ 4: การจำลองและตรวจสอบ (Purple Team)

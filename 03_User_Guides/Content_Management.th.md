@@ -44,9 +44,9 @@ graph TD
 
 | รูปแบบ | กรณีใช้งาน | ที่เก็บ |
 |:---|:---|:---|
-| **Sigma** | Detection ใน SIEM (รูปแบบหลัก) | `07_Detection_Rules/sigma/` |
-| **YARA** | วิเคราะห์ไฟล์/binary | `07_Detection_Rules/yara/` |
-| **Snort/Suricata** | Detection ระดับเครือข่าย | `07_Detection_Rules/ids/` |
+| **Sigma** | Detection ใน SIEM (รูปแบบหลัก) | `08_Detection_Engineering/sigma_rules/sigma/` |
+| **YARA** | วิเคราะห์ไฟล์/binary | `08_Detection_Engineering/sigma_rules/yara/` |
+| **Snort/Suricata** | Detection ระดับเครือข่าย | `08_Detection_Engineering/sigma_rules/ids/` |
 
 ### Metadata ที่ต้องมี
 

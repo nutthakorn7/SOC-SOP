@@ -257,5 +257,5 @@ flowchart TD
 
 ## เอกสารที่เกี่ยวข้อง
 
-- [ดัชนี Detection Rules](../07_Detection_Rules/README.th.md)
+- [ดัชนี Detection Rules](../08_Detection_Engineering/README.th.md)
 - [Sigma Validator](../tools/sigma_validator.py)

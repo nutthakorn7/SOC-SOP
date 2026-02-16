@@ -200,8 +200,8 @@ graph TD
 
 | Rule | File |
 |:---|:---|
-| Network Discovery Activity | [sigma/win_network_discovery.yml](../../07_Detection_Rules/sigma/win_network_discovery.yml) |
-| Access to Admin Shares (C$) | [win_admin_share_access.yml](../../07_Detection_Rules/win_admin_share_access.yml) |
+| Network Discovery Activity | [sigma/win_network_discovery.yml](../../08_Detection_Engineering/sigma_rules/sigma/win_network_discovery.yml) |
+| Access to Admin Shares (C$) | [win_admin_share_access.yml](../../08_Detection_Engineering/sigma_rules/win_admin_share_access.yml) |
 
 ## Related Documents
 

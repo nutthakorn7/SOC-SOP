@@ -108,7 +108,7 @@ graph LR
 ## Related Documents
 -   [Data Handling Protocol (TLP)](../06_Operations_Management/Data_Handling_Protocol.en.md)
 -   [Deployment Procedures](Deployment_Procedures.en.md)
--   [SOC Infrastructure Setup](../01_Onboarding/System_Activation.en.md)
+-   [SOC Infrastructure Setup](../10_Training_Onboarding/System_Activation.en.md)
 
 ## References
 -   [NIST SP 800-53 (Security/Privacy Controls)](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final)

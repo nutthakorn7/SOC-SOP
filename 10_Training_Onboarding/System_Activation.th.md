@@ -77,7 +77,7 @@ SOC ที่สมบูรณ์จำเป็นต้องมีองค�
 | Backup Status | ตรวจสอบการสำรองข้อมูลล่าสุด | รายวัน | SOC Engineering |
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
--   [หลักสูตรฝึกอบรม Analyst](../09_Training_Onboarding/Analyst_Onboarding_Path.th.md)
+-   [หลักสูตรฝึกอบรม Analyst](../10_Training_Onboarding/Analyst_Onboarding_Path.th.md)
 -   [ธรรมาภิบาลข้อมูล](../02_Platform_Operations/Database_Management.th.md)
 -   [ขั้นตอนการ Deploy](../02_Platform_Operations/Deployment_Procedures.th.md)
 

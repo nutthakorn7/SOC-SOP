@@ -97,7 +97,7 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กลยุทธ์การเชื่อมต่อเครื่องมือ](../03_User_Guides/Integration_Hub.th.md)
--   [การติดตั้ง SOC](../01_Onboarding/System_Activation.th.md)
+-   [การติดตั้ง SOC](../10_Training_Onboarding/System_Activation.th.md)
 -   [ขั้นตอนการ Deploy](../02_Platform_Operations/Deployment_Procedures.th.md)
 
 ### Quick Fix Reference

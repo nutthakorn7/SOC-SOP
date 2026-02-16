@@ -215,9 +215,9 @@ sequenceDiagram
 
 | Rule | File |
 |:---|:---|
-| Bulk File Copy to USB | [file_bulk_usb_copy.yml](../../07_Detection_Rules/file_bulk_usb_copy.yml) |
-| Large Upload to External IP | [net_large_upload.yml](../../07_Detection_Rules/net_large_upload.yml) |
-| Suspicious Inbox Rule Created | [cloud_email_inbox_rule.yml](../../07_Detection_Rules/cloud_email_inbox_rule.yml) |
+| Bulk File Copy to USB | [file_bulk_usb_copy.yml](../../08_Detection_Engineering/sigma_rules/file_bulk_usb_copy.yml) |
+| Large Upload to External IP | [net_large_upload.yml](../../08_Detection_Engineering/sigma_rules/net_large_upload.yml) |
+| Suspicious Inbox Rule Created | [cloud_email_inbox_rule.yml](../../08_Detection_Engineering/sigma_rules/cloud_email_inbox_rule.yml) |
 
 ## Related Documents
 

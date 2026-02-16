@@ -100,17 +100,17 @@
 | [Phishing Simulation](08_Simulation_Testing/Phishing_Simulation.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Simulation Guide](08_Simulation_Testing/Simulation_Guide.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Atomic Test Map](08_Simulation_Testing/Atomic_Test_Map.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
-| [SOC Analyst Onboarding](01_SOC_Overview/SOC_Onboarding.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
-| [Analyst Onboarding Path](09_Training_Onboarding/Analyst_Onboarding_Path.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
-| [Training Checklist](09_Training_Onboarding/Training_Checklist.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [SOC Analyst Onboarding](10_Training_Onboarding/SOC_Onboarding.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [Analyst Onboarding Path](10_Training_Onboarding/Analyst_Onboarding_Path.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [Training Checklist](10_Training_Onboarding/Training_Checklist.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 
 ## 🏛️ Compliance
 
 | Document | Version | Last Updated | Status | Next Review |
 |:---|:---:|:---:|:---:|:---:|
-| [Compliance Mapping](10_Compliance/Compliance_Mapping.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
-| [PDPA Incident Response](10_Compliance/PDPA_Incident_Response.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
-| [Compliance Gap Analysis](10_Compliance/Compliance_Gap_Analysis.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
+| [Compliance Mapping](07_Compliance_Privacy/Compliance_Mapping.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [PDPA Incident Response](07_Compliance_Privacy/PDPA_Incident_Response.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [Compliance Gap Analysis](07_Compliance_Privacy/Compliance_Gap_Analysis.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
 | [PDPA Compliance](07_Compliance_Privacy/PDPA_Compliance.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
 | [Data Governance Policy](07_Compliance_Privacy/Data_Governance_Policy.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
 

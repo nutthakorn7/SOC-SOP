@@ -197,8 +197,8 @@ graph LR
 
 | กฎ | ไฟล์ |
 |:---|:---|
-| Mobile Device Compromise Indicators | [cloud_mobile_compromise.yml](../../07_Detection_Rules/cloud_mobile_compromise.yml) |
-| Device Offline for Extended Period | [mdm_device_offline.yml](../../07_Detection_Rules/mdm_device_offline.yml) |
+| Mobile Device Compromise Indicators | [cloud_mobile_compromise.yml](../../08_Detection_Engineering/sigma_rules/cloud_mobile_compromise.yml) |
+| Device Offline for Extended Period | [mdm_device_offline.yml](../../08_Detection_Engineering/sigma_rules/mdm_device_offline.yml) |
 
 ## เอกสารที่เกี่ยวข้อง
 

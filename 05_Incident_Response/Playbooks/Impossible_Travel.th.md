@@ -172,8 +172,8 @@ sequenceDiagram
 
 | กฎ | ไฟล์ |
 |:---|:---|
-| Impossible Travel Detection | [cloud_impossible_travel.yml](../../07_Detection_Rules/cloud_impossible_travel.yml) |
-| Azure AD Risky Sign-in | [cloud_azure_risky_signin.yml](../../07_Detection_Rules/cloud_azure_risky_signin.yml) |
+| Impossible Travel Detection | [cloud_impossible_travel.yml](../../08_Detection_Engineering/sigma_rules/cloud_impossible_travel.yml) |
+| Azure AD Risky Sign-in | [cloud_azure_risky_signin.yml](../../08_Detection_Engineering/sigma_rules/cloud_azure_risky_signin.yml) |
 
 ## เอกสารที่เกี่ยวข้อง
 

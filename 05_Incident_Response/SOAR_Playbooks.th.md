@@ -438,4 +438,4 @@ Examples:
 
 - [IR Playbooks](Playbooks/)
 - [ตารางความรุนแรง](Severity_Matrix.th.md)
-- [Detection Rules](../07_Detection_Rules/README.md)
+- [Detection Rules](../08_Detection_Engineering/README.en.md)
