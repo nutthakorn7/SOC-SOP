@@ -221,6 +221,14 @@ sequenceDiagram
 | Block sign-in | High | Immediate | ✅ |
 | Remove role assignments | High | < 30 min | ✅ |
 
+### Conditional Access Quick Fix
+
+| Policy | Setting | Priority |
+|:---|:---|:---|
+| Block legacy auth | All users | P1 |
+| Require MFA | All admins | P1 |
+| Named locations | Allowed countries only | P2 |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1098 — Account Manipulation](https://attack.mitre.org/techniques/T1098/)

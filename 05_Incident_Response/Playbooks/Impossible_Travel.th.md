@@ -206,6 +206,14 @@ sequenceDiagram
 - [ ] Check for credential sharing
 - [ ] Assess data access during sessions
 
+### VPN/Proxy Identification
+
+| Source | Check | Tool |
+|:---|:---|:---|
+| Known VPN IPs | Internal VPN logs | SIEM |
+| Commercial VPN | IP reputation DB | TI Feed |
+| Tor exit nodes | Published list | Auto-block |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1078 — Valid Accounts](https://attack.mitre.org/techniques/T1078/)

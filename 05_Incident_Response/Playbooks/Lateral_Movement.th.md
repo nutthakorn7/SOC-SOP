@@ -224,6 +224,15 @@ T+15min DC-01         File-Server   SMB        smb_files
 | Accessed servers | Monitor | P2 |
 | Network segment | Restrict | P2 |
 
+### Credential Reset Matrix
+
+| Compromised Level | Reset Scope |
+|:---|:---|
+| User account | Single user |
+| Local admin | All hosts with same pwd |
+| Domain admin | Entire domain |
+| Service account | Application + dependencies |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK — Lateral Movement](https://attack.mitre.org/tactics/TA0008/)

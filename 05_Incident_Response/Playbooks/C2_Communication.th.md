@@ -226,6 +226,14 @@ sequenceDiagram
 - [ ] Capture memory for analysis
 - [ ] Identify all beaconing hosts
 
+### C2 IOC Sharing
+
+| Type | Share With | Format |
+|:---|:---|:---|
+| Domain/IP | TI community | STIX |
+| JA3 hash | Industry ISAC | CSV |
+| Behavioral pattern | Internal SOC | Report |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK — Command and Control](https://attack.mitre.org/tactics/TA0011/)

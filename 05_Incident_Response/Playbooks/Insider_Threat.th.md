@@ -220,6 +220,15 @@ sequenceDiagram
 | Capture evidence | Forensic copy | Legal hold |
 | Coordinate HR/Legal | Offline meeting | Secure channel |
 
+### Data Impact Classification
+
+| Data Accessed | Severity | Notification |
+|:---|:---|:---|
+| Customer PII | Critical | PDPA required |
+| Financial data | High | CFO + Legal |
+| Source code | High | CTO |
+| General internal | Medium | SOC Manager |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK — Insider Threat](https://attack.mitre.org/techniques/T1078/)

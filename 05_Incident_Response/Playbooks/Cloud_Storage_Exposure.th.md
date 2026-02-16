@@ -224,6 +224,14 @@ sequenceDiagram
 | Internal docs | 4 hrs | Internal notice |
 | Public data | 24 hrs | None required |
 
+### Public Exposure Check Tools
+
+| Provider | Tool | Auto-remediate |
+|:---|:---|:---|
+| AWS | Access Analyzer | ✅ via Config Rules |
+| Azure | Defender for Cloud | ✅ via Policy |
+| GCP | Security Command Center | ✅ via Org Policy |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1530 — Data from Cloud Storage](https://attack.mitre.org/techniques/T1530/)

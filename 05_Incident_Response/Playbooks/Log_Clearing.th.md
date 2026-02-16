@@ -220,6 +220,14 @@ graph LR
 | Integrity monitoring | File hash checking | P2 |
 | Admin audit trail | Privileged action logging | P1 |
 
+### Backup Log Verification
+
+| Source | Forwarded To | Verified |
+|:---|:---|:---|
+| Windows Events | SIEM | ☐ |
+| Linux syslog | Syslog server | ☐ |
+| Network devices | SIEM | ☐ |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1070 — Indicator Removal](https://attack.mitre.org/techniques/T1070/)

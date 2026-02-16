@@ -220,6 +220,14 @@ graph TD
 | Obfuscation | String concatenation | Entropy analysis |
 | Uncommon parent | Office → cmd → PS | Process tree |
 
+### Script Deobfuscation Steps
+
+| Step | Tool |
+|:---|:---|
+| Base64 decode | CyberChef |
+| String extraction | FLOSS |
+| Dynamic analysis | Any.run sandbox |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1059 — Command & Scripting Interpreter](https://attack.mitre.org/techniques/T1059/)

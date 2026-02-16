@@ -209,6 +209,14 @@ graph TD
 - [ ] Token expiration enforced
 - [ ] CORS properly configured
 
+### API Incident Severity Matrix
+
+| Factor | Low | High |
+|:---|:---|:---|
+| Data accessed | Public | PII/sensitive |
+| Volume | < 100 requests | 10K+ requests |
+| Auth required | Yes (legit key) | Bypassed auth |
+
 ## อ้างอิง
 
 - [OWASP API Security Top 10](https://owasp.org/API-Security/)

@@ -216,6 +216,15 @@ graph TD
 | Archive Collected Data | T1560 | Critical |
 | Data Staged | T1074 | Critical |
 
+### Data Classification Impact
+
+| Data Type | Risk If Collected | Response |
+|:---|:---|:---|
+| PII/PHI | Critical | PDPA notification |
+| Financial | High | Legal + audit |
+| IP/Trade secrets | Critical | Legal + forensics |
+| Internal docs | Medium | Assess scope |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK — Collection](https://attack.mitre.org/tactics/TA0009/)

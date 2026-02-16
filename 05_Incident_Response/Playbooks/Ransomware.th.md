@@ -222,6 +222,14 @@ Hardening Checklist:
 ☐ Test restore procedures
 ```
 
+### Encryption Assessment
+
+| Check | Method | Result |
+|:---|:---|:---|
+| Encrypted file count | Dir scan | [N] files |
+| Decryptor available | nomoreransom.org | Yes/No |
+| Backup integrity | Restore test | Verified/Failed |
+
 ## อ้างอิง
 
 - [CISA — Ransomware Guide](https://www.cisa.gov/stopransomware)

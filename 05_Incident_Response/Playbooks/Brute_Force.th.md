@@ -210,6 +210,15 @@ flowchart TD
     G -->|No| I[User awareness]
 ```
 
+### Password Policy Recommendations
+
+| Setting | Recommended | Rationale |
+|:---|:---|:---|
+| Min length | 14 chars | Resist offline crack |
+| Lockout | 5 attempts | Limit online attempts |
+| MFA | Required | Prevent credential-only |
+| Password history | 12 | Prevent reuse |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1110 — Brute Force](https://attack.mitre.org/techniques/T1110/)

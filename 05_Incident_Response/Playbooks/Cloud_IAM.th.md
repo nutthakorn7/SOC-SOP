@@ -221,6 +221,15 @@ sequenceDiagram
 | Reset credentials | ✅ Console/CLI | ✅ Portal/PS | ✅ Console |
 | Remove permissions | ✅ Detach policy | ✅ Remove role | ✅ Remove binding |
 
+### Cloud Credential Rotation
+
+| Credential Type | Rotation Cycle |
+|:---|:---|
+| Access keys | 90 days |
+| Service account keys | 60 days |
+| Root/admin password | 30 days |
+| API tokens | 90 days |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1078.004 — Cloud Accounts](https://attack.mitre.org/techniques/T1078/004/)

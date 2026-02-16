@@ -216,6 +216,14 @@ sequenceDiagram
 | Downloaded malware | Full IR playbook | IR Team |
 | Multiple victims | Company-wide alert | SOC + Comms |
 
+### Phishing Impact Assessment
+
+| Level | User Action | Response |
+|:---|:---|:---|
+| None | Reported only | Close + praise |
+| Clicked | Visited URL | Scan + monitor |
+| Submitted | Entered creds | Full IR + reset |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1566 — Phishing](https://attack.mitre.org/techniques/T1566/)

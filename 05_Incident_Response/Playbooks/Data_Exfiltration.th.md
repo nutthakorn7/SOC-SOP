@@ -228,6 +228,15 @@ sequenceDiagram
 | Source code | > 10 files | 1 day | Alert + block |
 | Database export | > 1,000 rows | Single query | Alert + block |
 
+### Data Loss Quantification
+
+| Metric | Method |
+|:---|:---|
+| Volume (GB) | Network logs |
+| Record count | DLP + DB audit |
+| Duration | Timeline analysis |
+| Data sensitivity | Classification review |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK — Exfiltration](https://attack.mitre.org/tactics/TA0010/)

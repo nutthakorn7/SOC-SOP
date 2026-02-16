@@ -233,6 +233,14 @@ sequenceDiagram
 | OPC UA | 4840 | Config changes |
 | BACnet | 47808 | Unauthorized access |
 
+### IT vs OT Response Differences
+
+| Aspect | IT | OT |
+|:---|:---|:---|
+| Priority | Data integrity | Physical safety |
+| Patching | ASAP | Scheduled downtime |
+| Isolation | Network segmentation | Physical disconnect |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK for ICS](https://attack.mitre.org/matrices/ics/)

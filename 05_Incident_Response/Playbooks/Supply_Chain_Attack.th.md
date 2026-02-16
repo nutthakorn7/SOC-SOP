@@ -215,6 +215,15 @@ sequenceDiagram
 | Medium | Network access | Monthly review | Annual |
 | Low | No access | Periodic | Biennial |
 
+### Vendor Communication Template
+
+| Item | Content |
+|:---|:---|
+| Subject | Security incident notification |
+| Impact | [affected systems] |
+| Request | Patch/advisory ETA |
+| Contact | [security team email] |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1195 — Supply Chain Compromise](https://attack.mitre.org/techniques/T1195/)

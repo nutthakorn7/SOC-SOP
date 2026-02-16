@@ -219,6 +219,14 @@ sequenceDiagram
 | 5 | Assess data sensitivity | Manual review |
 | 6 | Enable encryption | `put-bucket-encryption` |
 
+### S3 Monitoring Checklist
+
+| Monitor | Tool | Frequency |
+|:---|:---|:---|
+| Public access | Config Rules | Real-time |
+| Data access patterns | CloudTrail | Daily review |
+| Encryption status | S3 inventory | Weekly |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1530 — Data from Cloud Storage](https://attack.mitre.org/techniques/T1530/)

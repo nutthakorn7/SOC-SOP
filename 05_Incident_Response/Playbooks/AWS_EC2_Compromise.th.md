@@ -215,6 +215,15 @@ sequenceDiagram
 - [ ] Check Lambda/serverless for persistence
 - [ ] Review IAM key usage
 
+### Post-Incident AWS Hardening
+
+| Control | Action | Priority |
+|:---|:---|:---|
+| IMDSv2 | Enforce token-based | P1 |
+| Security Groups | Least privilege | P1 |
+| IAM Roles | Scope down permissions | P1 |
+| CloudTrail | Ensure enabled all regions | P1 |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1190 — Exploit Public-Facing Application](https://attack.mitre.org/techniques/T1190/)

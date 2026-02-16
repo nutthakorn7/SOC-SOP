@@ -213,6 +213,14 @@ graph TD
 | 5 | File police report | 24 hrs | User |
 | 6 | Assess data exposure | 48 hrs | Security |
 
+### Device Data Risk Assessment
+
+| Data Type | Encrypted? | Risk |
+|:---|:---|:---|
+| Email cache | Check policy | Medium-High |
+| VPN credentials | Usually | Medium |
+| Saved passwords | Browser-dependent | High |
+
 ## อ้างอิง
 
 - [NIST SP 800-124r2 — Mobile Device Management](https://csrc.nist.gov/publications/detail/sp/800-124/rev-2/final)

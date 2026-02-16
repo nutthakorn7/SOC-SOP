@@ -212,6 +212,15 @@ graph TD
 | Zeek dns.log | Log analysis | Query forensics |
 | DNScat2 detection | Known tool fingerprint | Signature match |
 
+### Containment Checklist
+
+| Action | Priority |
+|:---|:---|
+| Block malicious domain | Immediate |
+| Sinkhole DNS queries | Immediate |
+| Isolate source host | 15 min |
+| Scan for additional hosts | 1 hr |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1071.004 — DNS](https://attack.mitre.org/techniques/T1071/004/)

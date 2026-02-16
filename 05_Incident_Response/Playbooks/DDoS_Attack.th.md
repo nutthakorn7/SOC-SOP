@@ -223,6 +223,15 @@ sequenceDiagram
 - [ ] Scale infrastructure if cloud-based
 - [ ] Enable rate limiting on all edges
 
+### Post-Attack Review
+
+| Question | Owner |
+|:---|:---|
+| Attack source identified? | SOC |
+| ISP response adequate? | NOC |
+| Mitigation effective? | Security |
+| Customer impact assessed? | Business |
+
 ## อ้างอิง
 
 - [MITRE ATT&CK T1498 — Network Denial of Service](https://attack.mitre.org/techniques/T1498/)
