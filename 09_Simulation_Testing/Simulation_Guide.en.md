@@ -83,6 +83,169 @@ After each exercise, document:
 5. **Remediation Plan**: Sigma rule updates, playbook amendments, tool improvements
 6. **Timeline**: Target dates for completing remediation items
 
+
+## Lab Environment Setup
+
+### Minimum Requirements
+| Component | Specification | Purpose |
+|:---|:---|:---|
+| Windows 10/11 VM | 4GB RAM, 40GB disk | Target for attack simulations |
+| Kali Linux VM | 2GB RAM, 20GB disk | Attack platform |
+| SIEM | Wazuh/Elastic (single node) | Detection validation |
+| EDR | Sysmon + Winlogbeat | Telemetry collection |
+| Network bridge | Isolated VLAN/NAT network | Traffic isolation |
+
+### Quick Setup Commands
+
+#### Install Atomic Red Team (on Windows target)
+```powershell
+# Install from PowerShell Gallery
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Bypass -Force
+Install-Module -Name invoke-atomicredteam -Scope CurrentUser -Force
+Import-Module invoke-atomicredteam
+
+# Install all atomic tests
+Install-AtomicRedTeam -getAtomics -Force
+
+# Verify installation
+Invoke-AtomicTest T1059.001 -ShowDetails
+```
+
+#### Install Sysmon (for telemetry)
+```powershell
+# Download Sysmon + SwiftOnSecurity config
+Invoke-WebRequest -Uri "https://live.sysinternals.com/Sysmon64.exe" -OutFile Sysmon64.exe
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SwiftOnSecurity/sysmon-config/master/sysmonconfig-export.xml" -OutFile sysmonconfig.xml
+
+# Install with config
+.\Sysmon64.exe -accepteula -i sysmonconfig.xml
+```
+
+#### Install MITRE Caldera (attacker server)
+```bash
+# Clone Caldera
+git clone https://github.com/mitre/caldera.git --recursive
+cd caldera
+
+# Run Caldera server
+pip3 install -r requirements.txt
+python3 server.py --insecure --build
+
+# Access: http://localhost:8888 (default: admin/admin)
+```
+
+## Detailed Test Scenarios
+
+### Scenario 1: Phishing → Malware → C2 (Full Kill Chain)
+
+```
+SETUP:
+  1. Prepare phishing email with macro-enabled document
+  2. Enable Sysmon + SIEM logging on target
+  3. Set up C2 listener (Caldera agent or netcat)
+
+EXECUTION:
+  Step 1: T1566.001 — Deliver phishing email with attachment
+  Step 2: T1204.002 — User opens attachment, enables macros
+  Step 3: T1059.001 — PowerShell executes payload
+  Step 4: T1071.001 — Callback to C2 over HTTP/HTTPS
+  Step 5: T1082     — System discovery commands
+
+VALIDATION:
+  □ Email gateway detected phishing? (Yes/No)
+  □ EDR blocked macro execution? (Yes/No)
+  □ SIEM alert for PowerShell execution? (Yes/No)
+  □ Network alert for C2 callback? (Yes/No)
+  □ Playbook PB-01 followed correctly? (Yes/No)
+  □ Time to detect: ___ min (target: ≤15 min)
+```
+
+### Scenario 2: Credential Theft → Lateral Movement
+
+```
+SETUP:
+  1. Create test accounts with weak passwords
+  2. Enable authentication logging
+  3. Deploy Mimikatz on test VM
+
+EXECUTION:
+  Step 1: T1110.003 — Password spray against test accounts
+  Step 2: T1078.002 — Login with compromised credentials
+  Step 3: T1003.001 — Run Mimikatz for credential dump
+  Step 4: T1021.002 — Move laterally via SMB/Admin share
+  Step 5: T1570     — Copy tools to remote system
+
+VALIDATION:
+  □ Multiple failed login alerts triggered? (Yes/No)
+  □ Successful login after failures flagged? (Yes/No)
+  □ Mimikatz execution detected by EDR? (Yes/No)
+  □ Lateral movement detected? (Yes/No)
+  □ Playbook PB-04 + PB-12 followed? (Yes/No)
+  □ Time to contain: ___ min (target: ≤30 min)
+```
+
+### Scenario 3: Ransomware Simulation
+
+```
+SETUP:
+  1. Create test files in isolated folder
+  2. Prepare benign "encryption" script (rename files)
+  3. Disable real encryption — use rename only!
+
+EXECUTION:
+  Step 1: T1486 — Bulk rename files (.encrypted extension)
+  Step 2: T1490 — Attempt shadow copy deletion command
+  Step 3: T1489 — Stop key services (test services only)
+  Step 4: T1485 — Create ransom note text file
+
+VALIDATION:
+  □ File rename bulk activity detected? (Yes/No)
+  □ Shadow copy deletion attempt flagged? (Yes/No)
+  □ Service stop alert triggered? (Yes/No)
+  □ EDR auto-isolated the endpoint? (Yes/No)
+  □ Playbook PB-02 followed correctly? (Yes/No)
+  □ Time to isolate: ___ min (target: ≤5 min for P1)
+```
+
+## Post-Exercise Debrief Template
+
+```markdown
+## Purple Team Exercise Report — [DATE]
+
+### Exercise Details
+- **Facilitator**: [Name]
+- **Red Team Lead**: [Name]
+- **Blue Team Lead**: [Name]
+- **Duration**: [X hours]
+- **Environment**: [Lab description]
+
+### Techniques Tested
+| # | MITRE ID | Technique | Detection | Response | Score |
+|:---|:---|:---|:---|:---|:---|
+| 1 | TXXXX | [Name] | ✅/⚠️/❌ | ✅/⚠️/❌ | [0-10] |
+
+### Overall Scores
+- Detection Coverage: __/10
+- Response Effectiveness: __/10
+- Communication: __/10
+- Documentation: __/10
+
+### Gaps Identified
+1. [Detection gap — no rule for TXXXX]
+2. [Response gap — playbook missing step for X]
+3. [Tool gap — EDR didn't block Y]
+
+### Remediation Actions
+| # | Action | Owner | Deadline | Priority |
+|:---|:---|:---|:---|:---|
+| 1 | Create Sigma rule for TXXXX | [Name] | [Date] | High |
+| 2 | Update PB-XX with new step | [Name] | [Date] | Medium |
+
+### Next Exercise
+- **Date**: [Planned date]
+- **Focus**: [Planned techniques/scenarios]
+```
+
 ## Common Pitfalls
 
 | Pitfall | Mitigation |

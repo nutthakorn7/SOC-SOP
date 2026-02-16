@@ -81,6 +81,102 @@ DPO Contact: [Name, Email, Phone]
 
 *R = Responsible, A = Accountable, C = Consulted, I = Informed*
 
+
+## Crisis Communication Plan
+
+During P1/P2 incidents, activate the crisis communication chain:
+
+```mermaid
+graph TD
+    Detect["🔍 Incident Detected"] --> T1["T1 → Ticket + Chat"]
+    T1 --> T2["T2 → Validate + Investigate"]
+    T2 --> Confirm{"Confirmed Incident?"}
+    Confirm -->|No| Close["Close + Document"]
+    Confirm -->|Yes| Bridge["🔴 Open War Room / Bridge Call"]
+    Bridge --> Notify_Mgmt["📞 SOC Manager → CISO (15 min)"]
+    Notify_Mgmt --> Assess{"Data Breach?"}
+    Assess -->|Yes| Legal["⚖️ Legal + DPO (1h)"]
+    Assess -->|No| Continue["Continue IR"]
+    Legal --> External["📢 External Comms (if required)"]
+
+    style Bridge fill:#f44336,color:#fff
+    style Legal fill:#FF9800,color:#fff
+```
+
+### War Room Activation Criteria
+| Condition | Action |
+|:---|:---|
+| P1 incident confirmed | Open bridge call immediately |
+| Multiple systems affected | Open bridge call |
+| Data breach suspected | Add Legal/DPO to bridge |
+| Media/regulatory attention | Add Communications team |
+| Business disruption > 1 hour | Add Business Unit leaders |
+
+### War Room Roles
+| Role | Responsibility |
+|:---|:---|
+| **Incident Commander** | Leads the bridge call, makes decisions |
+| **Technical Lead** (T2/T3) | Provides investigation updates every 15 min |
+| **Communications Lead** | Drafts internal/external messaging |
+| **Scribe** | Documents decisions and actions in real-time |
+| **Business Liaison** | Updates affected business units |
+
+## On-Call Procedures
+
+### On-Call Rotation
+| Role | Coverage | Response SLA |
+|:---|:---|:---|
+| T1 Analyst (on-shift) | 24/7 | Immediate |
+| T2 Analyst (on-call) | After hours | ≤ 15 min |
+| SOC Manager (on-call) | After hours | ≤ 30 min |
+| IR Lead (on-call) | After hours | ≤ 30 min |
+| CISO (emergency) | P1 only | ≤ 1 hour |
+
+### After-Hours Escalation
+```
+P1 Critical:
+  1. T1 calls T2 on-call (phone, not chat)
+  2. T2 assesses → calls IR Lead if confirmed
+  3. IR Lead calls SOC Manager
+  4. SOC Manager calls CISO if:
+     - Data breach confirmed
+     - Business impact > $100K
+     - Media/regulatory involvement
+
+P2 High:
+  1. T1 creates ticket + messages T2 on-call (chat)
+  2. T2 responds within 15 min
+  3. T2 handles or schedules for next business day
+
+P3-P4:
+  1. T1 documents in ticket
+  2. Next shift handles during business hours
+```
+
+## Communication Do's and Don'ts
+
+| ✅ Do | ❌ Don't |
+|:---|:---|
+| State facts only (what we know) | Speculate about cause or blame |
+| Use TLP labels on all messages | Share incident details on personal channels |
+| Update stakeholders at regular intervals | Go silent during active incidents |
+| Use approved templates | Draft ad-hoc external communications |
+| Document all decisions and actions | Make verbal-only agreements |
+| Include timestamps in all updates | Use ambiguous time references |
+| Confirm receipt of critical messages | Assume messages were received |
+| Use secure channels for sensitive data | Discuss PII in group chats |
+
+## Stakeholder Communication Frequency
+
+| Audience | Normal Ops | P3/P4 Incident | P1/P2 Incident |
+|:---|:---|:---|:---|
+| SOC Team | Daily standup | Per-ticket updates | War room — continuous |
+| SOC Manager | Weekly report | Daily update | Every 30 min |
+| CISO | Monthly report | Weekly mention | Every 1 hour |
+| Business Units | Quarterly briefing | If directly affected | Immediate if affected |
+| Legal/DPO | As needed | If PII involved | Immediate if breach |
+| Board/Executives | Annual report | Not required | CEO-level briefing |
+
 ## Communication Audit Checklist
 
 | Item | Frequency | Owner | Status |
