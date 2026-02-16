@@ -171,11 +171,19 @@ gantt
 - [ ] มี recording ของ deepfake call หรือไม่?
 - [ ] มีคำขอเฉพาะอะไร?
 - [ ] มี links หรือ files ที่แชร์หรือไม่?
+- [ ] หมายเลขผู้โทรถูก spoof หรือไม่?
 
 ### ประเมินความเสียหาย
 - [ ] มี financial transactions ที่อนุมัติหรือไม่?
 - [ ] มี credentials หรือข้อมูลสำคัญที่แชร์หรือไม่?
+- [ ] มีระบบใดถูกเข้าถึงเป็นผลหรือไม่?
 - [ ] มีพนักงานอื่นที่ถูกเป้าหมายพร้อมกันหรือไม่?
+
+### สืบสวนแหล่งที่มา
+- [ ] ผู้โจมตีอาจได้ตัวอย่างเสียง/วิดีโอจากไหน?
+- [ ] การพูดสาธารณะ, สัมภาษณ์, social media?
+- [ ] การประชุมที่บันทึกหรือ webinars ก่อนหน้า?
+- [ ] เป็นส่วนหนึ่งของ campaign ที่กว้างขึ้นหรือไม่?
 
 ## 3. การควบคุม (Containment)
 
@@ -184,6 +192,7 @@ gantt
 | **การเงิน** | Freeze transactions ที่รอดำเนินการทั้งหมด |
 | **การสื่อสาร** | เตือนพนักงานทั้งหมดเรื่อง campaign |
 | **Credentials** | Reset ถ้ามีการแชร์ |
+| **Platform** | รายงาน deepfake ไปยัง platform provider |
 
 ## 4. หลังเหตุการณ์ (Post-Incident)
 
@@ -196,6 +205,8 @@ gantt
 
 ## 6. Detection Rules
 
+> หมายเหตุ: การตรวจจับ Deepfake เป็นขั้นตอนเป็นหลัก — ยืนยันผ่านช่องทางแยกสำหรับคำขอผิดปกติ
+
 ```yaml
 title: Unusual Wire Transfer Request After Video Call
 logsource:
@@ -205,6 +216,8 @@ detection:
         subject|contains:
             - 'wire transfer'
             - 'urgent payment'
+            - 'ทำรายการลับ'
+        sender_domain|external: true
     condition: selection
     level: high
 ```
