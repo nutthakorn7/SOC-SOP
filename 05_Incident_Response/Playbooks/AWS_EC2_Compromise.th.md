@@ -1,56 +1,56 @@
-# Incident Response Playbook: เครื่อง AWS EC2 ถูกขุดเหมือง/ควบคุม (AWS EC2 Compromise)
+# Playbook: AWS EC2 Instance Compromise
 
-**ID**: PB-22
-**ความรุนแรง**: วิกฤต (Critical)
-**TLP**: AMBER
+**ID**: PB-22 | **ระดับความรุนแรง**: วิกฤต | **MITRE**: [T1190](https://attack.mitre.org/techniques/T1190/), [T1496](https://attack.mitre.org/techniques/T1496/)
+**ทริกเกอร์**: GuardDuty finding, CloudWatch CPU alarm, VPC Flow Log anomaly
 
-## 1. การตรวจจับ (Detection)
--   **Trigger**: GuardDuty แจ้งเตือน `CryptoCurrency:EC2/BitcoinTool`
--   **Trigger**: CPU พุ่งสูงผิดปกติ (100% ตลอดเวลา)
--   **Trigger**: การเชื่อมต่อออกไปยัง C2 Server ที่รู้จัก
+## 1. การวิเคราะห์
+### 1.1 GuardDuty Finding Types
+| Finding | ความรุนแรง |
+|:---|:---|
+| `CryptoCurrency:EC2/BitcoinTool` | สูง |
+| `Backdoor:EC2/C&CActivity` | สูง |
+| `UnauthorizedAccess:EC2/SSHBruteForce` | ปานกลาง |
+| `Trojan:EC2/BlackholeTraffic` | สูง |
 
-## 2. การวิเคราะห์ (Analysis)
+### 1.2 รายการตรวจสอบ
+| รายการ | เสร็จ |
+|:---|:---:|
+| Instance ID, Region, Owner tag | ☐ |
+| Production หรือ Dev/Test? | ☐ |
+| IAM role ที่ attach | ☐ |
+| Security Group (เปิดอะไร?) | ☐ |
+| VPC Flow Logs — outbound ผิดปกติ | ☐ |
+| Entry vector (SSH เปิดหรือ web app?) | ☐ |
 
-```mermaid
-graph TD
-    Alert[EC2 Alert] --> Verify[Verify Instance]
-    Verify -->|Production| Netflow{Mining Pool?}
-    Verify -->|Dev/Test| Stop[Stop Instance]
-    Netflow -->|Yes| Snapshot[Snapshot EBS]
-    Netflow -->|No| Investigate[Investigate Process]
-    Snapshot --> Isolate[Isolate SG]
-    Isolate --> Forensics[Forensics]
-```
+## 2. การควบคุม
+| # | การดำเนินการ | เสร็จ |
+|:---:|:---|:---:|
+| 1 | **Snapshot EBS** สำหรับ forensics | ☐ |
+| 2 | **Isolate** — attach restrictive SG | ☐ |
+| 3 | **Deregister** จาก ALB/ASG | ☐ |
+| 4 | **ปิด IAM role** credentials | ☐ |
 
--   [ ] **ระบุเครื่อง**: หา Instance ID, Region, และเจ้าของเครื่อง
--   [ ] **แยกแยะ**: เป็น Web Server ขายของ หรือเครื่อง Test?
--   [ ] **ดู Flow**: เช็ค VPC Flow Logs ว่ามีการคุยกับ Mining Pool หรือไม่?
+## 3. การกำจัด
+| # | การดำเนินการ | เสร็จ |
+|:---:|:---|:---:|
+| 1 | Terminate instance (ถ้า stateless) | ☐ |
+| 2 | Rebuild จาก clean AMI | ☐ |
+| 3 | หมุนเวียน IAM credentials + SSH keys | ☐ |
+| 4 | Patch entry vector | ☐ |
 
-## 3. การจำกัดวง (Containment)
--   [ ] **Snapshot**: สำรองข้อมูล EBS Snapshot ทันทีเพื่อเก็บหลักฐาน
--   [ ] **กักกัน**: เปลี่ยน Security Group ให้ Block All Inbound/Outbound (ยกเว้น IP ของทีม Forensics)
--   [ ] **ตัดออก**: ถอดออกจาก Auto Scaling Group (ASG) และ Load Balancer (ELB)
+## 4. การฟื้นฟู
+| # | การดำเนินการ | เสร็จ |
+|:---:|:---|:---:|
+| 1 | ใช้ SSM แทน SSH | ☐ |
+| 2 | บังคับ IMDSv2 (ปิด v1) | ☐ |
+| 3 | เปิด GuardDuty | ☐ |
 
-## 4. การกำจัดภัย (Eradication)
--   [ ] **ทำลาย**: หากเป็นเครื่อง Stateless ให้ Terminate ทิ้งทันที
--   [ ] **สร้างใหม่**: Deploy ใหม่จาก Image ต้นฉบับที่สะอาด (Golden Image)
--   [ ] **อุดช่องโหว่**: แก้ไขจุดที่แฮกเกอร์เข้า (เช่น ปิด Port SSH ที่เปิด Public)
+## 5. เกณฑ์การยกระดับ
+| เงื่อนไข | ยกระดับไปยัง |
+|:---|:---|
+| Production ถูกบุกรุก | SOC Lead + Cloud |
+| IAM credentials ถูกขโมย | [PB-16 Cloud IAM](Cloud_IAM.th.md) |
+| Billing spike | Finance + Cloud |
 
-## 5. การกู้คืน (Recovery)
--   [ ] **ตรวจสอบ**: Scan ช่องโหว่เครื่องใหม่ก่อนใช้งานจริง
--   [ ] **คืนสภาพ**: นำกลับเข้า Load Balancer
-
-## เอกสารที่เกี่ยวข้อง (Related Documents)
--   [กรอบการตอบสนองเหตุการณ์](../Framework.th.md)
--   [แบบฟอร์ม Incident Report](../../templates/incident_report.th.md)
--   [แบบฟอร์มส่งมอบกะ](../../templates/shift_handover.th.md)
-
-## References
--   [AWS Security Incident Response Guide](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/welcome.html)
--   [Amazon EC2 Security Best Practices](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-best-practices.html)
-
-## 6. วิเคราะห์สาเหตุ (VERIS)
--   **ผู้กระทำ**: [External]
--   **การกระทำ**: [Malware / Hacking]
--   **สินทรัพย์**: [EC2 Instance]
--   **ผลกระทบ**: [Integrity / Availability]
+## เอกสารที่เกี่ยวข้อง
+- [กรอบ IR](../Framework.th.md) | [PB-16 Cloud IAM](Cloud_IAM.th.md)
