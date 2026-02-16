@@ -164,6 +164,12 @@ graph TD
 - [ ] Backups เข้าถึงได้และสะอาดหรือไม่?
 - [ ] ระบบ OT/ICS มีความเสี่ยงหรือไม่?
 
+### การเข้าถึงเบื้องต้น (Initial Access)
+- [ ] Wiper เข้าสู่เครือข่ายอย่างไร?
+- [ ] ตรวจ email logs สำหรับ phishing เริ่มต้น
+- [ ] ตรวจ VPN/RDP logs สำหรับการเข้าถึงที่ไม่ได้รับอนุญาต
+- [ ] ทบทวน supply chain components
+
 ## 3. การควบคุม (Containment)
 
 | ลำดับ | การดำเนินการ | รายละเอียด |
@@ -183,6 +189,13 @@ graph TD
 4. **ระบบธุรกิจสำคัญ** — ERP, email, file servers
 5. **Workstations** — Reimage จาก gold image
 
+### รายการตรวจสอบการกู้คืน
+- [ ] ยืนยัน backup integrity ก่อนกู้คืน
+- [ ] Rebuild ระบบจาก clean images (ไม่ใช่จาก infected backups)
+- [ ] Reset credentials ทั้ง domain (รวมถึง KRBTGT สองครั้ง)
+- [ ] Deploy EDR agents ใหม่บนระบบที่ rebuild
+- [ ] ทำ network segmentation ก่อนเชื่อมต่อคืน
+
 ## 5. หลังเหตุการณ์ (Post-Incident)
 
 ### บทเรียน
@@ -192,6 +205,15 @@ graph TD
 | Backups เป็น air-gapped อย่างถูกต้องหรือไม่? | [ใช่/ไม่] |
 | Network segmentation ทำได้เร็วแค่ไหน? | [เวลา] |
 | แผน BCP/DR มีประสิทธิภาพหรือไม่? | [ประเมิน] |
+
+### ตัวชี้วัดการกู้คืน
+| ตัวชี้วัด | เป้าหมาย | จริง |
+|:---|:---|:---|
+| เวลาตรวจจับ | < 15 นาที | [จริง] |
+| เวลา contain | < 30 นาที | [จริง] |
+| ระบบที่ได้รับผลกระทบ | 0 | [จำนวน] |
+| ข้อมูลสูญเสียถาวร | 0 | [ประเมิน] |
+| เวลากู้คืนทั้งหมด | < 72 ชม. | [จริง] |
 
 ## 6. Detection Rules (Sigma)
 
@@ -208,6 +230,23 @@ detection:
             - 'bcdedit /set.*recoveryenabled.*no'
             - 'wbadmin delete catalog'
     condition: selection
+    level: critical
+```
+
+```yaml
+title: Mass File Deletion Pattern
+logsource:
+    product: windows
+    category: file_delete
+detection:
+    selection:
+        TargetFilename|endswith:
+            - '.doc'
+            - '.xls'
+            - '.pdf'
+            - '.mdb'
+    timeframe: 1m
+    condition: selection | count() > 100
     level: critical
 ```
 

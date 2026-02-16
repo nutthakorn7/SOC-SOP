@@ -178,6 +178,7 @@ gantt
 - [ ] Network connections ไม่แสดงใน `netstat`
 - [ ] การใช้ disk space ไม่ตรงกับไฟล์ที่เห็น
 - [ ] AV/EDR agent crash หรืออัปเดตไม่ได้
+- [ ] นาฬิการะบบผิดปกติ
 - [ ] Blue screens ด้วย stop codes ผิดปกติ
 
 ### วิเคราะห์ Persistence
@@ -207,6 +208,13 @@ gantt
 | UEFI rootkit | Reflash firmware จากผู้ผลิต + reimage |
 | Firmware rootkit | เปลี่ยน hardware ถ้า reflash ไม่ได้ |
 
+### ยืนยันการกู้คืน
+1. Boot จาก media ที่สะอาดที่รู้ว่าสะอาด
+2. รัน offline rootkit scan บนระบบที่ reimage
+3. ยืนยันการตั้งค่า UEFI/Secure Boot
+4. ตรวจติดตามสัญญาณการติดเชื้อซ้ำ (7 วัน)
+5. Deploy kernel protection เพิ่มเติม (HVCI, VBS)
+
 ## 5. หลังเหตุการณ์ (Post-Incident)
 
 | คำถาม | คำตอบ |
@@ -233,6 +241,18 @@ detection:
             - 'C:\Windows\System32\drivers\'
     condition: selection and not filter
     level: critical
+```
+
+```yaml
+title: Unsigned Driver Load Attempt
+logsource:
+    product: windows
+    category: driver_load
+detection:
+    selection:
+        Signed: 'false'
+    condition: selection
+    level: high
 ```
 
 ## เอกสารที่เกี่ยวข้อง
