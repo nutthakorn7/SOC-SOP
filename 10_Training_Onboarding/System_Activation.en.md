@@ -95,6 +95,57 @@ A fully functional SOC requires the following core components:
 | 11 | Import baseline detection rules | Detection Engineering | ☐ |
 | 12 | Conduct initial health check validation | SOC Manager | ☐ |
 
+## Pre-Flight Validation Checklist
+
+Before declaring the SOC operational, validate every component:
+
+### Infrastructure
+```
+□ SIEM server(s) provisioned and running
+□ SIEM storage sized for 90-day hot retention
+□ EDR management console accessible
+□ EDR agents deployed to all endpoints (target: 95%+)
+□ Network sensors deployed at critical egress points
+□ Log forwarders (Filebeat/Winlogbeat/Syslog) running
+□ Ticketing system configured with severity levels
+□ SOAR platform connected to SIEM + EDR
+```
+
+### Data Flow Validation
+```
+□ Firewall logs → SIEM (test: block event visible in SIEM)
+□ Active Directory logs → SIEM (test: logon event visible)
+□ DNS logs → SIEM (test: DNS query visible)
+□ Email gateway logs → SIEM (test: email event visible)
+□ Endpoint logs → SIEM (test: process event visible)
+□ VPN logs → SIEM (test: VPN connect visible)
+□ Cloud audit trail → SIEM (test: API call visible)
+```
+
+### Alerting
+```
+□ At least 5 detection rules active
+□ Test alert fires correctly (trigger and verify)
+□ Alert routing to ticketing system works
+□ Email/Slack/Teams notification works
+□ Escalation phone tree tested
+```
+
+## Recommended Log Sources Priority
+
+| Priority | Log Source | Why | EPS Estimate |
+|:---|:---|:---|:---|
+| 🔴 P1 | Firewall/IDS/IPS | Network perimeter visibility | 500-5,000 |
+| 🔴 P1 | Active Directory (DC) | Authentication monitoring | 200-2,000 |
+| 🔴 P1 | Email Gateway | Phishing detection | 100-1,000 |
+| 🟠 P2 | DNS | C2 and tunneling detection | 1,000-10,000 |
+| 🟠 P2 | EDR/Sysmon | Endpoint behavior analysis | 500-5,000 |
+| 🟠 P2 | Web Proxy | Web-based threats | 500-5,000 |
+| 🟡 P3 | VPN | Remote access monitoring | 50-500 |
+| 🟡 P3 | Cloud Trail (AWS/Azure/GCP) | Cloud activity | 100-1,000 |
+| 🟢 P4 | Database audit | Data access monitoring | 50-500 |
+| 🟢 P4 | WAF | Web application attacks | 100-1,000 |
+
 ## Related Documents
 -   [Analyst Onboarding Path](../10_Training_Onboarding/Analyst_Onboarding_Path.en.md)
 -   [Data Governance & Retention](../02_Platform_Operations/Database_Management.en.md)

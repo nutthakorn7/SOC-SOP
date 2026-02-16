@@ -105,6 +105,37 @@ graph LR
 - Annual audit of retention policy compliance
 - PDPA data subject access requests handled within 30 days
 
+## Capacity Planning Guide
+
+### Storage Estimation Formula
+```
+Daily Storage (GB) = Average EPS × Event Size (bytes) × 86,400 / (1024^3)
+
+Example:
+  1,000 EPS × 500 bytes × 86,400 = ~40 GB/day
+  Hot storage (90 days): 40 × 90 = 3.6 TB
+  Cold storage (1 year): 40 × 365 = 14.6 TB
+```
+
+### Sizing by Organization
+
+| Org Size | Estimated EPS | Daily Volume | Hot (90d) | Cold (1yr) | Recommended SIEM |
+|:---|:---:|:---:|:---:|:---:|:---|
+| Small (<500 users) | 100-500 | 4-20 GB | 360 GB-1.8 TB | 1.5-7 TB | Wazuh (single node) |
+| Medium (500-5K) | 500-5,000 | 20-200 GB | 1.8-18 TB | 7-73 TB | Elastic (3-node) |
+| Large (5K-50K) | 5,000-50,000 | 200 GB-2 TB | 18-180 TB | 73-730 TB | Splunk/Elastic cluster |
+
+### Backup Strategy
+
+| Component | Backup Type | Frequency | Retention | Recovery Target |
+|:---|:---|:---|:---|:---|
+| SIEM config | Full | Daily | 30 days | < 1 hour |
+| Detection rules | Git version control | On change | Indefinite | < 15 min |
+| Ticketing data | Incremental | Daily | 3 years | < 4 hours |
+| TI platform (MISP) | Full | Weekly | 1 year | < 2 hours |
+| SOAR playbooks | Git version control | On change | Indefinite | < 15 min |
+| Dashboards | Export/JSON | Weekly | 1 year | < 1 hour |
+
 ## Related Documents
 -   [Data Handling Protocol (TLP)](../06_Operations_Management/Data_Handling_Protocol.en.md)
 -   [Deployment Procedures](Deployment_Procedures.en.md)

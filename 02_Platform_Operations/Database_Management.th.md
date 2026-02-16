@@ -74,6 +74,37 @@ graph TD
 - ตรวจสอบนโยบาย Retention ประจำปี
 - ดำเนินการคำขอของเจ้าของข้อมูลตาม PDPA ภายใน 30 วัน
 
+## คู่มือการวางแผน Capacity
+
+### สูตรประมาณ Storage
+```
+Storage ต่อวัน (GB) = EPS เฉลี่ย × ขนาด Event (bytes) × 86,400 / (1024^3)
+
+ตัวอย่าง:
+  1,000 EPS × 500 bytes × 86,400 = ~40 GB/วัน
+  Hot storage (90 วัน): 40 × 90 = 3.6 TB
+  Cold storage (1 ปี): 40 × 365 = 14.6 TB
+```
+
+### Sizing ตามขนาดองค์กร
+
+| ขนาดองค์กร | EPS ประมาณ | ปริมาณ/วัน | Hot (90 วัน) | Cold (1 ปี) | SIEM แนะนำ |
+|:---|:---:|:---:|:---:|:---:|:---|
+| เล็ก (<500 users) | 100-500 | 4-20 GB | 360 GB-1.8 TB | 1.5-7 TB | Wazuh (single node) |
+| กลาง (500-5K) | 500-5,000 | 20-200 GB | 1.8-18 TB | 7-73 TB | Elastic (3-node) |
+| ใหญ่ (5K-50K) | 5,000-50,000 | 200 GB-2 TB | 18-180 TB | 73-730 TB | Splunk/Elastic cluster |
+
+### แผนสำรองข้อมูล
+
+| Component | ประเภท Backup | ความถี่ | ระยะเก็บ | เป้า Recovery |
+|:---|:---|:---|:---|:---|
+| SIEM config | Full | รายวัน | 30 วัน | < 1 ชม. |
+| Detection rules | Git version control | ทุกครั้งที่เปลี่ยน | ถาวร | < 15 นาที |
+| Ticketing data | Incremental | รายวัน | 3 ปี | < 4 ชม. |
+| TI platform (MISP) | Full | รายสัปดาห์ | 1 ปี | < 2 ชม. |
+| SOAR playbooks | Git version control | ทุกครั้งที่เปลี่ยน | ถาวร | < 15 นาที |
+| Dashboards | Export/JSON | รายสัปดาห์ | 1 ปี | < 1 ชม. |
+
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [โปรโตคอลการจัดการข้อมูล (TLP)](../06_Operations_Management/Data_Handling_Protocol.th.md)
 -   [ขั้นตอนการ Deploy](Deployment_Procedures.th.md)

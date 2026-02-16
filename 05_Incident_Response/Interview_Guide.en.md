@@ -141,6 +141,56 @@ Present a multi-stage attack scenario (phishing → execution → lateral moveme
 
 ---
 
+## Scenario-Based Interview Questions
+
+### Scenario 1: Phishing Investigation
+```
+You receive an alert that an employee clicked a link in a suspicious email.
+The email appears to come from the CEO asking to review an "urgent document."
+
+Questions:
+1. What are your first 3 actions? (Expected: check email headers,
+   analyze link/URL in sandbox, check if user entered credentials)
+2. How do you determine if this is a targeted attack vs. mass phishing?
+3. The user confirms they entered their password. What do you do now?
+4. You find the same email was sent to 50 other employees. How do you
+   prioritize your response?
+```
+
+### Scenario 2: Ransomware Detection
+```
+At 3:00 AM, you notice an EDR alert showing rapid file renaming
+activity on a file server. The extensions are changing to ".locked".
+
+Questions:
+1. What is your immediate containment action?
+2. How do you determine the scope of the infection?
+3. The SOC Manager is unreachable. What do you do?
+4. Business wants to know when systems will be back. What do you say?
+```
+
+### Scenario 3: Insider Threat
+```
+A DLP alert shows a senior engineer downloading large amounts of
+source code to a USB drive at 11 PM on a Friday.
+
+Questions:
+1. Is this necessarily malicious? What factors would you consider?
+2. How do you investigate without alerting the employee?
+3. Who do you escalate to, and what information do you provide?
+4. What evidence would you preserve?
+```
+
+## Interview Scoring Rubric
+
+| Competency | 1 (Poor) | 2 (Basic) | 3 (Good) | 4 (Excellent) |
+|:---|:---|:---|:---|:---|
+| **Technical Knowledge** | Cannot explain basic concepts | Knows theory, limited practice | Solid practical knowledge | Expert, can teach others |
+| **Analytical Thinking** | Random approach, no method | Some structure, misses steps | Systematic methodology | Hypothesis-driven, thorough |
+| **Communication** | Unclear, jargon-heavy | Adequate for peers | Clear to technical + non-technical | Excellent storytelling |
+| **Judgment** | Poor escalation decisions | Escalates everything | Good balance of action + escalation | Nuanced, risk-based decisions |
+| **Tool Proficiency** | Cannot describe tool use | Names tools, basic use | Competent with core tools | Advanced queries, automation |
+
 ## Related Documents
 
 - [SOC Team Structure](../06_Operations_Management/SOC_Team_Structure.en.md)

@@ -82,6 +82,37 @@ sequenceDiagram
 | 8 | ตรวจสอบหลัง Deploy 30 นาที | SOC Lead | ☐ |
 | 9 | ปิด RFC พร้อมบันทึกผลลัพธ์ | Engineer | ☐ |
 
+## ขั้นตอน Rollback
+
+### เมื่อไรต้อง Rollback
+| สัญญาณ | การดำเนินการ |
+|:---|:---|
+| SIEM หยุดรับ log | Rollback ทันที |
+| ปริมาณ alert ลดเป็น 0 | ตรวจสอบก่อน, rollback ถ้าแก้ไม่ได้ใน 15 นาที |
+| FP rate พุ่ง > 50% | Rollback rule change, สืบสวน |
+| Dashboard/query error | Rollback config change |
+| Agent crash หลัง update | Rollback agent version |
+
+### Rollback Checklist
+```
+□ ระบุการเปลี่ยนแปลงที่ทำให้เกิดปัญหา
+□ แจ้ง SOC Manager ว่ากำลัง rollback
+□ Apply rollback จาก backup/git
+□ ตรวจสอบว่าระบบกลับสู่สภาพปกติ
+□ บันทึก failed change และ root cause
+□ นัด post-mortem ภายใน 48 ชม.
+```
+
+## ตาราง Change Window
+
+| ประเภท Change | ช่วงเวลาอนุญาต | ต้อง Approval | เวลา Rollback |
+|:---|:---|:---|:---|
+| Detection rule (ใหม่) | เวลาไหนก็ได้ (test mode) | SOC Lead | < 5 นาที |
+| Detection rule (production) | เวลาทำการ | SOC Lead + peer review | < 5 นาที |
+| SIEM configuration | Maintenance window (อา. 02:00-06:00) | SOC Manager | < 30 นาที |
+| Agent update (fleet) | Staged: 10% → 50% → 100% ใน 3 วัน | SOC Manager + IT | < 1 ชม. |
+| Major platform upgrade | Maintenance window + CAB approval | CISO | < 4 ชม. |
+
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [แบบฟอร์ม Change Request](../templates/change_request_rfc.th.md)
 -   [ธรรมาภิบาลข้อมูล](Database_Management.th.md)

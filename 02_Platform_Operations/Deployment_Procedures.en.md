@@ -106,6 +106,37 @@ graph LR
     Validate --> Prod["Deploy Production"]
 ```
 
+## Rollback Procedures
+
+### When to Rollback
+| Indicator | Action |
+|:---|:---|
+| SIEM stops receiving logs | Rollback immediately |
+| Alert volume drops to 0 | Investigate first, rollback if not resolved in 15 min |
+| False positive rate spikes > 50% | Rollback rule change, investigate |
+| Dashboard/query errors | Rollback config change |
+| Agent crash after update | Rollback agent version |
+
+### Rollback Checklist
+```
+□ Identify the change that caused the issue
+□ Notify SOC Manager that rollback is in progress
+□ Apply rollback from backup/git
+□ Verify system returns to normal operation
+□ Document the failed change and root cause
+□ Schedule post-mortem within 48 hours
+```
+
+## Change Window Schedule
+
+| Change Type | Allowed Window | Approval Required | Rollback Time |
+|:---|:---|:---|:---|
+| Detection rule (new) | Anytime (test mode) | SOC Lead | < 5 min |
+| Detection rule (production) | Business hours | SOC Lead + peer review | < 5 min |
+| SIEM configuration | Maintenance window (Sun 02:00-06:00) | SOC Manager | < 30 min |
+| Agent update (fleet) | Staged: 10% → 50% → 100% over 3 days | SOC Manager + IT | < 1 hour |
+| Major platform upgrade | Maintenance window + CAB approval | CISO | < 4 hours |
+
 ## Related Documents
 -   [Change Request Template](../templates/change_request_rfc.en.md)
 -   [Data Governance & Retention](Database_Management.en.md)

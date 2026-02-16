@@ -133,6 +133,34 @@ This template defines the metrics and visualizations for a SOC executive dashboa
 
 ---
 
+## KPI Definitions & Targets
+
+| KPI | Definition | Formula | Target | RAG Thresholds |
+|:---|:---|:---|:---|:---|
+| **MTTD** | Mean Time to Detect | Avg(Detection Time - Event Time) | ≤ 60 min | 🟢≤60 🟡≤120 🔴>120 |
+| **MTTR** | Mean Time to Respond | Avg(Response Time - Detection Time) | ≤ 240 min | 🟢≤240 🟡≤480 🔴>480 |
+| **FP Rate** | False Positive Rate | FP Alerts / Total Alerts × 100 | ≤ 20% | 🟢≤20% 🟡≤35% 🔴>35% |
+| **SLA Compliance** | % incidents resolved within SLA | On-time / Total × 100 | ≥ 95% | 🟢≥95% 🟡≥85% 🔴<85% |
+| **Coverage** | MITRE ATT&CK technique coverage | Covered / Total × 100 | ≥ 60% | 🟢≥60% 🟡≥40% 🔴<40% |
+| **Staffing** | Analyst utilization rate | Active Hours / Available × 100 | 60-80% | 🟢60-80% 🟡>80% 🔴>90% |
+
+## RAG Status Dashboard Template
+
+```markdown
+## SOC Health Dashboard — [Date]
+
+### Overall Status: 🟢 GREEN
+
+| Domain | Status | Key Metric | Notes |
+|:---|:---:|:---|:---|
+| Detection | 🟢 | MTTD: 42 min | Within target |
+| Response | 🟢 | MTTR: 180 min | Improving trend |
+| Staffing | 🟡 | Utilization: 82% | 1 vacancy, hiring |
+| Technology | 🟢 | Uptime: 99.8% | No major outages |
+| Coverage | 🟡 | ATT&CK: 55% | 5 rules in development |
+| Compliance | 🟢 | SLA: 97% | Exceeding target |
+```
+
 ## Related Documents
 
 - [SOC Metrics & KPIs](../06_Operations_Management/SOC_Metrics.en.md)
