@@ -47,7 +47,7 @@
 | 📄 Documents (EN+TH) | 240 | Bilingual, vendor-agnostic SOPs |
 | 🛡️ IR Playbooks | 35 | PB-01 Phishing → PB-35 Data Collection, MITRE mapped |
 | 🔍 Sigma Detection Rules | 35 | Ready-to-import SIEM rules |
-| 🧬 YARA Rules | 5 | File-based threat detection |
+| 🧬 YARA Rules | 16 | File-based threat detection |
 | 📋 Templates | 6 | Incident report, shift log, RFC, dashboards |
 | 🧰 Interactive Tools | 2 | SOC Maturity Scorer + MITRE Heatmap |
 | 📊 Dashboard JSON | 2 | Grafana (14 panels) + Kibana (11 panels) |
