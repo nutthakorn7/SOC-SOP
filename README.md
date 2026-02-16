@@ -10,9 +10,9 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/📄_Documents-244-blue?style=for-the-badge" alt="Documents">
-  <img src="https://img.shields.io/badge/🛡️_Playbooks-35-red?style=for-the-badge" alt="Playbooks">
-  <img src="https://img.shields.io/badge/🔍_Sigma_Rules-35-orange?style=for-the-badge" alt="Sigma Rules">
+  <img src="https://img.shields.io/badge/📄_Documents-274-blue?style=for-the-badge" alt="Documents">
+  <img src="https://img.shields.io/badge/🛡️_Playbooks-50-red?style=for-the-badge" alt="Playbooks">
+  <img src="https://img.shields.io/badge/🔍_Sigma_Rules-50-orange?style=for-the-badge" alt="Sigma Rules">
   <img src="https://img.shields.io/badge/🌐_Bilingual-EN%2FTH-green?style=for-the-badge" alt="Bilingual">
 </p>
 
@@ -44,9 +44,9 @@
 
 | Category | Count | Highlights |
 |:---|:---:|:---|
-| 📄 Documents (EN+TH) | 244 | Bilingual, vendor-agnostic SOPs |
-| 🛡️ IR Playbooks | 35 | PB-01 Phishing → PB-35 Data Collection, MITRE mapped |
-| 🔍 Sigma Detection Rules | 35 | Ready-to-import SIEM rules |
+| 📄 Documents (EN+TH) | 274 | Bilingual, vendor-agnostic SOPs |
+| 🛡️ IR Playbooks | 50 | PB-01 Phishing → PB-50 Unauthorized Scanning, MITRE mapped |
+| 🔍 Sigma Detection Rules | 50 | Ready-to-import SIEM rules |
 | 🧬 YARA Rules | 16 | File-based threat detection |
 | 📋 Templates | 6 | Incident report, shift log, RFC, dashboards |
 | 🧰 Interactive Tools | 2 | SOC Maturity Scorer + MITRE Heatmap |
@@ -103,7 +103,7 @@ Start here if you're building a brand-new SOC. Follow the numbered order.
 | **Lessons Learned Template** | [Read](05_Incident_Response/Lessons_Learned_Template.en.md) | [อ่าน](05_Incident_Response/Lessons_Learned_Template.th.md) |
 | **📘 Playbook Development Guide** | [Read](05_Incident_Response/Playbook_Development_Guide.en.md) | [อ่าน](05_Incident_Response/Playbook_Development_Guide.th.md) |
 
-### 35 Playbooks — Grouped by Category
+### 50 Playbooks — Grouped by Category
 
 All playbooks are bilingual (EN+TH) and MITRE ATT&CK mapped.
 
@@ -171,6 +171,45 @@ All playbooks are bilingual (EN+TH) and MITRE ATT&CK mapped.
 | 33 | Azure AD Compromise | [📄](05_Incident_Response/Playbooks/Azure_AD_Compromise.en.md) | [📄](05_Incident_Response/Playbooks/Azure_AD_Compromise.th.md) |
 | 34 | Network Discovery | [📄](05_Incident_Response/Playbooks/Network_Discovery.en.md) | [📄](05_Incident_Response/Playbooks/Network_Discovery.th.md) |
 | 35 | Data Collection | [📄](05_Incident_Response/Playbooks/Data_Collection.en.md) | [📄](05_Incident_Response/Playbooks/Data_Collection.th.md) |
+
+</details>
+
+<details>
+<summary><b>🔐 Credential & Evasion (PB-36 → PB-40)</b> — Dumping, injection, wipers, LOLBins</summary>
+
+| # | Playbook | EN | TH |
+|:---:|:---|:---:|:---:|
+| 36 | Credential Dumping | [📄](05_Incident_Response/Playbooks/Credential_Dumping.en.md) | [📄](05_Incident_Response/Playbooks/Credential_Dumping.th.md) |
+| 37 | SQL Injection | [📄](05_Incident_Response/Playbooks/SQL_Injection.en.md) | [📄](05_Incident_Response/Playbooks/SQL_Injection.th.md) |
+| 38 | Wiper Attack | [📄](05_Incident_Response/Playbooks/Wiper_Attack.en.md) | [📄](05_Incident_Response/Playbooks/Wiper_Attack.th.md) |
+| 39 | Living Off The Land | [📄](05_Incident_Response/Playbooks/Living_Off_The_Land.en.md) | [📄](05_Incident_Response/Playbooks/Living_Off_The_Land.th.md) |
+| 40 | USB Removable Media | [📄](05_Incident_Response/Playbooks/USB_Removable_Media.en.md) | [📄](05_Incident_Response/Playbooks/USB_Removable_Media.th.md) |
+
+</details>
+
+<details>
+<summary><b>🌐 Network & Access Abuse (PB-41 → PB-45)</b> — VPN, email takeover, bootkits</summary>
+
+| # | Playbook | EN | TH |
+|:---:|:---|:---:|:---:|
+| 41 | VPN Abuse | [📄](05_Incident_Response/Playbooks/VPN_Abuse.en.md) | [📄](05_Incident_Response/Playbooks/VPN_Abuse.th.md) |
+| 42 | Email Account Takeover | [📄](05_Incident_Response/Playbooks/Email_Account_Takeover.en.md) | [📄](05_Incident_Response/Playbooks/Email_Account_Takeover.th.md) |
+| 43 | Watering Hole | [📄](05_Incident_Response/Playbooks/Watering_Hole.en.md) | [📄](05_Incident_Response/Playbooks/Watering_Hole.th.md) |
+| 44 | Drive-By Download | [📄](05_Incident_Response/Playbooks/Drive_By_Download.en.md) | [📄](05_Incident_Response/Playbooks/Drive_By_Download.th.md) |
+| 45 | Rootkit / Bootkit | [📄](05_Incident_Response/Playbooks/Rootkit_Bootkit.en.md) | [📄](05_Incident_Response/Playbooks/Rootkit_Bootkit.th.md) |
+
+</details>
+
+<details>
+<summary><b>🎭 Emerging Threats (PB-46 → PB-50)</b> — SIM swap, cryptojacking, deepfake, typosquatting</summary>
+
+| # | Playbook | EN | TH |
+|:---:|:---|:---:|:---:|
+| 46 | SIM Swap | [📄](05_Incident_Response/Playbooks/SIM_Swap.en.md) | [📄](05_Incident_Response/Playbooks/SIM_Swap.th.md) |
+| 47 | Cloud Cryptojacking | [📄](05_Incident_Response/Playbooks/Cloud_Cryptojacking.en.md) | [📄](05_Incident_Response/Playbooks/Cloud_Cryptojacking.th.md) |
+| 48 | Deepfake Social Engineering | [📄](05_Incident_Response/Playbooks/Deepfake_Social_Engineering.en.md) | [📄](05_Incident_Response/Playbooks/Deepfake_Social_Engineering.th.md) |
+| 49 | Typosquatting | [📄](05_Incident_Response/Playbooks/Typosquatting.en.md) | [📄](05_Incident_Response/Playbooks/Typosquatting.th.md) |
+| 50 | Unauthorized Scanning | [📄](05_Incident_Response/Playbooks/Unauthorized_Scanning.en.md) | [📄](05_Incident_Response/Playbooks/Unauthorized_Scanning.th.md) |
 
 </details>
 
