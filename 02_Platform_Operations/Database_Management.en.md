@@ -136,6 +136,34 @@ Example:
 | SOAR playbooks | Git version control | On change | Indefinite | < 15 min |
 | Dashboards | Export/JSON | Weekly | 1 year | < 1 hour |
 
+## Database Health Check Script
+
+Run weekly to validate SIEM database health:
+
+```bash
+#!/bin/bash
+# siem_health_check.sh — Weekly SIEM DB health check
+
+echo "=== SIEM Database Health Check ==="
+echo "Date: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
+# 1. Check disk usage
+echo "--- Disk Usage ---"
+df -h /var/lib/elasticsearch 2>/dev/null || df -h /opt/splunk 2>/dev/null
+
+# 2. Check index sizes (Elasticsearch)
+curl -s 'localhost:9200/_cat/indices?v&s=store.size:desc' | head -20
+
+# 3. Check cluster health
+curl -s 'localhost:9200/_cluster/health?pretty'
+
+# 4. Check old indices for cleanup
+echo "--- Indices older than 90 days ---"
+curl -s 'localhost:9200/_cat/indices?v&h=index,creation.date.string,store.size' | \
+  awk -v cutoff="$(date -d '90 days ago' +%Y.%m.%d 2>/dev/null || date -v-90d +%Y.%m.%d)" \
+  '$2 < cutoff { print }'
+```
+
 ## Related Documents
 -   [Data Handling Protocol (TLP)](../06_Operations_Management/Data_Handling_Protocol.en.md)
 -   [Deployment Procedures](Deployment_Procedures.en.md)

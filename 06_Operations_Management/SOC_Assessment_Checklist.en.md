@@ -137,6 +137,28 @@ Count the "Yes" answers to determine approximate maturity.
 | YYYY-MM-DD | __/100 | [1-5] | [List gaps] | [Actions completed] |
 | YYYY-MM-DD | __/100 | [1-5] | [List gaps] | [Actions completed] |
 
+## Industry Maturity Benchmarks
+
+Compare your SOC maturity against industry averages:
+
+| Domain | Level 1 (Initial) | Level 2 (Managed) | Level 3 (Defined) | Level 4 (Measured) | Level 5 (Optimized) |
+|:---|:---|:---|:---|:---|:---|
+| **People** | Ad-hoc staffing | Defined roles | Training program | Career paths | Continuous development |
+| **Process** | Reactive only | Basic IR process | Documented SOPs | Metrics-driven | Continuous improvement |
+| **Technology** | Basic SIEM | SIEM + EDR | SOAR integration | Full stack automated | AI/ML-assisted |
+| **Detection** | Vendor defaults | Custom rules | MITRE-mapped | Threat-intel driven | Proactive hunting |
+| **Response** | Manual, slow | Playbook-based | Partially automated | Mostly automated | Fully orchestrated |
+
+### Typical Maturity by SOC Age
+
+| SOC Age | Expected Level | Key Focus Area |
+|:---|:---:|:---|
+| 0-6 months | Level 1 | Getting basics running |
+| 6-12 months | Level 1-2 | Documentation + staffing |
+| 1-2 years | Level 2-3 | Process maturity + coverage |
+| 2-3 years | Level 3-4 | Metrics + automation |
+| 3+ years | Level 4-5 | Optimization + innovation |
+
 ## Related Documents
 -   [Incident Response Framework](../05_Incident_Response/Framework.en.md)
 -   [SOC Metrics & KPIs](SOC_Metrics.en.md)

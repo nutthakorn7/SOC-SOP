@@ -146,6 +146,44 @@ Before declaring the SOC operational, validate every component:
 | 🟢 P4 | Database audit | Data access monitoring | 50-500 |
 | 🟢 P4 | WAF | Web application attacks | 100-1,000 |
 
+## Go-Live Notification Template
+
+Send to all stakeholders when SOC is declared operational:
+
+```markdown
+Subject: 🟢 SOC Go-Live — [Organization Name] Security Operations Center Active
+
+Dear Team,
+
+I am pleased to announce that the Security Operations Center (SOC) is
+now officially operational as of [DATE/TIME].
+
+### What This Means
+- 24/7 security monitoring is now active
+- All security alerts will be triaged within [SLA] minutes
+- Incident response procedures are in effect
+
+### Key Contacts
+- SOC Phone: [NUMBER]
+- SOC Email: soc@company.com
+- Emergency Escalation: [MANAGER NAME] — [PHONE]
+
+### What You Should Do
+1. Report suspicious emails to soc@company.com
+2. Do NOT attempt to investigate security issues yourself
+3. Call the SOC hotline for urgent security concerns
+
+### Coverage Hours
+- Monitoring: 24/7/365
+- Tier 1 Response: 24/7
+- Tier 2/3 Response: Business hours + on-call
+
+Thank you for your cooperation in keeping our organization secure.
+
+[CISO Name]
+Chief Information Security Officer
+```
+
 ## Related Documents
 -   [Analyst Onboarding Path](../10_Training_Onboarding/Analyst_Onboarding_Path.en.md)
 -   [Data Governance & Retention](../02_Platform_Operations/Database_Management.en.md)

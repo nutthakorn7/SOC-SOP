@@ -127,6 +127,28 @@ graph LR
 | YYYY-MM-DD | __/100 | [1-5] | [ระบุช่องโหว่] | [สิ่งที่ทำแล้ว] |
 | YYYY-MM-DD | __/100 | [1-5] | [ระบุช่องโหว่] | [สิ่งที่ทำแล้ว] |
 
+## เกณฑ์ Maturity อุตสาหกรรม
+
+เปรียบเทียบ maturity ของ SOC กับค่าเฉลี่ยอุตสาหกรรม:
+
+| ด้าน | Level 1 (เริ่มต้น) | Level 2 (จัดการ) | Level 3 (กำหนด) | Level 4 (วัดผล) | Level 5 (ปรับปรุง) |
+|:---|:---|:---|:---|:---|:---|
+| **บุคลากร** | จ้างเฉพาะกิจ | กำหนดบทบาท | โปรแกรมฝึกอบรม | Career paths | พัฒนาต่อเนื่อง |
+| **กระบวนการ** | Reactive เท่านั้น | IR process พื้นฐาน | SOPs บันทึกไว้ | ขับเคลื่อนด้วย metrics | ปรับปรุงต่อเนื่อง |
+| **เทคโนโลยี** | SIEM พื้นฐาน | SIEM + EDR | SOAR integration | Full stack automated | AI/ML-assisted |
+| **Detection** | Vendor defaults | Custom rules | MITRE-mapped | Threat-intel driven | Proactive hunting |
+| **Response** | Manual, ช้า | Playbook-based | อัตโนมัติบางส่วน | อัตโนมัติส่วนใหญ่ | Fully orchestrated |
+
+### Maturity ทั่วไปตามอายุ SOC
+
+| อายุ SOC | Level คาดหวัง | จุดเน้นสำคัญ |
+|:---|:---:|:---|
+| 0-6 เดือน | Level 1 | ทำพื้นฐานให้ทำงานได้ |
+| 6-12 เดือน | Level 1-2 | เอกสาร + กำลังคน |
+| 1-2 ปี | Level 2-3 | กระบวนการ + coverage |
+| 2-3 ปี | Level 3-4 | Metrics + automation |
+| 3+ ปี | Level 4-5 | Optimization + innovation |
+
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กรอบการตอบสนองเหตุการณ์](../05_Incident_Response/Framework.th.md)
 -   [แบบประเมิน SOC](SOC_Assessment_Checklist.th.md)

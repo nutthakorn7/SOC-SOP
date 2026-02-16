@@ -137,6 +137,35 @@ graph LR
 | Agent update (fleet) | Staged: 10% → 50% → 100% over 3 days | SOC Manager + IT | < 1 hour |
 | Major platform upgrade | Maintenance window + CAB approval | CISO | < 4 hours |
 
+## Post-Deployment Smoke Test
+
+After any deployment, run these verification steps:
+
+```bash
+#!/bin/bash
+# smoke_test.sh — Post-deployment verification
+
+echo "=== Post-Deployment Smoke Test ==="
+
+# 1. SIEM connectivity
+echo -n "SIEM API: "
+curl -s -o /dev/null -w "%{http_code}" https://siem.internal/api/health && echo " ✅" || echo " ❌"
+
+# 2. Log ingestion (check last 5 min)
+echo -n "Log ingestion: "
+RECENT=$(curl -s 'localhost:9200/_count?q=@timestamp:>now-5m' | grep -o '"count":[0-9]*')
+echo "$RECENT events in last 5 min"
+
+# 3. Detection rules
+echo -n "Active rules: "
+# Adjust for your SIEM
+echo "$(curl -s 'localhost:9200/_cat/count/sigma-*' | awk '{print $3}') rules loaded"
+
+# 4. Alert routing
+echo "Sending test alert..."
+# Add your test alert mechanism here
+```
+
 ## Related Documents
 -   [Change Request Template](../11_Reporting_Templates/change_request_rfc.en.md)
 -   [Data Governance & Retention](Database_Management.en.md)

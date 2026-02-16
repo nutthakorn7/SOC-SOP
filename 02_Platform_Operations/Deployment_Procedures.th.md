@@ -113,6 +113,33 @@ sequenceDiagram
 | Agent update (fleet) | Staged: 10% → 50% → 100% ใน 3 วัน | SOC Manager + IT | < 1 ชม. |
 | Major platform upgrade | Maintenance window + CAB approval | CISO | < 4 ชม. |
 
+## Smoke Test หลัง Deploy
+
+หลังจาก deployment ใดๆ ให้รันขั้นตอนตรวจสอบ:
+
+```bash
+#!/bin/bash
+# smoke_test.sh — ตรวจสอบหลัง deployment
+
+echo "=== Post-Deployment Smoke Test ==="
+
+# 1. เชื่อมต่อ SIEM
+echo -n "SIEM API: "
+curl -s -o /dev/null -w "%{http_code}" https://siem.internal/api/health && echo " ✅" || echo " ❌"
+
+# 2. ตรวจ log ingestion (5 นาทีล่าสุด)
+echo -n "Log ingestion: "
+RECENT=$(curl -s 'localhost:9200/_count?q=@timestamp:>now-5m' | grep -o '"count":[0-9]*')
+echo "$RECENT events ใน 5 นาทีล่าสุด"
+
+# 3. Detection rules
+echo -n "Active rules: "
+echo "$(curl -s 'localhost:9200/_cat/count/sigma-*' | awk '{print $3}') rules loaded"
+
+# 4. Alert routing
+echo "ส่ง test alert..."
+```
+
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [แบบฟอร์ม Change Request](../11_Reporting_Templates/change_request_rfc.th.md)
 -   [ธรรมาภิบาลข้อมูล](Database_Management.th.md)

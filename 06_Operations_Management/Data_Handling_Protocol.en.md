@@ -145,6 +145,30 @@ TLP: [RED/AMBER/GREEN/CLEAR]
 | PII from investigations | Until case closure | Case file (encrypted) | Secure delete + DPO confirm |
 | PDPA breach records | 5 years (legal requirement) | Encrypted archive | Retain per regulation |
 
+## TLP Quick Reference Card
+
+Print and post at SOC workstations:
+
+```
+╔══════════════════════════════════════════════╗
+║           TLP 2.0 QUICK REFERENCE            ║
+╠══════════════════════════════════════════════╣
+║ 🔴 TLP:RED     — Named recipients ONLY       ║
+║                  NO forwarding, NO sharing    ║
+║ 🟠 TLP:AMBER   — Org + need-to-know clients  ║
+║                  OK to share within org       ║
+║ 🟡 TLP:AMBER+S — Org + need-to-know, strict  ║
+║                  Do NOT share with clients    ║
+║ 🟢 TLP:GREEN   — Community/sector sharing OK  ║
+║                  NO public posting            ║
+║ ⚪ TLP:CLEAR   — Public, no restrictions      ║
+║                  OK to post anywhere          ║
+╠══════════════════════════════════════════════╣
+║ When in doubt → treat as TLP:AMBER           ║
+║ Questions? Ask SOC Manager                    ║
+╚══════════════════════════════════════════════╝
+```
+
 ## Related Documents
 -   [Incident Response Framework](../05_Incident_Response/Framework.en.md)
 -   [SOC Assessment Checklist](SOC_Assessment_Checklist.en.md)

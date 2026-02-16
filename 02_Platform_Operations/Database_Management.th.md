@@ -105,6 +105,33 @@ Storage ต่อวัน (GB) = EPS เฉลี่ย × ขนาด Event (
 | SOAR playbooks | Git version control | ทุกครั้งที่เปลี่ยน | ถาวร | < 15 นาที |
 | Dashboards | Export/JSON | รายสัปดาห์ | 1 ปี | < 1 ชม. |
 
+## สคริปต์ตรวจสุขภาพ Database
+
+รันทุกสัปดาห์เพื่อตรวจสอบสุขภาพ SIEM database:
+
+```bash
+#!/bin/bash
+# siem_health_check.sh — ตรวจ DB สุขภาพ SIEM ประจำสัปดาห์
+
+echo "=== SIEM Database Health Check ==="
+echo "Date: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
+# 1. ตรวจ disk usage
+echo "--- Disk Usage ---"
+df -h /var/lib/elasticsearch 2>/dev/null || df -h /opt/splunk 2>/dev/null
+
+# 2. ตรวจขนาด index (Elasticsearch)
+curl -s 'localhost:9200/_cat/indices?v&s=store.size:desc' | head -20
+
+# 3. ตรวจ cluster health
+curl -s 'localhost:9200/_cluster/health?pretty'
+
+# 4. ตรวจ indices เก่าสำหรับ cleanup
+echo "--- Indices เก่ากว่า 90 วัน ---"
+curl -s 'localhost:9200/_cat/indices?v&h=index,creation.date.string,store.size' | \
+  awk -v cutoff="$(date -v-90d +%Y.%m.%d)" '$2 < cutoff { print }'
+```
+
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [โปรโตคอลการจัดการข้อมูล (TLP)](../06_Operations_Management/Data_Handling_Protocol.th.md)
 -   [ขั้นตอนการ Deploy](Deployment_Procedures.th.md)
