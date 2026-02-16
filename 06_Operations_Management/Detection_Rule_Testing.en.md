@@ -191,5 +191,9 @@ jobs:
 ## Related Documents
 
 - [Change Management SOP](Change_Management.en.md)
-- [Detection Rules Index](../08_Detection_Engineering/README.en.md)
+- [Detection Rules Index](../08_Detection_Engineering/README.md) — All 36 Sigma rules with playbook mapping
 - [Use Case Prioritization](../01_SOC_Fundamentals/Use_Case_Prioritization.en.md)
+- [Alert Tuning SOP](Alert_Tuning.en.md) — Tuning methodology for noisy rules
+- [PB-01 Phishing](../05_Incident_Response/Playbooks/Phishing.en.md) — Example: testing email detection rules
+- [PB-02 Ransomware](../05_Incident_Response/Playbooks/Ransomware.en.md) — Example: testing file encryption rules
+- [PB-25 Zero-Day Exploit](../05_Incident_Response/Playbooks/Zero_Day_Exploit.en.md) — Example: testing exploit payload rules

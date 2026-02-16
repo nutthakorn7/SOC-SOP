@@ -194,4 +194,8 @@ jobs:
 ## เอกสารที่เกี่ยวข้อง
 
 - [SOP จัดการเปลี่ยนแปลง](Change_Management.th.md)
-- [ดัชนี Detection Rules](../08_Detection_Engineering/README.en.md)
+- [ดัชนี Detection Rules](../08_Detection_Engineering/README.th.md) — Sigma rules ทั้ง 36 กฎพร้อม playbook mapping
+- [Alert Tuning SOP](Alert_Tuning.th.md) — วิธีการปรับจูน rule ที่มีปัญหา
+- [PB-01 Phishing](../05_Incident_Response/Playbooks/Phishing.th.md) — ตัวอย่าง: ทดสอบ email detection rules
+- [PB-02 Ransomware](../05_Incident_Response/Playbooks/Ransomware.th.md) — ตัวอย่าง: ทดสอบ file encryption rules
+- [PB-25 Zero-Day Exploit](../05_Incident_Response/Playbooks/Zero_Day_Exploit.th.md) — ตัวอย่าง: ทดสอบ exploit payload rules
