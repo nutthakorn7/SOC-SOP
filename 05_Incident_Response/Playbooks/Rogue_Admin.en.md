@@ -3,7 +3,40 @@
 **ID**: PB-15
 **Severity**: Critical | **Category**: Privilege Escalation / Persistence
 **MITRE ATT&CK**: [T1098](https://attack.mitre.org/techniques/T1098/) (Account Manipulation), [T1136](https://attack.mitre.org/techniques/T1136/) (Create Account)
-**Trigger**: SIEM alert ("User added to Domain Admins"), AD audit ("New Local Admin created"), UEBA anomaly
+**Trigger**: PAM alert, AD audit anomaly, Whistleblower report, UEBA, SOD violation
+
+### Behavioral Indicators
+
+```mermaid
+graph TD
+    Monitor["👁️ UEBA/PAM"] --> A["🕐 Off-hours access"]
+    Monitor --> B["📋 Bypass Change Mgmt"]
+    Monitor --> C["🔑 Create backdoor account"]
+    Monitor --> D["🗑️ Delete audit logs"]
+    Monitor --> E["📤 Export data"]
+    A --> Score["⚠️ High Risk Score"]
+    B --> Score
+    C --> Score
+    D --> Score
+    E --> Score
+    Score --> SOC["🚨 Alert SOC"]
+```
+
+### Covert Investigation
+
+```mermaid
+sequenceDiagram
+    participant SOC
+    participant Legal
+    participant HR
+    participant Forensics
+    SOC->>Legal: Consult before action
+    Legal-->>SOC: Approve covert investigation
+    SOC->>Forensics: Collect evidence (shadow copies)
+    SOC->>SOC: Increase monitoring (don't alert target)
+    Forensics-->>SOC: Evidence collected
+    SOC->>HR: Submit report + evidence
+```
 
 ---
 

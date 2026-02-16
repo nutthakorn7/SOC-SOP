@@ -6,6 +6,36 @@
 **TLP**: AMBER
 **Trigger**: CloudTrail alert (`PutBucketPolicy` with public access), GuardDuty `S3/PublicAccess`, abnormal data egress, CSPM alert
 
+### S3 Exposure Detection
+
+```mermaid
+graph TD
+    Alert["🚨 Alert"] --> Type{"📦 Type?"}
+    Type -->|Public bucket| Public["🌐 Remove public ACL"]
+    Type -->|Unauthorized access| Unauth["🔑 Check IAM policy"]
+    Type -->|Data download| DL["📊 Assess volume"]
+    Public --> Audit["🔍 Audit all buckets"]
+    Unauth --> Audit
+    DL --> Audit
+    Audit --> Harden["🔒 Harden"]
+```
+
+### Credential Rotation
+
+```mermaid
+sequenceDiagram
+    participant SOC
+    participant IAM
+    participant S3
+    participant Dev
+    SOC->>IAM: 🚨 Compromised access key found
+    SOC->>IAM: Disable compromised key
+    SOC->>IAM: Generate new access key
+    SOC->>S3: Enable versioning + delete markers
+    SOC->>Dev: Provide new credentials
+    Dev-->>SOC: ✅ Updated
+```
+
 ---
 
 ## Decision Flow

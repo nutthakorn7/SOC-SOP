@@ -3,7 +3,37 @@
 **ID**: PB-31
 **Severity**: Medium/High | **Category**: Resource Abuse
 **MITRE ATT&CK**: [T1496](https://attack.mitre.org/techniques/T1496/) (Resource Hijacking)
-**Trigger**: EDR/GuardDuty alert, CloudWatch CPU alarm (100% flatline), billing spike, network connection to mining pool
+**Trigger**: EDR alert (crypto miner), Cloud billing anomaly, SIEM (Stratum protocol), CPU alert
+
+### Detection Flow
+
+```mermaid
+graph TD
+    Alert["🚨 Alert"] --> Source{"🖥️ Source?"}
+    Source -->|Endpoint| EDR["🛡️ EDR: Process kill"]
+    Source -->|Cloud VM| Cloud["☁️ Billing spike check"]
+    Source -->|Container| K8s["🐳 Pod termination"]
+    EDR --> IOC["🔍 Extract IOC"]
+    Cloud --> IOC
+    K8s --> IOC
+    IOC --> Hunt["🎯 Org-wide hunt"]
+```
+
+### Cloud Remediation
+
+```mermaid
+sequenceDiagram
+    participant CloudWatch
+    participant SOC
+    participant IAM
+    participant VM
+    CloudWatch->>SOC: 🚨 CPU 100% + billing anomaly
+    SOC->>IAM: Check recent API calls
+    IAM-->>SOC: Unauthorized key used
+    SOC->>IAM: Revoke compromised key
+    SOC->>VM: Terminate unauthorized instances
+    SOC->>SOC: Scan for persistence
+```
 
 ---
 

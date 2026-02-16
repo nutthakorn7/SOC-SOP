@@ -117,6 +117,38 @@ graph TD
 | 6 | Add detection rules (high-entropy, excessive NXDOMAIN, TXT size) | ☐ |
 | 7 | Monitor for 72 hours | ☐ |
 
+### DNS Tunnel Detection
+
+```mermaid
+graph LR
+    DNS["📡 DNS Query"] --> Analyze{"🔍 Analyze"}
+    Analyze -->|High entropy| Suspect["🟠 Suspicious"]
+    Analyze -->|Query >50 chars| Suspect
+    Analyze -->|Excessive TXT| Suspect
+    Analyze -->|Many NXDOMAIN| Suspect
+    Suspect --> Correlate["🔗 Correlate: host + process"]
+    Correlate --> Confirm["🔴 Confirmed Tunnel"]
+    style DNS fill:#3498db,color:#fff
+    style Suspect fill:#f39c12,color:#fff
+    style Confirm fill:#e74c3c,color:#fff
+```
+
+### RPZ Sinkhole Flow
+
+```mermaid
+sequenceDiagram
+    participant Host
+    participant DNS as DNS Resolver
+    participant RPZ as RPZ Zone
+    participant SOC
+    Host->>DNS: query: data.evil.com
+    DNS->>RPZ: Check RPZ policy
+    RPZ-->>DNS: NXDOMAIN (blocked!)
+    DNS-->>Host: NXDOMAIN
+    RPZ->>SOC: 📋 Log blocked query
+    SOC->>SOC: Identify infected host
+```
+
 ---
 
 ## 5. IoC Collection

@@ -3,7 +3,38 @@
 **ID**: PB-16
 **Severity**: High/Critical | **Category**: Cloud Security
 **MITRE ATT&CK**: [T1098](https://attack.mitre.org/techniques/T1098/) (Account Manipulation), [T1078.004](https://attack.mitre.org/techniques/T1078/004/) (Cloud Accounts), [T1580](https://attack.mitre.org/techniques/T1580/) (Cloud Infrastructure Discovery)
-**Trigger**: CloudTrail/Azure Monitor ("Root/GlobalAdmin login"), Cloud SIEM ("New IAM user created", "Policy attached"), CSPM alert
+**Trigger**: CloudTrail/Audit Log anomaly, GuardDuty/Defender alert, SIEM correlation, Billing alert
+
+### IAM Anomaly Detection
+
+```mermaid
+graph TD
+    Alert["🚨 IAM Alert"] --> Type{"📋 Type?"}
+    Type -->|New admin role| Admin["👑 Verify authorization"]
+    Type -->|Cross-account| Cross["🔀 Check trust policy"]
+    Type -->|Key creation| Key["🔑 Validate requester"]
+    Type -->|Policy change| Policy["📝 Review diff"]
+    Admin --> Assess["⚖️ Risk Assessment"]
+    Cross --> Assess
+    Key --> Assess
+    Policy --> Assess
+```
+
+### Break-Glass Procedure
+
+```mermaid
+sequenceDiagram
+    participant SOC
+    participant Vault as Break-Glass Vault
+    participant Cloud as Cloud Console
+    participant Manager
+    SOC->>Manager: 🚨 Request break-glass approval
+    Manager-->>SOC: ✅ Approved
+    SOC->>Vault: Retrieve root credentials
+    SOC->>Cloud: Disable compromised IAM
+    SOC->>Cloud: Revoke all sessions
+    SOC->>Vault: Return + rotate credentials
+```
 
 ---
 

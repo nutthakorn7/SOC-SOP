@@ -3,7 +3,35 @@
 **ID**: PB-07
 **Severity**: High/Critical | **Category**: Identity & Access / Endpoint
 **MITRE ATT&CK**: [T1068](https://attack.mitre.org/techniques/T1068/) (Exploitation for Privilege Escalation), [T1098](https://attack.mitre.org/techniques/T1098/) (Account Manipulation), [T1078.002](https://attack.mitre.org/techniques/T1078/002/) (Domain Accounts)
-**Trigger**: EDR alert ("Mimikatz detected", "LSASS access"), SIEM ("Member added to Domain Admins"), UEBA anomaly
+**Trigger**: EDR alert, SIEM (Event 4672/4728/4732), PAM alert, sudo anomaly
+
+### Admin Tiering Model
+
+```mermaid
+graph TD
+    T0["🏰 Tier 0: Domain Controllers"] --> T1["🖥️ Tier 1: Servers"]
+    T1 --> T2["💻 Tier 2: Workstations"]
+    T0 -.->|❌ No cross-tier access| T2
+    style T0 fill:#e74c3c,color:#fff
+    style T1 fill:#f39c12,color:#fff
+    style T2 fill:#27ae60,color:#fff
+```
+
+### KRBTGT Reset Procedure
+
+```mermaid
+sequenceDiagram
+    participant SOC
+    participant AD as AD Admin
+    participant DC as Domain Controller
+    SOC->>AD: 🚨 Golden Ticket detected
+    AD->>DC: Reset KRBTGT #1
+    Note over DC: Wait for full replication
+    Note over DC: ⏳ Wait 12 hours
+    AD->>DC: Reset KRBTGT #2
+    Note over DC: Wait for full replication
+    AD->>SOC: ✅ Golden Tickets invalidated
+```
 
 ---
 

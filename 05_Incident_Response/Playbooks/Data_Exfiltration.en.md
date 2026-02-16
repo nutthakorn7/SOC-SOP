@@ -3,7 +3,39 @@
 **ID**: PB-08
 **Severity**: Critical | **Category**: Data Protection
 **MITRE ATT&CK**: [T1048](https://attack.mitre.org/techniques/T1048/) (Exfiltration Over Alternative Protocol), [T1567](https://attack.mitre.org/techniques/T1567/) (Exfiltration Over Web Service), [T1041](https://attack.mitre.org/techniques/T1041/) (Exfiltration Over C2 Channel)
-**Trigger**: DLP alert, SIEM ("Large Upload to Unknown IP"), Proxy anomaly, Cloud audit alert
+**Trigger**: DLP alert, Netflow anomaly, UEBA, Proxy/Cloud alert, EDR large file operation
+
+### Detection by Channel
+
+```mermaid
+graph TD
+    DLP["🔍 DLP Engine"] --> Ch{"📡 Channel?"}
+    Ch -->|Web Upload| Proxy["🌐 Proxy / CASB"]
+    Ch -->|Email| Mail["📧 Mail Gateway"]
+    Ch -->|USB| Endpoint["💻 Endpoint DLP"]
+    Ch -->|DNS| DNS["🔤 DNS Analytics"]
+    Proxy --> Alert["🚨 Alert SOC"]
+    Mail --> Alert
+    Endpoint --> Alert
+    DNS --> Alert
+    Alert --> Investigate["🔎 Investigate"]
+```
+
+### Data Impact Assessment
+
+```mermaid
+sequenceDiagram
+    participant SOC
+    participant DLP
+    participant Legal
+    participant DPO
+    SOC->>DLP: What data was exfiltrated?
+    DLP-->>SOC: PII — 500 records
+    SOC->>Legal: 📋 Incident report
+    Legal->>DPO: PDPA notification required?
+    DPO-->>Legal: Yes — within 72 hours
+    Legal->>SOC: Prepare notification report
+```
 
 ---
 

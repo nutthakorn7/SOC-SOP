@@ -4,7 +4,36 @@
 **Severity**: Critical | **Category**: Cloud Security (AWS)
 **MITRE ATT&CK**: [T1190](https://attack.mitre.org/techniques/T1190/) (Exploit Public-Facing Application), [T1496](https://attack.mitre.org/techniques/T1496/) (Resource Hijacking), [T1078.004](https://attack.mitre.org/techniques/T1078/004/) (Cloud Accounts)
 **TLP**: AMBER
-**Trigger**: GuardDuty finding, CloudWatch CPU alarm, VPC Flow Log anomaly, CloudTrail suspicious API call
+**Trigger**: GuardDuty alert, CloudTrail anomaly, EDR detection, VPC Flow Logs anomaly
+
+### EC2 Forensics Flow
+
+```mermaid
+graph LR
+    Alert["🚨 Alert"] --> Snapshot["📸 EBS Snapshot"]
+    Snapshot --> Forensic["🔬 Forensic Instance"]
+    Forensic --> Analyze["🔍 Analyze"]
+    Analyze --> IOC["🎯 Extract IOCs"]
+    IOC --> Hunt["🎯 Org-wide Hunt"]
+    style Alert fill:#e74c3c,color:#fff
+    style Snapshot fill:#3498db,color:#fff
+    style IOC fill:#27ae60,color:#fff
+```
+
+### IMDSv2 Protection
+
+```mermaid
+sequenceDiagram
+    participant App
+    participant IMDS as IMDSv2
+    participant SOC
+    App->>IMDS: PUT /token (get session token)
+    IMDS-->>App: Token (TTL limited)
+    App->>IMDS: GET /credentials (with token)
+    IMDS-->>App: IAM role credentials
+    Note over SOC: ❌ SSRF cannot reach IMDSv2
+    Note over SOC: (requires PUT + token)
+```
 
 ---
 

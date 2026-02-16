@@ -7,6 +7,36 @@
 
 > 🚨 **ABSOLUTE PRIORITY**: Physical safety of personnel, equipment, and environment takes precedence over ALL investigation activities. If any risk to life — activate Safety Instrumented Systems (SIS) IMMEDIATELY.
 
+### Purdue Model Layers
+
+```mermaid
+graph TD
+    L5["🌐 L5: Enterprise"] --> L4["📊 L4: Business Planning"]
+    L4 --> L35["🔥 DMZ"]
+    L35 --> L3["🖥️ L3: Operations"]
+    L3 --> L2["📺 L2: Supervisory HMI/SCADA"]
+    L2 --> L1["⚙️ L1: Control PLC/RTU"]
+    L1 --> L0["🏭 L0: Physical Process"]
+    style L35 fill:#e74c3c,color:#fff
+    style L0 fill:#27ae60,color:#fff
+```
+
+### Emergency Shutdown Flow
+
+```mermaid
+sequenceDiagram
+    participant SOC
+    participant OT as OT Engineer
+    participant Plant as Plant Operator
+    participant Safety
+    SOC->>OT: 🚨 IT/OT bridge breach detected
+    OT->>Plant: Assess physical process impact
+    Plant->>Safety: Manual override ready?
+    Safety-->>Plant: ✅ Ready
+    OT->>SOC: Safe to isolate IT↔OT junction
+    SOC->>SOC: Block DMZ traffic
+```
+
 ---
 
 ## Decision Flow

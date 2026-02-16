@@ -3,7 +3,36 @@
 **ID**: PB-27
 **Severity**: High/Critical | **Category**: Cloud Security
 **MITRE ATT&CK**: [T1530](https://attack.mitre.org/techniques/T1530/) (Data from Cloud Storage), [T1537](https://attack.mitre.org/techniques/T1537/) (Transfer Data to Cloud Account)
-**Trigger**: CSPM alert ("Public storage detected"), GuardDuty / Defender alert, CloudTrail `PutBucketPolicy`, Threat intel (data found on dark web)
+**Trigger**: CSPM alert (public resource), Cloud audit, SIEM (unusual access), TI (exposed data), Researcher report
+
+### Multi-Cloud Containment
+
+```mermaid
+graph TD
+    Alert["🚨 Exposed!"] --> Cloud{"☁️ Provider?"}
+    Cloud -->|AWS S3| AWS["🔒 BPA + bucket policy"]
+    Cloud -->|Azure Blob| Azure["🔒 SAS revoke + ACL"]
+    Cloud -->|GCP| GCP["🔒 IAM binding removal"]
+    AWS --> Verify["✅ Verify private"]
+    Azure --> Verify
+    GCP --> Verify
+```
+
+### Data Classification Flow
+
+```mermaid
+sequenceDiagram
+    participant SOC
+    participant DLP
+    participant Legal
+    participant DPO
+    SOC->>DLP: Scan exposed storage
+    DLP-->>SOC: PII found — 1200 records
+    SOC->>Legal: Report data exposure
+    Legal->>DPO: PDPA notification required
+    DPO->>DPO: Prepare notification within 72h
+    DPO-->>SOC: Notification filed
+```
 
 ---
 

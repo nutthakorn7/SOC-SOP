@@ -3,7 +3,38 @@
 **ID**: PB-06
 **Severity**: Medium/High | **Category**: Identity & Access
 **MITRE ATT&CK**: [T1078](https://attack.mitre.org/techniques/T1078/) (Valid Accounts), [T1078.004](https://attack.mitre.org/techniques/T1078/004/) (Cloud Accounts)
-**Trigger**: SIEM/UEBA alert ("Login from two distant locations within short time"), IdP risk alert, Cloud identity protection
+**Trigger**: Identity Protection (impossible travel), SIEM (multiple geographic sign-ins), CASB alert
+
+### Analysis Flow
+
+```mermaid
+graph TD
+    Alert["🌍 Alert"] --> Check{"🔍 VPN/Proxy?"}
+    Check -->|Yes| FP["✅ False Positive"]
+    Check -->|No| GeoCheck{"📍 True geo?"}
+    GeoCheck -->|Travel confirmed| FP
+    GeoCheck -->|No travel| Compromise["🔴 Compromise!"]
+    Compromise --> Revoke["🔒 Revoke sessions"]
+    Revoke --> Reset["🔑 Reset password"]
+    Reset --> MFA["📱 Re-register MFA"]
+```
+
+### CAE Token Protection
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant App
+    participant IdP as Azure AD
+    participant SOC
+    User->>App: Access resource
+    App->>IdP: Validate token
+    IdP->>IdP: CAE: Check risk signals
+    Note over IdP: Risk detected — impossible travel
+    IdP-->>App: ❌ Token revoked
+    App-->>User: Session terminated
+    IdP->>SOC: 🚨 Alert
+```
 
 ---
 

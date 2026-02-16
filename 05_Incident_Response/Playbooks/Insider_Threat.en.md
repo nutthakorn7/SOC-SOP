@@ -3,7 +3,38 @@
 **ID**: PB-14
 **Severity**: High/Critical | **Category**: Data Protection / HR
 **MITRE ATT&CK**: [T1534](https://attack.mitre.org/techniques/T1534/) (Internal Spearphishing), [T1567](https://attack.mitre.org/techniques/T1567/) (Exfiltration Over Web Service), [T1052](https://attack.mitre.org/techniques/T1052/) (Exfiltration Over Physical Medium)
-**Trigger**: UEBA anomaly (abnormal access), DLP alert (bulk download/copy), HR referral (disgruntled employee / resignation)
+**Trigger**: UEBA alert, DLP alert, HR referral, Whistleblower report, Manager report
+
+### Risk Assessment Flow
+
+```mermaid
+graph TD
+    Indicator["🚨 Indicator"] --> Risk{"⚖️ Level?"}
+    Risk -->|Low: off-hours access| Monitor["👁️ Monitor 30 days"]
+    Risk -->|Medium: bulk download| CovertOps["🕵️ Covert Investigation"]
+    Risk -->|High: exfil + resignation| Overt["🔴 Overt — Lock Account"]
+    CovertOps --> Evidence{"📁 Evidence?"}
+    Evidence -->|Yes| HR["👥 HR + Legal"]
+    Evidence -->|No| Continue["🔄 Continue Monitoring"]
+```
+
+### Coordination Flow
+
+```mermaid
+sequenceDiagram
+    participant SOC
+    participant HR
+    participant Legal
+    participant Manager
+    participant IT
+    SOC->>HR: Report insider threat indicators
+    HR->>Legal: Consult legal requirements
+    Legal-->>HR: Recommend approach
+    HR->>Manager: Consult (overt cases)
+    SOC->>IT: Increase DLP monitoring
+    HR->>SOC: Approve overt action
+    SOC->>IT: Lock account + preserve data
+```
 
 > ⚠️ **IMPORTANT**: Insider threat investigations are highly sensitive. Coordinate with HR and Legal BEFORE taking visible actions. Do NOT alert the subject prematurely.
 

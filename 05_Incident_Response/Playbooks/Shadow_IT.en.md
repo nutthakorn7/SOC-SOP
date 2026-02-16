@@ -3,7 +3,35 @@
 **ID**: PB-29
 **Severity**: Medium/High | **Category**: Governance & Compliance
 **MITRE ATT&CK**: [T1567](https://attack.mitre.org/techniques/T1567/) (Exfiltration Over Web Service), [T1537](https://attack.mitre.org/techniques/T1537/) (Transfer Data to Cloud Account)
-**Trigger**: CASB alert ("Unsanctioned app detected"), DLP alert ("Data upload to unapproved service"), Proxy/DNS logs, Audit finding
+**Trigger**: CASB alert, Proxy log anomaly, User report, SaaS audit, Network anomaly
+
+### Shadow IT Discovery
+
+```mermaid
+graph LR
+    Proxy["🌐 Proxy Logs"] --> CASB["🔍 CASB"]
+    CASB --> Discover["📋 Unsanctioned App"]
+    DNS["🔤 DNS Analytics"] --> Discover
+    Expense["💳 Expense Reports"] --> Discover
+    Discover --> Assess["⚖️ Risk Assessment"]
+    style Discover fill:#f39c12,color:#fff
+    style Assess fill:#e74c3c,color:#fff
+```
+
+### SaaS Governance
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant SOC
+    participant IT
+    participant Owner as Business Owner
+    SOC->>IT: 🚨 Unsanctioned SaaS found
+    IT->>Owner: Check business need
+    Owner-->>IT: Needed — request approval
+    IT->>SOC: Move to approved list
+    IT->>User: Migrate data + SSO
+```
 
 ---
 

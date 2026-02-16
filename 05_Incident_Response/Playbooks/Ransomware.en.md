@@ -7,6 +7,39 @@
 
 > ⚠️ **CRITICAL**: Do NOT pay the ransom. Do NOT negotiate without Legal/CISO approval. Time is critical — every minute counts.
 
+### Recovery Priority Order
+
+```mermaid
+graph LR
+    A["1️⃣ AD/DC"] --> B["2️⃣ DNS/DHCP"]
+    B --> C["3️⃣ Critical Servers"]
+    C --> D["4️⃣ Business Apps"]
+    D --> E["5️⃣ Workstations"]
+    style A fill:#ff4444,color:#fff
+    style B fill:#ff6600,color:#fff
+    style C fill:#ff9900,color:#fff
+    style D fill:#ffcc00,color:#000
+    style E fill:#88cc00,color:#000
+```
+
+### Incident Communication Flow
+
+```mermaid
+sequenceDiagram
+    participant SOC
+    participant CISO
+    participant Legal
+    participant PR
+    participant CEO
+    SOC->>CISO: 🚨 Ransomware confirmed
+    CISO->>Legal: Assess PDPA / regulatory
+    CISO->>CEO: BCP activation
+    Legal->>CISO: Ransom / notification advice
+    CISO->>PR: Prepare statement (if needed)
+    PR->>CEO: Approve statement
+    SOC->>CISO: Status update every 2h
+```
+
 ---
 
 ## Decision Flow

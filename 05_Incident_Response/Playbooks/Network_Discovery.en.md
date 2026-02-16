@@ -4,6 +4,47 @@
 
 ---
 
+## Decision Flow
+
+```mermaid
+graph TD
+    Alert["🚨 Scan Detected"] --> Auth{"🔑 Authorized?"}
+    Auth -->|Pentest/IT admin| Close["✅ Close Alert"]
+    Auth -->|Unknown| Investigate["🔍 Investigate Source"]
+    Investigate --> Compromised{"🦠 Compromised Host?"}
+    Compromised -->|Yes| Isolate["🔌 Isolate + Full IR"]
+    Compromised -->|No| Block["🚫 Block + Monitor"]
+```
+
+### Scan Detection Flow
+
+```mermaid
+graph LR
+    Scanner["📡 Scan"] --> IDS["🛡️ IDS/IPS"]
+    IDS --> Alert["🚨 SOC Alert"]
+    Scanner --> Honeypot["🍯 Honeypot"]
+    Honeypot --> Alert
+    Alert --> Investigate["🔎 Investigate Source"]
+    style Scanner fill:#e74c3c,color:#fff
+    style Honeypot fill:#f39c12,color:#fff
+    style Alert fill:#c0392b,color:#fff
+```
+
+### Honeypot Trigger Flow
+
+```mermaid
+sequenceDiagram
+    participant Attacker
+    participant Honeypot as 🍯 Honeypot
+    participant SOC
+    participant EDR
+    Attacker->>Honeypot: Port scan / connect
+    Honeypot->>SOC: 🚨 Alert + source IP
+    SOC->>EDR: Investigate source host
+    EDR-->>SOC: Found malware!
+    SOC->>EDR: Isolate host
+```
+
 ## Description
 
 An attacker conducts internal reconnaissance to map the network topology, identify live hosts, discover file shares, and enumerate services. This information enables lateral movement, privilege escalation, and data exfiltration. Discovery often follows initial access and precedes lateral movement.

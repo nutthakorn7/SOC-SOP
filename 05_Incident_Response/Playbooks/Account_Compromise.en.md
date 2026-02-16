@@ -3,7 +3,40 @@
 **ID**: PB-05
 **Severity**: High/Critical | **Category**: Identity & Access
 **MITRE ATT&CK**: [T1078](https://attack.mitre.org/techniques/T1078/) (Valid Accounts), [T1110](https://attack.mitre.org/techniques/T1110/) (Brute Force)
-**Trigger**: SIEM alert (unusual login location/time), User report ("I didn't log in"), UEBA anomaly
+**Trigger**: Identity Protection alert, Impossible travel / anomalous token, User report, TI credential leak
+
+### Account Compromise Lifecycle
+
+```mermaid
+graph LR
+    Cred["🔑 Get Credential"] --> Login["🔓 Login"]
+    Login --> Persist["⚙️ Establish Persistence"]
+    Persist --> Pivot["🔀 Pivot / BEC"]
+    Pivot --> Exfil["📤 Exfiltrate Data"]
+    style Cred fill:#e74c3c,color:#fff
+    style Login fill:#f39c12,color:#fff
+    style Persist fill:#e67e22,color:#fff
+    style Pivot fill:#8e44ad,color:#fff
+    style Exfil fill:#c0392b,color:#fff
+```
+
+### Response Sequence
+
+```mermaid
+sequenceDiagram
+    participant IdP
+    participant SOC
+    participant User
+    participant Exchange
+    IdP->>SOC: 🚨 Risk detection
+    SOC->>IdP: Revoke all sessions
+    SOC->>IdP: Reset password
+    SOC->>User: ☎️ Verify identity (phone)
+    SOC->>Exchange: Check inbox rules
+    Exchange-->>SOC: Found forwarding rule!
+    SOC->>Exchange: Remove malicious rules
+    SOC->>IdP: Re-register MFA
+```
 
 ---
 

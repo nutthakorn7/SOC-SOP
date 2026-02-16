@@ -5,6 +5,36 @@
 **MITRE ATT&CK**: [T1566](https://attack.mitre.org/techniques/T1566/) (Phishing), [T1114](https://attack.mitre.org/techniques/T1114/) (Email Collection), [T1534](https://attack.mitre.org/techniques/T1534/) (Internal Spearphishing)
 **Trigger**: User report ("Suspicious invoice"), mail filter ("Forwarding rule created"), Finance team ("Unusual payment request")
 
+### Payment Recall Flow (Urgent!)
+
+```mermaid
+graph LR
+    Discover["💰 Wire Transfer Found"] --> Bank["🏦 Contact Bank"]
+    Bank --> Freeze["❄️ Freeze Destination Account"]
+    Freeze --> Police["👮 File Police Report"]
+    Police --> Legal["⚖️ Legal + Insurance"]
+    style Discover fill:#e74c3c,color:#fff
+    style Bank fill:#f39c12,color:#fff
+    style Freeze fill:#3498db,color:#fff
+    style Legal fill:#8e44ad,color:#fff
+```
+
+### BEC Detection Sequence
+
+```mermaid
+sequenceDiagram
+    participant Attacker
+    participant Victim
+    participant SOC
+    participant Finance
+    Attacker->>Victim: 📧 Spoofed email (CEO/Vendor)
+    Victim->>Finance: Forward wire transfer request
+    Finance->>SOC: 🚨 Unusual amount
+    SOC->>SOC: Check headers + sign-in logs
+    SOC->>Finance: ❌ Stop the transfer!
+    SOC->>Victim: Alert + reset account
+```
+
 > ⚠️ **CRITICAL**: BEC is the #1 cybercrime by financial losses (FBI IC3). Time is critical — stop wire transfers ASAP.
 
 ---

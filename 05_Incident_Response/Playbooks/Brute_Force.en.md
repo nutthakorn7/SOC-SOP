@@ -5,6 +5,38 @@
 **MITRE ATT&CK**: [T1110](https://attack.mitre.org/techniques/T1110/) (Brute Force), [T1110.001](https://attack.mitre.org/techniques/T1110/001/) (Password Guessing), [T1110.003](https://attack.mitre.org/techniques/T1110/003/) (Password Spraying)
 **Trigger**: SIEM alert ("Multiple failed logins"), IdP risk detection, Firewall/WAF logs
 
+### Attack Patterns
+
+```mermaid
+graph TD
+    Attacker["🔨 Attacker"] --> Type{"📋 Type?"}
+    Type -->|Brute Force| BF["🔑 Try all passwords"]
+    Type -->|Password Spray| PS["🌊 1 password × many accounts"]
+    Type -->|Credential Stuffing| CS["📦 Use leaked creds"]
+    BF --> Target["🎯 Single account"]
+    PS --> Target2["🎯 Multiple accounts"]
+    CS --> Target2
+    style Attacker fill:#e74c3c,color:#fff
+    style BF fill:#f39c12,color:#fff
+    style PS fill:#e67e22,color:#fff
+    style CS fill:#8e44ad,color:#fff
+```
+
+### Smart Lockout Flow
+
+```mermaid
+sequenceDiagram
+    participant Attacker
+    participant IdP
+    participant SOC
+    participant User as Legitimate User
+    Attacker->>IdP: ❌ Login fail ×5
+    IdP->>IdP: 🔒 Smart lockout (attacker only)
+    User->>IdP: ✅ Login success (not locked)
+    IdP->>SOC: 🚨 Alert: failed attempts
+    SOC->>SOC: Check IP + success/fail ratio
+```
+
 ---
 
 ## Decision Flow

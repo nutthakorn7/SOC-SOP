@@ -3,7 +3,40 @@
 **ID**: PB-01
 **Severity**: High | **Category**: Email Security
 **MITRE ATT&CK**: [T1566](https://attack.mitre.org/techniques/T1566/) (Phishing), [T1566.001](https://attack.mitre.org/techniques/T1566/001/) (Spearphishing Attachment), [T1566.002](https://attack.mitre.org/techniques/T1566/002/) (Spearphishing Link)
-**Trigger**: User report, Email gateway alert, SIEM correlation rule
+**Trigger**: User report, Mail filter alert, Phishing simulation, TI feed
+
+### Phishing IR Flow
+
+```mermaid
+graph LR
+    Report["📧 Report"] --> Analyze["🔍 Analyze"]
+    Analyze --> Contain["🔒 Contain"]
+    Contain --> Eradicate["🗑️ Eradicate"]
+    Eradicate --> Recover["♻️ Recover"]
+    Recover --> Lessons["📝 Lessons"]
+    style Report fill:#e74c3c,color:#fff
+    style Analyze fill:#f39c12,color:#fff
+    style Contain fill:#e67e22,color:#fff
+    style Eradicate fill:#27ae60,color:#fff
+    style Recover fill:#2980b9,color:#fff
+    style Lessons fill:#8e44ad,color:#fff
+```
+
+### Email Analysis Workflow
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant SOC
+    participant Mail as Mail Gateway
+    participant TI as Threat Intel
+    SOC->>Mail: Pull email headers + body
+    SOC->>TI: Check URL/attachment hash
+    TI-->>SOC: TI result (malicious/clean)
+    SOC->>Mail: Search all recipients
+    Mail-->>SOC: Recipient list
+    SOC->>User: Notify + guidance
+```
 
 ---
 

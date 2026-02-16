@@ -4,6 +4,49 @@
 
 ---
 
+## Decision Flow
+
+```mermaid
+graph TD
+    Alert["🚨 Data Collection Alert"] --> Auth{"👤 Authorized?"}
+    Auth -->|Normal role| Close["✅ Close"]
+    Auth -->|Unusual| Volume{"📊 Volume?"}
+    Volume -->|Normal| Monitor["👁️ Monitor 48h"]
+    Volume -->|Excessive| Escalate["🔴 Escalate Tier 2"]
+    Escalate --> Contain["🔌 Isolate + Investigate"]
+```
+
+### Data Staging Process
+
+```mermaid
+graph LR
+    Collect["📁 Collect Files"] --> Archive["📦 Archive"]
+    Archive --> Stage["📂 Staging Dir"]
+    Stage --> Method{"📡 Exfil Method?"}
+    Method -->|Web| Cloud["☁️ Cloud Upload"]
+    Method -->|USB| USB["💾 Removable"]
+    Method -->|Email| Mail["📧 Email"]
+    style Collect fill:#3498db,color:#fff
+    style Stage fill:#f39c12,color:#fff
+    style Cloud fill:#e74c3c,color:#fff
+```
+
+### UEBA Detection Sequence
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant DLP
+    participant UEBA
+    participant SOC
+    User->>DLP: Access 500+ files
+    DLP->>UEBA: Volume anomaly
+    UEBA->>UEBA: Compare baseline
+    UEBA->>SOC: 🚨 Risk score exceeded
+    SOC->>SOC: Review data type + user role
+    SOC->>DLP: Block further access
+```
+
 ## Description
 
 An attacker gathers sensitive data from within the environment before exfiltration. This includes staging files in temporary directories, accessing SharePoint/OneDrive, archiving data with compression tools, clipboard capture, and automated collection scripts. Collection is a precursor to exfiltration and indicates the attacker has achieved their objective access.

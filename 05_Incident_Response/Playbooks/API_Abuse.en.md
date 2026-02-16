@@ -3,7 +3,37 @@
 **ID**: PB-30
 **Severity**: High | **Category**: Application Security
 **MITRE ATT&CK**: [T1106](https://attack.mitre.org/techniques/T1106/) (Native API), [T1530](https://attack.mitre.org/techniques/T1530/) (Data from Cloud Storage)
-**Trigger**: API gateway alert (rate limit exceeded), WAF alert (suspicious API patterns), DLP (bulk data retrieval), SIEM correlation
+**Trigger**: API Gateway alert (rate limit), WAF (API attack signature), SIEM correlation, Customer report
+
+### API Attack Chain
+
+```mermaid
+graph LR
+    Recon["🔍 API Recon"] --> Auth["🔓 Auth Bypass"]
+    Auth --> Enum["📋 Data Enum"]
+    Enum --> Exfil["📤 Mass Exfil"]
+    Exfil --> Abuse["💥 Service Abuse"]
+    style Recon fill:#3498db,color:#fff
+    style Auth fill:#f39c12,color:#fff
+    style Exfil fill:#e74c3c,color:#fff
+    style Abuse fill:#c0392b,color:#fff
+```
+
+### Rate Limiting Response
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Gateway as API Gateway
+    participant SOC
+    participant Dev
+    Client->>Gateway: 📡 1000 req/min
+    Gateway->>Gateway: Rate limit triggered
+    Gateway-->>Client: 429 Too Many Requests
+    Gateway->>SOC: 🚨 Alert: API abuse
+    SOC->>Gateway: Block client IP/key
+    SOC->>Dev: Review API key scope
+```
 
 ---
 

@@ -3,7 +3,40 @@
 **ID**: PB-12
 **Severity**: High/Critical | **Category**: Network / Endpoint
 **MITRE ATT&CK**: [T1021](https://attack.mitre.org/techniques/T1021/) (Remote Services), [T1570](https://attack.mitre.org/techniques/T1570/) (Lateral Tool Transfer), [T1550](https://attack.mitre.org/techniques/T1550/) (Use Alternate Authentication Material)
-**Trigger**: EDR/SIEM alert ("Remote service creation", "SMB/RDP to multiple hosts"), threat hunt finding
+**Trigger**: EDR alert (PsExec, WMI lateral), SIEM (Event 4648/4624 Type 3/10), Honey token, AD anomaly
+
+### Attack Path
+
+```mermaid
+graph LR
+    Entry["🎯 Initial Access"] --> Recon["🔍 AD Recon"]
+    Recon --> CredTheft["🔑 Credential Theft"]
+    CredTheft --> Move["🔀 Lateral Movement"]
+    Move --> PrivEsc["👑 Priv Escalation"]
+    PrivEsc --> DC["🏰 Domain Controller"]
+    DC --> Objective["💀 Objective"]
+    style Entry fill:#e74c3c,color:#fff
+    style CredTheft fill:#f39c12,color:#fff
+    style DC fill:#8e44ad,color:#fff
+    style Objective fill:#c0392b,color:#fff
+```
+
+### Protocol-Based Detection
+
+```mermaid
+graph TD
+    LM["🔀 Lateral Movement"] --> Proto{"📡 Protocol?"}
+    Proto -->|SMB/PsExec| SMB["Event 7045 + 5145"]
+    Proto -->|WMI| WMI["Event 4648 + WMI logs"]
+    Proto -->|RDP| RDP["Event 4624 Type 10"]
+    Proto -->|WinRM| WinRM["Event 4648 + 91"]
+    Proto -->|SSH| SSH["auth.log + key events"]
+    SMB --> Hunt["🎯 Threat Hunt"]
+    WMI --> Hunt
+    RDP --> Hunt
+    WinRM --> Hunt
+    SSH --> Hunt
+```
 
 ---
 

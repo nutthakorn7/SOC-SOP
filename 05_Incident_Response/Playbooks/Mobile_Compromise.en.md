@@ -3,7 +3,37 @@
 **ID**: PB-28
 **Severity**: High | **Category**: Endpoint Security
 **MITRE ATT&CK**: [T1456](https://attack.mitre.org/techniques/T1456/) (Drive-By Compromise — Mobile), [T1474](https://attack.mitre.org/techniques/T1474/) (Supply Chain Compromise — Mobile)
-**Trigger**: MDM non-compliance alert, MTD (Mobile Threat Defense) alert, User report, SIEM anomaly from mobile device
+**Trigger**: MTD alert (malicious app), MDM compliance violation, User reports SIM swap, Phishing on mobile
+
+### Mobile Threat Detection
+
+```mermaid
+graph TD
+    MTD["🔍 MTD"] --> Type{"📱 Type?"}
+    Type -->|Malicious App| App["🦠 Remove App"]
+    Type -->|Jailbreak/Root| JB["⚠️ Block Access"]
+    Type -->|Network Attack| Net["🌐 Force VPN"]
+    Type -->|SIM Swap| SIM["📞 Contact Carrier"]
+    App --> MDM["📲 MDM Action"]
+    JB --> MDM
+    Net --> MDM
+```
+
+### BYOD Containment
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant MDM
+    participant SOC
+    participant IT
+    MDM->>SOC: 🚨 Compliance violation
+    SOC->>MDM: Block corporate access
+    SOC->>User: Notify + guidance
+    User->>IT: Bring device for check
+    IT->>MDM: Remediate / Re-enroll
+    MDM-->>SOC: ✅ Compliant
+``` 
 
 ---
 

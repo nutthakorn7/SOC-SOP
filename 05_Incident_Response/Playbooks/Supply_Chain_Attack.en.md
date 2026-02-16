@@ -2,8 +2,39 @@
 
 **ID**: PB-32
 **Severity**: Critical | **Category**: Software Supply Chain
-**MITRE ATT&CK**: [T1195](https://attack.mitre.org/techniques/T1195/) (Supply Chain Compromise), [T1195.001](https://attack.mitre.org/techniques/T1195/001/) (Compromise Software Dependencies), [T1195.002](https://attack.mitre.org/techniques/T1195/002/) (Compromise Software Supply Chain)
-**Trigger**: Vendor security advisory, CISA/CERT alert, Threat intel feed, Anomaly detection on vendor-supplied component
+**MITRE ATT&CK**: [T1195](https://attack.mitre.org/techniques/T1195/) (Supply Chain Compromise), [T1195.001](https://attack.mitre.org/techniques/T1195/001/) (Compromise Software Dependencies), [T1195.002](https://attack.microsoft.com/techniques/T1195/002/) (Compromise Software Supply Chain)
+**Trigger**: Vendor advisory, TI alert, EDR detection (compromised update), Dependency scan, CISA advisory
+
+### Supply Chain Attack Vectors
+
+```mermaid
+graph TD
+    SC["🔗 Supply Chain"] --> Type{"📋 Vector?"}
+    Type -->|Software Update| Update["📦 Trojanized Update"]
+    Type -->|Open Source| OSS["🔓 Malicious Package"]
+    Type -->|Hardware| HW["🔧 Firmware Implant"]
+    Type -->|MSP/Vendor| MSP["🏢 Vendor Compromise"]
+    Update --> Impact["💥 Impact Assessment"]
+    OSS --> Impact
+    HW --> Impact
+    MSP --> Impact
+```
+
+### SBOM Verification
+
+```mermaid
+sequenceDiagram
+    participant SOC
+    participant SCA as SCA Tool
+    participant Dev as Dev Team
+    participant Vendor
+    SOC->>SCA: Scan dependencies
+    SCA-->>SOC: Compromised package found!
+    SOC->>Dev: 🚨 Stop using package
+    Dev->>Dev: Pin to safe version
+    SOC->>Vendor: Notify + request advisory
+    Dev->>SOC: ✅ Remediated
+```
 
 > ⚠️ **CRITICAL**: Supply chain attacks can affect thousands of organizations simultaneously. Time-to-containment directly impacts blast radius.
 

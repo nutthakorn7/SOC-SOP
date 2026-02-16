@@ -3,7 +3,39 @@
 **ID**: PB-09
 **Severity**: High/Critical | **Category**: Availability
 **MITRE ATT&CK**: [T1498](https://attack.mitre.org/techniques/T1498/) (Network DoS), [T1499](https://attack.mitre.org/techniques/T1499/) (Endpoint DoS)
-**Trigger**: Monitoring alert (high CPU/bandwidth), WAF logs (flood detected), User reports (service unavailable)
+**Trigger**: NOC/NMS alert, WAF/CDN alert, Customer complaints, Uptime monitor, RDoS email
+
+### Defense Layers
+
+```mermaid
+graph LR
+    Attack["⚡ DDoS"] --> CDN["🌐 CDN/Cloud Scrubbing"]
+    CDN --> WAF["🛡️ WAF"]
+    WAF --> LB["⚖️ Load Balancer"]
+    LB --> FW["🔥 Firewall"]
+    FW --> Server["🖥️ Origin Server"]
+    style Attack fill:#e74c3c,color:#fff
+    style CDN fill:#3498db,color:#fff
+    style WAF fill:#2ecc71,color:#fff
+    style Server fill:#27ae60,color:#fff
+```
+
+### Communication Flow
+
+```mermaid
+sequenceDiagram
+    participant NOC
+    participant SOC
+    participant ISP
+    participant CDN
+    participant Mgmt as Management
+    NOC->>SOC: 🚨 Traffic spike / service down
+    SOC->>CDN: Activate DDoS mitigation
+    SOC->>ISP: Request upstream filtering
+    CDN-->>SOC: Scrubbing active
+    ISP-->>SOC: Blackhole/rate limit applied
+    SOC->>Mgmt: Status update + ETA
+```
 
 ---
 

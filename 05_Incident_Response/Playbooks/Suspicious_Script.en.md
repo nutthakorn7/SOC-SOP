@@ -5,6 +5,36 @@
 **MITRE ATT&CK**: [T1059](https://attack.mitre.org/techniques/T1059/) (Command & Scripting Interpreter), [T1059.001](https://attack.mitre.org/techniques/T1059/001/) (PowerShell), [T1059.005](https://attack.mitre.org/techniques/T1059/005/) (Visual Basic)
 **Trigger**: EDR alert ("PowerShell EncodedCommand", "WScript suspicious execution"), AMSI detection, Sysmon Event ID 1
 
+### Script Analysis Pipeline
+
+```mermaid
+graph LR
+    Script["📜 Script"] --> AMSI["🛡️ AMSI"]
+    AMSI --> Deobfuscate["🔓 Deobfuscate"]
+    Deobfuscate --> Analyze["🔍 Analyze Intent"]
+    Analyze --> IOC["🎯 Extract IOCs"]
+    IOC --> Hunt["🎯 Org-wide Hunt"]
+    style Script fill:#3498db,color:#fff
+    style AMSI fill:#27ae60,color:#fff
+    style IOC fill:#e74c3c,color:#fff
+```
+
+### PowerShell Logging Detection
+
+```mermaid
+sequenceDiagram
+    participant PS as PowerShell
+    participant AMSI
+    participant EventLog as Event Log
+    participant SIEM
+    PS->>AMSI: Scan script content
+    AMSI-->>PS: ✅ / ❌
+    PS->>EventLog: Event 4104 (ScriptBlock)
+    EventLog->>SIEM: Forward
+    SIEM->>SIEM: Detect obfuscation pattern
+    SIEM->>SIEM: 🚨 Alert SOC
+```
+
 ---
 
 ## Decision Flow

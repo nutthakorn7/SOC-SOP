@@ -3,7 +3,36 @@
 **ID**: PB-19
 **Severity**: Medium/High | **Category**: Physical Security / Data Protection
 **MITRE ATT&CK**: [T1025](https://attack.mitre.org/techniques/T1025/) (Data from Removable Media), [T1552](https://attack.mitre.org/techniques/T1552/) (Unsecured Credentials)
-**Trigger**: User report ("Lost my laptop/phone"), MDM alert ("Device offline > 30 days"), Physical security report
+**Trigger**: Employee report (device lost/stolen), MDM non-check-in alert, Asset mismatch
+
+### Risk Assessment
+
+```mermaid
+graph TD
+    Lost["📱 Device Lost"] --> Encrypt{"🔒 Encrypted?"}
+    Encrypt -->|Yes| Low["🟢 Low Risk"]
+    Encrypt -->|No| High["🔴 High Risk"]
+    Low --> Data{"📁 Sensitive Data?"}
+    High --> Wipe["📲 Remote Wipe Now"]
+    Data -->|Yes| Wipe
+    Data -->|No| Lock["🔒 Remote Lock"]
+```
+
+### Remote Wipe Flow
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant SOC
+    participant MDM
+    participant IT
+    User->>SOC: 📞 Report lost device
+    SOC->>MDM: Remote Lock
+    SOC->>SOC: Assess data risk
+    SOC->>MDM: Remote Wipe
+    MDM-->>SOC: ✅ Wipe initiated
+    SOC->>IT: Revoke certificates
+```
 
 ---
 

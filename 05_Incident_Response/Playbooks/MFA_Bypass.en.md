@@ -5,7 +5,40 @@
 **MITRE ATT&CK**: [T1556.006](https://attack.mitre.org/techniques/T1556/006/) (MFA Modification), [T1539](https://attack.mitre.org/techniques/T1539/) (Steal Web Session Cookie), [T1111](https://attack.mitre.org/techniques/T1111/) (Multi-Factor Authentication Interception)
 **Trigger**: AiTM proxy detection, session token anomaly, MFA fatigue (push spam), IdP risk alert
 
-> ⚠️ **CRITICAL**: MFA bypass means the attacker has defeated the strongest common control. Treat as confirmed compromise — act immediately.
+> ⚠️ **CRITICAL**: MFA bypass means the attacker defeated your strongest control — act immediately.
+
+### AiTM (Adversary-in-the-Middle) Attack
+
+```mermaid
+sequenceDiagram
+    participant Victim
+    participant Proxy as Phishing Proxy
+    participant IdP as Azure AD
+    Victim->>Proxy: 1. Click phishing link
+    Proxy->>IdP: 2. Forward credentials
+    IdP-->>Proxy: 3. MFA challenge
+    Proxy-->>Victim: 4. Show MFA prompt
+    Victim->>Proxy: 5. Complete MFA
+    Proxy->>IdP: 6. Send MFA response
+    IdP-->>Proxy: 7. Session cookie
+    Note over Proxy: 🎯 Stolen session cookie!
+    Proxy->>Proxy: 8. Access account with cookie
+```
+
+### MFA Security Levels
+
+```mermaid
+graph LR
+    SMS["📱 SMS OTP"] --> TOTP["📲 TOTP App"]
+    TOTP --> Push["🔔 Push Notification"]
+    Push --> NumberMatch["🔢 Number Matching"]
+    NumberMatch --> FIDO["🔑 FIDO2/Passkey"]
+    style SMS fill:#e74c3c,color:#fff
+    style TOTP fill:#f39c12,color:#fff
+    style Push fill:#f1c40f,color:#000
+    style NumberMatch fill:#2ecc71,color:#fff
+    style FIDO fill:#27ae60,color:#fff
+```
 
 ---
 

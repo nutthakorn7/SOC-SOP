@@ -3,7 +3,38 @@
 **ID**: PB-20
 **Severity**: Critical | **Category**: Defense Evasion
 **MITRE ATT&CK**: [T1070](https://attack.mitre.org/techniques/T1070/) (Indicator Removal), [T1070.001](https://attack.mitre.org/techniques/T1070/001/) (Clear Windows Event Logs)
-**Trigger**: SIEM alert ("Event Log Cleared" — Event ID 1102/104), audit policy disabled, log service stopped
+**Trigger**: SIEM gap detection, Event ID 1102/104, File integrity monitoring alert
+
+### Backup Log Sources
+
+```mermaid
+graph TD
+    Cleared["🗑️ Logs Cleared"] --> Backup{"💾 Backup?"}
+    Backup -->|SIEM| SIEM["📊 SIEM retained"]
+    Backup -->|Syslog| Syslog["📋 Syslog copy"]
+    Backup -->|Cloud| Cloud["☁️ CloudWatch/LA"]
+    Backup -->|WORM| WORM["🔒 Immutable storage"]
+    SIEM --> Recover["♻️ Recover timeline"]
+    Syslog --> Recover
+    Cloud --> Recover
+    WORM --> Recover
+```
+
+### Attack Timeline
+
+```mermaid
+sequenceDiagram
+    participant Attacker
+    participant System
+    participant SIEM
+    participant SOC
+    Attacker->>System: 🔨 Compromise
+    Attacker->>System: 🗑️ Clear Event Logs
+    System->>SIEM: (gap detected!)
+    SIEM->>SOC: 🚨 Log gap alert
+    SOC->>SIEM: Check logs before deletion
+    SOC->>SOC: Reconstruct timeline from backups
+```
 
 > ⚠️ **CRITICAL**: Log clearing is almost never benign. Assume the host is compromised until proven otherwise.
 

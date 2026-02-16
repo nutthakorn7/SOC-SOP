@@ -4,7 +4,37 @@
 **Severity**: High/Critical | **Category**: Cloud Identity
 **MITRE ATT&CK**: [T1078.004](https://attack.mitre.org/techniques/T1078/004/) (Cloud Accounts), [T1556](https://attack.mitre.org/techniques/T1556/) (Modify Authentication Process)
 **TLP**: AMBER
-**Trigger**: Azure AD Identity Protection alert, Entra ID risk detection, SIEM correlation, Helpdesk report
+**Trigger**: Azure AD Identity Protection, Sentinel alert, Conditional Access failure, Audit log anomaly
+
+### Identity Protection Pipeline
+
+```mermaid
+graph LR
+    Signal["📡 Risk Signal"] --> RiskEngine["🔍 Risk Engine"]
+    RiskEngine --> UserRisk{"👤 User Risk?"}
+    UserRisk -->|Low| Monitor["👁️ Monitor"]
+    UserRisk -->|Medium| MFA["📱 Require MFA"]
+    UserRisk -->|High| Block["🔒 Block + Reset"]
+    style Signal fill:#3498db,color:#fff
+    style Block fill:#e74c3c,color:#fff
+    style MFA fill:#f39c12,color:#fff
+```
+
+### PIM Activation Flow
+
+```mermaid
+sequenceDiagram
+    participant Admin
+    participant PIM as Azure PIM
+    participant Approver
+    participant SOC
+    Admin->>PIM: Request Global Admin role
+    PIM->>Approver: 📧 Approval required
+    Approver->>PIM: ✅ Approve (with justification)
+    PIM->>Admin: Role active for 2 hours
+    PIM->>SOC: 📋 Audit log entry
+    Note over PIM: ⏳ Auto-deactivate after TTL
+```
 
 ---
 
