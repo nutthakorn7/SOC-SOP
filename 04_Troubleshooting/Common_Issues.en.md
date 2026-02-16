@@ -107,6 +107,80 @@ graph TD
 3. Review playbook execution logs for error details
 4. Check rate limiting on target API endpoints
 
+## 7. Troubleshooting Scripts
+
+### Check SIEM Data Pipeline Health
+```bash
+#!/bin/bash
+# Check if data is flowing from source to SIEM
+echo "=== Data Pipeline Health Check ==="
+
+# 1. Check Elasticsearch cluster health
+curl -s http://localhost:9200/_cluster/health | python3 -m json.tool
+
+# 2. Check Logstash pipeline
+curl -s http://localhost:9600/_node/stats/pipelines | python3 -m json.tool | grep -E "events|queue"
+
+# 3. Check Filebeat status
+systemctl status filebeat | head -5
+
+# 4. Check Kafka consumer lag (if applicable)
+# kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group logstash --describe
+
+echo "=== Check Complete ==="
+```
+
+### Check EDR Agent Health Across Fleet
+```powershell
+# Get list of endpoints with stale EDR check-ins (>24 hours)
+$threshold = (Get-Date).AddHours(-24)
+
+# For CrowdStrike (via API)
+# $staleHosts = Get-CsHost | Where-Object { $_.last_seen -lt $threshold }
+
+# For Sysmon (local check)
+Get-WinEvent -LogName "Microsoft-Windows-Sysmon/Operational" -MaxEvents 1 |
+    Select-Object TimeCreated, Message |
+    Format-Table -AutoSize
+```
+
+### Verify Log Source Completeness
+```bash
+#!/bin/bash
+# Compare expected vs actual log sources in SIEM
+echo "=== Log Source Audit ==="
+
+# Expected sources (update this list)
+EXPECTED_SOURCES=(
+    "firewall" "active_directory" "dns" "proxy"
+    "endpoint_edr" "email_gateway" "vpn" "waf"
+    "database" "cloud_trail"
+)
+
+for source in "${EXPECTED_SOURCES[@]}"; do
+    # Check if we received logs in the last hour
+    count=$(curl -s "http://localhost:9200/logs-*/_count?q=source_type:${source}%20AND%20@timestamp:>now-1h" | python3 -c "import sys,json; print(json.load(sys.stdin)['count'])" 2>/dev/null)
+    if [ "${count:-0}" -gt 0 ]; then
+        echo "  ✅ ${source}: ${count} events/hour"
+    else
+        echo "  ❌ ${source}: NO DATA — investigate!"
+    fi
+done
+```
+
+## 8. Escalation Matrix for Infrastructure Issues
+
+| Issue | First Response | Escalate After | Escalate To |
+|:---|:---|:---|:---|
+| SIEM search slow | Check cluster health | 15 min | SOC Engineer |
+| Log source offline | Verify agent/network | 30 min | IT + SOC Engineer |
+| EDR console unreachable | Check cloud status page | 5 min | Vendor support |
+| SOAR playbook fails | Check API connectivity | 15 min | SOC Engineer |
+| Alert queue > 200 | Add analyst capacity | 1 hour | SOC Manager |
+| Disk space > 90% | Identify largest indices | 30 min | SOC Engineer |
+| SSL certificate expired | Renew immediately | Immediate | SOC Engineer |
+| MFA outage | Switch to backup auth | 5 min | IT + IAM team |
+
 ## Related Documents
 -   [Tool Integration Strategy](../03_User_Guides/Integration_Hub.en.md)
 -   [SOC Infrastructure Setup](../10_Training_Onboarding/System_Activation.en.md)

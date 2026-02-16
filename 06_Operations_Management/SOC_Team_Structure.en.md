@@ -109,6 +109,64 @@ graph LR
 | **Medium** (500-2000/day) | 4 | 2 | 1 | 1 | 1 | 1 | 10 |
 | **Large** (>2000/day, 24/7) | 8 | 4 | 2 | 2 | 1 | 1 | 18 |
 
+## 5. Interview Questions by Tier
+
+### Tier 1 Candidates
+| # | Question | Expected Answer |
+|:---|:---|:---|
+| 1 | What is the difference between a True Positive and a False Positive? | TP = real threat confirmed; FP = alert triggered but not a real threat |
+| 2 | You see 50 failed logins from one IP. What do you do? | Check if it's brute force, verify the source IP, check if account locked, escalate if confirmed |
+| 3 | What is TLP:RED? | Restricted to named participants only — cannot be shared |
+| 4 | Walk me through triaging a phishing alert. | Check sender, links, attachments, headers, check if user clicked, check IOCs in SIEM |
+| 5 | What logs would you check for a Windows lateral movement alert? | Event IDs 4624/4625 (logon), 5140 (share access), Sysmon, EDR |
+
+### Tier 2 Candidates
+| # | Question | Expected Answer |
+|:---|:---|:---|
+| 1 | How would you investigate a suspected C2 callback? | Analyze network traffic (beaconing), check process tree, identify parent process, isolate host |
+| 2 | Explain the MITRE ATT&CK kill chain. | Recon → Weaponize → Deliver → Exploit → Install → C2 → Actions on Objectives |
+| 3 | When should you isolate a host vs. just monitoring? | Isolate: confirmed malware, active C2, data exfiltration. Monitor: suspicious but unconfirmed |
+| 4 | Write a Splunk query to find PowerShell encoded commands. | `index=sysmon EventCode=1 CommandLine="*-enc*" OR CommandLine="*encodedcommand*"` |
+| 5 | How do you determine the blast radius of a compromised account? | Check auth logs for where account logged in, file access, email rules, AD changes |
+
+### Tier 3 Candidates
+| # | Question | Expected Answer |
+|:---|:---|:---|
+| 1 | Describe your threat hunting methodology. | Hypothesis → data collection → analysis → findings → detection rule creation |
+| 2 | How would you detect living-off-the-land attacks? | Monitor LOLBins (certutil, mshta, rundll32), parent-child process anomalies |
+| 3 | Walk through your malware analysis workflow. | Sandbox → static (strings, imports, PE) → dynamic (behavior, C2) → YARA rule |
+| 4 | How do you create a Sigma rule from an investigation finding? | Identify log source, define detection logic, set level/status, test against FP |
+| 5 | How would you detect DNS tunneling? | Long subdomains, high query volume to single domain, entropy analysis |
+
+## 6. Skills Matrix & Training Plan
+
+| Skill | T1 Required | T2 Required | T3 Required | Training Resource |
+|:---|:---:|:---:|:---:|:---|
+| SIEM queries (basic) | ✅ | ✅ | ✅ | Internal training |
+| SIEM queries (advanced) | ❌ | ✅ | ✅ | Splunk/Elastic cert |
+| Networking (TCP/IP, DNS) | ✅ | ✅ | ✅ | CompTIA Network+ |
+| Log analysis | ✅ | ✅ | ✅ | SANS SEC555 |
+| Incident Response | Basic | ✅ | ✅ | GCIH / CySA+ |
+| Forensics | ❌ | Basic | ✅ | GCFA / SANS FOR508 |
+| Malware analysis | ❌ | ❌ | ✅ | GREM / SANS FOR610 |
+| Threat hunting | ❌ | ❌ | ✅ | SANS FOR508 |
+| Detection engineering | ❌ | Basic | ✅ | Internal + Sigma docs |
+| Scripting (Python/PS) | ❌ | Basic | ✅ | Self-study / courses |
+| MITRE ATT&CK | Awareness | Working | Expert | ATT&CK training |
+
+## 7. Salary Benchmarks (Thailand Market, 2026)
+
+> **Note**: Ranges are approximate and vary by organization size, industry, and location.
+
+| Role | Experience | Monthly Range (THB) | Certifications that Add Value |
+|:---|:---|:---|:---|
+| T1 Analyst | 0-2 years | 25,000 – 45,000 | CompTIA Security+, CySA+ |
+| T2 Analyst | 2-4 years | 40,000 – 70,000 | GCIH, CySA+, OSCP |
+| T3 Analyst | 4-7 years | 60,000 – 100,000 | GCFA, GREM, OSCP |
+| Detection Engineer | 3-5 years | 50,000 – 90,000 | Sigma/YARA expertise |
+| TI Analyst | 3-5 years | 45,000 – 80,000 | CTIA, OSINT certs |
+| SOC Manager | 5-10 years | 80,000 – 150,000 | CISSP, CISM |
+
 ## Related Documents
 -   [Shift Handoff Standard](Shift_Handoff.en.md)
 -   [SOC Metrics & KPIs](SOC_Metrics.en.md)

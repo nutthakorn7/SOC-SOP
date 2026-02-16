@@ -115,6 +115,82 @@ graph LR
 | **Level 3** | Proactive | PIR-driven, threat hunting, TIP platform |
 | **Level 4** | Predictive | Attribution, adversary tracking, board-level reporting |
 
+## 7. Threat Intel Report Template
+
+### Quick IOC Advisory (TLP:GREEN)
+
+```markdown
+## IOC Advisory — [Campaign Name]
+**Date**: YYYY-MM-DD
+**TLP**: GREEN
+**Confidence**: [High/Medium/Low]
+
+### Summary
+[1-2 sentence description of the threat]
+
+### IOCs
+| Type | Value | Context |
+|:---|:---|:---|
+| IP | x.x.x.x | C2 server |
+| Domain | evil.example.com | Phishing infrastructure |
+| SHA256 | abcdef... | Malware payload |
+| Email | attacker@evil.com | Phishing sender |
+
+### MITRE ATT&CK Mapping
+| Tactic | Technique | ID |
+|:---|:---|:---|
+| Initial Access | Spearphishing Attachment | T1566.001 |
+| Execution | PowerShell | T1059.001 |
+
+### Recommended Actions
+1. Block IOCs in firewall/proxy
+2. Search SIEM for historical hits
+3. Update EDR detection rules
+4. Brief analysts on campaign TTPs
+```
+
+### Diamond Model Analysis
+
+```mermaid
+graph TD
+    subgraph Diamond["Diamond Model"]
+        Adversary["👤 Adversary<br/>[APT Group Name]"]
+        Capability["⚡ Capability<br/>[Malware/Tool]"]
+        Infrastructure["🏗️ Infrastructure<br/>[C2 Servers/Domains]"]
+        Victim["🎯 Victim<br/>[Industry/Organization]"]
+
+        Adversary --- Capability
+        Adversary --- Infrastructure
+        Capability --- Victim
+        Infrastructure --- Victim
+    end
+
+    style Adversary fill:#e74c3c,color:#fff
+    style Capability fill:#f39c12,color:#fff
+    style Infrastructure fill:#3498db,color:#fff
+    style Victim fill:#2ecc71,color:#fff
+```
+
+| Element | Questions to Answer |
+|:---|:---|
+| **Adversary** | Who? Attribution, motivation (financial/espionage/hacktivism) |
+| **Capability** | What tools/malware? Custom or commodity? Sophistication level? |
+| **Infrastructure** | C2 servers, domains, hosting providers, IP ranges, TOR? |
+| **Victim** | Who is targeted? Industry, geography, organization size? |
+
+## 8. STIX/TAXII Quick Reference
+
+| Concept | Purpose | Example |
+|:---|:---|:---|
+| **STIX** | Structured format for CTI | An indicator object describing a malicious IP |
+| **TAXII** | Transport protocol for CTI sharing | Server-to-server automated IOC exchange |
+| **Indicator** | Observable pattern + context | SHA256 hash + malware family name |
+| **Attack Pattern** | Description of adversary TTP | T1059.001 — PowerShell execution |
+| **Malware** | Description of malware sample | Agent Tesla RAT capabilities |
+| **Threat Actor** | Description of adversary group | APT29 — Russian SVR |
+| **Campaign** | Set of related activities | Q1 2026 banking trojan campaign |
+| **Relationship** | Link between STIX objects | Malware X "uses" Technique Y |
+
 ## Related Documents
 -   [Incident Response Framework](../05_Incident_Response/Framework.en.md)
 -   [SOC Assessment Checklist](SOC_Assessment_Checklist.en.md)

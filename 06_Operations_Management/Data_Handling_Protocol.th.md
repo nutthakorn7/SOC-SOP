@@ -77,6 +77,57 @@ graph TD
 | TLP:AMBER โพสต์สาธารณะ | 🟠 สูง | ลบเนื้อหา, รายงานเหตุการณ์ |
 | ไม่มีเครื่องหมาย TLP | 🟡 กลาง | ส่งกลับผู้เขียน, ถือเป็น AMBER |
 
+## 9. การทำเครื่องหมาย TLP ในทางปฏิบัติ
+
+### รูปแบบหัวข้อ Email
+```
+[TLP:RED] เหตุการณ์ INC-2026-042 — ผลการวิเคราะห์ Forensic
+[TLP:AMBER] ผลสแกนช่องโหว่ — Q1 2026
+[TLP:GREEN] แจ้ง IOC — แคมเปญ Banking Trojan
+[TLP:CLEAR] สรุป SOC ประจำเดือน — มกราคม 2026
+```
+
+### Template หัวเอกสาร
+```
+╔═══════════════════════════════════════════╗
+║  TLP: [RED/AMBER/GREEN/CLEAR]            ║
+║  วันที่จำแนก: YYYY-MM-DD                  ║
+║  จำแนกโดย: [ชื่อ, ตำแหน่ง]                  ║
+║  วันทบทวน: YYYY-MM-DD                     ║
+╚═══════════════════════════════════════════╝
+```
+
+### รูปแบบ Chat/Slack
+```
+🔴 TLP:RED — ห้าม screenshot หรือ forward
+[ข้อความที่มีข้อมูลอ่อนไหว]
+
+🟡 TLP:AMBER — เฉพาะภายในองค์กร
+[ข้อความที่จำกัด]
+```
+
+## 10. Data Loss Prevention (DLP) สำหรับ SOC
+
+| ความเสี่ยง | การตรวจจับ | การป้องกัน |
+|:---|:---|:---|
+| Analyst คัดลอก IOCs ไปอุปกรณ์ส่วนตัว | DLP ตรวจ USB/cloud upload | Block USB, จำกัด cloud storage |
+| Screenshot ข้อมูลอ่อนไหวถูกแชร์ | Screen monitoring (ถ้าสอดคล้อง) | Watermark หน้าจอ SOC |
+| ข้อมูลสืบสวนส่งไปอีเมลส่วนตัว | Email DLP rules | Block personal email ใน SOC |
+| หลักฐาน forensic บน drive ไม่เข้ารหัส | Asset inventory + ตรวจ encryption | Full disk encryption บังคับ |
+| PII ในบันทึกสืบสวนบน shared drive | DLP content scanning | ฝึกอบรม data classification |
+
+## 11. ตาราง Data Retention
+
+| ประเภทข้อมูล | ระยะเก็บ | ที่เก็บ | วิธีทำลาย |
+|:---|:---|:---|:---|
+| SIEM raw logs | 90 วัน hot / 1 ปี cold | Encrypted storage | Automated purge |
+| Incident tickets | 3 ปี | Ticketing system | Archive หลัง 3 ปี |
+| หลักฐาน forensic | จนปิด case + 1 ปี | Encrypted vault | Secure wipe + certificate |
+| Threat intelligence reports | 2 ปี | TI platform | Archive |
+| SOC metrics/dashboards | 2 ปี | Reporting system | Archive |
+| PII จากการสืบสวน | จนปิด case | Case file (encrypted) | Secure delete + DPO confirm |
+| บันทึก PDPA breach | 5 ปี (ข้อกำหนดกฎหมาย) | Encrypted archive | เก็บตามกฎระเบียบ |
+
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กรอบการตอบสนองเหตุการณ์](../05_Incident_Response/Framework.th.md)
 -   [แบบประเมิน SOC](SOC_Assessment_Checklist.th.md)

@@ -109,6 +109,64 @@ graph LR
 | **กลาง** (500-2000/วัน) | 4 | 2 | 1 | 1 | 1 | 1 | 10 |
 | **ใหญ่** (>2000/วัน, 24/7) | 8 | 4 | 2 | 2 | 1 | 1 | 18 |
 
+## 5. คำถามสัมภาษณ์แต่ละ Tier
+
+### ผู้สมัคร Tier 1
+| # | คำถาม | คำตอบที่คาดหวัง |
+|:---|:---|:---|
+| 1 | True Positive กับ False Positive ต่างกันอย่างไร? | TP = ภัยจริงที่ยืนยัน; FP = alert trigger แต่ไม่ใช่ภัยจริง |
+| 2 | เห็น failed login 50 ครั้งจาก IP เดียว คุณทำอะไร? | ตรวจสอบว่าเป็น brute force ไหม, verify source IP, ตรวจ account lock, escalate ถ้ายืนยัน |
+| 3 | TLP:RED คืออะไร? | จำกัดเฉพาะผู้เข้าร่วม — ห้ามแชร์ |
+| 4 | อธิบายขั้นตอน triage phishing alert | ตรวจ sender, links, attachments, headers, ตรวจว่า user คลิกไหม, ตรวจ IOCs ใน SIEM |
+| 5 | ต้องดู log อะไรเมื่อมี lateral movement? | Event IDs 4624/4625 (logon), 5140 (share), Sysmon, EDR |
+
+### ผู้สมัคร Tier 2
+| # | คำถาม | คำตอบที่คาดหวัง |
+|:---|:---|:---|
+| 1 | สืบสวน C2 callback อย่างไร? | วิเคราะห์ network traffic (beaconing), ดู process tree, หา parent process, isolate host |
+| 2 | อธิบาย MITRE ATT&CK kill chain | Recon → Weaponize → Deliver → Exploit → Install → C2 → Actions on Objectives |
+| 3 | เมื่อไรควร isolate vs. monitoring? | Isolate: ยืนยัน malware, C2 active, data exfil. Monitor: สงสัยแต่ยังไม่ยืนยัน |
+| 4 | เขียน Splunk query หา PowerShell encoded | `index=sysmon EventCode=1 CommandLine="*-enc*" OR CommandLine="*encodedcommand*"` |
+| 5 | หา blast radius ของ compromised account อย่างไร? | ตรวจ auth logs ว่า login ที่ไหน, file access, email rules, AD changes |
+
+### ผู้สมัคร Tier 3
+| # | คำถาม | คำตอบที่คาดหวัง |
+|:---|:---|:---|
+| 1 | อธิบาย methodology ในการ threat hunting | Hypothesis → data collection → analysis → findings → detection rule creation |
+| 2 | ตรวจจับ living-off-the-land attacks อย่างไร? | Monitor LOLBins (certutil, mshta, rundll32), parent-child process anomalies |
+| 3 | อธิบาย malware analysis workflow | Sandbox → static (strings, imports, PE) → dynamic (behavior, C2) → YARA rule |
+| 4 | สร้าง Sigma rule จากผลสืบสวนอย่างไร? | ระบุ log source, กำหนด detection logic, set level/status, ทดสอบ FP |
+| 5 | ตรวจจับ DNS tunneling อย่างไร? | Subdomain ยาว, query volume สูงไปยัง domain เดียว, entropy analysis |
+
+## 6. Skills Matrix & แผนฝึกอบรม
+
+| ทักษะ | T1 ต้องมี | T2 ต้องมี | T3 ต้องมี | แหล่งฝึก |
+|:---|:---:|:---:|:---:|:---|
+| SIEM queries (พื้นฐาน) | ✅ | ✅ | ✅ | ฝึกอบรมภายใน |
+| SIEM queries (ขั้นสูง) | ❌ | ✅ | ✅ | Splunk/Elastic cert |
+| Networking (TCP/IP, DNS) | ✅ | ✅ | ✅ | CompTIA Network+ |
+| Log analysis | ✅ | ✅ | ✅ | SANS SEC555 |
+| Incident Response | พื้นฐาน | ✅ | ✅ | GCIH / CySA+ |
+| Forensics | ❌ | พื้นฐาน | ✅ | GCFA / SANS FOR508 |
+| Malware analysis | ❌ | ❌ | ✅ | GREM / SANS FOR610 |
+| Threat hunting | ❌ | ❌ | ✅ | SANS FOR508 |
+| Detection engineering | ❌ | พื้นฐาน | ✅ | ภายใน + Sigma docs |
+| Scripting (Python/PS) | ❌ | พื้นฐาน | ✅ | เรียนด้วยตัวเอง |
+| MITRE ATT&CK | รับรู้ | ใช้งานได้ | เชี่ยวชาญ | ATT&CK training |
+
+## 7. เกณฑ์เงินเดือน (ตลาดไทย, 2026)
+
+> **หมายเหตุ**: ช่วงเป็นค่าประมาณ แตกต่างตามขนาดองค์กร อุตสาหกรรม และที่ตั้ง
+
+| ตำแหน่ง | ประสบการณ์ | ช่วงรายเดือน (บาท) | Cert ที่เพิ่มมูลค่า |
+|:---|:---|:---|:---|
+| T1 Analyst | 0-2 ปี | 25,000 – 45,000 | CompTIA Security+, CySA+ |
+| T2 Analyst | 2-4 ปี | 40,000 – 70,000 | GCIH, CySA+, OSCP |
+| T3 Analyst | 4-7 ปี | 60,000 – 100,000 | GCFA, GREM, OSCP |
+| Detection Engineer | 3-5 ปี | 50,000 – 90,000 | Sigma/YARA expertise |
+| TI Analyst | 3-5 ปี | 45,000 – 80,000 | CTIA, OSINT certs |
+| SOC Manager | 5-10 ปี | 80,000 – 150,000 | CISSP, CISM |
+
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [มาตรฐานการส่งมอบกะ](Shift_Handoff.th.md)
 -   [ตัวชี้วัด SOC](SOC_Metrics.th.md)

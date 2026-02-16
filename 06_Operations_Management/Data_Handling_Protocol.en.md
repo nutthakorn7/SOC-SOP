@@ -94,6 +94,57 @@ TLP: [RED/AMBER/GREEN/CLEAR]
 | TLP:GREEN | Unlikely — IoCs only | Not required |
 | TLP:CLEAR | No — public data | Not required |
 
+## 9. TLP Markings in Practice
+
+### Email Subject Format
+```
+[TLP:RED] Incident INC-2026-042 — Forensic Analysis Results
+[TLP:AMBER] Vulnerability Scan Results — Q1 2026
+[TLP:GREEN] IOC Advisory — Banking Trojan Campaign
+[TLP:CLEAR] SOC Monthly Summary — January 2026
+```
+
+### Document Header Template
+```
+╔═══════════════════════════════════════════╗
+║  TLP: [RED/AMBER/GREEN/CLEAR]            ║
+║  Classification Date: YYYY-MM-DD         ║
+║  Classified By: [Name, Role]             ║
+║  Review Date: YYYY-MM-DD                 ║
+╚═══════════════════════════════════════════╝
+```
+
+### Chat/Slack Message Format
+```
+🔴 TLP:RED — Do not screenshot or forward
+[Your sensitive message here]
+
+🟡 TLP:AMBER — Org only
+[Your restricted message here]
+```
+
+## 10. Data Loss Prevention (DLP) for SOC
+
+| Risk | Detection | Prevention |
+|:---|:---|:---|
+| Analyst copies IOCs to personal device | DLP monitors USB/cloud uploads | Block USB, restrict cloud storage |
+| Screenshots of sensitive data shared | Screen monitoring (if compliant) | Watermark SOC screens |
+| Investigation data sent to personal email | Email DLP rules | Block personal email in SOC |
+| Forensic evidence on unencrypted drive | Asset inventory + encryption check | Full disk encryption mandatory |
+| PII in investigation notes on shared drive | DLP content scanning | Data classification training |
+
+## 11. Data Retention Schedule
+
+| Data Type | Retention Period | Storage | Destruction Method |
+|:---|:---|:---|:---|
+| SIEM raw logs | 90 days hot / 1 year cold | Encrypted storage | Automated purge |
+| Incident tickets | 3 years | Ticketing system | Archive after 3 years |
+| Forensic evidence | Until case closure + 1 year | Encrypted vault | Secure wipe + certificate |
+| Threat intelligence reports | 2 years | TI platform | Archive |
+| SOC metrics/dashboards | 2 years | Reporting system | Archive |
+| PII from investigations | Until case closure | Case file (encrypted) | Secure delete + DPO confirm |
+| PDPA breach records | 5 years (legal requirement) | Encrypted archive | Retain per regulation |
+
 ## Related Documents
 -   [Incident Response Framework](../05_Incident_Response/Framework.en.md)
 -   [SOC Assessment Checklist](SOC_Assessment_Checklist.en.md)

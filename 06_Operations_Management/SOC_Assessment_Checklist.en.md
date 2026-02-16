@@ -96,6 +96,47 @@ Count the "Yes" answers to determine approximate maturity.
 | Peer review | Semi-annually | Partner SOC / consultant | Independent assessment |
 | External audit | Annually | Third-party assessor | Formal maturity report |
 
+## 8. Detailed Scoring Rubric
+
+### Domain 1: Business (0-20 points)
+
+| Question | 0 pts | 1 pt | 2 pts | 3 pts | 4 pts |
+|:---|:---|:---|:---|:---|:---|
+| SOC Charter & Strategy | None | Draft | Approved | Reviewed annually | Aligned to business risk |
+| Executive Sponsorship | None | Informal | Formal sponsor | Budget allocated | Board reporting |
+| KPI Reporting | None | Ad-hoc | Monthly manual | Automated dashboard | Executive dashboard |
+| Budget & Resources | No budget | Shared budget | Dedicated budget | Multi-year plan | ROI-linked |
+| Business Alignment | No alignment | Partial | Mapped to risks | Risk-adjusted | Board-integrated |
+
+### Domain 2: People (0-20 points)
+
+| Question | 0 pts | 1 pt | 2 pts | 3 pts | 4 pts |
+|:---|:---|:---|:---|:---|:---|
+| Staffing Coverage | Business hours | Extended hours | 24/5 | 24/7 on-call | 24/7 fully staffed |
+| Onboarding Program | None | Informal | Documented | Structured + testing | Mentorship program |
+| Continuous Training | None | Annual | Quarterly | Monthly | Weekly CTF/exercises |
+| Career Development | None | Job descriptions | Career paths | Growth plans | Retention strategy |
+| Burnout Prevention | None | Awareness | Shift rotation | Wellness program | Proactive monitoring |
+
+### Domain 3: Process (0-20 points)
+
+| Question | 0 pts | 1 pt | 2 pts | 3 pts | 4 pts |
+|:---|:---|:---|:---|:---|:---|
+| SOPs Documentation | None | <50% covered | 50-80% covered | >80% covered | 100% + version control |
+| Playbook Coverage | None | Top 5 threats | Top 10 threats | Top 20 threats | All threats + auto |
+| Change Management | None | Informal | Documented RFC | Peer-reviewed RFC | Automated CI/CD |
+| Lessons Learned | None | Ad-hoc | Per-incident | Trending analysis | Automated improvement |
+| Process Metrics | None | Manual tracking | Monthly review | Real-time dashboard | Predictive analytics |
+
+## 9. Previous Assessment Tracker
+
+| Assessment Date | Overall Score | Level | Key Gaps | Actions Taken |
+|:---|:---:|:---:|:---|:---|
+| YYYY-MM-DD | __/100 | [1-5] | [List gaps] | [Actions completed] |
+| YYYY-MM-DD | __/100 | [1-5] | [List gaps] | [Actions completed] |
+| YYYY-MM-DD | __/100 | [1-5] | [List gaps] | [Actions completed] |
+| YYYY-MM-DD | __/100 | [1-5] | [List gaps] | [Actions completed] |
+
 ## Related Documents
 -   [Incident Response Framework](../05_Incident_Response/Framework.en.md)
 -   [SOC Metrics & KPIs](SOC_Metrics.en.md)

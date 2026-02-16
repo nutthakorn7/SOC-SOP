@@ -86,6 +86,47 @@ graph LR
 | Q3 | ระบบอัตโนมัติ | SOAR workflows, auto-enrichment | MTTR < 60 นาที |
 | Q4 | ขั้นสูง | Threat hunting, purple team, TI program | ถึงระดับ 3 |
 
+## 8. เกณฑ์ให้คะแนนโดยละเอียด
+
+### ด้าน 1: ธุรกิจ (0-20 คะแนน)
+
+| คำถาม | 0 | 1 | 2 | 3 | 4 |
+|:---|:---|:---|:---|:---|:---|
+| SOC Charter | ไม่มี | ร่าง | อนุมัติ | ทบทวนรายปี | สอดคล้องความเสี่ยง |
+| Executive Sponsorship | ไม่มี | ไม่เป็นทางการ | มี sponsor | จัดสรรงบ | รายงาน Board |
+| KPI Reporting | ไม่มี | Ad-hoc | รายเดือน manual | Dashboard อัตโนมัติ | Executive dashboard |
+| งบประมาณ | ไม่มีงบ | ใช้ร่วม | งบเฉพาะ | แผนหลายปี | ผูกกับ ROI |
+| Business Alignment | ไม่สอดคล้อง | บางส่วน | Map กับเสี่ยง | ปรับตามความเสี่ยง | Board-integrated |
+
+### ด้าน 2: คน (0-20 คะแนน)
+
+| คำถาม | 0 | 1 | 2 | 3 | 4 |
+|:---|:---|:---|:---|:---|:---|
+| Staffing Coverage | เวลาทำการ | ขยายเวลา | 24/5 | 24/7 on-call | 24/7 เต็มอัตรา |
+| โปรแกรม Onboarding | ไม่มี | ไม่เป็นทางการ | มีเอกสาร | มีโครงสร้าง+ทดสอบ | Mentorship |
+| ฝึกอบรมต่อเนื่อง | ไม่มี | ปีละครั้ง | รายไตรมาส | รายเดือน | Weekly CTF |
+| พัฒนาอาชีพ | ไม่มี | JD ชัด | Career path | แผนเติบโต | Retention strategy |
+| ป้องกัน Burnout | ไม่มี | รับรู้ | หมุนกะ | Wellness program | ตรวจเชิงรุก |
+
+### ด้าน 3: กระบวนการ (0-20 คะแนน)
+
+| คำถาม | 0 | 1 | 2 | 3 | 4 |
+|:---|:---|:---|:---|:---|:---|
+| SOPs Documentation | ไม่มี | <50% | 50-80% | >80% | 100% + version control |
+| Playbook Coverage | ไม่มี | Top 5 | Top 10 | Top 20 | ครบ + auto |
+| Change Management | ไม่มี | ไม่เป็นทางการ | RFC เอกสาร | Peer-reviewed RFC | CI/CD อัตโนมัติ |
+| Lessons Learned | ไม่มี | Ad-hoc | ทุก incident | วิเคราะห์แนวโน้ม | ปรับปรุงอัตโนมัติ |
+| Process Metrics | ไม่มี | ติดตาม manual | ทบทวนรายเดือน | Real-time dashboard | Predictive analytics |
+
+## 9. ตัวติดตามผลประเมินก่อนหน้า
+
+| วันที่ประเมิน | คะแนนรวม | Level | ช่องโหว่หลัก | การดำเนินการ |
+|:---|:---:|:---:|:---|:---|
+| YYYY-MM-DD | __/100 | [1-5] | [ระบุช่องโหว่] | [สิ่งที่ทำแล้ว] |
+| YYYY-MM-DD | __/100 | [1-5] | [ระบุช่องโหว่] | [สิ่งที่ทำแล้ว] |
+| YYYY-MM-DD | __/100 | [1-5] | [ระบุช่องโหว่] | [สิ่งที่ทำแล้ว] |
+| YYYY-MM-DD | __/100 | [1-5] | [ระบุช่องโหว่] | [สิ่งที่ทำแล้ว] |
+
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กรอบการตอบสนองเหตุการณ์](../05_Incident_Response/Framework.th.md)
 -   [แบบประเมิน SOC](SOC_Assessment_Checklist.th.md)

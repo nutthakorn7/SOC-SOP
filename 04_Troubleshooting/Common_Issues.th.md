@@ -95,6 +95,70 @@ graph TD
 2. ตรวจสอบ API key/token ว่าหมดอายุหรือไม่
 3. ตรวจสอบ Rate limiting ของ API endpoint
 
+## 7. สคริปต์แก้ปัญหา
+
+### ตรวจสอบ SIEM Data Pipeline
+```bash
+#!/bin/bash
+echo "=== ตรวจสุขภาพ Data Pipeline ==="
+
+# 1. ตรวจ Elasticsearch cluster health
+curl -s http://localhost:9200/_cluster/health | python3 -m json.tool
+
+# 2. ตรวจ Logstash pipeline
+curl -s http://localhost:9600/_node/stats/pipelines | python3 -m json.tool | grep -E "events|queue"
+
+# 3. ตรวจ Filebeat status
+systemctl status filebeat | head -5
+
+echo "=== ตรวจเสร็จ ==="
+```
+
+### ตรวจสอบ EDR Agent
+```powershell
+# ตรวจ endpoint ที่ EDR check-in ช้า (>24 ชม.)
+$threshold = (Get-Date).AddHours(-24)
+
+# Sysmon (ตรวจในเครื่อง)
+Get-WinEvent -LogName "Microsoft-Windows-Sysmon/Operational" -MaxEvents 1 |
+    Select-Object TimeCreated, Message |
+    Format-Table -AutoSize
+```
+
+### ตรวจสอบ Log Source ครบถ้วน
+```bash
+#!/bin/bash
+echo "=== ตรวจสอบ Log Source ==="
+
+EXPECTED_SOURCES=(
+    "firewall" "active_directory" "dns" "proxy"
+    "endpoint_edr" "email_gateway" "vpn" "waf"
+    "database" "cloud_trail"
+)
+
+for source in "${EXPECTED_SOURCES[@]}"; do
+    count=$(curl -s "http://localhost:9200/logs-*/_count?q=source_type:${source}%20AND%20@timestamp:>now-1h" | python3 -c "import sys,json; print(json.load(sys.stdin)['count'])" 2>/dev/null)
+    if [ "${count:-0}" -gt 0 ]; then
+        echo "  ✅ ${source}: ${count} events/hour"
+    else
+        echo "  ❌ ${source}: ไม่มีข้อมูล — ตรวจสอบ!"
+    fi
+done
+```
+
+## 8. Escalation Matrix สำหรับปัญหา Infrastructure
+
+| ปัญหา | การตอบแรก | Escalate หลัง | Escalate ไปยัง |
+|:---|:---|:---|:---|
+| SIEM search ช้า | ตรวจ cluster health | 15 นาที | SOC Engineer |
+| Log source offline | ตรวจ agent/network | 30 นาที | IT + SOC Engineer |
+| EDR console เข้าไม่ได้ | ตรวจ cloud status page | 5 นาที | Vendor support |
+| SOAR playbook fail | ตรวจ API connectivity | 15 นาที | SOC Engineer |
+| Alert queue > 200 | เพิ่ม analyst | 1 ชม. | SOC Manager |
+| Disk space > 90% | หา index ใหญ่สุด | 30 นาที | SOC Engineer |
+| SSL certificate หมดอายุ | Renew ทันที | ทันที | SOC Engineer |
+| MFA ล่ม | เปลี่ยนเป็น backup auth | 5 นาที | IT + IAM team |
+
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 -   [กลยุทธ์การเชื่อมต่อเครื่องมือ](../03_User_Guides/Integration_Hub.th.md)
 -   [การติดตั้ง SOC](../10_Training_Onboarding/System_Activation.th.md)
