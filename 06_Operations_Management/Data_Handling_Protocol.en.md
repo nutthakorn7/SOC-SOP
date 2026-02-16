@@ -51,6 +51,49 @@ graph TD
 ## 4. Usage in Incident Reports
 All Incident Reports MUST be marked with a TLP level at the top of the document.
 
+### Marking Format
+```
+TLP: [RED/AMBER/GREEN/CLEAR]
+```
+
+## 5. Handling Procedures by TLP Level
+
+| TLP Level | Storage | Transmission | Sharing | Retention |
+| :--- | :--- | :--- | :--- | :--- |
+| 🔴 RED | Encrypted + restricted folder | Encrypted channel only (PGP/Signal) | Named individuals only | Until case closed |
+| 🟡 AMBER | Encrypted at rest | TLS 1.2+ / encrypted email | Within organization + NDA partners | Per retention policy |
+| 🟢 GREEN | Standard SOC storage | Standard secure channels | Sector community / ISACs | Per retention policy |
+| ⚪ CLEAR | Any storage | Any channel | Public | Indefinite |
+
+## 6. Common Scenarios & Correct TLP
+
+| Scenario | Correct TLP | Rationale |
+| :--- | :--- | :--- |
+| IoCs from active incident shared with ISP | 🟡 AMBER | Contains org-specific details |
+| Hash values from public malware analysis | ⚪ CLEAR | Publicly available data |
+| Raw forensic image of employee laptop | 🔴 RED | Contains personal/credential data |
+| Quarterly threat report for partner SOCs | 🟢 GREEN | General sector applicability |
+| Internal vulnerability scan results | 🟡 AMBER | Org-specific risk data |
+| Ransomware negotiation communications | 🔴 RED | Highly sensitive, named individuals |
+
+## 7. Violation Response
+
+| Violation | Severity | Response |
+| :--- | :--- | :--- |
+| TLP:RED shared externally | 🔴 Critical | Immediate containment, CISO notification, HR review |
+| TLP:AMBER posted publicly | 🟠 High | Content removal, incident report, awareness training |
+| No TLP marking on report | 🟡 Medium | Return to author, default to AMBER until marked |
+| TLP:GREEN shared to social media | 🟡 Medium | Review content, assess impact, coaching |
+
+## 8. PDPA / Data Protection Mapping
+
+| TLP Level | PDPA Applicability | DPO Notification |
+| :--- | :--- | :--- |
+| TLP:RED | Always — likely contains PII | Required before sharing |
+| TLP:AMBER | Likely — review for PII | Required if PII present |
+| TLP:GREEN | Unlikely — IoCs only | Not required |
+| TLP:CLEAR | No — public data | Not required |
+
 ## Related Documents
 -   [Incident Response Framework](../05_Incident_Response/Framework.en.md)
 -   [SOC Assessment Checklist](SOC_Assessment_Checklist.en.md)
