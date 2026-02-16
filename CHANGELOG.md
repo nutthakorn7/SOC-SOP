@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.7.0] - 2026-02-16
+
+### Added
+- **350 Mermaid diagrams** across all 70 playbooks (35 EN + 35 TH), 5 diagrams per playbook
+  - Phase 1: Base 3 diagrams per playbook (decision flowchart, attack/detection visualization, response sequence)
+  - Phase 2: 2 extra diagrams for 15 shortest playbooks (hardening/prevention + forensic artifacts)
+  - Phase 3: 2 extra diagrams for remaining 20 playbooks (security architecture + operational workflow)
+- **Diagram topics include**: Password Hardening, Conditional Access, BEC Kill Chain, C2 Framework Classification, Beacon Detection, Least Privilege, Mining Pool Detection, Container Security, DDoS Mitigation, Exfiltration Channels, UEBA Indicators, Log Protection Architecture, MFA Comparison (SMS→FIDO2), Malware Analysis Pipeline, EDR Response Flow, BYOD Architecture, OT/IT Convergence, Email Security Stack (SPF/DKIM/DMARC), AMSI Detection, Secure SDLC, PAM Architecture, SBOM Management, Vendor Risk Assessment, CSPM Pipeline, PDPA Notification
+
+### Improved
+- Repository visual guidance significantly enhanced: 350 diagrams total
+- Every playbook now includes both architectural reference diagrams and operational workflows
+- Consistent 5-diagram structure across all playbooks for uniform quality
+
+---
+
 ## [2.6.0] - 2026-02-16
 
 ### Added
