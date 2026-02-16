@@ -205,6 +205,13 @@ graph TD
     style High fill:#f39c12,color:#fff
 ```
 
+## Detection Rules (Sigma)
+
+| Rule | File |
+|:---|:---|
+| API Authentication Bypass | [web_api_abuse_auth_bypass.yml](../../07_Detection_Rules/web_api_abuse_auth_bypass.yml) |
+| High Web Request Rate | [web_high_rate_limit.yml](../../07_Detection_Rules/web_high_rate_limit.yml) |
+
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)

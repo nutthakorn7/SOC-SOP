@@ -185,6 +185,14 @@ sequenceDiagram
     SOC->>SOC: Block domain + isolate host
 ```
 
+## กฎตรวจจับ (Sigma)
+
+| กฎ | ไฟล์ |
+|:---|:---|
+| Network Beaconing Pattern | [net_beaconing.yml](../../07_Detection_Rules/net_beaconing.yml) |
+| DNS Tunneling Detection | [net_dns_tunneling.yml](../../07_Detection_Rules/net_dns_tunneling.yml) |
+| PowerShell Encoded Command | [proc_powershell_encoded.yml](../../07_Detection_Rules/proc_powershell_encoded.yml) |
+
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)

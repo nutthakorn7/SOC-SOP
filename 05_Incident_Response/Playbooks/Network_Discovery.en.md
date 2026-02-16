@@ -196,6 +196,13 @@ graph TD
     style Internal fill:#f39c12,color:#fff
 ```
 
+## Detection Rules (Sigma)
+
+| Rule | File |
+|:---|:---|
+| Network Discovery Activity | [sigma/win_network_discovery.yml](../../07_Detection_Rules/sigma/win_network_discovery.yml) |
+| Access to Admin Shares (C$) | [win_admin_share_access.yml](../../07_Detection_Rules/win_admin_share_access.yml) |
+
 ## Related Documents
 
 - [Lateral Movement Playbook](Lateral_Movement.en.md)

@@ -211,6 +211,12 @@ sequenceDiagram
     IdP->>SOC: 📋 Audit log
 ```
 
+## Detection Rules (Sigma)
+
+| Rule | File |
+|:---|:---|
+| Shadow IT — Unauthorized SaaS Usage | [proxy_shadow_it.yml](../../07_Detection_Rules/proxy_shadow_it.yml) |
+
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)

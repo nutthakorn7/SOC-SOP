@@ -173,6 +173,14 @@ graph TD
     style Recovery fill:#27ae60,color:#fff
 ```
 
+## กฎตรวจจับ (Sigma)
+
+| กฎ | ไฟล์ |
+|:---|:---|
+| Ransomware Bulk Renaming | [file_bulk_renaming_ransomware.yml](../../07_Detection_Rules/file_bulk_renaming_ransomware.yml) |
+| PowerShell Encoded Command | [proc_powershell_encoded.yml](../../07_Detection_Rules/proc_powershell_encoded.yml) |
+| Execution from Temp/Downloads | [proc_temp_folder_execution.yml](../../07_Detection_Rules/proc_temp_folder_execution.yml) |
+
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)

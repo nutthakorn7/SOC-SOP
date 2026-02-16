@@ -182,6 +182,13 @@ sequenceDiagram
     Authority-->>DPO: ✅ รับทราบ
 ```
 
+## กฎตรวจจับ (Sigma)
+
+| กฎ | ไฟล์ |
+|:---|:---|
+| Cloud Storage Public Access | [cloud_storage_public_access.yml](../../07_Detection_Rules/cloud_storage_public_access.yml) |
+| AWS S3 Public Access Enabled | [cloud_aws_s3_public_access.yml](../../07_Detection_Rules/cloud_aws_s3_public_access.yml) |
+
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)

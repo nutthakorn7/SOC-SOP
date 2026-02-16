@@ -217,6 +217,14 @@ sequenceDiagram
     SOC->>SOC: Block domain + isolate host
 ```
 
+## Detection Rules (Sigma)
+
+| Rule | File |
+|:---|:---|
+| Network Beaconing Pattern | [net_beaconing.yml](../../07_Detection_Rules/net_beaconing.yml) |
+| DNS Tunneling Detection | [net_dns_tunneling.yml](../../07_Detection_Rules/net_dns_tunneling.yml) |
+| PowerShell Encoded Command | [proc_powershell_encoded.yml](../../07_Detection_Rules/proc_powershell_encoded.yml) |
+
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)

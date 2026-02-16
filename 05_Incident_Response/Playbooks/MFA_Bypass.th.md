@@ -203,6 +203,13 @@ graph LR
     style FIDO fill:#27ae60,color:#fff
 ```
 
+## กฎตรวจจับ (Sigma)
+
+| กฎ | ไฟล์ |
+|:---|:---|
+| MFA Bypass / Token Theft Detection | [cloud_mfa_bypass.yml](../../07_Detection_Rules/cloud_mfa_bypass.yml) |
+| Impossible Travel Detection | [cloud_impossible_travel.yml](../../07_Detection_Rules/cloud_impossible_travel.yml) |
+
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)

@@ -217,6 +217,13 @@ graph LR
     style Wipe fill:#e74c3c,color:#fff
 ```
 
+## Detection Rules (Sigma)
+
+| Rule | File |
+|:---|:---|
+| Mobile Device Compromise Indicators | [cloud_mobile_compromise.yml](../../07_Detection_Rules/cloud_mobile_compromise.yml) |
+| Device Offline for Extended Period | [mdm_device_offline.yml](../../07_Detection_Rules/mdm_device_offline.yml) |
+
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)

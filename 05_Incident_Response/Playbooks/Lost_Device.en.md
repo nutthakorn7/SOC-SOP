@@ -205,6 +205,12 @@ graph TD
     style Legal fill:#8e44ad,color:#fff
 ```
 
+## Detection Rules (Sigma)
+
+| Rule | File |
+|:---|:---|
+| Device Offline for Extended Period | [mdm_device_offline.yml](../../07_Detection_Rules/mdm_device_offline.yml) |
+
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)

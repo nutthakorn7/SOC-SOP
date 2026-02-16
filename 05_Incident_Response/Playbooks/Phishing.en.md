@@ -207,6 +207,13 @@ sequenceDiagram
     SOC-->>User: ✅ Thanks! Phishing confirmed
 ```
 
+## Detection Rules (Sigma)
+
+| Rule | File |
+|:---|:---|
+| Suspicious Inbox Rule Created | [cloud_email_inbox_rule.yml](../../07_Detection_Rules/cloud_email_inbox_rule.yml) |
+| Office Spawning PowerShell | [proc_office_spawn_powershell.yml](../../07_Detection_Rules/proc_office_spawn_powershell.yml) |
+
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)

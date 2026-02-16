@@ -191,6 +191,14 @@ sequenceDiagram
     Note over SOC: ⚠️ ห้ามให้ suspect ลบข้อมูล!
 ```
 
+## กฎตรวจจับ (Sigma)
+
+| กฎ | ไฟล์ |
+|:---|:---|
+| User Added to Domain Admins | [win_domain_admin_group_add.yml](../../07_Detection_Rules/win_domain_admin_group_add.yml) |
+| New Local User Created | [win_new_user_created.yml](../../07_Detection_Rules/win_new_user_created.yml) |
+| Windows Security Log Cleared | [win_security_log_cleared.yml](../../07_Detection_Rules/win_security_log_cleared.yml) |
+
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)

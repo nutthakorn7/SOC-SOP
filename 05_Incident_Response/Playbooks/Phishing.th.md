@@ -183,6 +183,13 @@ sequenceDiagram
     SOC-->>User: ✅ Thanks! Phishing confirmed
 ```
 
+## กฎตรวจจับ (Sigma)
+
+| กฎ | ไฟล์ |
+|:---|:---|
+| Suspicious Inbox Rule Created | [cloud_email_inbox_rule.yml](../../07_Detection_Rules/cloud_email_inbox_rule.yml) |
+| Office Spawning PowerShell | [proc_office_spawn_powershell.yml](../../07_Detection_Rules/proc_office_spawn_powershell.yml) |
+
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)

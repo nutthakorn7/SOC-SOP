@@ -177,6 +177,13 @@ graph TD
     style Internal fill:#f39c12,color:#fff
 ```
 
+## กฎตรวจจับ (Sigma)
+
+| กฎ | ไฟล์ |
+|:---|:---|
+| Network Discovery Activity | [sigma/win_network_discovery.yml](../../07_Detection_Rules/sigma/win_network_discovery.yml) |
+| Access to Admin Shares (C$) | [win_admin_share_access.yml](../../07_Detection_Rules/win_admin_share_access.yml) |
+
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)

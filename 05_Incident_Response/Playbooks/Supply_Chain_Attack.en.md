@@ -210,6 +210,12 @@ sequenceDiagram
     CISO->>CISO: Approve / Reject
 ```
 
+## Detection Rules (Sigma)
+
+| Rule | File |
+|:---|:---|
+| Suspicious Dependency Activity | [cloud_supply_chain_compromise.yml](../../07_Detection_Rules/cloud_supply_chain_compromise.yml) |
+
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)

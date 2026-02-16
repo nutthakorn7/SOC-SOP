@@ -220,6 +220,13 @@ sequenceDiagram
     Note over Attacker: 🛑 Attack blocked!
 ```
 
+## Detection Rules (Sigma)
+
+| Rule | File |
+|:---|:---|
+| AWS EC2 Crypto Mining | [cloud_aws_ec2_mining.yml](../../07_Detection_Rules/cloud_aws_ec2_mining.yml) |
+| AWS Root Account Login | [cloud_root_login.yml](../../07_Detection_Rules/cloud_root_login.yml) |
+
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)

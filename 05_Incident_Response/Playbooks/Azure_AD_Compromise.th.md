@@ -187,6 +187,14 @@ sequenceDiagram
     Sentinel->>SOC: 🚨 Correlated alert
 ```
 
+## กฎตรวจจับ (Sigma)
+
+| กฎ | ไฟล์ |
+|:---|:---|
+| Azure AD Risky Sign-in | [cloud_azure_risky_signin.yml](../../07_Detection_Rules/cloud_azure_risky_signin.yml) |
+| Impossible Travel | [cloud_impossible_travel.yml](../../07_Detection_Rules/cloud_impossible_travel.yml) |
+| Login from Unusual Location | [cloud_unusual_login.yml](../../07_Detection_Rules/cloud_unusual_login.yml) |
+
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)

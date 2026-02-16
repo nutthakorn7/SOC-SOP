@@ -180,6 +180,13 @@ graph TD
     style Alert fill:#e74c3c,color:#fff
 ```
 
+## กฎตรวจจับ (Sigma)
+
+| กฎ | ไฟล์ |
+|:---|:---|
+| DNS Tunneling Detection | [net_dns_tunneling.yml](../../07_Detection_Rules/net_dns_tunneling.yml) |
+| Network Beaconing Pattern | [net_beaconing.yml](../../07_Detection_Rules/net_beaconing.yml) |
+
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)

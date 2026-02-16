@@ -213,6 +213,13 @@ graph TD
     style Risk fill:#e74c3c,color:#fff
 ```
 
+## Detection Rules (Sigma)
+
+| Rule | File |
+|:---|:---|
+| Data Collection and Staging | [sigma/win_data_collection_staging.yml](../../07_Detection_Rules/sigma/win_data_collection_staging.yml) |
+| Bulk File Copy to USB | [file_bulk_usb_copy.yml](../../07_Detection_Rules/file_bulk_usb_copy.yml) |
+
 ## Related Documents
 
 - [Data Exfiltration Playbook](Data_Exfiltration.en.md)

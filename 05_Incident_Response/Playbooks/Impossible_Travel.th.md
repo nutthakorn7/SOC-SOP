@@ -168,6 +168,13 @@ sequenceDiagram
     SOC->>SOC: Link กับ impossible travel
 ```
 
+## กฎตรวจจับ (Sigma)
+
+| กฎ | ไฟล์ |
+|:---|:---|
+| Impossible Travel Detection | [cloud_impossible_travel.yml](../../07_Detection_Rules/cloud_impossible_travel.yml) |
+| Azure AD Risky Sign-in | [cloud_azure_risky_signin.yml](../../07_Detection_Rules/cloud_azure_risky_signin.yml) |
+
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)

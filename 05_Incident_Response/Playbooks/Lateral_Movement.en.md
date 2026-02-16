@@ -212,6 +212,14 @@ sequenceDiagram
     SOC->>SOC: Check for lateral movement
 ```
 
+## Detection Rules (Sigma)
+
+| Rule | File |
+|:---|:---|
+| Access to Admin Shares (C$) | [win_admin_share_access.yml](../../07_Detection_Rules/win_admin_share_access.yml) |
+| User Added to Domain Admins | [win_domain_admin_group_add.yml](../../07_Detection_Rules/win_domain_admin_group_add.yml) |
+| Network Discovery Activity | [sigma/win_network_discovery.yml](../../07_Detection_Rules/sigma/win_network_discovery.yml) |
+
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)

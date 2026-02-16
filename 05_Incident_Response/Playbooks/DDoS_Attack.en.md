@@ -219,6 +219,12 @@ sequenceDiagram
     SOC->>Management: Update: mitigated
 ```
 
+## Detection Rules (Sigma)
+
+| Rule | File |
+|:---|:---|
+| High Web Request Rate from Single IP | [web_high_rate_limit.yml](../../07_Detection_Rules/web_high_rate_limit.yml) |
+
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)

@@ -194,6 +194,14 @@ sequenceDiagram
     SOC->>Manager: แจ้งหัวหน้าทีม
 ```
 
+## กฎตรวจจับ (Sigma)
+
+| กฎ | ไฟล์ |
+|:---|:---|
+| Large Upload to External IP | [net_large_upload.yml](../../07_Detection_Rules/net_large_upload.yml) |
+| Bulk File Copy to USB | [file_bulk_usb_copy.yml](../../07_Detection_Rules/file_bulk_usb_copy.yml) |
+| Data Collection and Staging | [sigma/win_data_collection_staging.yml](../../07_Detection_Rules/sigma/win_data_collection_staging.yml) |
+
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)

@@ -210,6 +210,14 @@ graph TD
     style Limited fill:#f39c12,color:#fff
 ```
 
+## Detection Rules (Sigma)
+
+| Rule | File |
+|:---|:---|
+| PowerShell Encoded Command | [proc_powershell_encoded.yml](../../07_Detection_Rules/proc_powershell_encoded.yml) |
+| Office Spawning PowerShell | [proc_office_spawn_powershell.yml](../../07_Detection_Rules/proc_office_spawn_powershell.yml) |
+| Execution from Temp/Downloads | [proc_temp_folder_execution.yml](../../07_Detection_Rules/proc_temp_folder_execution.yml) |
+
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)

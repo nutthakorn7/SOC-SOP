@@ -179,6 +179,14 @@ sequenceDiagram
     SOC->>SOC: Check for lateral movement
 ```
 
+## กฎตรวจจับ (Sigma)
+
+| กฎ | ไฟล์ |
+|:---|:---|
+| Access to Admin Shares (C$) | [win_admin_share_access.yml](../../07_Detection_Rules/win_admin_share_access.yml) |
+| User Added to Domain Admins | [win_domain_admin_group_add.yml](../../07_Detection_Rules/win_domain_admin_group_add.yml) |
+| Network Discovery Activity | [sigma/win_network_discovery.yml](../../07_Detection_Rules/sigma/win_network_discovery.yml) |
+
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)

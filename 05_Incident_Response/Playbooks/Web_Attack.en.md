@@ -215,6 +215,14 @@ graph TD
     style Prod fill:#27ae60,color:#fff
 ```
 
+## Detection Rules (Sigma)
+
+| Rule | File |
+|:---|:---|
+| SQL Injection Pattern | [web_sqli_pattern.yml](../../07_Detection_Rules/web_sqli_pattern.yml) |
+| WAF Detected Exploit Attempt | [web_waf_exploit.yml](../../07_Detection_Rules/web_waf_exploit.yml) |
+| High Web Request Rate | [web_high_rate_limit.yml](../../07_Detection_Rules/web_high_rate_limit.yml) |
+
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)

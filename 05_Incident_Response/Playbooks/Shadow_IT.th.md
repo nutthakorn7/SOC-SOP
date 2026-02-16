@@ -179,6 +179,12 @@ sequenceDiagram
     IdP->>SOC: 📋 Audit log
 ```
 
+## กฎตรวจจับ (Sigma)
+
+| กฎ | ไฟล์ |
+|:---|:---|
+| Shadow IT — Unauthorized SaaS Usage | [proxy_shadow_it.yml](../../07_Detection_Rules/proxy_shadow_it.yml) |
+
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)

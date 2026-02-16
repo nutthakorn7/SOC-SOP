@@ -184,6 +184,12 @@ sequenceDiagram
     CISO->>CISO: Approve / Reject
 ```
 
+## กฎตรวจจับ (Sigma)
+
+| กฎ | ไฟล์ |
+|:---|:---|
+| Suspicious Dependency Activity | [cloud_supply_chain_compromise.yml](../../07_Detection_Rules/cloud_supply_chain_compromise.yml) |
+
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)

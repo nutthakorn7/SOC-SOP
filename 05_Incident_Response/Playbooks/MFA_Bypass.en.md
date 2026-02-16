@@ -216,6 +216,13 @@ graph LR
     style FIDO fill:#27ae60,color:#fff
 ```
 
+## Detection Rules (Sigma)
+
+| Rule | File |
+|:---|:---|
+| MFA Bypass / Token Theft Detection | [cloud_mfa_bypass.yml](../../07_Detection_Rules/cloud_mfa_bypass.yml) |
+| Impossible Travel Detection | [cloud_impossible_travel.yml](../../07_Detection_Rules/cloud_impossible_travel.yml) |
+
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)

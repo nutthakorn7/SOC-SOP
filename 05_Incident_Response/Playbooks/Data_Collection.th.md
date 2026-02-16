@@ -182,6 +182,13 @@ graph TD
     style Risk fill:#e74c3c,color:#fff
 ```
 
+## กฎตรวจจับ (Sigma)
+
+| กฎ | ไฟล์ |
+|:---|:---|
+| Data Collection and Staging | [sigma/win_data_collection_staging.yml](../../07_Detection_Rules/sigma/win_data_collection_staging.yml) |
+| Bulk File Copy to USB | [file_bulk_usb_copy.yml](../../07_Detection_Rules/file_bulk_usb_copy.yml) |
+
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)

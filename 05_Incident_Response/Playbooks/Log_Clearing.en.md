@@ -212,6 +212,12 @@ graph LR
     style P2 fill:#f39c12,color:#fff
 ```
 
+## Detection Rules (Sigma)
+
+| Rule | File |
+|:---|:---|
+| Windows Security Log Cleared | [win_security_log_cleared.yml](../../07_Detection_Rules/win_security_log_cleared.yml) |
+
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)

@@ -193,6 +193,13 @@ graph LR
     style Wipe fill:#e74c3c,color:#fff
 ```
 
+## กฎตรวจจับ (Sigma)
+
+| กฎ | ไฟล์ |
+|:---|:---|
+| Mobile Device Compromise Indicators | [cloud_mobile_compromise.yml](../../07_Detection_Rules/cloud_mobile_compromise.yml) |
+| Device Offline for Extended Period | [mdm_device_offline.yml](../../07_Detection_Rules/mdm_device_offline.yml) |
+
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)

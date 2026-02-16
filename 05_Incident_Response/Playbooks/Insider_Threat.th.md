@@ -187,6 +187,14 @@ sequenceDiagram
     Note over SOC: ​⚠️ ห้ามแจ้ง suspect!
 ```
 
+## กฎตรวจจับ (Sigma)
+
+| กฎ | ไฟล์ |
+|:---|:---|
+| Bulk File Copy to USB | [file_bulk_usb_copy.yml](../../07_Detection_Rules/file_bulk_usb_copy.yml) |
+| Large Upload to External IP | [net_large_upload.yml](../../07_Detection_Rules/net_large_upload.yml) |
+| Suspicious Inbox Rule Created | [cloud_email_inbox_rule.yml](../../07_Detection_Rules/cloud_email_inbox_rule.yml) |
+
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)

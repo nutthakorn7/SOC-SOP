@@ -202,6 +202,12 @@ sequenceDiagram
     Note over SIS: ❌ ห้ามปิด safety system!
 ```
 
+## กฎตรวจจับ (Sigma)
+
+| กฎ | ไฟล์ |
+|:---|:---|
+| OT/ICS Network Anomaly Detection | [net_ot_ics_anomaly.yml](../../07_Detection_Rules/net_ot_ics_anomaly.yml) |
+
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)

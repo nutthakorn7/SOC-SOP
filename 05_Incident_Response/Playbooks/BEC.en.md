@@ -213,6 +213,13 @@ sequenceDiagram
     Note over Finance: ❌ Never verify via same email!
 ```
 
+## Detection Rules (Sigma)
+
+| Rule | File |
+|:---|:---|
+| Suspicious Inbox Rule Created | [cloud_email_inbox_rule.yml](../../07_Detection_Rules/cloud_email_inbox_rule.yml) |
+| Login from Unusual Location | [cloud_unusual_login.yml](../../07_Detection_Rules/cloud_unusual_login.yml) |
+
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)

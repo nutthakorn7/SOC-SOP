@@ -215,6 +215,13 @@ sequenceDiagram
     Dev-->>SOC: ✅ No impact — app uses IAM role
 ```
 
+## Detection Rules (Sigma)
+
+| Rule | File |
+|:---|:---|
+| AWS S3 Public Access Enabled | [cloud_aws_s3_public_access.yml](../../07_Detection_Rules/cloud_aws_s3_public_access.yml) |
+| Cloud Storage Public Access | [cloud_storage_public_access.yml](../../07_Detection_Rules/cloud_storage_public_access.yml) |
+
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)

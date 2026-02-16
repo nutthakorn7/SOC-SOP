@@ -209,6 +209,13 @@ graph LR
     style Session fill:#3498db,color:#fff
 ```
 
+## Detection Rules (Sigma)
+
+| Rule | File |
+|:---|:---|
+| User Added to Domain Admins | [win_domain_admin_group_add.yml](../../07_Detection_Rules/win_domain_admin_group_add.yml) |
+| New Local User Created | [win_new_user_created.yml](../../07_Detection_Rules/win_new_user_created.yml) |
+
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)

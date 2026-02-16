@@ -228,6 +228,12 @@ sequenceDiagram
     Note over SIS: ❌ Never disable safety system!
 ```
 
+## Detection Rules (Sigma)
+
+| Rule | File |
+|:---|:---|
+| OT/ICS Network Anomaly Detection | [net_ot_ics_anomaly.yml](../../07_Detection_Rules/net_ot_ics_anomaly.yml) |
+
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)

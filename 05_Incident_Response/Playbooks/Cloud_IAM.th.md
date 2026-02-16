@@ -189,6 +189,13 @@ sequenceDiagram
     SOC->>IAM: ลบ role
 ```
 
+## กฎตรวจจับ (Sigma)
+
+| กฎ | ไฟล์ |
+|:---|:---|
+| AWS Root Account Login | [cloud_root_login.yml](../../07_Detection_Rules/cloud_root_login.yml) |
+| User Added to Domain Admins | [win_domain_admin_group_add.yml](../../07_Detection_Rules/win_domain_admin_group_add.yml) |
+
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)

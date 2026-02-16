@@ -217,6 +217,14 @@ sequenceDiagram
     SOC->>Manager: Notify team lead
 ```
 
+## Detection Rules (Sigma)
+
+| Rule | File |
+|:---|:---|
+| Large Upload to External IP | [net_large_upload.yml](../../07_Detection_Rules/net_large_upload.yml) |
+| Bulk File Copy to USB | [file_bulk_usb_copy.yml](../../07_Detection_Rules/file_bulk_usb_copy.yml) |
+| Data Collection and Staging | [sigma/win_data_collection_staging.yml](../../07_Detection_Rules/sigma/win_data_collection_staging.yml) |
+
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)

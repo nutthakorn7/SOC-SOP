@@ -213,6 +213,13 @@ sequenceDiagram
     SOC->>IAM: Remove role
 ```
 
+## Detection Rules (Sigma)
+
+| Rule | File |
+|:---|:---|
+| AWS Root Account Login | [cloud_root_login.yml](../../07_Detection_Rules/cloud_root_login.yml) |
+| User Added to Domain Admins | [win_domain_admin_group_add.yml](../../07_Detection_Rules/win_domain_admin_group_add.yml) |
+
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)

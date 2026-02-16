@@ -195,6 +195,14 @@ graph TD
     style Prod fill:#27ae60,color:#fff
 ```
 
+## กฎตรวจจับ (Sigma)
+
+| กฎ | ไฟล์ |
+|:---|:---|
+| SQL Injection Pattern | [web_sqli_pattern.yml](../../07_Detection_Rules/web_sqli_pattern.yml) |
+| WAF Detected Exploit Attempt | [web_waf_exploit.yml](../../07_Detection_Rules/web_waf_exploit.yml) |
+| High Web Request Rate | [web_high_rate_limit.yml](../../07_Detection_Rules/web_high_rate_limit.yml) |
+
 ## เอกสารที่เกี่ยวข้อง
 
 - [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)

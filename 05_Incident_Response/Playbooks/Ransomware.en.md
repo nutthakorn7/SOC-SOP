@@ -216,6 +216,14 @@ graph TD
     style Recovery fill:#27ae60,color:#fff
 ```
 
+## Detection Rules (Sigma)
+
+| Rule | File |
+|:---|:---|
+| Ransomware Bulk Renaming | [file_bulk_renaming_ransomware.yml](../../07_Detection_Rules/file_bulk_renaming_ransomware.yml) |
+| PowerShell Encoded Command | [proc_powershell_encoded.yml](../../07_Detection_Rules/proc_powershell_encoded.yml) |
+| Execution from Temp/Downloads | [proc_temp_folder_execution.yml](../../07_Detection_Rules/proc_temp_folder_execution.yml) |
+
 ## Related Documents
 
 - [IR Framework](../Framework.en.md)
