@@ -68,6 +68,39 @@ graph TD
 | Password/MFA เปลี่ยน | IdP audit | ☐ |
 | เข้าถึง VPN/internal applications | VPN/App logs | ☐ |
 
+### วงจรชีวิตการบุกรุกบัญชี
+
+```mermaid
+graph LR
+    Cred["🔑 ได้ Credential"] --> Login["🔓 Login"]
+    Login --> Persist["⚙️ สร้าง Persistence"]
+    Persist --> Pivot["🔀 Pivot / BEC"]
+    Pivot --> Exfil["📤 Exfiltrate Data"]
+    style Cred fill:#e74c3c,color:#fff
+    style Login fill:#f39c12,color:#fff
+    style Persist fill:#e67e22,color:#fff
+    style Pivot fill:#8e44ad,color:#fff
+    style Exfil fill:#c0392b,color:#fff
+```
+
+### ผังขั้นตอนการตอบสนอง
+
+```mermaid
+sequenceDiagram
+    participant IdP
+    participant SOC
+    participant User as ผู้ใช้
+    participant Exchange
+    IdP->>SOC: 🚨 Risk detection
+    SOC->>IdP: Revoke all sessions
+    SOC->>IdP: Reset password
+    SOC->>User: ☎️ ยืนยันตัวตน (โทรศัพท์)
+    SOC->>Exchange: ตรวจ inbox rules
+    Exchange-->>SOC: พบ forwarding rule!
+    SOC->>Exchange: ลบ malicious rules
+    SOC->>IdP: Re-register MFA
+```
+
 ---
 
 ## 2. การควบคุม

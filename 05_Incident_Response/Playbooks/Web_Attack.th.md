@@ -5,6 +5,36 @@
 **MITRE ATT&CK**: [T1190](https://attack.mitre.org/techniques/T1190/) (Exploit Public-Facing Application)
 **ทริกเกอร์**: WAF alert, IDS/IPS, SIEM correlation, Bug bounty report
 
+### ผังเส้นทางการโจมตีเว็บ
+
+```mermaid
+graph LR
+    Recon["🔍 Recon"] --> Scan["📡 Vuln Scan"]
+    Scan --> Exploit["💥 Exploit"]
+    Exploit --> Shell["🐚 Web Shell"]
+    Shell --> Pivot["🔀 Pivot"]
+    Pivot --> Exfil["📤 Exfiltrate"]
+    style Recon fill:#3498db,color:#fff
+    style Exploit fill:#e74c3c,color:#fff
+    style Shell fill:#c0392b,color:#fff
+    style Exfil fill:#8e44ad,color:#fff
+```
+
+### ผังการป้องกันหลายชั้น
+
+```mermaid
+graph TD
+    Traffic["🌐 Web Traffic"] --> WAF["🛡️ WAF"]
+    WAF -->|Block| Blocked["❌ Blocked"]
+    WAF -->|Pass| App["📱 Application"]
+    App --> RASP["🔍 RASP"]
+    RASP -->|Alert| SOC["🚨 SOC"]
+    RASP -->|Clean| DB["🗄️ Database"]
+    style WAF fill:#27ae60,color:#fff
+    style RASP fill:#f39c12,color:#fff
+    style SOC fill:#e74c3c,color:#fff
+```
+
 ---
 
 ## ผังการตัดสินใจ

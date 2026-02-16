@@ -3,7 +3,40 @@
 **ID**: PB-20
 **ระดับความรุนแรง**: วิกฤต | **หมวดหมู่**: ภัยคุกคามจากภายใน
 **MITRE ATT&CK**: [T1078.002](https://attack.mitre.org/techniques/T1078/002/) (บัญชีโดเมน), [T1098](https://attack.mitre.org/techniques/T1098/) (การจัดการบัญชี)
-**ทริกเกอร์**: พฤติกรรมผิดปกติของบัญชี admin, UEBA alert, การรายงานจากพนักงาน, ร้องเรียนจาก HR
+**ทริกเกอร์**: PAM alert, AD audit anomaly, whistleblower report, UEBA, SOD violation
+
+### ผังตัวบ่งชี้พฤติกรรม
+
+```mermaid
+graph TD
+    Monitor["👁️ UEBA/PAM"] --> A["🕐 เข้าถึงนอกเวลา"]
+    Monitor --> B["📋 bypass Change Mgmt"]
+    Monitor --> C["🔑 สร้าง backdoor account"]
+    Monitor --> D["🗑️ ลบ audit logs"]
+    Monitor --> E["📤 export ข้อมูล"]
+    A --> Score["⚠️ Risk Score สูง"]
+    B --> Score
+    C --> Score
+    D --> Score
+    E --> Score
+    Score --> SOC["🚨 Alert SOC"]
+```
+
+### ผัง Covert Investigation
+
+```mermaid
+sequenceDiagram
+    participant SOC
+    participant Legal
+    participant HR
+    participant Forensics
+    SOC->>Legal: ปรึกษาก่อนดำเนินการ
+    Legal-->>SOC: อนุมัติ covert investigation
+    SOC->>Forensics: เก็บหลักฐาน (shadow copies)
+    SOC->>SOC: เพิ่ม monitoring (ไม่แจ้ง target)
+    Forensics-->>SOC: หลักฐานครบ
+    SOC->>HR: ส่งรายงาน + หลักฐาน
+```
 
 ---
 

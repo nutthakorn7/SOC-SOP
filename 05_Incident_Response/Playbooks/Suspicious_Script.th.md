@@ -3,7 +3,37 @@
 **ID**: PB-11
 **ระดับความรุนแรง**: สูง | **หมวดหมู่**: Endpoint / Execution
 **MITRE ATT&CK**: [T1059](https://attack.mitre.org/techniques/T1059/) (Command & Scripting Interpreter)
-**ทริกเกอร์**: EDR alert (EncodedCommand, AMSI trigger), SIEM (Sysmon Event 1/4104), AV/AMSI block
+**ทริกเกอร์**: EDR alert (script execution), SIEM (Event 4104/4688), AMSI detection, email attachment filter
+
+### ผัง Script Analysis Pipeline
+
+```mermaid
+graph LR
+    Script["📜 Script"] --> AMSI["🛡️ AMSI"]
+    AMSI --> Deobfuscate["🔓 Deobfuscate"]
+    Deobfuscate --> Analyze["🔍 Analyze Intent"]
+    Analyze --> IOC["🎯 Extract IOC"]
+    IOC --> Hunt["🎯 Org-wide Hunt"]
+    style Script fill:#3498db,color:#fff
+    style AMSI fill:#27ae60,color:#fff
+    style IOC fill:#e74c3c,color:#fff
+```
+
+### ผังตรวจจับ PowerShell Logging
+
+```mermaid
+sequenceDiagram
+    participant PS as PowerShell
+    participant AMSI
+    participant EventLog as Event Log
+    participant SIEM
+    PS->>AMSI: สแกน script content
+    AMSI-->>PS: ✅ / ❌
+    PS->>EventLog: Event 4104 (ScriptBlock)
+    EventLog->>SIEM: Forward
+    SIEM->>SIEM: Detect obfuscation pattern
+    SIEM->>SIEM: 🚨 Alert SOC
+```
 
 ---
 

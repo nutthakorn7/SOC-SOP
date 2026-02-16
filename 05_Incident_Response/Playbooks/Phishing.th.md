@@ -3,7 +3,40 @@
 **ID**: PB-01
 **ระดับความรุนแรง**: ปานกลาง/สูง | **หมวดหมู่**: ความปลอดภัยอีเมล
 **MITRE ATT&CK**: [T1566.001](https://attack.mitre.org/techniques/T1566/001/) (Spearphishing Attachment), [T1566.002](https://attack.mitre.org/techniques/T1566/002/) (Spearphishing Link)
-**ทริกเกอร์**: รายงานผู้ใช้, Mail filter alert, Phishing simulation, TI feed
+**ทริกเกอร์**: ผู้ใช้รายงาน, Mail gateway block, SIEM correlation, Phishing simulation fail
+
+### ผัง IR สำหรับฟิชชิง
+
+```mermaid
+graph LR
+    Report["📧 รายงาน"] --> Analyze["🔍 วิเคราะห์"]
+    Analyze --> Contain["🔒 ควบคุม"]
+    Contain --> Eradicate["🗑️ กำจัด"]
+    Eradicate --> Recover["♻️ ฟื้นฟู"]
+    Recover --> Lessons["📝 บทเรียน"]
+    style Report fill:#e74c3c,color:#fff
+    style Analyze fill:#f39c12,color:#fff
+    style Contain fill:#e67e22,color:#fff
+    style Eradicate fill:#27ae60,color:#fff
+    style Recover fill:#2980b9,color:#fff
+    style Lessons fill:#8e44ad,color:#fff
+```
+
+### ผังการวิเคราะห์อีเมล
+
+```mermaid
+sequenceDiagram
+    participant User as ผู้ใช้
+    participant SOC
+    participant Mail as Mail Gateway
+    participant TI as Threat Intel
+    SOC->>Mail: ดึง email headers + body
+    SOC->>TI: ตรวจ URL/attachment hash
+    TI-->>SOC: ผลลัพธ์ TI (malicious/clean)
+    SOC->>Mail: ค้นหา recipients ทั้งหมด
+    Mail-->>SOC: รายชื่อ recipients
+    SOC->>User: แจ้งเตือน + คำแนะนำ
+```
 
 ---
 

@@ -3,7 +3,41 @@
 **ID**: PB-21
 **ระดับความรุนแรง**: สูง/วิกฤต | **หมวดหมู่**: ความปลอดภัยคลาวด์
 **MITRE ATT&CK**: [T1530](https://attack.mitre.org/techniques/T1530/) (Data from Cloud Storage)
-**ทริกเกอร์**: GuardDuty S3 finding, Macie alert, CloudTrail `PutBucketPolicy`, Config rule non-compliant
+**ทริกเกอร์**: AWS Config rule violation, GuardDuty S3 finding, Macie PII alert, CloudTrail anomaly
+
+### ผังการตรวจจับ S3 Exposure
+
+```mermaid
+graph TD
+    Monitor["🔍 Monitoring"] --> Type{"📋 ประเภท?"}
+    Type -->|Public Access| Public["🌐 S3 สาธารณะ"]
+    Type -->|Unusual Download| Download["📥 Download ผิดปกติ"]
+    Type -->|PII Detected| PII["🔴 Macie: PII Found"]
+    Type -->|Policy Change| Policy["⚙️ Bucket Policy เปลี่ยน"]
+    Public --> Urgent["🔴 Block ทันที"]
+    Download --> Investigate["🔎 ตรวจ CloudTrail"]
+    PII --> Classify["📋 จำแนก + แจ้ง DPO"]
+    Policy --> Revert["↩️ Revert Policy"]
+    style Public fill:#e74c3c,color:#fff
+    style PII fill:#c0392b,color:#fff
+```
+
+### ผังขั้นตอนหมุนเวียน Credentials
+
+```mermaid
+sequenceDiagram
+    participant SOC
+    participant IAM
+    participant App as Application
+    participant S3
+    SOC->>IAM: ปิด compromised access key
+    SOC->>IAM: สร้าง access key ใหม่
+    IAM-->>SOC: key ID + secret
+    SOC->>App: อัปเดต credentials
+    App->>S3: ทดสอบ access ใหม่
+    S3-->>App: ✅ สำเร็จ
+    SOC->>IAM: ลบ old access key
+```
 
 ---
 

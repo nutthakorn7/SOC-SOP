@@ -5,6 +5,34 @@
 **MITRE ATT&CK**: [T1005](https://attack.mitre.org/techniques/T1005/) (Data from Local System), [T1039](https://attack.mitre.org/techniques/T1039/) (Data from Network Shared Drive), [T1213](https://attack.mitre.org/techniques/T1213/) (Data from Information Repositories)
 **ทริกเกอร์**: DLP alert, UEBA (unusual file access), EDR (archive creation), insider threat indicator
 
+### ผังขั้นตอน Data Staging
+
+```mermaid
+graph LR
+    Access["📁 Access Data"] --> Copy["📋 Copy/Download"]
+    Copy --> Stage["📦 Stage (archive)"]
+    Stage --> Encrypt["🔒 Encrypt"]
+    Encrypt --> Exfil["📤 Exfiltrate"]
+    style Access fill:#3498db,color:#fff
+    style Stage fill:#f39c12,color:#fff
+    style Exfil fill:#e74c3c,color:#fff
+```
+
+### ผัง UEBA Detection
+
+```mermaid
+sequenceDiagram
+    participant User as ผู้ใช้
+    participant UEBA
+    participant SOC
+    participant HR
+    User->>User: Download 500 files (ปกติ = 10/วัน)
+    UEBA->>SOC: 🚨 Anomaly score สูง
+    SOC->>HR: ผู้ใช้กำลังลาออก?
+    HR-->>SOC: ใช่ — last day พรุ่งนี้!
+    SOC->>SOC: 🔴 เพิ่ม monitoring + preserve
+```
+
 ---
 
 ## ผังการตัดสินใจ

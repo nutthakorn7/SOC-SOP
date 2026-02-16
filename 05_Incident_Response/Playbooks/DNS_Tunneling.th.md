@@ -3,7 +3,39 @@
 **ID**: PB-25
 **ระดับความรุนแรง**: สูง | **หมวดหมู่**: เครือข่าย / การนำข้อมูลออก
 **MITRE ATT&CK**: [T1071.004](https://attack.mitre.org/techniques/T1071/004/) (Application Layer Protocol: DNS)
-**ทริกเกอร์**: DNS analytics alert, IDS, high-entropy subdomain detection, unusual TXT/NULL query volume
+**ทริกเกอร์**: DNS analytics alert (high entropy), SIEM (excessive NXDOMAIN/TXT), IDS/IPS signature
+
+### ผังการตรวจจับ DNS Tunneling
+
+```mermaid
+graph LR
+    DNS["📡 DNS Query"] --> Analyze{"🔍 วิเคราะห์"}
+    Analyze -->|Entropy สูง| Suspect["🟠 น่าสงสัย"]
+    Analyze -->|Query ยาว >50 char| Suspect
+    Analyze -->|TXT record มาก| Suspect
+    Analyze -->|NXDOMAIN มาก| Suspect
+    Suspect --> Correlate["🔗 Correlate: host + process"]
+    Correlate --> Confirm["🔴 ยืนยัน Tunnel"]
+    style DNS fill:#3498db,color:#fff
+    style Suspect fill:#f39c12,color:#fff
+    style Confirm fill:#e74c3c,color:#fff
+```
+
+### ผังขั้นตอน RPZ Sinkhole
+
+```mermaid
+sequenceDiagram
+    participant Host
+    participant DNS as DNS Resolver
+    participant RPZ as RPZ Zone
+    participant SOC
+    Host->>DNS: query: data.evil.com
+    DNS->>RPZ: ตรวจ RPZ policy
+    RPZ-->>DNS: NXDOMAIN (blocked!)
+    DNS-->>Host: NXDOMAIN
+    RPZ->>SOC: 📋 Log blocked query
+    SOC->>SOC: ระบุ infected host
+```
 
 ---
 

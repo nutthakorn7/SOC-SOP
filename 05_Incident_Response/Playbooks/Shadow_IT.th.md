@@ -3,7 +3,35 @@
 **ID**: PB-29
 **ระดับความรุนแรง**: ปานกลาง/สูง | **หมวดหมู่**: ธรรมาภิบาลและการปฏิบัติตามกฎระเบียบ
 **MITRE ATT&CK**: [T1567](https://attack.mitre.org/techniques/T1567/) (การนำข้อมูลออกผ่านบริการเว็บ), [T1537](https://attack.mitre.org/techniques/T1537/) (โอนข้อมูลไปยังบัญชีคลาวด์)
-**ทริกเกอร์**: CASB alert, DLP alert, Proxy/DNS logs, ผลการตรวจสอบ
+**ทริกเกอร์**: CASB alert, proxy log anomaly, ผู้ใช้รายงาน, SaaS audit, network anomaly
+
+### ผังการค้นพบ Shadow IT
+
+```mermaid
+graph LR
+    Proxy["🌐 Proxy Logs"] --> CASB["🔍 CASB"]
+    CASB --> Discover["📋 Unsanctioned App"]
+    DNS["🔤 DNS Analytics"] --> Discover
+    Expense["💳 Expense Reports"] --> Discover
+    Discover --> Assess["⚖️ Risk Assessment"]
+    style Discover fill:#f39c12,color:#fff
+    style Assess fill:#e74c3c,color:#fff
+```
+
+### ผังขั้นตอน SaaS Governance
+
+```mermaid
+sequenceDiagram
+    participant User as ผู้ใช้
+    participant SOC
+    participant IT
+    participant Owner as Business Owner
+    SOC->>IT: 🚨 พบ SaaS ที่ไม่ได้อนุมัติ
+    IT->>Owner: ตรวจสอบ business need
+    Owner-->>IT: จำเป็น — ขออนุมัติ
+    IT->>SOC: ย้ายเข้า approved list
+    IT->>User: migrate data + SSO
+```
 
 ---
 

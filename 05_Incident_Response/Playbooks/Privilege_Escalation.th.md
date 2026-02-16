@@ -5,6 +5,34 @@
 **MITRE ATT&CK**: [T1068](https://attack.mitre.org/techniques/T1068/) (Exploitation for Privilege Escalation), [T1078](https://attack.mitre.org/techniques/T1078/) (Valid Accounts)
 **ทริกเกอร์**: EDR alert, SIEM (Event 4672/4728/4732), PAM alert, sudo anomaly
 
+### ผัง Admin Tiering Model
+
+```mermaid
+graph TD
+    T0["🏰 Tier 0: Domain Controllers"] --> T1["🖥️ Tier 1: Servers"]
+    T1 --> T2["💻 Tier 2: Workstations"]
+    T0 -.->|❌ ห้ามข้าม Tier| T2
+    style T0 fill:#e74c3c,color:#fff
+    style T1 fill:#f39c12,color:#fff
+    style T2 fill:#27ae60,color:#fff
+```
+
+### ผังขั้นตอนรีเซ็ต KRBTGT
+
+```mermaid
+sequenceDiagram
+    participant SOC
+    participant AD as AD Admin
+    participant DC as Domain Controller
+    SOC->>AD: 🚨 Golden Ticket detected
+    AD->>DC: รีเซ็ต KRBTGT ครั้งที่ 1
+    Note over DC: รอ replication ทั่ว forest
+    Note over DC: ⏳ รอ 12 ชม.
+    AD->>DC: รีเซ็ต KRBTGT ครั้งที่ 2
+    Note over DC: รอ replication ทั่ว forest
+    AD->>SOC: ✅ Golden Ticket ใช้ไม่ได้แล้ว
+```
+
 ---
 
 ## ผังการตัดสินใจ

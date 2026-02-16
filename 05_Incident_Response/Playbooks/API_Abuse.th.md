@@ -3,7 +3,34 @@
 **ID**: PB-30
 **ระดับความรุนแรง**: สูง | **หมวดหมู่**: ความปลอดภัยแอปพลิเคชัน
 **MITRE ATT&CK**: [T1106](https://attack.mitre.org/techniques/T1106/) (Native API), [T1190](https://attack.mitre.org/techniques/T1190/) (Exploit Public-Facing Application)
-**ทริกเกอร์**: API gateway rate limit, WAF alert, SIEM anomaly, abuse report
+**ทริกเกอร์**: API Gateway alert (rate limit), WAF, SIEM (authentication anomaly), ผู้ใช้รายงาน
+
+### ผัง API Attack Chain
+
+```mermaid
+graph LR
+    Recon["🔍 API Recon"] --> Auth["🔓 Auth Bypass"]
+    Auth --> Enum["📋 Data Enum"]
+    Enum --> Exfil["📤 Mass Exfil"]
+    Exfil --> Abuse["💰 Abuse Data"]
+    style Recon fill:#3498db,color:#fff
+    style Auth fill:#e74c3c,color:#fff
+    style Exfil fill:#c0392b,color:#fff
+```
+
+### ผัง Rate Limiting Response
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Gateway as API Gateway
+    participant SOC
+    Client->>Gateway: 1000 req/min
+    Gateway->>Gateway: ⚠️ Rate limit exceeded
+    Gateway-->>Client: 429 Too Many Requests
+    Gateway->>SOC: 🚨 Alert: abuse pattern
+    SOC->>Gateway: Block API key
+```
 
 ---
 

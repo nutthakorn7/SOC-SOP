@@ -3,7 +3,39 @@
 **ID**: PB-12
 **ระดับความรุนแรง**: สูง/วิกฤต | **หมวดหมู่**: ความปลอดภัยเครือข่าย
 **MITRE ATT&CK**: [T1498](https://attack.mitre.org/techniques/T1498/) (Network Denial of Service), [T1499](https://attack.mitre.org/techniques/T1499/) (Endpoint Denial of Service)
-**ทริกเกอร์**: การแจ้งเตือนเครือข่าย, CDN/WAF alert, ผู้ใช้รายงานบริการล่ม, แจ้งเตือนค่าเรียก (RDoS)
+**ทริกเกอร์**: Network monitoring alert, WAF/CDN alert, ลูกค้ารายงาน, uptime monitor, NOC alert
+
+### ผังชั้นป้องกัน DDoS
+
+```mermaid
+graph LR
+    Attack["⚡ DDoS"] --> CDN["🌐 CDN/Cloud Scrubbing"]
+    CDN --> WAF["🛡️ WAF"]
+    WAF --> LB["⚖️ Load Balancer"]
+    LB --> FW["🔥 Firewall"]
+    FW --> Server["🖥️ Origin Server"]
+    style Attack fill:#e74c3c,color:#fff
+    style CDN fill:#3498db,color:#fff
+    style WAF fill:#2ecc71,color:#fff
+    style Server fill:#27ae60,color:#fff
+```
+
+### ผังการสื่อสารระหว่างเหตุการณ์
+
+```mermaid
+sequenceDiagram
+    participant NOC
+    participant SOC
+    participant ISP
+    participant CDN
+    participant Mgmt as Management
+    NOC->>SOC: 🚨 Traffic spike / service down
+    SOC->>CDN: เปิด DDoS mitigation
+    SOC->>ISP: ขอ upstream filtering
+    CDN-->>SOC: Scrubbing เปิดแล้ว
+    ISP-->>SOC: Blackhole/rate limit ดำเนินการ
+    SOC->>Mgmt: อัปเดตสถานะ + ETA
+```
 
 ---
 

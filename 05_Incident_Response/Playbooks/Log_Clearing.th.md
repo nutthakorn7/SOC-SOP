@@ -3,7 +3,38 @@
 **ID**: PB-15
 **ระดับความรุนแรง**: สูง/วิกฤต | **หมวดหมู่**: การป้องกันตัว (Defense Evasion)
 **MITRE ATT&CK**: [T1070.001](https://attack.mitre.org/techniques/T1070/001/) (Clear Windows Event Logs), [T1070.002](https://attack.mitre.org/techniques/T1070/002/) (Clear Linux/Mac Logs)
-**ทริกเกอร์**: SIEM gap detection, EventLog cleared alert, log integrity failure
+**ทริกเกอร์**: SIEM gap detection, Event ID 1102/104, file integrity alert, log integrity failure
+
+### ผังแหล่ง Log สำรอง
+
+```mermaid
+graph TD
+    Cleared["🗑️ Log ถูกลบ"] --> Backup{"💾 Log สำรอง?"}
+    Backup -->|SIEM| SIEM["📊 SIEM retained"]
+    Backup -->|Syslog Server| Syslog["📋 Syslog copy"]
+    Backup -->|Cloud| Cloud["☁️ CloudWatch/LA"]
+    Backup -->|WORM| WORM["🔒 Immutable storage"]
+    SIEM --> Recover["♻️ กู้คืน timeline"]
+    Syslog --> Recover
+    Cloud --> Recover
+    WORM --> Recover
+```
+
+### ผังลำดับเวลา
+
+```mermaid
+sequenceDiagram
+    participant Attacker
+    participant System
+    participant SIEM
+    participant SOC
+    Attacker->>System: 🔨 Compromise
+    Attacker->>System: 🗑️ ลบ Event Logs
+    System->>SIEM: (gap detected!)
+    SIEM->>SOC: 🚨 Log gap alert
+    SOC->>SIEM: ตรวจ logs ก่อนถูกลบ
+    SOC->>SOC: สร้าง timeline จาก backup
+```
 
 ---
 

@@ -3,7 +3,35 @@
 **ID**: PB-27
 **ระดับความรุนแรง**: สูง/วิกฤต | **หมวดหมู่**: ความปลอดภัยคลาวด์
 **MITRE ATT&CK**: [T1530](https://attack.mitre.org/techniques/T1530/) (ข้อมูลจากที่เก็บคลาวด์), [T1537](https://attack.mitre.org/techniques/T1537/) (โอนข้อมูลไปบัญชีคลาวด์)
-**ทริกเกอร์**: CSPM alert, GuardDuty / Defender alert, CloudTrail `PutBucketPolicy`, ข่าวกรองภัยคุกคาม
+**ทริกเกอร์**: CASB alert, CSPM finding, ผู้ใช้รายงาน, TI match (leaked data)
+
+### ผัง Multi-Cloud Containment
+
+```mermaid
+graph TD
+    Alert["🚨 Exposure"] --> Cloud{"☁️ ผู้ให้บริการ?"}
+    Cloud -->|AWS S3| S3["aws s3api put-public-access-block"]
+    Cloud -->|Azure Blob| Blob["az storage account update"]
+    Cloud -->|GCP GCS| GCS["gsutil iam ch"]
+    S3 --> Verify["✅ ตรวจสอบ"]
+    Blob --> Verify
+    GCS --> Verify
+```
+
+### ผังจำแนกประเภทข้อมูล
+
+```mermaid
+sequenceDiagram
+    participant SOC
+    participant DLP as DLP/Macie
+    participant Owner as Data Owner
+    participant Legal
+    SOC->>DLP: สแกนข้อมูลที่ exposed
+    DLP-->>SOC: พบ PII + credentials
+    SOC->>Owner: แจ้งเจ้าของข้อมูล
+    SOC->>Legal: แจ้ง Legal + DPO
+    Legal-->>SOC: ต้องแจ้ง PDPA ภายใน 72 ชม.
+```
 
 ---
 

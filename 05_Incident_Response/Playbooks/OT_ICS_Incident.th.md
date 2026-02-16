@@ -7,6 +7,41 @@
 
 > 🚨 **ลำดับสำคัญสูงสุด**: ความปลอดภัยทางกายภาพของบุคลากร อุปกรณ์ และสิ่งแวดล้อม มาก่อนทุกอย่าง
 
+### ผัง Purdue Model
+
+```mermaid
+graph TD
+    L5["🌐 L5: Enterprise Network"] --> L4["🔒 L4: IT-OT DMZ"]
+    L4 --> L3["📊 L3: SCADA/Historian"]
+    L3 --> L2["🖥️ L2: HMI/Engineering WS"]
+    L2 --> L1["⚙️ L1: PLC/RTU/DCS"]
+    L1 --> L0["🏭 L0: Physical Process"]
+    L0 -.-> SIS["🛑 SIS: Safety System"]
+    style L5 fill:#3498db,color:#fff
+    style L4 fill:#f39c12,color:#fff
+    style L3 fill:#e67e22,color:#fff
+    style L1 fill:#e74c3c,color:#fff
+    style L0 fill:#c0392b,color:#fff
+    style SIS fill:#ff0000,color:#fff
+```
+
+### ผังขั้นตอน Emergency Shutdown
+
+```mermaid
+sequenceDiagram
+    participant OT_IDS as OT-IDS
+    participant SOC
+    participant OT_Eng as OT Engineer
+    participant SIS
+    participant Plant as Plant Manager
+    OT_IDS->>SOC: 🚨 PLC logic change detected
+    SOC->>OT_Eng: แจ้ง OT Engineer ทันที
+    OT_Eng->>OT_Eng: ประเมินความเสี่ยงทางกายภาพ
+    OT_Eng->>SIS: เปิด Emergency Shutdown
+    OT_Eng->>Plant: แจ้งสถานะ + อพยพ (ถ้าจำเป็น)
+    SOC->>SOC: ตัด IT-OT DMZ
+```
+
 ---
 
 ## ผังการตัดสินใจ

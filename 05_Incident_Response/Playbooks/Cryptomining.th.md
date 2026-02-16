@@ -3,7 +3,40 @@
 **ID**: PB-31
 **ระดับความรุนแรง**: สูง | **หมวดหมู่**: การโจมตีทรัพยากร
 **MITRE ATT&CK**: [T1496](https://attack.mitre.org/techniques/T1496/) (Resource Hijacking)
-**ทริกเกอร์**: GuardDuty `CryptoCurrency:EC2/BitcoinTool`, CloudWatch CPU alarm, Billing spike, IDS mining pool
+**ทริกเกอร์**: GuardDuty/Defender alert, CPU/GPU spike, billing anomaly, network connection to mining pool
+
+### ผังการตรวจจับ Cryptomining
+
+```mermaid
+graph TD
+    Detect["🔍 ตรวจจับ"] --> Source{"📍 แหล่ง?"}
+    Source -->|CPU/GPU 100%| Host["💻 Host-based"]
+    Source -->|Network → Mining Pool| Net["🌐 Network-based"]
+    Source -->|Cloud Billing Spike| Bill["💰 Billing-based"]
+    Host --> Confirm["✅ ยืนยัน Mining Process"]
+    Net --> Confirm
+    Bill --> Confirm
+    Confirm --> Kill["🔪 Kill + Block"]
+    style Detect fill:#3498db,color:#fff
+    style Confirm fill:#f39c12,color:#fff
+    style Kill fill:#e74c3c,color:#fff
+```
+
+### ผังขั้นตอนกำจัดใน Cloud
+
+```mermaid
+sequenceDiagram
+    participant SOC
+    participant Cloud as AWS/Azure/GCP
+    participant Finance
+    SOC->>Cloud: หยุด / terminate instances
+    SOC->>Cloud: ลบ IAM credentials ที่สร้าง
+    SOC->>Cloud: ตรวจทุก region!
+    Cloud-->>SOC: พบ instances ใน 3 regions
+    SOC->>Cloud: Terminate ทั้งหมด
+    SOC->>Finance: ขอ billing credit
+    Finance-->>SOC: เปิด support case
+```
 
 ---
 

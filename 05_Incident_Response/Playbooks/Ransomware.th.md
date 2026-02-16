@@ -75,6 +75,39 @@ graph TD
 | 3 | หมุนเวียน credentials ทั้งหมด (admin, service accounts) | ☐ |
 | 4 | รีเซ็ต KRBTGT (ถ้ายังไม่ได้ทำ) | ☐ |
 
+### ผังลำดับการกู้คืน
+
+```mermaid
+graph LR
+    A["1️⃣ AD/DC"] --> B["2️⃣ DNS/DHCP"]
+    B --> C["3️⃣ Critical Servers"]
+    C --> D["4️⃣ Business Apps"]
+    D --> E["5️⃣ Workstations"]
+    style A fill:#ff4444,color:#fff
+    style B fill:#ff6600,color:#fff
+    style C fill:#ff9900,color:#fff
+    style D fill:#ffcc00,color:#000
+    style E fill:#88cc00,color:#000
+```
+
+### ผังสื่อสารระหว่างเหตุการณ์
+
+```mermaid
+sequenceDiagram
+    participant SOC
+    participant CISO
+    participant Legal
+    participant PR
+    participant CEO
+    SOC->>CISO: 🚨 ยืนยัน Ransomware
+    CISO->>Legal: ประเมิน PDPA / กฎหมาย
+    CISO->>CEO: แจ้ง BCP activation
+    Legal->>CISO: แนะนำการจ่ายค่าไถ่ / แจ้งเตือน
+    CISO->>PR: เตรียมแถลงการณ์ (ถ้าจำเป็น)
+    PR->>CEO: อนุมัติแถลงการณ์
+    SOC->>CISO: อัปเดตสถานะทุก 2 ชม.
+```
+
 ---
 
 ## 4. การฟื้นฟู

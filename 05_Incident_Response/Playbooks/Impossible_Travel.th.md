@@ -5,6 +5,33 @@
 **MITRE ATT&CK**: [T1078](https://attack.mitre.org/techniques/T1078/) (Valid Accounts)
 **ทริกเกอร์**: SIEM/IdP alert (Login จากสองสถานที่ห่างไกลในเวลาสั้น), Identity Protection
 
+### ผังการวิเคราะห์ Impossible Travel
+
+```mermaid
+graph LR
+    L1["📍 Login 1: กรุงเทพ"] --> Calc["⏱️ คำนวณ"]
+    L2["📍 Login 2: นิวยอร์ก"] --> Calc
+    Calc --> Time{"⏳ 30 นาที?"}
+    Time -->|เป็นไปไม่ได้| Alert["🔴 Alert"]
+    Time -->|เป็นไปได้| FP["✅ FP"]
+    style L1 fill:#3498db,color:#fff
+    style L2 fill:#e74c3c,color:#fff
+    style Alert fill:#c0392b,color:#fff
+```
+
+### ผัง CAE Token Protection
+
+```mermaid
+sequenceDiagram
+    participant User as ผู้ใช้
+    participant App
+    participant CAE as Continuous Access Eval
+    User->>App: ใช้ token เข้าถึง
+    CAE->>CAE: ตรวจ: IP เปลี่ยน? Risk เปลี่ยน?
+    CAE->>App: ❌ Revoke token ทันที
+    App-->>User: 🔒 ต้อง re-authenticate
+```
+
 ---
 
 ## ผังการตัดสินใจ

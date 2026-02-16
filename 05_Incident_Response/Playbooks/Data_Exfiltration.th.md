@@ -5,6 +5,38 @@
 **MITRE ATT&CK**: [T1041](https://attack.mitre.org/techniques/T1041/) (Exfiltration Over C2 Channel), [T1048](https://attack.mitre.org/techniques/T1048/) (Exfiltration Over Alternative Protocol), [T1567](https://attack.mitre.org/techniques/T1567/) (Exfiltration Over Web Service)
 **ทริกเกอร์**: DLP alert, Netflow anomaly, UEBA alert, proxy/cloud alert, EDR large file copy
 
+### ผังการตรวจจับตามช่องทาง
+
+```mermaid
+graph TD
+    DLP["🔍 DLP Engine"] --> Ch{"📡 ช่องทาง?"}
+    Ch -->|Web Upload| Proxy["🌐 Proxy / CASB"]
+    Ch -->|Email| Mail["📧 Mail Gateway"]
+    Ch -->|USB| Endpoint["💻 Endpoint DLP"]
+    Ch -->|DNS| DNS["🔤 DNS Analytics"]
+    Proxy --> Alert["🚨 Alert SOC"]
+    Mail --> Alert
+    Endpoint --> Alert
+    DNS --> Alert
+    Alert --> Investigate["🔎 Investigate"]
+```
+
+### ผังการประเมินผลกระทบข้อมูล
+
+```mermaid
+sequenceDiagram
+    participant SOC
+    participant DLP
+    participant Legal
+    participant DPO
+    SOC->>DLP: ข้อมูลอะไรถูกนำออก?
+    DLP-->>SOC: PII 500 records
+    SOC->>Legal: 📋 รายงานเหตุการณ์
+    Legal->>DPO: ต้องแจ้ง PDPA?
+    DPO-->>Legal: ใช่ — ภายใน 72 ชม.
+    Legal->>SOC: เตรียมรายงานแจ้งเตือน
+```
+
 ---
 
 ## ผังการตัดสินใจ

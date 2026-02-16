@@ -5,6 +5,35 @@
 **MITRE ATT&CK**: [T1046](https://attack.mitre.org/techniques/T1046/) (Network Service Discovery), [T1018](https://attack.mitre.org/techniques/T1018/) (Remote System Discovery)
 **ทริกเกอร์**: IDS alert (port scan), SIEM (Nmap/Masscan signature), Honeypot trigger, firewall deny spike
 
+### ผังขั้นตอนตรวจจับ
+
+```mermaid
+graph LR
+    Scanner["📡 Scan"] --> IDS["🛡️ IDS/IPS"]
+    IDS --> Alert["🚨 SOC Alert"]
+    Scanner --> Honeypot["🍯 Honeypot"]
+    Honeypot --> Alert
+    Alert --> Investigate["🔎 Investigate Source"]
+    style Scanner fill:#e74c3c,color:#fff
+    style Honeypot fill:#f39c12,color:#fff
+    style Alert fill:#c0392b,color:#fff
+```
+
+### ผัง Honeypot Trigger
+
+```mermaid
+sequenceDiagram
+    participant Attacker
+    participant Honeypot as 🍯 Honeypot
+    participant SOC
+    participant EDR
+    Attacker->>Honeypot: Port scan / connect
+    Honeypot->>SOC: 🚨 Alert + source IP
+    SOC->>EDR: ตรวจ source host
+    EDR-->>SOC: พบ malware!
+    SOC->>EDR: Isolate host
+```
+
 ---
 
 ## ผังการตัดสินใจ

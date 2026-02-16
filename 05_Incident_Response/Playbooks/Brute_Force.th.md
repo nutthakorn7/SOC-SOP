@@ -3,7 +3,39 @@
 **ID**: PB-04
 **ระดับความรุนแรง**: ต่ำ/ปานกลาง/สูง | **หมวดหมู่**: Identity & Access
 **MITRE ATT&CK**: [T1110](https://attack.mitre.org/techniques/T1110/) (Brute Force)
-**ทริกเกอร์**: SIEM alert (Multiple Failed Logins), IAM Logs
+**ทริกเกอร์**: SIEM alert (Event 4625 spike), IdP lockout, VPN failed logins, SSH fail2ban
+
+### ผังรูปแบบการโจมตี
+
+```mermaid
+graph TD
+    Attacker["🔨 ผู้โจมตี"] --> Type{"📋 ประเภท?"}
+    Type -->|Brute Force| BF["🔑 ลองทุก password"]
+    Type -->|Password Spray| PS["🌊 1 password หลาย accounts"]
+    Type -->|Credential Stuffing| CS["📦 ใช้ leaked creds"]
+    BF --> Target["🎯 บัญชีเดียว"]
+    PS --> Target2["🎯 หลายบัญชี"]
+    CS --> Target2
+    style Attacker fill:#e74c3c,color:#fff
+    style BF fill:#f39c12,color:#fff
+    style PS fill:#e67e22,color:#fff
+    style CS fill:#8e44ad,color:#fff
+```
+
+### ผัง Smart Lockout
+
+```mermaid
+sequenceDiagram
+    participant Attacker
+    participant IdP
+    participant SOC
+    participant User as ผู้ใช้จริง
+    Attacker->>IdP: ❌ Login fail x5
+    IdP->>IdP: 🔒 Smart lockout (ผู้โจมตีเท่านั้น)
+    User->>IdP: ✅ Login สำเร็จ (ไม่ถูกล็อก)
+    IdP->>SOC: 🚨 Alert: failed attempts
+    SOC->>SOC: ตรวจ IP + success/fail ratio
+```
 
 ---
 

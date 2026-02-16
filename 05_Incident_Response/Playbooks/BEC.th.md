@@ -5,6 +5,36 @@
 **MITRE ATT&CK**: [T1566](https://attack.mitre.org/techniques/T1566/) (Phishing), [T1114](https://attack.mitre.org/techniques/T1114/) (Email Collection)
 **ทริกเกอร์**: ผู้ใช้รายงาน (ใบแจ้งหนี้น่าสงสัย), Mail filter (สร้าง forwarding rule), Finance team alert
 
+### ผังขั้นตอนเรียกคืนเงิน (Urgent!)
+
+```mermaid
+graph LR
+    Discover["💰 พบว่าโอนเงิน"] --> Bank["🏦 ติดต่อธนาคาร"]
+    Bank --> Freeze["❄️ Freeze บัญชีปลายทาง"]
+    Freeze --> Police["👮 แจ้งความ"]
+    Police --> Legal["⚖️ Legal + Insurance"]
+    style Discover fill:#e74c3c,color:#fff
+    style Bank fill:#f39c12,color:#fff
+    style Freeze fill:#3498db,color:#fff
+    style Legal fill:#8e44ad,color:#fff
+```
+
+### ผังตรวจจับ BEC
+
+```mermaid
+sequenceDiagram
+    participant Attacker
+    participant Victim as เหยื่อ
+    participant SOC
+    participant Finance
+    Attacker->>Victim: 📧 อีเมลหลอก (CEO/Vendor)
+    Victim->>Finance: ส่งต่อคำขอโอนเงิน
+    Finance->>SOC: 🚨 ยอดเงินผิดปกติ
+    SOC->>SOC: ตรวจ headers + sign-in logs
+    SOC->>Finance: ❌ หยุดการโอน!
+    SOC->>Victim: แจ้งเตือน + รีเซ็ตบัญชี
+```
+
 ---
 
 ## ผังการตัดสินใจ

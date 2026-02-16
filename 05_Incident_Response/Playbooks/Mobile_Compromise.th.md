@@ -3,7 +3,37 @@
 **ID**: PB-28
 **ระดับความรุนแรง**: สูง | **หมวดหมู่**: ความปลอดภัยอุปกรณ์ปลายทาง
 **MITRE ATT&CK**: [T1456](https://attack.mitre.org/techniques/T1456/) (Drive-By Compromise — Mobile), [T1474](https://attack.mitre.org/techniques/T1474/) (Supply Chain Compromise — Mobile)
-**ทริกเกอร์**: MDM non-compliance alert, MTD alert, รายงานจากผู้ใช้, SIEM anomaly
+**ทริกเกอร์**: MTD alert (malicious app), MDM compliance violation, ผู้ใช้รายงาน SIM swap, phishing on mobile
+
+### ผังตรวจจับภัยคุกคามมือถือ
+
+```mermaid
+graph TD
+    MTD["🔍 MTD"] --> Type{"📱 ประเภท?"}
+    Type -->|Malicious App| App["🦠 ลบ App"]
+    Type -->|Jailbreak/Root| JB["⚠️ Block Access"]
+    Type -->|Network Attack| Net["🌐 VPN Force"]
+    Type -->|SIM Swap| SIM["📞 ติดต่อ Carrier"]
+    App --> MDM["📲 MDM Action"]
+    JB --> MDM
+    Net --> MDM
+```
+
+### ผังขั้นตอนควบคุม BYOD
+
+```mermaid
+sequenceDiagram
+    participant User as ผู้ใช้
+    participant MDM
+    participant SOC
+    participant IT
+    MDM->>SOC: 🚨 Compliance violation
+    SOC->>MDM: Block corporate access
+    SOC->>User: แจ้ง + คำแนะนำ
+    User->>IT: นำอุปกรณ์มาตรวจ
+    IT->>MDM: Remediate / Re-enroll
+    MDM-->>SOC: ✅ Compliant
+```
 
 ---
 

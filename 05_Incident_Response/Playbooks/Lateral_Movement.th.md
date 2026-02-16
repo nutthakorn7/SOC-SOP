@@ -1,9 +1,44 @@
-# Playbook: การเคลื่อนไหวด้านข้าง (Lateral Movement)
+# Playbook: การเคลื่อนไหว ด้านข้าง (Lateral Movement)
 
 **ID**: PB-09
 **ระดับความรุนแรง**: สูง/วิกฤต | **หมวดหมู่**: การโจมตี / Post-Exploitation
 **MITRE ATT&CK**: [T1021](https://attack.mitre.org/techniques/T1021/) (Remote Services), [T1550](https://attack.mitre.org/techniques/T1550/) (Use Alternate Authentication Material)
-**ทริกเกอร์**: EDR alert, SIEM correlation (RDP/SMB anomaly), AD anomaly, threat hunt finding
+**ทริกเกอร์**: EDR alert (PsExec, WMI, RDP), SIEM (Event 4648/4624 Type 3), Honey token triggered
+
+### ผังเส้นทางการโจมตี
+
+```mermaid
+graph LR
+    Entry["🎯 Initial Access"] --> Recon["🔍 AD Recon"]
+    Recon --> CredTheft["🔑 Credential Theft"]
+    CredTheft --> Move["🔀 Lateral Movement"]
+    Move --> PrivEsc["👑 Priv Escalation"]
+    PrivEsc --> DC["🏰 Domain Controller"]
+    DC --> Objective["💀 Objective"]
+    style Entry fill:#e74c3c,color:#fff
+    style CredTheft fill:#f39c12,color:#fff
+    style DC fill:#8e44ad,color:#fff
+    style Objective fill:#c0392b,color:#fff
+```
+
+### ผังการตรวจจับตาม Protocol
+
+```mermaid
+graph TD
+    LM["🔀 Lateral Movement"] --> Proto{"📡 Protocol?"}
+    Proto -->|SMB/PsExec| SMB["Event 7045 + 5145"]
+    Proto -->|WMI| WMI["Event 4648 + WMI logs"]
+    Proto -->|RDP| RDP["Event 4624 Type 10"]
+    Proto -->|WinRM| WinRM["Event 4648 + 91"]
+    Proto -->|SSH| SSH["auth.log + key events"]
+    Proto -->|DCOM| DCOM["Event 4648 + DCOM"]
+    SMB --> Hunt["🎯 Threat Hunt"]
+    WMI --> Hunt
+    RDP --> Hunt
+    WinRM --> Hunt
+    SSH --> Hunt
+    DCOM --> Hunt
+```
 
 ---
 

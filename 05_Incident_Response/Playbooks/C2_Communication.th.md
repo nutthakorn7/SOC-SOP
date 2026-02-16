@@ -3,7 +3,39 @@
 **ID**: PB-13
 **ระดับความรุนแรง**: สูง/วิกฤต | **หมวดหมู่**: เครือข่าย / การโจมตี
 **MITRE ATT&CK**: [T1071](https://attack.mitre.org/techniques/T1071/) (Application Layer Protocol), [T1573](https://attack.mitre.org/techniques/T1573/) (Encrypted Channel)
-**ทริกเกอร์**: IDS/IPS alert, proxy anomaly, EDR beacon detection, threat intel match
+**ทริกเกอร์**: IDS/IPS alert, EDR beacon detection, DNS anomaly, proxy alert (known C2 domain)
+
+### ผังวงจรชีวิต C2
+
+```mermaid
+graph LR
+    Implant["🦠 Implant"] --> Beacon["📡 Beacon"]
+    Beacon --> C2["🖥️ C2 Server"]
+    C2 --> Task["📋 Task"]
+    Task --> Execute["⚡ Execute"]
+    Execute --> Result["📤 Exfil Result"]
+    Result --> C2
+    style Implant fill:#e74c3c,color:#fff
+    style C2 fill:#8e44ad,color:#fff
+    style Execute fill:#c0392b,color:#fff
+```
+
+### ผังขั้นตอน Sinkhole
+
+```mermaid
+sequenceDiagram
+    participant Host as Infected Host
+    participant DNS
+    participant Sinkhole
+    participant SOC
+    Note over DNS: เปลี่ยน C2 domain --> Sinkhole IP
+    Host->>DNS: Resolve c2.evil.com
+    DNS-->>Host: Sinkhole IP
+    Host->>Sinkhole: Beacon attempt
+    Sinkhole->>SOC: 📋 Log beacon
+    SOC->>SOC: ระบุ infected hosts ทั้งหมด
+    SOC->>Host: Isolate + Remediate
+```
 
 ---
 

@@ -3,8 +3,40 @@
 **ID**: PB-26
 **ระดับความรุนแรง**: สูง/วิกฤต | **หมวดหมู่**: Identity & Access
 **MITRE ATT&CK**: [T1556.006](https://attack.mitre.org/techniques/T1556/006/) (MFA Modification), [T1539](https://attack.mitre.org/techniques/T1539/) (Steal Web Session Cookie)
-**ทริกเกอร์**: ตรวจพบ AiTM proxy, session token ผิดปกติ, MFA fatigue (push spam), IdP risk alert
+**ทริกเกอร์**: Identity Protection alert, Conditional Access anomaly, ผู้ใช้รายงาน MFA prompt ไม่ได้ขอ
 
+### ผัง AiTM (Adversary-in-the-Middle) Attack
+
+```mermaid
+sequenceDiagram
+    participant Victim as เหยื่อ
+    participant Proxy as Phishing Proxy
+    participant IdP as Azure AD
+    Victim->>Proxy: 1. คลิกลิงก์ฟิชชิง
+    Proxy->>IdP: 2. ส่งต่อ credentials
+    IdP-->>Proxy: 3. MFA challenge
+    Proxy-->>Victim: 4. แสดง MFA prompt
+    Victim->>Proxy: 5. ผ่าน MFA
+    Proxy->>IdP: 6. ส่ง MFA response
+    IdP-->>Proxy: 7. Session cookie
+    Note over Proxy: 🎯 ได้ session cookie!
+    Proxy->>Proxy: 8. ใช้ cookie เข้าถึงบัญชี
+```
+
+### ผังระดับความปลอดภัย MFA
+
+```mermaid
+graph LR
+    SMS["📱 SMS OTP"] --> TOTP["📲 TOTP App"]
+    TOTP --> Push["🔔 Push Notification"]
+    Push --> NumberMatch["🔢 Number Matching"]
+    NumberMatch --> FIDO["🔑 FIDO2/Passkey"]
+    style SMS fill:#e74c3c,color:#fff
+    style TOTP fill:#f39c12,color:#fff
+    style Push fill:#f1c40f,color:#000
+    style NumberMatch fill:#2ecc71,color:#fff
+    style FIDO fill:#27ae60,color:#fff
+```
 > ⚠️ **วิกฤต**: MFA bypass หมายความว่าผู้โจมตีเอาชนะการควบคุมที่แข็งแกร่งที่สุดแล้ว — ดำเนินการทันที
 
 ---

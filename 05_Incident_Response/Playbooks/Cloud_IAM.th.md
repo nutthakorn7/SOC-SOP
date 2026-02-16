@@ -5,6 +5,39 @@
 **MITRE ATT&CK**: [T1098](https://attack.mitre.org/techniques/T1098/) (Account Manipulation), [T1078.004](https://attack.mitre.org/techniques/T1078/004/) (Cloud Accounts)
 **ทริกเกอร์**: CloudTrail/Azure Monitor anomaly, Root/GlobalAdmin login, GuardDuty IAM finding, Billing spike
 
+### ผังการตรวจจับ IAM Anomaly
+
+```mermaid
+graph TD
+    CT["📋 CloudTrail/Audit"] --> ML["🤖 Analytics"]
+    ML --> Type{"⚠️ ประเภท?"}
+    Type -->|Root Login| R["🔴 วิกฤต"]
+    Type -->|New IAM User| N["🟠 สูง"]
+    Type -->|Policy Change| P["🟠 สูง"]
+    Type -->|Disable Logging| D["🔴 วิกฤต"]
+    R --> SOC["🚨 Alert SOC"]
+    N --> SOC
+    P --> SOC
+    D --> SOC
+```
+
+### ผังขั้นตอน Break-Glass
+
+```mermaid
+sequenceDiagram
+    participant SOC
+    participant Safe as Sealed Envelope
+    participant Cloud as AWS/Azure
+    participant CISO
+    SOC->>CISO: 🚨 ต้องใช้ Root/GA
+    CISO->>Safe: เปิด sealed envelope
+    Safe-->>CISO: Root credentials
+    CISO->>Cloud: Login + ดำเนินการ
+    Cloud-->>CISO: เสร็จสิ้น
+    CISO->>Cloud: เปลี่ยนรหัสผ่าน
+    CISO->>Safe: ปิดผนึกใหม่
+```
+
 ---
 
 ## ผังการตัดสินใจ

@@ -5,6 +5,38 @@
 **MITRE ATT&CK**: [T1098](https://attack.mitre.org/techniques/T1098/) (Account Manipulation), [T1556](https://attack.mitre.org/techniques/T1556/) (Modify Authentication Process)
 **ทริกเกอร์**: Identity Protection risk alert, Conditional Access failure, Unified Audit Log anomaly, Sentinel alert
 
+### ผัง Identity Protection Pipeline
+
+```mermaid
+graph LR
+    SignIn["🔑 Sign-in"] --> ML["🤖 ML Engine"]
+    ML --> Risk{"⚠️ Risk Level?"}
+    Risk -->|Low| Allow["✅ Allow"]
+    Risk -->|Medium| MFA["🔐 Require MFA"]
+    Risk -->|High| Block["❌ Block + Alert SOC"]
+    style SignIn fill:#3498db,color:#fff
+    style ML fill:#9b59b6,color:#fff
+    style Block fill:#e74c3c,color:#fff
+    style Allow fill:#27ae60,color:#fff
+```
+
+### ผังขั้นตอน PIM Activation
+
+```mermaid
+sequenceDiagram
+    participant Admin
+    participant PIM
+    participant Approver
+    participant AzureAD as Azure AD
+    Admin->>PIM: ขอ activate Global Admin
+    PIM->>Approver: 📧 ขออนุมัติ
+    Approver-->>PIM: ✅ อนุมัติ
+    PIM->>AzureAD: Activate role (2 ชม.)
+    Note over AzureAD: ⏳ Role active 2 ชม.
+    AzureAD->>PIM: Role expired
+    PIM->>Admin: 📧 สิทธิ์หมดอายุ
+```
+
 ---
 
 ## ผังการตัดสินใจ

@@ -3,7 +3,38 @@
 **ID**: PB-32
 **ระดับความรุนแรง**: วิกฤต | **หมวดหมู่**: ภัยคุกคามจากภายนอก
 **MITRE ATT&CK**: [T1195](https://attack.mitre.org/techniques/T1195/) (Supply Chain Compromise)
-**ทริกเกอร์**: CISA/Vendor advisory, EDR detection, TI feed match, SCA alert, ข่าวสาธารณะ
+**ทริกเกอร์**: Vendor advisory, TI alert, EDR detection (compromised update), dependency vulnerability scan
+
+### ผังเวกเตอร์ Supply Chain
+
+```mermaid
+graph TD
+    SC["🔗 Supply Chain"] --> Type{"📋 ประเภท?"}
+    Type -->|Software Update| Update["📦 Trojanized Update"]
+    Type -->|Open Source| OSS["🔓 Malicious Package"]
+    Type -->|Hardware| HW["🔧 Firmware Implant"]
+    Type -->|MSP/Vendor| MSP["🏢 Vendor Compromise"]
+    Update --> Impact["💥 Impact Assessment"]
+    OSS --> Impact
+    HW --> Impact
+    MSP --> Impact
+```
+
+### ผังขั้นตอน SBOM Verification
+
+```mermaid
+sequenceDiagram
+    participant SOC
+    participant SCA as SCA Tool
+    participant Dev as Dev Team
+    participant Vendor
+    SOC->>SCA: สแกน dependencies
+    SCA-->>SOC: พบ compromised package!
+    SOC->>Dev: 🚨 หยุดใช้ package
+    Dev->>Dev: Pin ไปเวอร์ชันปลอดภัย
+    SOC->>Vendor: แจ้ง + ขอ advisory
+    Dev->>SOC: ✅ Remediated
+```
 
 ---
 

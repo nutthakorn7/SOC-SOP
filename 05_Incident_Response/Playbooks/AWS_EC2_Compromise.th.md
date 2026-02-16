@@ -5,6 +5,33 @@
 **MITRE ATT&CK**: [T1190](https://attack.mitre.org/techniques/T1190/) (Exploit Public-Facing App), [T1496](https://attack.mitre.org/techniques/T1496/) (Resource Hijacking)
 **ทริกเกอร์**: GuardDuty finding, CloudWatch CPU alarm, VPC Flow Log anomaly, billing spike
 
+### ผังขั้นตอน Forensics
+
+```mermaid
+graph LR
+    Detect["🚨 Alert"] --> Snap["📸 EBS Snapshot"]
+    Snap --> Isolate["🔒 Isolate SG"]
+    Isolate --> Memory["💾 Memory Dump"]
+    Memory --> Analyze["🔍 Forensic Analysis"]
+    Analyze --> Report["📋 Report"]
+    style Detect fill:#e74c3c,color:#fff
+    style Snap fill:#3498db,color:#fff
+    style Analyze fill:#27ae60,color:#fff
+```
+
+### ผังป้องกัน IMDS Credential Theft
+
+```mermaid
+sequenceDiagram
+    participant App
+    participant IMDS as IMDSv2
+    App->>IMDS: PUT /token (TTL=21600)
+    IMDS-->>App: Token
+    App->>IMDS: GET /credentials (+ Token header)
+    IMDS-->>App: Temp credentials
+    Note over IMDS: ✅ IMDSv2 ป้องกัน SSRF
+```
+
 ---
 
 ## ผังการตัดสินใจ
