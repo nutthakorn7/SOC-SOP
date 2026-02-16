@@ -209,6 +209,12 @@ nav:
     - รายการตรวจสอบ (TH): 06_Operations_Management/SOC_Checklists.th.md
     - SOC Metrics & KPIs: 06_Operations_Management/SOC_Metrics.en.md
     - ตัวชี้วัด (TH): 06_Operations_Management/SOC_Metrics.th.md
+    - Escalation Matrix: 06_Operations_Management/Escalation_Matrix.en.md
+    - ตาราง Escalation (TH): 06_Operations_Management/Escalation_Matrix.th.md
+    - SOC Communication SOP: 06_Operations_Management/SOC_Communication.en.md
+    - SOP การสื่อสาร SOC (TH): 06_Operations_Management/SOC_Communication.th.md
+    - Alert Tuning SOP: 06_Operations_Management/Alert_Tuning_SOP.en.md
+    - SOP ปรับแต่ง Alert (TH): 06_Operations_Management/Alert_Tuning_SOP.th.md
     - KPI Dashboard Template: 06_Operations_Management/KPI_Dashboard_Template.en.md
     - แม่แบบ Dashboard KPI (TH): 06_Operations_Management/KPI_Dashboard_Template.th.md
     - Log Source Matrix: 06_Operations_Management/Log_Source_Matrix.en.md
@@ -283,6 +289,10 @@ nav:
     - ตอบเหตุ PDPA (TH): 10_Compliance/PDPA_Incident_Response.th.md
     - Compliance Gap Analysis: 10_Compliance/Compliance_Gap_Analysis.en.md
     - วิเคราะห์ Gap Compliance (TH): 10_Compliance/Compliance_Gap_Analysis.th.md
+    - PDPA Compliance: 07_Compliance_Privacy/PDPA_Compliance.en.md
+    - PDPA Compliance (TH): 07_Compliance_Privacy/PDPA_Compliance.th.md
+    - Data Governance Policy: 07_Compliance_Privacy/Data_Governance_Policy.en.md
+    - นโยบายกำกับดูแลข้อมูล (TH): 07_Compliance_Privacy/Data_Governance_Policy.th.md
   - 🎯 Testing & Training:
     - Simulation Guide: 08_Simulation_Testing/Simulation_Guide.en.md
     - คู่มือ Simulation (TH): 08_Simulation_Testing/Simulation_Guide.th.md
