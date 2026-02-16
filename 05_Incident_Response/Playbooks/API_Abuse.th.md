@@ -1,51 +1,113 @@
-# Playbook: API Abuse
+# Playbook: API Abuse / การใช้ API ในทางที่ผิด
 
-**ID**: PB-30 | **ระดับความรุนแรง**: สูง | **MITRE**: [T1106](https://attack.mitre.org/techniques/T1106/)
-**ทริกเกอร์**: API gateway alert, WAF alert, rate limit exceeded, SIEM anomaly
+**ID**: PB-30
+**ระดับความรุนแรง**: สูง | **หมวดหมู่**: ความปลอดภัยแอปพลิเคชัน
+**MITRE ATT&CK**: [T1106](https://attack.mitre.org/techniques/T1106/) (Native API), [T1190](https://attack.mitre.org/techniques/T1190/) (Exploit Public-Facing Application)
+**ทริกเกอร์**: API gateway rate limit, WAF alert, SIEM anomaly, abuse report
+
+---
+
+## ผังการตัดสินใจ
+
+```mermaid
+graph TD
+    Alert["🚨 API Anomaly"] --> Type{"⚙️ ประเภท?"}
+    Type -->|BOLA/BFLA| Auth["🔓 Authorization Flaw"]
+    Type -->|Rate Abuse| Rate["📈 Volume สูงผิดปกติ"]
+    Type -->|Credential Stuffing| Cred["🔑 API Key Compromise"]
+    Type -->|Data Scraping| Scrape["📊 Data Harvesting"]
+    Auth --> Data{"📁 ข้อมูลรั่วไหล?"}
+    Rate --> Block["🔒 Rate Limit + Block"]
+    Cred --> Rotate["🔄 หมุนเวียน API Key"]
+    Scrape --> Block
+    Data -->|ใช่| Critical["🔴 P1 — แจ้ง Legal"]
+    Data -->|ไม่| Fix["🟠 แก้ไข Logic"]
+```
+
+---
 
 ## 1. การวิเคราะห์
+
 ### 1.1 ประเภท API Abuse (OWASP API Top 10)
-| ประเภท | ลักษณะ | ความรุนแรง |
-|:---|:---|:---|
-| **BOLA** (Broken Object Level Auth) | เข้าถึงข้อมูลของ user อื่น | 🔴 วิกฤต |
-| **Broken Authentication** | API key ที่ถูกขโมย | 🔴 วิกฤต |
-| **Excessive Data Exposure** | API คืนข้อมูลเกินจำเป็น | 🟠 สูง |
-| **Rate Abuse** | Request volume สูงผิดปกติ | 🟠 สูง |
-| **BFLA** (Function Level Auth) | เรียก admin endpoints | 🔴 วิกฤต |
+
+| ประเภท | ลักษณะ | ตัวอย่าง | ความรุนแรง |
+|:---|:---|:---|:---|
+| **BOLA** (Broken Object Level Auth) | เข้าถึงข้อมูล user อื่นผ่าน IDOR | `GET /api/users/1234` → `GET /api/users/5678` | 🔴 วิกฤต |
+| **Broken Authentication** | API key/token ที่ถูกขโมย | Hardcoded key ใน GitHub | 🔴 วิกฤต |
+| **Excessive Data Exposure** | API คืนข้อมูลเกินจำเป็น | Return full user object incl. SSN | 🟠 สูง |
+| **Lack of Rate Limiting** | Request volume สูงผิดปกติ | >10,000 req/min จาก IP เดียว | 🟠 สูง |
+| **BFLA** (Function Level Auth) | เรียก admin endpoints จาก user role | `POST /api/admin/delete-user` | 🔴 วิกฤต |
+| **Mass Assignment** | ส่ง fields ที่ไม่ควรแก้ได้ | `{"role": "admin"}` | 🟠 สูง |
+| **SSRF via API** | ใช้ API เรียก internal resources | `{"url": "http://169.254.169.254"}` | 🔴 วิกฤต |
 
 ### 1.2 รายการตรวจสอบ
-| รายการ | เสร็จ |
-|:---|:---:|
-| API endpoint ที่ถูกโจมตี? | ☐ |
-| API key / OAuth token ที่ใช้? | ☐ |
-| Request volume/pattern? | ☐ |
-| ข้อมูลที่ถูกเข้าถึง? | ☐ |
-| Source IP? | ☐ |
+
+| รายการ | วิธีตรวจสอบ | เสร็จ |
+|:---|:---|:---:|
+| API endpoint ที่ถูกโจมตี | API gateway logs | ☐ |
+| API key / OAuth token ที่ใช้ | API gateway | ☐ |
+| Request volume / pattern (burst? sustained?) | API analytics | ☐ |
+| ข้อมูลที่ถูกเข้าถึง / ดาวน์โหลด | Response logs | ☐ |
+| Source IP / User Agent | API logs | ☐ |
+| API key leaked publicly? | GitHub search, TI | ☐ |
+| ข้อมูล PII ถูกเข้าถึงหรือไม่? | DLP / data classification | ☐ |
+
+---
 
 ## 2. การควบคุม
-| # | การดำเนินการ | เสร็จ |
-|:---:|:---|:---:|
-| 1 | **หมุนเวียน API key** ที่ถูกบุกรุก | ☐ |
-| 2 | **Block** source IP | ☐ |
-| 3 | **Rate limit** เพิ่มเติม | ☐ |
-| 4 | **บล็อก endpoint** หากรั่วไหลข้อมูล | ☐ |
 
-## 3. การฟื้นฟู
+| # | การดำเนินการ | เครื่องมือ | เสร็จ |
+|:---:|:---|:---|:---:|
+| 1 | **หมุนเวียน API key / token** ที่ถูกบุกรุก | API gateway | ☐ |
+| 2 | **Block** source IP ที่ WAF/API gateway | WAF | ☐ |
+| 3 | **Rate limit** เพิ่มเติม (per-key, per-IP) | API gateway | ☐ |
+| 4 | **บล็อก endpoint** หากรั่วไหลข้อมูล PII | API gateway | ☐ |
+| 5 | **Revoke** leaked API keys ทั้งหมด | API management | ☐ |
+
+---
+
+## 3. การกำจัด
+
 | # | การดำเนินการ | เสร็จ |
 |:---:|:---|:---:|
 | 1 | แก้ authorization logic (BOLA/BFLA) | ☐ |
-| 2 | ใช้ API gateway + rate limiting | ☐ |
-| 3 | เปิด behavioral analytics สำหรับ API | ☐ |
+| 2 | ลบ API keys ที่ leaked / hardcoded ใน source code | ☐ |
+| 3 | ตรวจ response schema — ลบ fields ที่เกินจำเป็น | ☐ |
+| 4 | แก้ mass assignment — whitelist allowed fields | ☐ |
 
-## 4. เกณฑ์การยกระดับ
+---
+
+## 4. การฟื้นฟู
+
+| # | การดำเนินการ | เสร็จ |
+|:---:|:---|:---:|
+| 1 | ใช้ **API gateway** พร้อม rate limiting + throttling | ☐ |
+| 2 | เปิด **behavioral analytics** สำหรับ API | ☐ |
+| 3 | ใช้ **OAuth 2.0 + short-lived tokens** แทน static API keys | ☐ |
+| 4 | สั่ง **API security audit / pen test** | ☐ |
+| 5 | เปิด **API key rotation policy** (90 วัน) | ☐ |
+| 6 | ใช้ **secrets scanning** ใน CI/CD (prevent key leaks) | ☐ |
+
+---
+
+## 5. เกณฑ์การยกระดับ
+
 | เงื่อนไข | ยกระดับไปยัง |
 |:---|:---|
-| PII ถูกเข้าถึง | Legal + DPO (PDPA 72 ชม.) |
-| Admin API ถูกเรียก | CISO |
-| DDoS ผ่าน API | [PB-12 DDoS](DDoS_Attack.th.md) |
+| PII ถูกเข้าถึงหรือดาวน์โหลด | Legal + DPO (PDPA 72 ชม.) |
+| Admin API ถูกเรียกจาก unauthorized user | CISO |
+| DDoS ผ่าน API (volume-based) | [PB-12 DDoS](DDoS_Attack.th.md) |
+| SSRF เข้าถึง internal/cloud metadata | Major Incident |
+| API key leaked สาธารณะ (GitHub, Pastebin) | SOC Lead ทันที |
+
+---
 
 ## เอกสารที่เกี่ยวข้อง
-- [กรอบ IR](../Framework.th.md) | [PB-10 Web Attack](Web_Attack.th.md)
+
+- [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)
+- [PB-10 Web Attack](Web_Attack.th.md)
 
 ## อ้างอิง
+
 - [OWASP API Security Top 10](https://owasp.org/API-Security/)
+- [MITRE ATT&CK T1106 — Native API](https://attack.mitre.org/techniques/T1106/)

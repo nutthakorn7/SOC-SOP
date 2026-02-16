@@ -1,51 +1,127 @@
-# Playbook: Cloud IAM Anomaly
+# Playbook: Cloud IAM Anomaly / ความผิดปกติ IAM คลาวด์
 
-**ID**: PB-16 | **ระดับความรุนแรง**: สูง/วิกฤต | **MITRE**: [T1098](https://attack.mitre.org/techniques/T1098/)
-**ทริกเกอร์**: CloudTrail/Azure Monitor (Root/GlobalAdmin Login, New IAM User)
+**ID**: PB-16
+**ระดับความรุนแรง**: สูง/วิกฤต | **หมวดหมู่**: ความปลอดภัยคลาวด์
+**MITRE ATT&CK**: [T1098](https://attack.mitre.org/techniques/T1098/) (Account Manipulation), [T1078.004](https://attack.mitre.org/techniques/T1078/004/) (Cloud Accounts)
+**ทริกเกอร์**: CloudTrail/Azure Monitor anomaly, Root/GlobalAdmin login, GuardDuty IAM finding, Billing spike
+
+---
+
+## ผังการตัดสินใจ
+
+```mermaid
+graph TD
+    Alert["🚨 Cloud IAM Alert"] --> Type{"⚙️ ประเภท?"}
+    Type -->|Root/GA Login| Root["👑 Root/Global Admin"]
+    Type -->|สร้าง IAM User/Role| Create["👤 New Identity"]
+    Type -->|สร้าง Access Key| Key["🔑 New Credentials"]
+    Type -->|เปลี่ยน Policy| Policy["📋 Policy Change"]
+    Type -->|ลบ Logging| Log["🗑️ Disable Audit"]
+    Root --> Verify{"✅ ได้รับอนุมัติ?"}
+    Create --> Verify
+    Key --> Verify
+    Policy --> Verify
+    Log --> Urgent["🔴 เปิด logging ทันที"]
+    Verify -->|ไม่| Contain["🔒 ปิด + กู้คืน"]
+    Verify -->|ใช่| Monitor["👁️ บันทึก + ติดตาม"]
+```
+
+---
 
 ## 1. การวิเคราะห์
+
 ### 1.1 เหตุการณ์ที่มีความเสี่ยงสูง
-| เหตุการณ์ | AWS | Azure | ความรุนแรง |
+
+| เหตุการณ์ | AWS CloudTrail | Azure Monitor | ความรุนแรง |
 |:---|:---|:---|:---|
-| Root/GA login | Root login | GA sign-in | 🔴 วิกฤต |
-| สร้าง IAM user/role | CreateUser | Add member | 🔴 สูง |
-| สร้าง Access Key | CreateAccessKey | App registration | 🔴 สูง |
-| เปลี่ยน policy | PutUserPolicy | Role assignment | 🟠 สูง |
-| ลบ CloudTrail | DeleteTrail | Disable logging | 🔴 วิกฤต |
+| **Root/GA login** | `ConsoleLogin` (Root) | GA sign-in | 🔴 วิกฤต |
+| **สร้าง IAM user/role** | `CreateUser`, `CreateRole` | `Add member` | 🔴 สูง |
+| **สร้าง Access Key** | `CreateAccessKey` | `Add app credential` | 🔴 สูง |
+| **เปลี่ยน policy** | `PutUserPolicy`, `AttachPolicy` | `Add role assignment` | 🟠 สูง |
+| **ลบ logging** | `DeleteTrail`, `StopLogging` | `Disable diagnostic` | 🔴 วิกฤต |
+| **สร้าง federation** | `CreateSAMLProvider` | `Add federated domain` | 🔴 วิกฤต |
+| **AssumeRole ผิดปกติ** | `AssumeRole` จาก IP ใหม่ | — | 🟠 สูง |
 
 ### 1.2 รายการตรวจสอบ
-| รายการ | เสร็จ |
-|:---|:---:|
-| ใครทำ? (IAM user/role) | ☐ |
-| จาก IP/location ไหน? | ☐ |
-| มี Change Request? | ☐ |
-| Root/GA มีการใช้งานปกติไหม? | ☐ |
-| มีทรัพยากรใหม่ถูกสร้าง? | ☐ |
+
+| รายการ | วิธีตรวจสอบ | เสร็จ |
+|:---|:---|:---:|
+| ใคร/อะไร ทำกิจกรรมนี้? (IAM user/role/service) | CloudTrail / Azure Audit | ☐ |
+| จาก IP/location ไหน? | CloudTrail sourceIP | ☐ |
+| มี Change Request ที่ได้รับอนุมัติ? | ITSM / Ticketing | ☐ |
+| Root/GA มีการใช้งานปกติหรือไม่? (ควร = ไม่) | CloudTrail / Azure | ☐ |
+| มีทรัพยากรใหม่ถูกสร้าง? (EC2, Lambda, etc.) | CloudTrail / Azure | ☐ |
+| มี billing anomaly? | Billing dashboard | ☐ |
+| Logging ยังเปิดอยู่? | CloudTrail / Config | ☐ |
+
+### 1.3 ตรวจทรัพยากรที่สร้างใหม่
+
+| ทรัพยากร | ตรวจสอบ | เสร็จ |
+|:---|:---|:---:|
+| EC2 instances (ทุก region!) | AWS Console / CLI | ☐ |
+| Lambda functions | AWS Console | ☐ |
+| S3 buckets | AWS Console | ☐ |
+| IAM users/roles/policies | IAM Console | ☐ |
+| Network (VPC, SG, NACL changes) | VPC Console | ☐ |
+
+---
 
 ## 2. การควบคุม
+
+| # | การดำเนินการ | เครื่องมือ | เสร็จ |
+|:---:|:---|:---|:---:|
+| 1 | **ปิด Access Keys** ที่น่าสงสัย | IAM Console | ☐ |
+| 2 | **ลบ IAM users/roles** ที่ไม่ได้รับอนุมัติ | IAM Console | ☐ |
+| 3 | **กู้คืน policies** ที่ถูกเปลี่ยน | IAM / IaC | ☐ |
+| 4 | **เปิด logging** ที่ถูกปิด (CloudTrail, Config) | AWS Console | ☐ |
+| 5 | **Terminate** instances/lambdas ที่ผู้โจมตีสร้าง | AWS Console | ☐ |
+| 6 | **ตรวจ billing** สำหรับค่าใช้จ่ายผิดปกติ | Billing | ☐ |
+
+---
+
+## 3. การกำจัด
+
 | # | การดำเนินการ | เสร็จ |
 |:---:|:---|:---:|
-| 1 | **ปิด Access Keys** ที่น่าสงสัย | ☐ |
-| 2 | **ลบ IAM users/roles** ที่ไม่ได้รับอนุมัติ | ☐ |
-| 3 | **กู้คืน policies** ที่ถูกเปลี่ยน | ☐ |
-| 4 | **ตรวจ** compute/storage/lambda ที่ถูกสร้างใหม่ | ☐ |
-| 5 | **ตรวจ billing** สำหรับค่าใช้จ่ายผิดปกติ | ☐ |
+| 1 | หมุนเวียน Root/GA credentials | ☐ |
+| 2 | ลบทรัพยากรทั้งหมดที่ผู้โจมตีสร้าง (ทุก region!) | ☐ |
+| 3 | ลบ federation trust ที่เพิ่ม (ถ้ามี) | ☐ |
+| 4 | ตรวจ STS credentials ที่ assume แล้ว | ☐ |
 
-## 3. การฟื้นฟู
+---
+
+## 4. การฟื้นฟู
+
 | # | การดำเนินการ | เสร็จ |
 |:---:|:---|:---:|
-| 1 | บังคับ MFA สำหรับ Root/GA | ☐ |
-| 2 | ใช้ SCP / Azure Policy ห้ามใช้ Root | ☐ |
-| 3 | ใช้ break-glass procedure สำหรับ GA | ☐ |
-| 4 | เปิด alerts สำหรับ Root/GA login | ☐ |
+| 1 | บังคับ **MFA** สำหรับ Root/GA (hardware key) | ☐ |
+| 2 | ใช้ **SCP** / **Azure Policy** ห้ามใช้ Root ในงานประจำ | ☐ |
+| 3 | ใช้ **break-glass procedure** สำหรับ GA (sealed envelope) | ☐ |
+| 4 | เปิด **alerts** สำหรับ Root/GA login, IAM changes | ☐ |
+| 5 | ใช้ **Terraform/CloudFormation** สำหรับ IAM changes (GitOps) | ☐ |
+| 6 | ตรวจสอบ IAM access ทุกไตรมาส | ☐ |
 
-## 4. เกณฑ์การยกระดับ
+---
+
+## 5. เกณฑ์การยกระดับ
+
 | เงื่อนไข | ยกระดับไปยัง |
 |:---|:---|
 | Root/GA ถูกบุกรุก | CISO + Major Incident |
-| ทรัพยากร crypto mining ถูกสร้าง | Finance + [PB-31 Cryptomining](Cryptomining.th.md) |
-| ข้อมูลถูกเข้าถึง | Legal + DPO |
-| Billing spike | Finance + Cloud team |
+| Cryptomining instances สร้างขึ้น | Finance + [PB-31 Cryptomining](Cryptomining.th.md) |
+| ข้อมูลถูกเข้าถึง (S3/DB) | Legal + DPO (PDPA 72 ชม.) |
+| Billing spike > $1,000 | Finance + Cloud team |
+| Logging ถูกปิด | CISO ทันที |
+
+---
 
 ## เอกสารที่เกี่ยวข้อง
-- [กรอบ IR](../Framework.th.md) | [PB-22 AWS EC2](AWS_EC2_Compromise.th.md)
+
+- [กรอบการตอบสนองต่อเหตุการณ์](../Framework.th.md)
+- [PB-22 AWS EC2 Compromise](AWS_EC2_Compromise.th.md)
+- [PB-21 AWS S3 Compromise](AWS_S3_Compromise.th.md)
+
+## อ้างอิง
+
+- [MITRE ATT&CK T1078.004 — Cloud Accounts](https://attack.mitre.org/techniques/T1078/004/)
+- [AWS Security Incident Response Guide](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/welcome.html)
