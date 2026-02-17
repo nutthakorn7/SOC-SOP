@@ -211,6 +211,7 @@ detection:
 ```
 
 ## เอกสารที่เกี่ยวข้อง
+- [IR Framework](../Framework.th.md)
 - [Phishing Playbook](Phishing.th.md)
 - [BEC Playbook](BEC.th.md)
 

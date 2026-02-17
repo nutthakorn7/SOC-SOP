@@ -373,13 +373,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **46 directory-level link warnings** — replaced `Playbooks/`, `sigma_rules/`, `Runbooks/` directory links with specific file references in 39 files
 - **4 duplicate PB numbers** in `mkdocs.yml` — reassigned Log Clearing (→PB-27), Lost Device (→PB-32), Watering Hole (→PB-44), Cloud Cryptojacking (→PB-45)
 - **24 PB number mismatches** in Playbook Quick Reference — aligned EN (13 fixes) and TH (11 fixes) with mkdocs.yml numbering
+- **TH Quick Reference rewrite** — fixed 5 duplicate PBs (16, 22, 24, 28, 48) and 5 missing PBs (18, 27, 35, 41, 45)
 - **6 emoji anchor links** in TRAINING.md — aligned slugs with MkDocs Material generation
 - **2 external file warnings** — converted `SOC_Manual_Consolidated.md` and `.agent/workflows` links to GitHub URLs
 - **2 mangled sigma rule paths** in Data_Collection.en.md — fixed sed concatenation error
+- **2 duplicate sigma rules** removed from nested `sigma_rules/sigma/` subdirectory
+- **YARA rule name collision** — renamed `webshell_php_generic` → `webshell_php_generic_sig` in `file_signatures/`
+- **YARA count** in README — corrected 5 → 8 (includes `file_signatures/` directory)
+- **Duplicate Phishing link** in Typosquatting.en.md — removed
+- **IR Framework cross-reference** added to Typosquatting EN/TH playbooks
+- **9 stale sigma paths** — updated references to removed `sigma_rules/sigma/` directory
 
 ### Changed
 - **Playbook Quick Reference** — moved from gitignored `docs/` to tracked project root with symlinks
 - **setup_docs.sh** — updated directory list to match current structure, added all top-level file symlinks
+- **Nav readability** — sorted PBs ascending within groups, removed stray blank lines, fixed "Data Governance" label → "Database Management"
+- **GitHub About description** — updated from "33 playbooks, 33 Sigma" → "50 playbooks, 36 Sigma rules"
 - MkDocs build now **0 warnings, 0 errors** (previously 46+ INFO warnings + 2 WARNINGs)
 
 ---
@@ -59023,9 +59032,9 @@ detection:
 ```
 
 ## Related Documents
+- [IR Framework](../Framework.en.md)
 - [Phishing Playbook](Phishing.en.md)
 - [BEC Playbook](BEC.en.md)
-- [Phishing Playbook](Phishing.en.md)
 
 ## References
 - [MITRE T1583.001 — Domains](https://attack.mitre.org/techniques/T1583/001/)
@@ -59249,6 +59258,7 @@ detection:
 ```
 
 ## เอกสารที่เกี่ยวข้อง
+- [IR Framework](../Framework.th.md)
 - [Phishing Playbook](Phishing.th.md)
 - [BEC Playbook](BEC.th.md)
 

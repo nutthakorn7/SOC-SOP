@@ -210,9 +210,9 @@ detection:
 ```
 
 ## Related Documents
+- [IR Framework](../Framework.en.md)
 - [Phishing Playbook](Phishing.en.md)
 - [BEC Playbook](BEC.en.md)
-- [Phishing Playbook](Phishing.en.md)
 
 ## References
 - [MITRE T1583.001 — Domains](https://attack.mitre.org/techniques/T1583/001/)
