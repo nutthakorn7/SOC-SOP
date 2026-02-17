@@ -197,5 +197,5 @@ P3-P4:
 ## เอกสารที่เกี่ยวข้อง
 
 - [มาตรฐานส่งมอบกะ](Shift_Handoff.th.md)
-- [Escalation Matrix](Escalation_Matrix.th.md)
+- [Escalation Matrix](../05_Incident_Response/Escalation_Matrix.th.md)
 - [กรอบ IR](../05_Incident_Response/Framework.th.md)

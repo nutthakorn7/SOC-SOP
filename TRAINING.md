@@ -53,12 +53,12 @@
 
 | # | หลักสูตร | ระยะเวลา | เหมาะกับ | Format |
 |:---:|:---|:---:|:---|:---:|
-| 1 | [🏗️ **SOC Building Workshop**](#-1-soc-building-workshop) | 3 วัน | CISO, Manager, Architect | Lecture + Workshop |
-| 2 | [📚 **SOC Analyst Bootcamp**](#-2-soc-analyst-bootcamp) | 5 วัน | Analyst T1–T3, Engineer | Lab-intensive |
-| 3 | [🔥 **Incident Response Drill**](#-3-incident-response-drill) | 2 วัน | SOC Team, IR Team | Simulation |
-| 4 | [📊 **SOC Maturity Assessment**](#-4-soc-maturity-assessment) | 2 วัน | CISO, Manager, Director | Assessment + Workshop |
-| 5 | [📋 **Compliance & Gap Analysis**](#-5-compliance--gap-analysis) | 2 วัน | DPO, Auditor, Compliance | Workshop |
-| 6 | [🎤 **Executive Security Briefing**](#-6-executive-security-briefing) | ครึ่งวัน | CEO, CTO, Board | Keynote + Q&A |
+| 1 | [🏗️ **SOC Building Workshop**](#1-soc-building-workshop) | 3 วัน | CISO, Manager, Architect | Lecture + Workshop |
+| 2 | [📚 **SOC Analyst Bootcamp**](#2-soc-analyst-bootcamp) | 5 วัน | Analyst T1–T3, Engineer | Lab-intensive |
+| 3 | [🔥 **Incident Response Drill**](#3-incident-response-drill) | 2 วัน | SOC Team, IR Team | Simulation |
+| 4 | [📊 **SOC Maturity Assessment**](#4-soc-maturity-assessment) | 2 วัน | CISO, Manager, Director | Assessment + Workshop |
+| 5 | [📋 **Compliance & Gap Analysis**](#5-compliance-gap-analysis) | 2 วัน | DPO, Auditor, Compliance | Workshop |
+| 6 | [🎤 **Executive Security Briefing**](#6-executive-security-briefing) | ครึ่งวัน | CEO, CTO, Board | Keynote + Q&A |
 
 ---
 
@@ -320,7 +320,7 @@
 | 14:00–15:00 | 🟣 | **Round 3: Exfiltration + Impact** — Data theft → Detection test |
 | 15:00–16:00 | 📋 | **Detection Gap Report** — สรุป detection + improvement roadmap |
 
-📚 *Reference: [Purple Team](08_Simulation_Testing/Purple_Team_Exercise.en.md) · [Atomic Test Map](08_Simulation_Testing/Atomic_Test_Map.en.md)*
+📚 *Reference: [Purple Team](09_Simulation_Testing/Purple_Team_Exercise.en.md) · [Atomic Test Map](09_Simulation_Testing/Atomic_Test_Map.en.md)*
 
 </details>
 

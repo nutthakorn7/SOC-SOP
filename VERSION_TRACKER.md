@@ -68,7 +68,7 @@
 | [Log Source Matrix](06_Operations_Management/Log_Source_Matrix.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Log Source Onboarding](06_Operations_Management/Log_Source_Onboarding.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [SOC Automation Catalog](06_Operations_Management/SOC_Automation_Catalog.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
-| [Alert Tuning SOP](06_Operations_Management/Alert_Tuning.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [Alert Tuning](06_Operations_Management/Alert_Tuning.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [SOC Capacity Planning](06_Operations_Management/SOC_Capacity_Planning.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
 | [Network Security Monitoring](06_Operations_Management/Network_Security_Monitoring.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
 | [Cloud Security Monitoring](06_Operations_Management/Cloud_Security_Monitoring.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
@@ -87,19 +87,18 @@
 | [Data Handling Protocol](06_Operations_Management/Data_Handling_Protocol.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Change Management](06_Operations_Management/Change_Management.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Access Control Policy](06_Operations_Management/Access_Control.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
-| [Communication SOP](06_Operations_Management/Communication_SOP.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
-| [Escalation Matrix](06_Operations_Management/Escalation_Matrix.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
-| [Alert Tuning SOP](06_Operations_Management/Alert_Tuning_SOP.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
+| [Communication SOP](06_Operations_Management/SOC_Communication.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [Alert Tuning](06_Operations_Management/Alert_Tuning.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
 | [SOC Communication SOP](06_Operations_Management/SOC_Communication.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
 
 ## 🎯 Testing & Training
 
 | Document | Version | Last Updated | Status | Next Review |
 |:---|:---:|:---:|:---:|:---:|
-| [Purple Team Exercise Guide](08_Simulation_Testing/Purple_Team_Exercise.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
-| [Phishing Simulation](08_Simulation_Testing/Phishing_Simulation.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
-| [Simulation Guide](08_Simulation_Testing/Simulation_Guide.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
-| [Atomic Test Map](08_Simulation_Testing/Atomic_Test_Map.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [Purple Team Exercise Guide](09_Simulation_Testing/Purple_Team_Exercise.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [Phishing Simulation](09_Simulation_Testing/Phishing_Simulation.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [Simulation Guide](09_Simulation_Testing/Simulation_Guide.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [Atomic Test Map](09_Simulation_Testing/Atomic_Test_Map.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [SOC Analyst Onboarding](10_Training_Onboarding/SOC_Onboarding.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Analyst Onboarding Path](10_Training_Onboarding/Analyst_Onboarding_Path.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Training Checklist](10_Training_Onboarding/Training_Checklist.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |

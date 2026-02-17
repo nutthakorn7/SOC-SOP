@@ -436,4 +436,4 @@ outputs:
 
 - [IR Playbooks](../05_Incident_Response/Playbooks/)
 - [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md)
-- [Detection Rules](../08_Detection_Engineering/README.en.md)
+- [Detection Rules](../08_Detection_Engineering/README.md)

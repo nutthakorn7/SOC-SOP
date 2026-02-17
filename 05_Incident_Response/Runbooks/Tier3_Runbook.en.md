@@ -419,11 +419,11 @@ Confidence: [High/Medium/Low]
 
 ## Related Documents
 
-- [IR Framework](Framework.en.md)
-- [Forensic Investigation](Forensic_Investigation.en.md)
-- [Evidence Collection](Evidence_Collection.en.md)
-- [Threat Hunting Playbook](Threat_Hunting_Playbook.en.md)
+- [IR Framework](../Framework.en.md)
+- [Forensic Investigation](../Forensic_Investigation.en.md)
+- [Evidence Collection](../Evidence_Collection.en.md)
+- [Threat Hunting Playbook](../Threat_Hunting_Playbook.en.md)
 - [Tier 1 Runbook](Tier1_Runbook.en.md)
 - [Tier 2 Runbook](Tier2_Runbook.en.md)
-- [All Playbooks (PB-01 to PB-50)](Playbooks/)
-- [Sigma Rules Index](../08_Detection_Engineering/README.en.md)
+- [All Playbooks (PB-01 to PB-50)](../Playbooks/)
+- [Sigma Rules Index](../../08_Detection_Engineering/README.md)

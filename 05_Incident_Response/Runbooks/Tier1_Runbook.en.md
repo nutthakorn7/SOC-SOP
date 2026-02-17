@@ -512,8 +512,8 @@ Analyst: [YOUR NAME]
 
 ## Related Documents
 
-- [IR Framework](Framework.en.md)
-- [Severity Matrix](Severity_Matrix.en.md)
-- [Escalation Matrix](Escalation_Matrix.en.md)
-- [Shift Handoff](../06_Operations_Management/Shift_Handoff.en.md)
-- [All Playbooks (PB-01 to PB-50)](Playbooks/)
+- [IR Framework](../Framework.en.md)
+- [Severity Matrix](../Severity_Matrix.en.md)
+- [Escalation Matrix](../Escalation_Matrix.en.md)
+- [Shift Handoff](../../06_Operations_Management/Shift_Handoff.en.md)
+- [All Playbooks (PB-01 to PB-50)](../Playbooks/)

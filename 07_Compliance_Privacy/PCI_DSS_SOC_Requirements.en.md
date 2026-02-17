@@ -32,7 +32,7 @@ pie title PCI-DSS Requirements Covered by SOC
 | 10.1 | Processes and mechanisms for logging and monitoring | ✅ | [Log Source Matrix](../06_Operations_Management/Log_Source_Matrix.en.md) |
 | 10.2 | Audit logs capture required events | ✅ | [Log Source Onboarding](../06_Operations_Management/Log_Source_Onboarding.en.md) |
 | 10.3 | Audit logs are protected from destruction | 🟡 | [Log Clearing PB](../05_Incident_Response/Playbooks/Log_Clearing.en.md) |
-| 10.4 | Audit logs are reviewed for anomalies | ✅ | [Alert Tuning](../06_Operations_Management/Alert_Tuning.en.md), [Detection Rules](../08_Detection_Engineering/README.en.md) |
+| 10.4 | Audit logs are reviewed for anomalies | ✅ | [Alert Tuning](../06_Operations_Management/Alert_Tuning.en.md), [Detection Rules](../08_Detection_Engineering/README.md) |
 | 10.5 | Audit log history is retained | 🟡 | [Data Handling Protocol](../06_Operations_Management/Data_Handling_Protocol.en.md) |
 | 10.6 | Time-synchronization technology | 🟡 | [Log Source Matrix](../06_Operations_Management/Log_Source_Matrix.en.md) |
 | 10.7 | Failures of critical security controls detected & reported | ✅ | [SOC Checklists](../06_Operations_Management/SOC_Checklists.en.md), [Shift Handoff](../06_Operations_Management/Shift_Handoff.en.md) |

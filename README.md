@@ -244,7 +244,7 @@ Our 50 playbooks cover **12 of 14 MITRE ATT&CK tactics** mapped across the full 
 
 ### Sigma Detection Rules (36 Rules)
 
-Ready-to-import rules mapped to MITRE ATT&CK. See full index: [README](08_Detection_Engineering/README.en.md) | [ดัชนี (TH)](08_Detection_Engineering/README.th.md)
+Ready-to-import rules mapped to MITRE ATT&CK. See full index: [README](08_Detection_Engineering/README.md) | [ดัชนี (TH)](08_Detection_Engineering/README.th.md)
 
 | Category | Rule Examples | Count |
 |:---|:---|:---:|
@@ -323,7 +323,7 @@ File-based threat detection: [YARA Index](08_Detection_Engineering/yara/README.m
 | **Data Handling Protocol** | [Read](06_Operations_Management/Data_Handling_Protocol.en.md) | [อ่าน](06_Operations_Management/Data_Handling_Protocol.th.md) |
 | **Change Management SOP** | [Read](06_Operations_Management/Change_Management.en.md) | [อ่าน](06_Operations_Management/Change_Management.th.md) |
 | **Access Control Policy** | [Read](06_Operations_Management/Access_Control.en.md) | [อ่าน](06_Operations_Management/Access_Control.th.md) |
-| **Communication SOP** | [Read](06_Operations_Management/Communication_SOP.en.md) | [อ่าน](06_Operations_Management/Communication_SOP.th.md) |
+| **Communication SOP** | [Read](06_Operations_Management/SOC_Communication.en.md) | [อ่าน](06_Operations_Management/SOC_Communication.th.md) |
 
 ### 🔧 Platform & Tools / แพลตฟอร์มและเครื่องมือ
 

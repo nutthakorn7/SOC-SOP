@@ -228,7 +228,7 @@ SOC Manager should conduct monthly handoff quality audits:
 ## Related Documents
 
 - [IR Framework](../05_Incident_Response/Framework.en.md) — Master incident response lifecycle
-- [Escalation Matrix](Escalation_Matrix.en.md) — When and how to escalate
+- [Escalation Matrix](../05_Incident_Response/Escalation_Matrix.en.md) — When and how to escalate
 - [SOC Metrics & KPIs](SOC_Metrics.en.md) — Performance measurement
 - [SOC Team Structure](SOC_Team_Structure.en.md) — Roles and responsibilities
 - [SOC Capacity Planning](SOC_Capacity_Planning.en.md) — Staffing models and budgets

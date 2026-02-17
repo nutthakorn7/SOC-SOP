@@ -44,10 +44,10 @@ pie title SOC Coverage by CSF Function
 | Category | Description | Coverage | SOC Documents |
 |:---:|:---|:---:|:---|
 | GV.OC | Organizational Context | 🟡 Partial | [SOC 101](../00_Getting_Started/SOC_101.en.md) |
-| GV.RM | Risk Management Strategy | 🟡 Partial | [Risk Register](../06_Operations_Management/Risk_Register.en.md) |
-| GV.RR | Roles & Responsibilities | ✅ Full | [SOC Team Structure](../06_Operations_Management/SOC_Team_Structure.en.md), [RACI Matrix](../06_Operations_Management/RACI_Matrix.en.md) |
+| GV.RM | Risk Management Strategy | 🟡 Partial | [SOC Maturity Assessment](../06_Operations_Management/SOC_Maturity_Assessment.en.md) |
+| GV.RR | Roles & Responsibilities | ✅ Full | [SOC Team Structure](../06_Operations_Management/SOC_Team_Structure.en.md), [SOC Team Structure](../06_Operations_Management/SOC_Team_Structure.en.md) |
 | GV.PO | Policy | ✅ Full | [Access Control](../06_Operations_Management/Access_Control.en.md), [Data Governance](../07_Compliance_Privacy/Data_Governance_Policy.en.md) |
-| GV.SC | Supply Chain Risk | 🟡 Partial | [PB-22 Third-Party Breach](../05_Incident_Response/Playbooks/Third_Party_Breach.en.md), [PB-23 Supply Chain](../05_Incident_Response/Playbooks/Supply_Chain_Attack.en.md) |
+| GV.SC | Supply Chain Risk | 🟡 Partial | [Third-Party Risk](../05_Incident_Response/../06_Operations_Management/Third_Party_Risk.en.md), [PB-23 Supply Chain](../05_Incident_Response/Playbooks/Supply_Chain_Attack.en.md) |
 | GV.OV | Oversight | ✅ Full | [SOC Maturity Assessment](../06_Operations_Management/SOC_Maturity_Assessment.en.md), [SOC Metrics](../06_Operations_Management/SOC_Metrics.en.md) |
 
 ## 3. IDENTIFY (ID) — Asset & Risk Understanding
@@ -55,7 +55,7 @@ pie title SOC Coverage by CSF Function
 | Category | Description | Coverage | SOC Documents |
 |:---:|:---|:---:|:---|
 | ID.AM | Asset Management | 🟡 Partial | [Log Source Matrix](../06_Operations_Management/Log_Source_Matrix.en.md) |
-| ID.RA | Risk Assessment | ✅ Full | [Risk Register](../06_Operations_Management/Risk_Register.en.md), [Compliance Gap Analysis](../07_Compliance_Privacy/Compliance_Gap_Analysis.en.md) |
+| ID.RA | Risk Assessment | ✅ Full | [SOC Maturity Assessment](../06_Operations_Management/SOC_Maturity_Assessment.en.md), [Compliance Gap Analysis](../07_Compliance_Privacy/Compliance_Gap_Analysis.en.md) |
 | ID.IM | Improvement | ✅ Full | [Lessons Learned](../05_Incident_Response/Lessons_Learned_Template.en.md), [SOC Maturity Assessment](../06_Operations_Management/SOC_Maturity_Assessment.en.md) |
 
 ## 4. PROTECT (PR) — Safeguards
@@ -85,8 +85,8 @@ pie title SOC Coverage by CSF Function
 | Category | Description | Coverage | SOC Documents |
 |:---:|:---|:---:|:---|
 | RS.MA | Incident Management | ✅ Full | [IR Framework](../05_Incident_Response/Framework.en.md), [50 Playbooks](../05_Incident_Response/Playbooks/), [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md) |
-| RS.AN | Incident Analysis | ✅ Full | [Forensic Investigation](../05_Incident_Response/Forensic_Investigation.en.md), [Evidence Collection](../05_Incident_Response/Evidence_Collection.en.md), [Threat Hunting](../05_Incident_Response/Runbooks/Threat_Hunting_Playbook.en.md) |
-| RS.CO | Incident Communication | ✅ Full | [Escalation Matrix](../05_Incident_Response/Escalation_Matrix.en.md), [SOC Communication SOP](../06_Operations_Management/SOC_Communication_SOP.en.md) |
+| RS.AN | Incident Analysis | ✅ Full | [Forensic Investigation](../05_Incident_Response/Forensic_Investigation.en.md), [Evidence Collection](../05_Incident_Response/Evidence_Collection.en.md), [Threat Hunting](../05_Incident_Response/Threat_Hunting_Playbook.en.md) |
+| RS.CO | Incident Communication | ✅ Full | [Escalation Matrix](../05_Incident_Response/Escalation_Matrix.en.md), [SOC Communication SOP](../06_Operations_Management/SOC_Communication.en.md) |
 | RS.RP | Incident Response Reporting | ✅ Full | [Incident Report Template](../11_Reporting_Templates/incident_report.en.md), [Monthly Report](../11_Reporting_Templates/Monthly_SOC_Report.en.md) |
 | RS.MI | Incident Mitigation | ✅ Full | [50 Playbooks](../05_Incident_Response/Playbooks/) (containment + eradication sections) |
 
@@ -95,8 +95,8 @@ pie title SOC Coverage by CSF Function
 | Category | Description | Coverage | SOC Documents |
 |:---:|:---|:---:|:---|
 | RC.RP | Recovery Planning | ✅ Full | [DR/BCP](../05_Incident_Response/Disaster_Recovery_BCP.en.md) |
-| RC.CO | Recovery Communication | ✅ Full | [SOC Communication SOP](../06_Operations_Management/SOC_Communication_SOP.en.md), [Escalation Matrix](../05_Incident_Response/Escalation_Matrix.en.md) |
-| RC.IM | Recovery Improvements | ✅ Full | [Lessons Learned](../05_Incident_Response/Lessons_Learned_Template.en.md), [Post-Incident Review](../05_Incident_Response/Post_Incident_Review.en.md) |
+| RC.CO | Recovery Communication | ✅ Full | [SOC Communication SOP](../06_Operations_Management/SOC_Communication.en.md), [Escalation Matrix](../05_Incident_Response/Escalation_Matrix.en.md) |
+| RC.IM | Recovery Improvements | ✅ Full | [Lessons Learned](../05_Incident_Response/Lessons_Learned_Template.en.md), [Lessons Learned (Post-Incident)](../05_Incident_Response/Lessons_Learned_Template.en.md) |
 
 ---
 

@@ -412,7 +412,7 @@ If you're starting from zero, read these documents in this order:
 | 3 | [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md) | P1/P2/P3/P4 |
 | 4 | [Tier 1 Runbook](../05_Incident_Response/Runbooks/Tier1_Runbook.en.md) | Daily operations |
 | 5 | [SOC Team Structure](../06_Operations_Management/SOC_Team_Structure.en.md) | Roles & shifts |
-| 6 | [Detection Rules Index](../08_Detection_Engineering/README.en.md) | What rules to deploy |
+| 6 | [Detection Rules Index](../08_Detection_Engineering/README.md) | What rules to deploy |
 | 7 | [Log Source Onboarding](../06_Operations_Management/Log_Source_Onboarding.en.md) | How to add logs |
 | 8 | [PB-01 Phishing](../05_Incident_Response/Playbooks/Phishing.en.md) | Your first playbook |
 | 9 | [SOC Metrics](../06_Operations_Management/SOC_Metrics.en.md) | Measuring success |

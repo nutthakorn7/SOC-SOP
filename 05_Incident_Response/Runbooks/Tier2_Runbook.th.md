@@ -374,10 +374,10 @@ Analyst: [ชื่อ]
 
 ## เอกสารที่เกี่ยวข้อง
 
-- [กรอบ IR](Framework.th.md)
-- [ตารางความรุนแรง](Severity_Matrix.th.md)
-- [ตาราง Escalation](Escalation_Matrix.th.md)
+- [กรอบ IR](../Framework.th.md)
+- [ตารางความรุนแรง](../Severity_Matrix.th.md)
+- [ตาราง Escalation](../Escalation_Matrix.th.md)
 - [Tier 1 Runbook](Tier1_Runbook.th.md)
-- [การสืบสวน Forensic](Forensic_Investigation.th.md)
-- [การเก็บหลักฐาน](Evidence_Collection.th.md)
-- [Playbook ทั้งหมด (PB-01 ถึง PB-50)](Playbooks/)
+- [การสืบสวน Forensic](../Forensic_Investigation.th.md)
+- [การเก็บหลักฐาน](../Evidence_Collection.th.md)
+- [Playbook ทั้งหมด (PB-01 ถึง PB-50)](../Playbooks/)

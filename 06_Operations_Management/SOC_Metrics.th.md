@@ -198,7 +198,7 @@ graph LR
 
 - [กรอบ IR](../05_Incident_Response/Framework.th.md) — วงจรชีวิต incident และ SLAs
 - [KPI Dashboard Template](KPI_Dashboard_Template.th.md) — ข้อกำหนด dashboard
-- [Alert Tuning SOP](Alert_Tuning_SOP.th.md) — กระบวนการลด FPR
+- [Alert Tuning SOP](Alert_Tuning.th.md) — กระบวนการลด FPR
 - [เช็คลิสต์ประเมิน SOC](SOC_Assessment_Checklist.th.md) — ความพร้อมปฏิบัติการ
 - [ประเมินวุฒิภาวะ SOC](SOC_Maturity_Assessment.th.md) — โมเดลให้คะแนน
 - [การวางแผนกำลังคน SOC](SOC_Capacity_Planning.th.md) — การวางแผนคนและทรัพยากร

@@ -190,7 +190,7 @@ P3-P4:
 ## Related Documents
 
 - [Shift Handoff Standard](Shift_Handoff.en.md)
-- [Escalation Matrix](Escalation_Matrix.en.md)
+- [Escalation Matrix](../05_Incident_Response/Escalation_Matrix.en.md)
 - [IR Framework](../05_Incident_Response/Framework.en.md)
 
 ## References

@@ -51,7 +51,7 @@ pie title ความครอบคลุม SOC ตาม CSF Function
 
 | หมวด | คำอธิบาย | ครอบคลุม | เอกสาร SOC |
 |:---:|:---|:---:|:---|
-| ID.RA | การประเมินความเสี่ยง | ✅ | [Risk Register](../06_Operations_Management/Risk_Register.th.md) |
+| ID.RA | การประเมินความเสี่ยง | ✅ | [SOC Maturity Assessment](../06_Operations_Management/SOC_Maturity_Assessment.th.md) |
 | ID.IM | การปรับปรุง | ✅ | [บทเรียน](../05_Incident_Response/Lessons_Learned_Template.th.md) |
 
 ## 4. PROTECT (ป้องกัน)

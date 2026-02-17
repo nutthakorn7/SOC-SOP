@@ -266,6 +266,6 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง
 
-- [Detection Rules (Sigma)](../08_Detection_Engineering/README.en.md)
+- [Detection Rules (Sigma)](../08_Detection_Engineering/README.md)
 - [SOAR Playbook Templates](../05_Incident_Response/SOAR_Playbooks.th.md)
 - [วงจร Threat Intelligence](Threat_Intelligence_Lifecycle.th.md)

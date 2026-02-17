@@ -34,7 +34,7 @@
 | # | งาน | แหล่งข้อมูล | เสร็จ |
 |:---:|:---|:---|:---:|
 | 2.1 | อ่าน: [มาตรฐานส่งมอบกะ](../06_Operations_Management/Shift_Handoff.th.md) | ศึกษาด้วยตนเอง | ☐ |
-| 2.2 | อ่าน: [Escalation Matrix](Escalation_Matrix.th.md) | ศึกษาด้วยตนเอง | ☐ |
+| 2.2 | อ่าน: [Escalation Matrix](../05_Incident_Response/Escalation_Matrix.th.md) | ศึกษาด้วยตนเอง | ☐ |
 | 2.3 | อ่าน: [ตัวชี้วัด SOC & KPIs](../06_Operations_Management/SOC_Metrics.th.md) | ศึกษาด้วยตนเอง | ☐ |
 | 2.4 | สังเกตการณ์: ดูการส่งมอบกะจริง 2 ครั้ง | Shift Lead | ☐ |
 | 2.5 | ฝึก: เขียน shift handover log (จำลอง) | Mentor | ☐ |

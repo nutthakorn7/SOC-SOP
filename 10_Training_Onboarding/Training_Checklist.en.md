@@ -34,7 +34,7 @@
 | # | Task | Resource | Done |
 |:---:|:---|:---|:---:|
 | 2.1 | Read: [Shift Handoff Standard](../06_Operations_Management/Shift_Handoff.en.md) | Self-study | ☐ |
-| 2.2 | Read: [Escalation Matrix](Escalation_Matrix.en.md) | Self-study | ☐ |
+| 2.2 | Read: [Escalation Matrix](../05_Incident_Response/Escalation_Matrix.en.md) | Self-study | ☐ |
 | 2.3 | Read: [SOC Metrics & KPIs](../06_Operations_Management/SOC_Metrics.en.md) | Self-study | ☐ |
 | 2.4 | Read: [SOC Communication SOP](../06_Operations_Management/SOC_Communication.en.md) | Self-study | ☐ |
 | 2.5 | Shadow: Observe 2 complete shift handoffs | Shift Lead | ☐ |

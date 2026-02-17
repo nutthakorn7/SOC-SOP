@@ -136,7 +136,7 @@ experimental → test → stable → deprecated
 2. Deploy to staging SIEM
 3. Validate against test cases
 4. Promote to production
-5. Update [Detection Rules Index](../08_Detection_Engineering/README.en.md)
+5. Update [Detection Rules Index](../08_Detection_Engineering/README.md)
 
 ---
 
@@ -180,7 +180,7 @@ experimental → test → stable → deprecated
 
 - [Integration Hub](Integration_Hub.en.md)
 - [IR Framework](../05_Incident_Response/Framework.en.md)
-- [Detection Rules Index](../08_Detection_Engineering/README.en.md)
+- [Detection Rules Index](../08_Detection_Engineering/README.md)
 - [Alert Tuning SOP](../06_Operations_Management/Alert_Tuning.en.md)
 - [Detection Rule Testing](../06_Operations_Management/Detection_Rule_Testing.en.md)
 - [Atomic Test Map](../09_Simulation_Testing/Atomic_Test_Map.en.md)

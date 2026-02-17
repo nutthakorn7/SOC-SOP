@@ -96,7 +96,7 @@ graph LR
 | 10–25% | 🟠 Needs attention — dedicated tuning sprint |
 | > 25% | 🔴 Critical — pause new detections, focus on tuning |
 
-> 📚 **Tuning process**: [Alert Tuning SOP](Alert_Tuning_SOP.en.md)
+> 📚 **Tuning process**: [Alert Tuning SOP](Alert_Tuning.en.md)
 
 ### 2.2 Detection Coverage
 
@@ -232,7 +232,7 @@ Quick reference for all metric targets:
 
 - [IR Framework](../05_Incident_Response/Framework.en.md) — Incident lifecycle and SLAs
 - [KPI Dashboard Template](KPI_Dashboard_Template.en.md) — Visual dashboard specification
-- [Alert Tuning SOP](Alert_Tuning_SOP.en.md) — FPR reduction process
+- [Alert Tuning SOP](Alert_Tuning.en.md) — FPR reduction process
 - [SOC Assessment Checklist](SOC_Assessment_Checklist.en.md) — Operational readiness
 - [SOC Maturity Assessment](SOC_Maturity_Assessment.en.md) — Maturity scoring model
 - [SOC Capacity Planning](SOC_Capacity_Planning.en.md) — Staffing and resource planning

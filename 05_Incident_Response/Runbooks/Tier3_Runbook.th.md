@@ -418,11 +418,11 @@ TLP: [WHITE/GREEN/AMBER/RED]
 
 ## เอกสารที่เกี่ยวข้อง
 
-- [กรอบ IR](Framework.th.md)
-- [การสืบสวน Forensic](Forensic_Investigation.th.md)
-- [การเก็บหลักฐาน](Evidence_Collection.th.md)
-- [Threat Hunting Playbook](Threat_Hunting_Playbook.th.md)
+- [กรอบ IR](../Framework.th.md)
+- [การสืบสวน Forensic](../Forensic_Investigation.th.md)
+- [การเก็บหลักฐาน](../Evidence_Collection.th.md)
+- [Threat Hunting Playbook](../Threat_Hunting_Playbook.th.md)
 - [Tier 1 Runbook](Tier1_Runbook.th.md)
 - [Tier 2 Runbook](Tier2_Runbook.th.md)
-- [Playbook ทั้งหมด (PB-01 ถึง PB-50)](Playbooks/)
-- [Sigma Rules Index](../08_Detection_Engineering/README.th.md)
+- [Playbook ทั้งหมด (PB-01 ถึง PB-50)](../Playbooks/)
+- [Sigma Rules Index](../../08_Detection_Engineering/README.th.md)

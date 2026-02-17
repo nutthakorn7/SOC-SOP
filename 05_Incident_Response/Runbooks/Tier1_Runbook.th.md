@@ -510,8 +510,8 @@ Analyst: [ชื่อ]
 
 ## เอกสารที่เกี่ยวข้อง
 
-- [กรอบ IR](Framework.th.md)
-- [ตารางความรุนแรง](Severity_Matrix.th.md)
-- [ตาราง Escalation](Escalation_Matrix.th.md)
-- [ส่งมอบกะ](../06_Operations_Management/Shift_Handoff.th.md)
-- [Playbook ทั้งหมด (PB-01 ถึง PB-50)](Playbooks/)
+- [กรอบ IR](../Framework.th.md)
+- [ตารางความรุนแรง](../Severity_Matrix.th.md)
+- [ตาราง Escalation](../Escalation_Matrix.th.md)
+- [ส่งมอบกะ](../../06_Operations_Management/Shift_Handoff.th.md)
+- [Playbook ทั้งหมด (PB-01 ถึง PB-50)](../Playbooks/)

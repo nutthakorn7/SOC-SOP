@@ -374,10 +374,10 @@ Analyst: [YOUR NAME]
 
 ## Related Documents
 
-- [IR Framework](Framework.en.md)
-- [Severity Matrix](Severity_Matrix.en.md)
-- [Escalation Matrix](Escalation_Matrix.en.md)
+- [IR Framework](../Framework.en.md)
+- [Severity Matrix](../Severity_Matrix.en.md)
+- [Escalation Matrix](../Escalation_Matrix.en.md)
 - [Tier 1 Runbook](Tier1_Runbook.en.md)
-- [Forensic Investigation](Forensic_Investigation.en.md)
-- [Evidence Collection](Evidence_Collection.en.md)
-- [All Playbooks (PB-01 to PB-50)](Playbooks/)
+- [Forensic Investigation](../Forensic_Investigation.en.md)
+- [Evidence Collection](../Evidence_Collection.en.md)
+- [All Playbooks (PB-01 to PB-50)](../Playbooks/)

@@ -268,7 +268,7 @@ CommonSecurityLog
 
 ## Related Documents
 
-- [Detection Rules (Sigma)](../08_Detection_Engineering/README.en.md)
+- [Detection Rules (Sigma)](../08_Detection_Engineering/README.md)
 - [SOAR Playbook Templates](../05_Incident_Response/SOAR_Playbooks.en.md)
 - [Threat Intelligence Lifecycle](../06_Operations_Management/Threat_Intelligence_Lifecycle.en.md)
 - [IOC Enrichment Sub-Playbook](../05_Incident_Response/SOAR_Playbooks.en.md#6-ioc-enrichment)
