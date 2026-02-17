@@ -94,8 +94,8 @@ nav:
   - 🏗️ Setup & Operations:
     - SOC Infrastructure Setup: 10_Training_Onboarding/System_Activation.en.md
     - การติดตั้ง SOC (TH): 10_Training_Onboarding/System_Activation.th.md
-    - Data Governance: 02_Platform_Operations/Database_Management.en.md
-    - นโยบายข้อมูล (TH): 02_Platform_Operations/Database_Management.th.md
+    - Database Management: 02_Platform_Operations/Database_Management.en.md
+    - การจัดการฐานข้อมูล (TH): 02_Platform_Operations/Database_Management.th.md
     - Deployment Procedures: 02_Platform_Operations/Deployment_Procedures.en.md
     - ขั้นตอนการ Deploy (TH): 02_Platform_Operations/Deployment_Procedures.th.md
   - 🛡️ Incident Response:
@@ -201,46 +201,44 @@ nav:
       - PB-34 Network Discovery (TH): 05_Incident_Response/Playbooks/Network_Discovery.th.md
       - PB-37 SQL Injection (EN): 05_Incident_Response/Playbooks/SQL_Injection.en.md
       - PB-37 SQL Injection (TH): 05_Incident_Response/Playbooks/SQL_Injection.th.md
-      - PB-44 Watering Hole (EN): 05_Incident_Response/Playbooks/Watering_Hole.en.md
-      - PB-44 Watering Hole (TH): 05_Incident_Response/Playbooks/Watering_Hole.th.md
       - PB-43 Drive-By Download (EN): 05_Incident_Response/Playbooks/Drive_By_Download.en.md
       - PB-43 Drive-By Download (TH): 05_Incident_Response/Playbooks/Drive_By_Download.th.md
+      - PB-44 Watering Hole (EN): 05_Incident_Response/Playbooks/Watering_Hole.en.md
+      - PB-44 Watering Hole (TH): 05_Incident_Response/Playbooks/Watering_Hole.th.md
       - PB-50 Unauthorized Scanning (EN): 05_Incident_Response/Playbooks/Unauthorized_Scanning.en.md
       - PB-50 Unauthorized Scanning (TH): 05_Incident_Response/Playbooks/Unauthorized_Scanning.th.md
     # ── ☁️ Cloud & Infrastructure ──
     - Playbooks — Cloud & Infrastructure:
+      - PB-16 Cloud IAM (EN): 05_Incident_Response/Playbooks/Cloud_IAM.en.md
+      - PB-16 Cloud IAM (TH): 05_Incident_Response/Playbooks/Cloud_IAM.th.md
       - PB-19 AWS EC2 Compromise (EN): 05_Incident_Response/Playbooks/AWS_EC2_Compromise.en.md
       - PB-19 AWS EC2 Compromise (TH): 05_Incident_Response/Playbooks/AWS_EC2_Compromise.th.md
       - PB-20 AWS S3 Compromise (EN): 05_Incident_Response/Playbooks/AWS_S3_Compromise.en.md
       - PB-20 AWS S3 Compromise (TH): 05_Incident_Response/Playbooks/AWS_S3_Compromise.th.md
-      - PB-33 Azure AD Compromise (EN): 05_Incident_Response/Playbooks/Azure_AD_Compromise.en.md
-      - PB-33 Azure AD Compromise (TH): 05_Incident_Response/Playbooks/Azure_AD_Compromise.th.md
-      - PB-16 Cloud IAM (EN): 05_Incident_Response/Playbooks/Cloud_IAM.en.md
-      - PB-16 Cloud IAM (TH): 05_Incident_Response/Playbooks/Cloud_IAM.th.md
       - PB-23 Cryptomining (EN): 05_Incident_Response/Playbooks/Cryptomining.en.md
       - PB-23 Cryptomining (TH): 05_Incident_Response/Playbooks/Cryptomining.th.md
       - PB-28 Cloud Storage Exposure (EN): 05_Incident_Response/Playbooks/Cloud_Storage_Exposure.en.md
       - PB-28 Cloud Storage Exposure (TH): 05_Incident_Response/Playbooks/Cloud_Storage_Exposure.th.md
       - PB-30 Shadow IT (EN): 05_Incident_Response/Playbooks/Shadow_IT.en.md
       - PB-30 Shadow IT (TH): 05_Incident_Response/Playbooks/Shadow_IT.th.md
+      - PB-33 Azure AD Compromise (EN): 05_Incident_Response/Playbooks/Azure_AD_Compromise.en.md
+      - PB-33 Azure AD Compromise (TH): 05_Incident_Response/Playbooks/Azure_AD_Compromise.th.md
       - PB-41 VPN Abuse (EN): 05_Incident_Response/Playbooks/VPN_Abuse.en.md
       - PB-41 VPN Abuse (TH): 05_Incident_Response/Playbooks/VPN_Abuse.th.md
-
       - PB-45 Cloud Cryptojacking (EN): 05_Incident_Response/Playbooks/Cloud_Cryptojacking.en.md
       - PB-45 Cloud Cryptojacking (TH): 05_Incident_Response/Playbooks/Cloud_Cryptojacking.th.md
     # ── 📦 Data & Supply Chain ──
     - Playbooks — Data & Supply Chain:
       - PB-08 Data Exfiltration (EN): 05_Incident_Response/Playbooks/Data_Exfiltration.en.md
       - PB-08 Data Exfiltration (TH): 05_Incident_Response/Playbooks/Data_Exfiltration.th.md
-      - PB-27 Log Clearing (EN): 05_Incident_Response/Playbooks/Log_Clearing.en.md
-      - PB-27 Log Clearing (TH): 05_Incident_Response/Playbooks/Log_Clearing.th.md
       - PB-21 Supply Chain Attack (EN): 05_Incident_Response/Playbooks/Supply_Chain_Attack.en.md
       - PB-21 Supply Chain Attack (TH): 05_Incident_Response/Playbooks/Supply_Chain_Attack.th.md
+      - PB-27 Log Clearing (EN): 05_Incident_Response/Playbooks/Log_Clearing.en.md
+      - PB-27 Log Clearing (TH): 05_Incident_Response/Playbooks/Log_Clearing.th.md
       - PB-35 Data Collection (EN): 05_Incident_Response/Playbooks/Data_Collection.en.md
       - PB-35 Data Collection (TH): 05_Incident_Response/Playbooks/Data_Collection.th.md
       - PB-49 Typosquatting (EN): 05_Incident_Response/Playbooks/Typosquatting.en.md
       - PB-49 Typosquatting (TH): 05_Incident_Response/Playbooks/Typosquatting.th.md
-
     # ── 📱 Physical & Mobile ──
     - Playbooks — Physical & Mobile:
       - PB-32 Lost Device (EN): 05_Incident_Response/Playbooks/Lost_Device.en.md
@@ -363,8 +361,6 @@ nav:
     - เช็คลิสต์ฝึกอบรม (TH): 10_Training_Onboarding/Training_Checklist.th.md
     - SOC Analyst Onboarding (90-Day): 10_Training_Onboarding/SOC_Onboarding.en.md
     - Onboarding SOC Analyst (TH): 10_Training_Onboarding/SOC_Onboarding.th.md
-    - System Activation: 10_Training_Onboarding/System_Activation.en.md
-    - การเปิดใช้งานระบบ (TH): 10_Training_Onboarding/System_Activation.th.md
   - 📄 Templates & Reports:
     - Monthly SOC Report: 11_Reporting_Templates/Monthly_SOC_Report.en.md
     - รายงานรายเดือน (TH): 11_Reporting_Templates/Monthly_SOC_Report.th.md
