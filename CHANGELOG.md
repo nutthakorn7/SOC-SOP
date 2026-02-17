@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.11.1] - 2026-02-17
+
+### Fixed
+- **86 broken links** across 34 files — incorrect filenames, wrong directory prefixes, missing `../` paths
+- **46 directory-level link warnings** — replaced `Playbooks/`, `sigma_rules/`, `Runbooks/` directory links with specific file references in 39 files
+- **4 duplicate PB numbers** in `mkdocs.yml` — reassigned Log Clearing (→PB-27), Lost Device (→PB-32), Watering Hole (→PB-44), Cloud Cryptojacking (→PB-45)
+- **24 PB number mismatches** in Playbook Quick Reference — aligned EN (13 fixes) and TH (11 fixes) with mkdocs.yml numbering
+- **6 emoji anchor links** in TRAINING.md — aligned slugs with MkDocs Material generation
+- **2 external file warnings** — converted `SOC_Manual_Consolidated.md` and `.agent/workflows` links to GitHub URLs
+- **2 mangled sigma rule paths** in Data_Collection.en.md — fixed sed concatenation error
+
+### Changed
+- **Playbook Quick Reference** — moved from gitignored `docs/` to tracked project root with symlinks
+- **setup_docs.sh** — updated directory list to match current structure, added all top-level file symlinks
+- MkDocs build now **0 warnings, 0 errors** (previously 46+ INFO warnings + 2 WARNINGs)
+
+---
+
 ## [2.11.0] - 2026-02-17
 
 ### Added

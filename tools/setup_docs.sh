@@ -14,7 +14,7 @@ rm -rf "$DOCS_DIR"
 mkdir -p "$DOCS_DIR"
 
 # Symlink all content directories
-for dir in 00_Getting_Started 01_Onboarding 01_SOC_Fundamentals 02_Platform_Operations 03_User_Guides 04_Troubleshooting 05_Incident_Response 06_Operations_Management 07_Detection_Rules 08_Simulation_Testing 09_Training_Onboarding 10_Compliance 10_File_Signatures 11_Reporting_Templates templates assets tools; do
+for dir in 00_Getting_Started 01_SOC_Fundamentals 02_Platform_Operations 03_User_Guides 04_Troubleshooting 05_Incident_Response 06_Operations_Management 07_Compliance_Privacy 08_Detection_Engineering 09_Simulation_Testing 10_Training_Onboarding 11_Reporting_Templates assets; do
     if [ -d "$ROOT_DIR/$dir" ]; then
         ln -s "$ROOT_DIR/$dir" "$DOCS_DIR/$dir"
         echo "  ✅ Linked: $dir"
@@ -22,7 +22,7 @@ for dir in 00_Getting_Started 01_Onboarding 01_SOC_Fundamentals 02_Platform_Oper
 done
 
 # Symlink top-level files
-for file in README.md; do
+for file in README.md CHANGELOG.md CONTRIBUTING.md TRAINING.md VERSION_TRACKER.md Playbook_Quick_Reference.md Playbook_Quick_Reference.th.md; do
     if [ -f "$ROOT_DIR/$file" ]; then
         ln -s "$ROOT_DIR/$file" "$DOCS_DIR/$file"
         echo "  ✅ Linked: $file"
