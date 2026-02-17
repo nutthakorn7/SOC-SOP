@@ -36,7 +36,7 @@ pie title ISO 27001 Annex A Coverage
 | A.5.23 | Information security for cloud services | ✅ Full | [Cloud Security Monitoring](../06_Operations_Management/Cloud_Security_Monitoring.en.md) |
 | A.5.24 | Incident management planning | ✅ Full | [IR Framework](../05_Incident_Response/Framework.en.md) |
 | A.5.25 | Assessment and decision on events | ✅ Full | [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md), [Incident Classification](../05_Incident_Response/Incident_Classification.en.md) |
-| A.5.26 | Response to incidents | ✅ Full | [50 Playbooks](../05_Incident_Response/Playbooks/), [Tier Runbooks](../05_Incident_Response/Runbooks/) |
+| A.5.26 | Response to incidents | ✅ Full | [50 Playbooks](../05_Incident_Response/Playbooks/Phishing.en.md), [Tier Runbooks](../05_Incident_Response/Runbooks/Tier1_Runbook.en.md) |
 | A.5.27 | Learning from incidents | ✅ Full | [Lessons Learned](../05_Incident_Response/Lessons_Learned_Template.en.md) |
 | A.5.28 | Collection of evidence | ✅ Full | [Evidence Collection](../05_Incident_Response/Evidence_Collection.en.md), [Forensic Investigation](../05_Incident_Response/Forensic_Investigation.en.md) |
 | A.5.29 | Information security during disruption | ✅ Full | [Disaster Recovery / BCP](../05_Incident_Response/Disaster_Recovery_BCP.en.md) |

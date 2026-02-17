@@ -46,7 +46,7 @@ graph TD
 |:---:|:---:|---|---|
 | 7 | 20 min | [IR Framework](../05_Incident_Response/Framework.en.md) | How to handle incidents end-to-end |
 | 8 | 30 min | **Top 5 Playbooks** (see below) | How to respond to common attacks |
-| 9 | 15 min | [Detection Rules](../08_Detection_Engineering/sigma_rules/) | Pre-built Sigma rules to deploy |
+| 9 | 15 min | [Detection Rules](../08_Detection_Engineering/README.md) | Pre-built Sigma rules to deploy |
 | 10 | 10 min | [Integration Hub](../03_User_Guides/Integration_Hub.en.md) | How to connect tools together |
 
 ### 🟢 Week 4 — Operate (Go Live)

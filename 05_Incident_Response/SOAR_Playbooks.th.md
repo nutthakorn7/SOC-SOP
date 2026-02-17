@@ -436,6 +436,6 @@ Examples:
 
 ## เอกสารที่เกี่ยวข้อง
 
-- [IR Playbooks](Playbooks/)
+- [IR Playbooks](Playbooks/Phishing.th.md)
 - [ตารางความรุนแรง](Severity_Matrix.th.md)
 - [Detection Rules](../08_Detection_Engineering/README.md)

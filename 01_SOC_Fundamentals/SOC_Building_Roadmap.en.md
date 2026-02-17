@@ -426,4 +426,4 @@ If you're starting from zero, read these documents in this order:
 - [SOC Maturity Scorer](../tools/soc_maturity_scorer.html)
 - [MITRE ATT&CK Heatmap](../tools/mitre_attack_heatmap.html)
 - [Compliance Mapping](../07_Compliance_Privacy/Compliance_Mapping.en.md)
-- [All 30 Playbooks](../05_Incident_Response/Playbooks/)
+- [All 30 Playbooks](../05_Incident_Response/Playbooks/Phishing.en.md)

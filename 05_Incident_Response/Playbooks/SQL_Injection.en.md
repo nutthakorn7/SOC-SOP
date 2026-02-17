@@ -240,7 +240,7 @@ detection:
 
 ## Related Documents
 - [IR Framework](../Framework.en.md)
-- [Sigma Rules Index](../../08_Detection_Engineering/sigma_rules/)
+- [Sigma Rules Index](../../08_Detection_Engineering/README.md)
 - [Web Attack Playbook](Web_Attack.en.md)
 - [Data Exfiltration Playbook](Data_Exfiltration.en.md)
 - [Exploit Playbook](Exploit.en.md)

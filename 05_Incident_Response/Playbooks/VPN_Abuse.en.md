@@ -242,7 +242,7 @@ detection:
 
 ## Related Documents
 - [IR Framework](../Framework.en.md)
-- [Sigma Rules Index](../../08_Detection_Engineering/sigma_rules/)
+- [Sigma Rules Index](../../08_Detection_Engineering/README.md)
 - [Account Compromise Playbook](Account_Compromise.en.md)
 - [Impossible Travel Playbook](Impossible_Travel.en.md)
 - [Brute Force Playbook](Brute_Force.en.md)

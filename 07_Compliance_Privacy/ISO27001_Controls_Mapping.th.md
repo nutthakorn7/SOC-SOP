@@ -30,7 +30,7 @@ pie title ความครอบคลุม ISO 27001 Annex A
 | A.5.7 | ข่าวกรองภัยคุกคาม | ✅ | [วงจรชีวิต TI](../06_Operations_Management/Threat_Intelligence_Lifecycle.th.md) |
 | A.5.24 | การวางแผนจัดการเหตุการณ์ | ✅ | [กรอบ IR](../05_Incident_Response/Framework.th.md) |
 | A.5.25 | การประเมินและตัดสินใจเรื่องเหตุการณ์ | ✅ | [ตารางความรุนแรง](../05_Incident_Response/Severity_Matrix.th.md) |
-| A.5.26 | การตอบสนองต่อเหตุการณ์ | ✅ | [50 Playbooks](../05_Incident_Response/Playbooks/), [Runbooks](../05_Incident_Response/Runbooks/) |
+| A.5.26 | การตอบสนองต่อเหตุการณ์ | ✅ | [50 Playbooks](../05_Incident_Response/Playbooks/Phishing.en.md), [Runbooks](../05_Incident_Response/Runbooks/Tier1_Runbook.th.md) |
 | A.5.27 | การเรียนรู้จากเหตุการณ์ | ✅ | [บทเรียน](../05_Incident_Response/Lessons_Learned_Template.th.md) |
 | A.5.28 | การเก็บรวบรวมหลักฐาน | ✅ | [การเก็บหลักฐาน](../05_Incident_Response/Evidence_Collection.th.md) |
 | A.5.29 | ความมั่นคงปลอดภัยในช่วงหยุดชะงัก | ✅ | [แผน DR/BCP](../05_Incident_Response/Disaster_Recovery_BCP.th.md) |

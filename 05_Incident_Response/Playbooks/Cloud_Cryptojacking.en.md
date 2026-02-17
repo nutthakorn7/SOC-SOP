@@ -221,7 +221,7 @@ detection:
 
 ## Related Documents
 - [IR Framework](../Framework.en.md)
-- [Sigma Rules Index](../../08_Detection_Engineering/sigma_rules/)
+- [Sigma Rules Index](../../08_Detection_Engineering/README.md)
 - [Cloud Security Playbook](Cryptomining.en.md)
 - [API Key Compromise Playbook](Cloud_IAM.en.md)
 - [Account Compromise Playbook](Account_Compromise.en.md)

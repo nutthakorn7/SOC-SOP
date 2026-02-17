@@ -49,7 +49,7 @@ pie title PCI-DSS Requirements Covered by SOC
 | 11.2 | Wireless access points managed | ⬜ | Not SOC scope (network team) |
 | 11.3 | Vulnerabilities identified and addressed | ✅ | [Vulnerability Management](../06_Operations_Management/Vulnerability_Management.en.md) |
 | 11.4 | External/internal penetration testing | 🟡 | [Purple Team Exercise](../09_Simulation_Testing/Purple_Team_Exercise.en.md) |
-| 11.5 | Network intrusions/changes detected and responded to | ✅ | [Network Security Monitoring](../06_Operations_Management/Network_Security_Monitoring.en.md), [IDS/IPS Sigma Rules](../08_Detection_Engineering/sigma_rules/) |
+| 11.5 | Network intrusions/changes detected and responded to | ✅ | [Network Security Monitoring](../06_Operations_Management/Network_Security_Monitoring.en.md), [IDS/IPS Sigma Rules](../08_Detection_Engineering/README.md) |
 | 11.6 | Unauthorized changes to payment pages detected | 🟡 | [Web Attack PB](../05_Incident_Response/Playbooks/Web_Attack.en.md) |
 
 ---
@@ -65,7 +65,7 @@ pie title PCI-DSS Requirements Covered by SOC
 | 12.10.3 | Specific personnel available 24/7 | ✅ | [SOC Team Structure](../06_Operations_Management/SOC_Team_Structure.en.md), [Shift Handoff](../06_Operations_Management/Shift_Handoff.en.md) |
 | 12.10.4 | Personnel are properly trained | ✅ | [Training Checklist](../10_Training_Onboarding/Training_Checklist.en.md), [Analyst Onboarding](../10_Training_Onboarding/Analyst_Onboarding_Path.en.md) |
 | 12.10.4.1 | Frequency of IR training defined | ✅ | [Training Checklist](../10_Training_Onboarding/Training_Checklist.en.md) |
-| 12.10.5 | Alerts from security monitoring trigger response | ✅ | [Escalation Matrix](../05_Incident_Response/Escalation_Matrix.en.md), [50 Playbooks](../05_Incident_Response/Playbooks/) |
+| 12.10.5 | Alerts from security monitoring trigger response | ✅ | [Escalation Matrix](../05_Incident_Response/Escalation_Matrix.en.md), [50 Playbooks](../05_Incident_Response/Playbooks/Phishing.en.md) |
 | 12.10.6 | IR plan is modified based on lessons learned | ✅ | [Lessons Learned Template](../05_Incident_Response/Lessons_Learned_Template.en.md) |
 | 12.10.7 | IR procedures in place for critical alerts | ✅ | [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md); P1 playbooks |
 

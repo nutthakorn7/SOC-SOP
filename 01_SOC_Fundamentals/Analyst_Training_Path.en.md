@@ -91,7 +91,7 @@ If the candidate lacks these basics, add 4 weeks of pre-training (see Appendix).
 | Week | Topic | Resources | Hands-On Lab |
 |:---:|:---|:---|:---|
 | 17 | **IR framework** — Preparation, Detection, Containment, Eradication, Recovery, Lessons | [IR Framework](../05_Incident_Response/Framework.en.md) | Walk through the IR framework with a scenario |
-| 18 | **Playbook drills** — PB-01 to PB-05 (Phishing, Ransomware, Malware, Brute Force, Account) | [Playbooks](../05_Incident_Response/Playbooks/) | Execute each playbook step-by-step with simulated data |
+| 18 | **Playbook drills** — PB-01 to PB-05 (Phishing, Ransomware, Malware, Brute Force, Account) | [Playbooks](../05_Incident_Response/Playbooks/Phishing.en.md) | Execute each playbook step-by-step with simulated data |
 | 19 | **Containment actions** — Isolate host, block IP, disable account, reset password | EDR/SIEM documentation | Practice containment in lab environment |
 | 20 | **Evidence handling** — Order of volatility, chain of custody, screenshots | [Evidence Collection](../05_Incident_Response/Evidence_Collection.en.md) | Collect evidence from a compromised VM |
 
