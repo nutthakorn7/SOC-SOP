@@ -26997,7 +26997,7 @@ graph TD
 
 | Format | Use Case | Repository Path |
 |:---|:---|:---|
-| **Sigma** | SIEM-agnostic detection (primary format) | `08_Detection_Engineering/sigma_rules/sigma/` |
+| **Sigma** | SIEM-agnostic detection (primary format) | `08_Detection_Engineering/sigma_rules/` |
 | **YARA** | File/binary analysis | `08_Detection_Engineering/sigma_rules/yara/` |
 | **Snort/Suricata** | Network-level detection | `08_Detection_Engineering/sigma_rules/ids/` |
 
@@ -27195,7 +27195,7 @@ graph TD
 
 | รูปแบบ | กรณีใช้งาน | ที่เก็บ |
 |:---|:---|:---|
-| **Sigma** | Detection ใน SIEM (รูปแบบหลัก) | `08_Detection_Engineering/sigma_rules/sigma/` |
+| **Sigma** | Detection ใน SIEM (รูปแบบหลัก) | `08_Detection_Engineering/sigma_rules/` |
 | **YARA** | วิเคราะห์ไฟล์/binary | `08_Detection_Engineering/sigma_rules/yara/` |
 | **Snort/Suricata** | Detection ระดับเครือข่าย | `08_Detection_Engineering/sigma_rules/ids/` |
 
@@ -46153,7 +46153,7 @@ graph TD
 
 | กฎ | ไฟล์ |
 |:---|:---|
-| Data Collection and Staging | [sigma/win_data_collection_staging.yml](../../08_Detection_Engineering/sigma_rules/sigma/win_data_collection_staging.yml) |
+| Data Collection and Staging | [sigma/win_data_collection_staging.yml](../../08_Detection_Engineering/sigma_rules/win_data_collection_staging.yml) |
 | Bulk File Copy to USB | [file_bulk_usb_copy.yml](../../08_Detection_Engineering/sigma_rules/file_bulk_usb_copy.yml) |
 
 ## เอกสารที่เกี่ยวข้อง
@@ -46434,7 +46434,7 @@ sequenceDiagram
 |:---|:---|
 | Large Upload to External IP | [net_large_upload.yml](../../08_Detection_Engineering/sigma_rules/net_large_upload.yml) |
 | Bulk File Copy to USB | [file_bulk_usb_copy.yml](../../08_Detection_Engineering/sigma_rules/file_bulk_usb_copy.yml) |
-| Data Collection and Staging | [sigma/win_data_collection_staging.yml](../../08_Detection_Engineering/sigma_rules/sigma/win_data_collection_staging.yml) |
+| Data Collection and Staging | [sigma/win_data_collection_staging.yml](../../08_Detection_Engineering/sigma_rules/win_data_collection_staging.yml) |
 
 ## Related Documents
 
@@ -46657,7 +46657,7 @@ sequenceDiagram
 |:---|:---|
 | Large Upload to External IP | [net_large_upload.yml](../../08_Detection_Engineering/sigma_rules/net_large_upload.yml) |
 | Bulk File Copy to USB | [file_bulk_usb_copy.yml](../../08_Detection_Engineering/sigma_rules/file_bulk_usb_copy.yml) |
-| Data Collection and Staging | [sigma/win_data_collection_staging.yml](../../08_Detection_Engineering/sigma_rules/sigma/win_data_collection_staging.yml) |
+| Data Collection and Staging | [sigma/win_data_collection_staging.yml](../../08_Detection_Engineering/sigma_rules/win_data_collection_staging.yml) |
 
 ## เอกสารที่เกี่ยวข้อง
 
@@ -49788,7 +49788,7 @@ sequenceDiagram
 |:---|:---|
 | Access to Admin Shares (C$) | [win_admin_share_access.yml](../../08_Detection_Engineering/sigma_rules/win_admin_share_access.yml) |
 | User Added to Domain Admins | [win_domain_admin_group_add.yml](../../08_Detection_Engineering/sigma_rules/win_domain_admin_group_add.yml) |
-| Network Discovery Activity | [sigma/win_network_discovery.yml](../../08_Detection_Engineering/sigma_rules/sigma/win_network_discovery.yml) |
+| Network Discovery Activity | [sigma/win_network_discovery.yml](../../08_Detection_Engineering/sigma_rules/win_network_discovery.yml) |
 
 ## Related Documents
 
@@ -49998,7 +49998,7 @@ sequenceDiagram
 |:---|:---|
 | Access to Admin Shares (C$) | [win_admin_share_access.yml](../../08_Detection_Engineering/sigma_rules/win_admin_share_access.yml) |
 | User Added to Domain Admins | [win_domain_admin_group_add.yml](../../08_Detection_Engineering/sigma_rules/win_domain_admin_group_add.yml) |
-| Network Discovery Activity | [sigma/win_network_discovery.yml](../../08_Detection_Engineering/sigma_rules/sigma/win_network_discovery.yml) |
+| Network Discovery Activity | [sigma/win_network_discovery.yml](../../08_Detection_Engineering/sigma_rules/win_network_discovery.yml) |
 
 ## เอกสารที่เกี่ยวข้อง
 
@@ -53253,7 +53253,7 @@ graph TD
 
 | Rule | File |
 |:---|:---|
-| Network Discovery Activity | [sigma/win_network_discovery.yml](../../08_Detection_Engineering/sigma_rules/sigma/win_network_discovery.yml) |
+| Network Discovery Activity | [sigma/win_network_discovery.yml](../../08_Detection_Engineering/sigma_rules/win_network_discovery.yml) |
 | Access to Admin Shares (C$) | [win_admin_share_access.yml](../../08_Detection_Engineering/sigma_rules/win_admin_share_access.yml) |
 
 ## Related Documents
@@ -53457,7 +53457,7 @@ graph TD
 
 | กฎ | ไฟล์ |
 |:---|:---|
-| Network Discovery Activity | [sigma/win_network_discovery.yml](../../08_Detection_Engineering/sigma_rules/sigma/win_network_discovery.yml) |
+| Network Discovery Activity | [sigma/win_network_discovery.yml](../../08_Detection_Engineering/sigma_rules/win_network_discovery.yml) |
 | Access to Admin Shares (C$) | [win_admin_share_access.yml](../../08_Detection_Engineering/sigma_rules/win_admin_share_access.yml) |
 
 ## เอกสารที่เกี่ยวข้อง

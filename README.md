@@ -254,7 +254,7 @@ Ready-to-import rules mapped to MITRE ATT&CK. See full index: [README](08_Detect
 | **Web/API** | SQLi, WAF exploit, API abuse, zero-day, rate limit | 5 |
 | **File/Proc** | Ransomware rename, USB bulk copy, crypto indicators | 5 |
 
-### YARA Rules (5 Rules)
+### YARA Rules (8 Rules)
 
 File-based threat detection: [YARA Index](08_Detection_Engineering/yara/README.md) | [File Signatures](08_Detection_Engineering/file_signatures/README.md)
 

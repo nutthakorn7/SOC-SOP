@@ -186,7 +186,7 @@ graph TD
 
 | กฎ | ไฟล์ |
 |:---|:---|
-| Data Collection and Staging | [sigma/win_data_collection_staging.yml](../../08_Detection_Engineering/sigma_rules/sigma/win_data_collection_staging.yml) |
+| Data Collection and Staging | [sigma/win_data_collection_staging.yml](../../08_Detection_Engineering/sigma_rules/win_data_collection_staging.yml) |
 | Bulk File Copy to USB | [file_bulk_usb_copy.yml](../../08_Detection_Engineering/sigma_rules/file_bulk_usb_copy.yml) |
 
 ## เอกสารที่เกี่ยวข้อง

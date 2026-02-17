@@ -45,7 +45,7 @@ graph TD
 
 | Format | Use Case | Repository Path |
 |:---|:---|:---|
-| **Sigma** | SIEM-agnostic detection (primary format) | `08_Detection_Engineering/sigma_rules/sigma/` |
+| **Sigma** | SIEM-agnostic detection (primary format) | `08_Detection_Engineering/sigma_rules/` |
 | **YARA** | File/binary analysis | `08_Detection_Engineering/sigma_rules/yara/` |
 | **Snort/Suricata** | Network-level detection | `08_Detection_Engineering/sigma_rules/ids/` |
 
