@@ -382,3 +382,5 @@ nav:
     - Changelog: CHANGELOG.md
     - Document Version Tracker: VERSION_TRACKER.md
     - Training Course Catalog: TRAINING.md
+    - Contributing Guide: CONTRIBUTING.md
+    - Automation Tools: tools/README.md
