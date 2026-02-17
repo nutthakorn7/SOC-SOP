@@ -1,4 +1,4 @@
-rule webshell_php_generic {
+rule webshell_php_generic_sig {
     meta:
         description = "Detects generic PHP Webshells"
         author = "SOC Standard"
