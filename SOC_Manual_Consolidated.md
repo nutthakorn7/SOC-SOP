@@ -378,6 +378,42 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.12.0] - 2026-03-06
+
+### Added
+- **15 new Sigma detection rules** for PB-36 to PB-50, achieving full playbook detection coverage
+  - `win_credential_dumping.yml` — LSASS, SAM, DCSync (PB-36, T1003)
+  - `web_sqli_advanced.yml` — Blind/time-based SQLi (PB-37, T1190)
+  - `win_wiper_attack.yml` — MBR overwrite, shadow copy deletion (PB-38, T1485/T1561)
+  - `win_lolbin_execution.yml` — certutil, mshta, rundll32 abuse (PB-39, T1218)
+  - `file_usb_autorun.yml` — Autorun, BadUSB indicators (PB-40, T1091)
+  - `net_vpn_abuse.yml` — Unauthorized VPN/proxy/Tor (PB-41, T1133)
+  - `cloud_email_takeover.yml` — OAuth abuse, forwarding rules (PB-42, T1114)
+  - `web_watering_hole.yml` — Trusted site redirect to exploit kit (PB-43, T1189)
+  - `web_drive_by_download.yml` — Browser spawning suspicious processes (PB-44, T1189)
+  - `win_rootkit_bootkit.yml` — Unsigned drivers, UEFI tampering (PB-45, T1014/T1542)
+  - `cloud_sim_swap.yml` — Phone/MFA method changes (PB-46, T1111)
+  - `cloud_cryptojacking.yml` — GPU instances, cost spikes (PB-47, T1496)
+  - `net_deepfake_social.yml` — Executive impersonation, urgent transfer (PB-48, T1598)
+  - `net_typosquatting.yml` — Homoglyph/punycode domain detection (PB-49, T1583.001)
+  - `net_unauthorized_scanning.yml` — nmap, masscan, port sweeps (PB-50, T1046)
+- Total Sigma rules: **36 → 51** (full coverage for all 50 playbooks)
+
+### Fixed
+- **VERSION_TRACKER.md** synced from v2.6.0 to v2.11.1 — added PB-36→PB-50, Tier 2/3 Runbooks, Tabletop/Purple Team Exercises, System Activation
+- **AGENTS.md** — fixed directory structure (removed duplicates, added missing dirs) and expanded Playbook Index to PB-50
+- **Git tags** — backfilled v2.5.0 through v2.11.1 (8 tags)
+- **Stale count sweep** — corrected 30+ stale references across 15+ files (EN+TH):
+  - Playbook count: 20/30/33 → 50
+  - Sigma count: 28/33 → 36 (now 51)
+  - Document count: 170+ → 279
+  - YARA count: 16 → 8
+  - Version: v2.4.0 → v2.11.1 (now v2.12.0)
+- **VERSION_TRACKER.md** — removed duplicate Alert Tuning and SOC Communication rows
+- **Detection Engineering README.md** — fixed YARA count 10 → 8
+
+---
+
 ## [2.11.1] - 2026-02-17
 
 ### Fixed
@@ -2240,7 +2276,7 @@ When adding new documents, update these files (see [workflow](https://github.com
 | Reports & Templates | 6 | ✅ | 2027-02 |
 | **Total** | **127+** | **✅ 100%** | **2027-02** |
 
-> **Last tracker update**: 2026-03-06 | **Repository version**: 2.11.1
+> **Last tracker update**: 2026-03-06 | **Repository version**: 2.12.0
 
 
 ---
