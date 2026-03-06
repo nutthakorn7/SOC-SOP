@@ -317,6 +317,8 @@ nav:
   - 🔧 Guides & Tools:
     - Detection Rules Index: 08_Detection_Engineering/README.md
     - ดัชนี Detection Rules (TH): 08_Detection_Engineering/README.th.md
+    - Coverage Matrix: 08_Detection_Engineering/Coverage_Matrix.en.md
+    - ตารางครอบคลุม (TH): 08_Detection_Engineering/Coverage_Matrix.th.md
     - YARA Rules Index: 08_Detection_Engineering/yara/README.md
     - File Signatures (YARA): 08_Detection_Engineering/file_signatures/README.md
     - Detection Engineering: 03_User_Guides/Content_Management.en.md
