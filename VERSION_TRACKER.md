@@ -94,9 +94,7 @@
 | [Data Handling Protocol](06_Operations_Management/Data_Handling_Protocol.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Change Management](06_Operations_Management/Change_Management.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Access Control Policy](06_Operations_Management/Access_Control.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
-| [Communication SOP](06_Operations_Management/SOC_Communication.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
-| [Alert Tuning](06_Operations_Management/Alert_Tuning.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
-| [SOC Communication SOP](06_Operations_Management/SOC_Communication.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
+| [Communication SOP](06_Operations_Management/SOC_Communication.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
 
 ## 🎯 Testing & Training
 

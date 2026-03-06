@@ -47,7 +47,7 @@
 | 📄 Documents (EN+TH) | 279 | Bilingual, vendor-agnostic SOPs |
 | 🛡️ IR Playbooks | 50 | PB-01 Phishing → PB-50 Unauthorized Scanning, MITRE mapped |
 | 🔍 Sigma Detection Rules | 36 | Ready-to-import SIEM rules |
-| 🧬 YARA Rules | 16 | File-based threat detection |
+| 🧬 YARA Rules | 8 | File-based threat detection |
 | 📋 Templates | 6 | Incident report, shift log, RFC, dashboards |
 | 🧰 Interactive Tools | 2 | SOC Maturity Scorer + MITRE Heatmap |
 | 📊 Dashboard JSON | 2 | Grafana (14 panels) + Kibana (11 panels) |
@@ -356,6 +356,7 @@ File-based threat detection: [YARA Index](08_Detection_Engineering/yara/README.m
 | **👤 SOC Analyst Onboarding** (90-day) | [Read](10_Training_Onboarding/SOC_Onboarding.en.md) | [อ่าน](10_Training_Onboarding/SOC_Onboarding.th.md) |
 | **Analyst Onboarding** (5-day path) | [Read](10_Training_Onboarding/Analyst_Onboarding_Path.en.md) | [อ่าน](10_Training_Onboarding/Analyst_Onboarding_Path.th.md) |
 | **Training Checklist** | [Read](10_Training_Onboarding/Training_Checklist.en.md) | [อ่าน](10_Training_Onboarding/Training_Checklist.th.md) |
+| **📋 Playbook Quick Reference** | [EN](Playbook_Quick_Reference.md) | [TH](Playbook_Quick_Reference.th.md) |
 
 ---
 
@@ -366,8 +367,13 @@ File-based threat detection: [YARA Index](08_Detection_Engineering/yara/README.m
 | Document | English | ภาษาไทย |
 |:---|:---:|:---:|
 | **Compliance Mapping** (ISO 27001 / NIST CSF / PCI DSS) | [Read](07_Compliance_Privacy/Compliance_Mapping.en.md) | [อ่าน](07_Compliance_Privacy/Compliance_Mapping.th.md) |
+| **ISO 27001 Controls Mapping** | [Read](07_Compliance_Privacy/ISO27001_Controls_Mapping.en.md) | [อ่าน](07_Compliance_Privacy/ISO27001_Controls_Mapping.th.md) |
+| **PCI-DSS SOC Requirements** | [Read](07_Compliance_Privacy/PCI_DSS_SOC_Requirements.en.md) | [อ่าน](07_Compliance_Privacy/PCI_DSS_SOC_Requirements.th.md) |
+| **NIST CSF 2.0 Mapping** | [Read](07_Compliance_Privacy/NIST_CSF_Mapping.en.md) | [อ่าน](07_Compliance_Privacy/NIST_CSF_Mapping.th.md) |
 | **PDPA Incident Response** (72-hr notification) | [Read](07_Compliance_Privacy/PDPA_Incident_Response.en.md) | [อ่าน](07_Compliance_Privacy/PDPA_Incident_Response.th.md) |
+| **PDPA Compliance** | [Read](07_Compliance_Privacy/PDPA_Compliance.en.md) | [อ่าน](07_Compliance_Privacy/PDPA_Compliance.th.md) |
 | **📝 Compliance Gap Analysis** | [Read](07_Compliance_Privacy/Compliance_Gap_Analysis.en.md) | [อ่าน](07_Compliance_Privacy/Compliance_Gap_Analysis.th.md) |
+| **Data Governance Policy** | [Read](07_Compliance_Privacy/Data_Governance_Policy.en.md) | [อ่าน](07_Compliance_Privacy/Data_Governance_Policy.th.md) |
 
 ### Reports & Dashboards
 
@@ -419,7 +425,7 @@ File-based threat detection: [YARA Index](08_Detection_Engineering/yara/README.m
 
 For offline reading or printing, download the consolidated manual:
 
-> **[📖 SOC_Manual_Consolidated.md](https://github.com/nutthakorn7/SOC-SOP/blob/main/SOC_Manual_Consolidated.md)** — All 170+ documents in one file
+> **[📖 SOC_Manual_Consolidated.md](https://github.com/nutthakorn7/SOC-SOP/blob/main/SOC_Manual_Consolidated.md)** — All 279 documents in one file
 
 ---
 
@@ -429,7 +435,7 @@ For offline reading or printing, download the consolidated manual:
 |:---|:---|
 | **[📝 CHANGELOG.md](CHANGELOG.md)** | All changes by version (Keep a Changelog format) |
 | **[📋 VERSION_TRACKER.md](VERSION_TRACKER.md)** | Every document's version, last update, and next review date |
-| **Current Version** | **v2.4.0** (2026-02-16) |
+| **Current Version** | **v2.11.1** (2026-02-17) |
 
 ---
 
