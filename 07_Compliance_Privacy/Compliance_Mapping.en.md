@@ -112,7 +112,7 @@ Use this mapping for **audit preparation**, **gap analysis**, and **demonstratin
 | **Identify (ID)** | ID.AM, ID.RA, ID.SC | 🟡 Partial — asset inventory & supply chain |
 | **Protect (PR)** | PR.AC, PR.AT, PR.DS, PR.IP, PR.PT | 🟡 Partial — access control & training |
 | **Detect (DE)** | DE.AE, DE.CM, DE.DP | 🟢 Strong — 28 Sigma rules + monitoring |
-| **Respond (RS)** | RS.RP, RS.CO, RS.AN, RS.MI, RS.IM | 🟢 Strong — 30 playbooks + severity matrix |
+| **Respond (RS)** | RS.RP, RS.CO, RS.AN, RS.MI, RS.IM | 🟢 Strong — 50 playbooks + severity matrix |
 | **Recover (RC)** | RC.RP, RC.IM, RC.CO | 🟡 Partial — backup & communication |
 
 ### PCI DSS v4.0 Coverage

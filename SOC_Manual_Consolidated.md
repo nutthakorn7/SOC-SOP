@@ -1487,7 +1487,7 @@ When adding new documents, update these files (see [workflow](https://github.com
 
 <p align="center">
   <img src="https://img.shields.io/badge/🏆_Courses-6_Programs-blueviolet?style=for-the-badge" alt="Courses">
-  <img src="https://img.shields.io/badge/📄_Based_on-170+_SOPs-blue?style=for-the-badge" alt="SOPs">
+  <img src="https://img.shields.io/badge/📄_Based_on-279_SOPs-blue?style=for-the-badge" alt="SOPs">
   <img src="https://img.shields.io/badge/🌐_Language-EN_/_TH-green?style=for-the-badge" alt="Language">
   <img src="https://img.shields.io/badge/🔬_Approach-100%25_Hands--on-red?style=for-the-badge" alt="Hands-on">
 </p>
@@ -1506,7 +1506,7 @@ When adding new documents, update these files (see [workflow](https://github.com
 <td width="25%" align="center">
 
 ### 📖 Open-Source Backed
-ผู้เรียนได้รับ SOC SOP **170+ ชิ้น** กลับไปใช้งานได้ทันที — ไม่ต้องเริ่มจากศูนย์
+ผู้เรียนได้รับ SOC SOP **279 ชิ้น** กลับไปใช้งานได้ทันที — ไม่ต้องเริ่มจากศูนย์
 
 </td>
 <td width="25%" align="center">
@@ -2066,7 +2066,7 @@ When adding new documents, update these files (see [workflow](https://github.com
 <details>
 <summary><b>มีเอกสารให้กลับไปใช้ต่อไหม?</b></summary>
 
-ทุกหลักสูตรรวม **SOC SOP Template Pack 170+ ชิ้น** (EN/TH) — นำไปใช้งานได้ทันทีโดยไม่ต้องเริ่มจากศูนย์
+ทุกหลักสูตรรวม **SOC SOP Template Pack 279 ชิ้น** (EN/TH) — นำไปใช้งานได้ทันทีโดยไม่ต้องเริ่มจากศูนย์
 
 </details>
 
@@ -2807,7 +2807,7 @@ Use this mapping for **audit preparation**, **gap analysis**, and **demonstratin
 | **Identify (ID)** | ID.AM, ID.RA, ID.SC | 🟡 Partial — asset inventory & supply chain |
 | **Protect (PR)** | PR.AC, PR.AT, PR.DS, PR.IP, PR.PT | 🟡 Partial — access control & training |
 | **Detect (DE)** | DE.AE, DE.CM, DE.DP | 🟢 Strong — 28 Sigma rules + monitoring |
-| **Respond (RS)** | RS.RP, RS.CO, RS.AN, RS.MI, RS.IM | 🟢 Strong — 30 playbooks + severity matrix |
+| **Respond (RS)** | RS.RP, RS.CO, RS.AN, RS.MI, RS.IM | 🟢 Strong — 50 playbooks + severity matrix |
 | **Recover (RC)** | RC.RP, RC.IM, RC.CO | 🟡 Partial — backup & communication |
 
 ### PCI DSS v4.0 Coverage
@@ -9600,7 +9600,7 @@ Track these 5 metrics from day 1 (see [SOC Metrics](../06_Operations_Management/
 ### 3.4 Phase 3 Checklist
 
 ```
-□ All 30 playbooks reviewed (deploy relevant ones)
+□ All 50 playbooks reviewed (deploy relevant ones)
 □ All 36 Sigma rules deployed
 □ First tabletop exercise completed
 □ SOC metrics dashboard created
@@ -9785,7 +9785,7 @@ If you're starting from zero, read these documents in this order:
 - [SOC Maturity Scorer](../tools/soc_maturity_scorer.html)
 - [MITRE ATT&CK Heatmap](../tools/mitre_attack_heatmap.html)
 - [Compliance Mapping](../07_Compliance_Privacy/Compliance_Mapping.en.md)
-- [All 30 Playbooks](../05_Incident_Response/Playbooks/Phishing.en.md)
+- [All 50 Playbooks](../05_Incident_Response/Playbooks/Phishing.en.md)
 
 
 ---

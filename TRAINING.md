@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/🏆_Courses-6_Programs-blueviolet?style=for-the-badge" alt="Courses">
-  <img src="https://img.shields.io/badge/📄_Based_on-170+_SOPs-blue?style=for-the-badge" alt="SOPs">
+  <img src="https://img.shields.io/badge/📄_Based_on-279_SOPs-blue?style=for-the-badge" alt="SOPs">
   <img src="https://img.shields.io/badge/🌐_Language-EN_/_TH-green?style=for-the-badge" alt="Language">
   <img src="https://img.shields.io/badge/🔬_Approach-100%25_Hands--on-red?style=for-the-badge" alt="Hands-on">
 </p>
@@ -21,7 +21,7 @@
 <td width="25%" align="center">
 
 ### 📖 Open-Source Backed
-ผู้เรียนได้รับ SOC SOP **170+ ชิ้น** กลับไปใช้งานได้ทันที — ไม่ต้องเริ่มจากศูนย์
+ผู้เรียนได้รับ SOC SOP **279 ชิ้น** กลับไปใช้งานได้ทันที — ไม่ต้องเริ่มจากศูนย์
 
 </td>
 <td width="25%" align="center">
@@ -581,7 +581,7 @@
 <details>
 <summary><b>มีเอกสารให้กลับไปใช้ต่อไหม?</b></summary>
 
-ทุกหลักสูตรรวม **SOC SOP Template Pack 170+ ชิ้น** (EN/TH) — นำไปใช้งานได้ทันทีโดยไม่ต้องเริ่มจากศูนย์
+ทุกหลักสูตรรวม **SOC SOP Template Pack 279 ชิ้น** (EN/TH) — นำไปใช้งานได้ทันทีโดยไม่ต้องเริ่มจากศูนย์
 
 </details>
 

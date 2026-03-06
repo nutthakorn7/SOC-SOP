@@ -241,7 +241,7 @@ Track these 5 metrics from day 1 (see [SOC Metrics](../06_Operations_Management/
 ### 3.4 Phase 3 Checklist
 
 ```
-□ All 30 playbooks reviewed (deploy relevant ones)
+□ All 50 playbooks reviewed (deploy relevant ones)
 □ All 36 Sigma rules deployed
 □ First tabletop exercise completed
 □ SOC metrics dashboard created
@@ -426,4 +426,4 @@ If you're starting from zero, read these documents in this order:
 - [SOC Maturity Scorer](../tools/soc_maturity_scorer.html)
 - [MITRE ATT&CK Heatmap](../tools/mitre_attack_heatmap.html)
 - [Compliance Mapping](../07_Compliance_Privacy/Compliance_Mapping.en.md)
-- [All 30 Playbooks](../05_Incident_Response/Playbooks/Phishing.en.md)
+- [All 50 Playbooks](../05_Incident_Response/Playbooks/Phishing.en.md)
