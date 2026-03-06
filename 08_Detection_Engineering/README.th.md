@@ -20,6 +20,7 @@
 | [proc_powershell_encoded.yml](proc_powershell_encoded.yml) | PowerShell Encoded Command | ตรวจจับ PowerShell ที่รันคำสั่งแบบ Encode เพื่อซ่อน Script อันตราย | สูง | T1059.001 | PB-11 |
 | [proc_temp_folder_execution.yml](proc_temp_folder_execution.yml) | Execution from Temp/Downloads | ตรวจจับไฟล์ที่รันจากโฟลเดอร์ Temp หรือ Downloads — น่าสงสัยว่าเป็นมัลแวร์ | ปานกลาง | T1204.002 | PB-03 |
 | [proc_cryptomining_indicators.yml](proc_cryptomining_indicators.yml) | Cryptomining Process / Stratum | ตรวจจับ Process ขุดเหมือง (xmrig, cpuminer) หรือการใช้ Stratum Protocol — ขุดคริปโตโดยไม่ได้รับอนุญาต | วิกฤต | T1496 | PB-23 |
+| [win_lolbin_execution.yml](sigma_rules/win_lolbin_execution.yml) | Living Off The Land Binary | ตรวจจับการใช้ LOLBins (certutil, mshta, rundll32, regsvr32) เพื่อดาวน์โหลดหรือรัน Payload อันตราย | สูง | T1218 | PB-39 |
 
 ### 📁 File Activity (กิจกรรมไฟล์)
 
@@ -27,6 +28,7 @@
 |:---|:---|:---|:---|:---|:---|
 | [file_bulk_renaming_ransomware.yml](file_bulk_renaming_ransomware.yml) | Bulk File Renaming (Ransomware) | ตรวจจับการเปลี่ยนชื่อไฟล์จำนวนมากในเวลาสั้น (เช่น .enc, .lock, .crypt) — สัญญาณ Ransomware | วิกฤต | T1486 | PB-02 |
 | [file_bulk_usb_copy.yml](file_bulk_usb_copy.yml) | Bulk File Copy to USB | ตรวจจับการคัดลอกไฟล์จำนวนมากไปยัง USB Drive — อาจเป็นการขโมยข้อมูล | ปานกลาง | T1052 | PB-08 |
+| [file_usb_autorun.yml](sigma_rules/file_usb_autorun.yml) | USB Removable Media Threat | ตรวจจับ Autorun จาก USB, สัญญาณ BadUSB และ Mass Storage ที่ไม่ได้รับอนุญาต | ปานกลาง | T1091 | PB-40 |
 
 ### 🌐 Network Detection (การตรวจจับเครือข่าย)
 
@@ -35,6 +37,11 @@
 | [net_beaconing.yml](net_beaconing.yml) | Network Beaconing Pattern | ตรวจจับการเชื่อมต่อเครือข่ายแบบสม่ำเสมอไปยังปลายทางเดิม — สัญญาณ C2 Beaconing | สูง | T1071 | PB-13 |
 | [net_large_upload.yml](net_large_upload.yml) | Large Upload >500MB | ตรวจจับการอัปโหลดข้อมูลมากกว่า 500MB ไปยัง IP ภายนอก — อาจเป็นการรั่วไหลข้อมูล | สูง | T1048 | PB-08 |
 | [net_dns_tunneling.yml](net_dns_tunneling.yml) | DNS Tunneling | ตรวจจับ DNS Query ที่มีความยาวผิดปกติ (>50 chars) หรือปริมาณ TXT/NULL record สูง — สัญญาณ DNS Tunneling | สูง | T1071.004 | PB-24 |
+| [net_ot_ics_anomaly.yml](net_ot_ics_anomaly.yml) | OT/ICS Network Anomaly | ตรวจจับทราฟฟิก Modbus/DNP3/OPC UA ที่ผิดปกติในเครือข่าย OT/ICS | วิกฤต | ICS T0813 | PB-30 |
+| [net_vpn_abuse.yml](sigma_rules/net_vpn_abuse.yml) | Unauthorized VPN/Proxy | ตรวจจับการใช้ VPN ที่ไม่ได้รับอนุญาต (NordVPN, ProtonVPN), Tunnel (ngrok), หรือ Tor | ปานกลาง | T1133 | PB-41 |
+| [net_deepfake_social.yml](sigma_rules/net_deepfake_social.yml) | Deepfake Social Engineering | ตรวจจับอีเมลปลอมตัวเป็นผู้บริหาร, คำขอโอนเงินเร่งด่วน, ไฟล์เสียงแนบต้องสงสัย | สูง | T1598 | PB-48 |
+| [net_typosquatting.yml](sigma_rules/net_typosquatting.yml) | Typosquatting Domain | ตรวจจับการเข้าถึงโดเมนปลอม (homoglyph, punycode, TLD น่าสงสัย) | ปานกลาง | T1583.001 | PB-49 |
+| [net_unauthorized_scanning.yml](sigma_rules/net_unauthorized_scanning.yml) | Unauthorized Scanning | ตรวจจับเครื่องมือ Scan (nmap, masscan) และ Port Sweep จากภายใน | ปานกลาง | T1046 | PB-50 |
 
 ### 🔐 Windows Security (ความปลอดภัย Windows)
 
@@ -48,6 +55,9 @@
 | [win_security_event_log_cleared.yml](sigma_rules/win_security_event_log_cleared.yml) | Security Event Log Cleared | ตรวจจับการลบ Event Log ผ่าน System channel — เทคนิค anti-forensics | วิกฤต | T1070.001 | PB-20 |
 | [win_network_discovery.yml](sigma_rules/win_network_discovery.yml) | Network Discovery Commands | ตรวจจับคำสั่ง network reconnaissance (net view, nltest, dsquery) | ปานกลาง | T1018 | PB-34 |
 | [win_data_collection_staging.yml](sigma_rules/win_data_collection_staging.yml) | Data Collection/Staging | ตรวจจับการรวบรวมและ staging ข้อมูล (7z, rar, Compress-Archive) | ปานกลาง | T1074 | PB-35 |
+| [win_credential_dumping.yml](sigma_rules/win_credential_dumping.yml) | Credential Dumping | ตรวจจับการ dump ข้อมูลรหัสจาก LSASS, SAM, DCSync — เครื่องมือ mimikatz, procdump | วิกฤต | T1003 | PB-36 |
+| [win_wiper_attack.yml](sigma_rules/win_wiper_attack.yml) | Wiper / Destructive Malware | ตรวจจับมัลแวร์ทำลายล้าง — ลบ Shadow Copy, เขียนทับ MBR, ลบข้อมูลจำนวนมาก | วิกฤต | T1485/T1561 | PB-38 |
+| [win_rootkit_bootkit.yml](sigma_rules/win_rootkit_bootkit.yml) | Rootkit / Bootkit | ตรวจจับ Driver ที่ไม่ได้ลงนาม, การแก้ไข Boot Config, การดัดแปลง UEFI | วิกฤต | T1014/T1542 | PB-45 |
 
 ### ☁️ Cloud Detection (การตรวจจับ Cloud)
 
@@ -61,6 +71,12 @@
 | [cloud_azure_risky_signin.yml](cloud_azure_risky_signin.yml) | Azure AD Risky Sign-in | ตรวจจับ Sign-in ที่ถูกแฟล็กว่า Impossible Travel หรือ Anonymized IP | สูง | T1078.004 | Azure AD |
 | [cloud_email_inbox_rule.yml](cloud_email_inbox_rule.yml) | Suspicious Inbox Rule | ตรวจจับการสร้าง Inbox Rule ที่ผู้โจมตีใช้ซ่อนอีเมล (เช่น ลบ, ย้ายไป RSS) | สูง | T1114.003 | PB-17 |
 | [cloud_supply_chain_compromise.yml](cloud_supply_chain_compromise.yml) | Supply Chain Package Tampering | ตรวจจับ Package Manager (npm, pip, gem) ที่ Install จาก Registry ไม่ปกติ — สัญญาณ Supply Chain Attack | สูง | T1195.002 | PB-21 |
+| [cloud_mfa_bypass.yml](cloud_mfa_bypass.yml) | MFA Bypass / AiTM Token Theft | ตรวจจับการ Bypass MFA ผ่าน AiTM Proxy หรือ Token Theft | สูง | T1556.006 | PB-26 |
+| [cloud_storage_public_access.yml](cloud_storage_public_access.yml) | Cloud Storage Public Access | ตรวจจับการเปิด Public Access ของ Cloud Storage (S3/Blob) | สูง | T1530 | PB-27 |
+| [cloud_mobile_compromise.yml](cloud_mobile_compromise.yml) | Mobile Device Compromise | ตรวจจับสัญญาณการโจมตีอุปกรณ์มือถือผ่าน MDM | ปานกลาง | T1456 | PB-28 |
+| [cloud_email_takeover.yml](sigma_rules/cloud_email_takeover.yml) | Email Account Takeover | ตรวจจับการยึดบัญชีอีเมล — OAuth App ต้องสงสัย, กฎส่งต่ออีเมล, การเปลี่ยน Delegate | สูง | T1114 | PB-42 |
+| [cloud_sim_swap.yml](sigma_rules/cloud_sim_swap.yml) | SIM Swap Attack | ตรวจจับสัญญาณ SIM Swap — เปลี่ยนเบอร์โทร, เปลี่ยนวิธี MFA, รีเซ็ตรหัส | สูง | T1111 | PB-46 |
+| [cloud_cryptojacking.yml](sigma_rules/cloud_cryptojacking.yml) | Cloud Cryptojacking | ตรวจจับการขุดคริปโตบน Cloud — สร้าง GPU Instance, ค่าใช้จ่ายพุ่ง, API Key abuse | วิกฤต | T1496 | PB-47 |
 
 ### 🌍 Web / Application (เว็บ / แอปพลิเคชัน)
 
@@ -71,12 +87,21 @@
 | [web_waf_exploit.yml](web_waf_exploit.yml) | WAF Exploit Attempt | ตรวจจับ WAF Event ที่แฟล็กการพยายามโจมตีด้วย CVE ที่รู้จัก | สูง | T1190 | PB-18 |
 | [web_api_abuse_auth_bypass.yml](web_api_abuse_auth_bypass.yml) | API Auth Bypass / Enumeration | ตรวจจับการโจมตี API แบบ BOLA/IDOR — วน ID ต่อเนื่องหรือ Auth Fail จำนวนมาก | สูง | T1190 | PB-22 |
 | [web_zero_day_exploit_attempt.yml](web_zero_day_exploit_attempt.yml) | Zero-Day Exploit Payload | ตรวจจับ Payload ที่ใช้โจมตีช่องโหว่ (Log4Shell, Spring4Shell, RCE) ใน Web Request | วิกฤต | T1190/T1203 | PB-25 |
+| [web_sqli_advanced.yml](sigma_rules/web_sqli_advanced.yml) | Advanced SQL Injection | ตรวจจับ SQLi ขั้นสูง — Blind SQLi, Time-based, Error-based extraction | สูง | T1190 | PB-37 |
+| [web_watering_hole.yml](sigma_rules/web_watering_hole.yml) | Watering Hole Attack | ตรวจจับ Redirect จากเว็บที่เชื่อถือไปยัง Exploit Kit หรือโดเมนอันตราย | สูง | T1189 | PB-43 |
+| [web_drive_by_download.yml](sigma_rules/web_drive_by_download.yml) | Drive-By Download | ตรวจจับ Browser สร้าง Process ต้องสงสัย (cmd, powershell, wscript) — สัญญาณ Exploit | สูง | T1189 | PB-44 |
 
 ### 📱 MDM / Device (อุปกรณ์)
 
 | ไฟล์กฎ | ชื่อ (EN) | คำอธิบายภาษาไทย | ระดับ | MITRE | Playbook |
 |:---|:---|:---|:---|:---|:---|
 | [mdm_device_offline.yml](mdm_device_offline.yml) | Device Offline >30 Days | ตรวจจับอุปกรณ์ที่ไม่ Check-in กับ MDM Server มากกว่า 30 วัน | ต่ำ | — | PB-19 |
+
+### 🔍 Proxy / CASB
+
+| ไฟล์กฎ | ชื่อ (EN) | คำอธิบายภาษาไทย | ระดับ | MITRE | Playbook |
+|:---|:---|:---|:---|:---|:---|
+| [proxy_shadow_it.yml](proxy_shadow_it.yml) | Shadow IT / Unauthorized SaaS | ตรวจจับการใช้ SaaS ที่ไม่ได้รับอนุมัติ (Dropbox, WeTransfer ฯลฯ) | ต่ำ | T1567 | PB-29 |
 
 ---
 
