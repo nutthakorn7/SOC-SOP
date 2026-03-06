@@ -44,21 +44,22 @@ This repository provides **vendor-agnostic, production-ready SOC Standard Operat
 
 ```
 SOCSOP/
-├── 10_Training_Onboarding/           # SOC infrastructure setup
-├── 02_Platform_Operations/   # Data governance, deployment procedures
-├── 03_User_Guides/           # Detection engineering, tool integration
-├── 04_Troubleshooting/       # Standard troubleshooting methodology
-├── 05_Incident_Response/     # IR Framework + 50 Playbooks
-│   └── Playbooks/            # Individual incident playbooks (PB-01 to PB-50)
-├── 06_Operations_Management/ # Shift handoff, metrics, team structure, TLP, CTI
-├── 08_Detection_Engineering/sigma_rules/       # Sigma detection rules (.yml)
-├── 08_Simulation_Testing/    # Purple team guides, Atomic Red Team maps
-├── 10_Training_Onboarding/   # Analyst curriculum, training checklists
-├── 08_Detection_Engineering/file_signatures/       # YARA rules
-├── 11_Reporting_Templates/   # Monthly/quarterly executive reports
-├── 11_Reporting_Templates/  # (templates moved here)                # Incident report, shift handover, RFC forms
-├── tools/                    # Utility scripts (export, link check)
-└── assets/                   # Images (hero banner, etc.)
+├── 00_Getting_Started/        # SOC 101, Quickstart, Glossary
+├── 01_SOC_Fundamentals/       # Building roadmap, budget, tech stack
+├── 02_Platform_Operations/    # Data governance, deployment procedures
+├── 03_User_Guides/            # Detection engineering, tool integration
+├── 04_Troubleshooting/        # Standard troubleshooting methodology
+├── 05_Incident_Response/      # IR Framework + 50 Playbooks + Runbooks
+│   ├── Playbooks/             # Individual incident playbooks (PB-01 to PB-50)
+│   └── Runbooks/              # Tier 1/2/3 Runbooks (EN+TH)
+├── 06_Operations_Management/  # Shift handoff, metrics, team structure, CTI, TLP
+├── 07_Compliance_Privacy/     # ISO 27001, PCI-DSS, NIST CSF, PDPA
+├── 08_Detection_Engineering/  # Sigma detection rules, YARA file signatures
+├── 09_Simulation_Testing/     # Purple team guides, Atomic Red Team maps
+├── 10_Training_Onboarding/    # Analyst curriculum, training checklists
+├── 11_Reporting_Templates/    # Monthly/quarterly reports, incident forms
+├── tools/                     # Utility scripts (export, link check)
+└── assets/                    # Images (hero banner, etc.)
 ```
 
 ---
@@ -198,16 +199,27 @@ External links to authoritative sources. Always include at least 2 references.
 
 ### Playbook Index (PB-01 to PB-50)
 ```
-PB-01 Phishing               PB-11 Suspicious Script
-PB-02 Ransomware             PB-12 Lateral Movement
-PB-03 Malware Infection      PB-13 C2 Communication
-PB-04 Brute Force            PB-14 Insider Threat
-PB-05 Account Compromise     PB-15 Log Clearing
-PB-06 Impossible Travel      PB-16 Lost Device
-PB-07 Privilege Escalation   PB-17 Rogue Admin
-PB-08 Data Exfiltration      PB-18 BEC (Business Email Compromise)
-PB-09 DDoS Attack            PB-19 Web Application Attack
-PB-10 Exploit/Vulnerability  PB-20 Cloud-specific (AWS/Azure)
+PB-01 Phishing               PB-11 Suspicious Script      PB-21 Supply Chain Attack
+PB-02 Ransomware             PB-12 Lateral Movement       PB-22 API Abuse
+PB-03 Malware Infection      PB-13 C2 Communication       PB-23 Cloud IAM
+PB-04 Brute Force            PB-14 Insider Threat         PB-24 Cryptomining
+PB-05 Account Compromise     PB-15 Log Clearing           PB-25 Zero-Day Exploit
+PB-06 Impossible Travel      PB-16 Lost Device            PB-26 MFA Bypass
+PB-07 Privilege Escalation   PB-17 Rogue Admin            PB-27 Cloud Storage Exposure
+PB-08 Data Exfiltration      PB-18 BEC                    PB-28 Mobile Compromise
+PB-09 DDoS Attack            PB-19 Web Application Attack PB-29 Shadow IT
+PB-10 Exploit/Vulnerability  PB-20 DNS Tunneling          PB-30 OT/ICS Incident
+
+PB-31 AWS EC2 Compromise     PB-41 VPN Abuse
+PB-32 AWS S3 Compromise      PB-42 Email Account Takeover
+PB-33 Azure AD Compromise    PB-43 Watering Hole
+PB-34 Network Discovery      PB-44 Drive-By Download
+PB-35 Data Collection        PB-45 Rootkit/Bootkit
+PB-36 Credential Dumping     PB-46 SIM Swap
+PB-37 SQL Injection          PB-47 Cloud Cryptojacking
+PB-38 Wiper Attack           PB-48 Deepfake Social Engineering
+PB-39 Living Off The Land    PB-49 Typosquatting
+PB-40 USB Removable Media    PB-50 Unauthorized Scanning
 ```
 
 ---
@@ -738,21 +750,22 @@ This repository provides **vendor-agnostic, production-ready SOC Standard Operat
 
 ```
 SOCSOP/
-├── 10_Training_Onboarding/           # SOC infrastructure setup
-├── 02_Platform_Operations/   # Data governance, deployment procedures
-├── 03_User_Guides/           # Detection engineering, tool integration
-├── 04_Troubleshooting/       # Standard troubleshooting methodology
-├── 05_Incident_Response/     # IR Framework + 50 Playbooks
-│   └── Playbooks/            # Individual incident playbooks (PB-01 to PB-50)
-├── 06_Operations_Management/ # Shift handoff, metrics, team structure, TLP, CTI
-├── 08_Detection_Engineering/sigma_rules/       # Sigma detection rules (.yml)
-├── 08_Simulation_Testing/    # Purple team guides, Atomic Red Team maps
-├── 10_Training_Onboarding/   # Analyst curriculum, training checklists
-├── 08_Detection_Engineering/file_signatures/       # YARA rules
-├── 11_Reporting_Templates/   # Monthly/quarterly executive reports
-├── 11_Reporting_Templates/  # (templates moved here)                # Incident report, shift handover, RFC forms
-├── tools/                    # Utility scripts (export, link check)
-└── assets/                   # Images (hero banner, etc.)
+├── 00_Getting_Started/        # SOC 101, Quickstart, Glossary
+├── 01_SOC_Fundamentals/       # Building roadmap, budget, tech stack
+├── 02_Platform_Operations/    # Data governance, deployment procedures
+├── 03_User_Guides/            # Detection engineering, tool integration
+├── 04_Troubleshooting/        # Standard troubleshooting methodology
+├── 05_Incident_Response/      # IR Framework + 50 Playbooks + Runbooks
+│   ├── Playbooks/             # Individual incident playbooks (PB-01 to PB-50)
+│   └── Runbooks/              # Tier 1/2/3 Runbooks (EN+TH)
+├── 06_Operations_Management/  # Shift handoff, metrics, team structure, CTI, TLP
+├── 07_Compliance_Privacy/     # ISO 27001, PCI-DSS, NIST CSF, PDPA
+├── 08_Detection_Engineering/  # Sigma detection rules, YARA file signatures
+├── 09_Simulation_Testing/     # Purple team guides, Atomic Red Team maps
+├── 10_Training_Onboarding/    # Analyst curriculum, training checklists
+├── 11_Reporting_Templates/    # Monthly/quarterly reports, incident forms
+├── tools/                     # Utility scripts (export, link check)
+└── assets/                    # Images (hero banner, etc.)
 ```
 
 ---
@@ -892,16 +905,27 @@ External links to authoritative sources. Always include at least 2 references.
 
 ### Playbook Index (PB-01 to PB-50)
 ```
-PB-01 Phishing               PB-11 Suspicious Script
-PB-02 Ransomware             PB-12 Lateral Movement
-PB-03 Malware Infection      PB-13 C2 Communication
-PB-04 Brute Force            PB-14 Insider Threat
-PB-05 Account Compromise     PB-15 Log Clearing
-PB-06 Impossible Travel      PB-16 Lost Device
-PB-07 Privilege Escalation   PB-17 Rogue Admin
-PB-08 Data Exfiltration      PB-18 BEC (Business Email Compromise)
-PB-09 DDoS Attack            PB-19 Web Application Attack
-PB-10 Exploit/Vulnerability  PB-20 Cloud-specific (AWS/Azure)
+PB-01 Phishing               PB-11 Suspicious Script      PB-21 Supply Chain Attack
+PB-02 Ransomware             PB-12 Lateral Movement       PB-22 API Abuse
+PB-03 Malware Infection      PB-13 C2 Communication       PB-23 Cloud IAM
+PB-04 Brute Force            PB-14 Insider Threat         PB-24 Cryptomining
+PB-05 Account Compromise     PB-15 Log Clearing           PB-25 Zero-Day Exploit
+PB-06 Impossible Travel      PB-16 Lost Device            PB-26 MFA Bypass
+PB-07 Privilege Escalation   PB-17 Rogue Admin            PB-27 Cloud Storage Exposure
+PB-08 Data Exfiltration      PB-18 BEC                    PB-28 Mobile Compromise
+PB-09 DDoS Attack            PB-19 Web Application Attack PB-29 Shadow IT
+PB-10 Exploit/Vulnerability  PB-20 DNS Tunneling          PB-30 OT/ICS Incident
+
+PB-31 AWS EC2 Compromise     PB-41 VPN Abuse
+PB-32 AWS S3 Compromise      PB-42 Email Account Takeover
+PB-33 Azure AD Compromise    PB-43 Watering Hole
+PB-34 Network Discovery      PB-44 Drive-By Download
+PB-35 Data Collection        PB-45 Rootkit/Bootkit
+PB-36 Credential Dumping     PB-46 SIM Swap
+PB-37 SQL Injection          PB-47 Cloud Cryptojacking
+PB-38 Wiper Attack           PB-48 Deepfake Social Engineering
+PB-39 Living Off The Land    PB-49 Typosquatting
+PB-40 USB Removable Media    PB-50 Unauthorized Scanning
 ```
 
 ---
@@ -2101,7 +2125,9 @@ When adding new documents, update these files (see [workflow](https://github.com
 | [Severity Matrix](05_Incident_Response/Severity_Matrix.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Incident Classification](05_Incident_Response/Incident_Classification.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Escalation Matrix](05_Incident_Response/Escalation_Matrix.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
-| [Tier 1 Runbook](05_Incident_Response/Runbooks/Tier1_Runbook.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [Tier 1 Runbook](05_Incident_Response/Runbooks/Tier1_Runbook.en.md) | 2.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
+| [Tier 2 Runbook](05_Incident_Response/Runbooks/Tier2_Runbook.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
+| [Tier 3 Runbook](05_Incident_Response/Runbooks/Tier3_Runbook.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
 | [Communication Templates](05_Incident_Response/Communication_Templates.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Forensic Investigation](05_Incident_Response/Forensic_Investigation.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Evidence Collection](05_Incident_Response/Evidence_Collection.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
@@ -2111,8 +2137,10 @@ When adding new documents, update these files (see [workflow](https://github.com
 | [SOAR Playbooks](05_Incident_Response/SOAR_Playbooks.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Lessons Learned Template](05_Incident_Response/Lessons_Learned_Template.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Playbook Development Guide](05_Incident_Response/Playbook_Development_Guide.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
+| [Tabletop Exercises](05_Incident_Response/Tabletop_Exercises.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
+| [Purple Team Exercises](05_Incident_Response/Purple_Team_Exercises.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
 
-## 🛡️ Incident Response — Playbooks (35)
+## 🛡️ Incident Response — Playbooks (50)
 
 | Playbook | Version | Last Updated | Status |
 |:---|:---:|:---:|:---:|
@@ -2123,6 +2151,9 @@ When adding new documents, update these files (see [workflow](https://github.com
 | PB-31 AWS EC2 → PB-33 Azure AD | 2.8 | 2026-02-16 | ✅ |
 | PB-34 Network Discovery | 2.8 | 2026-02-16 | ✅ |
 | PB-35 Data Collection | 2.8 | 2026-02-16 | ✅ |
+| PB-36 Credential Dumping → PB-40 USB Removable Media | 2.10 | 2026-02-16 | ✅ |
+| PB-41 VPN Abuse → PB-45 Rootkit/Bootkit | 2.10 | 2026-02-16 | ✅ |
+| PB-46 SIM Swap → PB-50 Unauthorized Scanning | 2.10 | 2026-02-16 | ✅ |
 
 ## 📊 Operations Management
 
@@ -2170,6 +2201,7 @@ When adding new documents, update these files (see [workflow](https://github.com
 | [SOC Analyst Onboarding](10_Training_Onboarding/SOC_Onboarding.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Analyst Onboarding Path](10_Training_Onboarding/Analyst_Onboarding_Path.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Training Checklist](10_Training_Onboarding/Training_Checklist.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [System Activation](10_Training_Onboarding/System_Activation.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
 
 ## 🏛️ Compliance
 
@@ -2203,14 +2235,14 @@ When adding new documents, update these files (see [workflow](https://github.com
 |:---|:---:|:---:|:---:|
 | Getting Started | 3 | ✅ | 2027-02 |
 | SOC Fundamentals | 6 | ✅ | 2027-02 |
-| Incident Response | 14 + 50 playbooks | ✅ | 2027-02 |
-| Operations Management | 31 | ✅ | 2027-02 |
-| Testing & Training | 7 | ✅ | 2027-02 |
+| Incident Response | 18 + 50 playbooks | ✅ | 2027-02 |
+| Operations Management | 28 | ✅ | 2027-02 |
+| Testing & Training | 8 | ✅ | 2027-02 |
 | Compliance | 8 | ✅ | 2027-02 |
 | Reports & Templates | 6 | ✅ | 2027-02 |
-| **Total** | **107+** | **✅ 100%** | **2027-02** |
+| **Total** | **127+** | **✅ 100%** | **2027-02** |
 
-> **Last tracker update**: 2026-02-16 | **Repository version**: 2.6.0
+> **Last tracker update**: 2026-03-06 | **Repository version**: 2.11.1
 
 
 ---
