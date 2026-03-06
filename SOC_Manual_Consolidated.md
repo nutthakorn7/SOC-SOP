@@ -13849,6 +13849,14 @@ In addition to Sigma rules, this directory contains **8 YARA rules** for file-ba
 
 ---
 
+## 🎯 Detection Coverage Matrix
+
+For a comprehensive view of Sigma, YARA, and MITRE ATT&CK coverage mapped to all 50 playbooks:
+
+> 📊 **[Coverage_Matrix.en.md](Coverage_Matrix.en.md)** | **[ตารางครอบคลุม (TH)](Coverage_Matrix.th.md)**
+
+---
+
 ## References
 -   [Sigma Official Repository](https://github.com/SigmaHQ/sigma)
 -   [MITRE ATT&CK Framework](https://attack.mitre.org/)
@@ -13975,6 +13983,14 @@ In addition to Sigma rules, this directory contains **8 YARA rules** for file-ba
 | 🟠 **สูง (High)** | มีโอกาสสูงที่เป็นเหตุการณ์จริง | ตรวจสอบภายใน 15 นาที |
 | 🟡 **ปานกลาง (Medium)** | ต้องตรวจสอบเพิ่มเติม | ตรวจสอบภายใน 1 ชั่วโมง |
 | 🟢 **ต่ำ (Low)** | ข้อมูลเสริม / ปกติ | ตรวจสอบในเวลาทำการ |
+
+## 🎯 ตาราง Detection Coverage
+
+ดูภาพรวม Sigma, YARA และ MITRE ATT&CK ที่ครอบคลุมทุก 50 Playbook:
+
+> 📊 **[Coverage_Matrix.th.md](Coverage_Matrix.th.md)** | **[Coverage Matrix (EN)](Coverage_Matrix.en.md)**
+
+---
 
 ## References
 -   [Sigma Official Repository](https://github.com/SigmaHQ/sigma)

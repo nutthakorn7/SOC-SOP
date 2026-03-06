@@ -121,6 +121,14 @@ In addition to Sigma rules, this directory contains **8 YARA rules** for file-ba
 
 ---
 
+## 🎯 Detection Coverage Matrix
+
+For a comprehensive view of Sigma, YARA, and MITRE ATT&CK coverage mapped to all 50 playbooks:
+
+> 📊 **[Coverage_Matrix.en.md](Coverage_Matrix.en.md)** | **[ตารางครอบคลุม (TH)](Coverage_Matrix.th.md)**
+
+---
+
 ## References
 -   [Sigma Official Repository](https://github.com/SigmaHQ/sigma)
 -   [MITRE ATT&CK Framework](https://attack.mitre.org/)
