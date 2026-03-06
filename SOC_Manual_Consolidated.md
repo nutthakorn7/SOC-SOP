@@ -2806,7 +2806,7 @@ Use this mapping for **audit preparation**, **gap analysis**, and **demonstratin
 |:---|:---:|:---|
 | **Identify (ID)** | ID.AM, ID.RA, ID.SC | 🟡 Partial — asset inventory & supply chain |
 | **Protect (PR)** | PR.AC, PR.AT, PR.DS, PR.IP, PR.PT | 🟡 Partial — access control & training |
-| **Detect (DE)** | DE.AE, DE.CM, DE.DP | 🟢 Strong — 28 Sigma rules + monitoring |
+| **Detect (DE)** | DE.AE, DE.CM, DE.DP | 🟢 Strong — 36 Sigma rules + monitoring |
 | **Respond (RS)** | RS.RP, RS.CO, RS.AN, RS.MI, RS.IM | 🟢 Strong — 50 playbooks + severity matrix |
 | **Recover (RC)** | RC.RP, RC.IM, RC.CO | 🟡 Partial — backup & communication |
 
@@ -2821,7 +2821,7 @@ Use this mapping for **audit preparation**, **gap analysis**, and **demonstratin
 | Req 7 — Restrict Access | 🟢 PB-07, PB-14, PB-15, PB-16 |
 | Req 8 — Identify Users | 🟢 PB-04, PB-05, PB-06 |
 | Req 9 — Physical Access | 🟡 PB-19 |
-| Req 10 — Log & Monitor | 🟢 28 Sigma rules + SOC monitoring |
+| Req 10 — Log & Monitor | 🟢 36 Sigma rules + SOC monitoring |
 | Req 11 — Test Security | 🟢 Detection rules + simulation guide |
 | Req 12 — Security Policies | 🟢 IR framework + severity matrix |
 
@@ -2832,7 +2832,7 @@ Use this mapping for **audit preparation**, **gap analysis**, and **demonstratin
 ### For ISO 27001 Auditors
 
 > "Show me your incident response procedures."  
-→ [IR Framework](../05_Incident_Response/Framework.en.md) + [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md) + any Playbook (PB-01 to PB-30)
+→ [IR Framework](../05_Incident_Response/Framework.en.md) + [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md) + any Playbook (PB-01 to PB-50)
 
 > "Show me your monitoring and detection capabilities."  
 → [Detection Rules Index](../08_Detection_Engineering/README.md) (36 Sigma rules) + [MITRE ATT&CK Heatmap](../tools/mitre_attack_heatmap.html)
@@ -34751,7 +34751,7 @@ Use this rubric to evaluate team performance after each exercise:
 - [IR Framework](Framework.en.md)
 - [Severity Matrix](Severity_Matrix.en.md)
 - [SOAR Playbook Templates](SOAR_Playbooks.en.md)
-- [All Playbooks (PB-01 to PB-30)](Playbooks/Phishing.en.md)
+- [All Playbooks (PB-01 to PB-50)](Playbooks/Phishing.en.md)
 
 
 ---
