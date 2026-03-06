@@ -9,7 +9,7 @@
 
 <p align="center">
   <b>เรียนรู้จากคนที่ทำจริง ไม่ใช่แค่ทฤษฎี</b><br>
-  <i>Real-world SOC training backed by 170+ open-source SOPs, 33 playbooks, and 33 Sigma rules</i>
+  <i>Real-world SOC training backed by 279 open-source SOPs, 50 playbooks, and 36 Sigma rules</i>
 </p>
 
 ---
@@ -142,7 +142,7 @@
 | 📐 SOC Architecture Document | Blueprint สำหรับองค์กรตนเอง |
 | 📊 Staffing Model + Budget Proposal | พร้อมนำเสนอผู้บริหารได้ทันที |
 | 🗺️ 6-Month Implementation Roadmap | แผน milestone + owner + timeline |
-| 📚 SOC SOP Template Pack | **170+ documents** ทั้ง EN/TH |
+| 📚 SOC SOP Template Pack | **279 documents** ทั้ง EN/TH |
 | 🔧 SOC Maturity Scorer | Interactive tool ประเมินตนเอง |
 | 📜 Certificate of Completion | ใบรับรองการอบรม |
 
@@ -258,7 +258,7 @@
 |:---|:---|
 | 📄 Personal Incident Report | จาก capstone exercise |
 | 🎯 MITRE ATT&CK Coverage Map | ขององค์กรตนเอง |
-| 📚 SOC SOP Template Pack | **170+ documents** ทั้ง EN/TH |
+| 📚 SOC SOP Template Pack | **279 documents** ทั้ง EN/TH |
 | 🔬 Lab Environment Access | ใช้ต่อได้ **30 วัน** หลังจบ |
 | 📜 Certificate of Completion | ใบรับรองการอบรม |
 

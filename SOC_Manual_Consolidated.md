@@ -1494,7 +1494,7 @@ When adding new documents, update these files (see [workflow](https://github.com
 
 <p align="center">
   <b>เรียนรู้จากคนที่ทำจริง ไม่ใช่แค่ทฤษฎี</b><br>
-  <i>Real-world SOC training backed by 170+ open-source SOPs, 33 playbooks, and 33 Sigma rules</i>
+  <i>Real-world SOC training backed by 279 open-source SOPs, 50 playbooks, and 36 Sigma rules</i>
 </p>
 
 ---
@@ -1627,7 +1627,7 @@ When adding new documents, update these files (see [workflow](https://github.com
 | 📐 SOC Architecture Document | Blueprint สำหรับองค์กรตนเอง |
 | 📊 Staffing Model + Budget Proposal | พร้อมนำเสนอผู้บริหารได้ทันที |
 | 🗺️ 6-Month Implementation Roadmap | แผน milestone + owner + timeline |
-| 📚 SOC SOP Template Pack | **170+ documents** ทั้ง EN/TH |
+| 📚 SOC SOP Template Pack | **279 documents** ทั้ง EN/TH |
 | 🔧 SOC Maturity Scorer | Interactive tool ประเมินตนเอง |
 | 📜 Certificate of Completion | ใบรับรองการอบรม |
 
@@ -1743,7 +1743,7 @@ When adding new documents, update these files (see [workflow](https://github.com
 |:---|:---|
 | 📄 Personal Incident Report | จาก capstone exercise |
 | 🎯 MITRE ATT&CK Coverage Map | ขององค์กรตนเอง |
-| 📚 SOC SOP Template Pack | **170+ documents** ทั้ง EN/TH |
+| 📚 SOC SOP Template Pack | **279 documents** ทั้ง EN/TH |
 | 🔬 Lab Environment Access | ใช้ต่อได้ **30 วัน** หลังจบ |
 | 📜 Certificate of Completion | ใบรับรองการอบรม |
 
@@ -2704,7 +2704,7 @@ graph TD
 
 ## Purpose
 
-This document maps all **30 SOC Playbooks**, **33 Sigma Detection Rules**, and key SOC operational controls to three major compliance frameworks:
+This document maps all **50 SOC Playbooks**, **36 Sigma Detection Rules**, and key SOC operational controls to three major compliance frameworks:
 
 - **ISO/IEC 27001:2022** — Information Security Management System
 - **NIST Cybersecurity Framework (CSF) 2.0** — Identify, Protect, Detect, Respond, Recover
@@ -2835,7 +2835,7 @@ Use this mapping for **audit preparation**, **gap analysis**, and **demonstratin
 → [IR Framework](../05_Incident_Response/Framework.en.md) + [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md) + any Playbook (PB-01 to PB-30)
 
 > "Show me your monitoring and detection capabilities."  
-→ [Detection Rules Index](../08_Detection_Engineering/README.md) (33 Sigma rules) + [MITRE ATT&CK Heatmap](../tools/mitre_attack_heatmap.html)
+→ [Detection Rules Index](../08_Detection_Engineering/README.md) (36 Sigma rules) + [MITRE ATT&CK Heatmap](../tools/mitre_attack_heatmap.html)
 
 > "Show me evidence of incident learning."  
 → [Post-Incident Review section](../05_Incident_Response/Framework.en.md) in all playbooks
@@ -2849,7 +2849,7 @@ Use this mapping for **audit preparation**, **gap analysis**, and **demonstratin
 → [IR Framework](../05_Incident_Response/Framework.en.md) + [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md)
 
 > "Requirement 11.5.1 — Intrusion detection?"  
-→ [33 Sigma Detection Rules](../08_Detection_Engineering/README.md) with MITRE ATT&CK mapping
+→ [36 Sigma Detection Rules](../08_Detection_Engineering/README.md) with MITRE ATT&CK mapping
 
 ---
 
@@ -2956,8 +2956,8 @@ Use this mapping for **audit preparation**, **gap analysis**, and **demonstratin
 |:---|:---:|:---|
 | **Identify (ระบุ)** | 🟡 | ครอบคลุมบางส่วน — สินทรัพย์ & Supply Chain |
 | **Protect (ป้องกัน)** | 🟡 | ครอบคลุมบางส่วน — Access Control & การฝึกอบรม |
-| **Detect (ตรวจจับ)** | 🟢 | ครอบคลุมดี — 33 Sigma Rules + การเฝ้าระวัง |
-| **Respond (ตอบสนอง)** | 🟢 | ครอบคลุมดี — 30 Playbooks + ตารางระดับความรุนแรง |
+| **Detect (ตรวจจับ)** | 🟢 | ครอบคลุมดี — 36 Sigma Rules + การเฝ้าระวัง |
+| **Respond (ตอบสนอง)** | 🟢 | ครอบคลุมดี — 50 Playbooks + ตารางระดับความรุนแรง |
 | **Recover (กู้คืน)** | 🟡 | ครอบคลุมบางส่วน — สำรองข้อมูล & สื่อสาร |
 
 ### PCI DSS v4.0
@@ -9601,7 +9601,7 @@ Track these 5 metrics from day 1 (see [SOC Metrics](../06_Operations_Management/
 
 ```
 □ All 30 playbooks reviewed (deploy relevant ones)
-□ All 33 Sigma rules deployed
+□ All 36 Sigma rules deployed
 □ First tabletop exercise completed
 □ SOC metrics dashboard created
 □ Monthly SOC report to management
