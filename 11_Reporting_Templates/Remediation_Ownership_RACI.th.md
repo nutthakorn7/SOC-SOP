@@ -5,7 +5,7 @@
 
 ```mermaid
 graph TD
-    A["เปิด Remediation Action"] --> B["กำหนด Owner และ Due Date"]
+    A["เปิดรายการ remediation"] --> B["กำหนด owner และกำหนดเสร็จ"]
     B --> C["ดำเนินการและตรวจสอบ"]
     C --> D["ทบทวน residual risk"]
     D --> E["ปิดงานหรือยกระดับ"]
@@ -18,7 +18,7 @@ graph TD
 
 ## 2. RACI Matrix
 
-| Activity | IR Engineer | SOC Manager | Security Owner | Business Owner | CISO |
+| กิจกรรม | IR Engineer | SOC Manager | Security Owner | Business Owner | CISO |
 |:---|:---:|:---:|:---:|:---:|:---:|
 | เปิด remediation item | **R** | A | C | I | I |
 | กำหนด owner และ due date | C | **A** | R | C | I |
@@ -44,10 +44,10 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 
--   [Remediation Backlog Prioritization](Remediation_Backlog_Prioritization.th.md)
--   [Monthly Remediation Review Pack](Monthly_Remediation_Review_Pack.th.md)
--   [Incident Report Template](incident_report.th.md)
--   [Risk Acceptance Template](Risk_Acceptance_Template.th.md)
+-   [แบบฟอร์มจัดลำดับ Remediation Backlog](Remediation_Backlog_Prioritization.th.md)
+-   [ชุดทบทวน Remediation รายเดือน](Monthly_Remediation_Review_Pack.th.md)
+-   [เทมเพลตรายงาน Incident](incident_report.th.md)
+-   [เทมเพลตการยอมรับความเสี่ยง](Risk_Acceptance_Template.th.md)
 
 ## References
 

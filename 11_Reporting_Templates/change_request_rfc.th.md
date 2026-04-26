@@ -127,7 +127,7 @@
 
 ## Approval Matrix
 
-| ประเภท Change | ระดับเสี่ยง | ผู้อนุมัติ | Lead Time |
+| ประเภท Change | ระดับเสี่ยง | ผู้อนุมัติ | เวลานำก่อนทำ (Lead Time) |
 |:---|:---|:---|:---|
 | Detection rule ใหม่ (test) | ต่ำ | SOC Lead | วันเดียว |
 | Detection rule (production) | ต่ำ-กลาง | SOC Lead + peer review | 24 ชม. |
@@ -154,7 +154,7 @@
 ## เอกสารที่เกี่ยวข้อง
 
 - [ขั้นตอนการ Deploy](../02_Platform_Operations/Deployment_Procedures.th.md)
-- [แบบฟอร์ม Incident](incident_report.th.md)
+- [เทมเพลตรายงาน Incident](incident_report.th.md)
 - [SOP การจัดการเปลี่ยนแปลง](../06_Operations_Management/Change_Management.th.md)
 
 ## ตารางประเมินความเสี่ยงของ Change
@@ -179,7 +179,7 @@ Subject: [RFC-XXXX] Change Notification
 
 ## คู่มือย่อสำหรับการอนุมัติ
 
-| Risk Level | Approver | Turnaround |
+| ระดับความเสี่ยง | ผู้อนุมัติ | เวลาตอบกลับ |
 |:---|:---|:---|
 | Low | Team lead | Same day |
 | Medium | Manager | 2 days |

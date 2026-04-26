@@ -15997,7 +15997,7 @@ graph TD
 
 ```mermaid
 graph TD
-    A["เปิด Remediation Action"] --> B["กำหนด Owner และ Due Date"]
+    A["เปิดรายการ remediation"] --> B["กำหนด owner และกำหนดเสร็จ"]
     B --> C["ดำเนินการและตรวจสอบ"]
     C --> D["ทบทวน residual risk"]
     D --> E["ปิดงานหรือยกระดับ"]
@@ -16010,7 +16010,7 @@ graph TD
 
 ## 2. RACI Matrix
 
-| Activity | IR Engineer | SOC Manager | Security Owner | Business Owner | CISO |
+| กิจกรรม | IR Engineer | SOC Manager | Security Owner | Business Owner | CISO |
 |:---|:---:|:---:|:---:|:---:|:---:|
 | เปิด remediation item | **R** | A | C | I | I |
 | กำหนด owner และ due date | C | **A** | R | C | I |
@@ -16036,10 +16036,10 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 
--   [Remediation Backlog Prioritization](Remediation_Backlog_Prioritization.th.md)
--   [Monthly Remediation Review Pack](Monthly_Remediation_Review_Pack.th.md)
--   [Incident Report Template](incident_report.th.md)
--   [Risk Acceptance Template](Risk_Acceptance_Template.th.md)
+-   [แบบฟอร์มจัดลำดับ Remediation Backlog](Remediation_Backlog_Prioritization.th.md)
+-   [ชุดทบทวน Remediation รายเดือน](Monthly_Remediation_Review_Pack.th.md)
+-   [เทมเพลตรายงาน Incident](incident_report.th.md)
+-   [เทมเพลตการยอมรับความเสี่ยง](Risk_Acceptance_Template.th.md)
 
 ## References
 
@@ -17356,7 +17356,7 @@ graph TD
 
 ## Approval Matrix
 
-| ประเภท Change | ระดับเสี่ยง | ผู้อนุมัติ | Lead Time |
+| ประเภท Change | ระดับเสี่ยง | ผู้อนุมัติ | เวลานำก่อนทำ (Lead Time) |
 |:---|:---|:---|:---|
 | Detection rule ใหม่ (test) | ต่ำ | SOC Lead | วันเดียว |
 | Detection rule (production) | ต่ำ-กลาง | SOC Lead + peer review | 24 ชม. |
@@ -17383,7 +17383,7 @@ graph TD
 ## เอกสารที่เกี่ยวข้อง
 
 - [ขั้นตอนการ Deploy](../02_Platform_Operations/Deployment_Procedures.th.md)
-- [แบบฟอร์ม Incident](incident_report.th.md)
+- [เทมเพลตรายงาน Incident](incident_report.th.md)
 - [SOP การจัดการเปลี่ยนแปลง](../06_Operations_Management/Change_Management.th.md)
 
 ## ตารางประเมินความเสี่ยงของ Change
@@ -17408,7 +17408,7 @@ Subject: [RFC-XXXX] Change Notification
 
 ## คู่มือย่อสำหรับการอนุมัติ
 
-| Risk Level | Approver | Turnaround |
+| ระดับความเสี่ยง | ผู้อนุมัติ | เวลาตอบกลับ |
 |:---|:---|:---|
 | Low | Team lead | Same day |
 | Medium | Manager | 2 days |
@@ -18338,14 +18338,14 @@ Use UTC timestamps and format consistently:
 - [ตัวชี้วัด SOC & KPIs](../06_Operations_Management/SOC_Metrics.th.md) — ตัวชี้วัดประสิทธิภาพ
 - [แบบฟอร์ม Incident Report](incident_report.th.md) — เอกสารหลังเหตุการณ์
 
-### Handover Quality Check
+### การตรวจคุณภาพการส่งมอบกะ
 
-| Item | Verified |
+| รายการ | ตรวจแล้ว |
 |:---|:---|
-| Open incidents listed | ☐ |
-| Pending actions noted | ☐ |
-| Unusual activity flagged | ☐ |
-| System health confirmed | ☐ |
+| ระบุรายการ incident ที่ยังเปิดครบแล้ว | ☐ |
+| บันทึกงานค้างและงานที่ต้องติดตามครบแล้ว | ☐ |
+| ระบุเหตุการณ์ผิดปกติที่ต้องจับตาครบแล้ว | ☐ |
+| ยืนยันสถานะสุขภาพระบบครบแล้ว | ☐ |
 
 ## References
 

@@ -163,14 +163,14 @@
 - [ตัวชี้วัด SOC & KPIs](../06_Operations_Management/SOC_Metrics.th.md) — ตัวชี้วัดประสิทธิภาพ
 - [แบบฟอร์ม Incident Report](incident_report.th.md) — เอกสารหลังเหตุการณ์
 
-### Handover Quality Check
+### การตรวจคุณภาพการส่งมอบกะ
 
-| Item | Verified |
+| รายการ | ตรวจแล้ว |
 |:---|:---|
-| Open incidents listed | ☐ |
-| Pending actions noted | ☐ |
-| Unusual activity flagged | ☐ |
-| System health confirmed | ☐ |
+| ระบุรายการ incident ที่ยังเปิดครบแล้ว | ☐ |
+| บันทึกงานค้างและงานที่ต้องติดตามครบแล้ว | ☐ |
+| ระบุเหตุการณ์ผิดปกติที่ต้องจับตาครบแล้ว | ☐ |
+| ยืนยันสถานะสุขภาพระบบครบแล้ว | ☐ |
 
 ## References
 
