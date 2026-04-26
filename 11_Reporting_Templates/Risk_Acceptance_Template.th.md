@@ -5,11 +5,11 @@
 
 ```mermaid
 graph TD
-    A["ระบุ Security Gap"] --> B["ประเมิน Business Impact"]
-    B --> C["กำหนด Compensating Controls"]
+    A["ระบุ security gap"] --> B["ประเมินผลกระทบทางธุรกิจ"]
+    B --> C["กำหนด compensating controls"]
     C --> D{"ยอมรับหรือแก้ไข"}
     D -->|ยอมรับ| E["บันทึก Owner และวันหมดอายุ"]
-    D -->|แก้ไข| F["ติดตามแผน Remediation"]
+    D -->|แก้ไข| F["ติดตามแผน remediation"]
 ```
 
 ## 1. ใช้แบบฟอร์มนี้เมื่อใด
@@ -20,7 +20,7 @@ graph TD
 
 ## 2. รายการบันทึกการตัดสินใจ
 
-| Field | Value |
+| รายการ | ค่า |
 |:---|:---|
 | **Risk Acceptance ID** | RA-[YYYYMMDD]-[001] |
 | **ผู้ร้องขอ** | [Name / Role] |
@@ -32,7 +32,7 @@ graph TD
 
 ## 3. รายละเอียดความเสี่ยง
 
-| Question | Answer |
+| คำถาม | คำตอบ |
 |:---|:---|
 | **ระบบหรือบริการที่ได้รับผลกระทบ** | |
 | **ช่องว่างของ control หรือข้อจำกัด** | |
@@ -42,7 +42,7 @@ graph TD
 
 ## 4. การประเมินความเสี่ยง
 
-| Dimension | Assessment |
+| มิติ | การประเมิน |
 |:---|:---|
 | **Likelihood** | ☐ Low · ☐ Medium · ☐ High |
 | **Impact** | ☐ Low · ☐ Medium · ☐ High · ☐ Critical |
@@ -52,7 +52,7 @@ graph TD
 
 ## 5. Compensating Controls
 
-| Control | Owner | Status | Evidence |
+| มาตรการทดแทน | Owner | สถานะ | หลักฐาน |
 |:---|:---|:---:|:---|
 | Increased monitoring | | ☐ In place · ☐ Planned | |
 | Temporary access restriction | | ☐ In place · ☐ Planned | |
@@ -68,7 +68,7 @@ graph TD
 
 ## 7. การอนุมัติ
 
-| Role | Name | Decision | Date |
+| บทบาท | ชื่อ | การตัดสินใจ | วันที่ |
 |:---|:---|:---:|:---|
 | Security Owner | | ☐ Recommend · ☐ Do Not Recommend | |
 | SOC Manager | | ☐ Reviewed | |
@@ -77,7 +77,7 @@ graph TD
 
 ## 8. งานติดตามผล
 
-| Action | Owner | Due Date | Status |
+| การดำเนินการ | Owner | กำหนดเสร็จ | สถานะ |
 |:---|:---|:---|:---:|
 | Review acceptance ก่อนหมดอายุ | | | ☐ |
 | Validate compensating controls | | | ☐ |
@@ -92,13 +92,13 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 
--   [Compliance Gap Analysis](../07_Compliance_Privacy/Compliance_Gap_Analysis.th.md)
--   [SLA Template](../06_Operations_Management/SLA_Template.th.md)
--   [Executive Dashboard](Executive_Dashboard.th.md)
--   [Monthly SOC Report](Monthly_SOC_Report.th.md)
--   [Monthly Governance Review Pack](Monthly_Governance_Review_Pack.th.md)
--   [Quarterly Risk Acceptance Review Pack](Quarterly_Risk_Acceptance_Review_Pack.th.md)
--   [Board Quarterly Decision Pack](Board_Quarterly_Decision_Pack.th.md)
+-   [การวิเคราะห์ช่องว่างด้าน Compliance](../07_Compliance_Privacy/Compliance_Gap_Analysis.th.md)
+-   [แม่แบบ SLA](../06_Operations_Management/SLA_Template.th.md)
+-   [แม่แบบ Dashboard สำหรับผู้บริหาร](Executive_Dashboard.th.md)
+-   [รายงานผลการดำเนินงาน SOC ประจำเดือน](Monthly_SOC_Report.th.md)
+-   [ชุดทบทวน Governance รายเดือน](Monthly_Governance_Review_Pack.th.md)
+-   [ชุดทบทวนการยอมรับความเสี่ยงรายไตรมาส](Quarterly_Risk_Acceptance_Review_Pack.th.md)
+-   [ชุดเอกสารการตัดสินใจรายไตรมาสสำหรับบอร์ด](Board_Quarterly_Decision_Pack.th.md)
 
 ## References
 

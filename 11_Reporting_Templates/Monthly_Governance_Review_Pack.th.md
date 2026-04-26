@@ -5,17 +5,17 @@
 
 ```mermaid
 graph TD
-    A["รวบรวม Governance Inputs รายเดือน"] --> B["ทบทวนความเสี่ยงและสถานะบริการ"]
+    A["รวบรวมข้อมูล governance รายเดือน"] --> B["ทบทวนความเสี่ยงและสถานะบริการ"]
     B --> C["ตรวจสอบการตัดสินใจและงานที่ค้าง"]
-    C --> D["อนุมัติ Escalation หรือ Deferral"]
-    D --> E["บันทึก Owner และ Due Date"]
+    C --> D["อนุมัติ escalation หรือ deferral"]
+    D --> E["บันทึก owner และกำหนดเสร็จ"]
 ```
 
 ## 1. ส่วนหัวการประชุม
 
-| Field | Value |
+| รายการ | ค่า |
 |:---|:---|
-| **Review Month** | [YYYY-MM] |
+| **เดือนที่ทบทวน** | [YYYY-MM] |
 | **ผู้จัดทำ** | |
 | **วันที่ทบทวน** | |
 | **ประธานการประชุม** | |
@@ -29,7 +29,7 @@ graph TD
 
 ## 3. สรุปสุขภาพด้าน Governance
 
-| Area | Status | Notes |
+| มิติ | สถานะ | หมายเหตุ |
 |:---|:---:|:---|
 | ประสิทธิภาพบริการ | 🟢 / 🟡 / 🔴 | |
 | open risk acceptances | 🟢 / 🟡 / 🔴 | |
@@ -47,7 +47,7 @@ graph TD
 
 ## 5. การทบทวนประเด็นตัดสินใจ
 
-| Item | Type | Owner | Current State | Decision Required |
+| รายการ | ประเภท | Owner | สถานะปัจจุบัน | สิ่งที่ต้องตัดสินใจ |
 |:---|:---|:---|:---|:---|
 | | Risk / SLA / Capacity / Exception | | | |
 | | | | | |
@@ -76,12 +76,12 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 
--   [Monthly SOC Report](Monthly_SOC_Report.th.md)
--   [SOC Service Catalog](../06_Operations_Management/SOC_Service_Catalog.th.md)
--   [Risk Acceptance Template](Risk_Acceptance_Template.th.md)
--   [Monthly Remediation Review Pack](Monthly_Remediation_Review_Pack.th.md)
--   [Quarterly Risk Acceptance Review Pack](Quarterly_Risk_Acceptance_Review_Pack.th.md)
--   [Annual Control Coverage Review Pack](Annual_Control_Coverage_Review_Pack.th.md)
+-   [รายงานผลการดำเนินงาน SOC ประจำเดือน](Monthly_SOC_Report.th.md)
+-   [แค็ตตาล็อกบริการของ SOC](../06_Operations_Management/SOC_Service_Catalog.th.md)
+-   [เทมเพลตการยอมรับความเสี่ยง](Risk_Acceptance_Template.th.md)
+-   [ชุดทบทวน Remediation รายเดือน](Monthly_Remediation_Review_Pack.th.md)
+-   [ชุดทบทวนการยอมรับความเสี่ยงรายไตรมาส](Quarterly_Risk_Acceptance_Review_Pack.th.md)
+-   [ชุดทบทวน Control Coverage ประจำปี](Annual_Control_Coverage_Review_Pack.th.md)
 
 ## References
 

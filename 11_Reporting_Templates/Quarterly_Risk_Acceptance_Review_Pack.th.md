@@ -5,17 +5,17 @@
 
 ```mermaid
 graph TD
-    A["รวบรวม Active Risk Acceptances"] --> B["ทบทวนวันหมดอายุและสถานะ Control"]
-    B --> C["ประเมิน Residual Risk"]
-    C --> D["Renew, Close, หรือ Escalate"]
+    A["รวบรวมรายการ risk acceptance ที่ยัง active"] --> B["ทบทวนวันหมดอายุและสถานะ control"]
+    B --> C["ประเมิน residual risk"]
+    C --> D["ต่ออายุ ปิด หรือยกระดับ"]
     D --> E["บันทึกมติของคณะกรรมการ"]
 ```
 
 ## 1. ส่วนหัวการประชุม
 
-| Field | Value |
+| รายการ | ค่า |
 |:---|:---|
-| **Quarter** | [Q1/Q2/Q3/Q4 YYYY] |
+| **ไตรมาส** | [Q1/Q2/Q3/Q4 YYYY] |
 | **ผู้จัดทำ** | |
 | **วันที่ทบทวน** | |
 | **ประธานการประชุม** | |
@@ -40,7 +40,7 @@ graph TD
 
 ## 4. ตารางทบทวน
 
-| Risk ID | Owner | Expiry | Current Residual Risk | Recommendation |
+| รหัสความเสี่ยง | Owner | วันหมดอายุ | Residual Risk ปัจจุบัน | ข้อเสนอแนะ |
 |:---|:---|:---:|:---|:---|
 | | | | | Renew / Close / Escalate |
 | | | | | |
@@ -71,11 +71,11 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 
--   [Risk Acceptance Template](Risk_Acceptance_Template.th.md)
--   [Security Exception Approval](Exception_Approval_Template.th.md)
--   [Board Quarterly Decision Pack](Board_Quarterly_Decision_Pack.th.md)
--   [Compliance Gap Analysis](../07_Compliance_Privacy/Compliance_Gap_Analysis.th.md)
--   [Monthly Governance Review Pack](Monthly_Governance_Review_Pack.th.md)
+-   [เทมเพลตการยอมรับความเสี่ยง](Risk_Acceptance_Template.th.md)
+-   [แบบฟอร์มอนุมัติข้อยกเว้นด้านความปลอดภัย](Exception_Approval_Template.th.md)
+-   [ชุดเอกสารการตัดสินใจรายไตรมาสสำหรับบอร์ด](Board_Quarterly_Decision_Pack.th.md)
+-   [การวิเคราะห์ช่องว่างด้าน Compliance](../07_Compliance_Privacy/Compliance_Gap_Analysis.th.md)
+-   [ชุดทบทวน Governance รายเดือน](Monthly_Governance_Review_Pack.th.md)
 
 ## References
 
