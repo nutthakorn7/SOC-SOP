@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/📄_Documents-335-blue?style=for-the-badge" alt="Documents">
+  <img src="https://img.shields.io/badge/📄_Documents-341-blue?style=for-the-badge" alt="Documents">
   <img src="https://img.shields.io/badge/🛡️_Playbooks-53-red?style=for-the-badge" alt="Playbooks">
   <img src="https://img.shields.io/badge/🔍_Sigma_Rules-54-orange?style=for-the-badge" alt="Sigma Rules">
   <img src="https://img.shields.io/badge/🌐_Bilingual-EN%2FTH-green?style=for-the-badge" alt="Bilingual">
@@ -54,7 +54,7 @@
 
 | Category | Count | Highlights |
 |:---|:---:|:---|
-| 📄 Documents (EN+TH) | 335 | Bilingual, vendor-agnostic SOPs |
+| 📄 Documents (EN+TH) | 341 | Bilingual, vendor-agnostic SOPs |
 | 🛡️ IR Playbooks | 53 | PB-01 Phishing → PB-53 AI Model Theft, MITRE/ATLAS mapped |
 | 🔍 Sigma Detection Rules | 54 | Ready-to-import SIEM rules |
 | 🧬 YARA Rules | 15 | File-based threat detection |
@@ -382,6 +382,7 @@ File-based threat detection: [YARA Index](08_Detection_Engineering/yara/README.m
 | **👤 SOC Analyst Onboarding** (90-day) | [Read](10_Training_Onboarding/SOC_Onboarding.en.md) | [อ่าน](10_Training_Onboarding/SOC_Onboarding.th.md) |
 | **Analyst Onboarding** (5-day path) | [Read](10_Training_Onboarding/Analyst_Onboarding_Path.en.md) | [อ่าน](10_Training_Onboarding/Analyst_Onboarding_Path.th.md) |
 | **Training Checklist** | [Read](10_Training_Onboarding/Training_Checklist.en.md) | [อ่าน](10_Training_Onboarding/Training_Checklist.th.md) |
+| **Thai Compliance Workshop Module** (6 slides) | [Read](10_Training_Onboarding/Thai_Compliance_Workshop_Module.en.md) | [อ่าน](10_Training_Onboarding/Thai_Compliance_Workshop_Module.th.md) |
 | **📋 Playbook Quick Reference** | [EN](Playbook_Quick_Reference.md) | [TH](Playbook_Quick_Reference.th.md) |
 
 ---
@@ -398,6 +399,7 @@ File-based threat detection: [YARA Index](08_Detection_Engineering/yara/README.m
 | **NIST CSF 2.0 Mapping** | [Read](07_Compliance_Privacy/NIST_CSF_Mapping.en.md) | [อ่าน](07_Compliance_Privacy/NIST_CSF_Mapping.th.md) |
 | **PDPA Incident Response** (72-hr notification) | [Read](07_Compliance_Privacy/PDPA_Incident_Response.en.md) | [อ่าน](07_Compliance_Privacy/PDPA_Incident_Response.th.md) |
 | **PDPA Compliance** | [Read](07_Compliance_Privacy/PDPA_Compliance.en.md) | [อ่าน](07_Compliance_Privacy/PDPA_Compliance.th.md) |
+| **Thai Cyber Legal Baseline** | [Read](07_Compliance_Privacy/Thai_Cyber_Legal_Baseline.en.md) | [อ่าน](07_Compliance_Privacy/Thai_Cyber_Legal_Baseline.th.md) |
 | **📝 Compliance Gap Analysis** | [Read](07_Compliance_Privacy/Compliance_Gap_Analysis.en.md) | [อ่าน](07_Compliance_Privacy/Compliance_Gap_Analysis.th.md) |
 | **Data Governance Policy** | [Read](07_Compliance_Privacy/Data_Governance_Policy.en.md) | [อ่าน](07_Compliance_Privacy/Data_Governance_Policy.th.md) |
 
@@ -420,6 +422,7 @@ File-based threat detection: [YARA Index](08_Detection_Engineering/yara/README.m
 | **Risk Acceptance Template** | [Read](11_Reporting_Templates/Risk_Acceptance_Template.en.md) | [อ่าน](11_Reporting_Templates/Risk_Acceptance_Template.th.md) |
 | **Security Exception Approval** | [Read](11_Reporting_Templates/Exception_Approval_Template.en.md) | [อ่าน](11_Reporting_Templates/Exception_Approval_Template.th.md) |
 | **Incident Decision Log** | [Read](11_Reporting_Templates/Incident_Decision_Log.en.md) | [อ่าน](11_Reporting_Templates/Incident_Decision_Log.th.md) |
+| **Thai Legal Escalation Template** | [Read](11_Reporting_Templates/Thai_Legal_Escalation_Template.en.md) | [อ่าน](11_Reporting_Templates/Thai_Legal_Escalation_Template.th.md) |
 | **Investment Justification Template** | [Read](11_Reporting_Templates/Investment_Justification_Template.en.md) | [อ่าน](11_Reporting_Templates/Investment_Justification_Template.th.md) |
 | **Log Source Onboarding Request** | [Read](11_Reporting_Templates/Log_Source_Onboarding_Request.en.md) | [อ่าน](11_Reporting_Templates/Log_Source_Onboarding_Request.th.md) |
 | **Detection Request Template** | [Read](11_Reporting_Templates/Detection_Request_Template.en.md) | [อ่าน](11_Reporting_Templates/Detection_Request_Template.th.md) |
@@ -472,7 +475,7 @@ File-based threat detection: [YARA Index](08_Detection_Engineering/yara/README.m
 
 For offline reading or printing, download the consolidated manual:
 
-> **[📖 SOC_Manual_Consolidated.md](https://github.com/nutthakorn7/SOC-SOP/blob/main/SOC_Manual_Consolidated.md)** — All 335 documents in one file
+> **[📖 SOC_Manual_Consolidated.md](https://github.com/nutthakorn7/SOC-SOP/blob/main/SOC_Manual_Consolidated.md)** — All 341 documents in one file
 
 ---
 
@@ -482,7 +485,7 @@ For offline reading or printing, download the consolidated manual:
 |:---|:---|
 | **[📝 CHANGELOG.md](CHANGELOG.md)** | All changes by version (Keep a Changelog format) |
 | **[📋 VERSION_TRACKER.md](VERSION_TRACKER.md)** | Every document's version, last update, and next review date |
-| **Current Version** | **v2.23.15** (2026-04-26) |
+| **Current Version** | **v2.24.0** (2026-04-26) |
 
 ---
 

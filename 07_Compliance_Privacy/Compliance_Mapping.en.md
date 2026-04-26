@@ -153,6 +153,18 @@ Before treating an AI system as production-ready, maintain these artifacts:
 | Week 3 | Connect priority AI risks to detections and playbooks | Detection backlog and triage checklist |
 | Week 4 | Test rollback, evidence capture, and executive communication | Tabletop record and escalation decision tree |
 
+## Thai Legal Trigger Mapping
+
+Use this section with [Thai Cyber Legal Baseline](Thai_Cyber_Legal_Baseline.en.md) and [Thai Legal Escalation Template](../11_Reporting_Templates/Thai_Legal_Escalation_Template.en.md). It is operational guidance for SOC teams, not legal advice.
+
+| Thai legal / coordination trigger | Incident trigger | SOC action | Owner | Evidence required | Escalation path | Notification checkpoint |
+|:---|:---|:---|:---|:---|:---|:---|
+| **PDPA** | Personal data may be exposed, copied, altered, encrypted, destroyed, or accessed without authorization | Start PDPA incident workflow, preserve data-impact facts, freeze deletion of relevant records | SOC Manager + DPO | Timeline, data classes, affected-subject estimate, sensitive-data indicator, containment state | DPO + Legal + CISO | DPO decides notify, defer, or not required |
+| **Computer-Related Crime Act** | Unauthorized access, data tampering, malicious tooling, traffic-data request, or suspected criminal activity | Preserve authentication, endpoint, network, application, and traffic logs | IR Engineer + Legal | Log package, account list, source/destination, timestamps, forensic hashes, custody trail | Legal + CISO | Legal decides law-enforcement or authority response |
+| **Cybersecurity Act** | Cyber threat affects critical service, public-facing service, or possible critical information infrastructure | Assess impact level, maintain war-room timeline, prepare coordination package | CISO + SOC Manager | Service impact, downtime, affected population, containment actions, recovery status | CISO + Business Owner + Legal | CISO decides NCSA / regulator / executive escalation |
+| **Electronic Transactions Act** | Electronic records, approvals, signatures, or digital messages may be used as evidence | Preserve integrity, authenticity, time source, system-of-record proof, and chain of custody | IR Lead + Security Engineer | Evidence register, hashes, custodian, time sync proof, source system owner | Legal + IR Lead | Legal confirms legal hold and release rules |
+| **NCSA / ThaiCERT coordination** | National-level advisory, sectoral CERT contact, major IOC sharing, or coordinated response need | Build IOC package and sharing approval record | Threat Intel Lead + CISO | IOC list, confidence level, observed scope, sanitization review, sharing approval | CISO + Legal + Communications | CISO approves external sharing or response |
+
 ## Minimum Audit Evidence Pack
 
 | Evidence | Why It Matters | Owner |
@@ -243,6 +255,8 @@ Before treating an AI system as production-ready, maintain these artifacts:
 - [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md)
 - [Detection Rules Index](../08_Detection_Engineering/README.md)
 - [SOC Use Case Library](../08_Detection_Engineering/SOC_Use_Case_Library.en.md)
+- [Thai Cyber Legal Baseline](Thai_Cyber_Legal_Baseline.en.md)
+- [Thai Legal Escalation Template](../11_Reporting_Templates/Thai_Legal_Escalation_Template.en.md)
 - [MITRE ATT&CK Heatmap](../tools/mitre_attack_heatmap.html)
 - [SOC Maturity Scorer](../tools/soc_maturity_scorer.html)
 
@@ -254,3 +268,5 @@ Before treating an AI system as production-ready, maintain these artifacts:
 - [PCI DSS v4.0](https://www.pcisecuritystandards.org/document_library/)
 - [MITRE ATT&CK Framework](https://attack.mitre.org/)
 - [MITRE ATLAS](https://atlas.mitre.org/)
+- [Ministry of Digital Economy and Society — Cybersecurity Act B.E. 2562 (2019)](https://www.mdes.go.th/law/detail/1904-Cybersecurity-Act--B-E--2562--2019-)
+- [Government Platform for PDPA Compliance](https://gppc.pdpc.or.th/)

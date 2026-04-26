@@ -376,6 +376,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.24.0] - 2026-04-26
+
+- Thai compliance baseline — added EN/TH SOC operating guidance for PDPA, Computer-Related Crime Act, Cybersecurity Act, Electronic Transactions Act, and NCSA / ThaiCERT coordination.
+- Thai legal escalation template — added EN/TH reporting template for legal-impact checkpoints, notification decision logs, evidence packages, and executive escalation briefs.
+- Workshop module — added a concise 6-slide EN/TH Thai compliance module for the 1-day SOC workshop plan.
+- Compliance mapping — connected Thai legal triggers to SOC actions, owners, evidence, escalation paths, and notification checkpoints.
+- **README.md**, **mkdocs.yml**, and **VERSION_TRACKER.md** — updated repository index, navigation, and version metadata.
+
 ## [2.23.15] - 2026-04-26
 
 - Post-incident improvement path — connected PIR outputs to remediation intake, monthly governance, quarterly risk acceptance, and board follow-up so recurring weaknesses cannot stop at documentation.
@@ -2508,6 +2516,7 @@ When adding new documents, update these files (see [workflow](https://github.com
 | [SOC Analyst Onboarding](10_Training_Onboarding/SOC_Onboarding.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Analyst Onboarding Path](10_Training_Onboarding/Analyst_Onboarding_Path.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Training Checklist](10_Training_Onboarding/Training_Checklist.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [Thai Compliance Workshop Module](10_Training_Onboarding/Thai_Compliance_Workshop_Module.en.md) | 1.0 | 2026-04-26 | ✅ Current | 2027-04-26 |
 | [System Activation](10_Training_Onboarding/System_Activation.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
 
 ## 🔍 Detection Engineering
@@ -2528,6 +2537,7 @@ When adding new documents, update these files (see [workflow](https://github.com
 | [PDPA Incident Response](07_Compliance_Privacy/PDPA_Incident_Response.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Compliance Gap Analysis](07_Compliance_Privacy/Compliance_Gap_Analysis.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
 | [PDPA Compliance](07_Compliance_Privacy/PDPA_Compliance.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
+| [Thai Cyber Legal Baseline](07_Compliance_Privacy/Thai_Cyber_Legal_Baseline.en.md) | 1.0 | 2026-04-26 | ✅ Current | 2027-04-26 |
 | [Data Governance Policy](07_Compliance_Privacy/Data_Governance_Policy.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
 
 ## 📄 Reports & Templates
@@ -2544,6 +2554,7 @@ When adding new documents, update these files (see [workflow](https://github.com
 | [Risk Acceptance Template](11_Reporting_Templates/Risk_Acceptance_Template.en.md) | 1.0 | 2026-04-26 | ✅ Current | 2027-04-26 |
 | [Security Exception Approval](11_Reporting_Templates/Exception_Approval_Template.en.md) | 1.0 | 2026-04-26 | ✅ Current | 2027-04-26 |
 | [Incident Decision Log](11_Reporting_Templates/Incident_Decision_Log.en.md) | 1.0 | 2026-04-26 | ✅ Current | 2027-04-26 |
+| [Thai Legal Escalation Template](11_Reporting_Templates/Thai_Legal_Escalation_Template.en.md) | 1.0 | 2026-04-26 | ✅ Current | 2027-04-26 |
 | [Investment Justification Template](11_Reporting_Templates/Investment_Justification_Template.en.md) | 1.0 | 2026-04-26 | ✅ Current | 2027-04-26 |
 | [Log Source Onboarding Request](11_Reporting_Templates/Log_Source_Onboarding_Request.en.md) | 1.0 | 2026-04-26 | ✅ Current | 2027-04-26 |
 | [Detection Request Template](11_Reporting_Templates/Detection_Request_Template.en.md) | 1.0 | 2026-04-26 | ✅ Current | 2027-04-26 |
@@ -2572,13 +2583,13 @@ When adding new documents, update these files (see [workflow](https://github.com
 | SOC Fundamentals | 6 | ✅ | 2027-02 |
 | Incident Response | 18 + 53 playbooks | ✅ | 2027-03 |
 | Operations Management | 29 | ✅ | 2027-04 |
-| Testing & Training | 8 | ✅ | 2027-02 |
+| Testing & Training | 9 | ✅ | 2027-04 |
 | Detection Engineering | 2 | ✅ | 2027-04 |
-| Compliance | 8 | ✅ | 2027-04 |
-| Reports & Templates | 27 | ✅ | 2027-04 |
-| **Total** | **156+** | **✅ 100%** | **2027-04** |
+| Compliance | 9 | ✅ | 2027-04 |
+| Reports & Templates | 28 | ✅ | 2027-04 |
+| **Total** | **159+** | **✅ 100%** | **2027-04** |
 
-> **Last tracker update**: 2026-04-26 | **Repository version**: 2.23.15
+> **Last tracker update**: 2026-04-26 | **Repository version**: 2.24.0
 
 
 ---
@@ -3233,6 +3244,18 @@ Before treating an AI system as production-ready, maintain these artifacts:
 | Week 3 | Connect priority AI risks to detections and playbooks | Detection backlog and triage checklist |
 | Week 4 | Test rollback, evidence capture, and executive communication | Tabletop record and escalation decision tree |
 
+## Thai Legal Trigger Mapping
+
+Use this section with [Thai Cyber Legal Baseline](Thai_Cyber_Legal_Baseline.en.md) and [Thai Legal Escalation Template](../11_Reporting_Templates/Thai_Legal_Escalation_Template.en.md). It is operational guidance for SOC teams, not legal advice.
+
+| Thai legal / coordination trigger | Incident trigger | SOC action | Owner | Evidence required | Escalation path | Notification checkpoint |
+|:---|:---|:---|:---|:---|:---|:---|
+| **PDPA** | Personal data may be exposed, copied, altered, encrypted, destroyed, or accessed without authorization | Start PDPA incident workflow, preserve data-impact facts, freeze deletion of relevant records | SOC Manager + DPO | Timeline, data classes, affected-subject estimate, sensitive-data indicator, containment state | DPO + Legal + CISO | DPO decides notify, defer, or not required |
+| **Computer-Related Crime Act** | Unauthorized access, data tampering, malicious tooling, traffic-data request, or suspected criminal activity | Preserve authentication, endpoint, network, application, and traffic logs | IR Engineer + Legal | Log package, account list, source/destination, timestamps, forensic hashes, custody trail | Legal + CISO | Legal decides law-enforcement or authority response |
+| **Cybersecurity Act** | Cyber threat affects critical service, public-facing service, or possible critical information infrastructure | Assess impact level, maintain war-room timeline, prepare coordination package | CISO + SOC Manager | Service impact, downtime, affected population, containment actions, recovery status | CISO + Business Owner + Legal | CISO decides NCSA / regulator / executive escalation |
+| **Electronic Transactions Act** | Electronic records, approvals, signatures, or digital messages may be used as evidence | Preserve integrity, authenticity, time source, system-of-record proof, and chain of custody | IR Lead + Security Engineer | Evidence register, hashes, custodian, time sync proof, source system owner | Legal + IR Lead | Legal confirms legal hold and release rules |
+| **NCSA / ThaiCERT coordination** | National-level advisory, sectoral CERT contact, major IOC sharing, or coordinated response need | Build IOC package and sharing approval record | Threat Intel Lead + CISO | IOC list, confidence level, observed scope, sanitization review, sharing approval | CISO + Legal + Communications | CISO approves external sharing or response |
+
 ## Minimum Audit Evidence Pack
 
 | Evidence | Why It Matters | Owner |
@@ -3323,6 +3346,8 @@ Before treating an AI system as production-ready, maintain these artifacts:
 - [Severity Matrix](../05_Incident_Response/Severity_Matrix.en.md)
 - [Detection Rules Index](../08_Detection_Engineering/README.md)
 - [SOC Use Case Library](../08_Detection_Engineering/SOC_Use_Case_Library.en.md)
+- [Thai Cyber Legal Baseline](Thai_Cyber_Legal_Baseline.en.md)
+- [Thai Legal Escalation Template](../11_Reporting_Templates/Thai_Legal_Escalation_Template.en.md)
 - [MITRE ATT&CK Heatmap](../tools/mitre_attack_heatmap.html)
 - [SOC Maturity Scorer](../tools/soc_maturity_scorer.html)
 
@@ -3334,6 +3359,8 @@ Before treating an AI system as production-ready, maintain these artifacts:
 - [PCI DSS v4.0](https://www.pcisecuritystandards.org/document_library/)
 - [MITRE ATT&CK Framework](https://attack.mitre.org/)
 - [MITRE ATLAS](https://atlas.mitre.org/)
+- [Ministry of Digital Economy and Society — Cybersecurity Act B.E. 2562 (2019)](https://www.mdes.go.th/law/detail/1904-Cybersecurity-Act--B-E--2562--2019-)
+- [Government Platform for PDPA Compliance](https://gppc.pdpc.or.th/)
 
 
 ---
@@ -3475,6 +3502,18 @@ graph TD
 | สัปดาห์ที่ 3 | เชื่อมความเสี่ยง AI หลักกับ detections และ playbooks | detection backlog และ triage checklist |
 | สัปดาห์ที่ 4 | ทดสอบ rollback, evidence capture, และ executive communication | tabletop record และ escalation decision tree |
 
+## การแมป Trigger กฎหมายไทย (Thai Legal Trigger Mapping)
+
+ใช้ส่วนนี้ร่วมกับ [Thai Cyber Legal Baseline](Thai_Cyber_Legal_Baseline.th.md) และ [Thai Legal Escalation Template](../11_Reporting_Templates/Thai_Legal_Escalation_Template.th.md) เนื้อหานี้เป็นแนวทางปฏิบัติของ SOC ไม่ใช่คำปรึกษากฎหมาย
+
+| กฎหมาย / จุดประสานงาน | Incident trigger | SOC action | Owner | Evidence required | Escalation path | Notification checkpoint |
+|:---|:---|:---|:---|:---|:---|:---|
+| **PDPA** | ข้อมูลส่วนบุคคลอาจถูกเปิดเผย คัดลอก แก้ไข เข้ารหัส ทำลาย หรือเข้าถึงโดยไม่มีสิทธิ์ | เปิด PDPA incident workflow, เก็บ data-impact facts, freeze การลบ record ที่เกี่ยวข้อง | SOC Manager + DPO | timeline, data class, affected-subject estimate, sensitive-data indicator, containment state | DPO + Legal + CISO | DPO ตัดสิน notify, defer หรือ not required |
+| **พ.ร.บ. คอมพิวเตอร์** | unauthorized access, data tampering, malicious tooling, traffic-data request หรือกิจกรรมที่อาจเป็นคดี | เก็บ authentication, endpoint, network, application และ traffic logs | IR Engineer + Legal | log package, account list, source/destination, timestamps, forensic hashes, custody trail | Legal + CISO | Legal ตัดสิน law-enforcement หรือ authority response |
+| **พ.ร.บ. ไซเบอร์** | cyber threat กระทบบริการสำคัญ บริการสาธารณะ หรืออาจเกี่ยวข้องกับ CII | ประเมิน impact level, เก็บ war-room timeline, เตรียม coordination package | CISO + SOC Manager | service impact, downtime, affected population, containment actions, recovery status | CISO + Business Owner + Legal | CISO ตัดสิน NCSA / regulator / executive escalation |
+| **พ.ร.บ. ธุรกรรมอิเล็กทรอนิกส์** | electronic record, approval, signature หรือ digital message อาจใช้เป็นหลักฐาน | รักษา integrity, authenticity, time source, system-of-record proof และ chain of custody | IR Lead + Security Engineer | evidence register, hashes, custodian, time sync proof, source system owner | Legal + IR Lead | Legal ยืนยัน legal hold และ release rules |
+| **NCSA / ThaiCERT** | national advisory, sectoral CERT contact, major IOC sharing หรือ coordinated response | จัดทำ IOC package และ sharing approval record | Threat Intel Lead + CISO | IOC list, confidence level, observed scope, sanitization review, sharing approval | CISO + Legal + Communications | CISO อนุมัติ external sharing หรือ response |
+
 ## ชุดหลักฐานขั้นต่ำสำหรับ Audit (Minimum Audit Evidence Pack)
 
 | หลักฐาน | เหตุผล | ผู้รับผิดชอบ |
@@ -3546,6 +3585,8 @@ graph TD
 - [ตารางความรุนแรง](../05_Incident_Response/Severity_Matrix.th.md)
 - [ดัชนี Detection Rules](../08_Detection_Engineering/README.th.md)
 - [SOC Use Case Library](../08_Detection_Engineering/SOC_Use_Case_Library.th.md)
+- [Thai Cyber Legal Baseline](Thai_Cyber_Legal_Baseline.th.md)
+- [Thai Legal Escalation Template](../11_Reporting_Templates/Thai_Legal_Escalation_Template.th.md)
 - [แผนที่ Coverage MITRE ATT&CK](../tools/mitre_attack_heatmap.html)
 - [เครื่องมือวัดคะแนน SOC Maturity](../tools/soc_maturity_scorer.html)
 
@@ -3597,6 +3638,8 @@ PDPA:      ███████████████████░░  90% 
 - [PCI DSS v4.0](https://www.pcisecuritystandards.org/document_library/)
 - [MITRE ATT&CK Framework](https://attack.mitre.org/)
 - [MITRE ATLAS](https://atlas.mitre.org/)
+- [Ministry of Digital Economy and Society — Cybersecurity Act B.E. 2562 (2019)](https://www.mdes.go.th/law/detail/1904-Cybersecurity-Act--B-E--2562--2019-)
+- [Government Platform for PDPA Compliance](https://gppc.pdpc.or.th/)
 
 
 ---
@@ -5791,6 +5834,206 @@ graph LR
 
 - [Thailand Personal Data Protection Committee (PDPC)](https://www.pdpc.or.th/)
 - [NIST SP 800-61r2](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
+
+
+---
+
+## File: 07_Compliance_Privacy/Thai_Cyber_Legal_Baseline.en.md
+# Thai Cyber Legal Baseline for SOC Operations
+
+**Document ID**: TH-LAW-SOC-001
+**Version**: 1.0
+**Classification**: Internal
+**Last Updated**: 2026-04-26
+**Audience**: CISO, SOC Manager, IR Engineer, Security Engineer, Compliance Officer, Legal Counsel
+
+> This document provides operational SOC guidance, not legal advice. Use it to trigger the right evidence, escalation, and decision workflow while Legal, DPO, or Compliance confirms the organization's formal position.
+
+```mermaid
+graph TD
+    A["Security incident detected"] --> B["Classify data, service, and legal impact"]
+    B --> C{"Thai legal trigger?"}
+    C -->|PDPA| D["Activate DPO / privacy path"]
+    C -->|Computer Crime / Cybersecurity| E["Preserve logs and coordinate Legal / CISO"]
+    C -->|Electronic records| F["Preserve integrity and chain of custody"]
+    D --> G["Record notification decision"]
+    E --> G
+    F --> G
+```
+
+## 1. Purpose and Operating Principle
+
+-   [ ] Use this baseline when an incident may involve Thai legal, privacy, regulatory, law-enforcement, or critical-service implications.
+-   [ ] Treat PDPA-specific breach assessment as governed by [PDPA Incident Response](PDPA_Incident_Response.en.md) and [PDPA Compliance](PDPA_Compliance.en.md).
+-   [ ] Preserve facts before interpretation: time, asset, owner, data type, user identity, log source, evidence custodian, and decision owner.
+-   [ ] Escalate early when an incident involves personal data, public service disruption, critical infrastructure, criminal activity, or requests from authorities.
+
+## 2. Thai Legal Baseline for SOC Teams
+
+| Legal anchor | SOC operating concern | Primary SOC action | Decision owner |
+|:---|:---|:---|:---|
+| **Personal Data Protection Act B.E. 2562 (PDPA)** | Personal data, sensitive personal data, affected data subjects, breach notification | Trigger DPO review, preserve breach timeline, link to PDPA evidence pack | DPO + CISO |
+| **Computer-Related Crime Act B.E. 2550 and amendments** | Unauthorized access, data alteration, service disruption, malicious tools, unlawful content, traffic data | Preserve traffic logs, user attribution data, forensic images, and law-enforcement request trail | Legal + CISO |
+| **Cybersecurity Act B.E. 2562** | Cyber threat affecting critical services, public safety, or critical information infrastructure | Assess threat level, prepare coordination package, preserve impact evidence | CISO + SOC Manager |
+| **Electronic Transactions Act B.E. 2544 and amendments** | Electronic records, digital messages, logs, approvals, signatures, evidence reliability | Preserve integrity, authenticity, time source, system-of-record proof, and chain of custody | Legal + IR Lead |
+| **NCSA / ThaiCERT coordination** | National-level advisories, sectoral CERT coordination, threat sharing, critical incident coordination | Maintain IOC package, timeline, contact record, and sharing approval | CISO + Threat Intel Lead |
+
+## 3. Trigger-to-Action Matrix
+
+| Incident trigger | Required SOC action | Owner | Evidence required | Notification checkpoint |
+|:---|:---|:---|:---|:---|
+| Confirmed or suspected personal-data exposure | Activate PDPA assessment workflow and freeze deletion of relevant records | SOC Manager + DPO | Incident timeline, data types, affected systems, affected subject estimate | DPO decides notification path |
+| Unauthorized access to computer system or data | Preserve authentication, network, endpoint, and application logs | IR Engineer | Log bundle, affected accounts, source/destination, access method, containment timeline | Legal decides law-enforcement path |
+| Service disruption affecting critical business or public-facing service | Assess whether Cybersecurity Act escalation may apply | CISO + SOC Manager | Impact summary, service owner statement, downtime, affected population | CISO decides executive/regulator path |
+| Request from authority, regulator, or sectoral CERT | Validate request channel and start response decision log | Legal + CISO | Request copy, requester identity, time received, scope requested, response owner | Legal approves response package |
+| Electronic evidence may support legal, regulatory, or disciplinary action | Start legal hold and chain-of-custody handling | IR Lead + Legal | Evidence register, hash values, custodian trail, time synchronization proof | Legal confirms preservation scope |
+
+## 4. Minimum Evidence Package
+
+| Evidence item | Why it matters | Minimum standard |
+|:---|:---|:---|
+| Incident timeline | Supports reporting, breach assessment, and executive decision-making | Detection, triage, containment, escalation, recovery, and decision timestamps |
+| Asset and service ownership | Identifies accountable business and technical owners | Business owner, technical owner, data owner, service criticality |
+| Log and traffic data package | Supports investigation and possible authority requests | Source system, retention status, collection time, completeness statement |
+| Data-impact assessment | Connects technical facts to PDPA and business impact | Data class, subject estimate, sensitive-data indicator, evidence confidence |
+| Chain of custody | Protects evidentiary value | Custodian, transfer time, storage location, hash or integrity marker |
+| Notification decision log | Shows defensible governance | Facts reviewed, decision made, approver, time, next review point |
+
+## 5. Escalation Rules
+
+-   [ ] Escalate to **DPO + Legal + CISO immediately** when personal data or sensitive personal data may be exposed.
+-   [ ] Escalate to **CISO + Legal** when there is unauthorized system access, suspected criminal activity, destructive action, or a request from authorities.
+-   [ ] Escalate to **CISO + SOC Manager + Business Service Owner** when a cyber event disrupts a critical business service or may affect public safety.
+-   [ ] Escalate to **IR Lead + Legal** before releasing, deleting, reimaging, or returning assets that may become evidence.
+-   [ ] Use [Thai Legal Escalation Template](../11_Reporting_Templates/Thai_Legal_Escalation_Template.en.md) for every material decision.
+
+## 6. 24-Hour SOC Operating Checklist
+
+-   [ ] Confirm affected systems, owners, and data classification.
+-   [ ] Preserve logs and prevent automatic deletion for impacted sources.
+-   [ ] Assign a single decision-log owner.
+-   [ ] Capture facts separately from assumptions.
+-   [ ] Notify Legal, DPO, Compliance, or CISO based on the trigger matrix.
+-   [ ] Prepare an evidence package before any external or regulator-facing statement.
+-   [ ] Record why notification is required, deferred, or not required.
+
+## Related Documents
+
+-   [PDPA Incident Response](PDPA_Incident_Response.en.md)
+-   [PDPA Compliance](PDPA_Compliance.en.md)
+-   [Compliance Mapping](Compliance_Mapping.en.md)
+-   [Data Governance Policy](Data_Governance_Policy.en.md)
+-   [Incident Decision Log](../11_Reporting_Templates/Incident_Decision_Log.en.md)
+-   [Thai Legal Escalation Template](../11_Reporting_Templates/Thai_Legal_Escalation_Template.en.md)
+
+## References
+
+-   [Ministry of Digital Economy and Society — Cybersecurity Act B.E. 2562 (2019)](https://www.mdes.go.th/law/detail/1904-Cybersecurity-Act--B-E--2562--2019-)
+-   [Ministry of Digital Economy and Society — Computer-Related Crime Act B.E. 2550 (2007)](https://www.mdes.go.th/law/detail/3618-COMPUTER-RELATED-CRIME-ACT-B-E--2550--2007-)
+-   [ETDA — Electronic Transactions Act laws and standards](https://www.etda.or.th/en/ETC/strategy-law-standard/law.aspx)
+-   [PDPA Thailand — Personal Data Protection Act B.E. 2562 (2019)](https://pdpathailand.com/pdpa/index_eng.html)
+-   [Government Platform for PDPA Compliance — Data Breach Notification Management](https://gppc.pdpc.or.th/)
+-   [Thailand Computer Emergency Response Team / ThaiCERT](https://www.thaicert.or.th/en/homepage/)
+
+
+---
+
+## File: 07_Compliance_Privacy/Thai_Cyber_Legal_Baseline.th.md
+# แนวทางกฎหมายไซเบอร์ไทยสำหรับการปฏิบัติงาน SOC
+
+**Document ID**: TH-LAW-SOC-001
+**Version**: 1.0
+**Classification**: Internal
+**Last Updated**: 2026-04-26
+**กลุ่มเป้าหมาย**: CISO, SOC Manager, IR Engineer, Security Engineer, Compliance Officer, Legal Counsel
+
+> เอกสารนี้เป็นแนวทางปฏิบัติสำหรับ SOC ไม่ใช่คำปรึกษากฎหมาย ใช้เพื่อเปิด workflow ด้านหลักฐาน การยกระดับ และการตัดสินใจ ขณะที่ Legal, DPO หรือ Compliance เป็นผู้ยืนยันสถานะทางกฎหมายอย่างเป็นทางการ
+
+```mermaid
+graph TD
+    A["พบเหตุด้านความปลอดภัย"] --> B["จำแนกข้อมูล บริการ และผลกระทบทางกฎหมาย"]
+    B --> C{"เข้าเงื่อนไขกฎหมายไทยหรือไม่"}
+    C -->|PDPA| D["เปิดเส้นทาง DPO / privacy"]
+    C -->|"พ.ร.บ.คอมพิวเตอร์ / พ.ร.บ.ไซเบอร์"| E["เก็บ log และประสาน Legal / CISO"]
+    C -->|"หลักฐานอิเล็กทรอนิกส์"| F["รักษาความครบถ้วนและ chain of custody"]
+    D --> G["บันทึกการตัดสินใจเรื่องการแจ้ง"]
+    E --> G
+    F --> G
+```
+
+## 1. วัตถุประสงค์และหลักปฏิบัติ
+
+-   [ ] ใช้ baseline นี้เมื่อ incident อาจเกี่ยวข้องกับกฎหมายไทย privacy regulator law enforcement หรือบริการสำคัญ
+-   [ ] ให้การประเมิน data breach ตาม PDPA อ้างอิง [คู่มือตอบเหตุข้อมูลรั่วตาม PDPA](PDPA_Incident_Response.th.md) และ [ขั้นตอนปฏิบัติตาม PDPA](PDPA_Compliance.th.md)
+-   [ ] เก็บข้อเท็จจริงก่อนตีความ ได้แก่ เวลา asset owner ประเภทข้อมูล identity log source ผู้ดูแลหลักฐาน และ decision owner
+-   [ ] ยกระดับเร็วเมื่อ incident เกี่ยวข้องกับข้อมูลส่วนบุคคล บริการสาธารณะ ระบบสำคัญ การกระทำผิดทางคอมพิวเตอร์ หรือคำขอจากหน่วยงานรัฐ
+
+## 2. Baseline กฎหมายไทยสำหรับ SOC
+
+| กฎหมาย / หน่วยงานอ้างอิง | ประเด็นที่ SOC ต้องระวัง | การดำเนินการหลักของ SOC | ผู้ตัดสินใจ |
+|:---|:---|:---|:---|
+| **พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 (PDPA)** | ข้อมูลส่วนบุคคล ข้อมูลอ่อนไหว เจ้าของข้อมูลที่ได้รับผลกระทบ การแจ้งเหตุละเมิด | เปิด DPO review เก็บ breach timeline และเชื่อม evidence pack ของ PDPA | DPO + CISO |
+| **พ.ร.บ.ว่าด้วยการกระทำความผิดเกี่ยวกับคอมพิวเตอร์ พ.ศ. 2550 และที่แก้ไข** | unauthorized access, data alteration, service disruption, malicious tools, unlawful content, traffic data | เก็บ traffic log ข้อมูลระบุตัวผู้ใช้ forensic image และบันทึกคำขอจาก law enforcement | Legal + CISO |
+| **พ.ร.บ.การรักษาความมั่นคงปลอดภัยไซเบอร์ พ.ศ. 2562** | ภัยไซเบอร์ต่อบริการสำคัญ ความปลอดภัยสาธารณะ หรือ critical information infrastructure | ประเมินระดับภัย เตรียม coordination package และหลักฐานผลกระทบ | CISO + SOC Manager |
+| **พ.ร.บ.ว่าด้วยธุรกรรมทางอิเล็กทรอนิกส์ พ.ศ. 2544 และที่แก้ไข** | electronic records, digital messages, logs, approvals, signatures, evidence reliability | รักษา integrity, authenticity, time source, system-of-record proof และ chain of custody | Legal + IR Lead |
+| **NCSA / ThaiCERT coordination** | national advisory, sectoral CERT coordination, threat sharing, critical incident coordination | เตรียม IOC package, timeline, contact record และ approval สำหรับการแชร์ข้อมูล | CISO + Threat Intel Lead |
+
+## 3. Matrix จาก Trigger ไปสู่ Action
+
+| Incident trigger | การดำเนินการที่ต้องทำ | Owner | หลักฐานที่ต้องมี | จุดตัดสินใจเรื่องการแจ้ง |
+|:---|:---|:---|:---|:---|
+| ยืนยันหรือสงสัยว่าข้อมูลส่วนบุคคลรั่วไหล | เปิด PDPA assessment workflow และหยุดการลบ record ที่เกี่ยวข้อง | SOC Manager + DPO | incident timeline, ประเภทข้อมูล, ระบบที่กระทบ, ประมาณจำนวนเจ้าของข้อมูล | DPO ตัดสินเส้นทางการแจ้ง |
+| มี unauthorized access ต่อระบบหรือข้อมูล | เก็บ authentication, network, endpoint และ application logs | IR Engineer | log bundle, account ที่กระทบ, source/destination, access method, containment timeline | Legal ตัดสิน law-enforcement path |
+| บริการสำคัญหรือ public-facing service ถูกกระทบ | ประเมินว่าเข้าข่ายยกระดับตาม พ.ร.บ.ไซเบอร์หรือไม่ | CISO + SOC Manager | impact summary, คำยืนยันจาก service owner, downtime, กลุ่มผู้ได้รับผลกระทบ | CISO ตัดสิน executive/regulator path |
+| ได้รับคำขอจาก authority, regulator หรือ sectoral CERT | ตรวจสอบช่องทางคำขอและเปิด response decision log | Legal + CISO | สำเนาคำขอ, identity ของผู้ขอ, เวลารับคำขอ, scope, response owner | Legal อนุมัติ response package |
+| หลักฐานอิเล็กทรอนิกส์อาจใช้ในคดีหรือการสอบสวน | เปิด legal hold และ chain-of-custody handling | IR Lead + Legal | evidence register, hash values, custodian trail, time synchronization proof | Legal ยืนยัน preservation scope |
+
+## 4. ชุดหลักฐานขั้นต่ำ
+
+| หลักฐาน | เหตุผล | มาตรฐานขั้นต่ำ |
+|:---|:---|:---|
+| Incident timeline | รองรับ reporting, breach assessment และ executive decision | เวลา detect, triage, contain, escalate, recover และ decision |
+| Asset และ service ownership | ระบุผู้รับผิดชอบเชิงธุรกิจและเทคนิค | business owner, technical owner, data owner, service criticality |
+| Log และ traffic data package | รองรับ investigation และคำขอจาก authority | source system, retention status, collection time, completeness statement |
+| Data-impact assessment | เชื่อม facts ทางเทคนิคกับ PDPA และ business impact | data class, ประมาณจำนวนเจ้าของข้อมูล, sensitive-data indicator, evidence confidence |
+| Chain of custody | รักษาคุณค่าของหลักฐาน | custodian, transfer time, storage location, hash หรือ integrity marker |
+| Notification decision log | แสดง governance ที่ตรวจสอบย้อนหลังได้ | facts reviewed, decision made, approver, time, next review point |
+
+## 5. กติกาการยกระดับ
+
+-   [ ] ยกระดับถึง **DPO + Legal + CISO ทันที** เมื่อข้อมูลส่วนบุคคลหรือข้อมูลอ่อนไหวอาจรั่วไหล
+-   [ ] ยกระดับถึง **CISO + Legal** เมื่อมี unauthorized system access, สงสัยการกระทำผิด, destructive action หรือคำขอจากหน่วยงานรัฐ
+-   [ ] ยกระดับถึง **CISO + SOC Manager + Business Service Owner** เมื่อภัยไซเบอร์กระทบบริการสำคัญหรืออาจกระทบความปลอดภัยสาธารณะ
+-   [ ] ยกระดับถึง **IR Lead + Legal** ก่อนปล่อย ลบ reimage หรือคืน asset ที่อาจเป็นหลักฐาน
+-   [ ] ใช้ [แบบฟอร์มการยกระดับเหตุด้านกฎหมายไทย](../11_Reporting_Templates/Thai_Legal_Escalation_Template.th.md) สำหรับการตัดสินใจสำคัญทุกครั้ง
+
+## 6. Checklist ปฏิบัติการ 24 ชั่วโมงแรก
+
+-   [ ] ยืนยันระบบที่กระทบ owner และ data classification
+-   [ ] เก็บ log และป้องกัน automatic deletion สำหรับแหล่งข้อมูลที่เกี่ยวข้อง
+-   [ ] แต่งตั้ง decision-log owner เพียงคนเดียว
+-   [ ] แยกข้อเท็จจริงออกจากสมมติฐาน
+-   [ ] แจ้ง Legal, DPO, Compliance หรือ CISO ตาม trigger matrix
+-   [ ] เตรียม evidence package ก่อนสื่อสารภายนอกหรือ regulator
+-   [ ] บันทึกเหตุผลว่าต้องแจ้ง ชะลอการแจ้ง หรือไม่ต้องแจ้ง
+
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+
+-   [คู่มือตอบเหตุข้อมูลรั่วตาม PDPA](PDPA_Incident_Response.th.md)
+-   [ขั้นตอนปฏิบัติตาม PDPA](PDPA_Compliance.th.md)
+-   [Compliance Mapping](Compliance_Mapping.th.md)
+-   [นโยบายกำกับดูแลข้อมูล](Data_Governance_Policy.th.md)
+-   [บันทึกการตัดสินใจระหว่างเหตุการณ์](../11_Reporting_Templates/Incident_Decision_Log.th.md)
+-   [แบบฟอร์มการยกระดับเหตุด้านกฎหมายไทย](../11_Reporting_Templates/Thai_Legal_Escalation_Template.th.md)
+
+## References
+
+-   [กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม — Cybersecurity Act B.E. 2562 (2019)](https://www.mdes.go.th/law/detail/1904-Cybersecurity-Act--B-E--2562--2019-)
+-   [กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม — Computer-Related Crime Act B.E. 2550 (2007)](https://www.mdes.go.th/law/detail/3618-COMPUTER-RELATED-CRIME-ACT-B-E--2550--2007-)
+-   [ETDA — Electronic Transactions Act laws and standards](https://www.etda.or.th/en/ETC/strategy-law-standard/law.aspx)
+-   [PDPA Thailand — Personal Data Protection Act B.E. 2562 (2019)](https://pdpathailand.com/pdpa/index_eng.html)
+-   [Government Platform for PDPA Compliance — Data Breach Notification Management](https://gppc.pdpc.or.th/)
+-   [Thailand Computer Emergency Response Team / ThaiCERT](https://www.thaicert.or.th/en/homepage/)
 
 
 ---
@@ -16510,6 +16753,234 @@ graph TD
 
 -   [NIST SP 800-92](https://csrc.nist.gov/publications/detail/sp/800-92/final)
 -   [Open Cybersecurity Schema Framework](https://schema.ocsf.io/)
+
+
+---
+
+## File: 11_Reporting_Templates/Thai_Legal_Escalation_Template.en.md
+# Thai Legal Escalation Template
+
+**Document ID**: TH-LAW-TPL-001
+**Version**: 1.0
+**Classification**: Internal
+**Last Updated**: 2026-04-26
+**Audience**: CISO, SOC Manager, IR Lead, Legal Counsel, DPO, Compliance Officer
+
+> Use this template to record legal-impact triage, regulator-notification decisions, and executive escalation for incidents that may trigger Thai legal obligations. This template is operational guidance, not legal advice.
+
+```mermaid
+graph TD
+    A["Incident reaches legal checkpoint"] --> B["Record facts and evidence"]
+    B --> C["Assess Thai legal triggers"]
+    C --> D{"Notify or escalate?"}
+    D -->|Yes| E["Prepare approved notification package"]
+    D -->|No / defer| F["Record rationale and next review"]
+    E --> G["Track response and closure"]
+    F --> G
+```
+
+## 1. Use This Template When
+
+-   [ ] Personal data, sensitive personal data, or regulated records may be exposed.
+-   [ ] Unauthorized access, data alteration, traffic-data preservation, or suspected criminal activity is involved.
+-   [ ] A critical business service, public-facing service, or potential critical information infrastructure is disrupted.
+-   [ ] A regulator, authority, customer, sectoral CERT, or law-enforcement body may need to be contacted.
+-   [ ] Evidence may need legal hold, forensic preservation, or chain-of-custody controls.
+
+## 2. Incident and Decision Header
+
+| Field | Value |
+|:---|:---|
+| **Incident ID** | INC-[YYYYMMDD]-[001] |
+| **Legal escalation ID** | THLAW-[YYYYMMDD]-[001] |
+| **Incident title** | |
+| **Date/time opened** | [YYYY-MM-DD HH:MM TZ] |
+| **Decision owner** | |
+| **SOC owner** | |
+| **Legal / DPO owner** | |
+| **Current severity** | P1 / P2 / P3 / P4 |
+| **TLP** | CLEAR / GREEN / AMBER / RED |
+
+## 3. Thai Legal Impact Checkpoint
+
+| Trigger question | Yes/No/Unknown | Evidence | Owner |
+|:---|:---:|:---|:---|
+| Does the incident involve personal data or sensitive personal data? | | | DPO |
+| Is unauthorized access, alteration, deletion, disruption, or malicious tooling suspected? | | | IR Lead |
+| Is traffic data, user identity data, or system access evidence required? | | | Security Engineer |
+| Is a critical service, public-facing service, or CII-related service affected? | | | CISO |
+| Has any authority, regulator, customer, or sectoral CERT contacted the organization? | | | Legal |
+| Is legal hold or forensic chain of custody required? | | | Legal + IR Lead |
+
+## 4. Notification Decision Record
+
+| Potential notification path | Decision | Approver | Due time | Evidence package |
+|:---|:---:|:---|:---|:---|
+| PDPA / DPO path | ☐ Notify · ☐ Defer · ☐ Not required | | | |
+| Executive / board path | ☐ Notify · ☐ Defer · ☐ Not required | | | |
+| Customer / business partner path | ☐ Notify · ☐ Defer · ☐ Not required | | | |
+| Law enforcement path | ☐ Notify · ☐ Defer · ☐ Not required | | | |
+| NCSA / ThaiCERT / sectoral CERT path | ☐ Notify · ☐ Defer · ☐ Not required | | | |
+
+## 5. Minimum Evidence Package
+
+-   [ ] Incident timeline with detection, triage, escalation, containment, and recovery timestamps.
+-   [ ] Affected systems, business services, data stores, and owners.
+-   [ ] Data-impact assessment and affected-subject estimate, if applicable.
+-   [ ] Log package with source, time range, collector, integrity marker, and retention status.
+-   [ ] Forensic or chain-of-custody record for evidence used in legal or regulator review.
+-   [ ] Draft message or notification package approved by Legal / DPO / CISO before release.
+
+## 6. Executive Escalation Brief
+
+| Question | Answer |
+|:---|:---|
+| **What happened?** | |
+| **What is confirmed vs suspected?** | |
+| **Who or what is affected?** | |
+| **What law/regulator path may be involved?** | |
+| **What decision is needed now?** | |
+| **What is the deadline or next review time?** | |
+| **What statement is approved for internal/external use?** | |
+
+## 7. Closure Checklist
+
+-   [ ] All notification decisions have approver, time, and rationale.
+-   [ ] Any deferred decision has a next review time and owner.
+-   [ ] Evidence package is stored in approved case location.
+-   [ ] Legal hold status is recorded as active, released, or not required.
+-   [ ] Incident report and decision log cross-reference this escalation record.
+
+## Related Documents
+
+-   [Thai Cyber Legal Baseline](../07_Compliance_Privacy/Thai_Cyber_Legal_Baseline.en.md)
+-   [PDPA Incident Response](../07_Compliance_Privacy/PDPA_Incident_Response.en.md)
+-   [Incident Report Template](incident_report.en.md)
+-   [Incident Decision Log](Incident_Decision_Log.en.md)
+-   [Board Quarterly Decision Pack](Board_Quarterly_Decision_Pack.en.md)
+
+## References
+
+-   [Ministry of Digital Economy and Society — Cybersecurity Act B.E. 2562 (2019)](https://www.mdes.go.th/law/detail/1904-Cybersecurity-Act--B-E--2562--2019-)
+-   [Ministry of Digital Economy and Society — Computer-Related Crime Act B.E. 2550 (2007)](https://www.mdes.go.th/law/detail/3618-COMPUTER-RELATED-CRIME-ACT-B-E--2550--2007-)
+-   [ETDA — Electronic Transactions Act laws and standards](https://www.etda.or.th/en/ETC/strategy-law-standard/law.aspx)
+-   [PDPA Thailand — Personal Data Protection Act B.E. 2562 (2019)](https://pdpathailand.com/pdpa/index_eng.html)
+-   [Government Platform for PDPA Compliance — Data Breach Notification Management](https://gppc.pdpc.or.th/)
+-   [Thailand Computer Emergency Response Team / ThaiCERT](https://www.thaicert.or.th/en/homepage/)
+
+
+---
+
+## File: 11_Reporting_Templates/Thai_Legal_Escalation_Template.th.md
+# แบบฟอร์มการยกระดับเหตุด้านกฎหมายไทย
+
+**Document ID**: TH-LAW-TPL-001
+**Version**: 1.0
+**Classification**: Internal
+**Last Updated**: 2026-04-26
+**กลุ่มเป้าหมาย**: CISO, SOC Manager, IR Lead, Legal Counsel, DPO, Compliance Officer
+
+> ใช้แบบฟอร์มนี้เพื่อบันทึก legal-impact triage การตัดสินใจเรื่อง regulator notification และ executive escalation สำหรับเหตุที่อาจเข้าเงื่อนไขกฎหมายไทย แบบฟอร์มนี้เป็นแนวทางปฏิบัติ ไม่ใช่คำปรึกษากฎหมาย
+
+```mermaid
+graph TD
+    A["Incident ถึงจุดตรวจด้านกฎหมาย"] --> B["บันทึกข้อเท็จจริงและหลักฐาน"]
+    B --> C["ประเมิน trigger ตามกฎหมายไทย"]
+    C --> D{"ต้องแจ้งหรือยกระดับหรือไม่"}
+    D -->|ใช่| E["เตรียม notification package ที่อนุมัติแล้ว"]
+    D -->|"ไม่ / ชะลอ"| F["บันทึกเหตุผลและรอบทบทวนถัดไป"]
+    E --> G["ติดตาม response และ closure"]
+    F --> G
+```
+
+## 1. ใช้แบบฟอร์มนี้เมื่อใด
+
+-   [ ] มีข้อมูลส่วนบุคคล ข้อมูลอ่อนไหว หรือ regulated records อาจรั่วไหล
+-   [ ] เกี่ยวข้องกับ unauthorized access, data alteration, traffic-data preservation หรือสงสัยการกระทำผิด
+-   [ ] บริการสำคัญ public-facing service หรือบริการที่อาจเกี่ยวกับ critical information infrastructure ถูกกระทบ
+-   [ ] อาจต้องติดต่อ regulator, authority, customer, sectoral CERT หรือ law enforcement
+-   [ ] หลักฐานอาจต้อง legal hold, forensic preservation หรือ chain-of-custody controls
+
+## 2. ส่วนหัว Incident และการตัดสินใจ
+
+| รายการ | ค่า |
+|:---|:---|
+| **Incident ID** | INC-[YYYYMMDD]-[001] |
+| **Legal escalation ID** | THLAW-[YYYYMMDD]-[001] |
+| **ชื่อ Incident** | |
+| **วันที่/เวลาเปิดรายการ** | [YYYY-MM-DD HH:MM TZ] |
+| **Decision owner** | |
+| **SOC owner** | |
+| **Legal / DPO owner** | |
+| **Severity ปัจจุบัน** | P1 / P2 / P3 / P4 |
+| **TLP** | CLEAR / GREEN / AMBER / RED |
+
+## 3. จุดตรวจผลกระทบด้านกฎหมายไทย
+
+| คำถาม Trigger | ใช่/ไม่ใช่/ไม่ทราบ | หลักฐาน | Owner |
+|:---|:---:|:---|:---|
+| Incident เกี่ยวข้องกับข้อมูลส่วนบุคคลหรือข้อมูลอ่อนไหวหรือไม่ | | | DPO |
+| สงสัย unauthorized access, alteration, deletion, disruption หรือ malicious tooling หรือไม่ | | | IR Lead |
+| ต้องใช้ traffic data, user identity data หรือ system access evidence หรือไม่ | | | Security Engineer |
+| กระทบ critical service, public-facing service หรือบริการที่เกี่ยวข้องกับ CII หรือไม่ | | | CISO |
+| มี authority, regulator, customer หรือ sectoral CERT ติดต่อองค์กรแล้วหรือไม่ | | | Legal |
+| ต้องใช้ legal hold หรือ forensic chain of custody หรือไม่ | | | Legal + IR Lead |
+
+## 4. บันทึกการตัดสินใจเรื่องการแจ้ง
+
+| เส้นทางที่อาจต้องแจ้ง | การตัดสินใจ | ผู้อนุมัติ | เวลาครบกำหนด | Evidence package |
+|:---|:---:|:---|:---|:---|
+| PDPA / DPO path | ☐ แจ้ง · ☐ ชะลอ · ☐ ไม่ต้องแจ้ง | | | |
+| Executive / board path | ☐ แจ้ง · ☐ ชะลอ · ☐ ไม่ต้องแจ้ง | | | |
+| Customer / business partner path | ☐ แจ้ง · ☐ ชะลอ · ☐ ไม่ต้องแจ้ง | | | |
+| Law enforcement path | ☐ แจ้ง · ☐ ชะลอ · ☐ ไม่ต้องแจ้ง | | | |
+| NCSA / ThaiCERT / sectoral CERT path | ☐ แจ้ง · ☐ ชะลอ · ☐ ไม่ต้องแจ้ง | | | |
+
+## 5. Evidence Package ขั้นต่ำ
+
+-   [ ] Incident timeline ที่มีเวลา detect, triage, escalate, contain และ recover
+-   [ ] ระบบ บริการทางธุรกิจ data stores และ owners ที่ได้รับผลกระทบ
+-   [ ] data-impact assessment และจำนวนเจ้าของข้อมูลโดยประมาณ ถ้าเกี่ยวข้อง
+-   [ ] log package ที่ระบุ source, time range, collector, integrity marker และ retention status
+-   [ ] forensic หรือ chain-of-custody record สำหรับหลักฐานที่ใช้ใน legal/regulator review
+-   [ ] draft message หรือ notification package ที่ Legal / DPO / CISO อนุมัติก่อนเผยแพร่
+
+## 6. Executive Escalation Brief
+
+| คำถาม | คำตอบ |
+|:---|:---|
+| **เกิดอะไรขึ้น** | |
+| **อะไรยืนยันแล้ว และอะไรยังเป็นข้อสงสัย** | |
+| **ใครหรือระบบใดได้รับผลกระทบ** | |
+| **อาจเกี่ยวข้องกับกฎหมายหรือ regulator path ใด** | |
+| **ต้องตัดสินใจอะไรตอนนี้** | |
+| **deadline หรือเวลาทบทวนถัดไปคือเมื่อใด** | |
+| **ข้อความใดได้รับอนุมัติให้ใช้ภายใน/ภายนอกแล้ว** | |
+
+## 7. Checklist ปิดรายการ
+
+-   [ ] ทุก notification decision มี approver เวลา และเหตุผล
+-   [ ] การตัดสินใจที่ชะลอไว้มีเวลาทบทวนถัดไปและ owner
+-   [ ] evidence package ถูกเก็บใน case location ที่อนุมัติ
+-   [ ] legal hold status ถูกบันทึกเป็น active, released หรือ not required
+-   [ ] incident report และ decision log cross-reference รายการ escalation นี้แล้ว
+
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+
+-   [แนวทางกฎหมายไซเบอร์ไทยสำหรับ SOC](../07_Compliance_Privacy/Thai_Cyber_Legal_Baseline.th.md)
+-   [คู่มือตอบเหตุข้อมูลรั่วตาม PDPA](../07_Compliance_Privacy/PDPA_Incident_Response.th.md)
+-   [เทมเพลตรายงาน Incident](incident_report.th.md)
+-   [บันทึกการตัดสินใจระหว่างเหตุการณ์](Incident_Decision_Log.th.md)
+-   [ชุดเอกสารการตัดสินใจรายไตรมาสสำหรับบอร์ด](Board_Quarterly_Decision_Pack.th.md)
+
+## References
+
+-   [กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม — Cybersecurity Act B.E. 2562 (2019)](https://www.mdes.go.th/law/detail/1904-Cybersecurity-Act--B-E--2562--2019-)
+-   [กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม — Computer-Related Crime Act B.E. 2550 (2007)](https://www.mdes.go.th/law/detail/3618-COMPUTER-RELATED-CRIME-ACT-B-E--2550--2007-)
+-   [ETDA — Electronic Transactions Act laws and standards](https://www.etda.or.th/en/ETC/strategy-law-standard/law.aspx)
+-   [PDPA Thailand — Personal Data Protection Act B.E. 2562 (2019)](https://pdpathailand.com/pdpa/index_eng.html)
+-   [Government Platform for PDPA Compliance — Data Breach Notification Management](https://gppc.pdpc.or.th/)
+-   [Thailand Computer Emergency Response Team / ThaiCERT](https://www.thaicert.or.th/en/homepage/)
 
 
 ---
@@ -76884,6 +77355,242 @@ Chief Information Security Officer
 ## References
 -   [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)
 -   [CISA SOC Best Practices](https://www.cisa.gov/topics/cyber-threats-and-advisories)
+
+
+---
+
+## File: 10_Training_Onboarding/Thai_Compliance_Workshop_Module.en.md
+# Thai Compliance Workshop Module for SOC Teams
+
+**Document ID**: TRAIN-TH-LAW-001
+**Version**: 1.0
+**Classification**: Internal
+**Last Updated**: 2026-04-26
+**Audience**: CISO, SOC Manager, SOC Analyst, Security Engineer, IR Engineer
+
+> Use this as a concise 6-slide module inside a 1-day SOC workshop. It provides operational SOC guidance, not legal advice. Legal, DPO, or Compliance owns the final interpretation and notification position.
+
+```mermaid
+graph TD
+    A["Slide 1: Landscape"] --> B["Slide 2: Triggers"]
+    B --> C["Slide 3: Evidence"]
+    C --> D["Slide 4: Roles"]
+    D --> E["Slide 5: Decision Flow"]
+    E --> F["Slide 6: Scenario Exercise"]
+```
+
+## 1. Slide 1 — Thai Legal Landscape for SOC
+
+**Message**: Thai compliance is not only a Legal topic. SOC must turn technical facts into decision-ready evidence.
+
+| Legal / coordination anchor | What SOC must watch | Operational output |
+|:---|:---|:---|
+| **PDPA** | Personal data exposure, sensitive personal data, affected data subjects | DPO-ready breach facts and notification checkpoint |
+| **Computer-Related Crime Act** | Unauthorized access, data alteration, malicious activity, traffic data | Preserved logs, attribution evidence, legal handoff |
+| **Cybersecurity Act** | Cyber threat affecting critical services or public impact | CISO escalation and coordination package |
+| **Electronic Transactions Act** | Electronic records, approvals, digital evidence integrity | Chain of custody and system-of-record proof |
+| **NCSA / ThaiCERT** | National or sectoral threat coordination | IOC package and approved sharing record |
+
+## 2. Slide 2 — Incident and Reporting Triggers
+
+**Message**: SOC does not decide the law alone. SOC decides when the legal checkpoint must open.
+
+-   [ ] Open the checkpoint when personal data may be exposed, copied, altered, encrypted, destroyed, or accessed by an unauthorized party.
+-   [ ] Open the checkpoint when logs suggest unauthorized system access, data tampering, destructive action, or use of malicious tooling.
+-   [ ] Open the checkpoint when a critical service, public-facing service, or regulated business process is disrupted.
+-   [ ] Open the checkpoint when an authority, regulator, customer, partner, NCSA, ThaiCERT, or sectoral CERT contacts the organization.
+-   [ ] Record every decision as **notify**, **defer**, or **not required**, with approver and next review time.
+
+## 3. Slide 3 — Evidence Package
+
+**Message**: A weak evidence package creates slow decisions, inconsistent statements, and avoidable regulatory risk.
+
+| Evidence | Minimum content | Owner |
+|:---|:---|:---|
+| Incident timeline | Detection, triage, escalation, containment, recovery, and decision timestamps | SOC Manager |
+| Data-impact facts | Data class, personal-data indicator, sensitive-data indicator, affected estimate | DPO + SOC Analyst |
+| Technical proof | Log sources, time range, source/destination, account, endpoint, hash, IOC | Security Engineer |
+| Business impact | Affected service, criticality, downtime, customer or public impact | Service Owner |
+| Chain of custody | Custodian, collection time, storage location, integrity marker | IR Engineer |
+| Decision log | Facts reviewed, decision, approver, deadline, next review | Legal / CISO |
+
+## 4. Slide 4 — Role-Based Responsibilities
+
+**Message**: Practical compliance works when every role knows what to produce in the first operating cycle.
+
+| Role | First responsibility | Decision artifact |
+|:---|:---|:---|
+| **SOC Analyst** | Preserve alert facts and avoid unsupported conclusions | Triage notes and evidence pointers |
+| **SOC Manager** | Classify severity, assign owners, and start decision log | Escalation record |
+| **Security Engineer** | Confirm log completeness, retention, and technical scope | Log package and telemetry gap note |
+| **IR Engineer** | Preserve evidence, containment timeline, and custody trail | Forensic and chain-of-custody record |
+| **DPO / Legal / Compliance** | Decide legal interpretation and notification position | Notification decision record |
+| **CISO** | Own executive escalation and risk acceptance | Executive brief |
+
+## 5. Slide 5 — Decision Flow
+
+**Message**: The goal is not to over-report. The goal is to make a defensible decision on time.
+
+```mermaid
+graph TD
+    A["Incident detected"] --> B["Classify system, data, service"]
+    B --> C{"Thai legal trigger?"}
+    C -->|No| D["Continue normal IR and record rationale"]
+    C -->|Yes / Unknown| E["Open Thai legal escalation template"]
+    E --> F["Build evidence package"]
+    F --> G{"Decision"}
+    G -->|Notify| H["Prepare approved package"]
+    G -->|Defer| I["Set next review time"]
+    G -->|Not required| J["Record rationale"]
+```
+
+## 6. Slide 6 — Scenario Exercise
+
+**Scenario**: A public-facing customer portal shows signs of credential stuffing followed by successful logins. Some accounts viewed profile pages and downloaded invoices. The service remained available. A customer posts screenshots on social media and asks whether the organization will notify regulators.
+
+**Exercise tasks**:
+
+-   [ ] Identify which Thai legal checkpoints open and why.
+-   [ ] List the first 10 evidence items SOC must preserve.
+-   [ ] Assign owner for SOC, DPO, Legal, CISO, Security Engineering, and IR Engineering actions.
+-   [ ] Draft the executive escalation brief in five bullets.
+-   [ ] Decide whether the notification decision is **notify**, **defer**, or **not required** at the current evidence level.
+-   [ ] Write the next review time and missing facts.
+
+## Related Documents
+
+-   [Thai Cyber Legal Baseline](../07_Compliance_Privacy/Thai_Cyber_Legal_Baseline.en.md)
+-   [Thai Legal Escalation Template](../11_Reporting_Templates/Thai_Legal_Escalation_Template.en.md)
+-   [PDPA Incident Response](../07_Compliance_Privacy/PDPA_Incident_Response.en.md)
+-   [Compliance Mapping](../07_Compliance_Privacy/Compliance_Mapping.en.md)
+-   [Incident Decision Log](../11_Reporting_Templates/Incident_Decision_Log.en.md)
+-   [SOC Analyst Onboarding](SOC_Onboarding.en.md)
+
+## References
+
+-   [Ministry of Digital Economy and Society — Cybersecurity Act B.E. 2562 (2019)](https://www.mdes.go.th/law/detail/1904-Cybersecurity-Act--B-E--2562--2019-)
+-   [Ministry of Digital Economy and Society — Computer-Related Crime Act B.E. 2550 (2007)](https://www.mdes.go.th/law/detail/3618-COMPUTER-RELATED-CRIME-ACT-B-E--2550--2007-)
+-   [ETDA — Electronic Transactions Act laws and standards](https://www.etda.or.th/en/ETC/strategy-law-standard/law.aspx)
+-   [Government Platform for PDPA Compliance — Data Breach Notification Management](https://gppc.pdpc.or.th/)
+-   [Thailand Computer Emergency Response Team / ThaiCERT](https://www.thaicert.or.th/en/homepage/)
+
+
+---
+
+## File: 10_Training_Onboarding/Thai_Compliance_Workshop_Module.th.md
+# โมดูล Workshop กฎหมายไทยสำหรับทีม SOC
+
+**รหัสเอกสาร**: TRAIN-TH-LAW-001
+**เวอร์ชัน**: 1.0
+**ชั้นความลับ**: Internal
+**อัปเดตล่าสุด**: 2026-04-26
+**ผู้อ่านหลัก**: CISO, SOC Manager, SOC Analyst, Security Engineer, IR Engineer
+
+> ใช้เป็น module 6 สไลด์ใน workshop SOC แบบ 1 วัน เนื้อหานี้เป็นแนวทางปฏิบัติสำหรับ SOC ไม่ใช่คำปรึกษากฎหมาย การตีความและการตัดสินใจแจ้งหน่วยงานภายนอกต้องให้ Legal, DPO หรือ Compliance เป็นผู้ยืนยัน
+
+```mermaid
+graph TD
+    A["สไลด์ 1: ภาพรวมกฎหมาย"] --> B["สไลด์ 2: Trigger"]
+    B --> C["สไลด์ 3: หลักฐาน"]
+    C --> D["สไลด์ 4: บทบาท"]
+    D --> E["สไลด์ 5: Flow ตัดสินใจ"]
+    E --> F["สไลด์ 6: Scenario"]
+```
+
+## 1. สไลด์ 1 — ภาพรวมกฎหมายไทยสำหรับ SOC (Thai Legal Landscape)
+
+**ข้อความหลัก**: Compliance ไทยไม่ใช่เรื่องของ Legal อย่างเดียว SOC ต้องเปลี่ยน fact ทางเทคนิคให้เป็นหลักฐานที่ใช้ตัดสินใจได้
+
+| กฎหมาย / หน่วยประสานงาน | สิ่งที่ SOC ต้องเฝ้าระวัง | Output เชิงปฏิบัติ |
+|:---|:---|:---|
+| **PDPA** | ข้อมูลส่วนบุคคลรั่วไหล ข้อมูลอ่อนไหว เจ้าของข้อมูลที่ได้รับผลกระทบ | fact สำหรับ DPO และ checkpoint การแจ้งเหตุ |
+| **พ.ร.บ. คอมพิวเตอร์** | unauthorized access, แก้ไขข้อมูล, กิจกรรม malicious, traffic data | log ที่เก็บรักษาแล้ว หลักฐาน attribution และ handoff ให้ Legal |
+| **พ.ร.บ. ไซเบอร์** | ภัยคุกคามที่กระทบบริการสำคัญหรือประชาชน | escalation ถึง CISO และชุดข้อมูลเพื่อประสานงาน |
+| **พ.ร.บ. ธุรกรรมอิเล็กทรอนิกส์** | electronic record, approval, digital evidence integrity | chain of custody และหลักฐาน system of record |
+| **NCSA / ThaiCERT** | การประสานภัยระดับประเทศหรือระดับ sector | IOC package และบันทึกอนุมัติการแชร์ |
+
+## 2. สไลด์ 2 — Trigger ของ Incident และการรายงาน (Incident and Reporting Triggers)
+
+**ข้อความหลัก**: SOC ไม่ต้องตัดสินกฎหมายเอง แต่ต้องรู้ว่าเมื่อใดต้องเปิด legal checkpoint
+
+-   [ ] เปิด checkpoint เมื่อข้อมูลส่วนบุคคลอาจถูกเปิดเผย คัดลอก แก้ไข เข้ารหัส ทำลาย หรือเข้าถึงโดยผู้ไม่มีสิทธิ์
+-   [ ] เปิด checkpoint เมื่อ log ชี้ว่าอาจมี unauthorized access, data tampering, destructive action หรือ malicious tooling
+-   [ ] เปิด checkpoint เมื่อบริการสำคัญ บริการสาธารณะ หรือกระบวนการธุรกิจที่ถูกกำกับหยุดชะงัก
+-   [ ] เปิด checkpoint เมื่อ authority, regulator, customer, partner, NCSA, ThaiCERT หรือ sectoral CERT ติดต่อองค์กร
+-   [ ] บันทึกทุก decision เป็น **notify**, **defer** หรือ **not required** พร้อม approver และเวลาทบทวนถัดไป
+
+## 3. สไลด์ 3 — ชุดหลักฐาน (Evidence Package)
+
+**ข้อความหลัก**: Evidence package ที่อ่อนทำให้ตัดสินใจช้า สื่อสารไม่ตรงกัน และเพิ่มความเสี่ยงด้าน regulatory
+
+| หลักฐาน | เนื้อหาขั้นต่ำ | เจ้าของ |
+|:---|:---|:---|
+| Incident timeline | เวลา detect, triage, escalate, contain, recover และ decision | SOC Manager |
+| Data-impact facts | data class, personal-data indicator, sensitive-data indicator, affected estimate | DPO + SOC Analyst |
+| Technical proof | log source, time range, source/destination, account, endpoint, hash, IOC | Security Engineer |
+| Business impact | affected service, criticality, downtime, customer หรือ public impact | Service Owner |
+| Chain of custody | custodian, collection time, storage location, integrity marker | IR Engineer |
+| Decision log | fact ที่ทบทวนแล้ว decision, approver, deadline, next review | Legal / CISO |
+
+## 4. สไลด์ 4 — หน้าที่ตามบทบาท (Role-Based Responsibilities)
+
+**ข้อความหลัก**: Compliance ที่ใช้ได้จริงเกิดจากแต่ละ role รู้ว่าต้องส่งมอบอะไรในรอบปฏิบัติการแรก
+
+| บทบาท | หน้าที่แรก | Artifact การตัดสินใจ |
+|:---|:---|:---|
+| **SOC Analyst** | เก็บ fact จาก alert และหลีกเลี่ยง conclusion ที่ยังไม่มีหลักฐาน | triage notes และ evidence pointers |
+| **SOC Manager** | จัด severity, assign owner และเปิด decision log | escalation record |
+| **Security Engineer** | ยืนยัน log completeness, retention และ technical scope | log package และ telemetry gap note |
+| **IR Engineer** | รักษาหลักฐาน containment timeline และ custody trail | forensic และ chain-of-custody record |
+| **DPO / Legal / Compliance** | ตีความกฎหมายและตัดสิน notification position | notification decision record |
+| **CISO** | รับผิดชอบ executive escalation และ risk acceptance | executive brief |
+
+## 5. สไลด์ 5 — Flow การตัดสินใจ (Decision Flow)
+
+**ข้อความหลัก**: เป้าหมายไม่ใช่การแจ้งทุกเหตุ แต่คือการตัดสินใจให้ทันเวลาและอธิบายเหตุผลได้
+
+```mermaid
+graph TD
+    A["พบ Incident"] --> B["จัดประเภทระบบ ข้อมูล บริการ"]
+    B --> C{"มี trigger กฎหมายไทย?"}
+    C -->|ไม่มี| D["เดิน IR ปกติและบันทึกเหตุผล"]
+    C -->|มี / ยังไม่แน่ใจ| E["เปิด Thai legal escalation template"]
+    E --> F["สร้าง evidence package"]
+    F --> G{"Decision"}
+    G -->|Notify| H["เตรียม package ที่อนุมัติแล้ว"]
+    G -->|Defer| I["กำหนดเวลาทบทวนถัดไป"]
+    G -->|Not required| J["บันทึกเหตุผล"]
+```
+
+## 6. สไลด์ 6 — Scenario Exercise
+
+**Scenario**: ระบบ customer portal สาธารณะมีสัญญาณ credential stuffing แล้วตามด้วย login สำเร็จ บางบัญชีเปิดดู profile และดาวน์โหลด invoice บริการยังใช้งานได้ ลูกค้าคนหนึ่งโพสต์ภาพบน social media และถามว่าองค์กรจะแจ้ง regulator หรือไม่
+
+**งานที่ต้องทำ**:
+
+-   [ ] ระบุว่า checkpoint กฎหมายไทยใดต้องเปิด และเพราะอะไร
+-   [ ] ระบุหลักฐาน 10 รายการแรกที่ SOC ต้อง preserve
+-   [ ] กำหนด owner ของงาน SOC, DPO, Legal, CISO, Security Engineering และ IR Engineering
+-   [ ] ร่าง executive escalation brief 5 bullet
+-   [ ] ตัดสินว่าในระดับหลักฐานปัจจุบัน decision เป็น **notify**, **defer** หรือ **not required**
+-   [ ] ระบุเวลาทบทวนถัดไปและ fact ที่ยังขาด
+
+## เอกสารที่เกี่ยวข้อง (Related Documents)
+
+-   [Thai Cyber Legal Baseline](../07_Compliance_Privacy/Thai_Cyber_Legal_Baseline.th.md)
+-   [Thai Legal Escalation Template](../11_Reporting_Templates/Thai_Legal_Escalation_Template.th.md)
+-   [PDPA Incident Response](../07_Compliance_Privacy/PDPA_Incident_Response.th.md)
+-   [Compliance Mapping](../07_Compliance_Privacy/Compliance_Mapping.th.md)
+-   [Incident Decision Log](../11_Reporting_Templates/Incident_Decision_Log.th.md)
+-   [SOC Analyst Onboarding](SOC_Onboarding.th.md)
+
+## References
+
+-   [Ministry of Digital Economy and Society — Cybersecurity Act B.E. 2562 (2019)](https://www.mdes.go.th/law/detail/1904-Cybersecurity-Act--B-E--2562--2019-)
+-   [Ministry of Digital Economy and Society — Computer-Related Crime Act B.E. 2550 (2007)](https://www.mdes.go.th/law/detail/3618-COMPUTER-RELATED-CRIME-ACT-B-E--2550--2007-)
+-   [ETDA — Electronic Transactions Act laws and standards](https://www.etda.or.th/en/ETC/strategy-law-standard/law.aspx)
+-   [Government Platform for PDPA Compliance — Data Breach Notification Management](https://gppc.pdpc.or.th/)
+-   [Thailand Computer Emergency Response Team / ThaiCERT](https://www.thaicert.or.th/en/homepage/)
 
 
 ---

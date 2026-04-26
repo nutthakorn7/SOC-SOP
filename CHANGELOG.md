@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.24.0] - 2026-04-26
+
+- Thai compliance baseline — added EN/TH SOC operating guidance for PDPA, Computer-Related Crime Act, Cybersecurity Act, Electronic Transactions Act, and NCSA / ThaiCERT coordination.
+- Thai legal escalation template — added EN/TH reporting template for legal-impact checkpoints, notification decision logs, evidence packages, and executive escalation briefs.
+- Workshop module — added a concise 6-slide EN/TH Thai compliance module for the 1-day SOC workshop plan.
+- Compliance mapping — connected Thai legal triggers to SOC actions, owners, evidence, escalation paths, and notification checkpoints.
+- **README.md**, **mkdocs.yml**, and **VERSION_TRACKER.md** — updated repository index, navigation, and version metadata.
+
 ## [2.23.15] - 2026-04-26
 
 - Post-incident improvement path — connected PIR outputs to remediation intake, monthly governance, quarterly risk acceptance, and board follow-up so recurring weaknesses cannot stop at documentation.

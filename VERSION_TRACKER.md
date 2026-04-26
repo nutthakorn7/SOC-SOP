@@ -114,6 +114,7 @@
 | [SOC Analyst Onboarding](10_Training_Onboarding/SOC_Onboarding.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Analyst Onboarding Path](10_Training_Onboarding/Analyst_Onboarding_Path.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Training Checklist](10_Training_Onboarding/Training_Checklist.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
+| [Thai Compliance Workshop Module](10_Training_Onboarding/Thai_Compliance_Workshop_Module.en.md) | 1.0 | 2026-04-26 | ✅ Current | 2027-04-26 |
 | [System Activation](10_Training_Onboarding/System_Activation.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
 
 ## 🔍 Detection Engineering
@@ -134,6 +135,7 @@
 | [PDPA Incident Response](07_Compliance_Privacy/PDPA_Incident_Response.en.md) | 1.0 | 2026-02-15 | ✅ Current | 2027-02-15 |
 | [Compliance Gap Analysis](07_Compliance_Privacy/Compliance_Gap_Analysis.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
 | [PDPA Compliance](07_Compliance_Privacy/PDPA_Compliance.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
+| [Thai Cyber Legal Baseline](07_Compliance_Privacy/Thai_Cyber_Legal_Baseline.en.md) | 1.0 | 2026-04-26 | ✅ Current | 2027-04-26 |
 | [Data Governance Policy](07_Compliance_Privacy/Data_Governance_Policy.en.md) | 1.0 | 2026-02-16 | ✅ Current | 2027-02-16 |
 
 ## 📄 Reports & Templates
@@ -150,6 +152,7 @@
 | [Risk Acceptance Template](11_Reporting_Templates/Risk_Acceptance_Template.en.md) | 1.0 | 2026-04-26 | ✅ Current | 2027-04-26 |
 | [Security Exception Approval](11_Reporting_Templates/Exception_Approval_Template.en.md) | 1.0 | 2026-04-26 | ✅ Current | 2027-04-26 |
 | [Incident Decision Log](11_Reporting_Templates/Incident_Decision_Log.en.md) | 1.0 | 2026-04-26 | ✅ Current | 2027-04-26 |
+| [Thai Legal Escalation Template](11_Reporting_Templates/Thai_Legal_Escalation_Template.en.md) | 1.0 | 2026-04-26 | ✅ Current | 2027-04-26 |
 | [Investment Justification Template](11_Reporting_Templates/Investment_Justification_Template.en.md) | 1.0 | 2026-04-26 | ✅ Current | 2027-04-26 |
 | [Log Source Onboarding Request](11_Reporting_Templates/Log_Source_Onboarding_Request.en.md) | 1.0 | 2026-04-26 | ✅ Current | 2027-04-26 |
 | [Detection Request Template](11_Reporting_Templates/Detection_Request_Template.en.md) | 1.0 | 2026-04-26 | ✅ Current | 2027-04-26 |
@@ -178,10 +181,10 @@
 | SOC Fundamentals | 6 | ✅ | 2027-02 |
 | Incident Response | 18 + 53 playbooks | ✅ | 2027-03 |
 | Operations Management | 29 | ✅ | 2027-04 |
-| Testing & Training | 8 | ✅ | 2027-02 |
+| Testing & Training | 9 | ✅ | 2027-04 |
 | Detection Engineering | 2 | ✅ | 2027-04 |
-| Compliance | 8 | ✅ | 2027-04 |
-| Reports & Templates | 27 | ✅ | 2027-04 |
-| **Total** | **156+** | **✅ 100%** | **2027-04** |
+| Compliance | 9 | ✅ | 2027-04 |
+| Reports & Templates | 28 | ✅ | 2027-04 |
+| **Total** | **159+** | **✅ 100%** | **2027-04** |
 
-> **Last tracker update**: 2026-04-26 | **Repository version**: 2.23.15
+> **Last tracker update**: 2026-04-26 | **Repository version**: 2.24.0

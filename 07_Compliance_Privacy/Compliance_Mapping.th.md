@@ -134,6 +134,18 @@ graph TD
 | สัปดาห์ที่ 3 | เชื่อมความเสี่ยง AI หลักกับ detections และ playbooks | detection backlog และ triage checklist |
 | สัปดาห์ที่ 4 | ทดสอบ rollback, evidence capture, และ executive communication | tabletop record และ escalation decision tree |
 
+## การแมป Trigger กฎหมายไทย (Thai Legal Trigger Mapping)
+
+ใช้ส่วนนี้ร่วมกับ [Thai Cyber Legal Baseline](Thai_Cyber_Legal_Baseline.th.md) และ [Thai Legal Escalation Template](../11_Reporting_Templates/Thai_Legal_Escalation_Template.th.md) เนื้อหานี้เป็นแนวทางปฏิบัติของ SOC ไม่ใช่คำปรึกษากฎหมาย
+
+| กฎหมาย / จุดประสานงาน | Incident trigger | SOC action | Owner | Evidence required | Escalation path | Notification checkpoint |
+|:---|:---|:---|:---|:---|:---|:---|
+| **PDPA** | ข้อมูลส่วนบุคคลอาจถูกเปิดเผย คัดลอก แก้ไข เข้ารหัส ทำลาย หรือเข้าถึงโดยไม่มีสิทธิ์ | เปิด PDPA incident workflow, เก็บ data-impact facts, freeze การลบ record ที่เกี่ยวข้อง | SOC Manager + DPO | timeline, data class, affected-subject estimate, sensitive-data indicator, containment state | DPO + Legal + CISO | DPO ตัดสิน notify, defer หรือ not required |
+| **พ.ร.บ. คอมพิวเตอร์** | unauthorized access, data tampering, malicious tooling, traffic-data request หรือกิจกรรมที่อาจเป็นคดี | เก็บ authentication, endpoint, network, application และ traffic logs | IR Engineer + Legal | log package, account list, source/destination, timestamps, forensic hashes, custody trail | Legal + CISO | Legal ตัดสิน law-enforcement หรือ authority response |
+| **พ.ร.บ. ไซเบอร์** | cyber threat กระทบบริการสำคัญ บริการสาธารณะ หรืออาจเกี่ยวข้องกับ CII | ประเมิน impact level, เก็บ war-room timeline, เตรียม coordination package | CISO + SOC Manager | service impact, downtime, affected population, containment actions, recovery status | CISO + Business Owner + Legal | CISO ตัดสิน NCSA / regulator / executive escalation |
+| **พ.ร.บ. ธุรกรรมอิเล็กทรอนิกส์** | electronic record, approval, signature หรือ digital message อาจใช้เป็นหลักฐาน | รักษา integrity, authenticity, time source, system-of-record proof และ chain of custody | IR Lead + Security Engineer | evidence register, hashes, custodian, time sync proof, source system owner | Legal + IR Lead | Legal ยืนยัน legal hold และ release rules |
+| **NCSA / ThaiCERT** | national advisory, sectoral CERT contact, major IOC sharing หรือ coordinated response | จัดทำ IOC package และ sharing approval record | Threat Intel Lead + CISO | IOC list, confidence level, observed scope, sanitization review, sharing approval | CISO + Legal + Communications | CISO อนุมัติ external sharing หรือ response |
+
 ## ชุดหลักฐานขั้นต่ำสำหรับ Audit (Minimum Audit Evidence Pack)
 
 | หลักฐาน | เหตุผล | ผู้รับผิดชอบ |
@@ -205,6 +217,8 @@ graph TD
 - [ตารางความรุนแรง](../05_Incident_Response/Severity_Matrix.th.md)
 - [ดัชนี Detection Rules](../08_Detection_Engineering/README.th.md)
 - [SOC Use Case Library](../08_Detection_Engineering/SOC_Use_Case_Library.th.md)
+- [Thai Cyber Legal Baseline](Thai_Cyber_Legal_Baseline.th.md)
+- [Thai Legal Escalation Template](../11_Reporting_Templates/Thai_Legal_Escalation_Template.th.md)
 - [แผนที่ Coverage MITRE ATT&CK](../tools/mitre_attack_heatmap.html)
 - [เครื่องมือวัดคะแนน SOC Maturity](../tools/soc_maturity_scorer.html)
 
@@ -256,3 +270,5 @@ PDPA:      ███████████████████░░  90% 
 - [PCI DSS v4.0](https://www.pcisecuritystandards.org/document_library/)
 - [MITRE ATT&CK Framework](https://attack.mitre.org/)
 - [MITRE ATLAS](https://atlas.mitre.org/)
+- [Ministry of Digital Economy and Society — Cybersecurity Act B.E. 2562 (2019)](https://www.mdes.go.th/law/detail/1904-Cybersecurity-Act--B-E--2562--2019-)
+- [Government Platform for PDPA Compliance](https://gppc.pdpc.or.th/)

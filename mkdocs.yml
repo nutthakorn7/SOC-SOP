@@ -368,6 +368,8 @@ nav:
     - วิเคราะห์ Gap Compliance (TH): 07_Compliance_Privacy/Compliance_Gap_Analysis.th.md
     - PDPA Compliance: 07_Compliance_Privacy/PDPA_Compliance.en.md
     - PDPA Compliance (TH): 07_Compliance_Privacy/PDPA_Compliance.th.md
+    - Thai Cyber Legal Baseline: 07_Compliance_Privacy/Thai_Cyber_Legal_Baseline.en.md
+    - แนวทางกฎหมายไซเบอร์ไทยสำหรับ SOC (TH): 07_Compliance_Privacy/Thai_Cyber_Legal_Baseline.th.md
     - Data Governance Policy: 07_Compliance_Privacy/Data_Governance_Policy.en.md
     - นโยบายกำกับดูแลข้อมูล (TH): 07_Compliance_Privacy/Data_Governance_Policy.th.md
   - 🎯 Testing & Training:
@@ -383,6 +385,8 @@ nav:
     - หลักสูตร Analyst (TH): 10_Training_Onboarding/Analyst_Onboarding_Path.th.md
     - Training Checklist: 10_Training_Onboarding/Training_Checklist.en.md
     - เช็คลิสต์ฝึกอบรม (TH): 10_Training_Onboarding/Training_Checklist.th.md
+    - Thai Compliance Workshop Module: 10_Training_Onboarding/Thai_Compliance_Workshop_Module.en.md
+    - โมดูล Workshop กฎหมายไทยสำหรับ SOC (TH): 10_Training_Onboarding/Thai_Compliance_Workshop_Module.th.md
     - SOC Analyst Onboarding (90-Day): 10_Training_Onboarding/SOC_Onboarding.en.md
     - Onboarding SOC Analyst (TH): 10_Training_Onboarding/SOC_Onboarding.th.md
   - 📄 Templates & Reports:
@@ -406,6 +410,8 @@ nav:
     - แบบฟอร์มอนุมัติข้อยกเว้น (TH): 11_Reporting_Templates/Exception_Approval_Template.th.md
     - Incident Decision Log: 11_Reporting_Templates/Incident_Decision_Log.en.md
     - บันทึกการตัดสินใจระหว่างเหตุการณ์ (TH): 11_Reporting_Templates/Incident_Decision_Log.th.md
+    - Thai Legal Escalation Template: 11_Reporting_Templates/Thai_Legal_Escalation_Template.en.md
+    - แบบฟอร์มการยกระดับเหตุด้านกฎหมายไทย (TH): 11_Reporting_Templates/Thai_Legal_Escalation_Template.th.md
     - Investment Justification Template: 11_Reporting_Templates/Investment_Justification_Template.en.md
     - แบบฟอร์มอนุมัติการลงทุน (TH): 11_Reporting_Templates/Investment_Justification_Template.th.md
     - Log Source Onboarding Request: 11_Reporting_Templates/Log_Source_Onboarding_Request.en.md
