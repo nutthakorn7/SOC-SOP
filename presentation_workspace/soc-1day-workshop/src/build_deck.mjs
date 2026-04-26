@@ -46,6 +46,8 @@ const theme = {
   softGreen: "#E3F4EE",
   softAmber: "#F7E9D1",
   softTeal: "#DFF3F6",
+  softRed: "#FBE5E1",
+  blue: "#244C7A",
 };
 
 const agenda = [
@@ -67,6 +69,33 @@ const sourceRefs = {
   reporting: "Repo: 11_Reporting_Templates",
   training: "Repo: 09_Simulation_Testing, 10_Training_Onboarding",
 };
+
+const moduleStage = {
+  "Opening and Workshop Framing": ["FRAME", "Turn the repo into decisions, artifacts, and operating habits."],
+  "SOC Foundations and Operating Models": ["BUILD", "Choose the SOC mission, scope, and target operating model."],
+  "SOC Blueprint, Architecture, and Telemetry Flow": ["SEE", "Design the telemetry path that proves what happened."],
+  "People, Roles, Staffing, and Shift Operations": ["STAFF", "Assign owners, coverage, shift rules, and escalation rights."],
+  "Technology Stack, Selection Logic, and Budgeting": ["FUND", "Prioritize tools and budget by operating value, not tool hype."],
+  "SOC Operations and Governance": ["RUN", "Convert alerts into disciplined workflow and governance evidence."],
+  "Detection Engineering and Coverage Management": ["DETECT", "Manage coverage as a lifecycle, not a rule list."],
+  "Incident Response, Runbooks, and Playbook Operations": ["RESPOND", "Make containment, evidence, and recovery decisions under pressure."],
+  "Thai Compliance, Privacy, and Legal Operating Model": ["GOVERN", "Open the right legal checkpoint without turning SOC into Legal."],
+  "Reporting, Executive Communication, and Board-Level Outputs": ["REPORT", "Translate technical evidence into executive decisions."],
+  "Training, Simulation, and Continuous Improvement": ["IMPROVE", "Turn exercises and lessons learned into capability growth."],
+  "Capstone Scenario and Close": ["APPLY", "Use the whole operating model on one realistic case."],
+};
+
+const scenarioThread = [
+  [23, "A public customer portal is now in scope for the target SOC architecture."],
+  [39, "Repeated failed logins start after business hours; shift coverage becomes material."],
+  [55, "The team must decide which tools prove account abuse and data access."],
+  [69, "A queue item becomes an investigation with multiple owners and open decisions."],
+  [83, "The likely attack path is credential stuffing followed by valid-session abuse."],
+  [97, "Successful logins and invoice downloads require containment and evidence handling."],
+  [113, "Screenshots appear on social media; legal-impact checkpoints are opened."],
+  [123, "Executives need facts, assumptions, decisions, and next review time."],
+  [137, "Capstone: teams make the full architecture, staffing, detection, IR, legal, and reporting call."],
+];
 
 const modules = [
   {
@@ -1008,13 +1037,22 @@ function fallbackPoints(title) {
   ];
 }
 
-function thaiNote(slideNo, moduleTitle, title, points) {
+function thaiNote(slideNo, moduleTitle, title, points, kind, interaction) {
+  const activityCue =
+    kind === "workshop" || kind === "worksheet"
+      ? "ให้แบ่งกลุ่ม ทำ artifact จริง และบังคับให้ระบุ owner/evidence/next action"
+      : interaction === "DECISION"
+        ? "หยุดถาม decision point ก่อนอธิบายต่อ เพื่อให้ผู้เรียนคิดจากบริบทองค์กรจริง"
+        : "เล่าเป็น operating pattern แล้วโยงไปยัง artifact ที่ต้องได้";
   return [
     `สไลด์ ${slideNo}: ${title}`,
     `Module: ${moduleTitle}`,
-    "แนวทางผู้สอน: อธิบายแบบ practical โดยโยงกับบทบาท CISO, SOC Manager, SOC Analyst, Security Engineer และ IR Engineer",
+    `โหมดการสอน: ${interaction}`,
+    `แนวทางผู้สอน: ${activityCue}`,
+    "โยงกับบทบาท: CISO ตัดสินใจความเสี่ยง, SOC Manager คุม workflow, Analyst/Engineer/IR สร้าง evidence และ action",
     `ประเด็นหลัก: ${points[0] || title}`,
     "ถามผู้เรียน: ในองค์กรของคุณ owner, evidence และ next action คือใคร/อะไร",
+    "จุดที่มักพลาด: ตอบเป็นชื่อ tool แทนที่จะตอบเป็น workflow, evidence, authority และ operating artifact",
     "ผลลัพธ์ที่ต้องได้: decision หรือ artifact ที่เอาไปใช้ต่อได้ ไม่ใช่แค่ความเข้าใจเชิงทฤษฎี",
   ].join("\n");
 }
@@ -1023,7 +1061,7 @@ function makeSlides() {
   let slideNo = 1;
   const out = [];
   for (const module of modules) {
-    for (const title of module.slides) {
+    for (const [moduleIndex, title] of module.slides.entries()) {
       const tableRows = tables[title];
       const points = detail[title] || fallbackPoints(title);
       let kind = "content";
@@ -1032,17 +1070,24 @@ function makeSlides() {
       else if (title.includes("worksheet") || title.includes("Team task") || title.includes("30/60/90")) kind = "worksheet";
       else if (title.includes("Reference slide")) kind = "reference";
       else if (title.includes("agenda")) kind = "agenda";
+      const cleaned = cleanTitle(title);
+      const interaction = interactionFor(title, kind);
       out.push({
         no: slideNo,
-        title: cleanTitle(title),
+        title: cleaned,
         rawTitle: title,
         module: module.title,
+        moduleStage: moduleStage[module.title] || ["OPERATE", module.title],
+        isModuleStart: moduleIndex === 0 && slideNo !== 1,
         accent: module.accent,
         source: module.source,
         kind,
+        visual: visualModeFor(cleaned, kind, tableRows, moduleIndex === 0 && slideNo !== 1),
+        interaction,
+        scenario: scenarioForSlide(slideNo),
         points,
         tableRows,
-        notes: thaiNote(slideNo, module.title, cleanTitle(title), points),
+        notes: thaiNote(slideNo, module.title, cleaned, points, kind, interaction),
       });
       slideNo += 1;
     }
@@ -1056,6 +1101,37 @@ function cleanTitle(title) {
     .replace(/^Reference slide:\s*/i, "")
     .replace(/^Workshop block \d+ instruction:\s*/i, "Workshop: ")
     .replace(/^Workshop block \d+ worksheet:\s*/i, "Worksheet: ");
+}
+
+function interactionFor(title, kind) {
+  if (kind === "workshop" || kind === "worksheet" || title.includes("Team task")) return "EXERCISE";
+  if (title.includes("Reference slide")) return "REFERENCE";
+  if (/decision|authority|checkpoint|budget|priorit|notify|escalation/i.test(title)) return "DECISION";
+  if (/scenario|debrief|capstone/i.test(title)) return "DEBRIEF";
+  return "TEACH";
+}
+
+function scenarioForSlide(slideNo) {
+  let current = null;
+  for (const [start, text] of scenarioThread) {
+    if (slideNo >= start) current = text;
+  }
+  return current;
+}
+
+function visualModeFor(title, kind, tableRows, isModuleStart) {
+  if (kind === "cover" || kind === "agenda") return kind;
+  if (kind === "workshop" || kind === "worksheet") return "workshop";
+  if (tableRows) return "table";
+  if (isModuleStart) return "module";
+  if (/dashboard|KPI|budget|scorecard|calendar|metrics|allocation/i.test(title)) return "dashboard";
+  if (/flow|lifecycle|path|pipeline|sequence|logic|pattern|model|triangle|architecture|coordination|escalation|handoff/i.test(title)) {
+    return "flow";
+  }
+  if (/report|brief|template|evidence|catalog|structure|matrix|coverage|backlog|service|role|staffing|tool|onboarding|training|runbook|playbook/i.test(title)) {
+    return "artifact";
+  }
+  return "standard";
 }
 
 function T(value, opts = {}) {
@@ -1118,14 +1194,63 @@ function shortSource(source) {
   return source.replace(/^Repo:\s*/, "Source: ");
 }
 
+function interactionBadge(slide) {
+  const palette = {
+    TEACH: [theme.softTeal, theme.teal],
+    DECISION: [theme.softAmber, theme.amber],
+    EXERCISE: [theme.softGreen, theme.green],
+    REFERENCE: ["#ECE7DA", theme.muted],
+    DEBRIEF: [theme.softRed, theme.red],
+  };
+  const [bg, fg] = palette[slide.interaction] || palette.TEACH;
+  return panel(
+    {
+      width: fixed(150),
+      height: fixed(38),
+      fill: bg,
+      stroke: bg,
+      borderRadius: 18,
+      padding: { x: 12, y: 8 },
+    },
+    T(slide.interaction, {
+      width: fill,
+      fontSize: 14,
+      bold: true,
+      color: fg,
+      style: { alignment: "center" },
+    }),
+  );
+}
+
+function scenarioRibbon(slide) {
+  if (!slide.scenario) return null;
+  return panel(
+    {
+      width: fill,
+      height: fixed(54),
+      fill: "#F1F6F4",
+      stroke: "#C8DDD5",
+      borderRadius: 12,
+      padding: { x: 18, y: 12 },
+    },
+    row({ width: fill, height: hug, gap: 14 }, [
+      T("CASE THREAD", { width: fixed(138), fontSize: 14, bold: true, color: slide.accent }),
+      T(slide.scenario, { width: fill, fontSize: 18, color: theme.ink }),
+    ]),
+  );
+}
+
 function titleStack(slide, subtitle) {
   return column({ width: fill, height: hug, gap: 14 }, [
-    T(slide.title, {
-      name: "slide-title",
-      fontSize: slide.title.length > 54 ? 46 : 56,
-      bold: true,
-      color: theme.ink,
-    }),
+    grid({ width: fill, height: hug, columns: [fr(1), fixed(160)], columnGap: 16 }, [
+      T(slide.title, {
+        name: "slide-title",
+        fontSize: slide.title.length > 54 ? 43 : 54,
+        bold: true,
+        color: theme.ink,
+      }),
+      interactionBadge(slide),
+    ]),
     row({ width: fill, height: hug, gap: 18 }, [
       rule({ width: fixed(180), stroke: slide.accent, weight: 5 }),
       T(subtitle || slide.module, { width: fill, fontSize: 20, color: theme.muted }),
@@ -1171,6 +1296,7 @@ function simpleTable(rows, accent) {
 
 function standardSlide(presentation, slide) {
   const s = presentation.slides.add();
+  const ribbon = scenarioRibbon(slide);
   s.compose(
     column(
       {
@@ -1178,10 +1304,11 @@ function standardSlide(presentation, slide) {
         width: fill,
         height: fill,
         padding: { x: 82, y: 58 },
-        gap: 34,
+        gap: ribbon ? 22 : 34,
       },
       [
         titleStack(slide),
+        ...(ribbon ? [ribbon] : []),
         slide.tableRows
           ? simpleTable(slide.tableRows, slide.accent)
           : grid(
@@ -1199,6 +1326,344 @@ function standardSlide(presentation, slide) {
         footer(slide),
       ],
     ),
+    { frame: { left: 0, top: 0, width: W, height: H }, baseUnit: 8 },
+  );
+  s.speakerNotes.setText(slide.notes);
+  return s;
+}
+
+function moduleOpenSlide(presentation, slide) {
+  const s = presentation.slides.add();
+  const [stage, promise] = slide.moduleStage;
+  s.compose(
+    grid(
+      {
+        name: "module-open-root",
+        width: fill,
+        height: fill,
+        columns: [fr(0.72), fr(1.28)],
+        columnGap: 54,
+        padding: { x: 82, y: 58 },
+      },
+      [
+        panel(
+          {
+            width: fill,
+            height: fill,
+            fill: theme.ink,
+            stroke: theme.ink,
+            borderRadius: 0,
+            padding: { x: 42, y: 44 },
+          },
+          column({ width: fill, height: fill, gap: 28 }, [
+            T(String(slide.no).padStart(3, "0"), { fontSize: 34, bold: true, color: slide.accent }),
+            T(stage, { fontSize: stage.length > 7 ? 70 : 92, bold: true, color: theme.white }),
+            rule({ width: fixed(260), stroke: slide.accent, weight: 8 }),
+            T(promise, { fontSize: 28, color: "#DDE7E5" }),
+            ...(slide.scenario
+              ? [
+                  panel(
+                    {
+                      width: fill,
+                      height: fixed(174),
+                      fill: "#20303A",
+                      stroke: "#20303A",
+                      borderRadius: 16,
+                      padding: { x: 24, y: 20 },
+                    },
+                    column({ width: fill, height: hug, gap: 10 }, [
+                      T("Scenario thread", { fontSize: 18, bold: true, color: slide.accent }),
+                      T(slide.scenario, { fontSize: 24, color: theme.white }),
+                    ]),
+                  ),
+                ]
+              : []),
+          ]),
+        ),
+        column({ width: fill, height: fill, gap: 30 }, [
+          titleStack(slide, "Module opening decision"),
+          T("Teaching job", { fontSize: 22, bold: true, color: slide.accent }),
+          bulletList(slide.points, slide.accent),
+          panel(
+            {
+              width: fill,
+              height: fixed(118),
+              fill: theme.paper,
+              stroke: theme.line,
+              borderRadius: 14,
+              padding: { x: 26, y: 22 },
+            },
+            row({ width: fill, height: hug, gap: 26 }, [
+              T("Output", { width: fixed(120), fontSize: 24, bold: true, color: slide.accent }),
+              T("One decision, one owner, one evidence path, and one backlog item before moving on.", {
+                fontSize: 25,
+                color: theme.ink,
+              }),
+            ]),
+          ),
+          footer(slide),
+        ]),
+      ],
+    ),
+    { frame: { left: 0, top: 0, width: W, height: H }, baseUnit: 8 },
+  );
+  s.speakerNotes.setText(slide.notes);
+  return s;
+}
+
+function flowSlide(presentation, slide) {
+  const s = presentation.slides.add();
+  const steps = slide.points.slice(0, 3);
+  const ribbon = scenarioRibbon(slide);
+  s.compose(
+    column({ width: fill, height: fill, padding: { x: 82, y: 58 }, gap: ribbon ? 22 : 30 }, [
+      titleStack(slide),
+      ...(ribbon ? [ribbon] : []),
+      grid({ width: fill, height: grow(1), columns: [fr(1.05), fr(0.95)], columnGap: 54 }, [
+        column({ width: fill, height: fill, gap: 28 }, [
+          T("Operating flow", { fontSize: 24, bold: true, color: slide.accent }),
+          row(
+            { width: fill, height: fixed(190), gap: 18 },
+            ["Trigger", "Evidence", "Decision", "Action"].map((label, i) =>
+              panel(
+                {
+                  width: fill,
+                  height: fill,
+                  fill: i === 2 ? theme.softAmber : theme.paper,
+                  stroke: i === 2 ? "#E5C894" : theme.line,
+                  borderRadius: 14,
+                  padding: { x: 18, y: 20 },
+                },
+                column({ width: fill, height: hug, gap: 12 }, [
+                  T(String(i + 1), { fontSize: 24, bold: true, color: slide.accent }),
+                  T(label, { fontSize: 25, bold: true, color: theme.ink }),
+                ]),
+              ),
+            ),
+          ),
+          panel(
+            {
+              width: fill,
+              height: fixed(190),
+              fill: "#F3F1EA",
+              stroke: theme.line,
+              borderRadius: 14,
+              padding: { x: 26, y: 22 },
+            },
+            T(steps[0], { fontSize: 31, bold: true, color: theme.ink }),
+          ),
+        ]),
+        column({ width: fill, height: fill, gap: 18 }, [
+          T("Facilitator prompts", { fontSize: 24, bold: true, color: slide.accent }),
+          ...steps.slice(1).map((p) =>
+            panel(
+              {
+                width: fill,
+                height: fixed(108),
+                fill: theme.paper,
+                stroke: theme.line,
+                borderRadius: 12,
+                padding: { x: 22, y: 18 },
+              },
+              T(p, { fontSize: 23, color: theme.ink }),
+            ),
+          ),
+          panel(
+            {
+              width: fill,
+              height: fixed(128),
+              fill: theme.softGreen,
+              stroke: "#B9DED2",
+              borderRadius: 12,
+              padding: { x: 22, y: 18 },
+            },
+            T("Ask: what fact would change the decision?", { fontSize: 26, bold: true, color: theme.green }),
+          ),
+        ]),
+      ]),
+      footer(slide),
+    ]),
+    { frame: { left: 0, top: 0, width: W, height: H }, baseUnit: 8 },
+  );
+  s.speakerNotes.setText(slide.notes);
+  return s;
+}
+
+function dashboardSlide(presentation, slide) {
+  const s = presentation.slides.add();
+  const ribbon = scenarioRibbon(slide);
+  s.compose(
+    column({ width: fill, height: fill, padding: { x: 82, y: 58 }, gap: ribbon ? 22 : 30 }, [
+      titleStack(slide),
+      ...(ribbon ? [ribbon] : []),
+      grid({ width: fill, height: grow(1), columns: [fr(0.9), fr(1.1)], columnGap: 42 }, [
+        grid(
+          { width: fill, height: hug, columns: [fr(1), fr(1)], columnGap: 16, rowGap: 16 },
+          ["Risk", "Quality", "Backlog", "Decision"].map((label, i) =>
+            panel(
+              {
+                width: fill,
+                height: fixed(154),
+                fill: [theme.softRed, theme.softTeal, theme.softAmber, theme.softGreen][i],
+                stroke: theme.line,
+                borderRadius: 14,
+                padding: { x: 22, y: 18 },
+              },
+              column({ width: fill, height: hug, gap: 10 }, [
+                T(label, { fontSize: 20, bold: true, color: [theme.red, theme.teal, theme.amber, theme.green][i] }),
+                T(i === 0 ? "Trend" : i === 1 ? "Signal" : i === 2 ? "Owner" : "Ask", {
+                  fontSize: 42,
+                  bold: true,
+                  color: theme.ink,
+                }),
+              ]),
+            ),
+          ),
+        ),
+        column({ width: fill, height: fill, gap: 16 }, [
+          T("Decision board", { fontSize: 24, bold: true, color: slide.accent }),
+          ...slide.points.slice(0, 3).map((p, i) =>
+            panel(
+              {
+                width: fill,
+                height: fixed(104),
+                fill: i === 0 ? "#F3F1EA" : theme.paper,
+                stroke: theme.line,
+                borderRadius: 12,
+                padding: { x: 22, y: 18 },
+              },
+              T(p, { fontSize: i === 0 ? 25 : 22, bold: i === 0, color: theme.ink }),
+            ),
+          ),
+        ]),
+      ]),
+      footer(slide),
+    ]),
+    { frame: { left: 0, top: 0, width: W, height: H }, baseUnit: 8 },
+  );
+  s.speakerNotes.setText(slide.notes);
+  return s;
+}
+
+function artifactSlide(presentation, slide) {
+  const s = presentation.slides.add();
+  const ribbon = scenarioRibbon(slide);
+  s.compose(
+    column({ width: fill, height: fill, padding: { x: 82, y: 58 }, gap: ribbon ? 22 : 30 }, [
+      titleStack(slide),
+      ...(ribbon ? [ribbon] : []),
+      grid({ width: fill, height: grow(1), columns: [fr(1), fr(1)], columnGap: 48 }, [
+        panel(
+          {
+            width: fill,
+            height: fill,
+            fill: theme.paper,
+            stroke: theme.line,
+            borderRadius: 14,
+            padding: { x: 28, y: 26 },
+          },
+          column({ width: fill, height: fill, gap: 18 }, [
+            row({ width: fill, height: hug, gap: 16 }, [
+              T("Artifact", { width: fixed(128), fontSize: 22, bold: true, color: slide.accent }),
+              rule({ width: fill, stroke: slide.accent, weight: 3 }),
+            ]),
+            ...["Decision", "Owner", "Evidence", "Escalation"].map((label, i) =>
+              row({ width: fill, height: fixed(72), gap: 16 }, [
+                panel(
+                  {
+                    width: fixed(42),
+                    height: fixed(42),
+                    fill: i === 0 ? slide.accent : theme.paper,
+                    stroke: slide.accent,
+                    borderRadius: 10,
+                    padding: { x: 0, y: 6 },
+                  },
+                  T(String(i + 1), {
+                    width: fixed(42),
+                    fontSize: 18,
+                    bold: true,
+                    color: i === 0 ? theme.white : slide.accent,
+                    style: { alignment: "center" },
+                  }),
+                ),
+                T(label, { fontSize: 27, bold: true, color: theme.ink }),
+              ]),
+            ),
+            T("Use this slide as the shape of the document, dashboard, queue, or checklist participants should create.", {
+              fontSize: 21,
+              color: theme.muted,
+            }),
+          ]),
+        ),
+        column({ width: fill, height: fill, gap: 18 }, [
+          T("What participants should take away", { fontSize: 24, bold: true, color: slide.accent }),
+          ...slide.points.slice(0, 3).map((p, i) =>
+            panel(
+              {
+                width: fill,
+                height: fixed(104),
+                fill: i === 0 ? theme.softGreen : theme.paper,
+                stroke: i === 0 ? "#B9DED2" : theme.line,
+                borderRadius: 12,
+                padding: { x: 22, y: 18 },
+              },
+              T(p, { fontSize: i === 0 ? 24 : 22, bold: i === 0, color: theme.ink }),
+            ),
+          ),
+        ]),
+      ]),
+      footer(slide),
+    ]),
+    { frame: { left: 0, top: 0, width: W, height: H }, baseUnit: 8 },
+  );
+  s.speakerNotes.setText(slide.notes);
+  return s;
+}
+
+function workshopSlide(presentation, slide) {
+  const s = presentation.slides.add();
+  const ribbon = scenarioRibbon(slide);
+  s.compose(
+    column({ width: fill, height: fill, padding: { x: 82, y: 58 }, gap: ribbon ? 18 : 26 }, [
+      titleStack(slide, "Team work block"),
+      ...(ribbon ? [ribbon] : []),
+      grid({ width: fill, height: grow(1), columns: [fr(0.82), fr(1.18)], columnGap: 42 }, [
+        column({ width: fill, height: fill, gap: 18 }, [
+          panel(
+            {
+              width: fill,
+              height: fixed(152),
+              fill: theme.ink,
+              stroke: theme.ink,
+              borderRadius: 16,
+              padding: { x: 26, y: 22 },
+            },
+            column({ width: fill, height: hug, gap: 8 }, [
+              T("WORKSHOP OUTPUT", { fontSize: 16, bold: true, color: slide.accent }),
+              T("Produce an artifact, not an opinion.", { fontSize: 34, bold: true, color: theme.white }),
+            ]),
+          ),
+          bulletList(slide.points, slide.accent),
+        ]),
+        grid(
+          { width: fill, height: hug, columns: [fr(1), fr(1)], columnGap: 16, rowGap: 16 },
+          ["Decision", "Owner", "Evidence", "Missing facts", "Escalation", "Next action"].map((label, i) =>
+            panel(
+              {
+                width: fill,
+                height: fixed(112),
+                fill: i === 0 ? theme.softAmber : theme.paper,
+                stroke: i === 0 ? "#E5C894" : theme.line,
+                borderRadius: 12,
+                padding: { x: 20, y: 18 },
+              },
+              T(label, { fontSize: 24, bold: true, color: i === 0 ? theme.amber : theme.ink }),
+            ),
+          ),
+        ),
+      ]),
+      footer(slide),
+    ]),
     { frame: { left: 0, top: 0, width: W, height: H }, baseUnit: 8 },
   );
   s.speakerNotes.setText(slide.notes);
@@ -1401,6 +1866,11 @@ async function main() {
   for (const slide of slides) {
     if (slide.kind === "cover") coverSlide(presentation, slide);
     else if (slide.kind === "agenda") agendaSlide(presentation, slide);
+    else if (slide.visual === "module") moduleOpenSlide(presentation, slide);
+    else if (slide.visual === "workshop") workshopSlide(presentation, slide);
+    else if (slide.visual === "flow") flowSlide(presentation, slide);
+    else if (slide.visual === "dashboard") dashboardSlide(presentation, slide);
+    else if (slide.visual === "artifact") artifactSlide(presentation, slide);
     else standardSlide(presentation, slide);
   }
   const pptxBlob = await PresentationFile.exportPptx(presentation);
