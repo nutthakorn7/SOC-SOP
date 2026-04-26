@@ -12556,7 +12556,7 @@ graph TD
 | **Executive Summary** | 3-5 bullets เกี่ยวกับ security posture, material incidents, และประเด็นตัดสินใจหลัก | ทำให้การประชุมโฟกัสที่ decision ไม่ใช่งานปฏิบัติการดิบ |
 | **Material Incident Review** | ประเภท incident, impact, current status, และ exposure ที่ยังไม่ปิด | ยืนยันว่าความเสี่ยงกำลังลดลงหรือสะสมเพิ่ม |
 | **Control Gap Review** | ช่องว่างสำคัญที่กระทบ critical assets หรือ regulated data | แสดงจุดที่ exposure ยังเกิน tolerance |
-| **Decision Items** | คำขอ funding, risk acceptance, หรือ exception ที่ต้องตัดสินใจ | ทำให้ owner และ deadline ชัด |
+| **รายการที่ต้องตัดสินใจ** | คำขอ funding, risk acceptance, หรือ exception ที่ต้องตัดสินใจ | ทำให้ owner และ deadline ชัด |
 | **Follow-up Tracker** | มติจากไตรมาสก่อนและสถานะปัจจุบัน | ป้องกันไม่ให้ governance action ค้าง |
 
 ## 3. Trigger ระดับบอร์ดที่ควรใช้ชุดนี้
@@ -13643,10 +13643,10 @@ This template defines the metrics and visualizations for a SOC executive dashboa
 | สัญญาณจาก Dashboard | ต้องส่งต่อไปที่ | ผลลัพธ์ที่ต้องมี |
 |:---|:---|:---|
 | **ตัวชี้วัดแย่ลงรอบเดียวแต่ยังควบคุมผลกระทบได้** | Monthly Governance Review Pack | owner, corrective action, และ next review date |
-| **ตัวชี้วัดล้มเหลวซ้ำตลอดไตรมาส** | Board Quarterly Decision Pack | คำขอเรื่อง capacity, funding, หรือ scope decision |
+| **ตัวชี้วัดล้มเหลวซ้ำตลอดไตรมาส** | ชุดเอกสารการตัดสินใจรายไตรมาสสำหรับบอร์ด | คำขอเรื่อง capacity, funding, หรือ scope decision |
 | **มีประเด็น exception หรือ risk tolerance** | Quarterly Risk Acceptance Review Pack | residual risk statement, วันหมดอายุ, และ recommendation |
 | **มีช่องว่างเชิงโครงสร้างด้าน coverage หรือ telemetry** | Annual Control Coverage Review Pack | priority gap statement, บริการที่ได้รับผลกระทบ, และความต้องการลงทุน |
-| **incident กลายเป็นประเด็นสาธารณะหรือมีแรงกดดันด้านการสื่อสาร** | Communication Templates และ Board Quarterly Decision Pack | เส้นทางข้อความที่อนุมัติแล้ว owner ผู้แถลง และบันทึกการตัดสินใจของผู้บริหาร |
+| **incident กลายเป็นประเด็นสาธารณะหรือมีแรงกดดันด้านการสื่อสาร** | เทมเพลตการสื่อสารเหตุการณ์ และชุดเอกสารการตัดสินใจรายไตรมาสสำหรับบอร์ด | เส้นทางข้อความที่อนุมัติแล้ว owner ผู้แถลง และบันทึกการตัดสินใจของผู้บริหาร |
 
 ## บันทึกการตัดสินใจขั้นต่ำสำหรับผู้บริหาร
 
@@ -14596,9 +14596,9 @@ graph TD
 | ถ้าเดือนนี้พบว่า | ต้องส่งต่อไปที่ | ผลลัพธ์ที่ต้องส่ง |
 |:---|:---|:---|
 | **มี exception หรือ risk acceptance ที่เกิดซ้ำ** | Quarterly Risk Acceptance Review Pack | residual risk statement, วันหมดอายุ, และข้อเสนอแนะของ owner ที่อัปเดตแล้ว |
-| **มีปัญหาด้านบริการ บุคลากร หรือ tooling ต่อเนื่อง** | Board Quarterly Decision Pack | คำขอเรื่องงบประมาณหรืออำนาจตัดสินใจพร้อม business impact |
+| **มีปัญหาด้านบริการ บุคลากร หรือ tooling ต่อเนื่อง** | ชุดเอกสารการตัดสินใจรายไตรมาสสำหรับบอร์ด | คำขอเรื่องงบประมาณหรืออำนาจตัดสินใจพร้อม business impact |
 | **มีช่องว่างเชิงโครงสร้างด้าน detection หรือ telemetry** | Annual Control Coverage Review Pack | control gap statement, บริการที่ได้รับผลกระทบ, และลำดับความสำคัญในการลงทุน |
-| **มีแนวโน้ม material incident ต่อเนื่อง** | Board Quarterly Decision Pack | สรุปแนวโน้ม residual exposure และ decision ที่ผู้บริหารต้องตัดสินใจ |
+| **มีแนวโน้ม material incident ต่อเนื่อง** | ชุดเอกสารการตัดสินใจรายไตรมาสสำหรับบอร์ด | สรุปแนวโน้ม residual exposure และ decision ที่ผู้บริหารต้องตัดสินใจ |
 
 ## 8. กติกาการปิดงานใน Governance
 
@@ -15238,9 +15238,9 @@ graph LR
 | Incidents | Summary, severity, status | Pie + table |
 | KPI Performance | ตัวชี้วัดหลักเทียบเป้าหมาย | Gauge |
 | Threat Landscape | ภัยคุกคามล่าสุด | Timeline |
-| Recommendations | ข้อเสนอปรับปรุง | Priority list |
+| Recommendations | ข้อเสนอปรับปรุง | รายการตามลำดับความสำคัญ |
 
-### Checklist ทบทวนรายงาน
+### รายการตรวจทบทวนรายงาน
 - [ ] ข้อมูลถูกต้องครบถ้วน
 - [ ] แผนภูมิอ่านเข้าใจง่าย
 - [ ] Recommendations มี action items
@@ -17354,7 +17354,7 @@ graph TD
 - **8-10**: กลาง → SOC Manager อนุมัติ
 - **11-15**: สูง → CISO อนุมัติ + CAB review
 
-## Approval Matrix
+## ตารางอนุมัติ
 
 | ประเภท Change | ระดับเสี่ยง | ผู้อนุมัติ | เวลานำก่อนทำ (Lead Time) |
 |:---|:---|:---|:---|
@@ -17365,7 +17365,7 @@ graph TD
 | Agent deploy (fleet) | สูง | SOC Manager + IT Lead | 1 สัปดาห์ |
 | Platform upgrade หลัก | สูง | CISO + CAB | 2 สัปดาห์ |
 
-## Checklist ตรวจหลังเปลี่ยน
+## รายการตรวจหลังเปลี่ยน
 
 ```
 □ Change ดำเนินการสำเร็จ
@@ -17858,7 +17858,7 @@ Use UTC timestamps and format consistently:
 | 2026-02-15 14:00 | Recovery | Build host ใหม่ | IT |
 ```
 
-## Checklist แนบหลักฐาน
+## รายการตรวจแนบหลักฐาน
 
 ```
 □ Screenshots ของ alert/detection
@@ -17960,12 +17960,12 @@ Use UTC timestamps and format consistently:
 - [กรอบ IR](../05_Incident_Response/Framework.th.md)
 - [แบบฟอร์มส่งมอบกะ](shift_handover.th.md)
 - [แบบฟอร์ม RFC](change_request_rfc.th.md)
-- [PDPA Compliance](../07_Compliance_Privacy/PDPA_Compliance.th.md)
+- [แนวทาง PDPA Compliance](../07_Compliance_Privacy/PDPA_Compliance.th.md)
 - [คู่มือ PDPA Incident Response](../07_Compliance_Privacy/PDPA_Incident_Response.th.md)
-- [Board Quarterly Decision Pack](Board_Quarterly_Decision_Pack.th.md)
+- [ชุดเอกสารการตัดสินใจรายไตรมาสสำหรับบอร์ด](Board_Quarterly_Decision_Pack.th.md)
 - [แม่แบบการสื่อสารเหตุการณ์](../05_Incident_Response/Communication_Templates.th.md)
 
-## Checklist คุณภาพรายงาน (Report Quality Checklist)
+## รายการตรวจคุณภาพรายงาน (Report Quality Checklist)
 
 | รายการ | คำอธิบาย | ✓ |
 |:---|:---|:---|
@@ -17975,7 +17975,7 @@ Use UTC timestamps and format consistently:
 | Root cause | ระบุสาเหตุหลักได้ | ☐ |
 | Actions | มอบหมาย owner และวันที่แล้ว | ☐ |
 
-## SLA การส่งรายงาน (Report Priority)
+## SLA การส่งรายงาน (ระดับความเร่งด่วนรายงาน)
 
 | ความรุนแรง | กำหนดส่ง |
 |:---|:---|

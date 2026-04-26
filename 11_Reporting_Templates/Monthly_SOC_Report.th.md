@@ -187,9 +187,9 @@ graph LR
 | Incidents | Summary, severity, status | Pie + table |
 | KPI Performance | ตัวชี้วัดหลักเทียบเป้าหมาย | Gauge |
 | Threat Landscape | ภัยคุกคามล่าสุด | Timeline |
-| Recommendations | ข้อเสนอปรับปรุง | Priority list |
+| Recommendations | ข้อเสนอปรับปรุง | รายการตามลำดับความสำคัญ |
 
-### Checklist ทบทวนรายงาน
+### รายการตรวจทบทวนรายงาน
 - [ ] ข้อมูลถูกต้องครบถ้วน
 - [ ] แผนภูมิอ่านเข้าใจง่าย
 - [ ] Recommendations มี action items

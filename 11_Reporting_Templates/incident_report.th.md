@@ -149,7 +149,7 @@
 | 2026-02-15 14:00 | Recovery | Build host ใหม่ | IT |
 ```
 
-## Checklist แนบหลักฐาน
+## รายการตรวจแนบหลักฐาน
 
 ```
 □ Screenshots ของ alert/detection
@@ -251,12 +251,12 @@
 - [กรอบ IR](../05_Incident_Response/Framework.th.md)
 - [แบบฟอร์มส่งมอบกะ](shift_handover.th.md)
 - [แบบฟอร์ม RFC](change_request_rfc.th.md)
-- [PDPA Compliance](../07_Compliance_Privacy/PDPA_Compliance.th.md)
+- [แนวทาง PDPA Compliance](../07_Compliance_Privacy/PDPA_Compliance.th.md)
 - [คู่มือ PDPA Incident Response](../07_Compliance_Privacy/PDPA_Incident_Response.th.md)
-- [Board Quarterly Decision Pack](Board_Quarterly_Decision_Pack.th.md)
+- [ชุดเอกสารการตัดสินใจรายไตรมาสสำหรับบอร์ด](Board_Quarterly_Decision_Pack.th.md)
 - [แม่แบบการสื่อสารเหตุการณ์](../05_Incident_Response/Communication_Templates.th.md)
 
-## Checklist คุณภาพรายงาน (Report Quality Checklist)
+## รายการตรวจคุณภาพรายงาน (Report Quality Checklist)
 
 | รายการ | คำอธิบาย | ✓ |
 |:---|:---|:---|
@@ -266,7 +266,7 @@
 | Root cause | ระบุสาเหตุหลักได้ | ☐ |
 | Actions | มอบหมาย owner และวันที่แล้ว | ☐ |
 
-## SLA การส่งรายงาน (Report Priority)
+## SLA การส่งรายงาน (ระดับความเร่งด่วนรายงาน)
 
 | ความรุนแรง | กำหนดส่ง |
 |:---|:---|

@@ -125,7 +125,7 @@
 - **8-10**: กลาง → SOC Manager อนุมัติ
 - **11-15**: สูง → CISO อนุมัติ + CAB review
 
-## Approval Matrix
+## ตารางอนุมัติ
 
 | ประเภท Change | ระดับเสี่ยง | ผู้อนุมัติ | เวลานำก่อนทำ (Lead Time) |
 |:---|:---|:---|:---|
@@ -136,7 +136,7 @@
 | Agent deploy (fleet) | สูง | SOC Manager + IT Lead | 1 สัปดาห์ |
 | Platform upgrade หลัก | สูง | CISO + CAB | 2 สัปดาห์ |
 
-## Checklist ตรวจหลังเปลี่ยน
+## รายการตรวจหลังเปลี่ยน
 
 ```
 □ Change ดำเนินการสำเร็จ

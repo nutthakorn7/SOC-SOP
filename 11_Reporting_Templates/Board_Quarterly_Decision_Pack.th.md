@@ -24,7 +24,7 @@ graph TD
 | **Executive Summary** | 3-5 bullets เกี่ยวกับ security posture, material incidents, และประเด็นตัดสินใจหลัก | ทำให้การประชุมโฟกัสที่ decision ไม่ใช่งานปฏิบัติการดิบ |
 | **Material Incident Review** | ประเภท incident, impact, current status, และ exposure ที่ยังไม่ปิด | ยืนยันว่าความเสี่ยงกำลังลดลงหรือสะสมเพิ่ม |
 | **Control Gap Review** | ช่องว่างสำคัญที่กระทบ critical assets หรือ regulated data | แสดงจุดที่ exposure ยังเกิน tolerance |
-| **Decision Items** | คำขอ funding, risk acceptance, หรือ exception ที่ต้องตัดสินใจ | ทำให้ owner และ deadline ชัด |
+| **รายการที่ต้องตัดสินใจ** | คำขอ funding, risk acceptance, หรือ exception ที่ต้องตัดสินใจ | ทำให้ owner และ deadline ชัด |
 | **Follow-up Tracker** | มติจากไตรมาสก่อนและสถานะปัจจุบัน | ป้องกันไม่ให้ governance action ค้าง |
 
 ## 3. Trigger ระดับบอร์ดที่ควรใช้ชุดนี้

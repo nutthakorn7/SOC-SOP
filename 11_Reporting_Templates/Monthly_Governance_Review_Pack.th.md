@@ -64,9 +64,9 @@ graph TD
 | ถ้าเดือนนี้พบว่า | ต้องส่งต่อไปที่ | ผลลัพธ์ที่ต้องส่ง |
 |:---|:---|:---|
 | **มี exception หรือ risk acceptance ที่เกิดซ้ำ** | Quarterly Risk Acceptance Review Pack | residual risk statement, วันหมดอายุ, และข้อเสนอแนะของ owner ที่อัปเดตแล้ว |
-| **มีปัญหาด้านบริการ บุคลากร หรือ tooling ต่อเนื่อง** | Board Quarterly Decision Pack | คำขอเรื่องงบประมาณหรืออำนาจตัดสินใจพร้อม business impact |
+| **มีปัญหาด้านบริการ บุคลากร หรือ tooling ต่อเนื่อง** | ชุดเอกสารการตัดสินใจรายไตรมาสสำหรับบอร์ด | คำขอเรื่องงบประมาณหรืออำนาจตัดสินใจพร้อม business impact |
 | **มีช่องว่างเชิงโครงสร้างด้าน detection หรือ telemetry** | Annual Control Coverage Review Pack | control gap statement, บริการที่ได้รับผลกระทบ, และลำดับความสำคัญในการลงทุน |
-| **มีแนวโน้ม material incident ต่อเนื่อง** | Board Quarterly Decision Pack | สรุปแนวโน้ม residual exposure และ decision ที่ผู้บริหารต้องตัดสินใจ |
+| **มีแนวโน้ม material incident ต่อเนื่อง** | ชุดเอกสารการตัดสินใจรายไตรมาสสำหรับบอร์ด | สรุปแนวโน้ม residual exposure และ decision ที่ผู้บริหารต้องตัดสินใจ |
 
 ## 8. กติกาการปิดงานใน Governance
 
