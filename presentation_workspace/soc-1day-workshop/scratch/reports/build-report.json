@@ -1,0 +1,16 @@
+{
+  "slide_count": 142,
+  "output": "/Users/pop7/Code/SOCSOP/presentation_workspace/soc-1day-workshop/output/output.pptx",
+  "previews": "/Users/pop7/Code/SOCSOP/presentation_workspace/soc-1day-workshop/scratch/previews",
+  "sources": [
+    "Repo: 00_Getting_Started, 01_SOC_Fundamentals",
+    "Repo: SOC_Building_Roadmap, Infrastructure_Setup, Technology_Stack",
+    "Repo: 06_Operations_Management",
+    "Repo: 08_Detection_Engineering",
+    "Repo: 05_Incident_Response",
+    "Repo: 07_Compliance_Privacy; NIST, MITRE, MDES, ETDA, GPPC/PDPC, ThaiCERT",
+    "Repo: 11_Reporting_Templates",
+    "Repo: 09_Simulation_Testing, 10_Training_Onboarding"
+  ],
+  "generated_at": "2026-04-26T17:14:33.478Z"
+}
