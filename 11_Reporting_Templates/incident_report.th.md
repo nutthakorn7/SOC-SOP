@@ -114,7 +114,7 @@
 
 ---
 
-## Template สรุปผู้บริหาร
+## เทมเพลตสรุปผู้บริหาร
 
 สำหรับ incident ที่ต้องแจ้งผู้บริหาร:
 
@@ -258,17 +258,17 @@
 
 ## Checklist คุณภาพรายงาน (Report Quality Checklist)
 
-| Item | Description | ✓ |
+| รายการ | คำอธิบาย | ✓ |
 |:---|:---|:---|
-| Timeline | ครบทุก event | ☐ |
-| Evidence | SHA256 hashes | ☐ |
-| Impact | Quantified | ☐ |
-| Root cause | Identified | ☐ |
-| Actions | Assigned + dated | ☐ |
+| Timeline | ครบทุกเหตุการณ์ | ☐ |
+| Evidence | มี SHA256 hashes | ☐ |
+| Impact | ระบุผลกระทบเชิงปริมาณหรือขอบเขตได้ | ☐ |
+| Root cause | ระบุสาเหตุหลักได้ | ☐ |
+| Actions | มอบหมาย owner และวันที่แล้ว | ☐ |
 
 ## SLA การส่งรายงาน (Report Priority)
 
-| Severity | Due |
+| ความรุนแรง | กำหนดส่ง |
 |:---|:---|
 | Critical | 24 hrs |
 | High | 72 hrs |

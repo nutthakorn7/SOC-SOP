@@ -5,17 +5,17 @@
 
 ```mermaid
 graph TD
-    A["รวบรวมสถานะ Remediation"] --> B["ทบทวนงานค้างเกินกำหนดและงานเสี่ยงสูง"]
-    B --> C["ตรวจสอบ Validation Evidence"]
-    C --> D["ตัดสินใจ Escalation หรือ Closure"]
-    D --> E["กำหนด Follow-up Actions"]
+    A["รวบรวมสถานะ remediation"] --> B["ทบทวนงานค้างเกินกำหนดและงานเสี่ยงสูง"]
+    B --> C["ตรวจสอบหลักฐานการยืนยันผล"]
+    C --> D["ตัดสินใจ escalation หรือ closure"]
+    D --> E["กำหนดงานติดตาม"]
 ```
 
 ## 1. ส่วนหัวการประชุม
 
-| Field | Value |
+| รายการ | ค่า |
 |:---|:---|
-| **Review Month** | [YYYY-MM] |
+| **เดือนที่ทบทวน** | [YYYY-MM] |
 | **ผู้จัดทำ** | |
 | **วันที่ทบทวน** | |
 | **ประธานการประชุม** | |
@@ -29,7 +29,7 @@ graph TD
 
 ## 3. สรุปสุขภาพของ Remediation
 
-| Area | Status | Notes |
+| มิติ | สถานะ | หมายเหตุ |
 |:---|:---:|:---|
 | งานเสี่ยงสูงที่เกินกำหนด | 🟢 / 🟡 / 🔴 | |
 | residual risk จาก incident ที่ยังไม่ปิด | 🟢 / 🟡 / 🔴 | |
@@ -47,7 +47,7 @@ graph TD
 
 ## 5. การทบทวน Backlog
 
-| Item | Priority | Owner | Due Date | Current State | Next Action |
+| รายการ | ลำดับความสำคัญ | Owner | กำหนดเสร็จ | สถานะปัจจุบัน | การดำเนินการถัดไป |
 |:---|:---:|:---|:---|:---|:---|
 | | High / Medium / Low | | | | |
 | | | | | | |
@@ -77,13 +77,13 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 
--   [Remediation Backlog Prioritization](Remediation_Backlog_Prioritization.th.md)
--   [Incident Report Template](incident_report.th.md)
--   [Risk Acceptance Template](Risk_Acceptance_Template.th.md)
--   [Monthly SOC Report](Monthly_SOC_Report.th.md)
--   [Weekly Detection Review Pack](Weekly_Detection_Review_Pack.th.md)
--   [Weekly Telemetry Review Pack](Weekly_Telemetry_Review_Pack.th.md)
--   [Monthly Governance Review Pack](Monthly_Governance_Review_Pack.th.md)
+-   [แบบฟอร์มจัดลำดับ Remediation Backlog](Remediation_Backlog_Prioritization.th.md)
+-   [เทมเพลตรายงาน Incident](incident_report.th.md)
+-   [เทมเพลตการยอมรับความเสี่ยง](Risk_Acceptance_Template.th.md)
+-   [รายงานผลการดำเนินงาน SOC ประจำเดือน](Monthly_SOC_Report.th.md)
+-   [ชุดทบทวน Detection ประจำสัปดาห์](Weekly_Detection_Review_Pack.th.md)
+-   [ชุดทบทวน Telemetry ประจำสัปดาห์](Weekly_Telemetry_Review_Pack.th.md)
+-   [ชุดทบทวน Governance รายเดือน](Monthly_Governance_Review_Pack.th.md)
 
 ## References
 

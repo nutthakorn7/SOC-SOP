@@ -13174,7 +13174,7 @@ graph TD
 
 ## 2. รายละเอียดข้อยกเว้น
 
-| Field | Value |
+| รายการ | ค่า |
 |:---|:---|
 | **Exception ID** | EX-[YYYYMMDD]-[001] |
 | **ผู้ร้องขอ** | [Name / Role] |
@@ -13186,7 +13186,7 @@ graph TD
 
 ## 3. ผลกระทบด้านความปลอดภัย
 
-| Question | Answer |
+| คำถาม | คำตอบ |
 |:---|:---|
 | **Control ใดที่ขาดหายหรืออ่อนลง** | |
 | **Attack scenario ใดมีโอกาสเกิดมากขึ้น** | |
@@ -13195,7 +13195,7 @@ graph TD
 
 ## 4. เงื่อนไขการตัดสินใจ
 
-| Condition | Status | Notes |
+| เงื่อนไข | สถานะ | หมายเหตุ |
 |:---|:---:|:---|
 | Compensating controls ถูกกำหนดแล้ว | ☐ | |
 | Business owner ยอมรับความเสี่ยงเชิงปฏิบัติการ | ☐ | |
@@ -13212,7 +13212,7 @@ graph TD
 
 ## 6. การอนุมัติ
 
-| Role | Name | Decision | Date |
+| บทบาท | ชื่อ | การตัดสินใจ | วันที่ |
 |:---|:---|:---:|:---|
 | Security Owner | | ☐ Recommend · ☐ Reject | |
 | SOC Manager | | ☐ Reviewed | |
@@ -13221,7 +13221,7 @@ graph TD
 
 ## 7. การติดตามและการปิดงาน
 
-| Action | Owner | Due Date | Status |
+| การดำเนินการ | Owner | กำหนดเสร็จ | สถานะ |
 |:---|:---|:---|:---:|
 | ยืนยันว่า safeguards ทำงานอยู่ | | | ☐ |
 | ทบทวนก่อนหมดอายุ | | | ☐ |
@@ -13236,11 +13236,11 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 
--   [Risk Acceptance Template](Risk_Acceptance_Template.th.md)
--   [Request for Change (RFC)](change_request_rfc.th.md)
--   [Compliance Mapping](../07_Compliance_Privacy/Compliance_Mapping.th.md)
--   [Access Control Policy](../06_Operations_Management/Access_Control.th.md)
--   [Monthly Governance Review Pack](Monthly_Governance_Review_Pack.th.md)
+-   [เทมเพลตการยอมรับความเสี่ยง](Risk_Acceptance_Template.th.md)
+-   [แบบฟอร์ม Request for Change (RFC)](change_request_rfc.th.md)
+-   [เอกสาร Mapping ด้าน Compliance](../07_Compliance_Privacy/Compliance_Mapping.th.md)
+-   [นโยบายควบคุมการเข้าถึง](../06_Operations_Management/Access_Control.th.md)
+-   [ชุดทบทวน Governance รายเดือน](Monthly_Governance_Review_Pack.th.md)
 
 ## References
 
@@ -14174,7 +14174,7 @@ graph TD
 
 ## 2. สรุปคำขอ
 
-| Field | Value |
+| รายการ | ค่า |
 |:---|:---|
 | **Request ID** | INV-[YYYYMMDD]-[001] |
 | **ผู้ร้องขอ** | |
@@ -14185,7 +14185,7 @@ graph TD
 
 ## 3. คำอธิบายปัญหา
 
-| Question | Answer |
+| คำถาม | คำตอบ |
 |:---|:---|
 | **ปัจจุบันมีช่องว่างอะไร** | |
 | **มี incident, delay, หรือ audit finding อะไรที่สะท้อนช่องว่างนี้** | |
@@ -14194,7 +14194,7 @@ graph TD
 
 ## 4. ผลลัพธ์ที่คาดหวัง
 
-| Outcome | Target | Measurement |
+| ผลลัพธ์ที่คาดหวัง | เป้าหมาย | วิธีวัดผล |
 |:---|:---|:---|
 | Reduced incident impact | | |
 | Faster detection or response | | |
@@ -14204,7 +14204,7 @@ graph TD
 
 ## 5. การเปรียบเทียบทางเลือก
 
-| Option | Cost | Benefit | Constraint | Recommendation |
+| ทางเลือก | ค่าใช้จ่าย | ประโยชน์ที่ได้ | ข้อจำกัด | ข้อเสนอแนะ |
 |:---|:---|:---|:---|:---|
 | Do nothing | | | | |
 | Minimal investment | | | | |
@@ -14219,7 +14219,7 @@ graph TD
 
 ## 7. การอนุมัติ
 
-| Role | Name | Decision | Date |
+| บทบาท | ชื่อ | การตัดสินใจ | วันที่ |
 |:---|:---|:---:|:---|
 | SOC Manager | | ☐ Support · ☐ Do Not Support | |
 | Security Owner | | ☐ Reviewed | |
@@ -14228,7 +14228,7 @@ graph TD
 
 ## 8. การติดตามหลังอนุมัติ
 
-| Action | Owner | Due Date | Status |
+| การดำเนินการ | Owner | กำหนดเสร็จ | สถานะ |
 |:---|:---|:---|:---:|
 | เริ่ม procurement หรือกระบวนการจัดกำลังคนแล้ว | | | ☐ |
 | เก็บ baseline ของ success metric แล้ว | | | ☐ |
@@ -14242,12 +14242,12 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 
--   [Monthly SOC Report](Monthly_SOC_Report.th.md)
--   [Executive Dashboard](Executive_Dashboard.th.md)
--   [SOC Capacity Planning](../06_Operations_Management/SOC_Capacity_Planning.th.md)
--   [Vendor Evaluation](../06_Operations_Management/Vendor_Evaluation.th.md)
--   [Monthly Governance Review Pack](Monthly_Governance_Review_Pack.th.md)
--   [Board Quarterly Decision Pack](Board_Quarterly_Decision_Pack.th.md)
+-   [รายงานผลการดำเนินงาน SOC ประจำเดือน](Monthly_SOC_Report.th.md)
+-   [แม่แบบ Dashboard สำหรับผู้บริหาร](Executive_Dashboard.th.md)
+-   [การวางแผน Capacity ของ SOC](../06_Operations_Management/SOC_Capacity_Planning.th.md)
+-   [การประเมินผู้ให้บริการหรือเครื่องมือ](../06_Operations_Management/Vendor_Evaluation.th.md)
+-   [ชุดทบทวน Governance รายเดือน](Monthly_Governance_Review_Pack.th.md)
+-   [ชุดเอกสารการตัดสินใจรายไตรมาสสำหรับบอร์ด](Board_Quarterly_Decision_Pack.th.md)
 
 ## References
 
@@ -14727,17 +14727,17 @@ graph TD
 
 ```mermaid
 graph TD
-    A["รวบรวมสถานะ Remediation"] --> B["ทบทวนงานค้างเกินกำหนดและงานเสี่ยงสูง"]
-    B --> C["ตรวจสอบ Validation Evidence"]
-    C --> D["ตัดสินใจ Escalation หรือ Closure"]
-    D --> E["กำหนด Follow-up Actions"]
+    A["รวบรวมสถานะ remediation"] --> B["ทบทวนงานค้างเกินกำหนดและงานเสี่ยงสูง"]
+    B --> C["ตรวจสอบหลักฐานการยืนยันผล"]
+    C --> D["ตัดสินใจ escalation หรือ closure"]
+    D --> E["กำหนดงานติดตาม"]
 ```
 
 ## 1. ส่วนหัวการประชุม
 
-| Field | Value |
+| รายการ | ค่า |
 |:---|:---|
-| **Review Month** | [YYYY-MM] |
+| **เดือนที่ทบทวน** | [YYYY-MM] |
 | **ผู้จัดทำ** | |
 | **วันที่ทบทวน** | |
 | **ประธานการประชุม** | |
@@ -14751,7 +14751,7 @@ graph TD
 
 ## 3. สรุปสุขภาพของ Remediation
 
-| Area | Status | Notes |
+| มิติ | สถานะ | หมายเหตุ |
 |:---|:---:|:---|
 | งานเสี่ยงสูงที่เกินกำหนด | 🟢 / 🟡 / 🔴 | |
 | residual risk จาก incident ที่ยังไม่ปิด | 🟢 / 🟡 / 🔴 | |
@@ -14769,7 +14769,7 @@ graph TD
 
 ## 5. การทบทวน Backlog
 
-| Item | Priority | Owner | Due Date | Current State | Next Action |
+| รายการ | ลำดับความสำคัญ | Owner | กำหนดเสร็จ | สถานะปัจจุบัน | การดำเนินการถัดไป |
 |:---|:---:|:---|:---|:---|:---|
 | | High / Medium / Low | | | | |
 | | | | | | |
@@ -14799,13 +14799,13 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 
--   [Remediation Backlog Prioritization](Remediation_Backlog_Prioritization.th.md)
--   [Incident Report Template](incident_report.th.md)
--   [Risk Acceptance Template](Risk_Acceptance_Template.th.md)
--   [Monthly SOC Report](Monthly_SOC_Report.th.md)
--   [Weekly Detection Review Pack](Weekly_Detection_Review_Pack.th.md)
--   [Weekly Telemetry Review Pack](Weekly_Telemetry_Review_Pack.th.md)
--   [Monthly Governance Review Pack](Monthly_Governance_Review_Pack.th.md)
+-   [แบบฟอร์มจัดลำดับ Remediation Backlog](Remediation_Backlog_Prioritization.th.md)
+-   [เทมเพลตรายงาน Incident](incident_report.th.md)
+-   [เทมเพลตการยอมรับความเสี่ยง](Risk_Acceptance_Template.th.md)
+-   [รายงานผลการดำเนินงาน SOC ประจำเดือน](Monthly_SOC_Report.th.md)
+-   [ชุดทบทวน Detection ประจำสัปดาห์](Weekly_Detection_Review_Pack.th.md)
+-   [ชุดทบทวน Telemetry ประจำสัปดาห์](Weekly_Telemetry_Review_Pack.th.md)
+-   [ชุดทบทวน Governance รายเดือน](Monthly_Governance_Review_Pack.th.md)
 
 ## References
 
@@ -17823,7 +17823,7 @@ Use UTC timestamps and format consistently:
 
 ---
 
-## Template สรุปผู้บริหาร
+## เทมเพลตสรุปผู้บริหาร
 
 สำหรับ incident ที่ต้องแจ้งผู้บริหาร:
 
@@ -17967,17 +17967,17 @@ Use UTC timestamps and format consistently:
 
 ## Checklist คุณภาพรายงาน (Report Quality Checklist)
 
-| Item | Description | ✓ |
+| รายการ | คำอธิบาย | ✓ |
 |:---|:---|:---|
-| Timeline | ครบทุก event | ☐ |
-| Evidence | SHA256 hashes | ☐ |
-| Impact | Quantified | ☐ |
-| Root cause | Identified | ☐ |
-| Actions | Assigned + dated | ☐ |
+| Timeline | ครบทุกเหตุการณ์ | ☐ |
+| Evidence | มี SHA256 hashes | ☐ |
+| Impact | ระบุผลกระทบเชิงปริมาณหรือขอบเขตได้ | ☐ |
+| Root cause | ระบุสาเหตุหลักได้ | ☐ |
+| Actions | มอบหมาย owner และวันที่แล้ว | ☐ |
 
 ## SLA การส่งรายงาน (Report Priority)
 
-| Severity | Due |
+| ความรุนแรง | กำหนดส่ง |
 |:---|:---|
 | Critical | 24 hrs |
 | High | 72 hrs |

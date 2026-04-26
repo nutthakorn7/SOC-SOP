@@ -20,7 +20,7 @@ graph TD
 
 ## 2. รายละเอียดข้อยกเว้น
 
-| Field | Value |
+| รายการ | ค่า |
 |:---|:---|
 | **Exception ID** | EX-[YYYYMMDD]-[001] |
 | **ผู้ร้องขอ** | [Name / Role] |
@@ -32,7 +32,7 @@ graph TD
 
 ## 3. ผลกระทบด้านความปลอดภัย
 
-| Question | Answer |
+| คำถาม | คำตอบ |
 |:---|:---|
 | **Control ใดที่ขาดหายหรืออ่อนลง** | |
 | **Attack scenario ใดมีโอกาสเกิดมากขึ้น** | |
@@ -41,7 +41,7 @@ graph TD
 
 ## 4. เงื่อนไขการตัดสินใจ
 
-| Condition | Status | Notes |
+| เงื่อนไข | สถานะ | หมายเหตุ |
 |:---|:---:|:---|
 | Compensating controls ถูกกำหนดแล้ว | ☐ | |
 | Business owner ยอมรับความเสี่ยงเชิงปฏิบัติการ | ☐ | |
@@ -58,7 +58,7 @@ graph TD
 
 ## 6. การอนุมัติ
 
-| Role | Name | Decision | Date |
+| บทบาท | ชื่อ | การตัดสินใจ | วันที่ |
 |:---|:---|:---:|:---|
 | Security Owner | | ☐ Recommend · ☐ Reject | |
 | SOC Manager | | ☐ Reviewed | |
@@ -67,7 +67,7 @@ graph TD
 
 ## 7. การติดตามและการปิดงาน
 
-| Action | Owner | Due Date | Status |
+| การดำเนินการ | Owner | กำหนดเสร็จ | สถานะ |
 |:---|:---|:---|:---:|
 | ยืนยันว่า safeguards ทำงานอยู่ | | | ☐ |
 | ทบทวนก่อนหมดอายุ | | | ☐ |
@@ -82,11 +82,11 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 
--   [Risk Acceptance Template](Risk_Acceptance_Template.th.md)
--   [Request for Change (RFC)](change_request_rfc.th.md)
--   [Compliance Mapping](../07_Compliance_Privacy/Compliance_Mapping.th.md)
--   [Access Control Policy](../06_Operations_Management/Access_Control.th.md)
--   [Monthly Governance Review Pack](Monthly_Governance_Review_Pack.th.md)
+-   [เทมเพลตการยอมรับความเสี่ยง](Risk_Acceptance_Template.th.md)
+-   [แบบฟอร์ม Request for Change (RFC)](change_request_rfc.th.md)
+-   [เอกสาร Mapping ด้าน Compliance](../07_Compliance_Privacy/Compliance_Mapping.th.md)
+-   [นโยบายควบคุมการเข้าถึง](../06_Operations_Management/Access_Control.th.md)
+-   [ชุดทบทวน Governance รายเดือน](Monthly_Governance_Review_Pack.th.md)
 
 ## References
 

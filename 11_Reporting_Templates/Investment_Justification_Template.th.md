@@ -19,7 +19,7 @@ graph TD
 
 ## 2. สรุปคำขอ
 
-| Field | Value |
+| รายการ | ค่า |
 |:---|:---|
 | **Request ID** | INV-[YYYYMMDD]-[001] |
 | **ผู้ร้องขอ** | |
@@ -30,7 +30,7 @@ graph TD
 
 ## 3. คำอธิบายปัญหา
 
-| Question | Answer |
+| คำถาม | คำตอบ |
 |:---|:---|
 | **ปัจจุบันมีช่องว่างอะไร** | |
 | **มี incident, delay, หรือ audit finding อะไรที่สะท้อนช่องว่างนี้** | |
@@ -39,7 +39,7 @@ graph TD
 
 ## 4. ผลลัพธ์ที่คาดหวัง
 
-| Outcome | Target | Measurement |
+| ผลลัพธ์ที่คาดหวัง | เป้าหมาย | วิธีวัดผล |
 |:---|:---|:---|
 | Reduced incident impact | | |
 | Faster detection or response | | |
@@ -49,7 +49,7 @@ graph TD
 
 ## 5. การเปรียบเทียบทางเลือก
 
-| Option | Cost | Benefit | Constraint | Recommendation |
+| ทางเลือก | ค่าใช้จ่าย | ประโยชน์ที่ได้ | ข้อจำกัด | ข้อเสนอแนะ |
 |:---|:---|:---|:---|:---|
 | Do nothing | | | | |
 | Minimal investment | | | | |
@@ -64,7 +64,7 @@ graph TD
 
 ## 7. การอนุมัติ
 
-| Role | Name | Decision | Date |
+| บทบาท | ชื่อ | การตัดสินใจ | วันที่ |
 |:---|:---|:---:|:---|
 | SOC Manager | | ☐ Support · ☐ Do Not Support | |
 | Security Owner | | ☐ Reviewed | |
@@ -73,7 +73,7 @@ graph TD
 
 ## 8. การติดตามหลังอนุมัติ
 
-| Action | Owner | Due Date | Status |
+| การดำเนินการ | Owner | กำหนดเสร็จ | สถานะ |
 |:---|:---|:---|:---:|
 | เริ่ม procurement หรือกระบวนการจัดกำลังคนแล้ว | | | ☐ |
 | เก็บ baseline ของ success metric แล้ว | | | ☐ |
@@ -87,12 +87,12 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 
--   [Monthly SOC Report](Monthly_SOC_Report.th.md)
--   [Executive Dashboard](Executive_Dashboard.th.md)
--   [SOC Capacity Planning](../06_Operations_Management/SOC_Capacity_Planning.th.md)
--   [Vendor Evaluation](../06_Operations_Management/Vendor_Evaluation.th.md)
--   [Monthly Governance Review Pack](Monthly_Governance_Review_Pack.th.md)
--   [Board Quarterly Decision Pack](Board_Quarterly_Decision_Pack.th.md)
+-   [รายงานผลการดำเนินงาน SOC ประจำเดือน](Monthly_SOC_Report.th.md)
+-   [แม่แบบ Dashboard สำหรับผู้บริหาร](Executive_Dashboard.th.md)
+-   [การวางแผน Capacity ของ SOC](../06_Operations_Management/SOC_Capacity_Planning.th.md)
+-   [การประเมินผู้ให้บริการหรือเครื่องมือ](../06_Operations_Management/Vendor_Evaluation.th.md)
+-   [ชุดทบทวน Governance รายเดือน](Monthly_Governance_Review_Pack.th.md)
+-   [ชุดเอกสารการตัดสินใจรายไตรมาสสำหรับบอร์ด](Board_Quarterly_Decision_Pack.th.md)
 
 ## References
 
