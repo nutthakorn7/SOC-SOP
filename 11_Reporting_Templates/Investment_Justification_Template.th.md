@@ -66,10 +66,10 @@ graph TD
 
 | บทบาท | ชื่อ | การตัดสินใจ | วันที่ |
 |:---|:---|:---:|:---|
-| SOC Manager | | ☐ Support · ☐ Do Not Support | |
-| Security Owner | | ☐ Reviewed | |
-| Finance Partner | | ☐ Reviewed | |
-| CISO / Executive Sponsor | | ☐ Approve · ☐ Reject · ☐ Defer | |
+| SOC Manager | | ☐ สนับสนุน · ☐ ไม่สนับสนุน | |
+| Security Owner | | ☐ ทบทวนแล้ว | |
+| Finance Partner | | ☐ ทบทวนแล้ว | |
+| CISO / Executive Sponsor | | ☐ อนุมัติ · ☐ ไม่อนุมัติ · ☐ ชะลอการตัดสินใจ | |
 
 ## 8. การติดตามหลังอนุมัติ
 

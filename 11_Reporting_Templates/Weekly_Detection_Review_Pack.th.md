@@ -56,9 +56,9 @@ graph TD
 
 | หัวข้อ | ข้อค้นพบ | การตัดสินใจ | ผู้รับผิดชอบ |
 |:---|:---|:---|:---|
-| False positives | | Tune / Monitor / Defer | |
-| Missed detections | | Build / Re-test / Escalate | |
-| Retired rules | | Retire / Keep / Replace | |
+| False positives | | ปรับแต่ง / เฝ้าระวัง / ชะลอ | |
+| Missed detections | | สร้างเพิ่ม / ทดสอบซ้ำ / ยกระดับ | |
+| Retired rules | | ยกเลิกใช้ / คงไว้ / เปลี่ยนแทน | |
 
 ## 7. ประเด็นที่ต้องตัดสินใจสัปดาห์นี้
 

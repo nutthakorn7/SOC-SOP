@@ -52,8 +52,8 @@ graph TD
 
 | บทบาท | ชื่อ | การตัดสินใจ | วันที่ |
 |:---|:---|:---:|:---|
-| Detection Engineer | | ☐ Accept · ☐ Reject · ☐ Need More Info | |
-| SOC Manager | | ☐ Prioritized | |
+| Detection Engineer | | ☐ รับคำขอ · ☐ ไม่รับคำขอ · ☐ ขอข้อมูลเพิ่ม | |
+| SOC Manager | | ☐ จัดลำดับความสำคัญแล้ว | |
 
 ## 6. เส้นทางส่งต่อใน Backlog และ Governance
 

@@ -44,9 +44,9 @@ graph TD
 
 | บทบาท | ชื่อ | การตัดสินใจ | วันที่ |
 |:---|:---|:---:|:---|
-| SOC Manager | | ☐ Reviewed | |
-| CISO Delegate | | ☐ Approve · ☐ Revise | |
-| Requesting Executive | | ☐ Confirm Scope | |
+| SOC Manager | | ☐ ทบทวนแล้ว | |
+| CISO Delegate | | ☐ อนุมัติ · ☐ ให้แก้ไข | |
+| Requesting Executive | | ☐ ยืนยันขอบเขต | |
 
 ## 5. เส้นทางส่งต่อใน Governance
 

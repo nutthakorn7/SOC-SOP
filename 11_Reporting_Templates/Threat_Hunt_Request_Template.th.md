@@ -49,8 +49,8 @@ graph TD
 
 | บทบาท | ชื่อ | การตัดสินใจ | วันที่ |
 |:---|:---|:---:|:---|
-| Threat Hunt Lead | | ☐ Accept · ☐ Reject · ☐ Need More Info | |
-| SOC Manager | | ☐ Scheduled | |
+| Threat Hunt Lead | | ☐ รับคำขอ · ☐ ไม่รับคำขอ · ☐ ขอข้อมูลเพิ่ม | |
+| SOC Manager | | ☐ จัดตารางแล้ว | |
 
 ## 6. เส้นทางส่งต่อหลังจบ Hunt
 

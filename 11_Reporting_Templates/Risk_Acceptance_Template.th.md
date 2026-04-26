@@ -70,10 +70,10 @@ graph TD
 
 | บทบาท | ชื่อ | การตัดสินใจ | วันที่ |
 |:---|:---|:---:|:---|
-| Security Owner | | ☐ Recommend · ☐ Do Not Recommend | |
-| SOC Manager | | ☐ Reviewed | |
-| Business Owner | | ☐ Accept · ☐ Reject | |
-| CISO | | ☐ Approve · ☐ Reject | |
+| Security Owner | | ☐ เห็นชอบ · ☐ ไม่เห็นชอบ | |
+| SOC Manager | | ☐ ทบทวนแล้ว | |
+| Business Owner | | ☐ ยอมรับ · ☐ ไม่ยอมรับ | |
+| CISO | | ☐ อนุมัติ · ☐ ไม่อนุมัติ | |
 
 ## 8. งานติดตามผล
 
