@@ -4,7 +4,7 @@
   "checks": {
     "pptx_package": {
       "slide_count": 142,
-      "media_count": 0,
+      "media_count": 3,
       "chart_count": 0,
       "zero_byte_media": [],
       "invalid_png_media": [],

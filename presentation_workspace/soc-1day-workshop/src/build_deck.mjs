@@ -8,6 +8,7 @@ import {
   grid,
   panel,
   text,
+  image,
   rule,
   fill,
   hug,
@@ -24,10 +25,21 @@ const OUT = path.join(WORKSPACE, "output");
 const SCRATCH = path.join(WORKSPACE, "scratch");
 const PREVIEWS = path.join(SCRATCH, "previews");
 const REPORTS = path.join(SCRATCH, "reports");
+const ASSETS = path.join(SCRATCH, "assets");
 
 fs.mkdirSync(OUT, { recursive: true });
 fs.mkdirSync(PREVIEWS, { recursive: true });
 fs.mkdirSync(REPORTS, { recursive: true });
+fs.mkdirSync(ASSETS, { recursive: true });
+
+const HERO_IMAGE = path.join(ASSETS, "soc_header.jpg");
+const SOURCE_HERO_IMAGE = path.join(ROOT, "assets", "soc_header.png");
+if (fs.existsSync(SOURCE_HERO_IMAGE)) {
+  fs.copyFileSync(SOURCE_HERO_IMAGE, HERO_IMAGE);
+}
+const HERO_DATA_URL = fs.existsSync(HERO_IMAGE)
+  ? `data:image/jpeg;base64,${fs.readFileSync(HERO_IMAGE).toString("base64")}`
+  : null;
 
 const W = 1920;
 const H = 1080;
@@ -1123,6 +1135,7 @@ function visualModeFor(title, kind, tableRows, isModuleStart) {
   if (kind === "cover" || kind === "agenda") return kind;
   if (kind === "workshop" || kind === "worksheet") return "workshop";
   if (tableRows) return "table";
+  if (/repo maps|repository|repo re-entry/i.test(title)) return "repoVisual";
   if (isModuleStart) return "module";
   if (/dashboard|KPI|budget|scorecard|calendar|metrics|allocation/i.test(title)) return "dashboard";
   if (/flow|lifecycle|path|pipeline|sequence|logic|pattern|model|triangle|architecture|coordination|escalation|handoff/i.test(title)) {
@@ -1256,6 +1269,41 @@ function titleStack(slide, subtitle) {
       T(subtitle || slide.module, { width: fill, fontSize: 20, color: theme.muted }),
     ]),
   ]);
+}
+
+function heroImageBox({ width = fill, height = fill, radius = 18 } = {}) {
+  if (!HERO_DATA_URL) {
+    return panel(
+      {
+        width,
+        height,
+        fill: theme.ink,
+        stroke: theme.ink,
+        borderRadius: radius,
+        padding: { x: 28, y: 24 },
+      },
+      T("SOC visual asset", { fontSize: 28, bold: true, color: theme.white }),
+    );
+  }
+  return panel(
+    {
+      width,
+      height,
+      fill: theme.ink,
+      stroke: theme.ink,
+      borderRadius: radius,
+      padding: { x: 0, y: 0 },
+    },
+    image({
+      name: "repo-soc-header-image",
+      dataUrl: HERO_DATA_URL,
+      contentType: "image/jpeg",
+      width: fill,
+      height: fill,
+      fit: "cover",
+      alt: "SOC visual asset from the SOCSOP repository",
+    }),
+  );
 }
 
 function simpleTable(rows, accent) {
@@ -1620,6 +1668,95 @@ function artifactSlide(presentation, slide) {
   return s;
 }
 
+function repoVisualSlide(presentation, slide) {
+  const s = presentation.slides.add();
+  const ribbon = scenarioRibbon(slide);
+  const isClosing = slide.no === 142;
+  const repoMap = [
+    ["00-01", "Foundations", "scope, roadmap, budget, stack"],
+    ["05", "IR", "framework, runbooks, 50+ playbooks"],
+    ["06", "Operations", "handoff, metrics, governance, services"],
+    ["08", "Detection", "coverage, Sigma, YARA, use cases"],
+    ["07/11", "Govern", "compliance, reports, executive packs"],
+    ["09/10", "Improve", "simulation, training, onboarding"],
+  ];
+  s.compose(
+    column({ width: fill, height: fill, padding: { x: 82, y: 58 }, gap: ribbon ? 22 : 30 }, [
+      titleStack(slide, "Visual repo anchor"),
+      ...(ribbon ? [ribbon] : []),
+      grid({ width: fill, height: grow(1), columns: [fr(0.88), fr(1.12)], columnGap: 46 }, [
+        column({ width: fill, height: fill, gap: 14 }, [
+          heroImageBox({ width: fill, height: fixed(500), radius: 18 }),
+          T("Use visuals from the GitHub repo as proof that each module points back to a reusable SOP asset.", {
+            fontSize: 21,
+            color: theme.muted,
+          }),
+        ]),
+        column({ width: fill, height: fill, gap: 14 }, [
+          ...(isClosing
+            ? [
+                T("Final takeaways", { fontSize: 25, bold: true, color: slide.accent }),
+                ...slide.points.slice(0, 3).map((p, i) =>
+                  panel(
+                    {
+                      width: fill,
+                      height: fixed(68),
+                      fill: i === 0 ? theme.softGreen : theme.paper,
+                      stroke: i === 0 ? "#B9DED2" : theme.line,
+                      borderRadius: 12,
+                      padding: { x: 18, y: 14 },
+                    },
+                    T(p, { fontSize: 20, bold: i === 0, color: theme.ink }),
+                  ),
+                ),
+                T("Repo re-entry", { fontSize: 24, bold: true, color: slide.accent }),
+              ]
+            : [T("Repo-to-workshop map", { fontSize: 25, bold: true, color: slide.accent })]),
+          ...repoMap.slice(0, isClosing ? 4 : repoMap.length).map(([code, name, desc]) =>
+            grid(
+              { width: fill, height: fixed(isClosing ? 58 : 72), columns: [fixed(86), fixed(190), fr(1)], columnGap: 16 },
+              [
+                panel(
+                  {
+                    width: fill,
+                    height: fixed(isClosing ? 44 : 52),
+                    fill: theme.ink,
+                    stroke: theme.ink,
+                    borderRadius: 12,
+                    padding: { x: 10, y: isClosing ? 9 : 12 },
+                  },
+                  T(code, { fontSize: isClosing ? 15 : 17, bold: true, color: theme.white, style: { alignment: "center" } }),
+                ),
+                T(name, { fontSize: isClosing ? 21 : 24, bold: true, color: theme.ink }),
+                T(desc, { fontSize: isClosing ? 19 : 22, color: theme.muted }),
+              ],
+            ),
+          ),
+          panel(
+            {
+              width: fill,
+              height: fixed(100),
+              fill: theme.softGreen,
+              stroke: "#B9DED2",
+              borderRadius: 12,
+              padding: { x: 22, y: 18 },
+            },
+            T("Facilitator cue: point to the repo section participants should open after each exercise.", {
+              fontSize: 24,
+              bold: true,
+              color: theme.green,
+            }),
+          ),
+        ]),
+      ]),
+      footer(slide),
+    ]),
+    { frame: { left: 0, top: 0, width: W, height: H }, baseUnit: 8 },
+  );
+  s.speakerNotes.setText(slide.notes);
+  return s;
+}
+
 function workshopSlide(presentation, slide) {
   const s = presentation.slides.add();
   const ribbon = scenarioRibbon(slide);
@@ -1793,25 +1930,9 @@ function coverSlide(presentation, slide) {
           T("English slides with Thai facilitator notes", { fontSize: 20, color: theme.muted }),
         ]),
         column({ width: fill, height: fill, gap: 20 }, [
-          panel(
-            {
-              width: fixed(560),
-              height: fixed(560),
-              fill: theme.ink,
-              stroke: slide.accent,
-              borderRadius: 28,
-              padding: { x: 44, y: 44 },
-            },
-            column({ width: fill, height: fill, gap: 26 }, [
-              T("SOC", { fontSize: 132, bold: true, color: theme.white }),
-              rule({ width: fixed(360), stroke: theme.amber, weight: 7 }),
-              T("Build", { fontSize: 46, bold: true, color: theme.softGreen }),
-              T("Run", { fontSize: 46, bold: true, color: theme.softTeal }),
-              T("Respond", { fontSize: 46, bold: true, color: theme.softAmber }),
-              T("Govern", { fontSize: 46, bold: true, color: theme.white }),
-            ]),
-          ),
+          heroImageBox({ width: fixed(560), height: fixed(560), radius: 28 }),
           T("Practical outputs, not theory only", { fontSize: 27, bold: true, color: theme.ink }),
+          T("Visual asset source: SOCSOP GitHub repo / assets", { fontSize: 18, color: theme.muted }),
         ]),
       ],
     ),
@@ -1871,6 +1992,7 @@ async function main() {
     else if (slide.visual === "flow") flowSlide(presentation, slide);
     else if (slide.visual === "dashboard") dashboardSlide(presentation, slide);
     else if (slide.visual === "artifact") artifactSlide(presentation, slide);
+    else if (slide.visual === "repoVisual") repoVisualSlide(presentation, slide);
     else standardSlide(presentation, slide);
   }
   const pptxBlob = await PresentationFile.exportPptx(presentation);
