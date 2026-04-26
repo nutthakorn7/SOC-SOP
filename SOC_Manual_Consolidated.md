@@ -14762,9 +14762,9 @@ graph TD
 
 | เงื่อนไข | เกณฑ์ | การตัดสินใจตั้งต้น | ต้องส่งต่อไปที่ |
 |:---|:---|:---|:---|
-| **remediation ค้างเกินกำหนดซ้ำ** | Critical เกิน 30 วัน หรือ High เกิน 60 วัน | เปลี่ยน owner, escalate, หรือบังคับวันปิด | Monthly Governance Review |
+| **remediation ค้างเกินกำหนดซ้ำ** | Critical เกิน 30 วัน หรือ High เกิน 60 วัน | เปลี่ยน owner, escalate, หรือบังคับวันปิด | ชุดทบทวน Governance รายเดือน |
 | **residual risk ยังอยู่ระดับ High** | incident ยังปิดไม่ได้สะอาด หรือ audit gap ยัง material | escalate หรือย้ายเข้า formal acceptance path | ชุดทบทวนการยอมรับความเสี่ยงรายไตรมาส |
-| **validation evidence ไม่พอ** | งานที่ปิดแล้วตรวจสอบยืนยันไม่ได้ | เปิดงานใหม่และกำหนด due date ใหม่ | Weekly Detection หรือ Telemetry Review ถ้ายังไม่ชัดว่า technical fix คืออะไร |
+| **validation evidence ไม่พอ** | งานที่ปิดแล้วตรวจสอบยืนยันไม่ได้ | เปิดงานใหม่และกำหนด due date ใหม่ | ชุดทบทวน Detection หรือ Telemetry ประจำสัปดาห์ ถ้ายังไม่ชัดว่า technical fix คืออะไร |
 | **remediation ต้องใช้งบหรือ authority เพิ่ม** | owner ปิดงานไม่ได้หากไม่มี budget หรือ executive mandate | เตรียม decision request | ชุดเอกสารการตัดสินใจรายไตรมาสสำหรับบอร์ด |
 
 ## 5. การทบทวน Backlog
@@ -16799,10 +16799,10 @@ graph TD
 
 | เงื่อนไข | เกณฑ์ | การตัดสินใจตั้งต้น | ต้องส่งต่อไปที่ |
 |:---|:---|:---|:---|
-| **false positive pressure** | rule หรือ use case เดิมทำให้ analyst รับภาระหนักต่อเนื่อง 2 สัปดาห์ | tune, suppress แบบแคบ, หรือ rollback | Monthly Governance Review ถ้ากระทบ service quality |
-| **missed detection** | ยืนยัน detection gap บนเส้นทาง incident ระดับ Critical/High | build หรือ re-test ทันที | Weekly Telemetry Review ถ้าติดที่ข้อมูลไม่พอ |
-| **coverage gap** | critical asset หรือ top-priority use case ยังไม่มี detection ที่ deploy ได้ | ดัน backlog item ขึ้นเหนือคิวปกติ | Monthly Governance Review ถ้ายังไม่ปิดภายในสิ้นเดือน |
-| **deployment instability** | มี rule rollback, emergency disable, หรือ test fail ซ้ำ | freeze release และสืบสวน | Monthly Remediation Review ถ้าเกี่ยวกับ incident/audit action |
+| **false positive pressure** | rule หรือ use case เดิมทำให้ analyst รับภาระหนักต่อเนื่อง 2 สัปดาห์ | tune, suppress แบบแคบ, หรือ rollback | ชุดทบทวน Governance รายเดือน ถ้ากระทบ service quality |
+| **missed detection** | ยืนยัน detection gap บนเส้นทาง incident ระดับ Critical/High | build หรือ re-test ทันที | ชุดทบทวน Telemetry ประจำสัปดาห์ ถ้าติดที่ข้อมูลไม่พอ |
+| **coverage gap** | critical asset หรือ top-priority use case ยังไม่มี detection ที่ deploy ได้ | ดัน backlog item ขึ้นเหนือคิวปกติ | ชุดทบทวน Governance รายเดือน ถ้ายังไม่ปิดภายในสิ้นเดือน |
+| **deployment instability** | มี rule rollback, emergency disable, หรือ test fail ซ้ำ | freeze release และสืบสวน | ชุดทบทวน Remediation รายเดือน ถ้าเกี่ยวกับ incident/audit action |
 
 ## 5. การทบทวน Backlog
 
@@ -16984,10 +16984,10 @@ graph TD
 
 | เงื่อนไข | เกณฑ์ | การตัดสินใจตั้งต้น | ต้องส่งต่อไปที่ |
 |:---|:---|:---|:---|
-| **critical source ใช้งานไม่ได้** | log source outage หรือข้อมูลใช้ไม่ได้สำหรับ crown-jewel หรือ regulated service | กู้คืนทันทีหรืออนุมัติ workaround | Monthly Governance Review ถ้ายังไม่ฟื้นในเดือนนี้ |
-| **parser หรือ schema defect** | กระทบ detection logic หรือการสืบสวนของ prioritized use case | แก้ parser หรือ revert change | Weekly Detection Review เมื่อ rule release รอ fix นี้อยู่ |
-| **onboarding ล่าช้า** | high-priority source พลาด target date โดยไม่มี blocker ที่ยืนยันได้ | reprioritize หรือ escalate ไปยัง dependency owner | Monthly Governance Review ถ้า business risk สูงขึ้น |
-| **blind spot ต้องยอมรับชั่วคราว** | ไม่มี short-term fix ที่ใช้ได้สำหรับ telemetry ที่จำเป็น | ใช้ compensating control และบันทึก gap | Quarterly Risk Acceptance Review ถ้ายืดเยื้อ |
+| **critical source ใช้งานไม่ได้** | log source outage หรือข้อมูลใช้ไม่ได้สำหรับ crown-jewel หรือ regulated service | กู้คืนทันทีหรืออนุมัติ workaround | ชุดทบทวน Governance รายเดือน ถ้ายังไม่ฟื้นในเดือนนี้ |
+| **parser หรือ schema defect** | กระทบ detection logic หรือการสืบสวนของ prioritized use case | แก้ parser หรือ revert change | ชุดทบทวน Detection ประจำสัปดาห์ เมื่อ rule release รอ fix นี้อยู่ |
+| **onboarding ล่าช้า** | high-priority source พลาด target date โดยไม่มี blocker ที่ยืนยันได้ | reprioritize หรือ escalate ไปยัง dependency owner | ชุดทบทวน Governance รายเดือน ถ้า business risk สูงขึ้น |
+| **blind spot ต้องยอมรับชั่วคราว** | ไม่มี short-term fix ที่ใช้ได้สำหรับ telemetry ที่จำเป็น | ใช้ compensating control และบันทึก gap | ชุดทบทวนการยอมรับความเสี่ยงรายไตรมาส ถ้ายืดเยื้อ |
 
 ## 5. การทบทวน Backlog และ Dependency
 

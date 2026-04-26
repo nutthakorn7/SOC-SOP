@@ -40,10 +40,10 @@ graph TD
 
 | เงื่อนไข | เกณฑ์ | การตัดสินใจตั้งต้น | ต้องส่งต่อไปที่ |
 |:---|:---|:---|:---|
-| **false positive pressure** | rule หรือ use case เดิมทำให้ analyst รับภาระหนักต่อเนื่อง 2 สัปดาห์ | tune, suppress แบบแคบ, หรือ rollback | Monthly Governance Review ถ้ากระทบ service quality |
-| **missed detection** | ยืนยัน detection gap บนเส้นทาง incident ระดับ Critical/High | build หรือ re-test ทันที | Weekly Telemetry Review ถ้าติดที่ข้อมูลไม่พอ |
-| **coverage gap** | critical asset หรือ top-priority use case ยังไม่มี detection ที่ deploy ได้ | ดัน backlog item ขึ้นเหนือคิวปกติ | Monthly Governance Review ถ้ายังไม่ปิดภายในสิ้นเดือน |
-| **deployment instability** | มี rule rollback, emergency disable, หรือ test fail ซ้ำ | freeze release และสืบสวน | Monthly Remediation Review ถ้าเกี่ยวกับ incident/audit action |
+| **false positive pressure** | rule หรือ use case เดิมทำให้ analyst รับภาระหนักต่อเนื่อง 2 สัปดาห์ | tune, suppress แบบแคบ, หรือ rollback | ชุดทบทวน Governance รายเดือน ถ้ากระทบ service quality |
+| **missed detection** | ยืนยัน detection gap บนเส้นทาง incident ระดับ Critical/High | build หรือ re-test ทันที | ชุดทบทวน Telemetry ประจำสัปดาห์ ถ้าติดที่ข้อมูลไม่พอ |
+| **coverage gap** | critical asset หรือ top-priority use case ยังไม่มี detection ที่ deploy ได้ | ดัน backlog item ขึ้นเหนือคิวปกติ | ชุดทบทวน Governance รายเดือน ถ้ายังไม่ปิดภายในสิ้นเดือน |
+| **deployment instability** | มี rule rollback, emergency disable, หรือ test fail ซ้ำ | freeze release และสืบสวน | ชุดทบทวน Remediation รายเดือน ถ้าเกี่ยวกับ incident/audit action |
 
 ## 5. การทบทวน Backlog
 
