@@ -5,7 +5,7 @@
 
 ```mermaid
 graph TD
-    A["Detection Request"] --> B["จัดลำดับและกำหนด Owner"]
+    A["คำขอ Detection"] --> B["จัดลำดับและกำหนด owner"]
     B --> C["พัฒนาและทดสอบ"]
     C --> D["Deploy และติดตามผล"]
     D --> E["ปรับแต่งหรือยกเลิก"]
@@ -46,10 +46,10 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 
--   [Detection Request Template](Detection_Request_Template.th.md)
--   [Detection Backlog Prioritization](Detection_Backlog_Prioritization.th.md)
--   [Weekly Detection Review Pack](Weekly_Detection_Review_Pack.th.md)
--   [Detection Rule Testing](../06_Operations_Management/Detection_Rule_Testing.th.md)
+-   [แบบฟอร์มคำขอ Detection](Detection_Request_Template.th.md)
+-   [แบบฟอร์มจัดลำดับ Detection Backlog](Detection_Backlog_Prioritization.th.md)
+-   [ชุดทบทวน Detection ประจำสัปดาห์](Weekly_Detection_Review_Pack.th.md)
+-   [การทดสอบ Detection Rules](../06_Operations_Management/Detection_Rule_Testing.th.md)
 
 ## References
 

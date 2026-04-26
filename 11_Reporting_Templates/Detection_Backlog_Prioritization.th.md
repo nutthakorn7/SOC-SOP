@@ -5,22 +5,22 @@
 
 ```mermaid
 graph TD
-    A["รวบรวม Detection Requests"] --> B["ให้คะแนนความเสี่ยงและความพร้อม"]
-    B --> C["เทียบ Effort และ Noise Risk"]
-    C --> D["จัดลำดับ Backlog"]
-    D --> E["กำหนด Owner และวันทบทวน"]
+    A["รวบรวมคำขอ detection"] --> B["ให้คะแนนความเสี่ยงและความพร้อม"]
+    B --> C["เทียบ effort และ noise risk"]
+    C --> D["จัดลำดับ backlog"]
+    D --> E["กำหนด owner และวันทบทวน"]
 ```
 
 ## 1. ทะเบียนรายการ Backlog
 
-| ID | Detection Request | Threat Scenario | Owner | Status |
+| รหัส | คำขอ Detection | ฉากทัศน์ภัยคุกคาม | Owner | สถานะ |
 |:---|:---|:---|:---|:---:|
 | DET-BL-[001] | | | | ☐ New ☐ Ranked ☐ In Progress ☐ Done |
 | DET-BL-[002] | | | | ☐ New ☐ Ranked ☐ In Progress ☐ Done |
 
 ## 2. โมเดลการให้คะแนน
 
-| Factor | Question | Score (1-5) |
+| ปัจจัย | คำถาม | คะแนน (1-5) |
 |:---|:---|:---:|
 | Business impact | หากพลาดจะกระทบ critical services หรือ regulated data หรือไม่ | |
 | Threat likelihood | Threat นี้กำลัง active, พบบ่อย, หรือเกิดขึ้นแล้วหรือไม่ | |
@@ -31,7 +31,7 @@ graph TD
 
 ## 3. ตารางจัดลำดับความสำคัญ
 
-| Item | Impact | Likelihood | Telemetry | Response | Noise | Effort | Total | Priority |
+| รายการ | Impact | Likelihood | Telemetry | Response | Noise | Effort | คะแนนรวม | ลำดับความสำคัญ |
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | | | | | | | | | High / Medium / Low |
 | | | | | | | | | |
@@ -51,10 +51,10 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 
--   [Detection Request Template](Detection_Request_Template.th.md)
+-   [แบบฟอร์มคำขอ Detection](Detection_Request_Template.th.md)
 -   [SOC Use Case Library](../08_Detection_Engineering/SOC_Use_Case_Library.th.md)
--   [Detection Rule Testing](../06_Operations_Management/Detection_Rule_Testing.th.md)
--   [Alert Tuning](../06_Operations_Management/Alert_Tuning.th.md)
+-   [การทดสอบ Detection Rules](../06_Operations_Management/Detection_Rule_Testing.th.md)
+-   [แนวทาง Alert Tuning](../06_Operations_Management/Alert_Tuning.th.md)
 
 ## References
 

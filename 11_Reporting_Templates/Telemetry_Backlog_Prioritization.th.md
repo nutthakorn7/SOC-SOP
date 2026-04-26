@@ -5,7 +5,7 @@
 
 ```mermaid
 graph TD
-    A["รวบรวม Telemetry Gaps"] --> B["Map ไปยัง Use Cases และ Assets"]
+    A["รวบรวม telemetry gaps"] --> B["map ไปยัง use cases และ assets"]
     B --> C["ให้คะแนนความพร้อมและ Exposure"]
     C --> D["จัดลำดับงาน"]
     D --> E["ติดตาม Delivery และ Validation"]
@@ -13,14 +13,14 @@ graph TD
 
 ## 1. ทะเบียนรายการ Backlog
 
-| ID | Telemetry Gap | Affected Asset or Service | Owner | Status |
+| รหัส | Telemetry Gap | ระบบหรือบริการที่ได้รับผลกระทบ | Owner | สถานะ |
 |:---|:---|:---|:---|:---:|
 | TEL-BL-[001] | | | | ☐ New ☐ Ranked ☐ In Progress ☐ Done |
 | TEL-BL-[002] | | | | ☐ New ☐ Ranked ☐ In Progress ☐ Done |
 
 ## 2. โมเดลการให้คะแนน
 
-| Factor | Question | Score (1-5) |
+| ปัจจัย | คำถาม | คะแนน (1-5) |
 |:---|:---|:---:|
 | Critical asset exposure | Gap นี้กระทบ critical หรือ regulated service หรือไม่ | |
 | Detection dependency | มี use cases กี่รายการที่ต้องพึ่ง telemetry นี้ | |
@@ -30,7 +30,7 @@ graph TD
 
 ## 3. ตารางจัดลำดับความสำคัญ
 
-| Item | Asset Exposure | Detection Dependency | IR Dependency | Readiness | Quality Risk | Total | Priority |
+| รายการ | Asset Exposure | Detection Dependency | IR Dependency | Readiness | Quality Risk | คะแนนรวม | ลำดับความสำคัญ |
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | | | | | | | | High / Medium / Low |
 | | | | | | | | |
@@ -50,10 +50,10 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 
--   [Log Source Onboarding Request](Log_Source_Onboarding_Request.th.md)
--   [SOC Service Catalog](../06_Operations_Management/SOC_Service_Catalog.th.md)
--   [Log Source Matrix](../06_Operations_Management/Log_Source_Matrix.th.md)
--   [Log Source Onboarding](../06_Operations_Management/Log_Source_Onboarding.th.md)
+-   [แบบฟอร์มคำขอ Onboarding Log Source](Log_Source_Onboarding_Request.th.md)
+-   [แค็ตตาล็อกบริการของ SOC](../06_Operations_Management/SOC_Service_Catalog.th.md)
+-   [ตารางแหล่งข้อมูล Log](../06_Operations_Management/Log_Source_Matrix.th.md)
+-   [คู่มือ Log Source Onboarding](../06_Operations_Management/Log_Source_Onboarding.th.md)
 
 ## References
 

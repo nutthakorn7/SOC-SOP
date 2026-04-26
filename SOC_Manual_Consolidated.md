@@ -12723,22 +12723,22 @@ graph TD
 
 ```mermaid
 graph TD
-    A["รวบรวม Detection Requests"] --> B["ให้คะแนนความเสี่ยงและความพร้อม"]
-    B --> C["เทียบ Effort และ Noise Risk"]
-    C --> D["จัดลำดับ Backlog"]
-    D --> E["กำหนด Owner และวันทบทวน"]
+    A["รวบรวมคำขอ detection"] --> B["ให้คะแนนความเสี่ยงและความพร้อม"]
+    B --> C["เทียบ effort และ noise risk"]
+    C --> D["จัดลำดับ backlog"]
+    D --> E["กำหนด owner และวันทบทวน"]
 ```
 
 ## 1. ทะเบียนรายการ Backlog
 
-| ID | Detection Request | Threat Scenario | Owner | Status |
+| รหัส | คำขอ Detection | ฉากทัศน์ภัยคุกคาม | Owner | สถานะ |
 |:---|:---|:---|:---|:---:|
 | DET-BL-[001] | | | | ☐ New ☐ Ranked ☐ In Progress ☐ Done |
 | DET-BL-[002] | | | | ☐ New ☐ Ranked ☐ In Progress ☐ Done |
 
 ## 2. โมเดลการให้คะแนน
 
-| Factor | Question | Score (1-5) |
+| ปัจจัย | คำถาม | คะแนน (1-5) |
 |:---|:---|:---:|
 | Business impact | หากพลาดจะกระทบ critical services หรือ regulated data หรือไม่ | |
 | Threat likelihood | Threat นี้กำลัง active, พบบ่อย, หรือเกิดขึ้นแล้วหรือไม่ | |
@@ -12749,7 +12749,7 @@ graph TD
 
 ## 3. ตารางจัดลำดับความสำคัญ
 
-| Item | Impact | Likelihood | Telemetry | Response | Noise | Effort | Total | Priority |
+| รายการ | Impact | Likelihood | Telemetry | Response | Noise | Effort | คะแนนรวม | ลำดับความสำคัญ |
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | | | | | | | | | High / Medium / Low |
 | | | | | | | | | |
@@ -12769,10 +12769,10 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 
--   [Detection Request Template](Detection_Request_Template.th.md)
+-   [แบบฟอร์มคำขอ Detection](Detection_Request_Template.th.md)
 -   [SOC Use Case Library](../08_Detection_Engineering/SOC_Use_Case_Library.th.md)
--   [Detection Rule Testing](../06_Operations_Management/Detection_Rule_Testing.th.md)
--   [Alert Tuning](../06_Operations_Management/Alert_Tuning.th.md)
+-   [การทดสอบ Detection Rules](../06_Operations_Management/Detection_Rule_Testing.th.md)
+-   [แนวทาง Alert Tuning](../06_Operations_Management/Alert_Tuning.th.md)
 
 ## References
 
@@ -12847,7 +12847,7 @@ graph TD
 
 ```mermaid
 graph TD
-    A["Detection Request"] --> B["จัดลำดับและกำหนด Owner"]
+    A["คำขอ Detection"] --> B["จัดลำดับและกำหนด owner"]
     B --> C["พัฒนาและทดสอบ"]
     C --> D["Deploy และติดตามผล"]
     D --> E["ปรับแต่งหรือยกเลิก"]
@@ -12888,10 +12888,10 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 
--   [Detection Request Template](Detection_Request_Template.th.md)
--   [Detection Backlog Prioritization](Detection_Backlog_Prioritization.th.md)
--   [Weekly Detection Review Pack](Weekly_Detection_Review_Pack.th.md)
--   [Detection Rule Testing](../06_Operations_Management/Detection_Rule_Testing.th.md)
+-   [แบบฟอร์มคำขอ Detection](Detection_Request_Template.th.md)
+-   [แบบฟอร์มจัดลำดับ Detection Backlog](Detection_Backlog_Prioritization.th.md)
+-   [ชุดทบทวน Detection ประจำสัปดาห์](Weekly_Detection_Review_Pack.th.md)
+-   [การทดสอบ Detection Rules](../06_Operations_Management/Detection_Rule_Testing.th.md)
 
 ## References
 
@@ -16339,7 +16339,7 @@ graph TD
 
 ```mermaid
 graph TD
-    A["รวบรวม Telemetry Gaps"] --> B["Map ไปยัง Use Cases และ Assets"]
+    A["รวบรวม telemetry gaps"] --> B["map ไปยัง use cases และ assets"]
     B --> C["ให้คะแนนความพร้อมและ Exposure"]
     C --> D["จัดลำดับงาน"]
     D --> E["ติดตาม Delivery และ Validation"]
@@ -16347,14 +16347,14 @@ graph TD
 
 ## 1. ทะเบียนรายการ Backlog
 
-| ID | Telemetry Gap | Affected Asset or Service | Owner | Status |
+| รหัส | Telemetry Gap | ระบบหรือบริการที่ได้รับผลกระทบ | Owner | สถานะ |
 |:---|:---|:---|:---|:---:|
 | TEL-BL-[001] | | | | ☐ New ☐ Ranked ☐ In Progress ☐ Done |
 | TEL-BL-[002] | | | | ☐ New ☐ Ranked ☐ In Progress ☐ Done |
 
 ## 2. โมเดลการให้คะแนน
 
-| Factor | Question | Score (1-5) |
+| ปัจจัย | คำถาม | คะแนน (1-5) |
 |:---|:---|:---:|
 | Critical asset exposure | Gap นี้กระทบ critical หรือ regulated service หรือไม่ | |
 | Detection dependency | มี use cases กี่รายการที่ต้องพึ่ง telemetry นี้ | |
@@ -16364,7 +16364,7 @@ graph TD
 
 ## 3. ตารางจัดลำดับความสำคัญ
 
-| Item | Asset Exposure | Detection Dependency | IR Dependency | Readiness | Quality Risk | Total | Priority |
+| รายการ | Asset Exposure | Detection Dependency | IR Dependency | Readiness | Quality Risk | คะแนนรวม | ลำดับความสำคัญ |
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | | | | | | | | High / Medium / Low |
 | | | | | | | | |
@@ -16384,10 +16384,10 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 
--   [Log Source Onboarding Request](Log_Source_Onboarding_Request.th.md)
--   [SOC Service Catalog](../06_Operations_Management/SOC_Service_Catalog.th.md)
--   [Log Source Matrix](../06_Operations_Management/Log_Source_Matrix.th.md)
--   [Log Source Onboarding](../06_Operations_Management/Log_Source_Onboarding.th.md)
+-   [แบบฟอร์มคำขอ Onboarding Log Source](Log_Source_Onboarding_Request.th.md)
+-   [แค็ตตาล็อกบริการของ SOC](../06_Operations_Management/SOC_Service_Catalog.th.md)
+-   [ตารางแหล่งข้อมูล Log](../06_Operations_Management/Log_Source_Matrix.th.md)
+-   [คู่มือ Log Source Onboarding](../06_Operations_Management/Log_Source_Onboarding.th.md)
 
 ## References
 
@@ -16462,7 +16462,7 @@ graph TD
 ```mermaid
 graph TD
     A["คำขอ telemetry หรือ gap"] --> B["กำหนด data owner และ security owner"]
-    B --> C["Onboard และตรวจสอบ"]
+    B --> C["onboard และตรวจสอบ"]
     C --> D["ติดตามสุขภาพข้อมูล"]
     D --> E["แก้ไข ยกระดับ หรือยอมรับความเสี่ยง"]
 ```
@@ -16501,10 +16501,10 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 
--   [Log Source Onboarding Request](Log_Source_Onboarding_Request.th.md)
--   [Telemetry Backlog Prioritization](Telemetry_Backlog_Prioritization.th.md)
--   [Weekly Telemetry Review Pack](Weekly_Telemetry_Review_Pack.th.md)
--   [SOC Service Catalog](../06_Operations_Management/SOC_Service_Catalog.th.md)
+-   [แบบฟอร์มคำขอ Onboarding Log Source](Log_Source_Onboarding_Request.th.md)
+-   [แบบฟอร์มจัดลำดับ Telemetry Backlog](Telemetry_Backlog_Prioritization.th.md)
+-   [ชุดทบทวน Telemetry ประจำสัปดาห์](Weekly_Telemetry_Review_Pack.th.md)
+-   [แค็ตตาล็อกบริการของ SOC](../06_Operations_Management/SOC_Service_Catalog.th.md)
 
 ## References
 

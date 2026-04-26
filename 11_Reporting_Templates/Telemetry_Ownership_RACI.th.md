@@ -6,7 +6,7 @@
 ```mermaid
 graph TD
     A["คำขอ telemetry หรือ gap"] --> B["กำหนด data owner และ security owner"]
-    B --> C["Onboard และตรวจสอบ"]
+    B --> C["onboard และตรวจสอบ"]
     C --> D["ติดตามสุขภาพข้อมูล"]
     D --> E["แก้ไข ยกระดับ หรือยอมรับความเสี่ยง"]
 ```
@@ -45,10 +45,10 @@ graph TD
 
 ## เอกสารที่เกี่ยวข้อง (Related Documents)
 
--   [Log Source Onboarding Request](Log_Source_Onboarding_Request.th.md)
--   [Telemetry Backlog Prioritization](Telemetry_Backlog_Prioritization.th.md)
--   [Weekly Telemetry Review Pack](Weekly_Telemetry_Review_Pack.th.md)
--   [SOC Service Catalog](../06_Operations_Management/SOC_Service_Catalog.th.md)
+-   [แบบฟอร์มคำขอ Onboarding Log Source](Log_Source_Onboarding_Request.th.md)
+-   [แบบฟอร์มจัดลำดับ Telemetry Backlog](Telemetry_Backlog_Prioritization.th.md)
+-   [ชุดทบทวน Telemetry ประจำสัปดาห์](Weekly_Telemetry_Review_Pack.th.md)
+-   [แค็ตตาล็อกบริการของ SOC](../06_Operations_Management/SOC_Service_Catalog.th.md)
 
 ## References
 
