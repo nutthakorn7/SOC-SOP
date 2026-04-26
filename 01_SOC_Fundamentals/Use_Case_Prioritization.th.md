@@ -168,12 +168,12 @@ Priority:
 
 ```mermaid
 flowchart LR
-    A[Propose] --> B[Evaluate]
-    B --> C[Develop]
-    C --> D[Test]
-    D --> E[Deploy]
-    E --> F[Monitor]
-    F --> G[Tune]
+    A[เสนอ] --> B[ประเมิน]
+    B --> C[พัฒนา]
+    C --> D[ทดสอบ]
+    D --> E[นำขึ้นใช้งาน]
+    E --> F[ติดตามผล]
+    F --> G[ปรับแต่ง]
     G --> F
 ```
 
@@ -197,7 +197,7 @@ flowchart LR
 
 | Criteria | Description |
 |:---|:---|
-| High impact + Low effort | Deploy first |
+| High impact + Low effort | นำขึ้นใช้งานก่อน |
 | Existing log source | No new onboarding |
 | Known TTP coverage | MITRE mapped |
 | Template available | Pre-built rule |

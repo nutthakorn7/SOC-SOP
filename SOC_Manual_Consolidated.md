@@ -11247,7 +11247,7 @@ Total: ~15-25M THB/year (mid-size org)
 |:---|:---|:---|
 | Feature fit | 30% | POC results |
 | Cost (TCO) | 25% | 3-year model |
-| Support quality | 20% | SLA review |
+| คุณภาพการสนับสนุน | 20% | ทบทวน SLA |
 | Integration | 25% | API testing |
 
 ## เอกสารที่เกี่ยวข้อง
@@ -11693,7 +11693,7 @@ graph TD
 | **ความสามารถ** | 25% | ตอบ use cases ได้ครบ? |
 | **Integration** | 20% | มี API? รองรับ tools อื่น? |
 | **ง่ายต่อการใช้งาน** | 15% | ทีมใช้ได้เร็วแค่ไหน? |
-| **Support / Community** | 15% | มี vendor support? ชุมชนใหญ่? |
+| **การสนับสนุน / ชุมชน** | 15% | มี vendor support? ชุมชนใหญ่? |
 
 ## Recommended Stack ตามขนาดองค์กร
 
@@ -11761,9 +11761,9 @@ Integration & Customization ██          5%
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-### Vendor Support Matrix
+### ตารางเปรียบเทียบการสนับสนุนผู้ให้บริการ
 
-| Vendor | Support Level | SLA | Cost |
+| ผู้ให้บริการ | ระดับการสนับสนุน | SLA | ค่าใช้จ่าย |
 |:---|:---|:---|:---|
 | Tier 1 | 24/7 Phone + Chat | 1 hr response | Premium |
 | Tier 2 | Business hours | 4 hr response | Standard |
@@ -12193,12 +12193,12 @@ Priority:
 
 ```mermaid
 flowchart LR
-    A[Propose] --> B[Evaluate]
-    B --> C[Develop]
-    C --> D[Test]
-    D --> E[Deploy]
-    E --> F[Monitor]
-    F --> G[Tune]
+    A[เสนอ] --> B[ประเมิน]
+    B --> C[พัฒนา]
+    C --> D[ทดสอบ]
+    D --> E[นำขึ้นใช้งาน]
+    E --> F[ติดตามผล]
+    F --> G[ปรับแต่ง]
     G --> F
 ```
 
@@ -12222,7 +12222,7 @@ flowchart LR
 
 | Criteria | Description |
 |:---|:---|
-| High impact + Low effort | Deploy first |
+| High impact + Low effort | นำขึ้นใช้งานก่อน |
 | Existing log source | No new onboarding |
 | Known TTP coverage | MITRE mapped |
 | Template available | Pre-built rule |
@@ -29299,14 +29299,14 @@ graph TD
 |:---|:---|:---|:---|
 | **Security Monitoring** | 24/7 หรือ 8/5 | Always-on | ต้องตรงกับ operating model ที่อนุมัติไว้ |
 | **Incident Response** | 24/7 สำหรับ P1/P2, business hours สำหรับความรุนแรงต่ำกว่าหากไม่ได้อนุมัติเป็นอย่างอื่น | Severity-driven | ใช้ on-call escalation สำหรับเคสนอกเวลา |
-| **Threat Hunting** | Business hours | Planned work | ระหว่างเหตุการณ์ใหญ่ให้เปลี่ยนไปสนับสนุน incident |
+| **Threat Hunting** | Business hours | งานตามแผน | ระหว่างเหตุการณ์ใหญ่ให้เปลี่ยนไปสนับสนุน incident |
 | **Detection Engineering** | Business hours พร้อม emergency change path | Backlog-driven | การ tune แบบฉุกเฉินต้องตาม deployment controls |
 | **Threat Intelligence** | Business hours พร้อม urgent advisory escalation | Risk-driven | สนับสนุน major incident นอก cadence ปกติได้ |
 | **Executive Reporting** | Scheduled cadence | Calendar-driven | post-incident reporting อาจมาก่อนรอบปกติ |
 
 ## 5. ช่องทางรับงานและการเปิดคำขอ
 
-| Service | Intake Path | Required Inputs | Reject หรือ Redirect เมื่อ |
+| Service | Intake Path | Required Inputs | ปฏิเสธหรือส่งต่อเมื่อ |
 |:---|:---|:---|:---|
 | **Security Monitoring** | Monitoring platform / queue | Alert, source, timestamp, affected asset | ไม่มี source ownership หรือ telemetry ที่จำเป็น |
 | **Incident Response** | Escalation จาก triage หรือ management declaration | Severity, summary, evidence, owner | เป็น operational outage ที่ยังไม่มี security indicator |
@@ -32700,10 +32700,10 @@ graph LR
 | 12 | ค่า maintain ต่อเนื่อง | 2× |
 | 13 | ค่าใช้จ่ายแอบแฝง | 2× |
 
-### Support
+### การสนับสนุน
 | # | เกณฑ์ | น้ำหนัก |
 |:---:|:---|:---:|
-| 14 | Support SLA (24/7?) | 2× |
+| 14 | SLA การสนับสนุน (24/7?) | 2× |
 | 15 | มี office/partner ในไทย | 2× |
 | 16 | เสถียรภาพ vendor | 1× |
 
@@ -32723,14 +32723,14 @@ graph LR
 ## Checklist POC (2–4 สัปดาห์)
 
 ```
-□ Deploy ในสภาพแวดล้อมทดสอบ
+□ ติดตั้งในสภาพแวดล้อมทดสอบ
 □ ใส่ log จริง
 □ สร้าง 5 detection rules
 □ ทดสอบ alert workflow ตลอดสาย
 □ วัดความเร็ว query
 □ ทดสอบ API กับเครื่องมือที่มี
 □ ให้ analyst 2+ คนใช้จริง แล้วเก็บ feedback
-□ เปิด ticket ทดสอบ support response time
+□ เปิด ticket ทดสอบเวลาตอบกลับของทีมสนับสนุน
 ```
 
 ---
@@ -32755,7 +32755,7 @@ graph LR
 | Functionality | 30% | [X]/5 | [X]/5 | [X]/5 |
 | Integration | 20% | [X]/5 | [X]/5 | [X]/5 |
 | Ease of Use | 15% | [X]/5 | [X]/5 | [X]/5 |
-| Support | 15% | [X]/5 | [X]/5 | [X]/5 |
+| การสนับสนุน | 15% | [X]/5 | [X]/5 | [X]/5 |
 | Cost (TCO 3yr) | 20% | [X]/5 | [X]/5 | [X]/5 |
 | **Total** | 100% | [XX] | [XX] | [XX] |
 
@@ -32784,7 +32784,7 @@ graph LR
 |:---|:---|:---|:---|:---|
 | Features | 30% | 4/5 | 3/5 | 5/5 |
 | Cost (TCO) | 25% | 3/5 | 5/5 | 2/5 |
-| Support | 20% | 5/5 | 3/5 | 4/5 |
+| การสนับสนุน | 20% | 5/5 | 3/5 | 4/5 |
 | Integration | 15% | 4/5 | 4/5 | 3/5 |
 | Security | 10% | 5/5 | 4/5 | 5/5 |
 
@@ -32809,7 +32809,7 @@ graph LR
 | Hardware (ถ้า on-prem) | ฿ | ฿ | ฿ |
 | **ปีที่ 2** | | | |
 | License renewal | ฿ | ฿ | ฿ |
-| Support/maintenance | ฿ | ฿ | ฿ |
+| การสนับสนุน/บำรุงรักษา | ฿ | ฿ | ฿ |
 | เวลาบุคลากรจัดการ | ฿ | ฿ | ฿ |
 | **ปีที่ 3** | | | |
 | License renewal | ฿ | ฿ | ฿ |

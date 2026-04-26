@@ -46,14 +46,14 @@ graph TD
 |:---|:---|:---|:---|
 | **Security Monitoring** | 24/7 หรือ 8/5 | Always-on | ต้องตรงกับ operating model ที่อนุมัติไว้ |
 | **Incident Response** | 24/7 สำหรับ P1/P2, business hours สำหรับความรุนแรงต่ำกว่าหากไม่ได้อนุมัติเป็นอย่างอื่น | Severity-driven | ใช้ on-call escalation สำหรับเคสนอกเวลา |
-| **Threat Hunting** | Business hours | Planned work | ระหว่างเหตุการณ์ใหญ่ให้เปลี่ยนไปสนับสนุน incident |
+| **Threat Hunting** | Business hours | งานตามแผน | ระหว่างเหตุการณ์ใหญ่ให้เปลี่ยนไปสนับสนุน incident |
 | **Detection Engineering** | Business hours พร้อม emergency change path | Backlog-driven | การ tune แบบฉุกเฉินต้องตาม deployment controls |
 | **Threat Intelligence** | Business hours พร้อม urgent advisory escalation | Risk-driven | สนับสนุน major incident นอก cadence ปกติได้ |
 | **Executive Reporting** | Scheduled cadence | Calendar-driven | post-incident reporting อาจมาก่อนรอบปกติ |
 
 ## 5. ช่องทางรับงานและการเปิดคำขอ
 
-| Service | Intake Path | Required Inputs | Reject หรือ Redirect เมื่อ |
+| Service | Intake Path | Required Inputs | ปฏิเสธหรือส่งต่อเมื่อ |
 |:---|:---|:---|:---|
 | **Security Monitoring** | Monitoring platform / queue | Alert, source, timestamp, affected asset | ไม่มี source ownership หรือ telemetry ที่จำเป็น |
 | **Incident Response** | Escalation จาก triage หรือ management declaration | Severity, summary, evidence, owner | เป็น operational outage ที่ยังไม่มี security indicator |

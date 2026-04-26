@@ -154,7 +154,7 @@ graph TD
 | **ความสามารถ** | 25% | ตอบ use cases ได้ครบ? |
 | **Integration** | 20% | มี API? รองรับ tools อื่น? |
 | **ง่ายต่อการใช้งาน** | 15% | ทีมใช้ได้เร็วแค่ไหน? |
-| **Support / Community** | 15% | มี vendor support? ชุมชนใหญ่? |
+| **การสนับสนุน / ชุมชน** | 15% | มี vendor support? ชุมชนใหญ่? |
 
 ## Recommended Stack ตามขนาดองค์กร
 
@@ -222,9 +222,9 @@ Integration & Customization ██          5%
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-### Vendor Support Matrix
+### ตารางเปรียบเทียบการสนับสนุนผู้ให้บริการ
 
-| Vendor | Support Level | SLA | Cost |
+| ผู้ให้บริการ | ระดับการสนับสนุน | SLA | ค่าใช้จ่าย |
 |:---|:---|:---|:---|
 | Tier 1 | 24/7 Phone + Chat | 1 hr response | Premium |
 | Tier 2 | Business hours | 4 hr response | Standard |

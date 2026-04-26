@@ -443,7 +443,7 @@ Total: ~15-25M THB/year (mid-size org)
 |:---|:---|:---|
 | Feature fit | 30% | POC results |
 | Cost (TCO) | 25% | 3-year model |
-| Support quality | 20% | SLA review |
+| คุณภาพการสนับสนุน | 20% | ทบทวน SLA |
 | Integration | 25% | API testing |
 
 ## เอกสารที่เกี่ยวข้อง
